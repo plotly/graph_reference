@@ -83,7 +83,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Bar(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=bar"
+            "val_types": "default: type='bar'"
         },
         "x": {
             "description": "x data for bar chart, this is allowed to be categorical.",
@@ -92,7 +92,7 @@
             "val_types": "coming soon!"
         },
         "y": {
-            "description": "y data for bar chart, the heights (or widths) of the bars (depending on the bardir.",
+            "description": "y data for bar chart, the heights (or widths) of the bars (depending on the 'bardir'.",
             "required": true,
             "type": "data",
             "val_types": "coming soon!"
@@ -103,7 +103,7 @@
             "description": "coming soon!",
             "required": false,
             "type": "plot_info",
-            "val_types": "all | outliers | False"
+            "val_types": "'all' | 'outliers' | False"
         },
         "jitter": {
             "description": "Width of the jittered scatter.",
@@ -121,7 +121,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Box(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=box"
+            "val_types": "default: type='box'"
         }
     },
     "contour": {
@@ -129,7 +129,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Contour(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=contour"
+            "val_types": "default: type='contour'"
         }
     },
     "data": {},
@@ -149,7 +149,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Heatmap(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=heatmap"
+            "val_types": "default: type='heatmap'"
         }
     },
     "histogram2d": {
@@ -157,7 +157,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogram2d(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=histogram2d"
+            "val_types": "default: type='histogram2d'"
         }
     },
     "histogramx": {
@@ -165,7 +165,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogramx(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=histogramx"
+            "val_types": "default: type='histogramx'"
         }
     },
     "histogramy": {
@@ -173,7 +173,7 @@
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogramy(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type=histogramy"
+            "val_types": "default: type='histogramy'"
         }
     },
     "layout": {
@@ -232,82 +232,109 @@
     "plotlytrace": {},
     "scatter": {
         "error_y": {
-            "description": "coming soon!",
+            "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points.",
             "required": false,
-            "type": "structure",
-            "val_types": "coming soon!"
+            "type": "object",
+            "val_types": "Error_Y object or dict"
+        },
+        "fill": {
+            "default": "none",
+            "description": "Used to make area-style charts. Determines which area to fill with a solid color. ",
+            "required": false,
+            "type": "style",
+            "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx"
+        },
+        "fillcolor": {
+            "examples": [
+                "'green'",
+                "'rgb(0, 255, 0)'",
+                "'rgba(0, 255, 0, 0.3)'",
+                "'hsl(120,100%,50%)'",
+                "'hsla(120,100%,50%,0.3)'"
+            ],
+            "required": false,
+            "type": "style",
+            "val_types": "str describing color"
         },
         "line": {
-            "description": "A dictionary-like object containing information about the line connecting points on the scatter plot",
+            "description": "A dictionary-like object containing information about the line connecting points on the scatter plot.",
             "required": false,
-            "type": "structure",
+            "type": "object",
             "val_types": "Line object or dict"
         },
         "marker": {
             "description": "A dictionary-like object containing information about the marker style of the scatter plot.",
             "required": false,
-            "type": "structure",
+            "type": "object",
             "val_types": "Marker object or dict"
         },
         "mode": {
-            "description": "Plotting mode (style) for the scatter plot.",
+            "description": "Plotting mode (style) for the scatter plot. If the mode includes 'text' then the 'text' will appear next to the (x,y) points, otherwise it will appear on hover.",
             "required": false,
             "type": "plot_info",
-            "val_types": "lines | markers | text | lines+markers | etc."
+            "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'"
         },
         "name": {
-            "description": "The label associated with this scatter trace. For example, this is linked to the column header of your data in plotly and it will appear in the legend.",
+            "description": "The label associated with this scatter trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover.",
             "required": false,
             "type": "plot_info",
             "val_types": "string"
         },
         "opacity": {
-            "description": "Also known as alpha, this number determines how easy it is to see objects beneath this one.",
+            "description": "Sets the opacity, or transparency, of the markers  and lines of the scatter plot. Also known as the  alpha channel. The opacity can also be set in the  'marker' and 'line' objects.",
             "required": false,
             "type": "style",
             "val_types": "number in [0, 1]"
         },
         "showlegend": {
-            "description": "This determines whether or not the resulting trace from the given (x, y) pairs will show up in the plot legend.",
+            "default": "True",
+            "description": "If True, this trace will appear in the legend. Otherwise  it will be hidden in the legend.",
             "required": false,
             "type": "plot_info",
             "val_types": "True | False"
         },
-        "textfont": {
-            "description": "coming soon!",
+        "text": {
+            "description": "the text elements associated with every (x,y) pair on the scatter plot. If the scatter 'mode' doesn't include 'text' then text will appear on hover.",
             "required": false,
-            "type": "stucture",
-            "val_types": "Font or dict"
+            "type": "data",
+            "val_types": "array_like of strings"
+        },
+        "textfont": {
+            "description": "A dictionary-like object describing the font style of this scatter's text elements.",
+            "required": false,
+            "type": "object",
+            "val_types": "Font object or dict"
         },
         "type": {
-            "description": "Plotly identifier for trace type, this is set automatcally with a call to Scatter(...).",
-            "required": true,
+            "description": "Plotly identifier for trace type, this is set automatically with a call to Scatter(...).",
+            "required": false,
             "type": "plot_info",
-            "val_types": "default: type=scatter"
+            "val_types": "'scatter'"
         },
         "x": {
-            "description": "the x coordinate from the (x,y) pair on the scatter plot.",
+            "description": "the x coordinates from the (x,y) pair on the scatter plot.",
             "required": true,
             "type": "data",
-            "val_types": "data-array, numbers, datetimes, strings"
+            "val_types": "array_like of numbers, strings, datetimes"
         },
         "xaxis": {
-            "description": "This key determines which xaxis the x coordinates in the given (x, y) pair will reference in the figure.",
+            "default": "'x'",
+            "description": "This key determines which xaxis the x coordinates in this trace will reference in the figure. 'x' references layout['xaxis'] and 'x2' references layout['xaxis2'].",
             "required": false,
-            "type": "structure",
-            "val_types": "string: x, x2, x3, etc."
+            "type": "object",
+            "val_types": "string: 'x', 'x2', 'x3', ..."
         },
         "y": {
-            "description": "the y coordinate from the (x,y) pair on the scatter plot.",
+            "description": "the y coordinatey from the (x,y) pair on the scatter plot.",
             "required": true,
             "type": "data",
-            "val_types": "data-array, numbers, datetimes, strings"
+            "val_types": "array_like of numbers, datetimes, strings"
         },
         "yaxis": {
-            "description": "This key determines which xaxis the y coordinates in the given (x, y) pair will reference in the figure.",
+            "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2'].",
             "required": false,
-            "type": "structure",
-            "val_types": "string: y, y2, y3, etc."
+            "type": "object",
+            "val_types": "string: 'y', 'y2', 'y3', ..."
         }
     },
     "titlefont": {},

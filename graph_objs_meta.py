@@ -1,27 +1,10 @@
-"""
-graph_objs_meta
-============
+from collections import OrderedDict
 
-A module that contains language data for plotly. There is not meant to be
-functionality here, only definitions for use with the graph_objs module.
+color_type = 'str describing color'
+color_examples = ["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'", "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]
 
-The formatting of the INFO keys is VERY specific. Each key is exactly:
 
-graph_obj.Obj.__class__.__name__.lower()
-
-Where Obj is a class subclassing from list or dict in the graph_objs module.
-This must by strictly followed.
-
-"""
-# TODO: fill in all 'valid' keys
-# TODO: match all 'valid' keys to appropriate 'types' dict
-# TODO: match all 'valid' keys to appropriate 'descriptors' dict
-# TODO: SORT keys from most important to least important for each obj
-# TODO: for help: with keys taking a DISCRETE number of opts, include all opts.
-
-# key types are EITHER 'data', 'plot_info', 'structure', 'style'
-
-INFO = dict(
+INFO = OrderedDict(
 
     plotlylist=dict(),
 
@@ -32,6 +15,137 @@ INFO = dict(
     plotlydict=dict(),
 
     plotlytrace=dict(),
+
+    scatter=OrderedDict(
+
+        x=dict(
+            required=True,
+            type='data',
+            val_types="array_like of numbers, strings, datetimes",
+            description="the x coordinates from the (x,y) pair on the scatter "
+                        "plot."),
+
+        y=dict(
+            required=True,
+            type='data',
+            val_types="array_like of numbers, datetimes, strings",
+            description="the y coordinatey from the (x,y) pair on the scatter "
+                        "plot."),
+
+        text=dict(
+            required=False,
+            type='data',
+            val_types="array_like of strings",
+            description="the text elements associated with every (x,y) pair on "
+                        "the scatter plot. If the scatter 'mode' doesn't include "
+                        "'text' then text will appear on hover."),
+
+        name=dict(
+            required=False,
+            type='plot_info',
+            val_types="string",
+            description="The label associated with this scatter trace. "
+                        "This name will appear in the legend, in the column "
+                        "header in the spreadsheet, and on hover."),
+
+        mode=dict(
+            required=False,
+            type='plot_info',
+            val_types="'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' "
+                        "| 'markers+text' | 'lines+markers+text'",
+            description="Plotting mode (style) for the scatter plot. If the mode includes "
+                        "'text' then the 'text' will appear next to the (x,y) points, "
+                        "otherwise it will appear on hover."),
+
+        marker=dict(
+            required=False,
+            type='object',
+            val_types="Marker object or dict",
+            description="A dictionary-like object containing information "
+                        "about the marker style of the scatter plot."),
+
+        line=dict(
+            required=False,
+            type='object',
+            val_types="Line object or dict",
+            description="A dictionary-like object containing information "
+                        "about the line connecting points on the scatter plot."),
+
+        fill=dict(
+            required=False,
+            default='none',
+            type='style',
+            val_types="'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx",
+            description="Used to make area-style charts. Determines which area "
+                        "to fill with a solid color. ",
+        ),
+
+        fillcolor=dict(
+            required=False,
+            type='style',
+            val_types=color_type,
+            examples=color_examples
+        ),
+
+        opacity=dict(
+            required=False,
+            type='style',
+            val_types="number in [0, 1]",
+            description="Sets the opacity, or transparency, of the markers "
+                        " and lines of the scatter plot. Also known as the "
+                        " alpha channel. The opacity can also be set in the "
+                        " 'marker' and 'line' objects."),
+
+        showlegend=dict(
+            required=False,
+            type='plot_info',
+            val_types="True | False",
+            default="True",
+            description="If True, this trace will appear in the legend. Otherwise "
+                        " it will be hidden in the legend."),
+
+        xaxis=dict(
+            required=False,
+            type='object',
+            default="'x'",
+            val_types="string: 'x', 'x2', 'x3', ...",
+            description="This key determines which xaxis the x coordinates in "
+                        "this trace will reference in the figure. "
+                        "'x' references layout['xaxis'] and 'x2' "
+                        "references layout['xaxis2']."),
+
+        yaxis=dict(
+            required=False,
+            type='object',
+            val_types="string: 'y', 'y2', 'y3', ...",
+            description="This key determines which yaxis the y coordinates in "
+                        "this trace will reference in the figure. "
+                        "'y' references layout['yaxis'] and 'y2' "
+                        "references layout['yaxis2']."),
+
+        error_y=dict(
+            required=False,
+            type='object',
+            val_types="Error_Y object or dict",
+            description="A dictionary-like object describing vertical error bars "
+                        "that can be drawn with this trace's (x, y) points."),
+
+        textfont=dict(
+            required=False,
+            type='object',
+            val_types="Font object or dict",
+            description="A dictionary-like object describing the font style "
+                        "of this scatter's text elements."),
+
+        type=dict(
+            required=False,
+            type='plot_info',
+            val_types="'scatter'",
+            description="Plotly identifier for trace type, this is set "
+                        "automatically with a call to Scatter(...).")
+
+    ),
+
 
     bar=dict(
 
@@ -159,97 +273,6 @@ INFO = dict(
                         "automatcally with a call to Histogramy(...)."),
     ),
 
-    scatter=dict(
-
-        x=dict(
-            required=True,
-            type='data',
-            val_types="'data-array', numbers, datetimes, strings",
-            description="the x coordinate from the (x,y) pair on the scatter "
-                        "plot."),
-
-        y=dict(
-            required=True,
-            type='data',
-            val_types="'data-array', numbers, datetimes, strings",
-            description="the y coordinate from the (x,y) pair on the scatter "
-                        "plot."),
-        type=dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='scatter'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Scatter(...)."),
-
-        mode=dict(
-            required=False,
-            type='plot_info',
-            val_types="'lines' | 'markers' | 'text' | 'lines+markers' | etc.",
-            description="Plotting mode (style) for the scatter plot."),
-
-        name=dict(
-            required=False,
-            type='plot_info',
-            val_types="string",
-            description="The label associated with this scatter trace. For "
-                        "example, this is linked to the column header of your "
-                        "data in plotly and it will appear in the legend."),
-
-        line=dict(
-            required=False,
-            type='structure',
-            val_types="Line object or dict",
-            description="A dictionary-like object containing information "
-                        "about the line connecting points on the scatter plot"),
-
-        marker=dict(
-            required=False,
-            type='structure',
-            val_types="Marker object or dict",
-            description="A dictionary-like object containing information "
-                        "about the marker style of the scatter plot."),
-
-        opacity=dict(
-            required=False,
-            type='style',
-            val_types="number in [0, 1]",
-            description="Also known as 'alpha', this number determines how "
-                        "easy it is to see objects 'beneath' this one."),
-
-        showlegend=dict(
-            required=False,
-            type='plot_info',
-            val_types="True | False",
-            description="This determines whether or not the resulting trace "
-                        "from the given (x, y) pairs will show up in the plot "
-                        "legend."),
-
-        xaxis=dict(
-            required=False,
-            type='structure',
-            val_types="string: 'x', 'x2', 'x3', etc.",
-            description="This key determines which xaxis the x coordinates in "
-                        "the given (x, y) pair will reference in the figure."),
-
-        yaxis=dict(
-            required=False,
-            type='structure',
-            val_types="string: 'y', 'y2', 'y3', etc.",
-            description="This key determines which xaxis the y coordinates in "
-                        "the given (x, y) pair will reference in the figure."),
-
-        error_y=dict(
-            required=False,
-            type='structure',
-            val_types="coming soon!",
-            description="coming soon!"),
-
-        textfont=dict(
-            required=False,
-            type='stucture',
-            val_types="Font or dict",
-            description="coming soon!")
-    ),
 
     annotation=dict(
 
@@ -572,3 +595,6 @@ INFO = dict(
 
     titlefont=dict()
 )
+
+import json
+print json.dumps(INFO)
