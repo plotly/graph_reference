@@ -1,8 +1,50 @@
 from collections import OrderedDict
 
-color_type = 'str describing color'
-color_examples = ["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'", "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]
+shortcuts = {
+    'color': {
+        'type': 'str describing color',
+        'examples': ["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'", "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]
+    },
+    'data_array': {
+        'type': "array_like of numbers, strings, datetimes"
+    },
+    'text': {
+        'val_types': "array_like of strings"
+    },
+    'name': dict(
+        required=False,
+        type='plot_info',
+        val_types="string",
+        description="The label associated with this trace. "
+                    "This name will appear in the legend, in the column "
+                    "header in the spreadsheet, and on hover."),
+    'error_y': dict(
+        required=False,
+        type='object',
+        val_types="Error_Y object or dict",
+        description="A dictionary-like object describing vertical error bars "
+                    "that can be drawn with this trace's (x, y) points."),
 
+    'xaxis': dict(
+        required=False,
+        type='object',
+        default="'x'",
+        val_types="string: 'x', 'x2', 'x3', ...",
+        description="This key determines which xaxis the x coordinates in "
+                    "this trace will reference in the figure. "
+                    "'x' references layout['xaxis'] and 'x2' "
+                    "references layout['xaxis2']."),
+
+    'yaxis': dict(
+        required=False,
+        type='object',
+        val_types="string: 'y', 'y2', 'y3', ...",
+        description="This key determines which yaxis the y coordinates in "
+                    "this trace will reference in the figure. "
+                    "'y' references layout['yaxis'] and 'y2' "
+                    "references layout['yaxis2']."),    
+
+}
 
 INFO = OrderedDict(
 
@@ -21,32 +63,26 @@ INFO = OrderedDict(
         x=dict(
             required=True,
             type='data',
-            val_types="array_like of numbers, strings, datetimes",
+            val_types=shortcuts['data_array']['type'],
             description="the x coordinates from the (x,y) pair on the scatter "
                         "plot."),
 
         y=dict(
             required=True,
             type='data',
-            val_types="array_like of numbers, datetimes, strings",
+            val_types=shortcuts['data_array']['type'],
             description="the y coordinatey from the (x,y) pair on the scatter "
                         "plot."),
 
         text=dict(
             required=False,
             type='data',
-            val_types="array_like of strings",
+            val_types=shortcuts['text']['val_types'],
             description="the text elements associated with every (x,y) pair on "
                         "the scatter plot. If the scatter 'mode' doesn't include "
                         "'text' then text will appear on hover."),
 
-        name=dict(
-            required=False,
-            type='plot_info',
-            val_types="string",
-            description="The label associated with this scatter trace. "
-                        "This name will appear in the legend, in the column "
-                        "header in the spreadsheet, and on hover."),
+        name=shortcuts['name'],
 
         mode=dict(
             required=False,
@@ -83,8 +119,8 @@ INFO = OrderedDict(
         fillcolor=dict(
             required=False,
             type='style',
-            val_types=color_type,
-            examples=color_examples
+            val_types=shortcuts['color']['type'],
+            examples=shortcuts['color']['examples']
         ),
 
         opacity=dict(
@@ -104,31 +140,11 @@ INFO = OrderedDict(
             description="If True, this trace will appear in the legend. Otherwise "
                         " it will be hidden in the legend."),
 
-        xaxis=dict(
-            required=False,
-            type='object',
-            default="'x'",
-            val_types="string: 'x', 'x2', 'x3', ...",
-            description="This key determines which xaxis the x coordinates in "
-                        "this trace will reference in the figure. "
-                        "'x' references layout['xaxis'] and 'x2' "
-                        "references layout['xaxis2']."),
+        xaxis=shortcuts['xaxis'],
 
-        yaxis=dict(
-            required=False,
-            type='object',
-            val_types="string: 'y', 'y2', 'y3', ...",
-            description="This key determines which yaxis the y coordinates in "
-                        "this trace will reference in the figure. "
-                        "'y' references layout['yaxis'] and 'y2' "
-                        "references layout['yaxis2']."),
+        yaxis=shortcuts['yaxis'],
 
-        error_y=dict(
-            required=False,
-            type='object',
-            val_types="Error_Y object or dict",
-            description="A dictionary-like object describing vertical error bars "
-                        "that can be drawn with this trace's (x, y) points."),
+        error_y=shortcuts['error_y'],
 
         textfont=dict(
             required=False,
@@ -147,50 +163,45 @@ INFO = OrderedDict(
     ),
 
 
-    bar=dict(
+    bar=OrderedDict(
 
         x=dict(
             required=True,
             type='data',
-            val_types="coming soon!",
-            description="x data for bar chart, this is allowed to be "
-                        "categorical."),
+            val_types=shortcuts['data_array']['type'],
+            description="the x coordinates of the bars or the bar chart's categories. "),
 
         y=dict(
             required=True,
             type='data',
-            val_types="coming soon!",
-            description="y data for bar chart, the heights (or widths) of the "
-                        "bars (depending on the 'bardir'."),
+            val_types=shortcuts['data_array']['type'],
+            description="the y data for bar charts, which is the length of the bars."),
 
-        name=dict(
+        text=dict(
             required=False,
-            type='plot_info',
-            val_types="string",
-            description="The label associated with this data trace."),
+            type='data',
+            val_types=shortcuts['text']['val_types'],
+            description='text elements that appear on hover of the bars'),
+
+        name=shortcuts['name'],
 
         marker=dict(
             required=False,
             type='structure',
             val_types="Marker or dict",
-            description="coming soon!"),
+            description="A dictionary-like object describing the "
+                        "style of the bars, like the color and the border."),
 
-        textfont=dict(
-            required=False,
-            type="structure",
-            val_types="coming soon!",
-            description="coming soon!"),
+        xaxis=shortcuts['xaxis'],
 
-        error_y=dict(
-            required=False,
-            type='structure',
-            val_types="Error_Y or dict",
-            description="coming soon!"),
+        yaxis=shortcuts['yaxis'],
+
+        error_y=shortcuts['error_y'],
 
         type=dict(
             required=True,
             type='plot_info',
-            val_types="default: type='bar'",
+            val_types="'bar'",
             description="Plotly identifier for trace type, this is set "
                         "automatcally with a call to Bar(...).")
     ),

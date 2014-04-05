@@ -56,46 +56,59 @@
     "annotations": {},
     "bar": {
         "error_y": {
-            "description": "coming soon!",
+            "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points.",
             "required": false,
-            "type": "structure",
-            "val_types": "Error_Y or dict"
+            "type": "object",
+            "val_types": "Error_Y object or dict"
         },
         "marker": {
-            "description": "coming soon!",
+            "description": "A dictionary-like object describing the style of the bars, like the color and the border.",
             "required": false,
             "type": "structure",
             "val_types": "Marker or dict"
         },
         "name": {
-            "description": "The label associated with this data trace.",
+            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover.",
             "required": false,
             "type": "plot_info",
             "val_types": "string"
         },
-        "textfont": {
-            "description": "coming soon!",
+        "text": {
+            "description": "text elements that appear on hover of the bars",
             "required": false,
-            "type": "structure",
-            "val_types": "coming soon!"
+            "type": "data",
+            "val_types": "array_like of strings"
         },
         "type": {
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Bar(...).",
             "required": true,
             "type": "plot_info",
-            "val_types": "default: type='bar'"
+            "val_types": "'bar'"
         },
         "x": {
-            "description": "x data for bar chart, this is allowed to be categorical.",
+            "description": "the x coordinates of the bars or the bar chart's categories. ",
             "required": true,
             "type": "data",
-            "val_types": "coming soon!"
+            "val_types": "array_like of numbers, strings, datetimes"
+        },
+        "xaxis": {
+            "default": "'x'",
+            "description": "This key determines which xaxis the x coordinates in this trace will reference in the figure. 'x' references layout['xaxis'] and 'x2' references layout['xaxis2'].",
+            "required": false,
+            "type": "object",
+            "val_types": "string: 'x', 'x2', 'x3', ..."
         },
         "y": {
-            "description": "y data for bar chart, the heights (or widths) of the bars (depending on the 'bardir'.",
+            "description": "the y data for bar charts, which is the length of the bars.",
             "required": true,
             "type": "data",
-            "val_types": "coming soon!"
+            "val_types": "array_like of numbers, strings, datetimes"
+        },
+        "yaxis": {
+            "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2'].",
+            "required": false,
+            "type": "object",
+            "val_types": "string: 'y', 'y2', 'y3', ..."
         }
     },
     "box": {
@@ -275,7 +288,7 @@
             "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'"
         },
         "name": {
-            "description": "The label associated with this scatter trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover.",
+            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover.",
             "required": false,
             "type": "plot_info",
             "val_types": "string"
@@ -328,7 +341,7 @@
             "description": "the y coordinatey from the (x,y) pair on the scatter plot.",
             "required": true,
             "type": "data",
-            "val_types": "array_like of numbers, datetimes, strings"
+            "val_types": "array_like of numbers, strings, datetimes"
         },
         "yaxis": {
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2'].",
