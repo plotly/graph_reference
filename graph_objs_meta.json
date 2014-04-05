@@ -1,0 +1,380 @@
+{
+    "annotation": {
+        "align": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        },
+        "arrowcolor": {},
+        "arrowhead": {},
+        "arrowsize": {},
+        "arrowwidth": {},
+        "ax": {},
+        "ay": {},
+        "bgcolor": {},
+        "bordercolor": {},
+        "borderpad": {},
+        "borderwidth": {},
+        "font": {},
+        "opacity": {},
+        "showarrow": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        },
+        "tag": {},
+        "text": {
+            "descriptors": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        },
+        "x": {},
+        "xanchor": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        },
+        "xref": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        },
+        "y": {},
+        "yanchor": {},
+        "yref": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "coming soon!"
+        }
+    },
+    "annotations": {},
+    "bar": {
+        "error_y": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "structure",
+            "val_types": "Error_Y or dict"
+        },
+        "marker": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "structure",
+            "val_types": "Marker or dict"
+        },
+        "name": {
+            "description": "The label associated with this data trace.",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "string"
+        },
+        "textfont": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "structure",
+            "val_types": "coming soon!"
+        },
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Bar(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=bar"
+        },
+        "x": {
+            "description": "x data for bar chart, this is allowed to be categorical.",
+            "required": true,
+            "type": "data",
+            "val_types": "coming soon!"
+        },
+        "y": {
+            "description": "y data for bar chart, the heights (or widths) of the bars (depending on the bardir.",
+            "required": true,
+            "type": "data",
+            "val_types": "coming soon!"
+        }
+    },
+    "box": {
+        "boxpoints": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "all | outliers | False"
+        },
+        "jitter": {
+            "description": "Width of the jittered scatter.",
+            "required": false,
+            "type": "style",
+            "val_types": "coming soon!"
+        },
+        "pointpos": {
+            "description": "amount the datapoints are offset from the box plot.",
+            "required": false,
+            "type": "style",
+            "val_types": "coming soon!"
+        },
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Box(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=box"
+        }
+    },
+    "contour": {
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Contour(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=contour"
+        }
+    },
+    "data": {},
+    "error_x": {},
+    "error_y": {},
+    "figure": {
+        "data": {},
+        "layout": {}
+    },
+    "font": {
+        "color": {},
+        "family": {},
+        "size": {}
+    },
+    "heatmap": {
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Heatmap(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=heatmap"
+        }
+    },
+    "histogram2d": {
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogram2d(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=histogram2d"
+        }
+    },
+    "histogramx": {
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogramx(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=histogramx"
+        }
+    },
+    "histogramy": {
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Histogramy(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=histogramy"
+        }
+    },
+    "layout": {
+        "annotations": {},
+        "autosize": {},
+        "bargroupgap": {},
+        "barmode": {},
+        "boxgap": {},
+        "boxgroupgap": {},
+        "boxmode": {},
+        "dragmode": {},
+        "font": {},
+        "height": {},
+        "hidesources": {},
+        "hovermode": {},
+        "legend": {},
+        "margin": {},
+        "paper_bgcolor": {},
+        "plot_bgcolor": {},
+        "separators": {},
+        "showlegend": {},
+        "title": {},
+        "titlefont": {},
+        "width": {},
+        "xaxis": {},
+        "yaxis": {}
+    },
+    "legend": {
+        "bgcolor": {},
+        "bordercolor": {},
+        "font": {},
+        "traceorder": {}
+    },
+    "line": {
+        "color": {},
+        "dash": {},
+        "opacity": {},
+        "width": {}
+    },
+    "margin": {
+        "b": {},
+        "l": {},
+        "pad": {},
+        "r": {},
+        "t": {}
+    },
+    "marker": {
+        "color": {},
+        "line": {},
+        "opacity": {},
+        "size": {},
+        "symbol": {}
+    },
+    "plotlydict": {},
+    "plotlylist": {},
+    "plotlytrace": {},
+    "scatter": {
+        "error_y": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "structure",
+            "val_types": "coming soon!"
+        },
+        "line": {
+            "description": "A dictionary-like object containing information about the line connecting points on the scatter plot",
+            "required": false,
+            "type": "structure",
+            "val_types": "Line object or dict"
+        },
+        "marker": {
+            "description": "A dictionary-like object containing information about the marker style of the scatter plot.",
+            "required": false,
+            "type": "structure",
+            "val_types": "Marker object or dict"
+        },
+        "mode": {
+            "description": "Plotting mode (style) for the scatter plot.",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "lines | markers | text | lines+markers | etc."
+        },
+        "name": {
+            "description": "The label associated with this scatter trace. For example, this is linked to the column header of your data in plotly and it will appear in the legend.",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "string"
+        },
+        "opacity": {
+            "description": "Also known as alpha, this number determines how easy it is to see objects beneath this one.",
+            "required": false,
+            "type": "style",
+            "val_types": "number in [0, 1]"
+        },
+        "showlegend": {
+            "description": "This determines whether or not the resulting trace from the given (x, y) pairs will show up in the plot legend.",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "True | False"
+        },
+        "textfont": {
+            "description": "coming soon!",
+            "required": false,
+            "type": "stucture",
+            "val_types": "Font or dict"
+        },
+        "type": {
+            "description": "Plotly identifier for trace type, this is set automatcally with a call to Scatter(...).",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "default: type=scatter"
+        },
+        "x": {
+            "description": "the x coordinate from the (x,y) pair on the scatter plot.",
+            "required": true,
+            "type": "data",
+            "val_types": "data-array, numbers, datetimes, strings"
+        },
+        "xaxis": {
+            "description": "This key determines which xaxis the x coordinates in the given (x, y) pair will reference in the figure.",
+            "required": false,
+            "type": "structure",
+            "val_types": "string: x, x2, x3, etc."
+        },
+        "y": {
+            "description": "the y coordinate from the (x,y) pair on the scatter plot.",
+            "required": true,
+            "type": "data",
+            "val_types": "data-array, numbers, datetimes, strings"
+        },
+        "yaxis": {
+            "description": "This key determines which xaxis the y coordinates in the given (x, y) pair will reference in the figure.",
+            "required": false,
+            "type": "structure",
+            "val_types": "string: y, y2, y3, etc."
+        }
+    },
+    "titlefont": {},
+    "xaxis": {
+        "anchor": {},
+        "autorange": {},
+        "autotick": {},
+        "domain": {},
+        "dtick": {},
+        "exponentformat": {},
+        "gridcolor": {},
+        "gridwidth": {},
+        "linecolor": {},
+        "linewidth": {},
+        "mirror": {},
+        "nticks": {},
+        "overlaying": {},
+        "position": {},
+        "range": {},
+        "rangemode": {},
+        "showgrid": {},
+        "showline": {},
+        "showticklabels": {},
+        "tick0": {},
+        "tickangle": {},
+        "tickcolor": {},
+        "tickfont": {},
+        "ticklen": {},
+        "ticks": {},
+        "title": {},
+        "titlefont": {},
+        "type": {},
+        "zeroline": {},
+        "zerolinecolor": {},
+        "zerolinewidth": {}
+    },
+    "yaxis": {
+        "anchor": {},
+        "autorange": {},
+        "autotick": {},
+        "domain": {},
+        "dtick": {},
+        "exponentformat": {},
+        "gridcolor": {},
+        "gridwidth": {},
+        "linecolor": {},
+        "linewidth": {},
+        "mirror": {},
+        "nticks": {},
+        "overlaying": {},
+        "position": {},
+        "range": {},
+        "rangemode": {},
+        "showgrid": {},
+        "showline": {},
+        "showticklabels": {},
+        "tick0": {},
+        "tickangle": {},
+        "tickcolor": {},
+        "tickfont": {},
+        "ticklen": {},
+        "ticks": {},
+        "title": {},
+        "titlefont": {},
+        "type": {},
+        "zeroline": {},
+        "zerolinecolor": {},
+        "zerolinewidth": {}
+    }
+}
