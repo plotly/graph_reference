@@ -503,6 +503,10 @@ INFO = OrderedDict(
         x=dict()
     ),
 
+    colorbar=dict(),
+
+    error_y=dict(),
+
     figure=dict(
 
         data=dict(),
@@ -616,6 +620,10 @@ INFO = OrderedDict(
 
         opacity=dict()
     ),
+
+    textfont=dict(),
+
+    titlefont=dict(),
 
     xaxis=dict(
 
@@ -745,14 +753,8 @@ INFO = OrderedDict(
         anchor=dict(),
 
         title=dict()
-    ),
-
-    error_x=dict(),
-
-    error_y=dict(),
-
-    titlefont=dict()
+    )
 )
 
-import json
-print json.dumps(INFO)
+# import json
+# print json.dumps(INFO)
