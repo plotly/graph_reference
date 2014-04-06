@@ -29,7 +29,7 @@ shortcuts = {
 
     'xaxis': dict(
         required=False,
-        type='object',
+        type='plot_info',
         default="'x'",
         val_types="string: 'x', 'x2', 'x3', ...",
         description="This key determines which xaxis the x coordinates in "
@@ -39,7 +39,7 @@ shortcuts = {
 
     'yaxis': dict(
         required=False,
-        type='object',
+        type='plot_info',
         val_types="string: 'y', 'y2', 'y3', ...",
         description="This key determines which yaxis the y coordinates in "
                     "this trace will reference in the figure. "
