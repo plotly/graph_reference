@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from collections import OrderedDict
 
 shortcuts = {
@@ -21,7 +23,7 @@ shortcuts = {
     'error_y': dict(
         required=False,
         type='object',
-        val_types="Error_Y object or dict",
+        val_types="Error_Y object | dict",
         description="A dictionary-like object describing vertical error bars "
                     "that can be drawn with this trace's (x, y) points."),
 
@@ -45,6 +47,8 @@ shortcuts = {
                     "references layout['yaxis2']."),    
 
 }
+
+
 
 INFO = OrderedDict(
 
@@ -96,14 +100,14 @@ INFO = OrderedDict(
         marker=dict(
             required=False,
             type='object',
-            val_types="Marker object or dict",
+            val_types="Marker object | dict",
             description="A dictionary-like object containing information "
                         "about the marker style of the scatter plot."),
 
         line=dict(
             required=False,
             type='object',
-            val_types="Line object or dict",
+            val_types="Line object | dict",
             description="A dictionary-like object containing information "
                         "about the line connecting points on the scatter plot."),
 
@@ -149,7 +153,7 @@ INFO = OrderedDict(
         textfont=dict(
             required=False,
             type='object',
-            val_types="Font object or dict",
+            val_types="Font object | dict",
             description="A dictionary-like object describing the font style "
                         "of this scatter's text elements."),
 
@@ -188,7 +192,7 @@ INFO = OrderedDict(
         marker=dict(
             required=False,
             type='structure',
-            val_types="Marker or dict",
+            val_types="Marker | dict",
             description="A dictionary-like object describing the "
                         "style of the bars, like the color and the border."),
 
@@ -208,23 +212,66 @@ INFO = OrderedDict(
 
     box=dict(
 
+        y=dict(
+            required=True,
+            type="plot_info",
+            val_types="array_like of numbers",
+            description="Array of the numbers from which the box plot describes."
+        ),
+
+        name=dict(
+            required=False,
+            type="plot_info",
+            val_types="string",
+            description="The label associated with this box plot. This name appears "
+                "on the x-axis, in the legend, on hover, and  in the column "
+                "header in the spreadsheet"),
+
         boxpoints=dict(
             required=False,
             type='plot_info',
             val_types="'all' | 'outliers' | False",
-            description="coming soon!"),
+            description="If 'all' then the 'y' points are shown with the box. If "
+                "'outliers' then only the 'outliers' of the 'y' points are shown. If False "
+                "then no points are shown",
+            default=False
+            ),
 
         jitter=dict(
             required=False,
-            type='style',  # TODO: style?
-            val_types="coming soon!",
-            description="Width of the jittered scatter."),
+            type='style',
+            val_types="number in [0, 1]",
+            description="Width of the jittered scatter. If 0, then the boxpoints "
+                        "are aligned vertically, if 1 then the points are randomly "
+                        "jittered horizontally up to the width of the box."),
 
         pointpos=dict(
             required=False,
             type='style',
-            val_types="coming soon!",
-            description="amount the datapoints are offset from the box plot."),
+            val_types="number in [-2, 2]",
+            description="Horizontal position of the center of the boxpoints relative to "
+                        "the center and width of the box."),
+
+        boxmean=dict(
+            required=False,
+            type="False | True | 'sd'",
+            default='False',
+            description="If True then the mean of the y-points is shown as a "
+                        "dashed line in the box. If 'sd', then the standard deviation "
+                        "is also shown. If False, then no line shown."),
+
+        whiskerwidth=dict(
+            required=False,
+            type='number in [0, 1]',
+            default=0.75,
+            description="Width of the whisker of the box."),
+
+        fillcolor=dict(
+            required=False,
+            type='style',
+            description="Color of the box interior.",
+            val_types=shortcuts['color']['type'],
+            examples=shortcuts['color']['examples']),
 
         type=dict(
             required=True,
@@ -244,7 +291,107 @@ INFO = OrderedDict(
                         "automatcally with a call to Contour(...).")
     ),
 
-    heatmap=dict(
+    heatmap=OrderedDict(
+
+        z=dict(
+            required=True,
+            type='data',
+            val_types="matrix_like: list of lists, numpy.matrix",
+            description="The data that describes the heatmap. The "
+                        "color of the cell in row i, column j "
+                        "is mapped from the value of z[i][j]."),
+
+        x=dict(
+            required=False,
+            type='data',
+            val_types=shortcuts['data_array']['type'],
+            description="If numerical or date-like, the coordinates of "
+                        "the horizontal edges of the heatmap cells "
+                        "where the length of 'x' must be one more than the number of "
+                        "columns in the heatmap. If strings, then the x-labels "
+                        "the heatmap cells where the length of 'x' is equal to "
+                        "the number of columns in the heatmap."
+        ),
+
+        y=dict(
+            required=False,
+            type='data',
+            val_types=shortcuts['data_array']['type'],
+            description="If numerical or date-like, the coordinates of "
+                        "the vertical edges of the heatmap cells "
+                        "where the length of 'y' must be one more than the number of "
+                        "rows in the heatmap. If strings, then the y-labels "
+                        "the heatmap cells where the length of 'y' is equal to "
+                        "the number of rows in the heatmap."
+        ),
+
+        scl=dict(
+            required=False,
+            type='style',
+            val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
+                "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
+                "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'",
+            description="The color scale. The strings are pre-defined color scales. For "
+                        "custom color scales, define a list of color-value pairs, where the "
+                        "first element of the pair corresponds to a "
+                        "normalized value of z from 0-1 (i.e. (z-zmin)/(zmax-zmin)), "
+                        "and the second element of pair corresponds to a color.",
+            examples=["Greys", [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]], 
+                    [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],[0.25,"rgb(34, 94, 168)"],
+                    [0.375,"rgb(29, 145, 192)"],[0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
+                    [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],[1,"rgb(255, 255, 217)"]]]
+        ),
+
+        colorbar=dict(
+            required=False,
+            type='object',
+            val_types="Colorbar object | dict",
+            description=False
+        ),
+
+        xtype=dict(
+            required=False,
+            type='style',
+            val_types="'array' | 'scaled'",
+            description=False
+        ),
+
+        ytype=dict(
+            required=False,
+            type='style',
+            val_types="'array' | 'scaled'",
+            description=False
+        ),
+
+        dx=dict(
+            required=False,
+            type='style',
+            val_types='number',
+            description=False
+        ),
+
+        dy=dict(
+            required=False,
+            type='style',
+            val_types='number',
+            description=False
+        ),
+
+        zmin=dict(
+            required=False,
+            type='style',
+            val_types='number',
+            description="The value used as the minimum in the color scale normalization in 'scl'. "
+                        "The default is the minimum of the 'z' data values."
+        ),
+
+        zmax=dict(
+            required=False,
+            type='style',
+            val_types='number',
+            description="The value used as the maximum in the color scale normalization in 'scl'. "
+                        "The default is the minimum of the 'z' data values."
+        ),
 
         type=dict(
             required=True,

@@ -59,13 +59,13 @@
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points.",
             "required": false,
             "type": "object",
-            "val_types": "Error_Y object or dict"
+            "val_types": "Error_Y object | dict"
         },
         "marker": {
             "description": "A dictionary-like object describing the style of the bars, like the color and the border.",
             "required": false,
             "type": "structure",
-            "val_types": "Marker or dict"
+            "val_types": "Marker | dict"
         },
         "name": {
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover.",
@@ -112,29 +112,67 @@
         }
     },
     "box": {
+        "boxmean": {
+            "default": "False",
+            "description": "If True then the mean of the y-points is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False, then no line shown.",
+            "required": false,
+            "type": "False | True | 'sd'"
+        },
         "boxpoints": {
-            "description": "coming soon!",
+            "default": false,
+            "description": "If 'all' then the 'y' points are shown with the box. If 'outliers' then only the 'outliers' of the 'y' points are shown. If False then no points are shown",
             "required": false,
             "type": "plot_info",
             "val_types": "'all' | 'outliers' | False"
         },
-        "jitter": {
-            "description": "Width of the jittered scatter.",
+        "fillcolor": {
+            "description": "Color of the box interior.",
+            "examples": [
+                "'green'",
+                "'rgb(0, 255, 0)'",
+                "'rgba(0, 255, 0, 0.3)'",
+                "'hsl(120,100%,50%)'",
+                "'hsla(120,100%,50%,0.3)'"
+            ],
             "required": false,
             "type": "style",
-            "val_types": "coming soon!"
+            "val_types": "str describing color"
+        },
+        "jitter": {
+            "description": "Width of the jittered scatter. If 0, then the boxpoints are aligned vertically, if 1 then the points are randomly jittered horizontally up to the width of the box.",
+            "required": false,
+            "type": "style",
+            "val_types": "number in [0, 1]"
+        },
+        "name": {
+            "description": "The label associated with this box plot. This name appears on the x-axis, in the legend, on hover, and  in the column header in the spreadsheet",
+            "required": false,
+            "type": "plot_info",
+            "val_types": "string"
         },
         "pointpos": {
-            "description": "amount the datapoints are offset from the box plot.",
+            "description": "Horizontal position of the center of the boxpoints relative to the center and width of the box.",
             "required": false,
             "type": "style",
-            "val_types": "coming soon!"
+            "val_types": "number in [-2, 2]"
         },
         "type": {
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Box(...).",
             "required": true,
             "type": "plot_info",
             "val_types": "default: type='box'"
+        },
+        "whiskerwidth": {
+            "default": 0.75,
+            "description": "Width of the whisker of the box.",
+            "required": false,
+            "type": "number in [0, 1]"
+        },
+        "y": {
+            "description": "Array of the numbers from which the box plot describes.",
+            "required": true,
+            "type": "plot_info",
+            "val_types": "array_like of numbers"
         }
     },
     "contour": {
@@ -158,11 +196,128 @@
         "size": {}
     },
     "heatmap": {
+        "colorbar": {
+            "description": false,
+            "required": false,
+            "type": "object",
+            "val_types": "Colorbar object | dict"
+        },
+        "dx": {
+            "description": false,
+            "required": false,
+            "type": "style",
+            "val_types": "number"
+        },
+        "dy": {
+            "description": false,
+            "required": false,
+            "type": "style",
+            "val_types": "number"
+        },
+        "scl": {
+            "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1 (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color.",
+            "examples": [
+                "Greys",
+                [
+                    [
+                        0,
+                        "rgb(0,0,0)"
+                    ],
+                    [
+                        1,
+                        "rgb(255,255,255)"
+                    ]
+                ],
+                [
+                    [
+                        0,
+                        "rgb(8, 29, 88)"
+                    ],
+                    [
+                        0.125,
+                        "rgb(37, 52, 148)"
+                    ],
+                    [
+                        0.25,
+                        "rgb(34, 94, 168)"
+                    ],
+                    [
+                        0.375,
+                        "rgb(29, 145, 192)"
+                    ],
+                    [
+                        0.5,
+                        "rgb(65, 182, 196)"
+                    ],
+                    [
+                        0.625,
+                        "rgb(127, 205, 187)"
+                    ],
+                    [
+                        0.75,
+                        "rgb(199, 233, 180)"
+                    ],
+                    [
+                        0.875,
+                        "rgb(237, 248, 217)"
+                    ],
+                    [
+                        1,
+                        "rgb(255, 255, 217)"
+                    ]
+                ]
+            ],
+            "required": false,
+            "type": "style",
+            "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric'\u00a0| 'YIOrRd' | 'YIGnBu'"
+        },
         "type": {
             "description": "Plotly identifier for trace type, this is set automatcally with a call to Heatmap(...).",
             "required": true,
             "type": "plot_info",
             "val_types": "default: type='heatmap'"
+        },
+        "x": {
+            "description": "If numerical or date-like, the coordinates of the horizontal edges of the heatmap cells where the length of 'x' must be one more than the number of columns in the heatmap. If strings, then the x-labels the heatmap cells where the length of 'x' is equal to the number of columns in the heatmap.",
+            "required": false,
+            "type": "data",
+            "val_types": "array_like of numbers, strings, datetimes"
+        },
+        "xtype": {
+            "description": false,
+            "required": false,
+            "type": "style",
+            "val_types": "'array' | 'scaled'"
+        },
+        "y": {
+            "description": "If numerical or date-like, the coordinates of the vertical edges of the heatmap cells where the length of 'y' must be one more than the number of rows in the heatmap. If strings, then the y-labels the heatmap cells where the length of 'y' is equal to the number of rows in the heatmap.",
+            "required": false,
+            "type": "data",
+            "val_types": "array_like of numbers, strings, datetimes"
+        },
+        "ytype": {
+            "description": false,
+            "required": false,
+            "type": "style",
+            "val_types": "'array' | 'scaled'"
+        },
+        "z": {
+            "description": "The data that describes the heatmap. The color of the cell in row i, column j is mapped from the value of z[i][j].",
+            "required": true,
+            "type": "data",
+            "val_types": "matrix_like: list of lists, numpy.matrix"
+        },
+        "zmax": {
+            "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values.",
+            "required": false,
+            "type": "style",
+            "val_types": "number"
+        },
+        "zmin": {
+            "description": "The value used as the minimum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values.",
+            "required": false,
+            "type": "style",
+            "val_types": "number"
         }
     },
     "histogram2d": {
@@ -248,7 +403,7 @@
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points.",
             "required": false,
             "type": "object",
-            "val_types": "Error_Y object or dict"
+            "val_types": "Error_Y object | dict"
         },
         "fill": {
             "default": "none",
@@ -273,13 +428,13 @@
             "description": "A dictionary-like object containing information about the line connecting points on the scatter plot.",
             "required": false,
             "type": "object",
-            "val_types": "Line object or dict"
+            "val_types": "Line object | dict"
         },
         "marker": {
             "description": "A dictionary-like object containing information about the marker style of the scatter plot.",
             "required": false,
             "type": "object",
-            "val_types": "Marker object or dict"
+            "val_types": "Marker object | dict"
         },
         "mode": {
             "description": "Plotting mode (style) for the scatter plot. If the mode includes 'text' then the 'text' will appear next to the (x,y) points, otherwise it will appear on hover.",
@@ -316,7 +471,7 @@
             "description": "A dictionary-like object describing the font style of this scatter's text elements.",
             "required": false,
             "type": "object",
-            "val_types": "Font object or dict"
+            "val_types": "Font object | dict"
         },
         "type": {
             "description": "Plotly identifier for trace type, this is set automatically with a call to Scatter(...).",
