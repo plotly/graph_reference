@@ -2,32 +2,37 @@
 
 from collections import OrderedDict
 
-shortcuts = {
-    'color': {
-        'type': 'str describing color',
-        'examples': ["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'", "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]
-    },
-    'data_array': {
-        'type': "array_like of numbers, strings, datetimes"
-    },
-    'text': {
-        'val_types': "array_like of strings"
-    },
-    'name': dict(
+# TODO: change `description=False` to `description=""` ??? (or no key...)
+
+shortcuts = dict(
+    color=dict(
+        type='str describing color',
+        examples=["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
+            "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]),
+
+    data_array=dict(
+        type="array_like of numbers, strings, datetimes"
+    ),
+
+    text=dict(
+        val_types="array_like of strings"
+    ),
+
+    name= dict(
         required=False,
         type='plot_info',
         val_types="string",
         description="The label associated with this trace. "
                     "This name will appear in the legend, in the column "
                     "header in the spreadsheet, and on hover."),
-    'error_y': dict(
+    error_y=dict(
         required=False,
         type='object',
         val_types="Error_Y object | dict",
         description="A dictionary-like object describing vertical error bars "
                     "that can be drawn with this trace's (x, y) points."),
 
-    'xaxis': dict(
+    xaxis=dict(
         required=False,
         type='plot_info',
         default="'x'",
@@ -37,30 +42,38 @@ shortcuts = {
                     "'x' references layout['xaxis'] and 'x2' "
                     "references layout['xaxis2']."),
 
-    'yaxis': dict(
+    yaxis=dict(
         required=False,
         type='plot_info',
         val_types="string: 'y', 'y2', 'y3', ...",
         description="This key determines which yaxis the y coordinates in "
                     "this trace will reference in the figure. "
                     "'y' references layout['yaxis'] and 'y2' "
-                    "references layout['yaxis2']."),    
-
-}
-
+                    "references layout['yaxis2']."),
+)
 
 
 INFO = OrderedDict(
 
-    plotlylist=dict(),
+    plotlylist=dict(
+        type='object'
+    ),
 
-    data=dict(),
+    data=dict(
+        type='object'
+    ),
 
-    annotations=dict(),
+    annotations=dict(
+        type='object'
+    ),
 
-    plotlydict=dict(),
+    plotlydict=dict(
+        type='object'
+    ),
 
-    plotlytrace=dict(),
+    plotlytrace=dict(
+        type='object'
+    ),
 
     scatter=OrderedDict(
 
@@ -132,9 +145,9 @@ INFO = OrderedDict(
             type='style',
             val_types="number in [0, 1]",
             description="Sets the opacity, or transparency, of the markers "
-                        " and lines of the scatter plot. Also known as the "
-                        " alpha channel. The opacity can also be set in the "
-                        " 'marker' and 'line' objects."),
+                        "and lines of the scatter plot. Also known as the "
+                        "alpha channel. The opacity can also be set in the "
+                        "'marker' and 'line' objects."),
 
         showlegend=dict(
             required=False,
@@ -403,15 +416,107 @@ INFO = OrderedDict(
 
     histogram2d=dict(
 
+        x=dict(
+            required=True,
+            type='data',
+            val_types=shortcuts['data_array']['type'],
+            description="If numerical or date-like, the coordinates of the "
+                        "horizontal edges of the histogram cells where the "
+                        "length of 'x' must be one more than the number of "
+                        "columns in the histogram. If strings, then the "
+                        "x-labels the histogram cells where the length of 'x' "
+                        "is equal to the number of columns in the histogram."
+        ),
+
+        y=dict(
+            required=True,
+            type='data',
+            val_types=shortcuts['data_array']['type'],
+            description="If numerical or date-like, the coordinates of the "
+                        "vertical edges of the histogram cells where the "
+                        "length of 'y' must be one more than the number of "
+                        "columns in the histogram. If strings, then the "
+                        "y-labels the histogram cells where the length of 'y' "
+                        "is equal to the number of columns in the histogram."
+        ),
+
+
         type=dict(
             required=True,
             type='plot_info',
             val_types="default: type='histogram2d'",
             description="Plotly identifier for trace type, this is set "
                         "automatcally with a call to Histogram2d(...)."),
+
+        scl=dict(
+            required=False,
+            type='style',
+            val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
+                      "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
+                      "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
+                      "| 'YIGnBu'",
+            description="The color scale. The strings are pre-defined color "
+                        "scales. For custom color scales, define a list of "
+                        "color-value pairs, where the first element of the "
+                        "pair corresponds to a normalized value of z from 0-1 "
+                        "(i.e. (z-zmin)/(zmax-zmin)), and the second element "
+                        "of pair corresponds to a color.",
+            examples=["Greys",
+                      [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]],
+                      [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],
+                       [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
+                       [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
+                       [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],
+                       [1,"rgb(255, 255, 217)"]]]
+        ),
+
+        colorbar=dict(
+            required=False,
+            type='object',
+            val_types="ColorBar object | dict"
+        ),
+
+        autobinx=dict(),
+
+        autobiny=dict(),
+
+        xbins=dict(
+            required=False,
+            type='object',
+            val_types="XBins object | dict"),
+
+        ybins=dict(
+            required=False,
+            type='object',
+            val_types="YBins object | dict"),
+
+        histnorm=dict(),
     ),
 
     histogramx=dict(
+
+        x=dict(
+            required=True,
+            type='data',
+            val_types=shortcuts['data_array']['type'],  # TODO: is this right?
+            description="The x data that will be put into bins and plotted "
+                        "according to frequency in the y direction."),
+
+        name=shortcuts['name'],
+
+        marker=dict(
+            required=False,
+            type='object',
+            val_types="Marker object | dict"),
+
+        autobinx=dict(),
+
+        xbins=dict(
+            required=False,
+            type='object',
+            val_types="XBins object | dict"),
+
+        histnorm=dict(),
 
         type=dict(
             required=True,
@@ -423,6 +528,29 @@ INFO = OrderedDict(
 
     histogramy=dict(
 
+        y=dict(
+            required=True,
+            type='data',
+            val_types=shortcuts['data_array']['type'],  # TODO: is this right?
+            description="The y data that will be put into bins and plotted "
+                        "according to frequency in the y direction."),
+
+        name=shortcuts['name'],
+
+        marker=dict(
+            required=False,
+            type='object',
+            val_types="Marker object | dict"),
+
+        autobiny=dict(),
+
+        ybins=dict(
+            required=False,
+            type='object',
+            val_types="YBins object | dict"),
+
+        histnorm=dict(),
+
         type=dict(
             required=True,
             type='plot_info',
@@ -431,42 +559,90 @@ INFO = OrderedDict(
                         "automatcally with a call to Histogramy(...)."),
     ),
 
-
     annotation=dict(
+
+        x=dict(
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="The x coordinate of the annotation location."
+        ),
+
+        y=dict(
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="The y coordinate of the annotation location."
+        ),
 
         text=dict(
             required=False,
             type='plot_info',
-            val_types="coming soon!",
-            descriptors="coming soon!"),
+            val_types="string",
+            descriptors="The text note that will be added with this "
+                        "annotation."),
 
-        bordercolor=dict(),
+        bordercolor=dict(
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="The color of the enclosing boarder of this "
+                        "annotation.",
+            examples=shortcuts['color']['type'],
+        ),
 
-        borderwidth=dict(),
+        borderwidth=dict(
+            required=False,
+            type='style',
+            val_types='number',
+            description="The width of the boarder enclosing this annotation"
+        ),
 
-        borderpad=dict(),
+        borderpad=dict(
+            required=False,
+            type='style',
+            val_types="number in [0,10]",
+            description="The amount of space (padding) between the text and "
+                        "the enclosing boarder."
+        ),
 
-        bgcolor=dict(),
+        bgcolor=dict(
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="The background (bg) color for this annotation.",
+            examples=shortcuts['color']['type'],
+        ),
 
         xref=dict(
             required=False,
             type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!"),
+            val_types="string: 'paper' | 'x' | 'x2' | 'x3' | etc.",
+            description="This defines what the x coordinate for this "
+                        "annotation *refers* to. If you reference an axis, "
+                        "e.g., 'x2', the annotation will move with "
+                        "pan-and-zoom to stay fixed to this point. If you "
+                        "reference the 'paper', it remains fixed regardless "
+                        "of pan-and-zoom."),
 
         yref=dict(
             required=False,
             type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!"),
+            val_types="string: 'paper' | 'y' | 'y2' | 'y3' | etc.",
+            description="This defines what the x coordinate for this "
+                        "annotation *refers* to. If you reference an axis, "
+                        "e.g., 'y2', the annotation will move with "
+                        "pan-and-zoom to stay fixed to this point. If you "
+                        "reference the 'paper', it remains fixed regardless "
+                        "of pan-and-zoom."),
 
         showarrow=dict(
             required=False,
             type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!"),
+            val_types="bool: True | False",
+            description="Show the arrow associated with this annotation?"),
 
-        arrowwidth=dict(),
+        arrowwidth=dict(), # TODO, ya'll should make an `arrow` dict?
 
         arrowcolor=dict(),
 
@@ -476,15 +652,25 @@ INFO = OrderedDict(
 
         tag=dict(),
 
-        font=dict(),
+        font=dict(
+            required=False,
+            type='object',
+            val_types="Font object | dict",
+            description=""
+        ),
 
-        opacity=dict(),
+        opacity=dict(
+            required=False,
+            type='style',
+            val_types="number in [0, 1]",
+            description="Sets the opacity, or transparency, of the annotation. "
+                        "Also known as the alpha channel."),
 
         align=dict(
             required=False,
             type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!"),
+            val_types="string: 'left' | 'center' | 'right'",
+            description="The alignment of the text in the annotation."),
 
         xanchor=dict(
             required=False,
@@ -492,15 +678,15 @@ INFO = OrderedDict(
             val_types="coming soon!",
             description="coming soon!"),
 
-        yanchor=dict(),
+        yanchor=dict(
+            required=False,
+            type='plot_info',
+            val_types="coming soon!",
+            description="coming soon!"),
 
         ay=dict(),
 
         ax=dict(),
-
-        y=dict(),
-
-        x=dict()
     ),
 
     colorbar=dict(),
@@ -690,6 +876,15 @@ INFO = OrderedDict(
         title=dict()
     ),
 
+    xbins=dict(
+
+        start=dict(),
+
+        end=dict(),
+
+        size=dict()
+    ),
+
     yaxis=dict(
 
         range=dict(),
@@ -753,7 +948,16 @@ INFO = OrderedDict(
         anchor=dict(),
 
         title=dict()
-    )
+    ),
+
+    ybins=dict(
+
+        start=dict(),
+
+        end=dict(),
+
+        size=dict()
+    ),
 )
 
 # import json
