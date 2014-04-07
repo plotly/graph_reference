@@ -8,7 +8,7 @@ shortcuts = dict(
     color=dict(
         type='str describing color',
         examples=["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
-            "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]),
+                  "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]),
 
     data_array=dict(
         type="array_like of numbers, strings, datetimes"
@@ -18,7 +18,7 @@ shortcuts = dict(
         val_types="array_like of strings"
     ),
 
-    name= dict(
+    name=dict(
         required=False,
         type='plot_info',
         val_types="string",
@@ -53,370 +53,353 @@ shortcuts = dict(
 )
 
 
-INFO = OrderedDict(
+INFO = dict(
 
-    plotlylist=dict(
-        type='object'
-    ),
+    plotlylist=dict(),
 
-    data=dict(
-        type='object'
-    ),
+    data=dict(),
 
-    annotations=dict(
-        type='object'
-    ),
+    annotations=dict(),
 
-    plotlydict=dict(
-        type='object'
-    ),
+    plotlydict=dict(),
 
-    plotlytrace=dict(
-        type='object'
-    ),
+    plotlytrace=dict(),
 
-    scatter=OrderedDict(
+    scatter=OrderedDict([
 
-        x=dict(
+        ('x', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
             description="the x coordinates from the (x,y) pair on the scatter "
-                        "plot."),
+                        "plot.")),
 
-        y=dict(
+        ('y', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
             description="the y coordinatey from the (x,y) pair on the scatter "
-                        "plot."),
+                        "plot.")),
 
-        text=dict(
+        ('text', dict(
             required=False,
             type='data',
             val_types=shortcuts['text']['val_types'],
-            description="the text elements associated with every (x,y) pair on "
-                        "the scatter plot. If the scatter 'mode' doesn't include "
-                        "'text' then text will appear on hover."),
+            description="the text elements associated with every (x,y) pair "
+                        "on the scatter plot. If the scatter 'mode' doesn't "
+                        "include 'text' then text will appear on hover.")),
 
-        name=shortcuts['name'],
+        ('name', shortcuts['name']),
 
-        mode=dict(
+        ('mode', dict(
             required=False,
             type='plot_info',
-            val_types="'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' "
-                        "| 'markers+text' | 'lines+markers+text'",
-            description="Plotting mode (style) for the scatter plot. If the mode includes "
-                        "'text' then the 'text' will appear next to the (x,y) points, "
-                        "otherwise it will appear on hover."),
+            val_types="'lines' | 'markers' | 'text' | 'lines+markers' | "
+                      "'lines+text' | 'markers+text' | 'lines+markers+text'",
+            description="Plotting mode (style) for the scatter plot. If the "
+                        "mode includes 'text' then the 'text' will appear "
+                        "next to the (x,y) points, otherwise it will appear on "
+                        "hover.")),
 
-        marker=dict(
+        ('marker', dict(
             required=False,
             type='object',
             val_types="Marker object | dict",
-            description="A dictionary-like object containing information "
-                        "about the marker style of the scatter plot."),
+            description="A dictionary-like object containing information about "
+                        "the marker style of the scatter plot.")),
 
-        line=dict(
+        ('line', dict(
             required=False,
             type='object',
             val_types="Line object | dict",
-            description="A dictionary-like object containing information "
-                        "about the line connecting points on the scatter plot."),
+            description="A dictionary-like object containing information about "
+                        "the line connecting points on the scatter plot.")),
 
-        fill=dict(
+        ('fill', dict(
             required=False,
             default='none',
             type='style',
             val_types="'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx",
             description="Used to make area-style charts. Determines which area "
-                        "to fill with a solid color. ",
-        ),
+                        "to fill with a solid color.")),
 
-        fillcolor=dict(
+        ('fillcolor', dict(
             required=False,
             type='style',
             val_types=shortcuts['color']['type'],
-            examples=shortcuts['color']['examples']
-        ),
+            examples=shortcuts['color']['examples'])),
 
-        opacity=dict(
+        ('opacity', dict(
             required=False,
             type='style',
             val_types="number in [0, 1]",
             description="Sets the opacity, or transparency, of the markers "
                         "and lines of the scatter plot. Also known as the "
                         "alpha channel. The opacity can also be set in the "
-                        "'marker' and 'line' objects."),
+                        "'marker' and 'line' objects.")),
 
-        showlegend=dict(
+        ('showlegend', dict(
             required=False,
             type='plot_info',
             val_types="True | False",
             default="True",
-            description="If True, this trace will appear in the legend. Otherwise "
-                        " it will be hidden in the legend."),
+            description="If True, this trace will appear in the legend. "
+                        "Otherwise it will be hidden in the legend.")),
 
-        xaxis=shortcuts['xaxis'],
+        ('xaxis', shortcuts['xaxis']),
 
-        yaxis=shortcuts['yaxis'],
+        ('yaxis', shortcuts['yaxis']),
 
-        error_y=shortcuts['error_y'],
+        ('error_y', shortcuts['error_y']),
 
-        textfont=dict(
+        ('textfont', dict(
             required=False,
             type='object',
             val_types="Font object | dict",
             description="A dictionary-like object describing the font style "
-                        "of this scatter's text elements."),
+                        "of this scatter's text elements.")),
 
-        type=dict(
+        ('type', dict(
             required=False,
             type='plot_info',
             val_types="'scatter'",
             description="Plotly identifier for trace type, this is set "
-                        "automatically with a call to Scatter(...).")
+                        "automatically with a call to Scatter(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    ),
 
+    bar=OrderedDict([
 
-    bar=OrderedDict(
-
-        x=dict(
+        ('x', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
-            description="the x coordinates of the bars or the bar chart's categories. "),
+            description="the x coordinates of the bars or the bar chart's "
+                        "categories.")),
 
-        y=dict(
+        ('y', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
-            description="the y data for bar charts, which is the length of the bars."),
+            description="the y data for bar charts, which is the length of the "
+                        "bars.")),
 
-        text=dict(
+        ('text', dict(
             required=False,
             type='data',
             val_types=shortcuts['text']['val_types'],
-            description='text elements that appear on hover of the bars'),
+            description='text elements that appear on hover of the bars')),
 
-        name=shortcuts['name'],
+        ('name', shortcuts['name']),
 
-        marker=dict(
+        ('marker', dict(
             required=False,
             type='structure',
             val_types="Marker | dict",
             description="A dictionary-like object describing the "
-                        "style of the bars, like the color and the border."),
+                        "style of the bars, like the color and the border.")),
 
-        xaxis=shortcuts['xaxis'],
+        ('xaxis', shortcuts['xaxis']),
 
-        yaxis=shortcuts['yaxis'],
+        ('yaxis', shortcuts['yaxis']),
 
-        error_y=shortcuts['error_y'],
+        ('error_y', shortcuts['error_y']),
 
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="'bar'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Bar(...).")
-    ),
+                        "automatcally with a call to Bar(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    box=dict(
+    box=OrderedDict([
 
-        y=dict(
+        ('y', dict(
             required=True,
             type="plot_info",
             val_types="array_like of numbers",
-            description="Array of the numbers from which the box plot describes."
-        ),
+            description="Array of the numbers from which the box plot "
+                        "describes.")),
 
-        name=dict(
+        ('name', dict(
             required=False,
             type="plot_info",
             val_types="string",
-            description="The label associated with this box plot. This name appears "
-                "on the x-axis, in the legend, on hover, and  in the column "
-                "header in the spreadsheet"),
+            description="The label associated with this box plot. This name "
+                        "appears on the x-axis, in the legend, on hover, and  "
+                        "in the column header in the spreadsheet")),
 
-        boxpoints=dict(
+        ('boxpoints', dict(
             required=False,
             type='plot_info',
             val_types="'all' | 'outliers' | False",
-            description="If 'all' then the 'y' points are shown with the box. If "
-                "'outliers' then only the 'outliers' of the 'y' points are shown. If False "
-                "then no points are shown",
-            default=False
-            ),
+            description="If 'all' then the 'y' points are shown with the box. "
+                        "If 'outliers' then only the 'outliers' of the 'y' "
+                        "points are shown. If False then no points are shown",
+            default=False)),
 
-        jitter=dict(
+        ('jitter', dict(
             required=False,
             type='style',
             val_types="number in [0, 1]",
-            description="Width of the jittered scatter. If 0, then the boxpoints "
-                        "are aligned vertically, if 1 then the points are randomly "
-                        "jittered horizontally up to the width of the box."),
+            description="Width of the jittered scatter. If 0, then the "
+                        "boxpoints are aligned vertically, if 1 then the "
+                        "points are randomly jittered horizontally up to the "
+                        "width of the box.")),
 
-        pointpos=dict(
+        ('pointpos', dict(
             required=False,
             type='style',
             val_types="number in [-2, 2]",
-            description="Horizontal position of the center of the boxpoints relative to "
-                        "the center and width of the box."),
+            description="Horizontal position of the center of the boxpoints "
+                        "relative to the center and width of the box.")),
 
-        boxmean=dict(
+        ('boxmean', dict(
             required=False,
             type="False | True | 'sd'",
             default='False',
             description="If True then the mean of the y-points is shown as a "
-                        "dashed line in the box. If 'sd', then the standard deviation "
-                        "is also shown. If False, then no line shown."),
+                        "dashed line in the box. If 'sd', then the standard "
+                        "deviation is also shown. If False, then no line "
+                        "shown.")),
 
-        whiskerwidth=dict(
+        ('whiskerwidth', dict(
             required=False,
             type='number in [0, 1]',
             default=0.75,
-            description="Width of the whisker of the box."),
+            description="Width of the whisker of the box.")),
 
-        fillcolor=dict(
+        ('fillcolor', dict(
             required=False,
             type='style',
             description="Color of the box interior.",
             val_types=shortcuts['color']['type'],
-            examples=shortcuts['color']['examples']),
+            examples=shortcuts['color']['examples'])),
 
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='box'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Box(...).")
-    ),
+                        "automatcally with a call to Box(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    contour=dict(
+    contour=OrderedDict([
 
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='contour'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Contour(...).")
-    ),
+                        "automatcally with a call to Contour(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    heatmap=OrderedDict(
+    heatmap=OrderedDict([
 
-        z=dict(
+        ('z', dict(
             required=True,
             type='data',
             val_types="matrix_like: list of lists, numpy.matrix",
             description="The data that describes the heatmap. The "
                         "color of the cell in row i, column j "
-                        "is mapped from the value of z[i][j]."),
+                        "is mapped from the value of z[i][j].")),
 
-        x=dict(
+        ('x', dict(
             required=False,
             type='data',
             val_types=shortcuts['data_array']['type'],
-            description="If numerical or date-like, the coordinates of "
-                        "the horizontal edges of the heatmap cells "
-                        "where the length of 'x' must be one more than the number of "
+            description="If numerical or date-like, the coordinates of the "
+                        "horizontal edges of the heatmap cells where the "
+                        "length of 'x' must be one more than the number of "
                         "columns in the heatmap. If strings, then the x-labels "
                         "the heatmap cells where the length of 'x' is equal to "
-                        "the number of columns in the heatmap."
-        ),
+                        "the number of columns in the heatmap.")),
 
-        y=dict(
+        ('y', dict(
             required=False,
             type='data',
             val_types=shortcuts['data_array']['type'],
-            description="If numerical or date-like, the coordinates of "
-                        "the vertical edges of the heatmap cells "
-                        "where the length of 'y' must be one more than the number of "
-                        "rows in the heatmap. If strings, then the y-labels "
-                        "the heatmap cells where the length of 'y' is equal to "
-                        "the number of rows in the heatmap."
-        ),
+            description="If numerical or date-like, the coordinates of the "
+                        "vertical edges of the heatmap cells where the length "
+                        "of 'y' must be one more than the number of rows in "
+                        "the heatmap. If strings, then the y-labels the "
+                        "heatmap cells where the length of 'y' is equal to the "
+                        "number of rows in the heatmap.")),
 
-        scl=dict(
+        ('scl', dict(
             required=False,
             type='style',
             val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
-                "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
-                "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'",
-            description="The color scale. The strings are pre-defined color scales. For "
-                        "custom color scales, define a list of color-value pairs, where the "
-                        "first element of the pair corresponds to a "
-                        "normalized value of z from 0-1 (i.e. (z-zmin)/(zmax-zmin)), "
-                        "and the second element of pair corresponds to a color.",
-            examples=["Greys", [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]], 
-                    [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],[0.25,"rgb(34, 94, 168)"],
-                    [0.375,"rgb(29, 145, 192)"],[0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
-                    [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],[1,"rgb(255, 255, 217)"]]]
+                      "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
+                      "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
+                      "| 'YIGnBu'",
+            description="The color scale. The strings are pre-defined color "
+                        "scales. For custom color scales, define a list of "
+                        "color-value pairs, where the first element of the "
+                        "pair corresponds to a normalized value of z from 0-1 "
+                        "(i.e. (z-zmin)/(zmax-zmin)), and the second element "
+                        "of pair corresponds to a color.",
+            examples=["Greys", [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]],
+                      [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],
+                       [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
+                       [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
+                       [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],
+                       [1,"rgb(255, 255, 217)"]]])
         ),
 
-        colorbar=dict(
+        ('colorbar', dict(
             required=False,
             type='object',
-            val_types="Colorbar object | dict",
-            description=False
-        ),
+            val_types="Colorbar object | dict")),
 
-        xtype=dict(
+        ('xtype', dict(
             required=False,
             type='style',
-            val_types="'array' | 'scaled'",
-            description=False
-        ),
+            val_types="'array' | 'scaled'")),
 
-        ytype=dict(
+        ('ytype', dict(
             required=False,
             type='style',
-            val_types="'array' | 'scaled'",
-            description=False
-        ),
+            val_types="'array' | 'scaled'")),
 
-        dx=dict(
+        ('dx', dict(
             required=False,
             type='style',
-            val_types='number',
-            description=False
-        ),
+            val_types='number')),
 
-        dy=dict(
+        ('dy', dict(
+            required=False,
+            type='style',
+            val_types='number')),
+
+        ('zmin', dict(
             required=False,
             type='style',
             val_types='number',
-            description=False
-        ),
+            description="The value used as the minimum in the color scale "
+                        "normalization in 'scl'. The default is the minimum of "
+                        "the 'z' data values.")),
 
-        zmin=dict(
+        ('zmax', dict(
             required=False,
             type='style',
             val_types='number',
-            description="The value used as the minimum in the color scale normalization in 'scl'. "
-                        "The default is the minimum of the 'z' data values."
-        ),
+            description="The value used as the maximum in the color scale "
+                        "normalization in 'scl'. The default is the minimum of "
+                        "the 'z' data values.")),
 
-        zmax=dict(
-            required=False,
-            type='style',
-            val_types='number',
-            description="The value used as the maximum in the color scale normalization in 'scl'. "
-                        "The default is the minimum of the 'z' data values."
-        ),
-
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='heatmap'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Heatmap(...).")
-    ),
+                        "automatcally with a call to Heatmap(...).")),
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    histogram2d=dict(
+    histogram2d=OrderedDict([
 
-        x=dict(
+        ('x', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
@@ -425,10 +408,9 @@ INFO = OrderedDict(
                         "length of 'x' must be one more than the number of "
                         "columns in the histogram. If strings, then the "
                         "x-labels the histogram cells where the length of 'x' "
-                        "is equal to the number of columns in the histogram."
-        ),
+                        "is equal to the number of columns in the histogram.")),
 
-        y=dict(
+        ('y', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],
@@ -437,18 +419,16 @@ INFO = OrderedDict(
                         "length of 'y' must be one more than the number of "
                         "columns in the histogram. If strings, then the "
                         "y-labels the histogram cells where the length of 'y' "
-                        "is equal to the number of columns in the histogram."
-        ),
+                        "is equal to the number of columns in the histogram.")),
 
-
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='histogram2d'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogram2d(...)."),
+                        "automatcally with a call to Histogram2d(...).")),
 
-        scl=dict(
+        ('scl', dict(
             required=False,
             type='style',
             val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
@@ -467,154 +447,147 @@ INFO = OrderedDict(
                        [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
                        [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
                        [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],
-                       [1,"rgb(255, 255, 217)"]]]
+                       [1,"rgb(255, 255, 217)"]]])
         ),
 
-        colorbar=dict(
+        ('colorbar', dict(
             required=False,
             type='object',
-            val_types="ColorBar object | dict"
-        ),
+            val_types="ColorBar object | dict")),
 
-        autobinx=dict(),
+        ('autobinx', dict()),
 
-        autobiny=dict(),
+        ('autobiny', dict()),
 
-        xbins=dict(
+        ('xbins', dict(
             required=False,
             type='object',
-            val_types="XBins object | dict"),
+            val_types="XBins object | dict")),
 
-        ybins=dict(
+        ('ybins', dict(
             required=False,
             type='object',
-            val_types="YBins object | dict"),
+            val_types="YBins object | dict")),
 
-        histnorm=dict(),
-    ),
+        ('histnorm', dict())
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    histogramx=dict(
+    histogramx=OrderedDict([
 
-        x=dict(
+        ('x', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],  # TODO: is this right?
             description="The x data that will be put into bins and plotted "
-                        "according to frequency in the y direction."),
+                        "according to frequency in the y direction.")),
 
-        name=shortcuts['name'],
+        ('name', shortcuts['name']),
 
-        marker=dict(
+        ('marker', dict(
             required=False,
             type='object',
-            val_types="Marker object | dict"),
+            val_types="Marker object | dict")),
 
-        autobinx=dict(),
+        ('autobinx', dict()),
 
-        xbins=dict(
+        ('xbins', dict(
             required=False,
             type='object',
-            val_types="XBins object | dict"),
+            val_types="XBins object | dict")),
 
-        histnorm=dict(),
+        ('histnorm', dict()),
 
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='histogramx'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogramx(...).")
-    ),
+                        "automatcally with a call to Histogramx(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    histogramy=dict(
+    histogramy=OrderedDict([
 
-        y=dict(
+        ('y', dict(
             required=True,
             type='data',
             val_types=shortcuts['data_array']['type'],  # TODO: is this right?
             description="The y data that will be put into bins and plotted "
-                        "according to frequency in the y direction."),
+                        "according to frequency in the y direction.")),
 
-        name=shortcuts['name'],
+        ('name', shortcuts['name']),
 
-        marker=dict(
+        ('marker', dict(
             required=False,
             type='object',
-            val_types="Marker object | dict"),
+            val_types="Marker object | dict")),
 
-        autobiny=dict(),
+        ('autobiny', dict()),
 
-        ybins=dict(
+        ('ybins', dict(
             required=False,
             type='object',
-            val_types="YBins object | dict"),
+            val_types="YBins object | dict")),
 
-        histnorm=dict(),
+        ('histnorm', dict()),
 
-        type=dict(
+        ('type', dict(
             required=True,
             type='plot_info',
             val_types="default: type='histogramy'",
             description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogramy(...)."),
-    ),
+                        "automatcally with a call to Histogramy(...)."))
+    ]),  # (end_list ']', end_od ')', end_entry ')'
 
-    annotation=dict(
+    annotation=OrderedDict([
 
-        x=dict(
+        ('x', dict(
             required=False,
             type='plot_info',
             val_types="number",
-            description="The x coordinate of the annotation location."
-        ),
+            description="The x coordinate of the annotation location.")),
 
-        y=dict(
+        ('y', dict(
             required=False,
             type='plot_info',
             val_types="number",
-            description="The y coordinate of the annotation location."
-        ),
+            description="The y coordinate of the annotation location.")),
 
-        text=dict(
+        ('text', dict(
             required=False,
             type='plot_info',
             val_types="string",
             descriptors="The text note that will be added with this "
-                        "annotation."),
+                        "annotation.")),
 
-        bordercolor=dict(
+        ('bordercolor', dict(
             required=False,
             type='style',
             val_types=shortcuts['color']['type'],
             description="The color of the enclosing boarder of this "
                         "annotation.",
-            examples=shortcuts['color']['type'],
-        ),
+            examples=shortcuts['color']['type'])),
 
-        borderwidth=dict(
+        ('borderwidth', dict(
             required=False,
             type='style',
             val_types='number',
-            description="The width of the boarder enclosing this annotation"
-        ),
+            description="The width of the boarder enclosing this annotation")),
 
-        borderpad=dict(
+        ('borderpad', dict(
             required=False,
             type='style',
             val_types="number in [0,10]",
             description="The amount of space (padding) between the text and "
-                        "the enclosing boarder."
-        ),
+                        "the enclosing boarder.")),
 
-        bgcolor=dict(
+        ('bgcolor', dict(
             required=False,
             type='style',
             val_types=shortcuts['color']['type'],
             description="The background (bg) color for this annotation.",
-            examples=shortcuts['color']['type'],
-        ),
+            examples=shortcuts['color']['type'])),
 
-        xref=dict(
+        ('xref', dict(
             required=False,
             type='plot_info',
             val_types="string: 'paper' | 'x' | 'x2' | 'x3' | etc.",
@@ -623,9 +596,9 @@ INFO = OrderedDict(
                         "e.g., 'x2', the annotation will move with "
                         "pan-and-zoom to stay fixed to this point. If you "
                         "reference the 'paper', it remains fixed regardless "
-                        "of pan-and-zoom."),
+                        "of pan-and-zoom.")),
 
-        yref=dict(
+        ('yref', dict(
             required=False,
             type='plot_info',
             val_types="string: 'paper' | 'y' | 'y2' | 'y3' | etc.",
@@ -634,330 +607,327 @@ INFO = OrderedDict(
                         "e.g., 'y2', the annotation will move with "
                         "pan-and-zoom to stay fixed to this point. If you "
                         "reference the 'paper', it remains fixed regardless "
-                        "of pan-and-zoom."),
+                        "of pan-and-zoom.")),
 
-        showarrow=dict(
+        ('showarrow', dict(
             required=False,
             type='plot_info',
             val_types="bool: True | False",
-            description="Show the arrow associated with this annotation?"),
+            description="Show the arrow associated with this annotation?")),
 
-        arrowwidth=dict(), # TODO, ya'll should make an `arrow` dict?
+        ('arrowwidth', dict()),  # TODO, ya'll should make an `arrow` dict?
 
-        arrowcolor=dict(),
+        ('arrowcolor', dict()),
 
-        arrowhead=dict(),
+        ('arrowhead', dict()),
 
-        arrowsize=dict(),
+        ('arrowsize', dict()),
 
-        tag=dict(),
+        ('tag', dict()),
 
-        font=dict(
+        ('font', dict(
             required=False,
             type='object',
-            val_types="Font object | dict",
-            description=""
-        ),
+            val_types="Font object | dict")),
 
-        opacity=dict(
+        ('opacity', dict(
             required=False,
             type='style',
             val_types="number in [0, 1]",
             description="Sets the opacity, or transparency, of the annotation. "
-                        "Also known as the alpha channel."),
+                        "Also known as the alpha channel.")),
 
-        align=dict(
+        ('align', dict(
             required=False,
             type='plot_info',
             val_types="string: 'left' | 'center' | 'right'",
-            description="The alignment of the text in the annotation."),
+            description="The alignment of the text in the annotation.")),
 
-        xanchor=dict(
+        ('xanchor', dict(
             required=False,
             type='plot_info',
             val_types="coming soon!",
-            description="coming soon!"),
+            description="coming soon!")),
 
-        yanchor=dict(
+        ('yanchor', dict(
             required=False,
             type='plot_info',
             val_types="coming soon!",
-            description="coming soon!"),
+            description="coming soon!")),
 
-        ay=dict(),
+        ('ay', dict()),
 
-        ax=dict(),
-    ),
+        ('ax', dict()),
+    ]),
 
-    colorbar=dict(),
+    colorbar=OrderedDict([]),
 
-    error_y=dict(),
+    error_y=OrderedDict([]),
 
-    figure=dict(
+    figure=OrderedDict([
 
-        data=dict(),
+        ('data', dict()),
 
-        layout=dict(),
-    ),
+        ('layout', dict())
+    ]),
 
-    font=dict(
+    font=OrderedDict([
 
-        color=dict(),
+        ('color', dict()),
 
-        size=dict(),
+        ('size', dict()),
 
-        family=dict(),
-    ),
+        ('family', dict()),
+    ]),
 
-    layout=dict(
+    layout=OrderedDict([
 
-        title=dict(),
+        ('title', dict()),
 
-        xaxis=dict(),
+        ('xaxis', dict()),
 
-        yaxis=dict(),
+        ('yaxis', dict()),
 
-        legend=dict(),
+        ('legend', dict()),
 
-        width=dict(),
+        ('width', dict()),
 
-        height=dict(),
+        ('height', dict()),
 
-        autosize=dict(),
+        ('autosize', dict()),
 
-        margin=dict(),
+        ('margin', dict()),
 
-        paper_bgcolor=dict(),
+        ('paper_bgcolor', dict()),
 
+        ('plot_bgcolor', dict()),
 
-        plot_bgcolor=dict(),
+        ('barmode', dict()),
 
-        barmode=dict(),
+        ('bargroupgap', dict()),
 
-        bargroupgap=dict(),
+        ('boxmode', dict()),
 
-        boxmode=dict(),
+        ('boxgap', dict()),
 
-        boxgap=dict(),
+        ('boxgroupgap', dict()),
 
-        boxgroupgap=dict(),
+        ('font', dict()),
 
-        font=dict(),
+        ('titlefont', dict()),
 
-        titlefont=dict(),
+        ('dragmode', dict()),
 
-        dragmode=dict(),
+        ('hovermode', dict()),
 
-        hovermode=dict(),
+        ('separators', dict()),
 
-        separators=dict(),
+        ('hidesources', dict()),
 
-        hidesources=dict(),
+        ('showlegend', dict()),
 
-        showlegend=dict(),
+        ('annotations', dict()),
+    ]),
 
-        annotations=dict()
-    ),
+    legend=OrderedDict([
 
-    legend=dict(
+        ('bgcolor', dict()),
 
-        bgcolor=dict(),
+        ('bordercolor', dict()),
 
-        bordercolor=dict(),
+        ('font', dict()),
 
-        font=dict(),
+        ('traceorder', dict()),
+    ]),
 
-        traceorder=dict()
-    ),
+    line=OrderedDict([
 
-    line=dict(
+        ('dash', dict()),
 
-        dash=dict(),
+        ('color', dict()),
 
-        color=dict(),
+        ('width', dict()),
 
-        width=dict(),
+        ('opacity', dict()),
+    ]),
 
-        opacity=dict(),
-    ),
+    margin=OrderedDict([
 
-    margin=dict(
+        ('l', dict()),
 
-        l=dict(),
+        ('r', dict()),
 
-        r=dict(),
+        ('b', dict()),
 
-        b=dict(),
+        ('t', dict()),
 
-        t=dict(),
+        ('pad', dict()),
+    ]),
 
-        pad=dict()
-    ),
+    marker=OrderedDict([
 
-    marker=dict(
+        ('symbol', dict()),
 
-        symbol=dict(),
+        ('line', dict()),
 
-        line=dict(),
+        ('size', dict()),
 
-        size=dict(),
+        ('color', dict()),
 
-        color=dict(),
+        ('opacity', dict()),
+    ]),
 
-        opacity=dict()
-    ),
+    textfont=OrderedDict([]),
 
-    textfont=dict(),
+    titlefont=OrderedDict([]),
 
-    titlefont=dict(),
+    xaxis=OrderedDict([
 
-    xaxis=dict(
+        ('range', dict()),
 
-        range=dict(),
+        ('type', dict()),
 
-        type=dict(),
+        ('showline', dict()),
 
-        showline=dict(),
+        ('mirror', dict()),
 
-        mirror=dict(),
+        ('linecolor', dict()),
 
-        linecolor=dict(),
+        ('linewidth', dict()),
 
-        linewidth=dict(),
+        ('tick0', dict()),
 
-        tick0=dict(),
+        ('dtick', dict()),
 
-        dtick=dict(),
+        ('ticks', dict()),
 
-        ticks=dict(),
+        ('ticklen', dict()),
 
-        ticklen=dict(),
+        ('tickcolor', dict()),
 
-        tickcolor=dict(),
+        ('nticks', dict()),
 
-        nticks=dict(),
+        ('showticklabels', dict()),
 
-        showticklabels=dict(),
+        ('tickangle', dict()),
 
-        tickangle=dict(),
+        ('exponentformat', dict()),
 
-        exponentformat=dict(),
+        ('showgrid', dict()),
 
-        showgrid=dict(),
+        ('gridcolor', dict()),
 
-        gridcolor=dict(),
+        ('gridwidth', dict()),
 
-        gridwidth=dict(),
+        ('autorange', dict()),
 
-        autorange=dict(),
+        ('rangemode', dict()),
 
-        rangemode=dict(),
+        ('autotick', dict()),
 
-        autotick=dict(),
+        ('zeroline', dict()),
 
-        zeroline=dict(),
+        ('zerolinecolor', dict()),
 
-        zerolinecolor=dict(),
+        ('zerolinewidth', dict()),
 
-        zerolinewidth=dict(),
+        ('titlefont', dict()),
 
-        titlefont=dict(),
+        ('tickfont', dict()),
 
-        tickfont=dict(),
+        ('overlaying', dict()),
 
-        overlaying=dict(),
+        ('domain', dict()),
 
-        domain=dict(),
+        ('position', dict()),
 
-        position=dict(),
+        ('anchor', dict()),
 
-        anchor=dict(),
+        ('title', dict()),
+    ]),
 
-        title=dict()
-    ),
+    xbins=OrderedDict([
 
-    xbins=dict(
+        ('start', dict()),
 
-        start=dict(),
+        ('end', dict()),
 
-        end=dict(),
+        ('size', dict()),
+    ]),
 
-        size=dict()
-    ),
+    yaxis=OrderedDict([
 
-    yaxis=dict(
+        ('range', dict()),
 
-        range=dict(),
+        ('type', dict()),
 
-        type=dict(),
+        ('showline', dict()),
 
-        showline=dict(),
+        ('mirror', dict()),
 
-        mirror=dict(),
+        ('linecolor', dict()),
 
-        linecolor=dict(),
+        ('linewidth', dict()),
 
-        linewidth=dict(),
+        ('tick0', dict()),
 
-        tick0=dict(),
+        ('dtick', dict()),
 
-        dtick=dict(),
+        ('ticks', dict()),
 
-        ticks=dict(),
+        ('ticklen', dict()),
 
-        ticklen=dict(),
+        ('tickcolor', dict()),
 
-        tickcolor=dict(),
+        ('nticks', dict()),
 
-        nticks=dict(),
+        ('showticklabels', dict()),
 
-        showticklabels=dict(),
+        ('tickangle', dict()),
 
-        tickangle=dict(),
+        ('exponentformat', dict()),
 
-        exponentformat=dict(),
+        ('showgrid', dict()),
 
-        showgrid=dict(),
+        ('gridcolor', dict()),
 
-        gridcolor=dict(),
+        ('gridwidth', dict()),
 
-        gridwidth=dict(),
+        ('autorange', dict()),
 
-        autorange=dict(),
+        ('rangemode', dict()),
 
-        rangemode=dict(),
+        ('autotick', dict()),
 
-        autotick=dict(),
+        ('zeroline', dict()),
 
-        zeroline=dict(),
+        ('zerolinecolor', dict()),
 
-        zerolinecolor=dict(),
+        ('zerolinewidth', dict()),
 
-        zerolinewidth=dict(),
+        ('titlefont', dict()),
 
-        titlefont=dict(),
+        ('tickfont', dict()),
 
-        tickfont=dict(),
+        ('overlaying', dict()),
 
-        overlaying=dict(),
+        ('domain', dict()),
 
-        domain=dict(),
+        ('position', dict()),
 
-        position=dict(),
+        ('anchor', dict()),
 
-        anchor=dict(),
+        ('title', dict()),
+    ]),
 
-        title=dict()
-    ),
+    ybins=OrderedDict([
 
-    ybins=dict(
+        ('start', dict()),
 
-        start=dict(),
+        ('end', dict()),
 
-        end=dict(),
-
-        size=dict()
-    ),
+        ('size', dict()),
+    ]),
 )
 
 # import json
