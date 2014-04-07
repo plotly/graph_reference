@@ -907,7 +907,7 @@ INFO = dict(
         ('showline', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Defines whether or not to show this axis line."
         )),
 
@@ -973,7 +973,7 @@ INFO = dict(
         ('showticklabels', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide the axis tick labels."
         )),
 
@@ -992,14 +992,14 @@ INFO = dict(
         ('showgrid', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide grid for the axis."
         )),
 
         ('gridcolor', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Sets the axis grid color. Any HTML specified color "
                         "is accepted.",
             examples=shortcuts['color']['examples']
@@ -1015,7 +1015,7 @@ INFO = dict(
         ('autorange', dict(
             required=False,
             type='plot_info',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Toggle whether to let plotly autorange the axis."
         )),
 
@@ -1028,28 +1028,28 @@ INFO = dict(
         ('autotick', dict(
             required=False,
             type='style',  # TODO: 'plot_info' ??
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Toggle axis autoticks."
         )),
 
         ('zeroline', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide an additional zeroline for this axis."
         )),
 
         ('zerolinecolor', dict(
             required=False,
             type='style',
-            val_types=quick['type']['color'],
+            val_types=quick['val_types']['color'],
             description="Set the color of this axis' zeroline."
         )),
 
         ('zerolinewidth', dict(
             required=False,
             type='style',
-            val_types=quick['type']['number'],
+            val_types=quick['val_types']['number'],
             description="Sets the width of this axis' zeroline."
         )),
 
@@ -1113,7 +1113,7 @@ INFO = dict(
         ('showline', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Defines whether or not to show this axis line."
         )),
 
@@ -1179,7 +1179,7 @@ INFO = dict(
         ('showticklabels', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide the axis tick labels."
         )),
 
@@ -1198,14 +1198,14 @@ INFO = dict(
         ('showgrid', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide grid for the axis."
         )),
 
         ('gridcolor', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Sets the axis grid color. Any HTML specified color "
                         "is accepted.",
             examples=shortcuts['color']['examples']
@@ -1221,7 +1221,7 @@ INFO = dict(
         ('autorange', dict(
             required=False,
             type='plot_info',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Toggle whether to let plotly autorange the axis."
         )),
 
@@ -1234,28 +1234,28 @@ INFO = dict(
         ('autotick', dict(
             required=False,
             type='style',  # TODO: 'plot_info' ??
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Toggle axis autoticks."
         )),
 
         ('zeroline', dict(
             required=False,
             type='style',
-            val_types=quick['type']['bool'],
+            val_types=quick['val_types']['bool'],
             description="Show/Hide an additional zeroline for this axis."
         )),
 
         ('zerolinecolor', dict(
             required=False,
             type='style',
-            val_types=quick['type']['color'],
+            val_types=quick['val_types']['color'],
             description="Set the color of this axis' zeroline."
         )),
 
         ('zerolinewidth', dict(
             required=False,
             type='style',
-            val_types=quick['type']['number'],
+            val_types=quick['val_types']['number'],
             description="Sets the width of this axis' zeroline."
         )),
 
