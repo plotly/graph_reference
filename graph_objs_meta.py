@@ -234,8 +234,7 @@ INFO = OrderedDict(
             description="If 'all' then the 'y' points are shown with the box. If "
                 "'outliers' then only the 'outliers' of the 'y' points are shown. If False "
                 "then no points are shown",
-            default=False
-            ),
+            default=False),
 
         jitter=dict(
             required=False,
