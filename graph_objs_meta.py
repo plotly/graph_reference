@@ -4,7 +4,59 @@ from collections import OrderedDict
 
 # TODO: change `description=False` to `description=""` ??? (or no key...)
 
+quick = dict(
+    val_types=dict(
+
+        bool="bool: True | False",
+
+        number="number",
+
+        color="str describing color",
+
+        data_array="array_like of numbers, strings, datetimes",
+
+        xaxis="string: 'x' | 'x2' | 'x3' | etc.",
+
+        yaxis="string: 'y' | 'y2' | 'y3' | etc.",
+
+
+    ),
+
+    description=dict(
+
+        name=
+        "The label associated with this trace. This name will appear in the "
+        "legend, in the column header in the spreadsheet, and on hover.",
+
+        error_y=
+        "A dictionary-like object describing vertical error bars that can be "
+        "drawn with this trace's (x, y) points.",
+
+        xaxis=
+        "This key determines which xaxis the x coordinates in this trace will "
+        "reference in the figure. 'x' references layout['xaxis'] and 'x2' "
+        "references layout['xaxis2'].",
+
+        yaxis=
+        "This key determines which yaxis the y coordinates in this trace will "
+        "reference in the figure. 'y' references layout['yaxis'] and 'y2' "
+        "references layout['yaxis2'].",
+
+    ),
+
+    examples=dict(
+
+        color=[
+            "'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
+            "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"],
+
+
+    )
+)
 shortcuts = dict(
+
+    bool_type="bool: True | False",
+
     color=dict(
         type='str describing color',
         examples=["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
@@ -777,73 +829,249 @@ INFO = dict(
         ('opacity', dict()),
     ]),
 
-    textfont=OrderedDict([]),
+    textfont=OrderedDict([
 
-    titlefont=OrderedDict([]),
+        ('family', dict(
+            required=False,
+            type='style',
+            description="Setting for the font family."
+        )),
+
+        ('size', dict(
+            required=False,
+            type='style',
+            val_types="number",
+            description="Setting for the font size."
+        )),
+
+        ('color', dict(
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Color of the text.",
+            examples=shortcuts['color']['examples']
+        ))
+    ]),
+
+    titlefont=OrderedDict([
+
+        ('family', dict(
+            required=False,
+            type='style',
+            description="Setting for the font family."
+        )),
+
+        ('size', dict(
+            required=False,
+            type='style',
+            val_types="number",
+            description="Setting for the font size."
+        )),
+
+        ('color', dict(
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Color of the text.",
+            examples=shortcuts['color']['examples']
+        ))
+    ]),
 
     xaxis=OrderedDict([
 
-        ('range', dict()),
+        ('title', dict()),
 
-        ('type', dict()),
+        ('domain', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Sets the domain of this axis. The available space "
+                        "for this axis to live in is from 0 to 1."
+        )),
 
-        ('showline', dict()),
+        ('range', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Defines the start and end point for the axis.",
+            examples=[[-13, 20], [0, 1]]
+        )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: linear | log",
+            description="Defines format of the axis."
+        )),
+
+        ('showline', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Defines whether or not to show this axis line."
+        )),
 
         ('mirror', dict()),
 
-        ('linecolor', dict()),
+        ('linecolor', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Defines the axis line color.",
+            examples=shortcuts['color']['examples']
+        )),
 
-        ('linewidth', dict()),
+        ('linewidth', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the width of the axis line."
+        )),
 
-        ('tick0', dict()),
+        ('tick0', dict(  # TODO: better description?
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="Sets the starting point of the axis."
+        )),
 
-        ('dtick', dict()),
+        ('dtick', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_type="number",
+            description="Sets the difference between ticks on this axis."
+        )),
 
-        ('ticks', dict()),
+        ('ticks', dict(  # TODO: separate object for ticks?
+            requried=False,
+            type='plot_info',  # TODO: 'style'?
+            val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
+            description="Sets format of tick visibility."
+        )),
 
-        ('ticklen', dict()),
+        ('ticklen', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the length of the tick lines."   # in points?
+        )),
 
-        ('tickcolor', dict()),
+        ('tickcolor', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Sets the color of the tick lines."
+        )),
 
-        ('nticks', dict()),
+        ('nticks', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the number of ticks to appear on the axis."
+        )),
 
-        ('showticklabels', dict()),
+        ('showticklabels', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide the axis tick labels."
+        )),
 
-        ('tickangle', dict()),
+        ('tickangle', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the angle of the ticks in degrees."
+        )),
 
-        ('exponentformat', dict()),
+        ('exponentformat', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('showgrid', dict()),
+        ('showgrid', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide grid for the axis."
+        )),
 
-        ('gridcolor', dict()),
+        ('gridcolor', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Sets the axis grid color. Any HTML specified color "
+                        "is accepted.",
+            examples=shortcuts['color']['examples']
+        )),
 
-        ('gridwidth', dict()),
+        ('gridwidth', dict(
+            requried=False,
+            type='style',
+            val_types="number",
+            description="Sets the grid width."
+        )),
 
-        ('autorange', dict()),
+        ('autorange', dict(
+            required=False,
+            type='plot_info',
+            val_types=quick['type']['bool'],
+            description="Toggle whether to let plotly autorange the axis."
+        )),
 
-        ('rangemode', dict()),
+        ('rangemode', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
+        )),
 
-        ('autotick', dict()),
+        ('autotick', dict(
+            required=False,
+            type='style',  # TODO: 'plot_info' ??
+            val_types=quick['type']['bool'],
+            description="Toggle axis autoticks."
+        )),
 
-        ('zeroline', dict()),
+        ('zeroline', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide an additional zeroline for this axis."
+        )),
 
-        ('zerolinecolor', dict()),
+        ('zerolinecolor', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['color'],
+            description="Set the color of this axis' zeroline."
+        )),
 
-        ('zerolinewidth', dict()),
+        ('zerolinewidth', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['number'],
+            description="Sets the width of this axis' zeroline."
+        )),
 
-        ('titlefont', dict()),
+        ('titlefont', dict(
+            required=False,
+            type='object',
+            val_types="Titlefont object | dict",
+            description="A dictionary for configuring the axis title font."
+        )),
 
-        ('tickfont', dict()),
+        ('tickfont', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='object',
+            val_types="TickFont object | dict",
+            description="A dictionary for configuring the tick font."
+        )),
 
         ('overlaying', dict()),
 
-        ('domain', dict()),
-
         ('position', dict()),
 
-        ('anchor', dict()),
-
-        ('title', dict()),
+        ('anchor', dict())
     ]),
 
     xbins=OrderedDict([
@@ -857,67 +1085,199 @@ INFO = dict(
 
     yaxis=OrderedDict([
 
-        ('range', dict()),
+        ('title', dict()),
 
-        ('type', dict()),
+        ('domain', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Sets the domain of this axis. The available space "
+                        "for this axis to live in is from 0 to 1."
+        )),
 
-        ('showline', dict()),
+        ('range', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Defines the start and end point for the axis.",
+            examples=[[-13, 20], [0, 1]]
+        )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: linear | log",
+            description="Defines format of the axis."
+        )),
+
+        ('showline', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Defines whether or not to show this axis line."
+        )),
 
         ('mirror', dict()),
 
-        ('linecolor', dict()),
+        ('linecolor', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Defines the axis line color.",
+            examples=shortcuts['color']['examples']
+        )),
 
-        ('linewidth', dict()),
+        ('linewidth', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the width of the axis line."
+        )),
 
-        ('tick0', dict()),
+        ('tick0', dict(  # TODO: better description?
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="Sets the starting point of the axis."
+        )),
 
-        ('dtick', dict()),
+        ('dtick', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_type="number",
+            description="Sets the difference between ticks on this axis."
+        )),
 
-        ('ticks', dict()),
+        ('ticks', dict(  # TODO: separate object for ticks?
+            requried=False,
+            type='plot_info',  # TODO: 'style'?
+            val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
+            description="Sets format of tick visibility."
+        )),
 
-        ('ticklen', dict()),
+        ('ticklen', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the length of the tick lines."   # in points?
+        )),
 
-        ('tickcolor', dict()),
+        ('tickcolor', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Sets the color of the tick lines."
+        )),
 
-        ('nticks', dict()),
+        ('nticks', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the number of ticks to appear on the axis."
+        )),
 
-        ('showticklabels', dict()),
+        ('showticklabels', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide the axis tick labels."
+        )),
 
-        ('tickangle', dict()),
+        ('tickangle', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the angle of the ticks in degrees."
+        )),
 
-        ('exponentformat', dict()),
+        ('exponentformat', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('showgrid', dict()),
+        ('showgrid', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide grid for the axis."
+        )),
 
-        ('gridcolor', dict()),
+        ('gridcolor', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Sets the axis grid color. Any HTML specified color "
+                        "is accepted.",
+            examples=shortcuts['color']['examples']
+        )),
 
-        ('gridwidth', dict()),
+        ('gridwidth', dict(
+            requried=False,
+            type='style',
+            val_types="number",
+            description="Sets the grid width."
+        )),
 
-        ('autorange', dict()),
+        ('autorange', dict(
+            required=False,
+            type='plot_info',
+            val_types=quick['type']['bool'],
+            description="Toggle whether to let plotly autorange the axis."
+        )),
 
-        ('rangemode', dict()),
+        ('rangemode', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
+        )),
 
-        ('autotick', dict()),
+        ('autotick', dict(
+            required=False,
+            type='style',  # TODO: 'plot_info' ??
+            val_types=quick['type']['bool'],
+            description="Toggle axis autoticks."
+        )),
 
-        ('zeroline', dict()),
+        ('zeroline', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['bool'],
+            description="Show/Hide an additional zeroline for this axis."
+        )),
 
-        ('zerolinecolor', dict()),
+        ('zerolinecolor', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['color'],
+            description="Set the color of this axis' zeroline."
+        )),
 
-        ('zerolinewidth', dict()),
+        ('zerolinewidth', dict(
+            required=False,
+            type='style',
+            val_types=quick['type']['number'],
+            description="Sets the width of this axis' zeroline."
+        )),
 
-        ('titlefont', dict()),
+        ('titlefont', dict(
+            required=False,
+            type='object',
+            val_types="Titlefont object | dict",
+            description="A dictionary for configuring the axis title font."
+        )),
 
-        ('tickfont', dict()),
+        ('tickfont', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='object',
+            val_types="TickFont object | dict",
+            description="A dictionary for configuring the tick font."
+        )),
 
         ('overlaying', dict()),
 
-        ('domain', dict()),
-
         ('position', dict()),
 
-        ('anchor', dict()),
-
-        ('title', dict()),
+        ('anchor', dict())
     ]),
 
     ybins=OrderedDict([
