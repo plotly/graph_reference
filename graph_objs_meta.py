@@ -844,54 +844,6 @@ INFO = dict(
         ('opacity', dict()),
     ]),
 
-    # textfont=OrderedDict([
-    #
-    #     ('family', dict(
-    #         required=False,
-    #         type='style',
-    #         description="Setting for the font family."
-    #     )),
-    #
-    #     ('size', dict(
-    #         required=False,
-    #         type='style',
-    #         val_types="number",
-    #         description="Setting for the font size."
-    #     )),
-    #
-    #     ('color', dict(
-    #         required=False,
-    #         type='style',
-    #         val_types=shortcuts['color']['type'],
-    #         description="Color of the text.",
-    #         examples=shortcuts['color']['examples']
-    #     ))
-    # ]),
-
-    # titlefont=OrderedDict([
-    #
-    #     ('family', dict(
-    #         required=False,
-    #         type='style',
-    #         description="Setting for the font family."
-    #     )),
-    #
-    #     ('size', dict(
-    #         required=False,
-    #         type='style',
-    #         val_types="number",
-    #         description="Setting for the font size."
-    #     )),
-    #
-    #     ('color', dict(
-    #         required=False,
-    #         type='style',
-    #         val_types=shortcuts['color']['type'],
-    #         description="Color of the text.",
-    #         examples=shortcuts['color']['examples']
-    #     ))
-    # ]),
-
     xaxis=OrderedDict([
 
         ('title', dict()),
