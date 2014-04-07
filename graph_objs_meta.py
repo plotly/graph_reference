@@ -2,24 +2,119 @@
 
 from collections import OrderedDict
 
-# TODO: change `description=False` to `description=""` ??? (or no key...)
+
+def qkgrab(attr_name, **kwargs):
+    d = {}
+    keyz = ['required', 'type', 'val_types', 'description']
+    for k in keyz:
+        if attr_name in kwargs:
+            d[k] = kwargs[attr_name]
+        elif attr_name in quick[k]:
+            d[k] = quick[k][attr_name]
+
+    if 'type' in d and d['type'] == 'object':
+        d['val_types'] = gen_val_type(attr_name)
+    return d
+
+def gen_val_type(name):
+    # TODO: xbins
+    return '_'.join([si.title() for si in name.split('_')]) + ' object | dict'
+
+def auto_populate_some_stuff():
+    for plot_obj in INFO:
+        for plot_obj_attr in plot_obj:
+            if plot_obj[plot_obj_attr]['type'] == 'object' and 'val_types' not in plot_obj[plot_obj_attr]:
+                
+                plot_obj[plot_obj_attr]['val_types'] = gen_val_type(plot_obj_attr)
+
+def histogram(x_or_y):
+    histx = OrderedDict([
+            ('x', dict(
+                required=True,
+                type='data',
+                val_types=quick['val_types']['data_array'],
+                description="The x data that is binned and plotted as bars " 
+                    "along the x-axis.")),
+
+            ('name', qkgrab('name')),
+
+            ('marker', dict(
+                required=False,
+                type='object')),
+
+            ('autobinx', dict()),
+
+            ('xbins', dict(
+                required=False,
+                type='object')),
+
+            ('histnorm', dict(
+                required=False)),
+
+            ('showlegend', qkgrab('showlegend')),
+
+            ('xaxis', qkgrab('xaxis')),
+
+            ('yaxis', qkgrab('yaxis')),
+
+            ('type', qkgrab('type', val_types="'histogramx'", description=quick['description']['type']('Histogramx')))
+        ])
+    if x_or_y == 'x':
+        return histx
+    # change up some key names
+    histy = OrderedDict([('y', v) if k == 'x' else 
+        ('ybins', v) if k == 'xbins' else
+        ('autobiny', v) if k == 'autobiny' else
+        (k, v) for k, v in histx.items()])
+
+    # switch up some 'x' to 'y's
+    histy['type']['val_types'] = "'histogramy'"
+    histy['type']['description'] = quick['description']['type']('Histogramy')
+    histy['y']['description'] = histy['y']['description'].replace('x', 'y')
+    return histy
+
+base = dict(
+    val_types=dict(
+        bool="bool: True | False",
+        number="number",
+        color="str describing color",
+        data_array="array_like of numbers, strings, datetimes",
+        text_array="array_like of strings"
+    )
+)
 
 quick = dict(
+    required=dict(
+        name=False,
+        error_y=False,
+        xaxis=False,
+        yaxis=False,
+        scl=False,
+        colorbar=False,
+        showlegend=False,
+        type=True,
+        text=False
+    ),
+
+    type=dict(
+        name='data',
+        error_y='object',
+        xaxis='plot_info',
+        yaxis='plot_info',
+        scl='style',
+        colorbar='style',
+        showlegend='style',
+        type='plot_info',
+        text='data'
+    ),
+
     val_types=dict(
-
-        bool="bool: True | False",
-
-        number="number",
-
-        color="str describing color",
-
-        data_array="array_like of numbers, strings, datetimes",
-
+        name="string",
         xaxis="string: 'x' | 'x2' | 'x3' | etc.",
-
         yaxis="string: 'y' | 'y2' | 'y3' | etc.",
-
-
+        showlegend=base['val_types']['bool'],
+        text=base['val_types']['text_array'],
+        **base['val_types']
     ),
 
     description=dict(
@@ -42,6 +137,14 @@ quick = dict(
         "reference in the figure. 'y' references layout['yaxis'] and 'y2' "
         "references layout['yaxis2'].",
 
+        scl=
+        "array_like of value-color pairs | 'Greys' | 'Greens' | "
+        "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
+        "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
+        "| 'YIGnBu'",
+
+        type=lambda(name): "Plotly identifier for trace type, this is set automatically with a call to {Obj}(...).".format(Obj=name)
+
     ),
 
     examples=dict(
@@ -50,58 +153,21 @@ quick = dict(
             "'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
             "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"],
 
+        scl=["Greys",
+              [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]],
+              [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],
+               [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
+               [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
+               [0.75,"rgb(199, 233, 180)"],
+               [0.875,"rgb(237, 248, 217)"],
+               [1,"rgb(255, 255, 217)"]]],
 
-    )
-)
-shortcuts = dict(
-
-    bool_type="bool: True | False",
-
-    color=dict(
-        type='str describing color',
-        examples=["'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
-                  "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"]),
-
-    data_array=dict(
-        type="array_like of numbers, strings, datetimes"
     ),
 
-    text=dict(
-        val_types="array_like of strings"
+    default=dict(
+        xaxis="'x'",
+        yaxis="'x'"
     ),
-
-    name=dict(
-        required=False,
-        type='plot_info',
-        val_types="string",
-        description="The label associated with this trace. "
-                    "This name will appear in the legend, in the column "
-                    "header in the spreadsheet, and on hover."),
-    error_y=dict(
-        required=False,
-        type='object',
-        val_types="Error_Y object | dict",
-        description="A dictionary-like object describing vertical error bars "
-                    "that can be drawn with this trace's (x, y) points."),
-
-    xaxis=dict(
-        required=False,
-        type='plot_info',
-        default="'x'",
-        val_types="string: 'x', 'x2', 'x3', ...",
-        description="This key determines which xaxis the x coordinates in "
-                    "this trace will reference in the figure. "
-                    "'x' references layout['xaxis'] and 'x2' "
-                    "references layout['xaxis2']."),
-
-    yaxis=dict(
-        required=False,
-        type='plot_info',
-        val_types="string: 'y', 'y2', 'y3', ...",
-        description="This key determines which yaxis the y coordinates in "
-                    "this trace will reference in the figure. "
-                    "'y' references layout['yaxis'] and 'y2' "
-                    "references layout['yaxis2']."),
 )
 
 
@@ -122,26 +188,22 @@ INFO = dict(
         ('x', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
+            val_types=quick['val_types']['data_array'],
             description="the x coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
+            val_types=quick['val_types']['data_array'],
             description="the y coordinatey from the (x,y) pair on the scatter "
                         "plot.")),
 
-        ('text', dict(
-            required=False,
-            type='data',
-            val_types=shortcuts['text']['val_types'],
-            description="the text elements associated with every (x,y) pair "
-                        "on the scatter plot. If the scatter 'mode' doesn't "
-                        "include 'text' then text will appear on hover.")),
+        ('text', qkgrab('text', description="the text elements associated with every (x,y) pair "
+            "on the scatter plot. If the scatter 'mode' doesn't "
+            "include 'text' then text will appear on hover.")),
 
-        ('name', shortcuts['name']),
+        ('name', qkgrab('name')),
 
         ('mode', dict(
             required=False,
@@ -178,8 +240,8 @@ INFO = dict(
         ('fillcolor', dict(
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
-            examples=shortcuts['color']['examples'])),
+            val_types=quick['val_types']['color'],
+            examples=quick['examples']['color'])),
 
         ('opacity', dict(
             required=False,
@@ -187,36 +249,25 @@ INFO = dict(
             val_types="number in [0, 1]",
             description="Sets the opacity, or transparency, of the markers "
                         "and lines of the scatter plot. Also known as the "
-                        "alpha channel. The opacity can also be set in the "
+                        "alpha channel of colors. "
+                        "The opacity can also be set in the "
                         "'marker' and 'line' objects.")),
 
-        ('showlegend', dict(
-            required=False,
-            type='plot_info',
-            val_types="True | False",
-            default="True",
-            description="If True, this trace will appear in the legend. "
-                        "Otherwise it will be hidden in the legend.")),
+        ('showlegend', qkgrab('showlegend')),
 
-        ('xaxis', shortcuts['xaxis']),
+        ('xaxis', qkgrab('xaxis')),
 
-        ('yaxis', shortcuts['yaxis']),
+        ('yaxis', qkgrab('yaxis')),
 
-        ('error_y', shortcuts['error_y']),
+        ('error_y', qkgrab('error_y')),
 
         ('textfont', dict(
             required=False,
             type='object',
-            val_types="Font object | dict",
             description="A dictionary-like object describing the font style "
                         "of this scatter's text elements.")),
 
-        ('type', dict(
-            required=False,
-            type='plot_info',
-            val_types="'scatter'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatically with a call to Scatter(...)."))
+        ('type', qkgrab('type', val_types="'scatter'", description=quick['description']['type']('Scatter')))
     ]),  # (end_list ']', end_od ')', end_entry ')'
 
 
@@ -225,45 +276,38 @@ INFO = dict(
         ('x', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
+            val_types=quick['val_types']['data_array'],
             description="the x coordinates of the bars or the bar chart's "
                         "categories.")),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
-            description="the y data for bar charts, which is the length of the "
+            val_types=quick['val_types']['data_array'],
+            description="the y data for bar charts, which is the length of the"
                         "bars.")),
 
-        ('text', dict(
-            required=False,
-            type='data',
-            val_types=shortcuts['text']['val_types'],
-            description='text elements that appear on hover of the bars')),
+        ('text', qkgrab('text', description='text elements that appear on hover of the bars')),
 
-        ('name', shortcuts['name']),
+        ('name', qkgrab('name')),
 
         ('marker', dict(
             required=False,
-            type='structure',
-            val_types="Marker | dict",
+            type='object',
             description="A dictionary-like object describing the "
                         "style of the bars, like the color and the border.")),
 
-        ('xaxis', shortcuts['xaxis']),
+        ('showlegend', qkgrab('showlegend')),
 
-        ('yaxis', shortcuts['yaxis']),
+        ('xaxis', qkgrab('xaxis')),
 
-        ('error_y', shortcuts['error_y']),
+        ('yaxis', qkgrab('yaxis')),
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="'bar'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Bar(...)."))
-    ]),  # (end_list ']', end_od ')', end_entry ')'
+        ('error_y', qkgrab('error_y')),
+
+        ('type', qkgrab('type', val_types="'bar'", description=quick['description']['type']('Bar')))
+
+        ]),  # (end_list ']', end_od ')', end_entry ')'
 
     box=OrderedDict([
 
@@ -274,13 +318,7 @@ INFO = dict(
             description="Array of the numbers from which the box plot "
                         "describes.")),
 
-        ('name', dict(
-            required=False,
-            type="plot_info",
-            val_types="string",
-            description="The label associated with this box plot. This name "
-                        "appears on the x-axis, in the legend, on hover, and  "
-                        "in the column header in the spreadsheet")),
+        ('name', qkgrab('name')),
 
         ('boxpoints', dict(
             required=False,
@@ -326,25 +364,30 @@ INFO = dict(
             required=False,
             type='style',
             description="Color of the box interior.",
-            val_types=shortcuts['color']['type'],
-            examples=shortcuts['color']['examples'])),
+            val_types=quick['val_types']['color'],
+            examples=quick['examples']['color'])),
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='box'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Box(...)."))
+        ('showlegend', qkgrab('showlegend')),
+
+        ('xaxis', qkgrab('xaxis')),
+
+        ('yaxis', qkgrab('yaxis')),
+
+        ('type', qkgrab('type', val_types="'box'", description=quick['description']['type']('Box')))
     ]),  # (end_list ']', end_od ')', end_entry ')'
 
     contour=OrderedDict([
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='contour'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Contour(...)."))
+        ('name', qkgrab('name')),
+
+        ('showlegend', qkgrab('showlegend')),
+
+        ('xaxis', qkgrab('xaxis')),
+
+        ('yaxis', qkgrab('yaxis')),
+
+        ('type', qkgrab('type', val_types="'contour'", description=quick['description']['type']('Contour')))
+
     ]),  # (end_list ']', end_od ')', end_entry ')'
 
     heatmap=OrderedDict([
@@ -360,44 +403,40 @@ INFO = dict(
         ('x', dict(
             required=False,
             type='data',
-            val_types=shortcuts['data_array']['type'],
+            val_types=quick['val_types']['data_array'],
             description="If numerical or date-like, the coordinates of the "
                         "horizontal edges of the heatmap cells where the "
                         "length of 'x' must be one more than the number of "
-                        "columns in the heatmap. If strings, then the x-labels "
-                        "the heatmap cells where the length of 'x' is equal to "
+                        "columns in the heatmap. "
+                        "If strings, then the x-labels the heatmap cells "
+                        "where the length of 'x' is equal to "
                         "the number of columns in the heatmap.")),
 
         ('y', dict(
             required=False,
             type='data',
-            val_types=shortcuts['data_array']['type'],
+            val_types=quick['val_types']['data_array'],
             description="If numerical or date-like, the coordinates of the "
                         "vertical edges of the heatmap cells where the length "
                         "of 'y' must be one more than the number of rows in "
-                        "the heatmap. If strings, then the y-labels the "
-                        "heatmap cells where the length of 'y' is equal to the "
+                        "the heatmap. "
+                        "If strings, then y labels the heatmap cells where "
+                        "the length of 'y' is equal to the "
                         "number of rows in the heatmap.")),
 
+        ('name', qkgrab('name')),
+
         ('scl', dict(
-            required=False,
-            type='style',
-            val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
-                      "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
-                      "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
-                      "| 'YIGnBu'",
+            required=quick['type']['scl'],
+            type=quick['type']['scl'],
+            val_types=quick['val_types']['data_array'],
             description="The color scale. The strings are pre-defined color "
                         "scales. For custom color scales, define a list of "
                         "color-value pairs, where the first element of the "
                         "pair corresponds to a normalized value of z from 0-1 "
                         "(i.e. (z-zmin)/(zmax-zmin)), and the second element "
                         "of pair corresponds to a color.",
-            examples=["Greys", [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]],
-                      [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],
-                       [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
-                       [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
-                       [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],
-                       [1,"rgb(255, 255, 217)"]]])
+            examples=quick['examples']['scl'])
         ),
 
         ('colorbar', dict(
@@ -430,23 +469,25 @@ INFO = dict(
             type='style',
             val_types='number',
             description="The value used as the minimum in the color scale "
-                        "normalization in 'scl'. The default is the minimum of "
-                        "the 'z' data values.")),
+                        "normalization in 'scl'. "
+                        "The default is the minimum of the 'z' data values.")),
 
         ('zmax', dict(
             required=False,
             type='style',
             val_types='number',
             description="The value used as the maximum in the color scale "
-                        "normalization in 'scl'. The default is the minimum of "
-                        "the 'z' data values.")),
+                        "normalization in 'scl'. "
+                        "The default is the minimum of the 'z' data values.")),
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='heatmap'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Heatmap(...).")),
+        ('showlegend', qkgrab('showlegend')),
+
+        ('xaxis', qkgrab('xaxis')),
+
+        ('yaxis', qkgrab('yaxis')),
+
+        ('type', qkgrab('type', val_types="'heatmap'", description=quick['description']['type']('Heatmap')))
+
     ]),  # (end_list ']', end_od ')', end_entry ')'
 
     histogram2d=OrderedDict([
@@ -454,52 +495,30 @@ INFO = dict(
         ('x', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
-            description="If numerical or date-like, the coordinates of the "
-                        "horizontal edges of the histogram cells where the "
-                        "length of 'x' must be one more than the number of "
-                        "columns in the histogram. If strings, then the "
-                        "x-labels the histogram cells where the length of 'x' "
-                        "is equal to the number of columns in the histogram.")),
+            val_types=quick['val_types']['data_array'],
+            description="The x coordinates of the x, y pairs that are binned "
+                        "and plotted according to their distribution.")),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=shortcuts['data_array']['type'],
-            description="If numerical or date-like, the coordinates of the "
-                        "vertical edges of the histogram cells where the "
-                        "length of 'y' must be one more than the number of "
-                        "columns in the histogram. If strings, then the "
-                        "y-labels the histogram cells where the length of 'y' "
-                        "is equal to the number of columns in the histogram.")),
+            val_types=quick['val_types']['data_array'],
+            description="The x coordinates of the x, y pairs that are binned "
+                        "and plotted according to their distribution.")),
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='histogram2d'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogram2d(...).")),
+        ('name', qkgrab('name')),
 
         ('scl', dict(
             required=False,
             type='style',
-            val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
-                      "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
-                      "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
-                      "| 'YIGnBu'",
+            val_types=quick['val_types']['data_array'],
             description="The color scale. The strings are pre-defined color "
                         "scales. For custom color scales, define a list of "
                         "color-value pairs, where the first element of the "
-                        "pair corresponds to a normalized value of z from 0-1 "
-                        "(i.e. (z-zmin)/(zmax-zmin)), and the second element "
-                        "of pair corresponds to a color.",
-            examples=["Greys",
-                      [[0,"rgb(0,0,0)"],[1,"rgb(255,255,255)"]],
-                      [[0,"rgb(8, 29, 88)"],[0.125,"rgb(37, 52, 148)"],
-                       [0.25,"rgb(34, 94, 168)"],[0.375,"rgb(29, 145, 192)"],
-                       [0.5,"rgb(65, 182, 196)"],[0.625,"rgb(127, 205, 187)"],
-                       [0.75,"rgb(199, 233, 180)"],[0.875,"rgb(237, 248, 217)"],
-                       [1,"rgb(255, 255, 217)"]]])
+                        "pair corresponds to a normalized value from 0-1 of " 
+                        "the binned data and the second element of the pair "
+                        "corresponds to a color.",
+            examples=quick['examples']['scl'])
         ),
 
         ('colorbar', dict(
@@ -507,7 +526,12 @@ INFO = dict(
             type='object',
             val_types="ColorBar object | dict")),
 
-        ('autobinx', dict()),
+        ('autobinx', dict(
+            required=False,
+            default=True,
+            type='style',
+            val_types='True | False')
+        ),
 
         ('autobiny', dict()),
 
@@ -521,74 +545,21 @@ INFO = dict(
             type='object',
             val_types="YBins object | dict")),
 
-        ('histnorm', dict())
-    ]),  # (end_list ']', end_od ')', end_entry ')'
-
-    histogramx=OrderedDict([
-
-        ('x', dict(
-            required=True,
-            type='data',
-            val_types=shortcuts['data_array']['type'],  # TODO: is this right?
-            description="The x data that will be put into bins and plotted "
-                        "according to frequency in the y direction.")),
-
-        ('name', shortcuts['name']),
-
-        ('marker', dict(
-            required=False,
-            type='object',
-            val_types="Marker object | dict")),
-
-        ('autobinx', dict()),
-
-        ('xbins', dict(
-            required=False,
-            type='object',
-            val_types="XBins object | dict")),
-
         ('histnorm', dict()),
 
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='histogramx'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogramx(...)."))
-    ]),  # (end_list ']', end_od ')', end_entry ')'
+        ('showlegend', qkgrab('showlegend')),
 
-    histogramy=OrderedDict([
+        ('xaxis', qkgrab('xaxis')),
 
-        ('y', dict(
-            required=True,
-            type='data',
-            val_types=shortcuts['data_array']['type'],  # TODO: is this right?
-            description="The y data that will be put into bins and plotted "
-                        "according to frequency in the y direction.")),
+        ('yaxis', qkgrab('yaxis')),
 
-        ('name', shortcuts['name']),
+        ('type', qkgrab('type', val_types="'histogram2d'", description=quick['description']['type']('Histogram2d')))
 
-        ('marker', dict(
-            required=False,
-            type='object',
-            val_types="Marker object | dict")),
+    ]),
 
-        ('autobiny', dict()),
+    histogramx=histogram('x'),
 
-        ('ybins', dict(
-            required=False,
-            type='object',
-            val_types="YBins object | dict")),
-
-        ('histnorm', dict()),
-
-        ('type', dict(
-            required=True,
-            type='plot_info',
-            val_types="default: type='histogramy'",
-            description="Plotly identifier for trace type, this is set "
-                        "automatcally with a call to Histogramy(...)."))
-    ]),  # (end_list ']', end_od ')', end_entry ')'
+    histogramy=histogram('y'),
 
     annotation=OrderedDict([
 
@@ -614,10 +585,10 @@ INFO = dict(
         ('bordercolor', dict(
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="The color of the enclosing boarder of this "
                         "annotation.",
-            examples=shortcuts['color']['type'])),
+            examples=quick['val_types']['color'])),
 
         ('borderwidth', dict(
             required=False,
@@ -635,9 +606,9 @@ INFO = dict(
         ('bgcolor', dict(
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="The background (bg) color for this annotation.",
-            examples=shortcuts['color']['type'])),
+            examples=quick['val_types']['color'])),
 
         ('xref', dict(
             required=False,
@@ -741,9 +712,9 @@ INFO = dict(
         ('color', dict(
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="Color of the text.",
-            examples=shortcuts['color']['examples']
+            examples=quick['examples']['color']
         ))
     ]),
 
@@ -887,9 +858,9 @@ INFO = dict(
         ('linecolor', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="Defines the axis line color.",
-            examples=shortcuts['color']['examples']
+            examples=quick['examples']['color']
         )),
 
         ('linewidth', dict(  # TODO: why isn't this just a Line object here?
@@ -930,7 +901,7 @@ INFO = dict(
         ('tickcolor', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="Sets the color of the tick lines."
         )),
 
@@ -973,7 +944,7 @@ INFO = dict(
             val_types=quick['val_types']['bool'],
             description="Sets the axis grid color. Any HTML specified color "
                         "is accepted.",
-            examples=shortcuts['color']['examples']
+            examples=quick['examples']['color']
         )),
 
         ('gridwidth', dict(
@@ -1093,9 +1064,9 @@ INFO = dict(
         ('linecolor', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="Defines the axis line color.",
-            examples=shortcuts['color']['examples']
+            examples=quick['examples']['color']
         )),
 
         ('linewidth', dict(  # TODO: why isn't this just a Line object here?
@@ -1136,7 +1107,7 @@ INFO = dict(
         ('tickcolor', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types=shortcuts['color']['type'],
+            val_types=quick['val_types']['color'],
             description="Sets the color of the tick lines."
         )),
 
@@ -1179,7 +1150,7 @@ INFO = dict(
             val_types=quick['val_types']['bool'],
             description="Sets the axis grid color. Any HTML specified color "
                         "is accepted.",
-            examples=shortcuts['color']['examples']
+            examples=quick['examples']['color']
         )),
 
         ('gridwidth', dict(
@@ -1261,5 +1232,7 @@ INFO = dict(
     ]),
 )
 
-# import json
-# print json.dumps(INFO)
+
+auto_populate_some_stuff()
+import json
+print json.dumps(INFO)
