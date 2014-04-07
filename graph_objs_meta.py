@@ -839,6 +839,10 @@ INFO = dict(
 
         ('size', dict()),
 
+        ('sizemode', dict()),
+
+        ('sizeref', dict()),
+
         ('color', dict()),
 
         ('opacity', dict()),
