@@ -725,11 +725,26 @@ INFO = dict(
 
     font=OrderedDict([
 
-        ('color', dict()),
+        ('family', dict(
+            required=False,
+            type='style',
+            description="Setting for the font family."
+        )),
 
-        ('size', dict()),
+        ('size', dict(
+            required=False,
+            type='style',
+            val_types="number",
+            description="Setting for the font size."
+        )),
 
-        ('family', dict()),
+        ('color', dict(
+            required=False,
+            type='style',
+            val_types=shortcuts['color']['type'],
+            description="Color of the text.",
+            examples=shortcuts['color']['examples']
+        ))
     ]),
 
     layout=OrderedDict([
@@ -829,53 +844,53 @@ INFO = dict(
         ('opacity', dict()),
     ]),
 
-    textfont=OrderedDict([
+    # textfont=OrderedDict([
+    #
+    #     ('family', dict(
+    #         required=False,
+    #         type='style',
+    #         description="Setting for the font family."
+    #     )),
+    #
+    #     ('size', dict(
+    #         required=False,
+    #         type='style',
+    #         val_types="number",
+    #         description="Setting for the font size."
+    #     )),
+    #
+    #     ('color', dict(
+    #         required=False,
+    #         type='style',
+    #         val_types=shortcuts['color']['type'],
+    #         description="Color of the text.",
+    #         examples=shortcuts['color']['examples']
+    #     ))
+    # ]),
 
-        ('family', dict(
-            required=False,
-            type='style',
-            description="Setting for the font family."
-        )),
-
-        ('size', dict(
-            required=False,
-            type='style',
-            val_types="number",
-            description="Setting for the font size."
-        )),
-
-        ('color', dict(
-            required=False,
-            type='style',
-            val_types=shortcuts['color']['type'],
-            description="Color of the text.",
-            examples=shortcuts['color']['examples']
-        ))
-    ]),
-
-    titlefont=OrderedDict([
-
-        ('family', dict(
-            required=False,
-            type='style',
-            description="Setting for the font family."
-        )),
-
-        ('size', dict(
-            required=False,
-            type='style',
-            val_types="number",
-            description="Setting for the font size."
-        )),
-
-        ('color', dict(
-            required=False,
-            type='style',
-            val_types=shortcuts['color']['type'],
-            description="Color of the text.",
-            examples=shortcuts['color']['examples']
-        ))
-    ]),
+    # titlefont=OrderedDict([
+    #
+    #     ('family', dict(
+    #         required=False,
+    #         type='style',
+    #         description="Setting for the font family."
+    #     )),
+    #
+    #     ('size', dict(
+    #         required=False,
+    #         type='style',
+    #         val_types="number",
+    #         description="Setting for the font size."
+    #     )),
+    #
+    #     ('color', dict(
+    #         required=False,
+    #         type='style',
+    #         val_types=shortcuts['color']['type'],
+    #         description="Color of the text.",
+    #         examples=shortcuts['color']['examples']
+    #     ))
+    # ]),
 
     xaxis=OrderedDict([
 
@@ -1056,14 +1071,14 @@ INFO = dict(
         ('titlefont', dict(
             required=False,
             type='object',
-            val_types="Titlefont object | dict",
+            val_types="Font object | dict",
             description="A dictionary for configuring the axis title font."
         )),
 
         ('tickfont', dict(  # TODO: separate object for ticks?
             required=False,
             type='object',
-            val_types="TickFont object | dict",
+            val_types="Font object | dict",
             description="A dictionary for configuring the tick font."
         )),
 
