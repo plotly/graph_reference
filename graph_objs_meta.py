@@ -307,6 +307,14 @@ def axis():
             description="Sets the color of the tick lines."
         )),
 
+        ('tickwidth', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=quick['val_types']['number'](ut=0),
+            description="Sets the color of the tick lines."
+        )),
+
+
         ('nticks', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
@@ -429,10 +437,30 @@ def bins():
         ('size', dict())
     ])
 
+def number(lt=None, leq=None, ut=None, uep=None):
+    if not lt and not leq and not ut and not uep:
+        return "number"
+    elif lt and not ut and not uep:
+        return "number: x < {0}".format(lt)
+    elif leq and not ut and not uep:
+        return "number: x <= {0}".format(leq)
+    elif ut and not lt and not leq:
+        return "number: x > {0}".format(ut)
+    elif uep and not lt and not leq:
+        return "number: x >= {0}".format(uep)
+    elif lt and ut:
+        return "number: x in ({0}, {1})".format(lt, ut)
+    elif lt and uep:
+        return "number: x in [{0}, {1})".format(lt, uep)
+    elif leq and ut:
+        return "number: x in ({0}, {1}]".format(leq, ut)
+    elif leq and uep:
+        return "number: x in [{0}, {1}]".format(leq, uep)
+
 base = dict(
     val_types=dict(
         bool="bool: True | False",
-        number="number",
+        number=number,
         color="str describing color",
         data_array="array_like of numbers, strings, datetimes",
         text_array="array_like of strings"
@@ -1022,9 +1050,15 @@ INFO = OrderedDict([
 
     ('legend', OrderedDict([
 
+        ('x', dict()),
+
+        ('y', dict()),
+
         ('bgcolor', dict()),
 
         ('bordercolor', dict()),
+
+        ('borderwidth', dict()),        
 
         ('font', dict()),
 
@@ -1040,6 +1074,9 @@ INFO = OrderedDict([
         ('width', dict()),
 
         ('opacity', dict()),
+
+        ('smoothing', dict(
+            description="Only applies to contours"))
     ])),
 
     ('margin', OrderedDict([
@@ -1078,7 +1115,17 @@ INFO = OrderedDict([
 
     ('yaxis', axis()),
 
-    ('ybins', bins())
+    ('ybins', bins()),
+
+    ('contours', OrderedDict([
+        ('start', dict()),
+        ('end', dict()),
+        ('size', dict()),
+        ('coloring', dict()),
+        ('showlines', dict()),
+    ]))
+
+
 ])
 
 
