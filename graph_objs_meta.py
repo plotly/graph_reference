@@ -2,13 +2,12 @@
 
 from collections import OrderedDict
 
-
 def qkgrab(attr_name, **kwargs):
     d = {}
     keyz = ['required', 'type', 'val_types', 'description']
     for k in keyz:
-        if attr_name in kwargs:
-            d[k] = kwargs[attr_name]
+        if k in kwargs:
+            d[k] = kwargs[k]
         elif attr_name in quick[k]:
             d[k] = quick[k][attr_name]
 
@@ -23,7 +22,9 @@ def gen_val_type(name):
 def auto_populate_some_stuff():
     for plot_obj in INFO:
         for plot_obj_attr in plot_obj:
-            if plot_obj[plot_obj_attr]['type'] == 'object' and 'val_types' not in plot_obj[plot_obj_attr]:
+            if 'type' in plot_obj and \
+                plot_obj[plot_obj_attr]['type'] == 'object' and \
+                'val_types' not in plot_obj[plot_obj_attr]:
                 
                 plot_obj[plot_obj_attr]['val_types'] = gen_val_type(plot_obj_attr)
 
@@ -1234,5 +1235,10 @@ INFO = dict(
 
 
 auto_populate_some_stuff()
-import json
-print json.dumps(INFO)
+
+if __name__ == "__main__":
+    import json
+    with open('graph_objs_meta.min.json', 'w') as f:
+        f.write(json.dumps(INFO, sort_keys=False))
+    with open('graph_objs_meta.json', 'w') as f:
+        f.write(json.dumps(INFO, indent=4, sort_keys=False))
