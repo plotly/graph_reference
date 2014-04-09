@@ -967,9 +967,13 @@ INFO = OrderedDict([
 
     ('figure', OrderedDict([
 
-        ('data', dict()),
+        ('data', dict(
+            required=False,
+            type='object')),
 
-        ('layout', dict())
+        ('layout', dict(
+            required=False,
+            type='object'))
     ])),
 
     ('font', OrderedDict([
