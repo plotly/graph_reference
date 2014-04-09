@@ -876,8 +876,14 @@
     "colorbar": {}, 
     "error_y": {}, 
     "figure": {
-        "data": {}, 
-        "layout": {}
+        "data": {
+            "required": false, 
+            "type": "object"
+        }, 
+        "layout": {
+            "required": false, 
+            "type": "object"
+        }
     }, 
     "font": {
         "family": {
