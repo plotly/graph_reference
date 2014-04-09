@@ -724,7 +724,7 @@
                     ]
                 ]
             ], 
-            "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value from 0-1 of the binned data and the second element of the pair\u00a0corresponds to a color."
+            "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value from 0-1 of the binned data and the second element of the pair corresponds to a color."
         }, 
         "colorbar": {
             "val_types": "ColorBar object | dict", 
@@ -931,8 +931,11 @@
         "annotations": {}
     }, 
     "legend": {
+        "x": {}, 
+        "y": {}, 
         "bgcolor": {}, 
         "bordercolor": {}, 
+        "borderwidth": {}, 
         "font": {}, 
         "traceorder": {}
     }, 
@@ -940,7 +943,10 @@
         "dash": {}, 
         "color": {}, 
         "width": {}, 
-        "opacity": {}
+        "opacity": {}, 
+        "smoothing": {
+            "description": "Only applies to contours"
+        }
     }, 
     "margin": {
         "l": {}, 
@@ -1040,6 +1046,12 @@
         }, 
         "tickcolor": {
             "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
+        "tickwidth": {
+            "val_types": "number", 
             "required": false, 
             "type": "style", 
             "description": "Sets the color of the tick lines."
@@ -1233,6 +1245,12 @@
             "type": "style", 
             "description": "Sets the color of the tick lines."
         }, 
+        "tickwidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
         "nticks": {
             "val_types": "number", 
             "required": false, 
@@ -1335,5 +1353,12 @@
         "start": {}, 
         "end": {}, 
         "size": {}
+    }, 
+    "contours": {
+        "start": {}, 
+        "end": {}, 
+        "size": {}, 
+        "coloring": {}, 
+        "showlines": {}
     }
 }

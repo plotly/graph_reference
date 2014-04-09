@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
 from collections import OrderedDict
-
 
 def qkgrab(attr_name, **kwargs):
     d = {}
@@ -401,7 +398,7 @@ def axis():
         ('zerolinewidth', dict(
             required=False,
             type='style',
-            val_types=quick['val_types']['number'],
+            val_types=quick['val_types']['number'](),
             description="Sets the width of this axis' zeroline."
         )),
 
@@ -524,7 +521,7 @@ quick = dict(
         scl=
         "array_like of value-color pairs | 'Greys' | 'Greens' | "
         "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
-        "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
+        "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
         "| 'YIGnBu'",
 
         type=lambda(name): "Plotly identifier for trace type, "
@@ -801,7 +798,7 @@ INFO = OrderedDict([
                         "scales. For custom color scales, define a list of "
                         "color-value pairs, where the first element of the "
                         "pair corresponds to a normalized value from 0-1 of "
-                        "the binned data and the second element of the pair "
+                        "the binned data and the second element of the pair "
                         "corresponds to a color.",
             examples=quick['examples']['scl'])),
 
