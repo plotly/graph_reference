@@ -991,7 +991,8 @@
         }, 
         "annotations": {
             "type": "object"
-        }
+        }, 
+        "smith": {}
     }, 
     "legend": {
         "x": {
@@ -1040,7 +1041,6 @@
             "description": "Only applies to contours"
         }
     }, 
-    "smith": {}, 
     "margin": {
         "l": {
             "type": "style"
