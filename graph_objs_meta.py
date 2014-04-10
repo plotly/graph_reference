@@ -683,6 +683,15 @@ INFO = OrderedDict([
             description="A dictionary-like object describing the "
                         "style of the bars, like the color and the border.")),
 
+        ('opacity', dict(
+            required=False,
+            type='style',
+            val_types="number in [0, 1]",
+            description="Sets the opacity, or transparency, of the markers "
+                        "and lines of the scatter plot. Also known as the "
+                        "alpha channel of colors. The opacity can also be set "
+                        "in the 'marker' and 'line' objects.")),
+
         ('showlegend', qkgrab('showlegend')),
 
         ('xaxis', qkgrab('xaxis')),
