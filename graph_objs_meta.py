@@ -60,6 +60,8 @@ def histogram(x_or_y):
 
         ('yaxis', qkgrab('yaxis')),
 
+        ('stream', qkgrab('stream')),
+
         ('type', qkgrab('type', val_types="'histogramx'",
                         description=
                         quick['description']['type']('Histogramx')))
@@ -474,7 +476,8 @@ quick = dict(
         colorbar=False,
         showlegend=False,
         type=True,
-        text=False
+        text=False,
+        stream=False
     ),
 
     type=dict(
@@ -486,7 +489,8 @@ quick = dict(
         colorbar='style',
         showlegend='style',
         type='plot_info',
-        text='data'
+        text='data',
+        stream='object'
     ),
 
     val_types=dict(
@@ -525,7 +529,16 @@ quick = dict(
         "| 'YIGnBu'",
 
         type=lambda(name): "Plotly identifier for trace type, "
-        "this is set automatically with a call to {Obj}(...).".format(Obj=name)
+        "this is set automatically with a call to "
+        "{Obj}(...).".format(Obj=name),
+
+        stream=
+        "The stream dict that initializes traces as writable-streams, "
+        "for use with the real-time streaming API. "
+        "For more help, see: `help(plotly.plotly.Stream)`"
+        "or see examples here: "
+        "http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+
 
     ),
 

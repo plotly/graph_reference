@@ -601,6 +601,12 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "stream": {
+            "val_types": "Stream object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. For more help, see: `help(plotly.plotly.Stream)`or see examples here: http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        }, 
         "type": {
             "val_types": "'histogramx'", 
             "required": true, 
@@ -649,6 +655,12 @@
             "required": false, 
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
+        }, 
+        "stream": {
+            "val_types": "Stream object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. For more help, see: `help(plotly.plotly.Stream)`or see examples here: http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
         }, 
         "type": {
             "val_types": "'histogramy'", 
