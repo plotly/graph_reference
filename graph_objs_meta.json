@@ -1014,6 +1014,12 @@
         }, 
         "traceorder": {
             "type": "plot_info"
+        }, 
+        "xanchor": {
+            "type": "style"
+        }, 
+        "yanchor": {
+            "type": "style"
         }
     }, 
     "line": {
