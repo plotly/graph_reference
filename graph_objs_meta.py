@@ -1187,6 +1187,8 @@ INFO = OrderedDict([
             description="Only applies to contours"))
     ])),
 
+    ('smith', OrderedDict([])),
+
     ('margin', OrderedDict([
 
         ('l', dict(
