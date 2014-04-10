@@ -671,6 +671,8 @@ INFO = OrderedDict([
             description="the y data for bar charts, which is the length of the"
                         "bars.")),
 
+        ('bardir', dict()),
+
         ('text', qkgrab('text',
                         description='text elements that '
                         'appear on hover of the bars')),
