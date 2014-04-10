@@ -964,6 +964,9 @@
         "barmode": {
             "type": "plot_info"
         }, 
+        "bargap": {
+            "type": "plot_info"
+        }, 
         "bargroupgap": {
             "type": "plot_info"
         }, 
