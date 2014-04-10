@@ -1191,6 +1191,10 @@
             "required": false, 
             "type": "style"
         }, 
+        "showexponent": {
+            "required": false, 
+            "type": "style"
+        }, 
         "showgrid": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1265,7 +1269,8 @@
         }, 
         "overlaying": {}, 
         "position": {}, 
-        "anchor": {}
+        "anchor": {}, 
+        "unit": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1386,6 +1391,10 @@
             "required": false, 
             "type": "style"
         }, 
+        "showexponent": {
+            "required": false, 
+            "type": "style"
+        }, 
         "showgrid": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1460,7 +1469,8 @@
         }, 
         "overlaying": {}, 
         "position": {}, 
-        "anchor": {}
+        "anchor": {}, 
+        "unit": {}
     }, 
     "ybins": {
         "start": {}, 
