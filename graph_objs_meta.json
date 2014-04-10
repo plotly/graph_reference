@@ -1055,6 +1055,9 @@
         }, 
         "pad": {
             "type": "style"
+        }, 
+        "autoexpand": {
+            "type": "style"
         }
     }, 
     "marker": {
