@@ -120,6 +120,7 @@
             "type": "data", 
             "description": "the y data for bar charts, which is the length of thebars."
         }, 
+        "bardir": {}, 
         "text": {
             "val_types": "array_like of strings", 
             "required": false, 
