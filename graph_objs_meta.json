@@ -1040,6 +1040,7 @@
             "description": "Only applies to contours"
         }
     }, 
+    "smith": {}, 
     "margin": {
         "l": {
             "type": "style"
