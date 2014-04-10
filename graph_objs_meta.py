@@ -1163,12 +1163,20 @@ INFO = OrderedDict([
             type='plot_info'
         )),
 
+        ('xref', dict(
+            type='plot_info'
+        )),
+
+        ('yref', dict(
+            type='plot_info'
+        )),
+
         ('xanchor', dict(
-            type='style'
+            type='plot_info'
         )),
 
         ('yanchor', dict(
-            type='style'
+            type='plot_info'
         ))
     ])),
 

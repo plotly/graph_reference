@@ -1019,11 +1019,17 @@
         "traceorder": {
             "type": "plot_info"
         }, 
+        "xref": {
+            "type": "plot_info"
+        }, 
+        "yref": {
+            "type": "plot_info"
+        }, 
         "xanchor": {
-            "type": "style"
+            "type": "plot_info"
         }, 
         "yanchor": {
-            "type": "style"
+            "type": "plot_info"
         }
     }, 
     "line": {
