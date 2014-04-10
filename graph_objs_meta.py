@@ -1123,6 +1123,10 @@ INFO = OrderedDict([
         ('annotations', dict(
             type='object'
         )),
+
+        ('smith', OrderedDict([
+        ])),
+
     ])),
 
     ('legend', OrderedDict([
@@ -1187,7 +1191,6 @@ INFO = OrderedDict([
             description="Only applies to contours"))
     ])),
 
-    ('smith', OrderedDict([])),
 
     ('margin', OrderedDict([
 
