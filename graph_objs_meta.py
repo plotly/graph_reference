@@ -1208,6 +1208,10 @@ INFO = OrderedDict([
         ('pad', dict(
             type='style'
         )),
+
+        ('autoexpand', dict(
+            type='style'
+        ))
     ])),
 
     ('marker', OrderedDict([
