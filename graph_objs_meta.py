@@ -340,6 +340,12 @@ def axis():
             type='style'
         )),
 
+        ('showexponent', dict(
+            required=False,
+            type='style'
+        )),
+
+
         ('showgrid', dict(
             required=False,
             type='style',
@@ -422,8 +428,11 @@ def axis():
 
         ('position', dict()),
 
-        ('anchor', dict())
+        ('anchor', dict()),
+
+        ('unit', dict()),        
     ])
+
 
 
 def bins():
