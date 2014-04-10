@@ -1070,6 +1070,7 @@
             "type": "style"
         }
     }, 
+    "stream": {}, 
     "xaxis": {
         "title": {}, 
         "domain": {

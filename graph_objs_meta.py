@@ -1221,6 +1221,8 @@ INFO = OrderedDict([
         )),
     ])),
 
+    ('stream', OrderedDict([])),
+
     ('xaxis', axis()),
 
     ('xbins', bins()),
