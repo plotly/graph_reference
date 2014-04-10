@@ -931,63 +931,144 @@
         }
     }, 
     "layout": {
-        "title": {}, 
-        "xaxis": {}, 
-        "yaxis": {}, 
-        "legend": {}, 
-        "width": {}, 
-        "height": {}, 
-        "autosize": {}, 
-        "margin": {}, 
-        "paper_bgcolor": {}, 
-        "plot_bgcolor": {}, 
-        "barmode": {}, 
-        "bargroupgap": {}, 
-        "boxmode": {}, 
-        "boxgap": {}, 
-        "boxgroupgap": {}, 
-        "font": {}, 
-        "titlefont": {}, 
+        "title": {
+            "type": "plot_info"
+        }, 
+        "xaxis": {
+            "type": "object"
+        }, 
+        "yaxis": {
+            "type": "object"
+        }, 
+        "legend": {
+            "type": "object"
+        }, 
+        "width": {
+            "type": "style"
+        }, 
+        "height": {
+            "type": "style"
+        }, 
+        "autosize": {
+            "type": "style"
+        }, 
+        "margin": {
+            "type": "object"
+        }, 
+        "paper_bgcolor": {
+            "type": "style"
+        }, 
+        "plot_bgcolor": {
+            "type": "style"
+        }, 
+        "barmode": {
+            "type": "plot_info"
+        }, 
+        "bargroupgap": {
+            "type": "plot_info"
+        }, 
+        "boxmode": {
+            "type": "plot_info"
+        }, 
+        "boxgap": {
+            "type": "plot_info"
+        }, 
+        "boxgroupgap": {
+            "type": "plot_info"
+        }, 
+        "font": {
+            "type": "object"
+        }, 
+        "titlefont": {
+            "type": "object"
+        }, 
         "dragmode": {}, 
         "hovermode": {}, 
         "separators": {}, 
         "hidesources": {}, 
-        "showlegend": {}, 
-        "annotations": {}
+        "showlegend": {
+            "type": "plot_info"
+        }, 
+        "annotations": {
+            "type": "object"
+        }
     }, 
     "legend": {
-        "x": {}, 
-        "y": {}, 
-        "bgcolor": {}, 
-        "bordercolor": {}, 
-        "borderwidth": {}, 
-        "font": {}, 
-        "traceorder": {}
+        "x": {
+            "type": "plot_info"
+        }, 
+        "y": {
+            "type": "plot_info"
+        }, 
+        "bgcolor": {
+            "type": "style"
+        }, 
+        "bordercolor": {
+            "type": "style"
+        }, 
+        "borderwidth": {
+            "type": "style"
+        }, 
+        "font": {
+            "type": "object"
+        }, 
+        "traceorder": {
+            "type": "plot_info"
+        }
     }, 
     "line": {
-        "dash": {}, 
-        "color": {}, 
-        "width": {}, 
-        "opacity": {}, 
+        "dash": {
+            "type": "style"
+        }, 
+        "color": {
+            "type": "style"
+        }, 
+        "width": {
+            "type": "style"
+        }, 
+        "opacity": {
+            "type": "style"
+        }, 
         "smoothing": {
+            "type": "style", 
             "description": "Only applies to contours"
         }
     }, 
     "margin": {
-        "l": {}, 
-        "r": {}, 
-        "b": {}, 
-        "t": {}, 
-        "pad": {}
+        "l": {
+            "type": "style"
+        }, 
+        "r": {
+            "type": "style"
+        }, 
+        "b": {
+            "type": "style"
+        }, 
+        "t": {
+            "type": "style"
+        }, 
+        "pad": {
+            "type": "style"
+        }
     }, 
     "marker": {
-        "symbol": {}, 
-        "line": {}, 
-        "size": {}, 
+        "symbol": {
+            "type": "style"
+        }, 
+        "line": {
+            "type": "style"
+        }, 
+        "size": {
+            "type": "style"
+        }, 
         "sizemode": {}, 
         "sizeref": {}, 
-        "color": {}, 
-        "opacity": {}
+        "color": {
+            "type": "style"
+        }, 
+        "opacity": {
+            "type": "style"
+        }
     }, 
     "xaxis": {
         "title": {}, 

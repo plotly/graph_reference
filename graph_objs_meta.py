@@ -1026,112 +1026,199 @@ INFO = OrderedDict([
 
     ('layout', OrderedDict([
 
-        ('title', dict()),
+        ('title', dict(
+            type='plot_info'
+        )),
 
-        ('xaxis', dict()),
+        ('xaxis', dict(
+            type='object'
+        )),
 
-        ('yaxis', dict()),
+        ('yaxis', dict(
+            type='object'
+        )),
 
-        ('legend', dict()),
+        ('legend', dict(
+            type='object'
+        )),
 
-        ('width', dict()),
+        ('width', dict(
+            type='style'
+        )),
 
-        ('height', dict()),
+        ('height', dict(
+            type='style'
+        )),
 
-        ('autosize', dict()),
+        ('autosize', dict(
+            type='style'
+        )),
 
-        ('margin', dict()),
+        ('margin', dict(
+            type='object'
+        )),
 
-        ('paper_bgcolor', dict()),
+        ('paper_bgcolor', dict(
+            type='style'
+        )),
 
-        ('plot_bgcolor', dict()),
+        ('plot_bgcolor', dict(
+            type='style'
+        )),
 
-        ('barmode', dict()),
+        ('barmode', dict(
+            type='plot_info'
+        )),
 
-        ('bargroupgap', dict()),
+        ('bargroupgap', dict(
+            type='plot_info'
+        )),
 
-        ('boxmode', dict()),
+        ('boxmode', dict(
+            type='plot_info'
+        )),
 
-        ('boxgap', dict()),
+        ('boxgap', dict(
+            type='plot_info'
+        )),
 
-        ('boxgroupgap', dict()),
+        ('boxgroupgap', dict(
+            type='plot_info'
+        )),
 
-        ('font', dict()),
+        ('font', dict(
+            type='object'
+        )),
 
-        ('titlefont', dict()),
+        ('titlefont', dict(
+            type='object'
+        )),
 
-        ('dragmode', dict()),
+        ('dragmode', dict(
+        )),
 
-        ('hovermode', dict()),
+        ('hovermode', dict(
+        )),
 
-        ('separators', dict()),
+        ('separators', dict(
+        )),
 
-        ('hidesources', dict()),
+        ('hidesources', dict(
 
-        ('showlegend', dict()),
+        )),
 
-        ('annotations', dict()),
+        ('showlegend', dict(
+            type='plot_info'
+        )),
+
+        ('annotations', dict(
+            type='object'
+        )),
     ])),
 
     ('legend', OrderedDict([
 
-        ('x', dict()),
+        ('x', dict(
+            type='plot_info'
+        )),
 
-        ('y', dict()),
+        ('y', dict(
+            type='plot_info'
+        )),
 
-        ('bgcolor', dict()),
+        ('bgcolor', dict(
+            type='style'
+        )),
 
-        ('bordercolor', dict()),
+        ('bordercolor', dict(
+            type='style'
+        )),
 
-        ('borderwidth', dict()),        
+        ('borderwidth', dict(
+            type='style'
+        )),
 
-        ('font', dict()),
+        ('font', dict(
+            type='object'
+        )),
 
-        ('traceorder', dict()),
+        ('traceorder', dict(
+            type='plot_info'
+        )),
     ])),
 
     ('line', OrderedDict([
 
-        ('dash', dict()),
+        ('dash', dict(
+            type='style'
+        )),
 
-        ('color', dict()),
+        ('color', dict(
+            type='style'
+        )),
 
-        ('width', dict()),
+        ('width', dict(
+            type='style'
+        )),
 
-        ('opacity', dict()),
+        ('opacity', dict(
+            type='style'
+        )),
 
         ('smoothing', dict(
+            type='style',
             description="Only applies to contours"))
     ])),
 
     ('margin', OrderedDict([
 
-        ('l', dict()),
+        ('l', dict(
+            type='style'
+        )),
 
-        ('r', dict()),
+        ('r', dict(
+            type='style'
+        )),
 
-        ('b', dict()),
+        ('b', dict(
+            type='style'
+        )),
 
-        ('t', dict()),
+        ('t', dict(
+            type='style'
+        )),
 
-        ('pad', dict()),
+        ('pad', dict(
+            type='style'
+        )),
     ])),
 
     ('marker', OrderedDict([
 
-        ('symbol', dict()),
+        ('symbol', dict(
+            type='style'
+        )),
 
-        ('line', dict()),
+        ('line', dict(
+            type='style'
+        )),
 
-        ('size', dict()),
+        ('size', dict(
+            type='style'
+        )),
 
-        ('sizemode', dict()),
+        ('sizemode', dict(
+        )),
 
         ('sizeref', dict()),
 
-        ('color', dict()),
+        ('color', dict(
+            type='style'
+        )),
 
-        ('opacity', dict()),
+        ('opacity', dict(
+            type='style'
+        )),
     ])),
 
     ('xaxis', axis()),
