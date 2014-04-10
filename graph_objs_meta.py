@@ -1145,6 +1145,14 @@ INFO = OrderedDict([
         ('traceorder', dict(
             type='plot_info'
         )),
+
+        ('xanchor', dict(
+            type='style'
+        )),
+
+        ('yanchor', dict(
+            type='style'
+        ))
     ])),
 
     ('line', OrderedDict([
