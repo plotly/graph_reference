@@ -1079,6 +1079,10 @@ INFO = OrderedDict([
             type='plot_info'
         )),
 
+        ('bargap', dict(
+            type='plot_info'
+        )),
+
         ('bargroupgap', dict(
             type='plot_info'
         )),
