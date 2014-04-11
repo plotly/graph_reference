@@ -1286,6 +1286,6 @@ auto_populate_some_stuff()
 if __name__ == "__main__":
     import json
     with open('graph_objs_meta.min.json', 'w') as f:
-        f.write(json.dumps(INFO, sort_keys=False))
+        f.write(json.dumps(INFO, ensure_ascii=True, sort_keys=False))
     with open('graph_objs_meta.json', 'w') as f:
-        f.write(json.dumps(INFO, indent=4, sort_keys=False))
+        f.write(json.dumps(INFO, ensure_ascii=True, indent=4, sort_keys=False))
