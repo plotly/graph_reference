@@ -178,7 +178,7 @@
         "y": {
             "val_types": "array_like of numbers", 
             "required": true, 
-            "type": "plot_info", 
+            "type": "data", 
             "description": "Array of the numbers from which the box plot describes."
         }, 
         "name": {

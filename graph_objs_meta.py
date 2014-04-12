@@ -733,7 +733,7 @@ INFO = OrderedDict([
 
         ('y', dict(
             required=True,
-            type="plot_info",
+            type="data",
             val_types="array_like of numbers",
             description="Array of the numbers from which the box plot "
                         "describes.")),
