@@ -1234,15 +1234,24 @@ INFO = OrderedDict([
     ('marker', OrderedDict([
 
         ('symbol', dict(
-            type='style'
+            required=False,
+            type='style',
+            description="The symbol that is drawn on the plot for each marker."
         )),
 
         ('line', dict(
-            type='style'
+            required=False,
+            type='object',
+            val_types="Line object | dict",
+            description="A dict-like object describing the line belonging to "
+                        "the marker.",
         )),
 
         ('size', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=number(),
+            description="The size of the marker to be drawn."
         )),
 
         ('sizemode', dict(

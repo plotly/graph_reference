@@ -1072,13 +1072,21 @@
     }, 
     "marker": {
         "symbol": {
-            "type": "style"
+            "required": false, 
+            "type": "style", 
+            "description": "The symbol that is drawn on the plot for each marker."
         }, 
         "line": {
-            "type": "style"
+            "val_types": "Line object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dict-like object describing the line belonging to the marker."
         }, 
         "size": {
-            "type": "style"
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "The size of the marker to be drawn."
         }, 
         "sizemode": {}, 
         "sizeref": {}, 
