@@ -937,6 +937,12 @@
         "xaxis": {
             "type": "object"
         }, 
+        "radialaxis": {
+            "type": "object"
+        }, 
+        "angularaxis": {
+            "type": "object"
+        }, 
         "yaxis": {
             "type": "object"
         }, 
@@ -988,6 +994,12 @@
         "dragmode": {}, 
         "hovermode": {}, 
         "separators": {}, 
+        "labeloffset": {}, 
+        "orientation": {}, 
+        "direction": {}, 
+        "tickcolor": {}, 
+        "minortickcolor": {}, 
+        "defaultcolorrange": {}, 
         "hidesources": {}, 
         "showlegend": {
             "type": "plot_info"

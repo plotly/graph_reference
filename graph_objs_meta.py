@@ -1043,6 +1043,14 @@ INFO = OrderedDict([
             type='object'
         )),
 
+        ('radialaxis', dict(
+            type = 'object'
+        )),
+
+        ('angularaxis', dict(
+            type = 'object'
+        )),
+
         ('yaxis', dict(
             type='object'
         )),
@@ -1116,9 +1124,19 @@ INFO = OrderedDict([
         ('separators', dict(
         )),
 
-        ('hidesources', dict(
+        ('labeloffset', dict()),
 
-        )),
+        ('orientation', dict()),
+
+        ('direction', dict()),
+
+        ('tickcolor', dict()),
+
+        ('minortickcolor', dict()),
+
+        ('defaultcolorrange', dict()),
+
+        ('hidesources', dict()),
 
         ('showlegend', dict(
             type='plot_info'
