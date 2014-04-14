@@ -436,6 +436,7 @@ def axis():
 
         ('unit', dict()),
         ('tmin', dict()),
+        ('tmax', dict()),
         ('b', dict()),
         ('m', dict()),
         ('tickround', dict()),
