@@ -337,6 +337,8 @@ def axis():
 
         ('drange', dict()),
 
+        ('r0', dict()),
+
         ('exponentformat', dict(
             required=False,
             type='style'

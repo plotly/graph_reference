@@ -1286,6 +1286,7 @@
             "description": "Sets the angle of the ticks in degrees."
         }, 
         "drange": {}, 
+        "r0": {}, 
         "exponentformat": {
             "required": false, 
             "type": "style"
@@ -1487,6 +1488,7 @@
             "description": "Sets the angle of the ticks in degrees."
         }, 
         "drange": {}, 
+        "r0": {}, 
         "exponentformat": {
             "required": false, 
             "type": "style"
