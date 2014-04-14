@@ -602,9 +602,17 @@ INFO = OrderedDict([
             description="the y coordinatey from the (x,y) pair on the scatter "
                         "plot.")),
 
-        ('r', dict()),
+        ('r', dict(
+            required=False,
+            type='data',
+            val_types=quick['val_types']['data_array'],
+        )),
 
-        ('t', dict()),
+        ('t', dict(
+            required=False,
+            type='data',
+            val_types=quick['val_types']['data_array'],
+        )),
 
         ('text', qkgrab('text', description="the text elements associated "
                         "with every (x,y) pair on the scatter plot. "
@@ -1048,11 +1056,11 @@ INFO = OrderedDict([
         )),
 
         ('radialAxis', dict(
-            type = 'object'
+            type='object'
         )),
 
         ('angularAxis', dict(
-            type = 'object'
+            type='object'
         )),
 
         ('yaxis', dict(

@@ -17,8 +17,16 @@
             "type": "data", 
             "description": "the y coordinatey from the (x,y) pair on the scatter plot."
         }, 
-        "r": {}, 
-        "t": {}, 
+        "r": {
+            "val_types": "array_like of numbers, strings, datetimes", 
+            "required": false, 
+            "type": "data"
+        }, 
+        "t": {
+            "val_types": "array_like of numbers, strings, datetimes", 
+            "required": false, 
+            "type": "data"
+        }, 
         "text": {
             "val_types": "array_like of strings", 
             "required": false, 
