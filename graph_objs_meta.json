@@ -963,6 +963,7 @@
         "ay": {}, 
         "ax": {}, 
         "xatype": {}, 
+        "yatype": {}, 
         "ref": {}
     }, 
     "colorbar": {}, 

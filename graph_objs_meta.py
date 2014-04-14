@@ -1080,6 +1080,8 @@ INFO = OrderedDict([
 
         ('xatype', dict()),
 
+        ('yatype', dict()),
+
         ('ref', dict()),
     ])),
 
