@@ -637,6 +637,8 @@ INFO = OrderedDict([
         ('histnorm', dict())
     ])),
 
+    ('area', OrderedDict([])),
+
     ('scatter', OrderedDict([
 
         ('x', dict(

@@ -54,6 +54,7 @@
         }, 
         "histnorm": {}
     }, 
+    "area": {}, 
     "scatter": {
         "x": {
             "val_types": "array_like of numbers, strings, datetimes", 
