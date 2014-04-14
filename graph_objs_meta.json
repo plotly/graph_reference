@@ -53,7 +53,8 @@
             "type": "object"
         }, 
         "histnorm": {}, 
-        "zmax": {}
+        "zmax": {}, 
+        "zmin": {}
     }, 
     "area": {}, 
     "scatter": {
