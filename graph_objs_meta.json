@@ -59,7 +59,8 @@
         "dy": {}, 
         "x0": {}, 
         "y0": {}, 
-        "zauto": {}
+        "zauto": {}, 
+        "hm_id": {}
     }, 
     "area": {}, 
     "scatter": {
