@@ -586,7 +586,56 @@ INFO = OrderedDict([
 
     ('plotlytrace', dict()),
 
-    ('trace', dict()),
+    ('trace', OrderedDict([
+        ('x', dict()),
+        ('y', dict()),
+        ('z', dict()),
+        ('r', dict()),
+        ('t', dict()),
+        ('text', dict()),
+        ('name', dict()),
+        ('mode', dict()),
+        ('marker', dict(
+            type='object'
+        )),
+        ('line', dict(
+            type='object'
+        )),
+        ('fill', dict()),
+        ('fillcolor', dict()),
+        ('opacity', dict()),
+        ('showlegend', dict()),
+        ('xaxis', dict()),
+        ('yaxis', dict()),
+        ('angularAxis', dict()),
+        ('radialAxis', dict()),
+        ('error_y', dict(
+            type='object'
+        )),
+        ('textfont', dict(
+            type='object'
+        )),
+        ('type', dict()),
+        ('bardir', dict()),
+        ('boxpoints', dict()),
+        ('jitter', dict()),
+        ('pointpos', dict()),
+        ('boxmean', dict()),
+        ('whiskerwidth', dict()),
+        ('scl', dict()),
+        ('colorbar', dict(
+            type='object'
+        )),
+        ('autobinx', dict()),
+        ('autobiny', dict()),
+        ('xbins', dict(
+            type='object'
+        )),
+        ('ybins', dict(
+            type='object'
+        )),
+        ('histnorm', dict())
+    ])),
 
     ('scatter', OrderedDict([
 

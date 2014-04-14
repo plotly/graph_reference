@@ -4,7 +4,56 @@
     "annotations": {}, 
     "plotlydict": {}, 
     "plotlytrace": {}, 
-    "trace": {}, 
+    "trace": {
+        "x": {}, 
+        "y": {}, 
+        "z": {}, 
+        "r": {}, 
+        "t": {}, 
+        "text": {}, 
+        "name": {}, 
+        "mode": {}, 
+        "marker": {
+            "type": "object"
+        }, 
+        "line": {
+            "type": "object"
+        }, 
+        "fill": {}, 
+        "fillcolor": {}, 
+        "opacity": {}, 
+        "showlegend": {}, 
+        "xaxis": {}, 
+        "yaxis": {}, 
+        "angularAxis": {}, 
+        "radialAxis": {}, 
+        "error_y": {
+            "type": "object"
+        }, 
+        "textfont": {
+            "type": "object"
+        }, 
+        "type": {}, 
+        "bardir": {}, 
+        "boxpoints": {}, 
+        "jitter": {}, 
+        "pointpos": {}, 
+        "boxmean": {}, 
+        "whiskerwidth": {}, 
+        "scl": {}, 
+        "colorbar": {
+            "type": "object"
+        }, 
+        "autobinx": {}, 
+        "autobiny": {}, 
+        "xbins": {
+            "type": "object"
+        }, 
+        "ybins": {
+            "type": "object"
+        }, 
+        "histnorm": {}
+    }, 
     "scatter": {
         "x": {
             "val_types": "array_like of numbers, strings, datetimes", 
