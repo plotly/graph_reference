@@ -644,7 +644,8 @@ INFO = OrderedDict([
         ('dx', dict()),
         ('dy', dict()),
         ('x0', dict()),
-        ('y0', dict())
+        ('y0', dict()),
+        ('zauto', dict())
     ])),
 
     ('area', OrderedDict([])),
