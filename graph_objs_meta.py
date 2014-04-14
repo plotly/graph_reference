@@ -439,6 +439,7 @@ def axis():
         ('b', dict()),
         ('m', dict()),
         ('tickround', dict()),
+        ('tickexponent', dict()),
     ])
 
 

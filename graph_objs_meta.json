@@ -1382,7 +1382,8 @@
         "tmin": {}, 
         "b": {}, 
         "m": {}, 
-        "tickround": {}
+        "tickround": {}, 
+        "tickexponent": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1588,7 +1589,8 @@
         "tmin": {}, 
         "b": {}, 
         "m": {}, 
-        "tickround": {}
+        "tickround": {}, 
+        "tickexponent": {}
     }, 
     "ybins": {
         "start": {}, 
