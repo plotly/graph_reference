@@ -586,6 +586,8 @@ INFO = OrderedDict([
 
     ('plotlytrace', dict()),
 
+    ('trace', dict()),
+
     ('scatter', OrderedDict([
 
         ('x', dict(
@@ -1297,6 +1299,10 @@ INFO = OrderedDict([
             type='style'
         )),
     ])),
+
+    ('radialAxis', dict()),
+
+    ('angularAxis', dict()),
 
     ('stream', OrderedDict([])),
 

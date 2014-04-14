@@ -4,6 +4,7 @@
     "annotations": {}, 
     "plotlydict": {}, 
     "plotlytrace": {}, 
+    "trace": {}, 
     "scatter": {
         "x": {
             "val_types": "array_like of numbers, strings, datetimes", 
@@ -1119,6 +1120,8 @@
             "type": "style"
         }
     }, 
+    "radialAxis": {}, 
+    "angularAxis": {}, 
     "stream": {}, 
     "xaxis": {
         "title": {}, 
