@@ -966,6 +966,7 @@
         "height": {
             "type": "style"
         }, 
+        "needsEndSpacing": {}, 
         "autosize": {
             "type": "style"
         }, 
