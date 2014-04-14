@@ -638,7 +638,8 @@ INFO = OrderedDict([
         ('ybins', dict(
             type='object'
         )),
-        ('histnorm', dict())
+        ('histnorm', dict()),
+        ('zmax', dict())
     ])),
 
     ('area', OrderedDict([])),

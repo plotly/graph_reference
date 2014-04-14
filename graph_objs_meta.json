@@ -52,7 +52,8 @@
         "ybins": {
             "type": "object"
         }, 
-        "histnorm": {}
+        "histnorm": {}, 
+        "zmax": {}
     }, 
     "area": {}, 
     "scatter": {
