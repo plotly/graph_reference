@@ -1132,6 +1132,8 @@ INFO = OrderedDict([
             type='style'
         )),
 
+        ('categories', dict()),
+
         ('needsEndSpacing', dict()),
 
         ('autosize', dict(

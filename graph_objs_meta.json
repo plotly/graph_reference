@@ -1016,6 +1016,7 @@
         "height": {
             "type": "style"
         }, 
+        "categories": {}, 
         "needsEndSpacing": {}, 
         "autosize": {
             "type": "style"
