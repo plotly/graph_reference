@@ -1379,7 +1379,8 @@
         "position": {}, 
         "anchor": {}, 
         "unit": {}, 
-        "tmin": {}
+        "tmin": {}, 
+        "b": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1582,7 +1583,8 @@
         "position": {}, 
         "anchor": {}, 
         "unit": {}, 
-        "tmin": {}
+        "tmin": {}, 
+        "b": {}
     }, 
     "ybins": {
         "start": {}, 
