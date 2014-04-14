@@ -1266,6 +1266,8 @@ INFO = OrderedDict([
             type='object'
         )),
 
+        ('showlegend', dict()),
+
         ('traceorder', dict(
             type='plot_info'
         )),

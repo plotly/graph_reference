@@ -1100,6 +1100,7 @@
         "font": {
             "type": "object"
         }, 
+        "showlegend": {}, 
         "traceorder": {
             "type": "plot_info"
         }, 
