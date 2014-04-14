@@ -962,7 +962,8 @@
         }, 
         "ay": {}, 
         "ax": {}, 
-        "xatype": {}
+        "xatype": {}, 
+        "ref": {}
     }, 
     "colorbar": {}, 
     "error_y": {}, 
