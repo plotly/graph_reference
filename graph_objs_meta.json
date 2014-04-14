@@ -54,7 +54,8 @@
         }, 
         "histnorm": {}, 
         "zmax": {}, 
-        "zmin": {}
+        "zmin": {}, 
+        "dx": {}
     }, 
     "area": {}, 
     "scatter": {

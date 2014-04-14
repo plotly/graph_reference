@@ -640,7 +640,8 @@ INFO = OrderedDict([
         )),
         ('histnorm', dict()),
         ('zmax', dict()),
-        ('zmin', dict())
+        ('zmin', dict()),
+        ('dx', dict())
     ])),
 
     ('area', OrderedDict([])),
