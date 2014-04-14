@@ -1386,7 +1386,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "nbinsx": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1594,7 +1595,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "nbinsx": {}
     }, 
     "ybins": {
         "start": {}, 
