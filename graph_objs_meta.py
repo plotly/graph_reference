@@ -1233,6 +1233,8 @@ INFO = OrderedDict([
             type='object'
         )),
 
+        ('bardir', dict()),
+
         ('smith', OrderedDict([
         ])),
 

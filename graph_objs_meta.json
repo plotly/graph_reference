@@ -1078,6 +1078,7 @@
         "annotations": {
             "type": "object"
         }, 
+        "bardir": {}, 
         "smith": {}
     }, 
     "legend": {
