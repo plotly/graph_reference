@@ -335,6 +335,8 @@ def axis():
             description="Sets the angle of the ticks in degrees."
         )),
 
+        ('drange', dict()),
+
         ('exponentformat', dict(
             required=False,
             type='style'
