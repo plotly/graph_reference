@@ -60,7 +60,9 @@
         "x0": {}, 
         "y0": {}, 
         "zauto": {}, 
-        "hm_id": {}
+        "hm_id": {}, 
+        "nbinsx": {}, 
+        "nbinsy": {}
     }, 
     "area": {}, 
     "scatter": {
@@ -1386,8 +1388,7 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}, 
-        "nbinsx": {}
+        "tickexponent": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1595,8 +1596,7 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}, 
-        "nbinsx": {}
+        "tickexponent": {}
     }, 
     "ybins": {
         "start": {}, 

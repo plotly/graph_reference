@@ -440,8 +440,7 @@ def axis():
         ('b', dict()),
         ('m', dict()),
         ('tickround', dict()),
-        ('tickexponent', dict()),
-        ('nbinsx', dict())
+        ('tickexponent', dict())
     ])
 
 
@@ -653,7 +652,9 @@ INFO = OrderedDict([
         ('x0', dict()),
         ('y0', dict()),
         ('zauto', dict()),
-        ('hm_id', dict())
+        ('hm_id', dict()),
+        ('nbinsx', dict()),
+        ('nbinsy', dict()),
     ])),
 
     ('area', OrderedDict([])),
