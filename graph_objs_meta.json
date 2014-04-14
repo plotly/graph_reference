@@ -1381,7 +1381,8 @@
         "unit": {}, 
         "tmin": {}, 
         "b": {}, 
-        "m": {}
+        "m": {}, 
+        "tickround": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1586,7 +1587,8 @@
         "unit": {}, 
         "tmin": {}, 
         "b": {}, 
-        "m": {}
+        "m": {}, 
+        "tickround": {}
     }, 
     "ybins": {
         "start": {}, 
