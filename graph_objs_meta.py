@@ -1077,6 +1077,8 @@ INFO = OrderedDict([
         ('ay', dict()),
 
         ('ax', dict()),
+
+        ('xatype', dict()),
     ])),
 
     ('colorbar', OrderedDict([])),

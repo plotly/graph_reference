@@ -961,7 +961,8 @@
             "description": "coming soon!"
         }, 
         "ay": {}, 
-        "ax": {}
+        "ax": {}, 
+        "xatype": {}
     }, 
     "colorbar": {}, 
     "error_y": {}, 
