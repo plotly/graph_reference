@@ -17,6 +17,8 @@
             "type": "data", 
             "description": "the y coordinatey from the (x,y) pair on the scatter plot."
         }, 
+        "r": {}, 
+        "t": {}, 
         "text": {
             "val_types": "array_like of strings", 
             "required": false, 
@@ -937,10 +939,10 @@
         "xaxis": {
             "type": "object"
         }, 
-        "radialaxis": {
+        "radialAxis": {
             "type": "object"
         }, 
-        "angularaxis": {
+        "angularAxis": {
             "type": "object"
         }, 
         "yaxis": {
