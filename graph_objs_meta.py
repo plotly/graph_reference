@@ -434,7 +434,8 @@ def axis():
 
         ('anchor', dict()),
 
-        ('unit', dict()),        
+        ('unit', dict()),
+        ('tmin', dict()),
     ])
 
 

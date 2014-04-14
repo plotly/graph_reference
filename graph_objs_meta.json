@@ -1378,7 +1378,8 @@
         "overlaying": {}, 
         "position": {}, 
         "anchor": {}, 
-        "unit": {}
+        "unit": {}, 
+        "tmin": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1580,7 +1581,8 @@
         "overlaying": {}, 
         "position": {}, 
         "anchor": {}, 
-        "unit": {}
+        "unit": {}, 
+        "tmin": {}
     }, 
     "ybins": {
         "start": {}, 
