@@ -880,7 +880,11 @@
         }, 
         "x": {}, 
         "error_y": {}, 
-        "textfont": {}
+        "textfont": {}, 
+        "xbins": {
+            "type": "object"
+        }, 
+        "bardir": {}
     }, 
     "histogram2d": {
         "x": {

@@ -914,7 +914,11 @@ INFO = OrderedDict([
 
         ('error_y', dict()),
 
-        ('textfont', dict())
+        ('textfont', dict()),
+
+        ('xbins', dict(type='object')),
+
+        ('bardir', dict())
     ])),
 
     ('histogram2d', OrderedDict([
@@ -1935,4 +1939,9 @@ if __name__ == "__main__":
         f.write(json.dumps(INFO, sort_keys=False))
     with open('graph_objs_meta.json', 'w') as f:
         f.write(json.dumps(INFO, indent=4, sort_keys=False))
+    obj_keys = dict()
+    for key in INFO:
+        obj_keys[key] = [k for k in INFO[key]]
+    with open('graph_objs_keys.json', 'w') as f:
+        f.write(json.dumps(obj_keys, indent=4, sort_keys=False))
 
