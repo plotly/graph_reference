@@ -1395,7 +1395,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "side": {}
     }, 
     "angularAxis": {
         "title": {}, 
@@ -1598,7 +1599,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "side": {}
     }, 
     "stream": {}, 
     "xaxis": {
@@ -1802,7 +1804,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "side": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -2010,7 +2013,8 @@
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
-        "tickexponent": {}
+        "tickexponent": {}, 
+        "side": {}
     }, 
     "ybins": {
         "start": {}, 
