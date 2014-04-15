@@ -166,6 +166,7 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "visible": {}, 
         "textfont": {
             "required": false, 
             "type": "object", 
@@ -238,6 +239,7 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "visible": {}, 
         "type": {
             "val_types": "'bar'", 
             "required": true, 
@@ -319,6 +321,7 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "visible": {}, 
         "type": {
             "val_types": "'box'", 
             "required": true, 
@@ -623,6 +626,7 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "visible": {}, 
         "type": {
             "val_types": "'heatmap'", 
             "required": true, 
@@ -672,6 +676,7 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "visible": {}, 
         "stream": {
             "val_types": "Stream object | dict", 
             "required": false, 
@@ -727,6 +732,7 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "visible": {}, 
         "stream": {
             "val_types": "Stream object | dict", 
             "required": false, 
@@ -856,6 +862,7 @@
             "type": "plot_info", 
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
+        "visible": {}, 
         "type": {
             "val_types": "'histogram2d'", 
             "required": true, 

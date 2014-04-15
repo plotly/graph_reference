@@ -60,6 +60,8 @@ def histogram(x_or_y):
 
         ('yaxis', qkgrab('yaxis')),
 
+        ('visible', dict()),
+
         ('stream', qkgrab('stream')),
 
         ('type', qkgrab('type', val_types="'histogramx'",
@@ -176,6 +178,8 @@ def heatmap_or_contour(hm_or_contour):
         ('xaxis', qkgrab('xaxis')),
 
         ('yaxis', qkgrab('yaxis')),
+
+        ('visible', dict()),
 
         ('type', qkgrab('type', val_types="'heatmap'",
                         description=
@@ -751,6 +755,8 @@ INFO = OrderedDict([
 
         ('error_y', qkgrab('error_y')),
 
+        ('visible', dict()),
+
         ('textfont', dict(
             required=False,
             type='object',
@@ -808,6 +814,8 @@ INFO = OrderedDict([
         ('yaxis', qkgrab('yaxis')),
 
         ('error_y', qkgrab('error_y')),
+
+        ('visible', dict()),
 
         ('type', qkgrab('type', val_types="'bar'",
                         description=quick['description']['type']('Bar')))
@@ -877,6 +885,8 @@ INFO = OrderedDict([
         ('xaxis', qkgrab('xaxis')),
 
         ('yaxis', qkgrab('yaxis')),
+
+        ('visible', dict()),
 
         ('type', qkgrab('type', val_types="'box'",
                         description=quick['description']['type']('Box')))
@@ -950,6 +960,8 @@ INFO = OrderedDict([
         ('xaxis', qkgrab('xaxis')),
 
         ('yaxis', qkgrab('yaxis')),
+
+        ('visible', dict()),
 
         ('type', qkgrab('type', val_types="'histogram2d'",
                         description=
