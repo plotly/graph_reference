@@ -1177,12 +1177,6 @@
         "xaxis": {
             "type": "object"
         }, 
-        "radialAxis": {
-            "type": "object"
-        }, 
-        "angularAxis": {
-            "type": "object"
-        }, 
         "yaxis": {
             "type": "object"
         }, 

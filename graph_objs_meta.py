@@ -1127,13 +1127,13 @@ INFO = OrderedDict([
             type='object'
         )),
 
-        ('radialAxis', dict(
-            type='object'
-        )),
-
-        ('angularAxis', dict(
-            type='object'
-        )),
+        # ('radialAxis', dict(
+        #     type='object'
+        # )),
+        #
+        # ('angularAxis', dict(
+        #     type='object'
+        # )),
 
         ('yaxis', dict(
             type='object'
