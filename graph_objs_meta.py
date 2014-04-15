@@ -181,7 +181,7 @@ drop_in = dict(
 
     error_y=dict(
         required=False,
-        type="object",
+        type='object',
         val_types=val_types['general']['object'],
         description="A dictionary-like object describing vertical error bars "
                     "that can be drawn with this trace's (x, y) points."),
@@ -1080,7 +1080,16 @@ INFO = OrderedDict([
 
     ('colorbar', OrderedDict([])),
 
-    ('error_y', OrderedDict([])),
+    ('error_y', OrderedDict([
+        ('array', dict()),
+        ('color', dict()),
+        ('opacity', dict()),
+        ('thickness', dict()),
+        ('traceref', dict()),
+        ('type', dict()),
+        ('visible', dict()),
+        ('width', dict())
+    ])),
 
     ('figure', OrderedDict([
 

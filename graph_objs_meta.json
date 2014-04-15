@@ -1133,7 +1133,16 @@
         "ref": {}
     }, 
     "colorbar": {}, 
-    "error_y": {}, 
+    "error_y": {
+        "array": {}, 
+        "color": {}, 
+        "opacity": {}, 
+        "thickness": {}, 
+        "traceref": {}, 
+        "type": {}, 
+        "visible": {}, 
+        "width": {}
+    }, 
     "figure": {
         "data": {
             "required": false, 
