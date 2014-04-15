@@ -993,7 +993,35 @@ INFO = OrderedDict([
             required=True,
             type='plot_info',
             val_types='histogram2d',
-            description=description['trace']['type']))
+            description=description['trace']['type'])),
+
+        ('x0', dict()),
+
+        ('y0', dict()),
+
+        ('hm_id', dict()),
+
+        ('line', dict()),
+
+        ('marker', dict()),
+
+        ('error_y', dict()),
+
+        ('textfont', dict()),
+
+        ('tab', dict()),
+
+        ('z', dict()),
+
+        ('zmax', dict()),
+
+        ('zmin', dict()),
+
+        ('zauto', dict()),
+
+        ('dy', dict()),
+
+        ('dx', dict())
 
     ])),
 

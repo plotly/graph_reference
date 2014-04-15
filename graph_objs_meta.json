@@ -965,16 +965,8 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "mode": {}, 
-        "marker": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object"
-        }, 
-        "line": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object"
-        }, 
+        "marker": {}, 
+        "line": {}, 
         "autobinx": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1037,7 +1029,19 @@
             "required": true, 
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
-        }
+        }, 
+        "x0": {}, 
+        "y0": {}, 
+        "hm_id": {}, 
+        "error_y": {}, 
+        "textfont": {}, 
+        "tab": {}, 
+        "z": {}, 
+        "zmax": {}, 
+        "zmin": {}, 
+        "zauto": {}, 
+        "dy": {}, 
+        "dx": {}
     }, 
     "annotation": {
         "x": {
