@@ -1238,6 +1238,8 @@ INFO = OrderedDict([
 
         ('bardir', dict()),
 
+        ('smith', dict())
+
     ])),
 
     ('legend', OrderedDict([

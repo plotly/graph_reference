@@ -1245,7 +1245,8 @@
         "annotations": {
             "type": "object"
         }, 
-        "bardir": {}
+        "bardir": {}, 
+        "smith": {}
     }, 
     "legend": {
         "x": {
