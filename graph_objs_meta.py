@@ -794,6 +794,10 @@ INFO = OrderedDict([
 
         ('name', qkgrab('name')),
 
+        ('line', dict(
+            type='object'
+        )),
+
         ('marker', dict(
             required=False,
             type='object',
