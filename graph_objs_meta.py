@@ -898,6 +898,10 @@ INFO = OrderedDict([
             type='object'
         )),
 
+        ('textfont', dict(
+            type='object'
+        )),
+
         ('showlegend', qkgrab('showlegend')),
 
         ('xaxis', qkgrab('xaxis')),
