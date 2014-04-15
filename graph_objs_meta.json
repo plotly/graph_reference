@@ -337,6 +337,9 @@
             "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']."
         }, 
         "visible": {}, 
+        "error_y": {
+            "type": "object"
+        }, 
         "type": {
             "val_types": "'box'", 
             "required": true, 

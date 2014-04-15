@@ -910,6 +910,10 @@ INFO = OrderedDict([
 
         ('visible', dict()),
 
+        ('error_y', dict(
+            type='object'
+        )),
+
         ('type', qkgrab('type', val_types="'box'",
                         description=quick['description']['type']('Box')))
     ])),
