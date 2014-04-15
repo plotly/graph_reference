@@ -890,6 +890,14 @@ INFO = OrderedDict([
             val_types=quick['val_types']['color'],
             examples=quick['examples']['color'])),
 
+        ('marker', dict(
+            type='object'
+        )),
+
+        ('line', dict(
+            type='object'
+        )),
+
         ('showlegend', qkgrab('showlegend')),
 
         ('xaxis', qkgrab('xaxis')),

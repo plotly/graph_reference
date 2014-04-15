@@ -310,6 +310,12 @@
             ], 
             "description": "Color of the box interior."
         }, 
+        "marker": {
+            "type": "object"
+        }, 
+        "line": {
+            "type": "object"
+        }, 
         "showlegend": {
             "val_types": "bool: True | False", 
             "required": false, 
