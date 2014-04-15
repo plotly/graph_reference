@@ -439,7 +439,14 @@ INFO = OrderedDict([
             type='plot_info',
             val_types="'scatter'",
             description=description['trace']['type']
-        ))
+        )),
+
+        ('jitter', dict()),
+
+        ('pointpos', dict()),
+
+        ('boxpoints', dict())
+
     ])),
 
     ('bar', OrderedDict([
@@ -824,7 +831,7 @@ INFO = OrderedDict([
             description=description['trace']['type'])),
 
         ('y', dict()),
-        
+
         ('error_y', dict()),
 
         ('textfont', dict())
