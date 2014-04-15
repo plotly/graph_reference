@@ -1552,14 +1552,16 @@
         "position": {}, 
         "anchor": {}, 
         "unit": {}, 
+        "tmin": {}, 
+        "tmax": {}, 
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
         "color": {}, 
-        "tmin": {}, 
-        "tmax": {}
+        "drange": {}, 
+        "r0": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1767,14 +1769,16 @@
         "position": {}, 
         "anchor": {}, 
         "unit": {}, 
+        "tmin": {}, 
+        "tmax": {}, 
         "b": {}, 
         "m": {}, 
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
         "color": {}, 
-        "tmin": {}, 
-        "tmax": {}
+        "drange": {}, 
+        "r0": {}
     }, 
     "ybins": {
         "start": {}, 

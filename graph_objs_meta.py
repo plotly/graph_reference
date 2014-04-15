@@ -1595,22 +1595,16 @@ INFO = OrderedDict([
         ('anchor', dict()),
 
         ('unit', dict()),
-
-        ('b', dict()),
-
-        ('m', dict()),
-
-        ('tickround', dict()),
-
-        ('tickexponent', dict()),
-
-        ('side', dict()),
-
-        ('color', dict()),
-
         ('tmin', dict()),
-
-        ('tmax', dict())
+        ('tmax', dict()),
+        ('b', dict()),
+        ('m', dict()),
+        ('tickround', dict()),
+        ('tickexponent', dict()),
+        ('side', dict()),
+        ('color', dict()),
+        ('drange', dict()),
+        ('r0', dict()),
     ])),
 
     ('xbins', OrderedDict([
@@ -1831,22 +1825,16 @@ INFO = OrderedDict([
         ('anchor', dict()),
 
         ('unit', dict()),
-
-        ('b', dict()),
-
-        ('m', dict()),
-
-        ('tickround', dict()),
-
-        ('tickexponent', dict()),
-
-        ('side', dict()),
-
-        ('color', dict()),
-
         ('tmin', dict()),
-
-        ('tmax', dict())
+        ('tmax', dict()),
+        ('b', dict()),
+        ('m', dict()),
+        ('tickround', dict()),
+        ('tickexponent', dict()),
+        ('side', dict()),
+        ('color', dict()),
+        ('drange', dict()),
+        ('r0', dict()),
 
     ])),
 
