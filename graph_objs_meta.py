@@ -108,11 +108,10 @@ description = dict(
         x="The x coordinates of the bars OR the bar chart's categories.",
         y="The y data for bar charts, which is the length of the bars.",
         bardir="This defines the orientation (direction) of the bars. If "
-               "set to 'h', the bars run horizontally along the xaxis. If set "
-               "to 'v', the bars run vertically along the 'y' axis. However, "
-               "you do not need to change 'x' and 'y' arrays as 'x' always "
-               "defines the location of the bars (or category) and 'y' always "
-               "defines the height of the bars.",
+               "set to 'v', the bars run horizontally along the xaxis with "
+               "their length streching in the y-direction. If set to 'h', "
+               "the bars run vertically along the 'y' axis with their length "
+               "streching in the x-direction.",
     ),
     histogram=dict(
 
