@@ -1187,8 +1187,412 @@
             "type": "style"
         }
     }, 
-    "radialAxis": {}, 
-    "angularAxis": {}, 
+    "radialAxis": {
+        "title": {}, 
+        "domain": {
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the domain of this axis. The available space for this axis to live in is from 0 to 1."
+        }, 
+        "range": {
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
+            "examples": [
+                [
+                    -13, 
+                    20
+                ], 
+                [
+                    0, 
+                    1
+                ]
+            ], 
+            "description": "Defines the start and end point for the axis."
+        }, 
+        "type": {
+            "val_types": "string: linear | log", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Defines format of the axis."
+        }, 
+        "showline": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Defines whether or not to show this axis line."
+        }, 
+        "mirror": {}, 
+        "linecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Defines the axis line color."
+        }, 
+        "linewidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of the axis line."
+        }, 
+        "tick0": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the starting point of the axis."
+        }, 
+        "dtick": {
+            "val_type": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the difference between ticks on this axis."
+        }, 
+        "ticks": {
+            "requried": false, 
+            "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "type": "plot_info", 
+            "description": "Sets format of tick visibility."
+        }, 
+        "ticklen": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the length of the tick lines."
+        }, 
+        "tickcolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
+        "tickwidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
+        "nticks": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the number of ticks to appear on the axis."
+        }, 
+        "showticklabels": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide the axis tick labels."
+        }, 
+        "tickangle": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the angle of the ticks in degrees."
+        }, 
+        "drange": {}, 
+        "r0": {}, 
+        "exponentformat": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "showexponent": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "showgrid": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide grid for the axis."
+        }, 
+        "gridcolor": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Sets the axis grid color. Any HTML specified color is accepted."
+        }, 
+        "gridwidth": {
+            "requried": false, 
+            "val_types": "number", 
+            "type": "style", 
+            "description": "Sets the grid width."
+        }, 
+        "autorange": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether to let plotly autorange the axis."
+        }, 
+        "rangemode": {
+            "val_types": "string: 'normal' | 'tozero' | 'nonnegative'", 
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "autotick": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle axis autoticks."
+        }, 
+        "zeroline": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide an additional zeroline for this axis."
+        }, 
+        "zerolinecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set the color of this axis' zeroline."
+        }, 
+        "zerolinewidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of this axis' zeroline."
+        }, 
+        "titlefont": {
+            "val_types": "Font object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the axis title font."
+        }, 
+        "tickfont": {
+            "val_types": "Font object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the tick font."
+        }, 
+        "overlaying": {}, 
+        "position": {}, 
+        "anchor": {}, 
+        "unit": {}, 
+        "tmin": {}, 
+        "tmax": {}, 
+        "b": {}, 
+        "m": {}, 
+        "tickround": {}, 
+        "tickexponent": {}
+    }, 
+    "angularAxis": {
+        "title": {}, 
+        "domain": {
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the domain of this axis. The available space for this axis to live in is from 0 to 1."
+        }, 
+        "range": {
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
+            "examples": [
+                [
+                    -13, 
+                    20
+                ], 
+                [
+                    0, 
+                    1
+                ]
+            ], 
+            "description": "Defines the start and end point for the axis."
+        }, 
+        "type": {
+            "val_types": "string: linear | log", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Defines format of the axis."
+        }, 
+        "showline": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Defines whether or not to show this axis line."
+        }, 
+        "mirror": {}, 
+        "linecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Defines the axis line color."
+        }, 
+        "linewidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of the axis line."
+        }, 
+        "tick0": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the starting point of the axis."
+        }, 
+        "dtick": {
+            "val_type": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the difference between ticks on this axis."
+        }, 
+        "ticks": {
+            "requried": false, 
+            "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "type": "plot_info", 
+            "description": "Sets format of tick visibility."
+        }, 
+        "ticklen": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the length of the tick lines."
+        }, 
+        "tickcolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
+        "tickwidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the tick lines."
+        }, 
+        "nticks": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the number of ticks to appear on the axis."
+        }, 
+        "showticklabels": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide the axis tick labels."
+        }, 
+        "tickangle": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the angle of the ticks in degrees."
+        }, 
+        "drange": {}, 
+        "r0": {}, 
+        "exponentformat": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "showexponent": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "showgrid": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide grid for the axis."
+        }, 
+        "gridcolor": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Sets the axis grid color. Any HTML specified color is accepted."
+        }, 
+        "gridwidth": {
+            "requried": false, 
+            "val_types": "number", 
+            "type": "style", 
+            "description": "Sets the grid width."
+        }, 
+        "autorange": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether to let plotly autorange the axis."
+        }, 
+        "rangemode": {
+            "val_types": "string: 'normal' | 'tozero' | 'nonnegative'", 
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "autotick": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle axis autoticks."
+        }, 
+        "zeroline": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide an additional zeroline for this axis."
+        }, 
+        "zerolinecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set the color of this axis' zeroline."
+        }, 
+        "zerolinewidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of this axis' zeroline."
+        }, 
+        "titlefont": {
+            "val_types": "Font object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the axis title font."
+        }, 
+        "tickfont": {
+            "val_types": "Font object | dict", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the tick font."
+        }, 
+        "overlaying": {}, 
+        "position": {}, 
+        "anchor": {}, 
+        "unit": {}, 
+        "tmin": {}, 
+        "tmax": {}, 
+        "b": {}, 
+        "m": {}, 
+        "tickround": {}, 
+        "tickexponent": {}
+    }, 
     "stream": {}, 
     "xaxis": {
         "title": {}, 

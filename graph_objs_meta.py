@@ -1385,9 +1385,9 @@ INFO = OrderedDict([
         )),
     ])),
 
-    ('radialAxis', dict()),
+    ('radialAxis', axis()),
 
-    ('angularAxis', dict()),
+    ('angularAxis', axis()),
 
     ('stream', OrderedDict([])),
 
