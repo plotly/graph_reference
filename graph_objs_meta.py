@@ -1325,6 +1325,8 @@ INFO = OrderedDict([
             type='style'
         )),
 
+        ('thickness', dict()),  # TODO: redundant?
+
         ('opacity', dict(
             type='style'
         )),

@@ -1139,6 +1139,7 @@
         "width": {
             "type": "style"
         }, 
+        "thickness": {}, 
         "opacity": {
             "type": "style"
         }, 
