@@ -817,6 +817,10 @@ INFO = OrderedDict([
 
         ('error_y', qkgrab('error_y')),
 
+        ('textfont', dict(
+            type='object'
+        )),
+
         ('visible', dict()),
 
         ('type', qkgrab('type', val_types="'bar'",

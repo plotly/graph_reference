@@ -239,6 +239,9 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "textfont": {
+            "type": "object"
+        }, 
         "visible": {}, 
         "type": {
             "val_types": "'bar'", 
