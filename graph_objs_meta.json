@@ -723,7 +723,8 @@
         "line": {}, 
         "marker": {}, 
         "error_y": {}, 
-        "textfont": {}
+        "textfont": {}, 
+        "tab": {}
     }, 
     "histogramx": {
         "x": {

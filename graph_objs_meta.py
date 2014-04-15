@@ -788,7 +788,9 @@ INFO = OrderedDict([
 
         ('error_y', dict()),
 
-        ('textfont', dict())
+        ('textfont', dict()),
+
+        ('tab', dict())
 
     ])),
 
