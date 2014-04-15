@@ -446,6 +446,7 @@ def axis():
         ('tickround', dict()),
         ('tickexponent', dict()),
         ('side', dict()),
+        ('color', dict()),
     ])
 
 
