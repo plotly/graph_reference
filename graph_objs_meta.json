@@ -1557,7 +1557,9 @@
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
-        "color": {}
+        "color": {}, 
+        "tmin": {}, 
+        "tmax": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1770,7 +1772,9 @@
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
-        "color": {}
+        "color": {}, 
+        "tmin": {}, 
+        "tmax": {}
     }, 
     "ybins": {
         "start": {}, 

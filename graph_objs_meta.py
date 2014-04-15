@@ -1606,7 +1606,11 @@ INFO = OrderedDict([
 
         ('side', dict()),
 
-        ('color', dict())
+        ('color', dict()),
+
+        ('tmin', dict()),
+
+        ('tmax', dict())
     ])),
 
     ('xbins', OrderedDict([
@@ -1838,7 +1842,11 @@ INFO = OrderedDict([
 
         ('side', dict()),
 
-        ('color', dict())
+        ('color', dict()),
+
+        ('tmin', dict()),
+
+        ('tmax', dict())
 
     ])),
 
