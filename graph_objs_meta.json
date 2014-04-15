@@ -719,7 +719,11 @@
         }, 
         "x0": {}, 
         "y0": {}, 
-        "hm_id": {}
+        "hm_id": {}, 
+        "line": {}, 
+        "marker": {}, 
+        "error_y": {}, 
+        "textfont": {}
     }, 
     "histogramx": {
         "x": {

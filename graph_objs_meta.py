@@ -780,7 +780,15 @@ INFO = OrderedDict([
 
         ('y0', dict()),
 
-        ('hm_id', dict())
+        ('hm_id', dict()),
+
+        ('line', dict()),
+
+        ('marker', dict()),
+
+        ('error_y', dict()),
+
+        ('textfont', dict())
 
     ])),
 
