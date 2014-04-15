@@ -1180,7 +1180,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The layout dictionary-like object contains axes information, gobal settings, and layout information related to the wat a figure is to be rendered."
+            "description": "The layout dictionary-like object contains axes information, gobal settings, and layout information related to the rendering of the figure."
         }
     }, 
     "font": {

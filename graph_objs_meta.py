@@ -1175,7 +1175,7 @@ INFO = OrderedDict([
             val_types=val_types['general']['object'],
             description="The layout dictionary-like object contains axes "
                         "information, gobal settings, and layout information "
-                        "related to the wat a figure is to be rendered."))
+                        "related to the rendering of the figure."))
     ])),
 
     ('font', OrderedDict([
