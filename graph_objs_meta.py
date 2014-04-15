@@ -38,8 +38,14 @@ def histogram(x_or_y):
             val_types=quick['val_types']['data_array'],
             description="The x data that is binned and plotted as bars "
             "along the x-axis.")),
+        #
+        # ('y', dict(  # TODO: ??
+        #     required=False,
+        #     type='data')),
 
         ('name', qkgrab('name')),
+
+        ('mode', dict()),
 
         ('marker', dict(
             required=False,
@@ -50,6 +56,8 @@ def histogram(x_or_y):
         ('xbins', dict(
             required=False,
             type='object')),
+
+        ('nbinsx', dict()),
 
         ('histnorm', dict(
             required=False)),
@@ -74,7 +82,8 @@ def histogram(x_or_y):
     # change up some key names
     histy = OrderedDict([('y', v) if k == 'x' else
                         ('ybins', v) if k == 'xbins' else
-                        ('autobiny', v) if k == 'autobiny' else
+                        ('nbinsy', v) if k == 'nbinsx' else
+                        ('autobiny', v) if k == 'autobinx' else
                         (k, v) for k, v in histx.items()])
 
     # switch up some 'x' to 'y's

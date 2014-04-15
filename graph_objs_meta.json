@@ -665,6 +665,7 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
+        "mode": {}, 
         "marker": {
             "required": false, 
             "type": "object"
@@ -674,6 +675,7 @@
             "required": false, 
             "type": "object"
         }, 
+        "nbinsx": {}, 
         "histnorm": {
             "required": false
         }, 
@@ -721,15 +723,17 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
+        "mode": {}, 
         "marker": {
             "required": false, 
             "type": "object"
         }, 
-        "autobinx": {}, 
+        "autobiny": {}, 
         "ybins": {
             "required": false, 
             "type": "object"
         }, 
+        "nbinsy": {}, 
         "histnorm": {
             "required": false
         }, 
