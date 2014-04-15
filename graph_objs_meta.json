@@ -680,6 +680,7 @@
             "type": "style", 
             "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
+        "zauto": {}, 
         "showlegend": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -715,7 +716,10 @@
             "required": true, 
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
-        }
+        }, 
+        "x0": {}, 
+        "y0": {}, 
+        "hm_id": {}
     }, 
     "histogramx": {
         "x": {

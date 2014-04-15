@@ -758,6 +758,8 @@ INFO = OrderedDict([
             val_types=number(),
             description=description['map']['zmax'])),
 
+        ('zauto', dict()),
+
         ('showlegend', drop_in['showlegend_trace']),
 
         ('stream', drop_in['stream']),
@@ -772,7 +774,13 @@ INFO = OrderedDict([
             required=True,
             type='plot_info',
             val_types='heatmap',
-            description=description['trace']['type']))
+            description=description['trace']['type'])),
+
+        ('x0', dict()),
+
+        ('y0', dict()),
+
+        ('hm_id', dict())
 
     ])),
 
