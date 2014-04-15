@@ -1164,11 +1164,18 @@ INFO = OrderedDict([
 
         ('data', dict(
             required=False,
-            type='object')),
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A list-like array of the data that is to be "
+                        "visualized.")),
 
         ('layout', dict(
             required=False,
-            type='object'))
+            type='object',
+            val_types=val_types['general']['object'],
+            description="The layout dictionary-like object contains axes "
+                        "information, gobal settings, and layout information "
+                        "related to the wat a figure is to be rendered."))
     ])),
 
     ('font', OrderedDict([

@@ -1171,12 +1171,16 @@
     }, 
     "figure": {
         "data": {
+            "val_types": "dictionary-like", 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "description": "A list-like array of the data that is to be visualized."
         }, 
         "layout": {
+            "val_types": "dictionary-like", 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "description": "The layout dictionary-like object contains axes information, gobal settings, and layout information related to the wat a figure is to be rendered."
         }
     }, 
     "font": {
