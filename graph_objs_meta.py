@@ -1,601 +1,277 @@
 from collections import OrderedDict
 
-def qkgrab(attr_name, **kwargs):
-    d = {}
-    keyz = ['required', 'type', 'val_types', 'description']
-    for k in keyz:
-        if k in kwargs:
-            d[k] = kwargs[k]
-        elif attr_name in quick[k]:
-            d[k] = quick[k][attr_name]
 
-    if 'type' in d and d['type'] == 'object':
-        d['val_types'] = gen_val_type(attr_name)
-    return d
-
-
-def gen_val_type(name, a=[]):
-    ''' TODO: xbins '''
-    return '_'.join([si.title() for si in name.split('_')]) + ' object | dict'
-
-
-def auto_populate_some_stuff():
-    for plot_obj in INFO:
-        for plot_obj_attr in plot_obj:
-            if ('type' in plot_obj and
-                plot_obj[plot_obj_attr]['type'] == 'object' and
-                'val_types' not in plot_obj[plot_obj_attr]):
-
-                plot_obj[plot_obj_attr]['val_types'] = \
-                    gen_val_type(plot_obj_attr)
-
-
-def histogram(x_or_y):
-    histx = OrderedDict([
-        ('x', dict(
-            required=True,
-            type='data',
-            val_types=quick['val_types']['data_array'],
-            description="The x data that is binned and plotted as bars "
-            "along the x-axis.")),
-        #
-        # ('y', dict(  # TODO: ??
-        #     required=False,
-        #     type='data')),
-
-        ('name', qkgrab('name')),
-
-        ('mode', dict()),
-
-        ('marker', dict(
-            required=False,
-            type='object')),
-
-        ('autobinx', dict()),
-
-        ('xbins', dict(
-            required=False,
-            type='object')),
-
-        ('nbinsx', dict()),
-
-        ('histnorm', dict(
-            required=False)),
-
-        ('showlegend', qkgrab('showlegend')),
-
-        ('xaxis', qkgrab('xaxis')),
-
-        ('yaxis', qkgrab('yaxis')),
-
-        ('visible', dict()),
-
-        ('stream', qkgrab('stream')),
-
-        ('type', qkgrab('type', val_types="'histogramx'",
-                        description=
-                        quick['description']['type']('Histogramx')))
-    ])
-    if x_or_y == 'x':
-        return histx
-
-    # change up some key names
-    histy = OrderedDict([('y', v) if k == 'x' else
-                        ('ybins', v) if k == 'xbins' else
-                        ('nbinsy', v) if k == 'nbinsx' else
-                        ('autobiny', v) if k == 'autobinx' else
-                        (k, v) for k, v in histx.items()])
-
-    # switch up some 'x' to 'y's
-    histy['type']['val_types'] = "'histogramy'"
-    histy['type']['description'] = quick['description']['type']('Histogramy')
-    histy['y']['description'] = histy['y']['description'].replace('x', 'y')
-    return histy
-
-
-def heatmap_or_contour(hm_or_contour):
-    heatmap = OrderedDict([
-        ('z', dict(
-            required=True,
-            type='data',
-            val_types="matrix_like: list of lists, numpy.matrix",
-            description="The data that describes the heatmap. The "
-                        "color of the cell in row i, column j "
-                        "is mapped from the value of z[i][j].")),
-
-        ('x', dict(
-            required=False,
-            type='data',
-            val_types=quick['val_types']['data_array'],
-            description="If numerical or date-like, the coordinates of the "
-                        "horizontal edges of the heatmap cells where the "
-                        "length of 'x' must be one more than the number of "
-                        "columns in the heatmap. "
-                        "If strings, then the x-labels the heatmap cells "
-                        "where the length of 'x' is equal to "
-                        "the number of columns in the heatmap.")),
-
-        ('y', dict(
-            required=False,
-            type='data',
-            val_types=quick['val_types']['data_array'],
-            description="If numerical or date-like, the coordinates of the "
-                        "vertical edges of the heatmap cells where the length "
-                        "of 'y' must be one more than the number of rows in "
-                        "the heatmap. "
-                        "If strings, then y labels the heatmap cells where "
-                        "the length of 'y' is equal to the "
-                        "number of rows in the heatmap.")),
-
-        ('name', qkgrab('name')),
-
-        ('scl', dict(
-            required=quick['type']['scl'],
-            type=quick['type']['scl'],
-            val_types=quick['val_types']['data_array'],
-            description="The color scale. The strings are pre-defined color "
-                        "scales. For custom color scales, define a list of "
-                        "color-value pairs, where the first element of the "
-                        "pair corresponds to a normalized value of z from 0-1 "
-                        "(i.e. (z-zmin)/(zmax-zmin)), and the second element "
-                        "of pair corresponds to a color.",
-            examples=quick['examples']['scl'])),
-
-        ('colorbar', dict(
-            required=False,
-            type='object',
-            val_types="Colorbar object | dict")),
-
-        ('xtype', dict(
-            required=False,
-            type='style',
-            val_types="'array' | 'scaled'")),
-
-        ('ytype', dict(
-            required=False,
-            type='style',
-            val_types="'array' | 'scaled'")),
-
-        ('dx', dict(
-            required=False,
-            type='style',
-            val_types='number')),
-
-        ('dy', dict(
-            required=False,
-            type='style',
-            val_types='number')),
-
-        ('zmin', dict(
-            required=False,
-            type='style',
-            val_types='number',
-            description="The value used as the minimum in the color scale "
-                        "normalization in 'scl'. "
-                        "The default is the minimum of the 'z' data values.")),
-
-        ('zmax', dict(
-            required=False,
-            type='style',
-            val_types='number',
-            description="The value used as the maximum in the color scale "
-                        "normalization in 'scl'. "
-                        "The default is the minimum of the 'z' data values.")),
-
-        ('showlegend', qkgrab('showlegend')),
-
-        ('xaxis', qkgrab('xaxis')),
-
-        ('yaxis', qkgrab('yaxis')),
-
-        ('visible', dict()),
-
-        ('type', qkgrab('type', val_types="'heatmap'",
-                        description=
-                        quick['description']['type']('Heatmap')))
-    ])
-
-    if hm_or_contour == 'heatmap':
-        return heatmap
-
-    unordered_contour = heatmap
-    # Add some contour-specific items
-    unordered_contour['type'] = qkgrab('type', val_types="'contour'",
-                                       description=
-                                       quick['description']['type']('Contour'))
-    unordered_contour['autocontour'] = dict(
-        required=False,
-        type='style',
-        default=True,
-        val_types=quick['val_types']['bool'],
-        description="If True, the contours settings are set automatically. "
-                    "If False, the contours settings must be set manually "
-                    "with the contours object."
-    )
-    unordered_contour['ncontours'] = dict(
-        required=False,
-        type='style',
-        default=0,
-        val_types=quick['val_types']['bool']
-    )
-    unordered_contour['contours'] = dict(
-        required=False,
-        type='style',
-        val_types='object'
-    )
-    contour_order = ['z', 'x', 'y', 'name', 'autocontour', 'contours',
-                     'ncontours', 'scl', 'colorbar', 'xtype', 'ytype',
-                     'dx', 'dy', 'zmin', 'zmax', 'showlegend', 'xaxis',
-                     'yaxis', 'type']
-
-    contour = OrderedDict([(k, unordered_contour[k])
-                          for k in contour_order])
-    return contour
-
-
-def axis():
-    return OrderedDict([
-        ('title', dict()),
-
-        ('domain', dict(
-            required=False,
-            type='plot_info',
-            val_types="number array of length 2",
-            description="Sets the domain of this axis. The available space "
-                        "for this axis to live in is from 0 to 1."
-        )),
-
-        ('range', dict(
-            required=False,
-            type='plot_info',
-            val_types="number array of length 2",
-            description="Defines the start and end point for the axis.",
-            examples=[[-13, 20], [0, 1]]
-        )),
-
-        ('type', dict(
-            required=False,
-            type='plot_info',
-            val_types="string: linear | log",
-            description="Defines format of the axis."
-        )),
-
-        ('showline', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['bool'],
-            description="Defines whether or not to show this axis line."
-        )),
-
-        ('mirror', dict()),
-
-        ('linecolor', dict(  # TODO: why isn't this just a Line object here?
-            required=False,
-            type='style',
-            val_types=quick['val_types']['color'],
-            description="Defines the axis line color.",
-            examples=quick['examples']['color']
-        )),
-
-        ('linewidth', dict(  # TODO: why isn't this just a Line object here?
-            required=False,
-            type='style',
-            val_types="number",
-            description="Sets the width of the axis line."
-        )),
-
-        ('tick0', dict(  # TODO: better description?
-            required=False,
-            type='plot_info',
-            val_types="number",
-            description="Sets the starting point of the axis."
-        )),
-
-        ('dtick', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_type="number",
-            description="Sets the difference between ticks on this axis."
-        )),
-
-        ('ticks', dict(  # TODO: separate object for ticks?
-            requried=False,
-            type='plot_info',  # TODO: 'style'?
-            val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
-            description="Sets format of tick visibility."
-        )),
-
-        ('ticklen', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types="number",
-            description="Sets the length of the tick lines."   # in points?
-        )),
-
-        ('tickcolor', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types=quick['val_types']['color'],
-            description="Sets the color of the tick lines."
-        )),
-
-        ('tickwidth', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types=quick['val_types']['number'](ut=0),
-            description="Sets the color of the tick lines."
-        )),
-
-
-        ('nticks', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types="number",
-            description="Sets the number of ticks to appear on the axis."
-        )),
-
-        ('showticklabels', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types=quick['val_types']['bool'],
-            description="Show/Hide the axis tick labels."
-        )),
-
-        ('tickangle', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='style',
-            val_types="number",
-            description="Sets the angle of the ticks in degrees."
-        )),
-
-        ('drange', dict()),
-
-        ('r0', dict()),
-
-        ('exponentformat', dict(
-            required=False,
-            type='style'
-        )),
-
-        ('showexponent', dict(
-            required=False,
-            type='style'
-        )),
-
-
-        ('showgrid', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['bool'],
-            description="Show/Hide grid for the axis."
-        )),
-
-        ('gridcolor', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['bool'],
-            description="Sets the axis grid color. Any HTML specified color "
-                        "is accepted.",
-            examples=quick['examples']['color']
-        )),
-
-        ('gridwidth', dict(
-            requried=False,
-            type='style',
-            val_types="number",
-            description="Sets the grid width."
-        )),
-
-        ('autorange', dict(
-            required=False,
-            type='plot_info',
-            val_types=quick['val_types']['bool'],
-            description="Toggle whether to let plotly autorange the axis."
-        )),
-
-        ('rangemode', dict(
-            required=False,
-            type='plot_info',
-            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
-        )),
-
-        ('autotick', dict(
-            required=False,
-            type='style',  # TODO: 'plot_info' ??
-            val_types=quick['val_types']['bool'],
-            description="Toggle axis autoticks."
-        )),
-
-        ('zeroline', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['bool'],
-            description="Show/Hide an additional zeroline for this axis."
-        )),
-
-        ('zerolinecolor', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['color'],
-            description="Set the color of this axis' zeroline."
-        )),
-
-        ('zerolinewidth', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['number'](),
-            description="Sets the width of this axis' zeroline."
-        )),
-
-        ('titlefont', dict(
-            required=False,
-            type='object',
-            val_types="Font object | dict",
-            description="A dictionary for configuring the axis title font."
-        )),
-
-        ('tickfont', dict(  # TODO: separate object for ticks?
-            required=False,
-            type='object',
-            val_types="Font object | dict",
-            description="A dictionary for configuring the tick font."
-        )),
-
-        ('overlaying', dict()),
-
-        ('position', dict()),
-
-        ('anchor', dict()),
-
-        ('unit', dict()),
-        ('tmin', dict()),
-        ('tmax', dict()),
-        ('b', dict()),
-        ('m', dict()),
-        ('tickround', dict()),
-        ('tickexponent', dict()),
-        ('side', dict()),
-        ('color', dict()),
-    ])
-
-
-
-def bins():
-    return OrderedDict([
-
-        ('start', dict()),
-
-        ('end', dict()),
-
-        ('size', dict())
-    ])
-
-def number(lt=None, leq=None, ut=None, uep=None):
-    if not lt and not leq and not ut and not uep:
+# use this to format 'val_types' for general numbers
+def number(lt=None, le=None, gt=None, ge=None):
+    if any((all((lt is not None, le is not None)),
+            all((gt is not None, ge is not None)))):
+        raise Exception("over-constrained number definition")
+    if [lt, le, gt, ge] == [None, None, None, None]:
         return "number"
-    elif lt and not ut and not uep:
-        return "number: x < {0}".format(lt)
-    elif leq and not ut and not uep:
-        return "number: x <= {0}".format(leq)
-    elif ut and not lt and not leq:
-        return "number: x > {0}".format(ut)
-    elif uep and not lt and not leq:
-        return "number: x >= {0}".format(uep)
-    elif lt and ut:
-        return "number: x in ({0}, {1})".format(lt, ut)
-    elif lt and uep:
-        return "number: x in [{0}, {1})".format(lt, uep)
-    elif leq and ut:
-        return "number: x in ({0}, {1}]".format(leq, ut)
-    elif leq and uep:
-        return "number: x in [{0}, {1}]".format(leq, uep)
+    elif lt is not None and ([ge, gt] == [None, None]):
+        return "number: x < {lt}".format(lt=lt)
+    elif le is not None and ([ge, gt] == [None, None]):
+        return "number: x <= {le}".format(le=le)
+    elif gt is not None and ([le, lt] == [None, None]):
+        return "number: x > {gt}".format(gt=gt)
+    elif ge is not None and ([le, lt] ==[None, None]):
+        return "number: x >= {ge}".format(ge=ge)
+    elif (lt is not None) and (gt is not None):
+        return "number: x in ({gt}, {lt})".format(gt=gt, lt=lt)
+    elif (lt is not None) and (ge is not None):
+        return "number: x in [{ge}, {lt})".format(ge=ge, lt=lt)
+    elif (le is not None) and (gt is not None):
+        return "number: x in ({gt}, {le}]".format(gt=gt, le=le)
+    elif (le is not None) and (ge is not None):
+        return "number: x in [{ge}, {le}]".format(le=le, ge=ge)
 
-base = dict(
-    val_types=dict(
+val_types = dict(
+    general=dict(
         bool="bool: True | False",
-        number=number,
         color="str describing color",
+        string="string",
         data_array="array_like of numbers, strings, datetimes",
-        text_array="array_like of strings"
-    )
+        string_array="array_like of strings",
+        object="dictionary-like",
+    ),
+    trace=dict(),
+    map=dict(
+        xtype="'array' | 'scaled'",
+        ytype="'array' | 'scaled'",
+        z="matrix-like: list of lists, numpy.matrix"
+    ),
+    bar=dict(
+        bardir="'v' | 'h'",
+    ),
+    histogram=dict(
+
+    ),
+    scatter=dict(
+        fill="'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx",
+        fillcolor="str describing color",
+    ),
+    axis=dict(),
+    bins=dict(),
 )
 
-quick = dict(
-    required=dict(
-        name=False,
-        error_y=False,
-        xaxis=False,
-        yaxis=False,
-        scl=False,
-        colorbar=False,
-        showlegend=False,
-        type=True,
-        text=False,
-        stream=False
-    ),
+description = dict(
+    general=dict(),
+    trace=dict(
 
-    type=dict(
-        name='data',
-        error_y='object',
-        xaxis='plot_info',
-        yaxis='plot_info',
-        scl='style',
-        colorbar='style',
-        showlegend='style',
-        type='plot_info',
-        text='data',
-        stream='object'
-    ),
-
-    val_types=dict(
-        name="string",
-        xaxis="string: 'x' | 'x2' | 'x3' | etc.",
-        yaxis="string: 'y' | 'y2' | 'y3' | etc.",
-        showlegend=base['val_types']['bool'],
-        text=base['val_types']['text_array'],
-        **base['val_types']
-    ),
-
-    description=dict(
-
-        name=
-        "The label associated with this trace. This name will appear in the "
-        "legend, in the column header in the spreadsheet, and on hover.",
+        type=
+        "Plotly identifier for this data's trace type. This defines how this "
+        "data dictionary will be handled.",
 
         error_y=
         "A dictionary-like object describing vertical error bars that can be "
         "drawn with this trace's (x, y) points.",
 
-        xaxis=
-        "This key determines which xaxis the x coordinates in this trace will "
-        "reference in the figure. 'x' references layout['xaxis'] and 'x2' "
-        "references layout['xaxis2'].",
-
-        yaxis=
-        "This key determines which yaxis the y coordinates in this trace will "
-        "reference in the figure. 'y' references layout['yaxis'] and 'y2' "
-        "references layout['yaxis2'].",
-
-        scl=
-        "array_like of value-color pairs | 'Greys' | 'Greens' | "
-        "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
-        "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' "
-        "| 'YIGnBu'",
-
-        type=lambda(name): "Plotly identifier for trace type, "
-        "this is set automatically with a call to "
-        "{Obj}(...).".format(Obj=name),
-
         stream=
         "The stream dict that initializes traces as writable-streams, "
-        "for use with the real-time streaming API. "
-        "For more help, see: `help(plotly.plotly.Stream)`"
-        "or see examples here: "
-        "http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        "for use with the real-time streaming API. See examples here:\n"
+        "http://nbviewer.ipython.org/github/plotly/Streaming-Demos",
+    ),
+    map=dict(
 
+        x=
+        "This array-like value contains the HORIZONTAL labels referring to "
+        "the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced "
+        "evenly.",
+
+        y=
+        "This array-like value contains the VERTICAL labels referring to "
+        "the ROWS of the 'z' matrix. If strings, the y-labels are spaced "
+        "evenly.",
+
+        z=
+        "The data that describes the heatmap. The dimensions of the 'z' "
+        "matrix are (nxm) where there are 'n' COLUMNS defining the "
+        "number of partitions along the x-axis; this is equal to the "
+        "length of the 'x' array. There are 'm' ROWS defining the number of "
+        "partitions along the y-axis; this is equal to the length of the "
+        "'y' array. Therefore, the color of the cell z[i][j] is mapped to "
+        "the ith partition of the y-axis (starting from the bottom of the "
+        "plot) and the jth partition of the x-axis (starting from the left "
+        "of the plot).",
+
+        zmax=
+        "The value used as the maximum in the color scale normalization in "
+        "'scl'. The default is the minimum of the 'z' data values.",
+
+        zmin=
+        "The value used as the minimum in the color scale normalization in "
+        "'scl'. The default is the minimum of the 'z' data values.",
 
     ),
 
-    examples=dict(
+    bar=dict(
+        x="The x coordinates of the bars OR the bar chart's categories.",
+        y="The y data for bar charts, which is the length of the bars.",
+        bardir="This defines the orientation (direction) of the bars. If "
+               "set to 'h', the bars run horizontally along the xaxis. If set "
+               "to 'v', the bars run vertically along the 'y' axis. However, "
+               "you do not need to change 'x' and 'y' arrays as 'x' always "
+               "defines the location of the bars (or category) and 'y' always "
+               "defines the height of the bars.",
+    ),
+    histogram=dict(
 
+        autobinx=
+        "Toggle whether or not to allow plotly to automatically pick the bin "
+        "sizing in the x direction for this histogram.",
+
+        autobiny=
+        "Toggle whether or not to allow plotly to automatically pick the bin "
+        "sizing in the y direction for this histogram.",
+
+        x=
+        "The x data that is binned and plotted as bars along the x-axis.",
+
+        xbins=
+        "A dictionary-like object explaining how the bins should be created in "
+        "the x direction for this histogram.",
+
+        y=
+        "The y data that is binned and plotted as bars along the y-axis.",
+
+        ybins=
+        "A dictionary-like object explaining how the bins should be created in "
+        "the x direction for this histogram.",
+    ),
+    scatter=dict(),
+    axis=dict(),
+)
+
+examples = dict(
+    general=dict(
         color=[
             "'green'", "'rgb(0, 255, 0)'", "'rgba(0, 255, 0, 0.3)'",
             "'hsl(120,100%,50%)'", "'hsla(120,100%,50%,0.3)'"],
+    ),
+    trace=dict(),
+    map=dict(),
+    bar=dict(),
+    histogram=dict(),
+    scatter=dict(),
+    axis=dict(),
+)
 
-        scl=["Greys",
-            [[0, "rgb(0,0,0)"], [1, "rgb(255,255,255)"]],
-            [[0, "rgb(8, 29, 88)"], [0.125, "rgb(37, 52, 148)"],
-                [0.25, "rgb(34, 94, 168)"], [0.375, "rgb(29, 145, 192)"],
-                [0.5, "rgb(65, 182, 196)"], [0.625, "rgb(127, 205, 187)"],
-                [0.75, "rgb(199, 233, 180)"],
-                [0.875, "rgb(237, 248, 217)"],
-                [1, "rgb(255, 255, 217)"]]],
+default = dict(
+    general=dict(),
+    trace=dict(
+        xaxis="'x1'",
+        yaxis="'y1'"
+    ),
+    map=dict(),
+    bar=dict(),
+    histogram=dict(),
+    scatter=dict(),
+    axis=dict(),
+)
+
+drop_in = dict(
+
+    colorbar=dict(
+        required=False,
+        type='object',
+        val_types=val_types['general']['object'],
+        description="This object represents a colorbar that will be shown on "
+                    "the figure where the color is related to the data being "
+                    "shown."),
+
+    error_y=dict(
+        required=False,
+        type="object",
+        val_types=val_types['general']['object'],
+        description="A dictionary-like object describing vertical error bars "
+                    "that can be drawn with this trace's (x, y) points."),
+
+    name=dict(
+        required=False,
+        type='data',  # TODO??
+        val_types=val_types['general']['string'],
+        description="The label associated with this trace. This name will "
+                    "appear in the legend, in the column header in the "
+                    "spreadsheet, and on hover."),
+
+    opacity=dict(
+        required=False,
+        type="style",
+        val_types=number(ge=0, le=1),
+        description="Sets the opacity, or transparency, of this object. Also "
+                    "known as the alpha channel of colors, if the object's "
+                    "color is given in terms of 'rgba', this does not need to "
+                    "be defined."),
+
+    scl=dict(
+        required=False,
+        type="style",
+        val_types="array_like of value-color pairs | 'Greys' | 'Greens' | "
+                  "'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | "
+                  "'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | "
+                  "'YIGnBu'",
+        description="The color scale. The strings are pre-defined color "
+                    "scales. For custom color scales, define a list of "
+                    "color-value pairs, where the first element of the pair "
+                    "corresponds to a normalized value of z from 0-1  (i.e. ("
+                    "z-zmin)/(zmax-zmin)), and the second element of pair "
+                    "corresponds to a color.",
+        examples=["Greys",[[0, "rgb(0,0,0)"], [1, "rgb(255,255,255)"]],
+                  [[0, "rgb(8, 29, 88)"], [0.125, "rgb(37, 52, 148)"],
+                   [0.25, "rgb(34, 94, 168)"], [0.375, "rgb(29, 145, 192)"],
+                   [0.5, "rgb(65, 182, 196)"], [0.625, "rgb(127, 205, 187)"],
+                   [0.75, "rgb(199, 233, 180)"], [0.875, "rgb(237, 248, 217)"],
+                   [1, "rgb(255, 255, 217)"]]]),
+
+    showlegend_trace=dict(
+        required=False,
+        type='style',
+        val_types=val_types['general']['bool'],
+        description="Toggle whether or not this trace will show up in the "
+                    "legend."),
+
+    showlegend_layout=dict(
+        required=False,
+        type='style',
+        val_types=val_types['general']['bool'],
+        description="Toggle whether or not the legend will be shown in this "
+                    "figure."),
+
+    stream=dict(
+        required=False,
+        type='plot_info',
+        val_types=val_types['general']['object'],
+        description="The stream dict that initializes traces as "
+                    "writable-streams, for use with the real-time streaming "
+                    "API. See examples here:\n"
+                    "http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
     ),
 
-    default=dict(
-        xaxis="'x'",
-        yaxis="'x'"
-    ),
+    visible=dict(
+        required=False,
+        type='plot_info',
+        val_types=val_types['general']['bool'],
+        description="Toggles whether this will actually be visible in the "
+                    "rendered figure."),
+
+    xaxis_trace=dict(
+        required=False,
+        type='plot_info',
+        val_types="string: 'x1' | 'x2' | 'x3' | etc.",
+        description="This key determines which xaxis the x coordinates in this "
+                    "trace will reference in the figure. 'x' references "
+                    "layout['xaxis'] and 'x2' references layout['xaxis2']. "
+                    "'x1' will always refer to layout['xaxis'] or layout["
+                    "'xaxis1'], they are the same."),
+    yaxis_trace=dict(
+        required=False,
+        type='plot_info',
+        val_types="string: 'y1' | 'y2' | 'y3' | etc.",
+        description="This key determines which yaxis the y coordinates in this "
+                    "trace will reference in the figure. 'y' references "
+                    "layout['yaxis'] and 'y2' references layout['yaxis2']. "
+                    "'y1' will always refer to layout['yaxis'] or layout["
+                    "'yaxis1'], they are the same."),
 )
 
 
@@ -620,12 +296,8 @@ INFO = OrderedDict([
         ('text', dict()),
         ('name', dict()),
         ('mode', dict()),
-        ('marker', dict(
-            type='object'
-        )),
-        ('line', dict(
-            type='object'
-        )),
+        ('marker', dict(type='object')),
+        ('line', dict(type='object')),
         ('fill', dict()),
         ('fillcolor', dict()),
         ('opacity', dict()),
@@ -634,12 +306,8 @@ INFO = OrderedDict([
         ('yaxis', dict()),
         ('angularAxis', dict()),
         ('radialAxis', dict()),
-        ('error_y', dict(
-            type='object'
-        )),
-        ('textfont', dict(
-            type='object'
-        )),
+        ('error_y', dict(type='object')),
+        ('textfont', dict(type='object')),
         ('type', dict()),
         ('bardir', dict()),
         ('boxpoints', dict()),
@@ -648,17 +316,11 @@ INFO = OrderedDict([
         ('boxmean', dict()),
         ('whiskerwidth', dict()),
         ('scl', dict()),
-        ('colorbar', dict(
-            type='object'
-        )),
+        ('colorbar', dict(type='object')),
         ('autobinx', dict()),
         ('autobiny', dict()),
-        ('xbins', dict(
-            type='object'
-        )),
-        ('ybins', dict(
-            type='object'
-        )),
+        ('xbins', dict(type='object')),
+        ('ybins', dict(type='object')),
         ('histnorm', dict()),
         ('zmax', dict()),
         ('zmin', dict()),
@@ -672,42 +334,46 @@ INFO = OrderedDict([
         ('nbinsy', dict()),
     ])),
 
-    ('area', OrderedDict([])),
+    # ('area', OrderedDict([])),  # TODO: we need this? or only for polar...
 
     ('scatter', OrderedDict([
 
         ('x', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
+            val_types=val_types['general']['data_array'],
             description="the x coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
+            val_types=val_types['general']['data_array'],
             description="the y coordinatey from the (x,y) pair on the scatter "
                         "plot.")),
 
         ('r', dict(
             required=False,
             type='data',
-            val_types=quick['val_types']['data_array'],
+            val_types=val_types['general']['data_array'],
         )),
 
         ('t', dict(
             required=False,
             type='data',
-            val_types=quick['val_types']['data_array'],
+            val_types=val_types['general']['data_array'],
         )),
 
-        ('text', qkgrab('text', description="the text elements associated "
-                        "with every (x,y) pair on the scatter plot. "
-                        "If the scatter 'mode' doesn't include 'text' "
-                        "then text will appear on hover.")),
+        ('text', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['string_array'],
+            description="The text elements associated with every (x,y) pair on "
+                        "the scatter plot. If the scatter 'mode' doesn't "
+                        "include 'text' then text will appear on hover."
+        )),
 
-        ('name', qkgrab('name')),
+        ('name', drop_in['name']),
 
         ('mode', dict(
             required=False,
@@ -722,17 +388,17 @@ INFO = OrderedDict([
         ('marker', dict(
             required=False,
             type='object',
-            val_types="Marker object | dict",
+            val_types=val_types['general']['object'],
             description="A dictionary-like object containing information "
                         "about the marker style of the scatter plot.")),
 
         ('line', dict(
             required=False,
             type='object',
-            val_types="Line object | dict",
+            val_types=val_types['general']['object'],
             description="A dictionary-like object containing information "
-                        "about the line connecting points "
-                        "on the scatter plot.")),
+                        "about the line connecting points on the scatter "
+                        "plot.")),
 
         ('fill', dict(
             required=False,
@@ -745,99 +411,104 @@ INFO = OrderedDict([
         ('fillcolor', dict(
             required=False,
             type='style',
-            val_types=quick['val_types']['color'],
-            examples=quick['examples']['color'])),
+            val_types="str describing color",
+            examples=examples['general']['color'])),
 
-        ('opacity', dict(
-            required=False,
-            type='style',
-            val_types="number in [0, 1]",
-            description="Sets the opacity, or transparency, of the markers "
-                        "and lines of the scatter plot. Also known as the "
-                        "alpha channel of colors. "
-                        "The opacity can also be set in the "
-                        "'marker' and 'line' objects.")),
+        ('opacity', drop_in['opacity']),
 
-        ('showlegend', qkgrab('showlegend')),
+        ('showlegend', drop_in['showlegend_trace']),
 
-        ('xaxis', qkgrab('xaxis')),
+        ('stream', drop_in['stream']),
 
-        ('yaxis', qkgrab('yaxis')),
+        ('xaxis', drop_in['xaxis_trace']),
 
-        ('error_y', qkgrab('error_y')),
+        ('yaxis', drop_in['yaxis_trace']),
 
-        ('visible', dict()),
+        ('error_y', drop_in['error_y']),
+
+        ('visible', drop_in['visible']),
 
         ('textfont', dict(
             required=False,
             type='object',
             description="A dictionary-like object describing the font style "
-                        "of this scatter's text elements.")),
+                        "of this scatter's text elements.")),  # TODO?!?
 
-        ('type', qkgrab('type', val_types="'scatter'",
-                        description=quick['description']['type']('Scatter')))
+        ('type', dict(
+            required=False,
+            type='plot_info',
+            val_types="'scatter'",
+            description=description['trace']['type']
+        ))
     ])),
 
-
     ('bar', OrderedDict([
-
         ('x', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
-            description="the x coordinates of the bars or the bar chart's "
-                        "categories.")),
+            val_types=" ".join([val_types['general']['data_array'],
+                                "OR",
+                                val_types['general']['string_array']]),
+            description="The x coordinates of the bars or the bar chart's "
+                        "categories."
+        )),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
-            description="the y data for bar charts, which is the length of the"
-                        "bars.")),
-
-        ('bardir', dict()),
-
-        ('text', qkgrab('text',
-                        description='text elements that '
-                        'appear on hover of the bars')),
-
-        ('name', qkgrab('name')),
-
-        ('line', dict(
-            type='object'
+            val_types=" ".join([val_types['general']['data_array'],
+                                "OR",
+                                val_types['general']['string_array']]),
+            description="The y coordinates of the bars or the bar chart's "
+                        "categories."
         )),
+
+        ('bardir', dict(
+            required=False,
+            type="style",
+            val_types=val_types['bar']['bardir'],
+            description=description['bar']['bardir']
+        )),
+
+        ('text', dict()),
+
+        ('name', drop_in['name']),
 
         ('marker', dict(
             required=False,
             type='object',
-            description="A dictionary-like object describing the "
-                        "style of the bars, like the color and the border.")),
+            val_types=val_types['general']['object'])),
 
-        ('opacity', dict(
+        ('line', dict(
             required=False,
-            type='style',
-            val_types="number in [0, 1]",
-            description="Sets the opacity, or transparency, of the markers "
-                        "and lines of the scatter plot. Also known as the "
-                        "alpha channel of colors. The opacity can also be set "
-                        "in the 'marker' and 'line' objects.")),
-
-        ('showlegend', qkgrab('showlegend')),
-
-        ('xaxis', qkgrab('xaxis')),
-
-        ('yaxis', qkgrab('yaxis')),
-
-        ('error_y', qkgrab('error_y')),
-
-        ('textfont', dict(
-            type='object'
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object containing information "
+                        "about the enclosing line for each bar."
         )),
 
-        ('visible', dict()),
+        ('opacity', drop_in['opacity']),
 
-        ('type', qkgrab('type', val_types="'bar'",
-                        description=quick['description']['type']('Bar')))
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('stream', drop_in['stream']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('error_y', drop_in['error_y']),
+
+        ('textfont', dict(type='object')),
+
+        ('visible', drop_in['visible']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types="'bar'",
+            description=description['trace']['type']
+        ))
 
     ])),
 
@@ -846,11 +517,13 @@ INFO = OrderedDict([
         ('y', dict(
             required=True,
             type="data",
-            val_types="array_like of numbers",
-            description="Array of the numbers from which the box plot "
-                        "describes.")),
+            val_types=val_types['general']['data_array'],
+            description="This array is used to define the an individual "
+                        "box plot. Statistics from these numbers define "
+                        "the bounds of the box, the length of the "
+                        "whiskers, etc.")),
 
-        ('name', qkgrab('name')),
+        ('name', drop_in['name']),
 
         ('boxpoints', dict(
             required=False,
@@ -895,112 +568,394 @@ INFO = OrderedDict([
         ('fillcolor', dict(
             required=False,
             type='style',
+            val_types=val_types['general']['color'],
             description="Color of the box interior.",
-            val_types=quick['val_types']['color'],
-            examples=quick['examples']['color'])),
+            examples=examples['general']['color'])),
 
-        ('marker', dict(
-            type='object'
-        )),
+        ('marker', dict(type='object')),
 
-        ('line', dict(
-            type='object'
-        )),
+        ('line', dict(type='object')),
 
-        ('textfont', dict(
-            type='object'
-        )),
+        ('textfont', dict(type='object')),
 
-        ('showlegend', qkgrab('showlegend')),
+        ('showlegend', drop_in['showlegend_trace']),
 
-        ('xaxis', qkgrab('xaxis')),
+        ('stream', drop_in['stream']),
 
-        ('yaxis', qkgrab('yaxis')),
+        ('xaxis', drop_in['xaxis_trace']),
 
-        ('visible', dict()),
+        ('xaxis', drop_in['yaxis_trace']),
 
-        ('error_y', dict(
-            type='object'
-        )),
+        ('visible', drop_in['visible']),
 
-        ('type', qkgrab('type', val_types="'box'",
-                        description=quick['description']['type']('Box')))
+        ('error_y', drop_in['error_y']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='box',
+            description=description['trace']['type']))
+
     ])),
 
-    ('contour', heatmap_or_contour('contour')),
+    ('contour', OrderedDict([
 
-    ('heatmap', heatmap_or_contour('heatmap')),
+        ('z', dict(
+            required=True,
+            type='data',
+            val_types=val_types['map']['z'],
+            description=description['map']['z'])),
 
-    ('histogramx', histogram('x')),
+        ('x', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['map']['x'])),
 
-    ('histogramy', histogram('y')),
+        ('y', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['map']['y'])),
+
+        ('name', drop_in['name']),
+
+        ('autocontour', dict(
+            required=False,
+            type='style',
+            default=True,
+            val_types=val_types['general']['bool'],
+            description="If True, the contours settings are set automatically. "
+                        "If False, the contours settings must be set manually "
+                        "with the contours object.")),
+
+        ('ncontours', dict(
+            required=False,
+            type='style',
+            default=0,
+            val_types=val_types['general']['bool'])),
+
+        ('contours', dict(
+            required=False,
+            type='object',  # TODO: this was 'style' before, any reason?
+            val_types=val_types['general']['object'])),
+
+        ('scl', drop_in['scl']),
+
+        ('colorbar', drop_in['colorbar']),
+
+        ('xtype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('ytype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('dx', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),
+
+        ('dy', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),
+
+        ('zmin', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmin'])),
+
+        ('zmax', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmax'])),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('stream', drop_in['stream']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='contour',
+            description=description['trace']['type']))
+    ])),
+
+    ('heatmap', OrderedDict([
+
+        ('z', dict(
+            required=True,
+            type='data',
+            val_types=val_types['map']['z'],
+            description=description['map']['z'])),
+
+        ('x', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['map']['x'])),
+
+        ('y', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['map']['y'])),
+
+        ('name', drop_in['name']),
+
+        ('scl', drop_in['scl']),
+
+        ('colorbar', drop_in['colorbar']),
+
+        ('xtype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('ytype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('dx', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),
+
+        ('dy', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),
+
+        ('zmin', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmin'])),
+
+        ('zmax', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmax'])),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('stream', drop_in['stream']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='heatmap',
+            description=description['trace']['type']))
+
+    ])),
+
+    ('histogramx', OrderedDict([
+
+        ('x', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['x'])),
+
+        ('name', drop_in['name']),
+
+        ('mode', dict()),
+
+        ('marker', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('line', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('autobinx', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobinx'])),
+
+        ('xbins', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description=description['histogram']['xbins'])),
+
+        ('nbinsx', dict()),
+
+        ('histnorm', dict()),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('stream', drop_in['stream']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='histogramx',
+            description=description['trace']['type']))
+    ])),
+
+    ('histogramy', OrderedDict([
+
+        ('y', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['y'])),
+
+        ('name', drop_in['name']),
+
+        ('mode', dict()),
+
+        ('marker', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('line', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('autobiny', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobiny'])),
+
+        ('ybins', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description=description['histogram']['ybins'])),
+
+        ('nbinsy', dict()),
+
+        ('histnorm', dict()),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('stream', drop_in['stream']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='histogramy',
+            description=description['trace']['type']))
+    ])),
 
     ('histogram2d', OrderedDict([
 
         ('x', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
-            description="The x coordinates of the x, y pairs that are binned "
-                        "and plotted according to their distribution.")),
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['x'])),
 
         ('y', dict(
             required=True,
             type='data',
-            val_types=quick['val_types']['data_array'],
-            description="The x coordinates of the x, y pairs that are binned "
-                        "and plotted according to their distribution.")),
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['y'])),
 
-        ('name', qkgrab('name')),
+        ('scl', drop_in['scl']),
 
-        ('scl', dict(
-            required=False,
-            type='style',
-            val_types=quick['val_types']['data_array'],
-            description="The color scale. The strings are pre-defined color "
-                        "scales. For custom color scales, define a list of "
-                        "color-value pairs, where the first element of the "
-                        "pair corresponds to a normalized value from 0-1 of "
-                        "the binned data and the second element of the pair "
-                        "corresponds to a color.",
-            examples=quick['examples']['scl'])),
+        ('colorbar', drop_in['colorbar']),
 
-        ('colorbar', dict(
+        ('name', drop_in['name']),
+
+        ('mode', dict()),
+
+        ('marker', dict(
             required=False,
             type='object',
-            val_types="ColorBar object | dict")),
+            val_types=val_types['general']['object'])),
+
+        ('line', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
 
         ('autobinx', dict(
             required=False,
-            default=True,
-            type='style',
-            val_types='True | False')),
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobinx'])),
 
-        ('autobiny', dict()),
+        ('autobiny', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobiny'])),
 
         ('xbins', dict(
             required=False,
             type='object',
-            val_types="XBins object | dict")),
+            val_types=val_types['general']['object'],
+            description=description['histogram']['xbins'])),
 
         ('ybins', dict(
             required=False,
             type='object',
-            val_types="YBins object | dict")),
+            val_types=val_types['general']['object'],
+            description=description['histogram']['ybins'])),
+
+        ('nbinsx', dict()),
+
+        ('nbinsy', dict()),
 
         ('histnorm', dict()),
 
-        ('showlegend', qkgrab('showlegend')),
+        ('showlegend', drop_in['showlegend_trace']),
 
-        ('xaxis', qkgrab('xaxis')),
+        ('xaxis', drop_in['xaxis_trace']),
 
-        ('yaxis', qkgrab('yaxis')),
+        ('yaxis', drop_in['yaxis_trace']),
 
-        ('visible', dict()),
+        ('visible', drop_in['visible']),
 
-        ('type', qkgrab('type', val_types="'histogram2d'",
-                        description=
-                        quick['description']['type']('Histogram2d')))
+        ('stream', drop_in['stream']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='histogram2d',
+            description=description['trace']['type']))
 
     ])),
 
@@ -1009,54 +964,54 @@ INFO = OrderedDict([
         ('x', dict(
             required=False,
             type='plot_info',
-            val_types="number",
+            val_types=number(),
             description="The x coordinate of the annotation location.")),
 
         ('y', dict(
             required=False,
             type='plot_info',
-            val_types="number",
+            val_types=number(),
             description="The y coordinate of the annotation location.")),
 
         ('text', dict(
             required=False,
             type='plot_info',
-            val_types="string",
-            descriptors="The text note that will be added with this "
+            val_types=val_types['general']['string'],
+            description="The text note that will be added with this "
                         "annotation.")),
 
         ('bordercolor', dict(
             required=False,
             type='style',
-            val_types=quick['val_types']['color'],
+            val_types=val_types['general']['color'],
             description="The color of the enclosing boarder of this "
                         "annotation.",
-            examples=quick['val_types']['color'])),
+            examples=examples['general']['color'])),
 
         ('borderwidth', dict(
             required=False,
             type='style',
-            val_types='number',
+            val_types=number(),
             description="The width of the boarder enclosing this annotation")),
 
         ('borderpad', dict(
             required=False,
             type='style',
-            val_types="number in [0,10]",
+            val_types=number(le=10, ge=0),
             description="The amount of space (padding) between the text and "
                         "the enclosing boarder.")),
 
         ('bgcolor', dict(
             required=False,
             type='style',
-            val_types=quick['val_types']['color'],
+            val_types=val_types['general']['color'],
             description="The background (bg) color for this annotation.",
-            examples=quick['val_types']['color'])),
+            examples=examples['general']['color'])),
 
         ('xref', dict(
             required=False,
             type='plot_info',
-            val_types="string: 'paper' | 'x' | 'x2' | 'x3' | etc.",
+            val_types="string: 'paper' | 'x1' | 'x2' | 'x3' | etc.",
             description="This defines what the x coordinate for this "
                         "annotation *refers* to. If you reference an axis, "
                         "e.g., 'x2', the annotation will move with "
@@ -1067,7 +1022,7 @@ INFO = OrderedDict([
         ('yref', dict(
             required=False,
             type='plot_info',
-            val_types="string: 'paper' | 'y' | 'y2' | 'y3' | etc.",
+            val_types="string: 'paper' | 'y1' | 'y2' | 'y3' | etc.",
             description="This defines what the x coordinate for this "
                         "annotation *refers* to. If you reference an axis, "
                         "e.g., 'y2', the annotation will move with "
@@ -1079,7 +1034,7 @@ INFO = OrderedDict([
             required=False,
             type='plot_info',
             val_types="bool: True | False",
-            description="Show the arrow associated with this annotation?")),
+            description="Show the arrow associated with this annotation.")),
 
         ('arrowwidth', dict()),  # TODO, ya'll should make an `arrow` dict?
 
@@ -1094,14 +1049,9 @@ INFO = OrderedDict([
         ('font', dict(
             required=False,
             type='object',
-            val_types="Font object | dict")),
+            val_types=val_types['general']['object'])),
 
-        ('opacity', dict(
-            required=False,
-            type='style',
-            val_types="number in [0, 1]",
-            description="Sets the opacity, or transparency, of the annotation."
-                        " Also known as the alpha channel.")),
+        ('opacity', drop_in['opacity']),
 
         ('align', dict(
             required=False,
@@ -1111,15 +1061,11 @@ INFO = OrderedDict([
 
         ('xanchor', dict(
             required=False,
-            type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!")),
+            type='plot_info')),
 
         ('yanchor', dict(
             required=False,
-            type='plot_info',
-            val_types="coming soon!",
-            description="coming soon!")),
+            type='plot_info')),
 
         ('ay', dict()),
 
@@ -1165,9 +1111,9 @@ INFO = OrderedDict([
         ('color', dict(
             required=False,
             type='style',
-            val_types=quick['val_types']['color'],
+            val_types=val_types['general']['color'],
             description="Color of the text.",
-            examples=quick['examples']['color']
+            examples=examples['general']['color']
         ))
     ])),
 
@@ -1205,7 +1151,9 @@ INFO = OrderedDict([
             type='style'
         )),
 
-        ('categories', dict()),
+        ('categories', dict(
+            type='plot_info'
+        )),
 
         ('needsEndSpacing', dict()),
 
@@ -1289,9 +1237,6 @@ INFO = OrderedDict([
         )),
 
         ('bardir', dict()),
-
-        ('smith', OrderedDict([
-        ])),
 
     ])),
 
@@ -1434,19 +1379,472 @@ INFO = OrderedDict([
         )),
     ])),
 
-    ('radialAxis', axis()),
-
-    ('angularAxis', axis()),
-
     ('stream', OrderedDict([])),
 
-    ('xaxis', axis()),
+    ('xaxis', OrderedDict([
 
-    ('xbins', bins()),
+        ('title', dict()),
 
-    ('yaxis', axis()),
+        ('domain', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Sets the domain of this axis. The available space "
+                        "for this axis to live in is from 0 to 1."
+        )),
 
-    ('ybins', bins()),
+        ('range', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Defines the start and end point for the axis.",
+            examples=[[-13, 20], [0, 1]]
+        )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: linear | log",
+            description="Defines format of the axis."
+        )),
+
+        ('showline', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Defines whether or not to show this axis line."
+        )),
+
+        ('mirror', dict()),
+
+        ('linecolor', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Defines the axis line color.",
+            examples=examples['general']['color']
+        )),
+
+        ('linewidth', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the width of the axis line."
+        )),
+
+        ('tick0', dict(  # TODO: better description?
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="Sets the starting point of the axis."
+        )),
+
+        ('dtick', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_type="number",
+            description="Sets the difference between ticks on this axis."
+        )),
+
+        ('ticks', dict(  # TODO: separate object for ticks?
+            requried=False,
+            type='plot_info',  # TODO: 'style'?
+            val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
+            description="Sets format of tick visibility."
+        )),
+
+        ('ticklen', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the length of the tick lines."   # in points?
+        )),
+
+        ('tickcolor', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the color of the tick lines."
+        )),
+
+        ('tickwidth', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the width of the tick lines."
+        )),
+
+
+        ('nticks', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the number of ticks to appear on the axis."
+        )),
+
+        ('showticklabels', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide the axis tick labels."
+        )),
+
+        ('tickangle', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=number(le=90, ge=-90),
+            description="Sets the angle of the ticks in degrees."
+        )),
+
+        ('exponentformat', dict(
+            required=False,
+            type='style'
+        )),
+
+        ('showexponent', dict(
+            required=False,
+            type='style'
+        )),
+
+
+        ('showgrid', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide grid for the axis."
+        )),
+
+        ('gridcolor', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the axis grid color. Any HTML specified color "
+                        "is accepted.",
+            examples=examples['general']['color']
+        )),
+
+        ('gridwidth', dict(
+            requried=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the grid width."
+        )),
+
+        ('autorange', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether to let plotly autorange the axis."
+        )),
+
+        ('rangemode', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
+        )),
+
+        ('autotick', dict(
+            required=False,
+            type='style',  # TODO: 'plot_info' ??
+            val_types=val_types['general']['bool'],
+            description="Toggle axis autoticks."
+        )),
+
+        ('zeroline', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide an additional zeroline for this axis."
+        )),
+
+        ('zerolinecolor', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Set the color of this axis' zeroline.",
+            examples=examples['general']['color']
+        )),
+
+        ('zerolinewidth', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the width of this axis' zeroline."
+        )),
+
+        ('titlefont', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary for configuring the axis title font."
+        )),
+
+        ('tickfont', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary for configuring the tick font."
+        )),
+
+        ('overlaying', dict()),
+
+        ('position', dict()),
+
+        ('anchor', dict()),
+
+        ('unit', dict()),
+
+        ('b', dict()),
+
+        ('m', dict()),
+
+        ('tickround', dict()),
+
+        ('tickexponent', dict()),
+
+        ('side', dict()),
+
+        ('color', dict())
+    ])),
+
+    ('xbins', OrderedDict([
+        ('start', dict()),
+        ('end', dict()),
+        ('size', dict())
+    ])),
+
+    ('yaxis', OrderedDict([
+
+        ('title', dict()),
+
+        ('domain', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Sets the domain of this axis. The available space "
+                        "for this axis to live in is from 0 to 1."
+        )),
+
+        ('range', dict(
+            required=False,
+            type='plot_info',
+            val_types="number array of length 2",
+            description="Defines the start and end point for the axis.",
+            examples=[[-13, 20], [0, 1]]
+        )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: linear | log",
+            description="Defines format of the axis."
+        )),
+
+        ('showline', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Defines whether or not to show this axis line."
+        )),
+
+        ('mirror', dict()),
+
+        ('linecolor', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Defines the axis line color.",
+            examples=examples['general']['color']
+        )),
+
+        ('linewidth', dict(  # TODO: why isn't this just a Line object here?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the width of the axis line."
+        )),
+
+        ('tick0', dict(  # TODO: better description?
+            required=False,
+            type='plot_info',
+            val_types="number",
+            description="Sets the starting point of the axis."
+        )),
+
+        ('dtick', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_type="number",
+            description="Sets the difference between ticks on this axis."
+        )),
+
+        ('ticks', dict(  # TODO: separate object for ticks?
+            requried=False,
+            type='plot_info',  # TODO: 'style'?
+            val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
+            description="Sets format of tick visibility."
+        )),
+
+        ('ticklen', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the length of the tick lines."   # in points?
+        )),
+
+        ('tickcolor', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the color of the tick lines."
+        )),
+
+        ('tickwidth', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the width of the tick lines."
+        )),
+
+
+        ('nticks', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types="number",
+            description="Sets the number of ticks to appear on the axis."
+        )),
+
+        ('showticklabels', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide the axis tick labels."
+        )),
+
+        ('tickangle', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='style',
+            val_types=number(le=90, ge=-90),
+            description="Sets the angle of the ticks in degrees."
+        )),
+
+        ('exponentformat', dict(
+            required=False,
+            type='style'
+        )),
+
+        ('showexponent', dict(
+            required=False,
+            type='style'
+        )),
+
+
+        ('showgrid', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide grid for the axis."
+        )),
+
+        ('gridcolor', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the axis grid color. Any HTML specified color "
+                        "is accepted.",
+            examples=examples['general']['color']
+        )),
+
+        ('gridwidth', dict(
+            requried=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the grid width."
+        )),
+
+        ('autorange', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether to let plotly autorange the axis."
+        )),
+
+        ('rangemode', dict(
+            required=False,
+            type='plot_info',
+            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
+        )),
+
+        ('autotick', dict(
+            required=False,
+            type='style',  # TODO: 'plot_info' ??
+            val_types=val_types['general']['bool'],
+            description="Toggle axis autoticks."
+        )),
+
+        ('zeroline', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Show/Hide an additional zeroline for this axis."
+        )),
+
+        ('zerolinecolor', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Set the color of this axis' zeroline.",
+            examples=examples['general']['color']
+        )),
+
+        ('zerolinewidth', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Sets the width of this axis' zeroline."
+        )),
+
+        ('titlefont', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary for configuring the axis title font."
+        )),
+
+        ('tickfont', dict(  # TODO: separate object for ticks?
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary for configuring the tick font."
+        )),
+
+        ('overlaying', dict()),
+
+        ('position', dict()),
+
+        ('anchor', dict()),
+
+        ('unit', dict()),
+
+        ('b', dict()),
+
+        ('m', dict()),
+
+        ('tickround', dict()),
+
+        ('tickexponent', dict()),
+
+        ('side', dict()),
+
+        ('color', dict())
+
+    ])),
+
+    ('ybins', OrderedDict([
+        ('start', dict()),
+        ('end', dict()),
+        ('size', dict())
+    ])),
 
     ('contours', OrderedDict([
         ('start', dict()),
@@ -1456,11 +1854,7 @@ INFO = OrderedDict([
         ('showlines', dict()),
     ]))
 
-
 ])
-
-
-auto_populate_some_stuff()
 
 if __name__ == "__main__":
     import json
@@ -1468,3 +1862,4 @@ if __name__ == "__main__":
         f.write(json.dumps(INFO, sort_keys=False))
     with open('graph_objs_meta.json', 'w') as f:
         f.write(json.dumps(INFO, indent=4, sort_keys=False))
+
