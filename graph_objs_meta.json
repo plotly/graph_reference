@@ -788,7 +788,9 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }, 
-        "y": {}
+        "y": {}, 
+        "error_y": {}, 
+        "textfont": {}
     }, 
     "histogramy": {
         "y": {
@@ -864,7 +866,9 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }, 
-        "x": {}
+        "x": {}, 
+        "error_y": {}, 
+        "textfont": {}
     }, 
     "histogram2d": {
         "x": {
