@@ -821,7 +821,10 @@ INFO = OrderedDict([
             required=True,
             type='plot_info',
             val_types='histogramx',
-            description=description['trace']['type']))
+            description=description['trace']['type'])),
+
+        ('y', dict())
+
     ])),
 
     ('histogramy', OrderedDict([
@@ -876,7 +879,9 @@ INFO = OrderedDict([
             required=True,
             type='plot_info',
             val_types='histogramy',
-            description=description['trace']['type']))
+            description=description['trace']['type'])),
+
+        ('x', dict())
     ])),
 
     ('histogram2d', OrderedDict([
