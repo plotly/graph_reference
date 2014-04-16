@@ -46,7 +46,7 @@
     "histogramx": [
         "x", 
         "name", 
-        "mode", 
+        "bardir", 
         "marker", 
         "line", 
         "autobinx", 
@@ -58,16 +58,12 @@
         "yaxis", 
         "visible", 
         "stream", 
-        "type", 
-        "y", 
-        "error_y", 
-        "textfont", 
-        "bardir"
+        "type"
     ], 
     "histogramy": [
         "y", 
         "name", 
-        "mode", 
+        "bardir", 
         "marker", 
         "line", 
         "autobiny", 
@@ -80,11 +76,8 @@
         "visible", 
         "stream", 
         "type", 
-        "x", 
         "error_y", 
-        "textfont", 
-        "xbins", 
-        "bardir"
+        "textfont"
     ], 
     "layout": [
         "title", 
@@ -94,7 +87,6 @@
         "width", 
         "height", 
         "categories", 
-        "needsEndSpacing", 
         "autosize", 
         "margin", 
         "paper_bgcolor", 
@@ -119,8 +111,7 @@
         "hidesources", 
         "showlegend", 
         "annotations", 
-        "bardir", 
-        "smith"
+        "bardir"
     ], 
     "error_y": [
         "array", 
@@ -181,10 +172,8 @@
         "type", 
         "x0", 
         "y0", 
-        "hm_id", 
         "line", 
         "marker", 
-        "error_y", 
         "textfont", 
         "tab"
     ], 
@@ -229,17 +218,10 @@
         "overlaying", 
         "position", 
         "anchor", 
-        "unit", 
-        "tmin", 
-        "tmax", 
-        "b", 
-        "m", 
         "tickround", 
         "tickexponent", 
         "side", 
-        "color", 
-        "drange", 
-        "r0"
+        "color"
     ], 
     "annotations": [], 
     "trace": [
@@ -294,7 +276,6 @@
         "scl", 
         "colorbar", 
         "name", 
-        "mode", 
         "marker", 
         "line", 
         "autobinx", 
@@ -310,18 +291,8 @@
         "visible", 
         "stream", 
         "type", 
-        "x0", 
-        "y0", 
-        "hm_id", 
-        "error_y", 
         "textfont", 
-        "tab", 
-        "z", 
-        "zmax", 
-        "zmin", 
-        "zauto", 
-        "dy", 
-        "dx"
+        "tab"
     ], 
     "xbins": [
         "start", 
@@ -333,7 +304,6 @@
         "dash", 
         "color", 
         "width", 
-        "thickness", 
         "opacity", 
         "smoothing"
     ], 
@@ -428,17 +398,10 @@
         "overlaying", 
         "position", 
         "anchor", 
-        "unit", 
-        "tmin", 
-        "tmax", 
-        "b", 
-        "m", 
         "tickround", 
         "tickexponent", 
         "side", 
-        "color", 
-        "drange", 
-        "r0"
+        "color"
     ], 
     "colorbar": [], 
     "margin": [
@@ -452,8 +415,6 @@
     "scatter": [
         "x", 
         "y", 
-        "r", 
-        "t", 
         "text", 
         "name", 
         "mode", 
@@ -469,9 +430,6 @@
         "error_y", 
         "visible", 
         "textfont", 
-        "type", 
-        "jitter", 
-        "pointpos", 
-        "boxpoints"
+        "type"
     ]
 }

@@ -345,17 +345,17 @@ INFO = OrderedDict([
             description="the y coordinatey from the (x,y) pair on the scatter "
                         "plot.")),
 
-        ('r', dict(
-            required=False,
-            type='data',
-            val_types=val_types['general']['data_array'],
-        )),
-
-        ('t', dict(
-            required=False,
-            type='data',
-            val_types=val_types['general']['data_array'],
-        )),
+        # ('r', dict(
+        #     required=False,
+        #     type='data',
+        #     val_types=val_types['general']['data_array'],
+        # )),
+        #
+        # ('t', dict(
+        #     required=False,
+        #     type='data',
+        #     val_types=val_types['general']['data_array'],
+        # )),
 
         ('text', dict(
             required=False,
@@ -434,11 +434,11 @@ INFO = OrderedDict([
             description=description['trace']['type']
         )),
 
-        ('jitter', dict()),
-
-        ('pointpos', dict()),
-
-        ('boxpoints', dict())
+        # ('jitter', dict()),
+        #
+        # ('pointpos', dict()),
+        #
+        # ('boxpoints', dict())
 
     ])),
 
@@ -773,13 +773,13 @@ INFO = OrderedDict([
 
         ('y0', dict()),
 
-        ('hm_id', dict()),
+        # ('hm_id', dict()),
 
         ('line', dict()),
 
         ('marker', dict()),
 
-        ('error_y', dict()),
+        # ('error_y', dict()),
 
         ('textfont', dict()),
 
@@ -797,7 +797,7 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('mode', dict()),
+        ('bardir', dict()),
 
         ('marker', dict(
             required=False,
@@ -839,15 +839,15 @@ INFO = OrderedDict([
             required=True,
             type='plot_info',
             val_types='histogramx',
-            description=description['trace']['type'])),
+            description=description['trace']['type']))
 
-        ('y', dict()),
+        # ('mode', dict()),
 
-        ('error_y', dict()),
+        # ('y', dict()),
 
-        ('textfont', dict()),
-
-        ('bardir', dict())
+        # ('error_y', dict()),
+        #
+        # ('textfont', dict()),
 
     ])),
 
@@ -861,7 +861,7 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('mode', dict()),
+        ('bardir', dict()),
 
         ('marker', dict(
             required=False,
@@ -905,15 +905,15 @@ INFO = OrderedDict([
             val_types='histogramy',
             description=description['trace']['type'])),
 
-        ('x', dict()),
-
+        # ('mode', dict()),
+        #
+        # ('x', dict()),
+        #
         ('error_y', dict()),
 
         ('textfont', dict()),
 
-        ('xbins', dict(type='object')),
-
-        ('bardir', dict())
+        # ('xbins', dict(type='object')),
     ])),
 
     ('histogram2d', OrderedDict([
@@ -935,8 +935,6 @@ INFO = OrderedDict([
         ('colorbar', drop_in['colorbar']),
 
         ('name', drop_in['name']),
-
-        ('mode', dict()),
 
         ('marker', dict(
             required=False,
@@ -994,33 +992,35 @@ INFO = OrderedDict([
             val_types='histogram2d',
             description=description['trace']['type'])),
 
-        ('x0', dict()),
+        # ('x0', dict()),
+        #
+        # ('y0', dict()),
 
-        ('y0', dict()),
-
-        ('hm_id', dict()),
+        # ('hm_id', dict()),
 
         ('line', dict()),
 
         ('marker', dict()),
 
-        ('error_y', dict()),
+        # ('error_y', dict()),
 
         ('textfont', dict()),
 
         ('tab', dict()),
 
-        ('z', dict()),
+        # ('z', dict()),
 
-        ('zmax', dict()),
+        # ('zmax', dict()),
+        #
+        # ('zmin', dict()),
+        #
+        # ('zauto', dict()),
+        #
+        # ('dy', dict()),
+        #
+        # ('dx', dict()),
 
-        ('zmin', dict()),
-
-        ('zauto', dict()),
-
-        ('dy', dict()),
-
-        ('dx', dict())
+        # ('mode', dict())
 
     ])),
 
@@ -1140,7 +1140,7 @@ INFO = OrderedDict([
 
         ('yatype', dict()),
 
-        ('ref', dict()),
+        ('ref', dict())
     ])),
 
     ('colorbar', OrderedDict([])),
@@ -1236,7 +1236,7 @@ INFO = OrderedDict([
             type='plot_info'
         )),
 
-        ('needsEndSpacing', dict()),
+        # ('needsEndSpacing', dict()),
 
         ('autosize', dict(
             type='style'
@@ -1319,7 +1319,7 @@ INFO = OrderedDict([
 
         ('bardir', dict()),
 
-        ('smith', dict())
+        # ('smith', dict())
 
     ])),
 
@@ -1386,7 +1386,7 @@ INFO = OrderedDict([
             type='style'
         )),
 
-        ('thickness', dict()),  # TODO: redundant?
+        # ('thickness', dict()),  # TODO: redundant?
 
         ('opacity', dict(
             type='style'
@@ -1448,8 +1448,7 @@ INFO = OrderedDict([
             description="The size of the marker to be drawn."
         )),
 
-        ('sizemode', dict(
-        )),
+        ('sizemode', dict()),
 
         ('sizeref', dict()),
 
@@ -1675,17 +1674,17 @@ INFO = OrderedDict([
 
         ('anchor', dict()),
 
-        ('unit', dict()),
-        ('tmin', dict()),
-        ('tmax', dict()),
-        ('b', dict()),
-        ('m', dict()),
+        # ('unit', dict()),
+        # ('tmin', dict()),
+        # ('tmax', dict()),
+        # ('b', dict()),
+        # ('m', dict()),
         ('tickround', dict()),
         ('tickexponent', dict()),
         ('side', dict()),
         ('color', dict()),
-        ('drange', dict()),
-        ('r0', dict()),
+        # ('drange', dict()),
+        # ('r0', dict()),
     ])),
 
     ('xbins', OrderedDict([
@@ -1905,17 +1904,17 @@ INFO = OrderedDict([
 
         ('anchor', dict()),
 
-        ('unit', dict()),
-        ('tmin', dict()),
-        ('tmax', dict()),
-        ('b', dict()),
-        ('m', dict()),
+        # ('unit', dict()),
+        # ('tmin', dict()),
+        # ('tmax', dict()),
+        # ('b', dict()),
+        # ('m', dict()),
         ('tickround', dict()),
         ('tickexponent', dict()),
         ('side', dict()),
         ('color', dict()),
-        ('drange', dict()),
-        ('r0', dict()),
+        # ('drange', dict()),
+        # ('r0', dict()),
 
     ])),
 

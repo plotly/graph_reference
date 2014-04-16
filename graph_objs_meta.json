@@ -77,16 +77,6 @@
             "type": "data", 
             "description": "the y coordinatey from the (x,y) pair on the scatter plot."
         }, 
-        "r": {
-            "val_types": "array_like of numbers, strings, datetimes", 
-            "required": false, 
-            "type": "data"
-        }, 
-        "t": {
-            "val_types": "array_like of numbers, strings, datetimes", 
-            "required": false, 
-            "type": "data"
-        }, 
         "text": {
             "val_types": "array_like of strings", 
             "required": false, 
@@ -188,10 +178,7 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
-        }, 
-        "jitter": {}, 
-        "pointpos": {}, 
-        "boxpoints": {}
+        }
     }, 
     "bar": {
         "x": {
@@ -719,10 +706,8 @@
         }, 
         "x0": {}, 
         "y0": {}, 
-        "hm_id": {}, 
         "line": {}, 
         "marker": {}, 
-        "error_y": {}, 
         "textfont": {}, 
         "tab": {}
     }, 
@@ -739,7 +724,7 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
-        "mode": {}, 
+        "bardir": {}, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -799,11 +784,7 @@
             "required": true, 
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
-        }, 
-        "y": {}, 
-        "error_y": {}, 
-        "textfont": {}, 
-        "bardir": {}
+        }
     }, 
     "histogramy": {
         "y": {
@@ -818,7 +799,7 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
-        "mode": {}, 
+        "bardir": {}, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -879,13 +860,8 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }, 
-        "x": {}, 
         "error_y": {}, 
-        "textfont": {}, 
-        "xbins": {
-            "type": "object"
-        }, 
-        "bardir": {}
+        "textfont": {}
     }, 
     "histogram2d": {
         "x": {
@@ -969,7 +945,6 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
-        "mode": {}, 
         "marker": {}, 
         "line": {}, 
         "autobinx": {
@@ -1035,18 +1010,8 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }, 
-        "x0": {}, 
-        "y0": {}, 
-        "hm_id": {}, 
-        "error_y": {}, 
         "textfont": {}, 
-        "tab": {}, 
-        "z": {}, 
-        "zmax": {}, 
-        "zmin": {}, 
-        "zauto": {}, 
-        "dy": {}, 
-        "dx": {}
+        "tab": {}
     }, 
     "annotation": {
         "x": {
@@ -1232,7 +1197,6 @@
         "categories": {
             "type": "plot_info"
         }, 
-        "needsEndSpacing": {}, 
         "autosize": {
             "type": "style"
         }, 
@@ -1285,8 +1249,7 @@
         "annotations": {
             "type": "object"
         }, 
-        "bardir": {}, 
-        "smith": {}
+        "bardir": {}
     }, 
     "legend": {
         "x": {
@@ -1334,7 +1297,6 @@
         "width": {
             "type": "style"
         }, 
-        "thickness": {}, 
         "opacity": {
             "type": "style"
         }, 
@@ -1591,17 +1553,10 @@
         "overlaying": {}, 
         "position": {}, 
         "anchor": {}, 
-        "unit": {}, 
-        "tmin": {}, 
-        "tmax": {}, 
-        "b": {}, 
-        "m": {}, 
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
-        "color": {}, 
-        "drange": {}, 
-        "r0": {}
+        "color": {}
     }, 
     "xbins": {
         "start": {}, 
@@ -1808,17 +1763,10 @@
         "overlaying": {}, 
         "position": {}, 
         "anchor": {}, 
-        "unit": {}, 
-        "tmin": {}, 
-        "tmax": {}, 
-        "b": {}, 
-        "m": {}, 
         "tickround": {}, 
         "tickexponent": {}, 
         "side": {}, 
-        "color": {}, 
-        "drange": {}, 
-        "r0": {}
+        "color": {}
     }, 
     "ybins": {
         "start": {}, 
