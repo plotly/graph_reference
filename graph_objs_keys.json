@@ -61,7 +61,8 @@
         "type", 
         "y", 
         "error_y", 
-        "textfont"
+        "textfont", 
+        "bardir"
     ], 
     "histogramy": [
         "y", 

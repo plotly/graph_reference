@@ -49,9 +49,7 @@ val_types = dict(
     scatter=dict(
         fill="'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx",
         fillcolor="str describing color",
-    ),
-    axis=dict(),
-    bins=dict(),
+    )
 )
 
 description = dict(
@@ -136,9 +134,7 @@ description = dict(
         ybins=
         "A dictionary-like object explaining how the bins should be created in "
         "the x direction for this histogram.",
-    ),
-    scatter=dict(),
-    axis=dict(),
+    )
 )
 
 examples = dict(
@@ -332,8 +328,6 @@ INFO = OrderedDict([
         ('nbinsx', dict()),
         ('nbinsy', dict()),
     ])),
-
-    # ('area', OrderedDict([])),  # TODO: we need this? or only for polar...
 
     ('scatter', OrderedDict([
 
@@ -851,7 +845,9 @@ INFO = OrderedDict([
 
         ('error_y', dict()),
 
-        ('textfont', dict())
+        ('textfont', dict()),
+
+        ('bardir', dict())
 
     ])),
 
