@@ -69,13 +69,13 @@
             "val_types": "array_like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "the x coordinates from the (x,y) pair on the scatter plot."
+            "description": "The x coordinates from the (x,y) pair on the scatter plot."
         }, 
         "y": {
             "val_types": "array_like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "the y coordinatey from the (x,y) pair on the scatter plot."
+            "description": "The y coordinates from the (x,y) pair on the scatter plot."
         }, 
         "text": {
             "val_types": "array_like of strings", 
@@ -197,7 +197,7 @@
             "val_types": "'v' | 'h'", 
             "required": false, 
             "type": "style", 
-            "description": "This defines the orientation (direction) of the bars. If set to 'v', the bars run horizontally along the xaxis with their length streching in the y-direction. If set to 'h', the bars run vertically along the 'y' axis with their length streching in the x-direction."
+            "description": "This defines the orientation (direction) of the bars. If set to 'v', the length of each bar will run vertically.If set to 'h', the length of each bar will run horizontally"
         }, 
         "text": {}, 
         "name": {
@@ -377,7 +377,7 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
-            "description": "The data that describes the heatmap. The dimensions of the 'z' matrix are (nxm) where there are 'n' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. There are 'm' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (nxm) where there are 'n' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. There are 'm' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot)."
         }, 
         "x": {
             "val_types": "array_like of numbers, strings, datetimes", 
@@ -476,7 +476,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "This object represents a colorbar that will be shown on the figure where the color is related to the data being shown."
+            "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
         "xtype": {
             "val_types": "'array' | 'scaled'", 
@@ -552,7 +552,7 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
-            "description": "The data that describes the heatmap. The dimensions of the 'z' matrix are (nxm) where there are 'n' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. There are 'm' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (nxm) where there are 'n' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. There are 'm' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot)."
         }, 
         "x": {
             "val_types": "array_like of numbers, strings, datetimes", 
@@ -633,7 +633,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "This object represents a colorbar that will be shown on the figure where the color is related to the data being shown."
+            "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
         "xtype": {
             "val_types": "'array' | 'scaled'", 
@@ -820,7 +820,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object explaining how the bins should be created in the x direction for this histogram."
+            "description": "A dictionary-like object explaining how the bins should be created in the y direction for this histogram."
         }, 
         "nbinsy": {}, 
         "histnorm": {}, 
@@ -936,7 +936,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "This object represents a colorbar that will be shown on the figure where the color is related to the data being shown."
+            "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
         "name": {
             "val_types": "string", 
@@ -976,7 +976,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object explaining how the bins should be created in the x direction for this histogram."
+            "description": "A dictionary-like object explaining how the bins should be created in the y direction for this histogram."
         }, 
         "nbinsx": {}, 
         "nbinsy": {}, 

@@ -82,7 +82,7 @@ description = dict(
         "evenly.",
 
         z=
-        "The data that describes the heatmap. The dimensions of the 'z' "
+        "The data that describes the mapping. The dimensions of the 'z' "
         "matrix are (nxm) where there are 'n' COLUMNS defining the "
         "number of partitions along the x-axis; this is equal to the "
         "length of the 'x' array. There are 'm' ROWS defining the number of "
@@ -106,10 +106,8 @@ description = dict(
         x="The x coordinates of the bars OR the bar chart's categories.",
         y="The y data for bar charts, which is the length of the bars.",
         bardir="This defines the orientation (direction) of the bars. If "
-               "set to 'v', the bars run horizontally along the xaxis with "
-               "their length streching in the y-direction. If set to 'h', "
-               "the bars run vertically along the 'y' axis with their length "
-               "streching in the x-direction.",
+               "set to 'v', the length of each bar will run vertically.If set "
+               "to 'h', the length of each bar will run horizontally",
     ),
     histogram=dict(
 
@@ -133,7 +131,7 @@ description = dict(
 
         ybins=
         "A dictionary-like object explaining how the bins should be created in "
-        "the x direction for this histogram.",
+        "the y direction for this histogram.",
     )
 )
 
@@ -170,7 +168,7 @@ drop_in = dict(
         required=False,
         type='object',
         val_types=val_types['general']['object'],
-        description="This object represents a colorbar that will be shown on "
+        description="This object represents a color bar that will be shown on "
                     "the figure where the color is related to the data being "
                     "shown."),
 
@@ -335,14 +333,14 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            description="the x coordinates from the (x,y) pair on the scatter "
+            description="The x coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
         ('y', dict(
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            description="the y coordinatey from the (x,y) pair on the scatter "
+            description="The y coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
         # ('r', dict(
