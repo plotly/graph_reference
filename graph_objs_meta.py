@@ -53,7 +53,9 @@ val_types = dict(
 )
 
 description = dict(
-    general=dict(),
+    general=dict(
+        color="str describing color"
+    ),
     trace=dict(
 
         type=
@@ -568,8 +570,6 @@ INFO = OrderedDict([
 
         ('line', dict(type='object')),
 
-        ('textfont', dict(type='object')),
-
         ('showlegend', drop_in['showlegend_trace']),
 
         ('stream', drop_in['stream']),
@@ -579,8 +579,6 @@ INFO = OrderedDict([
         ('xaxis', drop_in['yaxis_trace']),
 
         ('visible', drop_in['visible']),
-
-        ('error_y', drop_in['error_y']),
 
         ('type', dict(
             required=True,
@@ -765,17 +763,9 @@ INFO = OrderedDict([
 
         ('y0', dict()),
 
-        # ('hm_id', dict()),
-
         ('line', dict()),
 
         ('marker', dict()),
-
-        # ('error_y', dict()),
-
-        ('textfont', dict()),
-
-        ('tab', dict())
 
     ])),
 
@@ -827,19 +817,15 @@ INFO = OrderedDict([
 
         ('stream', drop_in['stream']),
 
+        ('error_y', dict(
+            type='object'
+        )),
+
         ('type', dict(
             required=True,
             type='plot_info',
             val_types='histogramx',
             description=description['trace']['type']))
-
-        # ('mode', dict()),
-
-        # ('y', dict()),
-
-        # ('error_y', dict()),
-        #
-        # ('textfont', dict()),
 
     ])),
 
@@ -897,15 +883,10 @@ INFO = OrderedDict([
             val_types='histogramy',
             description=description['trace']['type'])),
 
-        # ('mode', dict()),
-        #
-        # ('x', dict()),
-        #
-        ('error_y', dict()),
+        ('error_y', dict(
+            type='object'
+        )),
 
-        # ('textfont', dict()),
-
-        # ('xbins', dict(type='object')),
     ])),
 
     ('histogram2d', OrderedDict([
@@ -1108,13 +1089,42 @@ INFO = OrderedDict([
     ('colorbar', OrderedDict([])),
 
     ('error_y', OrderedDict([
-        ('array', dict()),
-        ('color', dict()),
-        ('opacity', dict()),
-        ('thickness', dict()),
+        ('array', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'] + " or " + number(),
+            description="The array of error bar spans to be drawn. This can "
+                        "be specified as a data-array or as a single value ("
+                        "see error_y's 'type' help for more information."
+        )),
+        ('color', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description=description['general']['color'],
+            examples=examples['general']['color']
+        )),
+        ('opacity', drop_in['opacity']),
+        ('thickness', dict()),  # TODO: why thickness and width?
         ('traceref', dict()),
-        ('type', dict()),
-        ('visible', dict()),
+        ('type', dict(
+            required=False,
+            type='plot_info',  # TODO: data?
+            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
+            description="Specify how the 'array' key in this error bar will "
+                        "be used to render the bars. Using 'data' will "
+                        "require 'array' to be set to a multi-valued list of "
+                        "spans for the error bar. Using 'percent' requires "
+                        "'array' to be a single value set to the percent of "
+                        "error associated with all data points, e.g., "
+                        "array=50. Using 'constant' will set each error bar "
+                        "span to the single value specified in 'array', e.g., "
+                        "array=2. Use 'sqrt' with histogramx or histogramy. "
+                        "This will set the error bar span to be sqrt(n) where "
+                        "n is equal to the number of values in a particular "
+                        "bin."
+        )),
+        ('visible', drop_in['visible']),
         ('width', dict())
     ])),
 
@@ -1163,117 +1173,213 @@ INFO = OrderedDict([
     ('layout', OrderedDict([
 
         ('title', dict(
-            type='plot_info'
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['string'],
+            description="The figure title."
         )),
 
         ('xaxis', dict(
-            type='object'
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="The first 'xaxis' object can be entered into layout "
+                        "as 'xaxis' OR 'xaxis1', they're identical to plotly. "
+                        "After this, to create references to new x-axes, "
+                        "you need to define them in the layout dictionary."
         )),
 
         ('yaxis', dict(
-            type='object'
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="The first 'yaxis' object can be entered into layout "
+                        "as 'yaxis' OR 'yaxis1', they're identical to plotly. "
+                        "After this, to create references to new y-axes, "
+                        "you need to define them in the layout dictionary."
         )),
 
         ('legend', dict(
-            type='object'
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the legend "
+                        "settings for this figure."
         )),
 
         ('width', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="The width in pixels of the figure you're creating."
         )),
 
         ('height', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="The height in pixels of the figure you're creating."
+        )),
+        
+        ('autosize', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether or not to let plotly autosize this "
+                        "figure for you."
         )),
 
         ('categories', dict(
+            required=False,
             type='plot_info'
         )),
 
-        # ('needsEndSpacing', dict()),
-
-        ('autosize', dict(
-            type='style'
-        )),
-
         ('margin', dict(
-            type='object'
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object for describing the figure's "
+                        "margins."
         )),
 
         ('paper_bgcolor', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description=description['general']['color']
         )),
 
         ('plot_bgcolor', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description=description['general']['color']
+        )),
+
+        ('dragmode', dict(
+            required=False,
+            type='style',
+            val_types="'zoom' | 'pan'",
+            description="Set what happens when a user preforms a mouse 'drag' "
+                        "in the plot area. When set to 'zoom', a portion of "
+                        "the plot will be highlighted, when the viewer "
+                        "exits the drag, this highlighted section will be "
+                        "zoomed in on. When set to 'pan', data in the plot "
+                        "will move along with the viewers dragging motions. A "
+                        "user can always depress the 'shift' key to access "
+                        "the whatever functionality has not been set as the "
+                        "default."
+        )),
+
+        ('hovermode', dict(
+            required=False,
+            type='style',
+            val_types="'closest' | 'x' | 'y'",
+            description="Set what happens when a user hovers over the figure. "
+                        "When set to 'x', all data sharing the same 'x' "
+                        "coordinate will be shown on screen with "
+                        "corresponding trace labels. When set to 'y' all data "
+                        "sharing the same 'y' coordainte will be shown on the "
+                        "screen with corresponding trace labels. When set to "
+                        "'closest', information about the data point closest "
+                        "to where the viewer is hovering will appear."
         )),
 
         ('barmode', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('bargap', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('bargroupgap', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('boxmode', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('boxgap', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('boxgroupgap', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('font', dict(
-            type='object'
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="Set the global font for the figure, e.g., all axis "
+                        "labels."
         )),
 
         ('titlefont', dict(
-            type='object'
-        )),
-
-        ('dragmode', dict(
-        )),
-
-        ('hovermode', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="Set the title font for the figure."
         )),
 
         ('separators', dict(
+            required=False,
         )),
 
-        ('labeloffset', dict()),
+        ('labeloffset', dict(
+            required=False,
+        )),
 
-        ('orientation', dict()),
+        ('orientation', dict(
+            required=False,
+        )),
 
-        ('direction', dict()),
+        ('direction', dict(
+            required=False,
+        )),
 
-        ('tickcolor', dict()),
+        ('tickcolor', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('minortickcolor', dict()),
+        ('minortickcolor', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('defaultcolorrange', dict()),
+        ('defaultcolorrange', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('hidesources', dict()),
+        ('hidesources', dict(
+            required=False,
+            type='plot_info'
+        )),
 
         ('showlegend', dict(
+            required=False,
             type='plot_info'
         )),
 
         ('annotations', dict(
+            required=False,
             type='object'
         )),
 
-        ('bardir', dict()),
-
-        # ('smith', dict())
+        ('bardir', dict(
+            required=False,
+            type='plot_info'
+        ))
 
     ])),
 

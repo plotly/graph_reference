@@ -58,6 +58,7 @@
         "yaxis", 
         "visible", 
         "stream", 
+        "error_y", 
         "type"
     ], 
     "histogramy": [
@@ -85,11 +86,13 @@
         "legend", 
         "width", 
         "height", 
-        "categories", 
         "autosize", 
+        "categories", 
         "margin", 
         "paper_bgcolor", 
         "plot_bgcolor", 
+        "dragmode", 
+        "hovermode", 
         "barmode", 
         "bargap", 
         "bargroupgap", 
@@ -98,8 +101,6 @@
         "boxgroupgap", 
         "font", 
         "titlefont", 
-        "dragmode", 
-        "hovermode", 
         "separators", 
         "labeloffset", 
         "orientation", 
@@ -172,9 +173,7 @@
         "x0", 
         "y0", 
         "line", 
-        "marker", 
-        "textfont", 
-        "tab"
+        "marker"
     ], 
     "contours": [
         "start", 
@@ -335,12 +334,10 @@
         "fillcolor", 
         "marker", 
         "line", 
-        "textfont", 
         "showlegend", 
         "stream", 
         "xaxis", 
         "visible", 
-        "error_y", 
         "type"
     ], 
     "bar": [

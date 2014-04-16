@@ -332,9 +332,6 @@
         "line": {
             "type": "object"
         }, 
-        "textfont": {
-            "type": "object"
-        }, 
         "showlegend": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -358,12 +355,6 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
-        }, 
-        "error_y": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
         "type": {
             "val_types": "box", 
@@ -707,9 +698,7 @@
         "x0": {}, 
         "y0": {}, 
         "line": {}, 
-        "marker": {}, 
-        "textfont": {}, 
-        "tab": {}
+        "marker": {}
     }, 
     "histogramx": {
         "x": {
@@ -778,6 +767,9 @@
             "required": false, 
             "type": "plot_info", 
             "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        }, 
+        "error_y": {
+            "type": "object"
         }, 
         "type": {
             "val_types": "histogramx", 
@@ -860,7 +852,9 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }, 
-        "error_y": {}
+        "error_y": {
+            "type": "object"
+        }
     }, 
     "histogram2d": {
         "x": {
@@ -1131,13 +1125,45 @@
     }, 
     "colorbar": {}, 
     "error_y": {
-        "array": {}, 
-        "color": {}, 
-        "opacity": {}, 
+        "array": {
+            "val_types": "array_like of numbers, strings, datetimes or number", 
+            "required": false, 
+            "type": "data", 
+            "description": "The array of error bar spans to be drawn. This can be specified as a data-array or as a single value (see error_y's 'type' help for more information."
+        }, 
+        "color": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "str describing color"
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
+        }, 
         "thickness": {}, 
         "traceref": {}, 
-        "type": {}, 
-        "visible": {}, 
+        "type": {
+            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogramx or histogramy. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
+        }, 
+        "visible": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggles whether this will actually be visible in the rendered figure."
+        }, 
         "width": {}
     }, 
     "figure": {
@@ -1182,79 +1208,157 @@
     }, 
     "layout": {
         "title": {
-            "type": "plot_info"
+            "val_types": "string", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "The figure title."
         }, 
         "xaxis": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "The first 'xaxis' object can be entered into layout as 'xaxis' OR 'xaxis1', they're identical to plotly. After this, to create references to new x-axes, you need to define them in the layout dictionary."
         }, 
         "yaxis": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "The first 'yaxis' object can be entered into layout as 'yaxis' OR 'yaxis1', they're identical to plotly. After this, to create references to new y-axes, you need to define them in the layout dictionary."
         }, 
         "legend": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the legend settings for this figure."
         }, 
         "width": {
-            "type": "style"
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "The width in pixels of the figure you're creating."
         }, 
         "height": {
-            "type": "style"
-        }, 
-        "categories": {
-            "type": "plot_info"
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "The height in pixels of the figure you're creating."
         }, 
         "autosize": {
-            "type": "style"
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not to let plotly autosize this figure for you."
+        }, 
+        "categories": {
+            "required": false, 
+            "type": "plot_info"
         }, 
         "margin": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object for describing the figure's margins."
         }, 
         "paper_bgcolor": {
-            "type": "style"
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "str describing color"
         }, 
         "plot_bgcolor": {
-            "type": "style"
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "str describing color"
+        }, 
+        "dragmode": {
+            "val_types": "'zoom' | 'pan'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set what happens when a user preforms a mouse 'drag' in the plot area. When set to 'zoom', a portion of the plot will be highlighted, when the viewer exits the drag, this highlighted section will be zoomed in on. When set to 'pan', data in the plot will move along with the viewers dragging motions. A user can always depress the 'shift' key to access the whatever functionality has not been set as the default."
+        }, 
+        "hovermode": {
+            "val_types": "'closest' | 'x' | 'y'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set what happens when a user hovers over the figure. When set to 'x', all data sharing the same 'x' coordinate will be shown on screen with corresponding trace labels. When set to 'y' all data sharing the same 'y' coordainte will be shown on the screen with corresponding trace labels. When set to 'closest', information about the data point closest to where the viewer is hovering will appear."
         }, 
         "barmode": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "bargap": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "bargroupgap": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "boxmode": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "boxgap": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "boxgroupgap": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "font": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "Set the global font for the figure, e.g., all axis labels."
         }, 
         "titlefont": {
-            "type": "object"
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "Set the title font for the figure."
         }, 
-        "dragmode": {}, 
-        "hovermode": {}, 
-        "separators": {}, 
-        "labeloffset": {}, 
-        "orientation": {}, 
-        "direction": {}, 
-        "tickcolor": {}, 
-        "minortickcolor": {}, 
-        "defaultcolorrange": {}, 
-        "hidesources": {}, 
+        "separators": {
+            "required": false
+        }, 
+        "labeloffset": {
+            "required": false
+        }, 
+        "orientation": {
+            "required": false
+        }, 
+        "direction": {
+            "required": false
+        }, 
+        "tickcolor": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "minortickcolor": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "defaultcolorrange": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "hidesources": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
         "showlegend": {
+            "required": false, 
             "type": "plot_info"
         }, 
         "annotations": {
+            "required": false, 
             "type": "object"
         }, 
-        "bardir": {}
+        "bardir": {
+            "required": false, 
+            "type": "plot_info"
+        }
     }, 
     "legend": {
         "x": {
