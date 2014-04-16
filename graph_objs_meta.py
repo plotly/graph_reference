@@ -434,12 +434,6 @@ INFO = OrderedDict([
             description=description['trace']['type']
         )),
 
-        # ('jitter', dict()),
-        #
-        # ('pointpos', dict()),
-        #
-        # ('boxpoints', dict())
-
     ])),
 
     ('bar', OrderedDict([
@@ -911,7 +905,7 @@ INFO = OrderedDict([
         #
         ('error_y', dict()),
 
-        ('textfont', dict()),
+        # ('textfont', dict()),
 
         # ('xbins', dict(type='object')),
     ])),
@@ -991,36 +985,6 @@ INFO = OrderedDict([
             type='plot_info',
             val_types='histogram2d',
             description=description['trace']['type'])),
-
-        # ('x0', dict()),
-        #
-        # ('y0', dict()),
-
-        # ('hm_id', dict()),
-
-        ('line', dict()),
-
-        ('marker', dict()),
-
-        # ('error_y', dict()),
-
-        ('textfont', dict()),
-
-        ('tab', dict()),
-
-        # ('z', dict()),
-
-        # ('zmax', dict()),
-        #
-        # ('zmin', dict()),
-        #
-        # ('zauto', dict()),
-        #
-        # ('dy', dict()),
-        #
-        # ('dx', dict()),
-
-        # ('mode', dict())
 
     ])),
 
@@ -1207,14 +1171,6 @@ INFO = OrderedDict([
         ('xaxis', dict(
             type='object'
         )),
-
-        # ('radialAxis', dict(
-        #     type='object'
-        # )),
-        #
-        # ('angularAxis', dict(
-        #     type='object'
-        # )),
 
         ('yaxis', dict(
             type='object'

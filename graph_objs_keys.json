@@ -76,8 +76,7 @@
         "visible", 
         "stream", 
         "type", 
-        "error_y", 
-        "textfont"
+        "error_y"
     ], 
     "layout": [
         "title", 
@@ -290,9 +289,7 @@
         "yaxis", 
         "visible", 
         "stream", 
-        "type", 
-        "textfont", 
-        "tab"
+        "type"
     ], 
     "xbins": [
         "start", 
