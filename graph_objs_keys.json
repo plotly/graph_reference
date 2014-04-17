@@ -15,7 +15,8 @@
         "'opacity': 'style'"
     ], 
     "stream": [
-        "'maxpoints': UNCLASSIFIED"
+        "'maxpoints': UNCLASSIFIED", 
+        "'token': UNCLASSIFIED"
     ], 
     "font": [
         "'family': 'style'", 

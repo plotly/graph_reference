@@ -1471,7 +1471,8 @@
         }
     }, 
     "stream": {
-        "maxpoints": {}
+        "maxpoints": {}, 
+        "token": {}
     }, 
     "xaxis": {
         "title": {}, 

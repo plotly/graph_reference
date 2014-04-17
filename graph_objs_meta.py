@@ -1534,7 +1534,8 @@ INFO = OrderedDict([
     ])),
 
     ('stream', OrderedDict([
-        ('maxpoints', dict())
+        ('maxpoints', dict()),
+        ('token', dict())
     ])),
 
     ('xaxis', OrderedDict([
