@@ -41,6 +41,7 @@
         "xaxis", 
         "yaxis", 
         "visible", 
+        "showscale", 
         "type"
     ], 
     "histogramx": [
@@ -169,6 +170,7 @@
         "xaxis", 
         "yaxis", 
         "visible", 
+        "showscale", 
         "type", 
         "x0", 
         "y0", 
@@ -266,7 +268,8 @@
         "zauto", 
         "hm_id", 
         "nbinsx", 
-        "nbinsy"
+        "nbinsy", 
+        "showscale"
     ], 
     "histogram2d": [
         "x", 
@@ -287,6 +290,7 @@
         "xaxis", 
         "yaxis", 
         "visible", 
+        "showscale", 
         "stream", 
         "type"
     ], 

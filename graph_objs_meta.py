@@ -327,6 +327,7 @@ INFO = OrderedDict([
         ('hm_id', dict()),
         ('nbinsx', dict()),
         ('nbinsy', dict()),
+        ('showscale', dict())
     ])),
 
     ('scatter', OrderedDict([
@@ -676,6 +677,8 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
+        ('showscale', dict()),
+
         ('type', dict(
             required=True,
             type='plot_info',
@@ -753,6 +756,8 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
+        ('showscale', dict()),
+
         ('type', dict(
             required=True,
             type='plot_info',
@@ -779,7 +784,12 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('bardir', dict()),
+        ('bardir', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['bar']['bardir'],
+            description=val_types['bar']['bardir']
+        )),
 
         ('marker', dict(
             required=False,
@@ -956,6 +966,8 @@ INFO = OrderedDict([
         ('yaxis', drop_in['yaxis_trace']),
 
         ('visible', drop_in['visible']),
+
+        ('showscale', dict()),
 
         ('stream', drop_in['stream']),
 

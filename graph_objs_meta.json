@@ -62,7 +62,8 @@
         "zauto": {}, 
         "hm_id": {}, 
         "nbinsx": {}, 
-        "nbinsy": {}
+        "nbinsy": {}, 
+        "showscale": {}
     }, 
     "scatter": {
         "x": {
@@ -531,6 +532,7 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
+        "showscale": {}, 
         "type": {
             "val_types": "contour", 
             "required": true, 
@@ -689,6 +691,7 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
+        "showscale": {}, 
         "type": {
             "val_types": "heatmap", 
             "required": true, 
@@ -713,7 +716,12 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
-        "bardir": {}, 
+        "bardir": {
+            "val_types": "'v' | 'h'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "'v' | 'h'"
+        }, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -999,6 +1007,7 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
+        "showscale": {}, 
         "stream": {
             "val_types": "dictionary-like", 
             "required": false, 
