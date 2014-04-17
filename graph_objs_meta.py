@@ -272,15 +272,15 @@ drop_in = dict(
 
 INFO = OrderedDict([
 
-    ('plotlylist', dict()),
+    ('_plotlylist', dict()),
 
     ('data', dict()),
 
     ('annotations', dict()),
 
-    ('plotlydict', dict()),
+    ('_plotlydict', dict()),
 
-    ('plotlytrace', dict()),
+    ('_plotlytrace', dict()),
 
     ('trace', OrderedDict([
         ('x', dict()),
@@ -1520,9 +1520,15 @@ INFO = OrderedDict([
             description="The size of the marker to be drawn."
         )),
 
-        ('sizemode', dict()),
+        ('sizemode', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('sizeref', dict()),
+        ('sizeref', dict(
+            required=False,
+            type='style'
+        )),
 
         ('color', dict(
             type='style'
@@ -1534,8 +1540,14 @@ INFO = OrderedDict([
     ])),
 
     ('stream', OrderedDict([
-        ('maxpoints', dict()),
-        ('token', dict())
+        ('token', dict(
+            required=True,
+            type='plot_info'
+        )),
+        ('maxpoints', dict(
+            requird=False,
+            type='plot_info'
+        ))
     ])),
 
     ('xaxis', OrderedDict([

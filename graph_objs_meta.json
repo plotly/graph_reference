@@ -1,9 +1,9 @@
 {
-    "plotlylist": {}, 
+    "_plotlylist": {}, 
     "data": {}, 
     "annotations": {}, 
-    "plotlydict": {}, 
-    "plotlytrace": {}, 
+    "_plotlydict": {}, 
+    "_plotlytrace": {}, 
     "trace": {
         "x": {}, 
         "y": {}, 
@@ -1461,8 +1461,14 @@
             "type": "style", 
             "description": "The size of the marker to be drawn."
         }, 
-        "sizemode": {}, 
-        "sizeref": {}, 
+        "sizemode": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "sizeref": {
+            "required": false, 
+            "type": "style"
+        }, 
         "color": {
             "type": "style"
         }, 
@@ -1471,8 +1477,14 @@
         }
     }, 
     "stream": {
-        "maxpoints": {}, 
-        "token": {}
+        "token": {
+            "required": true, 
+            "type": "plot_info"
+        }, 
+        "maxpoints": {
+            "requird": false, 
+            "type": "plot_info"
+        }
     }, 
     "xaxis": {
         "title": {}, 
