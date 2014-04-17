@@ -1533,7 +1533,9 @@ INFO = OrderedDict([
         )),
     ])),
 
-    ('stream', OrderedDict([])),
+    ('stream', OrderedDict([
+        ('maxpoints', dict())
+    ])),
 
     ('xaxis', OrderedDict([
 
@@ -1744,7 +1746,9 @@ INFO = OrderedDict([
 
         ('position', dict()),
 
-        ('anchor', dict()),
+        ('anchor', dict(
+
+        )),
 
         # ('unit', dict()),
         # ('tmin', dict()),
@@ -2008,13 +2012,18 @@ INFO = OrderedDict([
 
 if __name__ == "__main__":
     import json
-    with open('graph_objs_meta.min.json', 'w') as f:
-        f.write(json.dumps(INFO, sort_keys=False))
+
     with open('graph_objs_meta.json', 'w') as f:
         f.write(json.dumps(INFO, indent=4, sort_keys=False))
+
     obj_keys = dict()
-    for key in INFO:
-        obj_keys[key] = [k for k in INFO[key]]
+    for key, val in INFO.items():
+        obj_keys[key] = list()
+        for k, v in val.items():
+            try:
+                obj_keys[key].append("'{}': '{}'".format(k, v['type']))
+            except KeyError:
+                obj_keys[key].append("'{}': {}".format(k, 'UNCLASSIFIED'))
     with open('graph_objs_keys.json', 'w') as f:
         f.write(json.dumps(obj_keys, indent=4, sort_keys=False))
 

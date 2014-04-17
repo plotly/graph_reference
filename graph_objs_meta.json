@@ -1470,7 +1470,9 @@
             "type": "style"
         }
     }, 
-    "stream": {}, 
+    "stream": {
+        "maxpoints": {}
+    }, 
     "xaxis": {
         "title": {}, 
         "domain": {
