@@ -197,7 +197,7 @@
         "bardir": {
             "val_types": "'v' | 'h'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "This defines the orientation (direction) of the bars. If set to 'v', the length of each bar will run vertically.If set to 'h', the length of each bar will run horizontally"
         }, 
         "text": {}, 

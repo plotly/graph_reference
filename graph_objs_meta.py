@@ -460,7 +460,7 @@ INFO = OrderedDict([
 
         ('bardir', dict(
             required=False,
-            type="style",
+            type='plot_info',
             val_types=val_types['bar']['bardir'],
             description=description['bar']['bardir']
         )),
