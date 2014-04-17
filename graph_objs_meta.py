@@ -272,15 +272,15 @@ drop_in = dict(
 
 INFO = OrderedDict([
 
-    ('_plotlylist', dict()),
+    ('plotlylist', dict()),
 
     ('data', dict()),
 
     ('annotations', dict()),
 
-    ('_plotlydict', dict()),
+    ('plotlydict', dict()),
 
-    ('_plotlytrace', dict()),
+    ('plotlytrace', dict()),
 
     ('trace', OrderedDict([
         ('x', dict()),
