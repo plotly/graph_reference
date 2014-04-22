@@ -727,6 +727,12 @@
             "required": false, 
             "type": "object"
         }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
+        }, 
         "line": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -809,6 +815,12 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object"
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "autobiny": {
             "val_types": "bool: True | False", 
