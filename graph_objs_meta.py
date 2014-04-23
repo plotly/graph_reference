@@ -819,6 +819,8 @@ INFO = OrderedDict([
             type='object',
             val_types=val_types['general']['object'])),
 
+        ('opacity', drop_in['opacity']),
+
         ('line', dict(
             required=False,
             type='object',
@@ -883,6 +885,8 @@ INFO = OrderedDict([
             required=False,
             type='object',
             val_types=val_types['general']['object'])),
+
+        ('opacity', drop_in['opacity']),
 
         ('autobiny', dict(
             required=False,
