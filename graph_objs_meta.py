@@ -30,8 +30,8 @@ val_types = dict(
         bool="bool: True | False",
         color="str describing color",
         string="string",
-        data_array="array_like of numbers, strings, datetimes",
-        string_array="array_like of strings",
+        data_array="array-like of numbers, strings, datetimes",
+        string_array="array-like of strings",
         object="dictionary-like",
     ),
     trace=dict(),
@@ -60,7 +60,10 @@ description = dict(
 
         type=
         "Plotly identifier for this data's trace type. This defines how this "
-        "data dictionary will be handled.",
+        "data dictionary will be handled. For example, 'scatter' type expects "
+        "x and y data-arrays corresponding to (x, y) coordinates wheras a "
+        "'histogramx' only requires a single x array and a 'heatmap' type "
+        "requires x and y data-arrays as well as a z matrix.",
 
         error_y=
         "A dictionary-like object describing vertical error bars that can be "
@@ -83,7 +86,7 @@ description = dict(
         "the ROWS of the 'z' matrix. If strings, the y-labels are spaced "
         "evenly.",
 
-        z=
+        z=  # TODO
         "The data that describes the mapping. The dimensions of the 'z' "
         "matrix are (nxm) where there are 'n' COLUMNS defining the "
         "number of partitions along the x-axis; this is equal to the "
@@ -232,6 +235,14 @@ drop_in = dict(
         description="Toggle whether or not the legend will be shown in this "
                     "figure."),
 
+    showscale=dict(
+        required=False,
+        type='plot_info',
+        val_types=val_types['general']['bool'],
+        description="Toggle whether or not the color scale associated with "
+                    "this mapping will be shown alongside the rendered "
+                    "figure."),
+
     stream=dict(
         required=False,
         type='plot_info',
@@ -299,8 +310,8 @@ INFO = OrderedDict([
         ('showlegend', dict()),
         ('xaxis', dict()),
         ('yaxis', dict()),
-        ('angularAxis', dict()),
-        ('radialAxis', dict()),
+        # ('angularAxis', dict()),
+        # ('radialAxis', dict()),
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict()),
@@ -364,7 +375,10 @@ INFO = OrderedDict([
             val_types=val_types['general']['string_array'],
             description="The text elements associated with every (x,y) pair on "
                         "the scatter plot. If the scatter 'mode' doesn't "
-                        "include 'text' then text will appear on hover."
+                        "include 'text' then text will appear on hover. If "
+                        "'text' is included in 'mode', the entries in 'text' "
+                        "will be rendered on the plot at the locations "
+                        "specified by their corresponding (x, y) pair."
         )),
 
         ('name', drop_in['name']),
@@ -375,9 +389,9 @@ INFO = OrderedDict([
             val_types="'lines' | 'markers' | 'text' | 'lines+markers' | "
                       "'lines+text' | 'markers+text' | 'lines+markers+text'",
             description="Plotting mode (style) for the scatter plot. If the "
-                        "mode includes 'text' then the 'text' will appear "
-                        "next to the (x,y) points, otherwise it will appear "
-                        "on hover.")),
+                        "mode includes 'text' then the 'text' will appear at "
+                        "the (x,y) points, otherwise it will appear on "
+                        "hover.")),
 
         ('marker', dict(
             required=False,
@@ -426,7 +440,9 @@ INFO = OrderedDict([
             required=False,
             type='object',
             description="A dictionary-like object describing the font style "
-                        "of this scatter's text elements.")),  # TODO?!?
+                        "of this scatter's text elements. This only has "
+                        "an effect if 'text' is an array of strings and "
+                        "'mode' is set to include 'text'.")),  # TODO?!?
 
         ('type', dict(
             required=False,
@@ -465,7 +481,14 @@ INFO = OrderedDict([
             description=description['bar']['bardir']
         )),
 
-        ('text', dict()),
+        ('text', dict(
+            required=False,
+            type='data',
+            val_types=val_types['general']['string_array'],
+            description="This array of strings corresponds to the bar at "
+                        "location 'x' with length 'y'. This will appear upon "
+                        "hovering over the bar."
+        )),
 
         ('name', drop_in['name']),
 
@@ -677,7 +700,7 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('showscale', dict()),
+        ('showscale', drop_in['showscale']),
 
         ('type', dict(
             required=True,
@@ -756,7 +779,7 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('showscale', dict()),
+        ('showscale', drop_in['showscale']),
 
         ('type', dict(
             required=True,
@@ -967,7 +990,7 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('showscale', dict()),
+        ('showscale', drop_in['showscale']),
 
         ('stream', drop_in['stream']),
 
