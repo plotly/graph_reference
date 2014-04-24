@@ -2,6 +2,12 @@ The ultimate reference of Plotly's JSON graph format.
 
 Used as the help reference in [Plotly-Python library](https://github.com/plotly/python-api) and in [Plotly's web documentation](https://plot.ly/api/rest).
 
+#### Files in this repo:
+
+- For reference, see [graph_objs_meta.json](/graph_objs_meta.json)
+- To contribute, edit [graph_objs_meta.py](/graph_objs_meta.py)
+
+
 #### Format
 
 A fully described `key` is an object with the keys: `val_types`, `required`, `type`, `description`. 
