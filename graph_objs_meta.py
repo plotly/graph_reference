@@ -14,7 +14,7 @@ def number(lt=None, le=None, gt=None, ge=None):
         return "number: x <= {le}".format(le=le)
     elif gt is not None and ([le, lt] == [None, None]):
         return "number: x > {gt}".format(gt=gt)
-    elif ge is not None and ([le, lt] ==[None, None]):
+    elif ge is not None and ([le, lt] == [None, None]):
         return "number: x >= {ge}".format(ge=ge)
     elif (lt is not None) and (gt is not None):
         return "number: x in ({gt}, {lt})".format(gt=gt, lt=lt)
@@ -86,16 +86,20 @@ description = dict(
         "the ROWS of the 'z' matrix. If strings, the y-labels are spaced "
         "evenly.",
 
-        z=  # TODO
+        z=
         "The data that describes the mapping. The dimensions of the 'z' "
-        "matrix are (nxm) where there are 'n' COLUMNS defining the "
-        "number of partitions along the x-axis; this is equal to the "
-        "length of the 'x' array. There are 'm' ROWS defining the number of "
-        "partitions along the y-axis; this is equal to the length of the "
-        "'y' array. Therefore, the color of the cell z[i][j] is mapped to "
+        "matrix are (nxm) where there are 'n' ROWS defining the "
+        "number of partitions along the y-axis; this is equal to the "
+        "length of the 'y' array. There are 'm' COLUMNS defining the number of "
+        "partitions along the x-axis; this is equal to the length of the "
+        "'x' array. Therefore, the color of the cell z[i][j] is mapped to "
         "the ith partition of the y-axis (starting from the bottom of the "
         "plot) and the jth partition of the x-axis (starting from the left "
-        "of the plot).",
+        "of the plot). In Python, a (non-numpy) matrix is best thought of as "
+        "a list of lists (of lists, of lists, etc.). Therefore, running len(z) "
+        "will give you the number of ROWS and running len(z[0]) will give you "
+        "the number of COLUMNS. If you ARE using numpy, then running z.shape "
+        "will give you a tuple, e.g., (n, m).",
 
         zmax=
         "The value used as the maximum in the color scale normalization in "
@@ -184,9 +188,60 @@ drop_in = dict(
         description="A dictionary-like object describing vertical error bars "
                     "that can be drawn with this trace's (x, y) points."),
 
+    exponentformat=dict(
+        required=False,
+        type='style',
+        val_types="'none' | 'e' | 'E' | 'power' | 'SI' | 'B'",
+        description="Sets how exponents show up. Here's how the number "
+                    "1000000000 (1 billion) shows up in each. If set to "
+                    "'none': 1,000,000,000. If set to 'e': 1e+9. If set "
+                    "to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 "
+                    "will appear super-scripted. If set to 'SI': 1G. If "
+                    "set to 'B': 1B (useful when referring to currency."),
+
+    showexponent=dict(
+        required=False,
+        type='style',
+        val_types="'all' | 'first' | 'last' | 'none'",
+        description="If set to 'all', ALL exponents will be shown "
+                    "appended to their significands. If set to 'first', "
+                    "the first tick's exponent will be appended to its "
+                    "significand, however no other exponents will "
+                    "appear--only the significands. If set to 'last', "
+                    "the last tick's exponent will be appended to its "
+                    "significand, however no other exponents will "
+                    "appear--only the significands. If set to 'none', "
+                    "NO exponents will appear, only the significands."),
+
+    histnorm=dict(
+        requried=False,
+        type='plot_info',
+        val_types="'' | 'percent' | 'probability' | 'density' | 'probability "
+                  "density'",
+        description="If histnorm is not specified, or histnorm='' ("
+                    "empty string), the height of each bar displays the "
+                    "frequency of occurrence, i.e., the number of times this "
+                    "value was found in the corresponding bin. If "
+                    "histnorm='percent', the height of each bar displays the "
+                    "percentage of total occurrences found within the "
+                    "corresponding bin. If histnorm='probability', the height "
+                    "of each bar displays the probability that an event will "
+                    "fall into the corresponding bin. If histnorm='density', "
+                    "the height of each bar is equal to the number of "
+                    "occurrences in a bin divided by the size of the bin "
+                    "interval such that summing the area of all bins will "
+                    "yield the total number of occurrences. If "
+                    "histnorm='probability density', the height of each bar "
+                    "is equal to the number of probability that an event will "
+                    "fall into the corresponding bin divided by the size of "
+                    "the bin interval such that summing the area of all bins "
+                    "will yield 1, i.e. an event must fall into one of the "
+                    "bins."
+    ),
+
     name=dict(
         required=False,
-        type='data',  # TODO??
+        type='data',
         val_types=val_types['general']['string'],
         description="The label associated with this trace. This name will "
                     "appear in the legend, in the column header in the "
@@ -214,7 +269,7 @@ drop_in = dict(
                     "corresponds to a normalized value of z from 0-1  (i.e. ("
                     "z-zmin)/(zmax-zmin)), and the second element of pair "
                     "corresponds to a color.",
-        examples=["Greys",[[0, "rgb(0,0,0)"], [1, "rgb(255,255,255)"]],
+        examples=["Greys", [[0, "rgb(0,0,0)"], [1, "rgb(255,255,255)"]],
                   [[0, "rgb(8, 29, 88)"], [0.125, "rgb(37, 52, 148)"],
                    [0.25, "rgb(34, 94, 168)"], [0.375, "rgb(29, 145, 192)"],
                    [0.5, "rgb(65, 182, 196)"], [0.625, "rgb(127, 205, 187)"],
@@ -269,6 +324,7 @@ drop_in = dict(
                     "layout['xaxis'] and 'x2' references layout['xaxis2']. "
                     "'x1' will always refer to layout['xaxis'] or layout["
                     "'xaxis1'], they are the same."),
+
     yaxis_trace=dict(
         required=False,
         type='plot_info',
@@ -278,6 +334,58 @@ drop_in = dict(
                     "layout['yaxis'] and 'y2' references layout['yaxis2']. "
                     "'y1' will always refer to layout['yaxis'] or layout["
                     "'yaxis1'], they are the same."),
+
+    xref=dict(
+        required=False,
+        type='plot_info',
+        val_types="'paper' | 'x1' | 'x2' | etc",
+        description="This defines what the x coordinate for this object "
+                    "*refers* to. If you reference an axis, e.g., 'x2', the "
+                    "object will move with pan-and-zoom to stay fixed to this "
+                    "point. If you reference the 'paper', it remains fixed "
+                    "regardless of pan-and-zoom. In other words, if set to "
+                    "'paper', the 'x' location refers to the distance from the "
+                    "left side of the plotting area in normalized coordinates "
+                    "where 0=='left' and 1=='right'. If set to refer to an "
+                    "'xaxis' object, e.g., 'x1', 'x2', 'x3', etc., the 'x' "
+                    "location will refer to the location in terms of this "
+                    "axis."),
+
+    yref=dict(
+        required=False,
+        type='plot_info',
+        val_types="'paper' | 'y1' | 'y2' | etc",
+        description="This defines what the x coordinate for this object "
+                    "*refers* to. If you reference an axis, e.g., 'x2', the "
+                    "object will move with pan-and-zoom to stay fixed to this "
+                    "point. If you reference the 'paper', it remains fixed "
+                    "regardless of pan-and-zoom. In other words, if set to "
+                    "'paper', the 'y' location refers to the distance from the "
+                    "bottom of the plotting area in normalized coordinates "
+                    "where 0=='bottom' and 1=='top'. If set to refer to a "
+                    "'yaxis' object, e.g., 'y1', 'y2', 'y3', etc., the 'y' "
+                    "location will refer to the location in terms of this "
+                    "axis."),
+
+    xanchor=dict(
+        required=False,
+        type='plot_info',
+        val_types="'left' | 'center' | 'right'",
+        description="This defines the horizontal location on the object "
+                    "referenced by 'x'. For example, if 'x'==1, "
+                    "'xref'='paper', and 'xanchor'='right', the rightmost "
+                    "portion of this object will line up with the rightmost "
+                    "edge of the plotting area."),
+
+    yanchor=dict(
+        required=False,
+        type='plot_info',
+        val_types="'bottom' | 'middle' | 'top'",
+        description="This defines the vertical location on the object "
+                    "referenced by 'y'. For example, if 'y'==1, "
+                    "'yref'='paper', and 'yanchor'='top', the upper edge "
+                    "of this object will line up with the upper edge of the "
+                    "plotting area.")
 )
 
 
@@ -294,51 +402,51 @@ INFO = OrderedDict([
     ('plotlytrace', dict()),
 
     ('trace', OrderedDict([
-        ('x', dict()),
-        ('y', dict()),
-        ('z', dict()),
-        ('r', dict()),
-        ('t', dict()),
-        ('text', dict()),
-        ('name', dict()),
-        ('mode', dict()),
+        ('x', dict(type='data')),
+        ('y', dict(type='data')),
+        ('z', dict(type='data')),
+        ('r', dict(type='data')),
+        ('t', dict(type='data')),
+        ('text', dict(type='data')),
+        ('name', dict(type='data')),
+        ('mode', dict(type='plot_info')),
         ('marker', dict(type='object')),
         ('line', dict(type='object')),
-        ('fill', dict()),
-        ('fillcolor', dict()),
-        ('opacity', dict()),
-        ('showlegend', dict()),
-        ('xaxis', dict()),
-        ('yaxis', dict()),
+        ('fill', dict(type='style')),
+        ('fillcolor', dict(type='style')),
+        ('opacity', dict(type='style')),
+        ('showlegend', dict(type='style')),
+        ('xaxis', dict(type='plot_info')),
+        ('yaxis', dict(type='plot_info')),
         # ('angularAxis', dict()),
         # ('radialAxis', dict()),
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
-        ('type', dict()),
-        ('bardir', dict()),
-        ('boxpoints', dict()),
-        ('jitter', dict()),
-        ('pointpos', dict()),
-        ('boxmean', dict()),
-        ('whiskerwidth', dict()),
-        ('scl', dict()),
+        ('type', dict(type='plot_info')),
+        ('bardir', dict(type='plot_info')),
+        ('boxpoints', dict(type='style')),
+        ('jitter', dict(type='style')),
+        ('pointpos', dict(type='style')),
+        ('boxmean', dict(type='style')),
+        ('whiskerwidth', dict(type='style')),
+        ('scl', dict(type='style')),
         ('colorbar', dict(type='object')),
-        ('autobinx', dict()),
-        ('autobiny', dict()),
+        ('autobinx', dict(type='style')),
+        ('autobiny', dict(type='style')),
         ('xbins', dict(type='object')),
         ('ybins', dict(type='object')),
-        ('histnorm', dict()),
-        ('zmax', dict()),
-        ('zmin', dict()),
+        ('histnorm', dict(type='plot_info')),
+        ('zmax', dict(type='plot_info')),
+        ('zmin', dict(type='plot_info')),
         ('dx', dict()),
         ('dy', dict()),
         ('x0', dict()),
         ('y0', dict()),
-        ('zauto', dict()),
+        ('zauto', dict(type='plot_info')),
         ('hm_id', dict()),
-        ('nbinsx', dict()),
-        ('nbinsy', dict()),
-        ('showscale', dict())
+        ('nbinsx', dict(type='style')),
+        ('nbinsy', dict(type='style')),
+        ('showscale', dict(type='style'))
     ])),
 
     ('scatter', OrderedDict([
@@ -420,6 +528,8 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types="str describing color",
+            description="If the 'fill' for a line is not 'none', the fill "
+                        "color will appear in the specified fill area.",
             examples=examples['general']['color'])),
 
         ('opacity', drop_in['opacity']),
@@ -442,7 +552,7 @@ INFO = OrderedDict([
             description="A dictionary-like object describing the font style "
                         "of this scatter's text elements. This only has "
                         "an effect if 'text' is an array of strings and "
-                        "'mode' is set to include 'text'.")),  # TODO?!?
+                        "'mode' is set to include 'text'.")),
 
         ('type', dict(
             required=False,
@@ -517,7 +627,12 @@ INFO = OrderedDict([
 
         ('error_y', drop_in['error_y']),
 
-        ('textfont', dict(type='object')),
+        ('textfont', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the font for the "
+                        "strings listed in the 'text' string-array.")),
 
         ('visible', drop_in['visible']),
 
@@ -564,13 +679,14 @@ INFO = OrderedDict([
         ('pointpos', dict(
             required=False,
             type='style',
-            val_types="number in [-2, 2]",
+            val_types=number(ge=-2, le=2),
             description="Horizontal position of the center of the boxpoints "
                         "relative to the center and width of the box.")),
 
         ('boxmean', dict(
             required=False,
-            type="False | True | 'sd'",
+            type='style',
+            val_types="False | True | 'sd'",
             default='False',
             description="If True then the mean of the y-points is shown as a "
                         "dashed line in the box. If 'sd', then the standard "
@@ -579,7 +695,8 @@ INFO = OrderedDict([
 
         ('whiskerwidth', dict(
             required=False,
-            type='number in [0, 1]',
+            type='style',
+            val_types=number(ge=0, le=1),
             default=0.75,
             description="Width of the whisker of the box.")),
 
@@ -590,9 +707,13 @@ INFO = OrderedDict([
             description="Color of the box interior.",
             examples=examples['general']['color'])),
 
-        ('marker', dict(type='object')),
+        ('marker', dict(  # TODO!!! both line and marker CAN describe box color!
+            required=False,
+            type='object')),
 
-        ('line', dict(type='object')),
+        ('line', dict(  # TODO!!! both line and marker CAN describe box color!
+            required=False,
+            type='object')),
 
         ('showlegend', drop_in['showlegend_trace']),
 
@@ -647,12 +768,17 @@ INFO = OrderedDict([
             required=False,
             type='style',
             default=0,
-            val_types=val_types['general']['bool'])),
+            val_types=val_types['general']['bool'],
+            description="Speficy the number of countours lines that will "
+                        "appear.")),
 
         ('contours', dict(
             required=False,
-            type='object',  # TODO: this was 'style' before, any reason?
-            val_types=val_types['general']['object'])),
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object defining parameters of "
+                        "the contours in this plot like spacing, whether or "
+                        "not to show lines, etc.")),
 
         ('scl', drop_in['scl']),
 
@@ -677,6 +803,11 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types=number())),
+
+        ('zauto', dict(
+            required=False,
+            type='sytle',
+            val_types=val_types['general']['bool'])),
 
         ('zmin', dict(
             required=False,
@@ -755,6 +886,11 @@ INFO = OrderedDict([
             type='style',
             val_types=number())),
 
+        ('zauto', dict(
+            required=False,
+            type='sytle',
+            val_types=val_types['general']['bool'])),
+
         ('zmin', dict(
             required=False,
             type='style',
@@ -766,8 +902,6 @@ INFO = OrderedDict([
             type='style',
             val_types=number(),
             description=description['map']['zmax'])),
-
-        ('zauto', dict()),
 
         ('showlegend', drop_in['showlegend_trace']),
 
@@ -787,13 +921,9 @@ INFO = OrderedDict([
             val_types='heatmap',
             description=description['trace']['type'])),
 
-        ('x0', dict()),
+        ('x0', dict(type='plot_info')),
 
-        ('y0', dict()),
-
-        ('line', dict()),
-
-        ('marker', dict()),
+        ('y0', dict(type='plot_info')),
 
     ])),
 
@@ -838,9 +968,13 @@ INFO = OrderedDict([
             val_types=val_types['general']['object'],
             description=description['histogram']['xbins'])),
 
-        ('nbinsx', dict()),
+        ('nbinsx', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Specifies the number of bins in the x-direction.")),
 
-        ('histnorm', dict()),
+        ('histnorm', drop_in['histnorm']),
 
         ('showlegend', drop_in['showlegend_trace']),
 
@@ -852,9 +986,7 @@ INFO = OrderedDict([
 
         ('stream', drop_in['stream']),
 
-        ('error_y', dict(
-            type='object'
-        )),
+        ('error_y', drop_in['error_y']),
 
         ('type', dict(
             required=True,
@@ -874,7 +1006,12 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('bardir', dict()),
+        ('bardir', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['bar']['bardir'],
+            description=val_types['bar']['bardir']
+        )),
 
         ('marker', dict(
             required=False,
@@ -900,9 +1037,13 @@ INFO = OrderedDict([
             val_types=val_types['general']['object'],
             description=description['histogram']['ybins'])),
 
-        ('nbinsy', dict()),
+        ('nbinsy', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Specifies the number of bins in the y-direction.")),
 
-        ('histnorm', dict()),
+        ('histnorm', drop_in['histnorm']),
 
         ('showlegend', drop_in['showlegend_trace']),
 
@@ -920,9 +1061,7 @@ INFO = OrderedDict([
             val_types='histogramy',
             description=description['trace']['type'])),
 
-        ('error_y', dict(
-            type='object'
-        )),
+        ('error_y', drop_in['error_y']),
 
     ])),
 
@@ -980,11 +1119,19 @@ INFO = OrderedDict([
             val_types=val_types['general']['object'],
             description=description['histogram']['ybins'])),
 
-        ('nbinsx', dict()),
+        ('nbinsx', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Specifies the number of bins in the x-direction.")),
 
-        ('nbinsy', dict()),
+        ('nbinsy', dict(
+            required=False,
+            type='style',
+            val_types=number(gt=0),
+            description="Specifies the number of bins in the y-direction.")),
 
-        ('histnorm', dict()),
+        ('histnorm', drop_in['histnorm']),
 
         ('showlegend', drop_in['showlegend_trace']),
 
@@ -1055,27 +1202,9 @@ INFO = OrderedDict([
             description="The background (bg) color for this annotation.",
             examples=examples['general']['color'])),
 
-        ('xref', dict(
-            required=False,
-            type='plot_info',
-            val_types="string: 'paper' | 'x1' | 'x2' | 'x3' | etc.",
-            description="This defines what the x coordinate for this "
-                        "annotation *refers* to. If you reference an axis, "
-                        "e.g., 'x2', the annotation will move with "
-                        "pan-and-zoom to stay fixed to this point. If you "
-                        "reference the 'paper', it remains fixed regardless "
-                        "of pan-and-zoom.")),
+        ('xref', drop_in['xref']),
 
-        ('yref', dict(
-            required=False,
-            type='plot_info',
-            val_types="string: 'paper' | 'y1' | 'y2' | 'y3' | etc.",
-            description="This defines what the x coordinate for this "
-                        "annotation *refers* to. If you reference an axis, "
-                        "e.g., 'y2', the annotation will move with "
-                        "pan-and-zoom to stay fixed to this point. If you "
-                        "reference the 'paper', it remains fixed regardless "
-                        "of pan-and-zoom.")),
+        ('yref', drop_in['yref']),
 
         ('showarrow', dict(
             required=False,
@@ -1083,13 +1212,27 @@ INFO = OrderedDict([
             val_types="bool: True | False",
             description="Show the arrow associated with this annotation.")),
 
-        ('arrowwidth', dict()),  # TODO, ya'll should make an `arrow` dict?
+        ('arrowwidth', dict(
+            requried=False,
+            type='style',
+            val_types=number(gt=0)
+        )),
 
-        ('arrowcolor', dict()),
+        ('arrowcolor', dict(
+            requried=False,
+            type='style',
+            val_types=val_types['general']['color']
+        )),
 
-        ('arrowhead', dict()),
+        ('arrowhead', dict(
+            requried=False,
+            type='style',
+        )),
 
-        ('arrowsize', dict()),
+        ('arrowsize', dict(
+            requried=False,
+            type='style',
+        )),
 
         ('tag', dict()),
 
@@ -1106,28 +1249,24 @@ INFO = OrderedDict([
             val_types="string: 'left' | 'center' | 'right'",
             description="The alignment of the text in the annotation.")),
 
-        ('xanchor', dict(
-            required=False,
-            type='plot_info')),
+        ('xanchor', drop_in['xanchor']),
 
-        ('yanchor', dict(
-            required=False,
-            type='plot_info')),
+        ('yanchor', drop_in['yanchor']),
 
-        ('ay', dict()),
+        ('ay', dict(type='plot_info')),
 
-        ('ax', dict()),
+        ('ax', dict(type='plot_info')),
 
-        ('xatype', dict()),
+        ('xatype', dict(type='plot_info')),
 
-        ('yatype', dict()),
+        ('yatype', dict(type='plot_info')),
 
-        ('ref', dict())
+        ('ref', dict(type='plot_info'))
     ])),
 
     ('colorbar', OrderedDict([])),
 
-    ('error_y', OrderedDict([
+    ('error_y', OrderedDict([  # TODO: Line object here?
         ('array', dict(
             required=False,
             type='data',
@@ -1144,7 +1283,7 @@ INFO = OrderedDict([
             examples=examples['general']['color']
         )),
         ('opacity', drop_in['opacity']),
-        ('thickness', dict()),  # TODO: why thickness and width?
+        ('thickness', dict(type='style')),  # TODO: why thickness and width?
         ('traceref', dict()),
         ('type', dict(
             required=False,
@@ -1164,7 +1303,7 @@ INFO = OrderedDict([
                         "bin."
         )),
         ('visible', drop_in['visible']),
-        ('width', dict())
+        ('width', dict(type='style'))
     ])),
 
     ('figure', OrderedDict([
@@ -1326,32 +1465,49 @@ INFO = OrderedDict([
 
         ('barmode', dict(
             required=False,
-            type='plot_info'
+            type='plot_info',
+            val_types="'stack' | 'group' | 'overlay'",
+            description="This sets how multiple bar objects are plotted "
+                        "together. In other words, this defines how bars at "
+                        "the same location appear on the plot. If set to "
+                        "'stack' the bars are stacked ontop of one another. "
+                        "If set to 'group', the bars are plotted next to one "
+                        "another, centered around the shared location. If set "
+                        "to 'overlay', the bars are simply plotted over one "
+                        "another, you may need to set the opacity to see this."
         )),
 
         ('bargap', dict(
             required=False,
-            type='plot_info'
+            type='style',
+            val_types=number(ge=0),
+            description="This sets the gap between bars (or sets of bars) at "
+                        "different locations."
         )),
 
         ('bargroupgap', dict(
             required=False,
-            type='plot_info'
+            type='style',
+            val_types=number(ge=0),
+            description="This sets the gap between bars in the same group. "
+                        "That is, when multiple bar objects are plotted and "
+                        "share the same locations, this sets the distance "
+                        "between bars at each location."
         )),
 
-        ('boxmode', dict(
+        ('boxmode', dict(  # TODO??
             required=False,
             type='plot_info'
         )),
 
-        ('boxgap', dict(
+        ('boxgap', dict(  # TODO??
             required=False,
-            type='plot_info'
+            type='style'
         )),
 
-        ('boxgroupgap', dict(
+        ('boxgroupgap', dict(  # TODO??
             required=False,
-            type='plot_info'
+            type='style'
         )),
 
         ('font', dict(
@@ -1405,93 +1561,116 @@ INFO = OrderedDict([
             type='plot_info'
         )),
 
-        ('showlegend', dict(
-            required=False,
-            type='plot_info'
-        )),
+        ('showlegend', drop_in['showlegend_layout']),
 
         ('annotations', dict(
             required=False,
-            type='object'
-        )),
+            type='object',
+            val_types=val_types['general']['object'],
+            description="A list-like object that holds annotation "
+                        "dictionaries.")),
 
         ('bardir', dict(
             required=False,
-            type='plot_info'
-        ))
+            type='plot_info'))
 
     ])),
 
     ('legend', OrderedDict([
 
         ('x', dict(
-            type='plot_info'
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="Sets the 'x' location of the legend."
         )),
 
         ('y', dict(
-            type='plot_info'
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="Sets the 'y' location of the legend."
         )),
 
         ('bgcolor', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the background color for the legend.",
+            examples=examples['general']['color']
         )),
 
         ('bordercolor', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Sets the enclosing border color for the legend.",
+            examples=examples['general']['color']
         )),
 
         ('borderwidth', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Sets the width of the enclosing border for the legend."
         )),
 
         ('font', dict(
-            type='object'
-        )),
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description="This dictionary-like object describes the font "
+                        "settings within the legend.")),
 
-        ('showlegend', dict()),
+        ('showlegend', drop_in['showlegend_layout']),
 
         ('traceorder', dict(
-            type='plot_info'
-        )),
+            required=False,
+            type='style',
+            val_types="'normal' | 'reversed'",
+            description="Trace order is set by the order of the data in "
+                        "associated grid for the plot. This sets whether this "
+                        "order is read from left-to-right or from "
+                        "right-to-left.")),
 
-        ('xref', dict(
-            type='plot_info'
-        )),
+        ('xref', drop_in['xref']),
 
-        ('yref', dict(
-            type='plot_info'
-        )),
+        ('yref', drop_in['yref']),
 
-        ('xanchor', dict(
-            type='plot_info'
-        )),
+        ('xanchor', drop_in['xanchor']),
 
-        ('yanchor', dict(
-            type='plot_info'
-        ))
+        ('yanchor', drop_in['yanchor'])
+
     ])),
 
     ('line', OrderedDict([
 
         ('dash', dict(
-            type='style'
+            requried=False,
+            type='style',
+            val_types="'dash' | 'dashdot' | 'dot' | 'solid'",
+            description="The style of the line."
         )),
 
         ('color', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="The color of the line."
         )),
 
         ('width', dict(
-            type='style'
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="The width of the line."
         )),
 
         # ('thickness', dict()),  # TODO: redundant?
 
-        ('opacity', dict(
-            type='style'
-        )),
+        ('opacity', drop_in['opacity']),
 
-        ('smoothing', dict(
+        ('smoothing', dict(  # TODO: should this be here if only for contours?
             type='style',
             description="Only applies to contours"))
     ])),
@@ -1500,27 +1679,40 @@ INFO = OrderedDict([
     ('margin', OrderedDict([
 
         ('l', dict(
-            type='style'
-        )),
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Left margin size in pixels.")),
 
         ('r', dict(
-            type='style'
-        )),
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Right margin size in pixels.")),
 
         ('b', dict(
-            type='style'
-        )),
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Bottom margin size in pixels.")),
 
         ('t', dict(
-            type='style'
-        )),
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Top margin size in pixels.")),
 
         ('pad', dict(
-            type='style'
-        )),
+            required=False,
+            type='style',
+            val_types=number(ge=0),
+            description="The distance between edge of the plot and the "
+                        "bounding rectangle that encloses the plot.")),
 
-        ('autoexpand', dict(
-            type='style'
+        ('autoexpand', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool']
         ))
     ])),
 
@@ -1529,6 +1721,9 @@ INFO = OrderedDict([
         ('symbol', dict(
             required=False,
             type='style',
+            val_types="'dot' | 'cross' | 'diamond' | 'square' "
+                      "| 'triangle-down' | 'triangle-left' | 'triangle-right' "
+                      "| 'triangle-up' | 'x'",
             description="The symbol that is drawn on the plot for each marker."
         )),
 
@@ -1558,35 +1753,57 @@ INFO = OrderedDict([
         )),
 
         ('color', dict(
-            type='style'
+            requried=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="The color of the marker face.",
+            examples=examples['general']['color']
         )),
 
-        ('opacity', dict(
-            type='style'
-        )),
+        ('opacity', drop_in['opacity'])
+
     ])),
 
     ('stream', OrderedDict([
-        ('token', dict(
+
+        ('token', dict(  # TODO: these are public!! Is that OK?
             required=True,
-            type='plot_info'
-        )),
+            type='plot_info',
+            val_types="A stream id number, see https://plot.ly/settings",
+            description="This number links a data object on a plot with a "
+                        "stream. In other words, any data object you create "
+                        "can reference a 'stream'. If you stream data to "
+                        "plotly with the same stream id (token), plotly knows "
+                        "update THIS data object with the incoming data "
+                        "stream.")),
+
         ('maxpoints', dict(
-            requird=False,
-            type='plot_info'
-        ))
+            required=False,
+            type='plot_info',
+            val_types=number(gt=0),
+            description="Sets the maximum number of points to keep on the "
+                        "plots from an incoming stream. For example, "
+                        "if 'maxpoints'=50, only the newest 50 points will be "
+                        "displayed on the plot."))
+
     ])),
 
     ('xaxis', OrderedDict([
 
-        ('title', dict()),
+        ('title', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['string'],
+            description="The xaxis title."
+        )),
 
         ('domain', dict(
             required=False,
             type='plot_info',
             val_types="number array of length 2",
             description="Sets the domain of this axis. The available space "
-                        "for this axis to live in is from 0 to 1."
+                        "for this axis to live in is from 0 to 1.",
+            examples=[[0, 1], [0, 0.5]]
         )),
 
         ('range', dict(
@@ -1692,16 +1909,9 @@ INFO = OrderedDict([
             description="Sets the angle of the ticks in degrees."
         )),
 
-        ('exponentformat', dict(
-            required=False,
-            type='style'
-        )),
+        ('exponentformat', drop_in['exponentformat']),
 
-        ('showexponent', dict(
-            required=False,
-            type='style'
-        )),
-
+        ('showexponent', drop_in['showexponent']),
 
         ('showgrid', dict(
             required=False,
@@ -1741,7 +1951,7 @@ INFO = OrderedDict([
 
         ('autotick', dict(
             required=False,
-            type='style',  # TODO: 'plot_info' ??
+            type='style',
             val_types=val_types['general']['bool'],
             description="Toggle axis autoticks."
         )),
@@ -1782,43 +1992,76 @@ INFO = OrderedDict([
             description="A dictionary for configuring the tick font."
         )),
 
-        ('overlaying', dict()),
+        ('overlaying', dict()),  # TODO: ??
 
-        ('position', dict()),
-
-        ('anchor', dict(
-
+        ('position', dict(
+            required=False,
+            type='style',
+            val_types=number(le=1, ge=0),
+            description="Sets where the axis is positioned in the plotting "
+                        "space. For example 'position'=0.5 will place this "
+                        "axis in the exact center of the plotting space. This "
+                        "only has functionality if 'anchor'='free'."
         )),
 
-        # ('unit', dict()),
-        # ('tmin', dict()),
-        # ('tmax', dict()),
-        # ('b', dict()),
-        # ('m', dict()),
-        ('tickround', dict()),
-        ('tickexponent', dict()),
-        ('side', dict()),
-        ('color', dict()),
+        ('anchor', dict(
+            required=False,
+            type='style',
+            val_types="'y' | 'free'",
+            description="Sets whether the xaxis will be anchored to its "
+                        "corresponding yaxis OR 'free' to appear anywhere in "
+                        "the vertical space of the plot."
+        )),
+
+        ('side', dict(
+            required=False,
+            type='style',
+            val_types="'bottom' | 'top'",
+            description="Set whether this axis sits at the 'bottom' of the "
+                        "plot or at the 'top' of the plot."
+        )),
+
         # ('drange', dict()),
         # ('r0', dict()),
     ])),
 
     ('xbins', OrderedDict([
-        ('start', dict()),
-        ('end', dict()),
-        ('size', dict())
+        ('start', dict(
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="The starting point on the xaxis for the FIRST bin."
+        )),
+        ('end', dict(
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="The end point on the xaxis for the FINAL bin."
+        )),
+        ('size', dict(
+            requried=False,
+            type='plot_info',
+            val_types=number(gt=0),
+            description="The size of each bin."
+        ))
     ])),
 
     ('yaxis', OrderedDict([
 
-        ('title', dict()),
+        ('title', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['string'],
+            description="The yaxis title."
+        )),
 
         ('domain', dict(
             required=False,
             type='plot_info',
             val_types="number array of length 2",
             description="Sets the domain of this axis. The available space "
-                        "for this axis to live in is from 0 to 1."
+                        "for this axis to live in is from 0 to 1.",
+            examples=[[0, 1], [0, 0.5]]
         )),
 
         ('range', dict(
@@ -1924,16 +2167,9 @@ INFO = OrderedDict([
             description="Sets the angle of the ticks in degrees."
         )),
 
-        ('exponentformat', dict(
-            required=False,
-            type='style'
-        )),
+        ('exponentformat', drop_in['exponentformat']),
 
-        ('showexponent', dict(
-            required=False,
-            type='style'
-        )),
-
+        ('showexponent', drop_in['showexponent']),
 
         ('showgrid', dict(
             required=False,
@@ -2016,36 +2252,79 @@ INFO = OrderedDict([
 
         ('overlaying', dict()),
 
-        ('position', dict()),
+        ('position', dict(
+            required=False,
+            type='style',
+            val_types=number(le=1, ge=0),
+            description="Sets where the axis is positioned in the plotting "
+                        "space. For example 'position'=0.5 will place this "
+                        "axis in the exact center of the plotting space. This "
+                        "only has functionality if 'anchor'='free'."
+        )),
 
-        ('anchor', dict()),
+        ('anchor', dict(
+            required=False,
+            type='style',
+            val_types="'x' | 'free'",
+            description="Sets whether the yaxis will be anchored to its "
+                        "corresponding xaxis OR 'free' to appear anywhere in "
+                        "the horizontal space of the plot."
+        )),
 
-        # ('unit', dict()),
-        # ('tmin', dict()),
-        # ('tmax', dict()),
-        # ('b', dict()),
-        # ('m', dict()),
-        ('tickround', dict()),
-        ('tickexponent', dict()),
-        ('side', dict()),
-        ('color', dict()),
+        ('side', dict(
+            required=False,
+            type='style',
+            val_types="'left' | 'right'",
+            description="Set whether this axis sits at the 'left' of the "
+                        "plot or at the 'right' of the plot."
+        )),
+
         # ('drange', dict()),
         # ('r0', dict()),
 
     ])),
 
     ('ybins', OrderedDict([
-        ('start', dict()),
-        ('end', dict()),
-        ('size', dict())
+        ('start', dict(
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="The starting point on the yaxis for the FIRST bin."
+        )),
+        ('end', dict(
+            required=False,
+            type='plot_info',
+            val_types=number(),
+            description="The end point on the yaxis for the FINAL bin."
+        )),
+        ('size', dict(
+            requried=False,
+            type='plot_info',
+            val_types=number(gt=0),
+            description="The size of each bin."
+        ))
     ])),
 
-    ('contours', OrderedDict([
-        ('start', dict()),
-        ('end', dict()),
-        ('size', dict()),
+    ('contours', OrderedDict([  # TODO: !!
+        ('start', dict(
+            requried=False,
+            type='plot_info'
+        )),
+        ('end', dict(
+            requried=False,
+            type='plot_info'
+        )),
+        ('size', dict(
+            requried=False,
+            type='plot_info'
+        )),
         ('coloring', dict()),
-        ('showlines', dict()),
+        ('showlines', dict(
+            requried=False,
+            type='sytle',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether the contour lines appear on the "
+                        "plot.")),
     ]))
 
 ])
