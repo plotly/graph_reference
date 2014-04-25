@@ -328,6 +328,8 @@
     ], 
     "box": [
         "'y': 'data'", 
+        "'x': 'data'", 
+        "'x0': 'data'", 
         "'name': 'data'", 
         "'boxpoints': 'plot_info'", 
         "'jitter': 'style'", 

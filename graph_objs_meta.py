@@ -654,9 +654,49 @@ INFO = OrderedDict([
             type="data",
             val_types=val_types['general']['data_array'],
             description="This array is used to define the an individual "
-                        "box plot. Statistics from these numbers define "
-                        "the bounds of the box, the length of the "
-                        "whiskers, etc.")),
+                        "box plot, or, a concatenation of multiple boxplots. "
+                        "Statistics from these numbers define the bounds of "
+                        "the box, the length of the whiskers, etc. For "
+                        "details on defining multiple boxes with locations "
+                        "see 'x'.")),
+
+        ('x', dict(
+            requried=False,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description="Usually, you do NOT need to set this value as "
+                        "plotly will handle box locations for you. However "
+                        "this allows you to have fine control over the "
+                        "location data for the box. Unlike making a bar, "
+                        "a box plot is made of MANY y values. Therefore, "
+                        "to give location data to the values you place in "
+                        "'y', the length of 'x' must equal the length of 'y'. "
+                        "When making multiple box plots, you can concatenate "
+                        "the data sets for each box into a single 'y' array. "
+                        "Then, the entries in 'x' define which box plot each "
+                        "entry in 'y' belongs to. Here is an example of "
+                        "making two box plots this way:\n"
+                        "y0=[1,2,3,1,1,1]\n"
+                        "y1=[3,2,1,2,3,3]\n"
+                        "y=y0+y1  # the syntax is different for numpy arrays!\n"
+                        "x=[0,0,0,0,0,1,1,1,1,1]\n"
+                        "The above made two (2) boxes at locations '0' and "
+                        "'1' by splitting 'y' into two partitions according "
+                        "to 'x'. When making a single box plot, you must set "
+                        "each entry in 'x' to THE SAME VALUE, see 'x0' for a "
+                        "more practical way to handle this case. If you don't "
+                        "include 'x', the box will simply be assigned a "
+                        "location.")),
+        
+        ('x0', dict(
+            required=False,
+            type='data',
+            val_types=number(),
+            description="The location of this box. When 'y' defines a SINGLE "
+                        "box, 'x0' can be used to set where this box is "
+                        "centered on the x-axis. If many boxes are set to "
+                        "appear at the same 'x0' location, they will form a "
+                        "box group.")),
 
         ('name', drop_in['name']),
 
