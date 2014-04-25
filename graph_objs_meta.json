@@ -398,14 +398,6 @@
             ], 
             "description": "Color of the box interior."
         }, 
-        "marker": {
-            "required": false, 
-            "type": "object"
-        }, 
-        "line": {
-            "required": false, 
-            "type": "object"
-        }, 
         "showlegend": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -430,6 +422,14 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
+        "marker": {
+            "required": false, 
+            "type": "object"
+        }, 
+        "line": {
+            "required": false, 
+            "type": "object"
+        }, 
         "type": {
             "val_types": "box", 
             "required": true, 
@@ -442,19 +442,19 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
-            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (nxm) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you a tuple, e.g., (n, m)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly."
+            "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly."
+            "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
         }, 
         "name": {
             "val_types": "string", 
@@ -545,31 +545,6 @@
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
-        "xtype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "ytype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dx": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dy": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "zauto": {
-            "val_types": "bool: True | False", 
-            "required": false, 
-            "type": "sytle"
-        }, 
         "zmin": {
             "val_types": "number", 
             "required": false, 
@@ -618,6 +593,31 @@
             "type": "plot_info", 
             "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
+        "xtype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "ytype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dx": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dy": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "zauto": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "sytle"
+        }, 
         "type": {
             "val_types": "contour", 
             "required": true, 
@@ -630,19 +630,19 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
-            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (nxm) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you a tuple, e.g., (n, m)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly."
+            "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly."
+            "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
         }, 
         "name": {
             "val_types": "string", 
@@ -713,31 +713,6 @@
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
-        "xtype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "ytype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dx": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dy": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "zauto": {
-            "val_types": "bool: True | False", 
-            "required": false, 
-            "type": "sytle"
-        }, 
         "zmin": {
             "val_types": "number", 
             "required": false, 
@@ -786,17 +761,42 @@
             "type": "plot_info", 
             "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
-        "type": {
-            "val_types": "heatmap", 
-            "required": true, 
-            "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
-        }, 
         "x0": {
             "type": "plot_info"
         }, 
         "y0": {
             "type": "plot_info"
+        }, 
+        "xtype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "ytype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dx": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dy": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "zauto": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "sytle"
+        }, 
+        "type": {
+            "val_types": "heatmap", 
+            "required": true, 
+            "type": "plot_info", 
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
         }
     }, 
     "histogramx": {
@@ -1826,7 +1826,7 @@
             "description": "Defines the start and end point for the axis."
         }, 
         "type": {
-            "val_types": "string: linear | log", 
+            "val_types": "string: linear | log | category", 
             "required": false, 
             "type": "plot_info", 
             "description": "Defines format of the axis."
@@ -1837,7 +1837,6 @@
             "type": "style", 
             "description": "Defines whether or not to show this axis line."
         }, 
-        "mirror": {}, 
         "linecolor": {
             "val_types": "str describing color", 
             "required": false, 
@@ -1894,7 +1893,7 @@
             "description": "Sets the width of the tick lines."
         }, 
         "nticks": {
-            "val_types": "number", 
+            "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the number of ticks to appear on the axis."
@@ -2020,7 +2019,8 @@
             "required": false, 
             "type": "style", 
             "description": "Set whether this axis sits at the 'bottom' of the plot or at the 'top' of the plot."
-        }
+        }, 
+        "mirror": {}
     }, 
     "xbins": {
         "start": {
@@ -2082,7 +2082,7 @@
             "description": "Defines the start and end point for the axis."
         }, 
         "type": {
-            "val_types": "string: linear | log", 
+            "val_types": "string: linear | log | category", 
             "required": false, 
             "type": "plot_info", 
             "description": "Defines format of the axis."
@@ -2093,7 +2093,6 @@
             "type": "style", 
             "description": "Defines whether or not to show this axis line."
         }, 
-        "mirror": {}, 
         "linecolor": {
             "val_types": "str describing color", 
             "required": false, 
@@ -2108,7 +2107,7 @@
             "description": "Defines the axis line color."
         }, 
         "linewidth": {
-            "val_types": "number", 
+            "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the width of the axis line."
@@ -2120,7 +2119,7 @@
             "description": "Sets the starting point of the axis."
         }, 
         "dtick": {
-            "val_type": "number", 
+            "val_type": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the difference between ticks on this axis."
@@ -2132,7 +2131,7 @@
             "description": "Sets format of tick visibility."
         }, 
         "ticklen": {
-            "val_types": "number", 
+            "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the length of the tick lines."
@@ -2150,7 +2149,7 @@
             "description": "Sets the width of the tick lines."
         }, 
         "nticks": {
-            "val_types": "number", 
+            "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the number of ticks to appear on the axis."
@@ -2258,7 +2257,6 @@
             "type": "object", 
             "description": "A dictionary for configuring the tick font."
         }, 
-        "overlaying": {}, 
         "position": {
             "val_types": "number: x in [0, 1]", 
             "required": false, 
@@ -2276,7 +2274,9 @@
             "required": false, 
             "type": "style", 
             "description": "Set whether this axis sits at the 'left' of the plot or at the 'right' of the plot."
-        }
+        }, 
+        "mirror": {}, 
+        "overlaying": {}
     }, 
     "ybins": {
         "start": {

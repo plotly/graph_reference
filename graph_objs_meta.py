@@ -79,16 +79,18 @@ description = dict(
         x=
         "This array-like value contains the HORIZONTAL labels referring to "
         "the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced "
-        "evenly.",
+        "evenly. If the dimensions of z are (n x m), the length of the 'x' "
+        "array should be 'm'.",
 
         y=
         "This array-like value contains the VERTICAL labels referring to "
         "the ROWS of the 'z' matrix. If strings, the y-labels are spaced "
-        "evenly.",
+        "evenly. If the dimensions of z are (n x m), the length of the 'y' "
+        "array should be 'n'.",
 
         z=
         "The data that describes the mapping. The dimensions of the 'z' "
-        "matrix are (nxm) where there are 'n' ROWS defining the "
+        "matrix are (n x m) where there are 'n' ROWS defining the "
         "number of partitions along the y-axis; this is equal to the "
         "length of the 'y' array. There are 'm' COLUMNS defining the number of "
         "partitions along the x-axis; this is equal to the length of the "
@@ -99,7 +101,7 @@ description = dict(
         "a list of lists (of lists, of lists, etc.). Therefore, running len(z) "
         "will give you the number of ROWS and running len(z[0]) will give you "
         "the number of COLUMNS. If you ARE using numpy, then running z.shape "
-        "will give you a tuple, e.g., (n, m).",
+        "will give you the tuple, (n, m), e.g., (3, 5).",
 
         zmax=
         "The value used as the maximum in the color scale normalization in "
@@ -707,14 +709,6 @@ INFO = OrderedDict([
             description="Color of the box interior.",
             examples=examples['general']['color'])),
 
-        ('marker', dict(  # TODO!!! both line and marker CAN describe box color!
-            required=False,
-            type='object')),
-
-        ('line', dict(  # TODO!!! both line and marker CAN describe box color!
-            required=False,
-            type='object')),
-
         ('showlegend', drop_in['showlegend_trace']),
 
         ('stream', drop_in['stream']),
@@ -724,6 +718,14 @@ INFO = OrderedDict([
         ('xaxis', drop_in['yaxis_trace']),
 
         ('visible', drop_in['visible']),
+
+        ('marker', dict(  # TODO!!! both line and marker CAN describe box color!
+            required=False,
+            type='object')),
+
+        ('line', dict(  # TODO!!! both line and marker CAN describe box color!
+            required=False,
+            type='object')),
 
         ('type', dict(
             required=True,
@@ -784,6 +786,30 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
 
+        ('zmin', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmin'])),
+
+        ('zmax', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmax'])),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('stream', drop_in['stream']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('showscale', drop_in['showscale']),
+
         ('xtype', dict(  # TODO: ??
             required=False,
             type='style',
@@ -808,30 +834,6 @@ INFO = OrderedDict([
             required=False,
             type='sytle',
             val_types=val_types['general']['bool'])),
-
-        ('zmin', dict(
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
-
-        ('zmax', dict(
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
-
-        ('showlegend', drop_in['showlegend_trace']),
-
-        ('stream', drop_in['stream']),
-
-        ('xaxis', drop_in['xaxis_trace']),
-
-        ('yaxis', drop_in['yaxis_trace']),
-
-        ('visible', drop_in['visible']),
-
-        ('showscale', drop_in['showscale']),
 
         ('type', dict(
             required=True,
@@ -866,6 +868,34 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
 
+        ('zmin', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmin'])),
+
+        ('zmax', dict(
+            required=False,
+            type='style',
+            val_types=number(),
+            description=description['map']['zmax'])),
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('stream', drop_in['stream']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('showscale', drop_in['showscale']),
+
+        ('x0', dict(type='plot_info')),
+
+        ('y0', dict(type='plot_info')),
+
         ('xtype', dict(  # TODO: ??
             required=False,
             type='style',
@@ -891,39 +921,11 @@ INFO = OrderedDict([
             type='sytle',
             val_types=val_types['general']['bool'])),
 
-        ('zmin', dict(
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
-
-        ('zmax', dict(
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
-
-        ('showlegend', drop_in['showlegend_trace']),
-
-        ('stream', drop_in['stream']),
-
-        ('xaxis', drop_in['xaxis_trace']),
-
-        ('yaxis', drop_in['yaxis_trace']),
-
-        ('visible', drop_in['visible']),
-
-        ('showscale', drop_in['showscale']),
-
         ('type', dict(
             required=True,
             type='plot_info',
             val_types='heatmap',
-            description=description['trace']['type'])),
-
-        ('x0', dict(type='plot_info')),
-
-        ('y0', dict(type='plot_info')),
+            description=description['trace']['type']))
 
     ])),
 
@@ -1354,8 +1356,7 @@ INFO = OrderedDict([
             required=False,
             type='plot_info',
             val_types=val_types['general']['string'],
-            description="The figure title."
-        )),
+            description="The figure title.")),
 
         ('xaxis', dict(
             required=False,
@@ -1364,8 +1365,7 @@ INFO = OrderedDict([
             description="The first 'xaxis' object can be entered into layout "
                         "as 'xaxis' OR 'xaxis1', they're identical to plotly. "
                         "After this, to create references to new x-axes, "
-                        "you need to define them in the layout dictionary."
-        )),
+                        "you need to define them in the layout dictionary.")),
 
         ('yaxis', dict(
             required=False,
@@ -1374,43 +1374,37 @@ INFO = OrderedDict([
             description="The first 'yaxis' object can be entered into layout "
                         "as 'yaxis' OR 'yaxis1', they're identical to plotly. "
                         "After this, to create references to new y-axes, "
-                        "you need to define them in the layout dictionary."
-        )),
+                        "you need to define them in the layout dictionary.")),
 
         ('legend', dict(
             required=False,
             type='object',
             val_types=val_types['general']['object'],
             description="A dictionary-like object describing the legend "
-                        "settings for this figure."
-        )),
+                        "settings for this figure.")),
 
         ('width', dict(
             required=False,
             type='style',
             val_types=number(gt=0),
-            description="The width in pixels of the figure you're creating."
-        )),
+            description="The width in pixels of the figure you're creating.")),
 
         ('height', dict(
             required=False,
             type='style',
             val_types=number(gt=0),
-            description="The height in pixels of the figure you're creating."
-        )),
+            description="The height in pixels of the figure you're creating.")),
         
         ('autosize', dict(
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
             description="Toggle whether or not to let plotly autosize this "
-                        "figure for you."
-        )),
+                        "figure for you.")),
 
         ('categories', dict(
             required=False,
-            type='plot_info'
-        )),
+            type='plot_info')),
 
         ('margin', dict(
             required=False,
@@ -1794,8 +1788,7 @@ INFO = OrderedDict([
             required=False,
             type='plot_info',
             val_types=val_types['general']['string'],
-            description="The xaxis title."
-        )),
+            description="The xaxis title.")),
 
         ('domain', dict(
             required=False,
@@ -1803,59 +1796,50 @@ INFO = OrderedDict([
             val_types="number array of length 2",
             description="Sets the domain of this axis. The available space "
                         "for this axis to live in is from 0 to 1.",
-            examples=[[0, 1], [0, 0.5]]
-        )),
+            examples=[[0, 1], [0, 0.5]])),
 
         ('range', dict(
             required=False,
             type='plot_info',
             val_types="number array of length 2",
             description="Defines the start and end point for the axis.",
-            examples=[[-13, 20], [0, 1]]
-        )),
+            examples=[[-13, 20], [0, 1]])),
 
         ('type', dict(
             required=False,
             type='plot_info',
-            val_types="string: linear | log",
-            description="Defines format of the axis."
-        )),
+            val_types="string: linear | log | category",
+            description="Defines format of the axis.")),
 
         ('showline', dict(
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
-            description="Defines whether or not to show this axis line."
-        )),
-
-        ('mirror', dict()),
+            description="Defines whether or not to show this axis line.")),
 
         ('linecolor', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
             val_types=val_types['general']['color'],
             description="Defines the axis line color.",
-            examples=examples['general']['color']
-        )),
+            examples=examples['general']['color'])),
 
         ('linewidth', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
-            val_types="number",
-            description="Sets the width of the axis line."
-        )),
+            val_types=number(),
+            description="Sets the width of the axis line.")),
 
         ('tick0', dict(  # TODO: better description?
             required=False,
             type='plot_info',
-            val_types="number",
-            description="Sets the starting point of the axis."
-        )),
+            val_types=number(),
+            description="Sets the starting point of the axis.")),
 
         ('dtick', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_type="number",
+            val_type=number(),
             description="Sets the difference between ticks on this axis."
         )),
 
@@ -1869,7 +1853,7 @@ INFO = OrderedDict([
         ('ticklen', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types="number",
+            val_types=number(),
             description="Sets the length of the tick lines."   # in points?
         )),
 
@@ -1891,7 +1875,7 @@ INFO = OrderedDict([
         ('nticks', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types="number",
+            val_types=number(ge=0),
             description="Sets the number of ticks to appear on the axis."
         )),
 
@@ -2021,6 +2005,8 @@ INFO = OrderedDict([
                         "plot or at the 'top' of the plot."
         )),
 
+        ('mirror', dict()),
+
         # ('drange', dict()),
         # ('r0', dict()),
     ])),
@@ -2052,8 +2038,7 @@ INFO = OrderedDict([
             required=False,
             type='plot_info',
             val_types=val_types['general']['string'],
-            description="The yaxis title."
-        )),
+            description="The yaxis title.")),
 
         ('domain', dict(
             required=False,
@@ -2061,111 +2046,94 @@ INFO = OrderedDict([
             val_types="number array of length 2",
             description="Sets the domain of this axis. The available space "
                         "for this axis to live in is from 0 to 1.",
-            examples=[[0, 1], [0, 0.5]]
-        )),
+            examples=[[0, 1], [0, 0.5]])),
 
         ('range', dict(
             required=False,
             type='plot_info',
             val_types="number array of length 2",
             description="Defines the start and end point for the axis.",
-            examples=[[-13, 20], [0, 1]]
-        )),
+            examples=[[-13, 20], [0, 1]])),
 
         ('type', dict(
             required=False,
             type='plot_info',
-            val_types="string: linear | log",
-            description="Defines format of the axis."
-        )),
+            val_types="string: linear | log | category",
+            description="Defines format of the axis.")),
 
         ('showline', dict(
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
-            description="Defines whether or not to show this axis line."
-        )),
-
-        ('mirror', dict()),
+            description="Defines whether or not to show this axis line.")),
 
         ('linecolor', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
             val_types=val_types['general']['color'],
             description="Defines the axis line color.",
-            examples=examples['general']['color']
-        )),
+            examples=examples['general']['color'])),
 
         ('linewidth', dict(  # TODO: why isn't this just a Line object here?
             required=False,
             type='style',
-            val_types="number",
-            description="Sets the width of the axis line."
-        )),
+            val_types=number(ge=0),
+            description="Sets the width of the axis line.")),
 
         ('tick0', dict(  # TODO: better description?
             required=False,
             type='plot_info',
             val_types="number",
-            description="Sets the starting point of the axis."
-        )),
+            description="Sets the starting point of the axis.")),
 
         ('dtick', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_type="number",
-            description="Sets the difference between ticks on this axis."
-        )),
+            val_type=number(ge=0),
+            description="Sets the difference between ticks on this axis.")),
 
         ('ticks', dict(  # TODO: separate object for ticks?
             requried=False,
             type='plot_info',  # TODO: 'style'?
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
-            description="Sets format of tick visibility."
-        )),
+            description="Sets format of tick visibility.")),
 
         ('ticklen', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types="number",
-            description="Sets the length of the tick lines."   # in points?
-        )),
+            val_types=number(ge=0),
+            description="Sets the length of the tick lines.")),  # in points?
 
         ('tickcolor', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
             val_types=val_types['general']['color'],
-            description="Sets the color of the tick lines."
-        )),
+            description="Sets the color of the tick lines.")),
 
         ('tickwidth', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
             val_types=number(gt=0),
-            description="Sets the width of the tick lines."
-        )),
+            description="Sets the width of the tick lines.")),
 
 
         ('nticks', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_types="number",
-            description="Sets the number of ticks to appear on the axis."
-        )),
+            val_types=number(ge=0),
+            description="Sets the number of ticks to appear on the axis.")),
 
         ('showticklabels', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
-            description="Show/Hide the axis tick labels."
-        )),
+            description="Show/Hide the axis tick labels.")),
 
         ('tickangle', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
             val_types=number(le=90, ge=-90),
-            description="Sets the angle of the ticks in degrees."
-        )),
+            description="Sets the angle of the ticks in degrees.")),
 
         ('exponentformat', drop_in['exponentformat']),
 
@@ -2175,8 +2143,7 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
-            description="Show/Hide grid for the axis."
-        )),
+            description="Show/Hide grid for the axis.")),
 
         ('gridcolor', dict(
             required=False,
@@ -2184,73 +2151,61 @@ INFO = OrderedDict([
             val_types=val_types['general']['color'],
             description="Sets the axis grid color. Any HTML specified color "
                         "is accepted.",
-            examples=examples['general']['color']
-        )),
+            examples=examples['general']['color'])),
 
         ('gridwidth', dict(
             requried=False,
             type='style',
             val_types=number(gt=0),
-            description="Sets the grid width."
-        )),
+            description="Sets the grid width.")),
 
         ('autorange', dict(
             required=False,
             type='plot_info',
             val_types=val_types['general']['bool'],
-            description="Toggle whether to let plotly autorange the axis."
-        )),
+            description="Toggle whether to let plotly autorange the axis.")),
 
         ('rangemode', dict(
             required=False,
             type='plot_info',
-            val_types="string: 'normal' | 'tozero' | 'nonnegative'"
-        )),
+            val_types="string: 'normal' | 'tozero' | 'nonnegative'")),
 
         ('autotick', dict(
             required=False,
             type='style',  # TODO: 'plot_info' ??
             val_types=val_types['general']['bool'],
-            description="Toggle axis autoticks."
-        )),
+            description="Toggle axis autoticks.")),
 
         ('zeroline', dict(
             required=False,
             type='style',
             val_types=val_types['general']['bool'],
-            description="Show/Hide an additional zeroline for this axis."
-        )),
+            description="Show/Hide an additional zeroline for this axis.")),
 
         ('zerolinecolor', dict(
             required=False,
             type='style',
             val_types=val_types['general']['color'],
             description="Set the color of this axis' zeroline.",
-            examples=examples['general']['color']
-        )),
+            examples=examples['general']['color'])),
 
         ('zerolinewidth', dict(
             required=False,
             type='style',
             val_types=number(gt=0),
-            description="Sets the width of this axis' zeroline."
-        )),
+            description="Sets the width of this axis' zeroline.")),
 
         ('titlefont', dict(
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            description="A dictionary for configuring the axis title font."
-        )),
+            description="A dictionary for configuring the axis title font.")),
 
         ('tickfont', dict(  # TODO: separate object for ticks?
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            description="A dictionary for configuring the tick font."
-        )),
-
-        ('overlaying', dict()),
+            description="A dictionary for configuring the tick font.")),
 
         ('position', dict(
             required=False,
@@ -2259,8 +2214,7 @@ INFO = OrderedDict([
             description="Sets where the axis is positioned in the plotting "
                         "space. For example 'position'=0.5 will place this "
                         "axis in the exact center of the plotting space. This "
-                        "only has functionality if 'anchor'='free'."
-        )),
+                        "only has functionality if 'anchor'='free'.")),
 
         ('anchor', dict(
             required=False,
@@ -2268,16 +2222,18 @@ INFO = OrderedDict([
             val_types="'x' | 'free'",
             description="Sets whether the yaxis will be anchored to its "
                         "corresponding xaxis OR 'free' to appear anywhere in "
-                        "the horizontal space of the plot."
-        )),
+                        "the horizontal space of the plot.")),
 
         ('side', dict(
             required=False,
             type='style',
             val_types="'left' | 'right'",
             description="Set whether this axis sits at the 'left' of the "
-                        "plot or at the 'right' of the plot."
-        )),
+                        "plot or at the 'right' of the plot.")),
+
+        ('mirror', dict()),
+
+        ('overlaying', dict()),
 
         # ('drange', dict()),
         # ('r0', dict()),
@@ -2285,40 +2241,43 @@ INFO = OrderedDict([
     ])),
 
     ('ybins', OrderedDict([
+
         ('start', dict(
             required=False,
             type='plot_info',
             val_types=number(),
-            description="The starting point on the yaxis for the FIRST bin."
-        )),
+            description="The starting point on the yaxis for the FIRST bin.")),
+
         ('end', dict(
             required=False,
             type='plot_info',
             val_types=number(),
-            description="The end point on the yaxis for the FINAL bin."
-        )),
+            description="The end point on the yaxis for the FINAL bin.")),
+
         ('size', dict(
             requried=False,
             type='plot_info',
             val_types=number(gt=0),
-            description="The size of each bin."
-        ))
+            description="The size of each bin."))
+
     ])),
 
     ('contours', OrderedDict([  # TODO: !!
+
         ('start', dict(
             requried=False,
-            type='plot_info'
-        )),
+            type='plot_info')),
+
         ('end', dict(
             requried=False,
-            type='plot_info'
-        )),
+            type='plot_info')),
+
         ('size', dict(
             requried=False,
-            type='plot_info'
-        )),
+            type='plot_info')),
+
         ('coloring', dict()),
+
         ('showlines', dict(
             requried=False,
             type='sytle',

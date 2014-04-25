@@ -33,11 +33,6 @@
         "'contours': 'object'", 
         "'scl': 'style'", 
         "'colorbar': 'object'", 
-        "'xtype': 'style'", 
-        "'ytype': 'style'", 
-        "'dx': 'style'", 
-        "'dy': 'style'", 
-        "'zauto': 'sytle'", 
         "'zmin': 'style'", 
         "'zmax': 'style'", 
         "'showlegend': 'style'", 
@@ -46,6 +41,11 @@
         "'yaxis': 'plot_info'", 
         "'visible': 'plot_info'", 
         "'showscale': 'plot_info'", 
+        "'xtype': 'style'", 
+        "'ytype': 'style'", 
+        "'dx': 'style'", 
+        "'dy': 'style'", 
+        "'zauto': 'sytle'", 
         "'type': 'plot_info'"
     ], 
     "histogramx": [
@@ -164,11 +164,6 @@
         "'name': 'data'", 
         "'scl': 'style'", 
         "'colorbar': 'object'", 
-        "'xtype': 'style'", 
-        "'ytype': 'style'", 
-        "'dx': 'style'", 
-        "'dy': 'style'", 
-        "'zauto': 'sytle'", 
         "'zmin': 'style'", 
         "'zmax': 'style'", 
         "'showlegend': 'style'", 
@@ -177,9 +172,14 @@
         "'yaxis': 'plot_info'", 
         "'visible': 'plot_info'", 
         "'showscale': 'plot_info'", 
-        "'type': 'plot_info'", 
         "'x0': 'plot_info'", 
-        "'y0': 'plot_info'"
+        "'y0': 'plot_info'", 
+        "'xtype': 'style'", 
+        "'ytype': 'style'", 
+        "'dx': 'style'", 
+        "'dy': 'style'", 
+        "'zauto': 'sytle'", 
+        "'type': 'plot_info'"
     ], 
     "contours": [
         "'start': 'plot_info'", 
@@ -194,7 +194,6 @@
         "'range': 'plot_info'", 
         "'type': 'plot_info'", 
         "'showline': 'style'", 
-        "'mirror': UNCLASSIFIED", 
         "'linecolor': 'style'", 
         "'linewidth': 'style'", 
         "'tick0': 'plot_info'", 
@@ -222,7 +221,8 @@
         "'overlaying': UNCLASSIFIED", 
         "'position': 'style'", 
         "'anchor': 'style'", 
-        "'side': 'style'"
+        "'side': 'style'", 
+        "'mirror': UNCLASSIFIED"
     ], 
     "annotations": [], 
     "trace": [
@@ -335,12 +335,12 @@
         "'boxmean': 'style'", 
         "'whiskerwidth': 'style'", 
         "'fillcolor': 'style'", 
-        "'marker': 'object'", 
-        "'line': 'object'", 
         "'showlegend': 'style'", 
         "'stream': 'plot_info'", 
         "'xaxis': 'plot_info'", 
         "'visible': 'plot_info'", 
+        "'marker': 'object'", 
+        "'line': 'object'", 
         "'type': 'plot_info'"
     ], 
     "bar": [
@@ -367,7 +367,6 @@
         "'range': 'plot_info'", 
         "'type': 'plot_info'", 
         "'showline': 'style'", 
-        "'mirror': UNCLASSIFIED", 
         "'linecolor': 'style'", 
         "'linewidth': 'style'", 
         "'tick0': 'plot_info'", 
@@ -392,10 +391,11 @@
         "'zerolinewidth': 'style'", 
         "'titlefont': 'object'", 
         "'tickfont': 'object'", 
-        "'overlaying': UNCLASSIFIED", 
         "'position': 'style'", 
         "'anchor': 'style'", 
-        "'side': 'style'"
+        "'side': 'style'", 
+        "'mirror': UNCLASSIFIED", 
+        "'overlaying': UNCLASSIFIED"
     ], 
     "colorbar": [], 
     "margin": [
