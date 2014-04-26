@@ -103,7 +103,7 @@
         "'barmode': 'plot_info'", 
         "'bargap': 'style'", 
         "'bargroupgap': 'style'", 
-        "'boxmode': 'plot_info'", 
+        "'boxmode': 'style'", 
         "'boxgap': 'style'", 
         "'boxgroupgap': 'style'", 
         "'font': 'object'", 
