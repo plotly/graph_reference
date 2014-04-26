@@ -661,7 +661,7 @@ INFO = OrderedDict([
                         "see 'x'.")),
 
         ('x', dict(
-            requried=False,
+            required=False,
             type='data',
             val_types=val_types['general']['data_array'],
             description="Usually, you do NOT need to set this value as "
@@ -674,20 +674,16 @@ INFO = OrderedDict([
                         "When making multiple box plots, you can concatenate "
                         "the data sets for each box into a single 'y' array. "
                         "Then, the entries in 'x' define which box plot each "
-                        "entry in 'y' belongs to. Here is an example of "
-                        "making two box plots this way:\n"
-                        "y0=[1,2,3,1,1,1]\n"
-                        "y1=[3,2,1,2,3,3]\n"
-                        "y=y0+y1  # the syntax is different for numpy arrays!\n"
-                        "x=[0,0,0,0,0,1,1,1,1,1]\n"
-                        "The above made two (2) boxes at locations '0' and "
-                        "'1' by splitting 'y' into two partitions according "
-                        "to 'x'. When making a single box plot, you must set "
-                        "each entry in 'x' to THE SAME VALUE, see 'x0' for a "
-                        "more practical way to handle this case. If you don't "
-                        "include 'x', the box will simply be assigned a "
-                        "location.")),
-        
+                        "entry in 'y' belongs to. When making a single box "
+                        "plot, you must set each entry in 'x' to THE SAME "
+                        "VALUE, see 'x0' for a more practical way to handle "
+                        "this case. If you don't include 'x', the box will "
+                        "simply be assigned a location.",
+            code="y0 = [1, 2, 3, 1, 1, 1]\n"
+                 "y1 = [3, 2, 1, 2, 3, 3]\n"
+                 "y = y0+y1  # the syntax is different for numpy arrays!\n"
+                 "x = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]  # len(x) == len(y)\n")),
+
         ('x0', dict(
             required=False,
             type='data',
