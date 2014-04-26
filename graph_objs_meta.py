@@ -679,11 +679,11 @@ INFO = OrderedDict([
                         "VALUE, see 'x0' for a more practical way to handle "
                         "this case. If you don't include 'x', the box will "
                         "simply be assigned a location.",
-            code=">>>y0 = [1,2,3,1,1,1]"
-                 ">>>y1 = [3,2,1,2,3,3]"
-                 ">>>y = y0+y1  # the syntax is different for numpy arrays!"
-                 ">>>x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)"
-                 ">>>Box(y=y, x=x, name='two boxes SHARE this name.'")),
+            code=">>> y0 = [1,2,3,1,1,1]"
+                 ">>> y1 = [3,2,1,2,3,3]"
+                 ">>> y = y0+y1  # the syntax is different for numpy arrays!"
+                 ">>> x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)"
+                 ">>> Box(y=y, x=x, name='two boxes SHARE this name.')")),
 
         ('x0', dict(
             required=False,
