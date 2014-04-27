@@ -1830,6 +1830,15 @@ INFO = OrderedDict([
 
     ])),
 
+    ('radialAxis', OrderedDict([
+        
+
+    ])),
+
+    ('angularAxis', OrderedDict([
+
+    ])),
+
     ('xaxis', OrderedDict([
 
         ('title', dict(

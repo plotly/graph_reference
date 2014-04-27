@@ -1,4 +1,5 @@
 {
+    "radialAxis": [], 
     "figure": [
         "'data': 'object'", 
         "'layout': 'object'"
@@ -224,6 +225,7 @@
         "'side': 'style'", 
         "'mirror': 'style'"
     ], 
+    "angularAxis": [], 
     "annotations": [], 
     "trace": [
         "'x': 'data'", 
