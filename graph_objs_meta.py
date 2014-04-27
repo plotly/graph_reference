@@ -1893,10 +1893,9 @@ INFO = OrderedDict([
 
         ('ticks', dict(  # TODO: separate object for ticks?
             requried=False,
-            type='plot_info',  # TODO: 'style'?
+            type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
-            description="Sets format of tick visibility."
-        )),
+            description="Sets format of tick visibility.")),
 
         ('ticklen', dict(  # TODO: separate object for ticks?
             required=False,
@@ -2053,7 +2052,12 @@ INFO = OrderedDict([
                         "plot or at the 'top' of the plot."
         )),
 
-        ('mirror', dict()),
+        ('mirror', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether to mirror the axis line to the "
+                        "opposite side of the plot.")),
 
         # ('drange', dict()),
         # ('r0', dict()),
@@ -2142,7 +2146,7 @@ INFO = OrderedDict([
 
         ('ticks', dict(  # TODO: separate object for ticks?
             requried=False,
-            type='plot_info',  # TODO: 'style'?
+            type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
             description="Sets format of tick visibility.")),
 
@@ -2279,7 +2283,12 @@ INFO = OrderedDict([
             description="Set whether this axis sits at the 'left' of the "
                         "plot or at the 'right' of the plot.")),
 
-        ('mirror', dict()),
+        ('mirror', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether to mirror the axis line to the "
+                        "opposite side of the plot.")),
 
         ('overlaying', dict()),
 

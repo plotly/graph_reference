@@ -1890,7 +1890,7 @@
         "ticks": {
             "requried": false, 
             "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets format of tick visibility."
         }, 
         "ticklen": {
@@ -2039,7 +2039,12 @@
             "type": "style", 
             "description": "Set whether this axis sits at the 'bottom' of the plot or at the 'top' of the plot."
         }, 
-        "mirror": {}
+        "mirror": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+        }
     }, 
     "xbins": {
         "start": {
@@ -2146,7 +2151,7 @@
         "ticks": {
             "requried": false, 
             "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets format of tick visibility."
         }, 
         "ticklen": {
@@ -2294,7 +2299,12 @@
             "type": "style", 
             "description": "Set whether this axis sits at the 'left' of the plot or at the 'right' of the plot."
         }, 
-        "mirror": {}, 
+        "mirror": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+        }, 
         "overlaying": {}
     }, 
     "ybins": {

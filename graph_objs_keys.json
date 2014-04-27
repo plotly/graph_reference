@@ -198,7 +198,7 @@
         "'linewidth': 'style'", 
         "'tick0': 'plot_info'", 
         "'dtick': 'style'", 
-        "'ticks': 'plot_info'", 
+        "'ticks': 'style'", 
         "'ticklen': 'style'", 
         "'tickcolor': 'style'", 
         "'tickwidth': 'style'", 
@@ -222,7 +222,7 @@
         "'position': 'style'", 
         "'anchor': 'style'", 
         "'side': 'style'", 
-        "'mirror': UNCLASSIFIED"
+        "'mirror': 'style'"
     ], 
     "annotations": [], 
     "trace": [
@@ -373,7 +373,7 @@
         "'linewidth': 'style'", 
         "'tick0': 'plot_info'", 
         "'dtick': 'style'", 
-        "'ticks': 'plot_info'", 
+        "'ticks': 'style'", 
         "'ticklen': 'style'", 
         "'tickcolor': 'style'", 
         "'tickwidth': 'style'", 
@@ -396,7 +396,7 @@
         "'position': 'style'", 
         "'anchor': 'style'", 
         "'side': 'style'", 
-        "'mirror': UNCLASSIFIED", 
+        "'mirror': 'style'", 
         "'overlaying': UNCLASSIFIED"
     ], 
     "colorbar": [], 
