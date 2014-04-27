@@ -53,6 +53,8 @@
         "yaxis": {
             "type": "plot_info"
         }, 
+        "angularAxis": {}, 
+        "radialAxis": {}, 
         "error_y": {
             "type": "object"
         }, 
@@ -337,6 +339,16 @@
             "required": true, 
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+        }, 
+        "r": {
+            "val_types": "array-like of numbers, strings, datetimes", 
+            "required": true, 
+            "type": "data"
+        }, 
+        "t": {
+            "val_types": "array-like of numbers, strings, datetimes", 
+            "required": true, 
+            "type": "data"
         }
     }, 
     "box": {
@@ -1587,7 +1599,18 @@
         "bardir": {
             "required": false, 
             "type": "plot_info"
-        }
+        }, 
+        "radialAxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
+        }, 
+        "angularAxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
+        }, 
+        "needsEndSpacing": {}
     }, 
     "legend": {
         "x": {
@@ -1789,6 +1812,10 @@
             "required": false, 
             "type": "style", 
             "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
+        }, 
+        "type": {
+            "required": false, 
+            "type": "style"
         }
     }, 
     "stream": {

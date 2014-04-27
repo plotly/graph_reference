@@ -13,7 +13,8 @@
         "'sizemode': 'style'", 
         "'sizeref': 'style'", 
         "'color': 'style'", 
-        "'opacity': 'style'"
+        "'opacity': 'style'", 
+        "'type': 'style'"
     ], 
     "stream": [
         "'token': 'plot_info'", 
@@ -119,7 +120,10 @@
         "'hidesources': 'plot_info'", 
         "'showlegend': 'style'", 
         "'annotations': 'object'", 
-        "'bardir': 'plot_info'"
+        "'bardir': 'plot_info'", 
+        "'radialAxis': 'object'", 
+        "'angularAxis': 'object'", 
+        "'needsEndSpacing': UNCLASSIFIED"
     ], 
     "error_y": [
         "'array': 'data'", 
@@ -244,6 +248,8 @@
         "'showlegend': 'style'", 
         "'xaxis': 'plot_info'", 
         "'yaxis': 'plot_info'", 
+        "'angularAxis': UNCLASSIFIED", 
+        "'radialAxis': UNCLASSIFIED", 
         "'error_y': 'object'", 
         "'textfont': 'object'", 
         "'type': 'plot_info'", 
@@ -363,7 +369,9 @@
         "'error_y': 'object'", 
         "'textfont': 'object'", 
         "'visible': 'plot_info'", 
-        "'type': 'plot_info'"
+        "'type': 'plot_info'", 
+        "'r': 'data'", 
+        "'t': 'data'"
     ], 
     "yaxis": [
         "'title': 'plot_info'", 

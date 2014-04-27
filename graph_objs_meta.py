@@ -420,8 +420,8 @@ INFO = OrderedDict([
         ('showlegend', dict(type='style')),
         ('xaxis', dict(type='plot_info')),
         ('yaxis', dict(type='plot_info')),
-        # ('angularAxis', dict()),
-        # ('radialAxis', dict()),
+        ('angularAxis', dict()),
+        ('radialAxis', dict()),
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
@@ -466,18 +466,6 @@ INFO = OrderedDict([
             val_types=val_types['general']['data_array'],
             description="The y coordinates from the (x,y) pair on the scatter "
                         "plot.")),
-
-        # ('r', dict(
-        #     required=False,
-        #     type='data',
-        #     val_types=val_types['general']['data_array'],
-        # )),
-        #
-        # ('t', dict(
-        #     required=False,
-        #     type='data',
-        #     val_types=val_types['general']['data_array'],
-        # )),
 
         ('text', dict(
             required=False,
@@ -643,7 +631,19 @@ INFO = OrderedDict([
             type='plot_info',
             val_types="'bar'",
             description=description['trace']['type']
-        ))
+        )),
+
+        ('r', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+        )),
+
+        ('t', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+        )),
 
     ])),
 
@@ -1614,7 +1614,23 @@ INFO = OrderedDict([
 
         ('bardir', dict(
             required=False,
-            type='plot_info'))
+            type='plot_info')),
+
+        ('radialAxis', dict(  # TODO polar
+            required=False,
+            type='object',
+            val_types=val_types['general']['object']
+        )),
+
+        ('angularAxis', dict(  # TODO polar
+            required=False,
+            type='object',
+            val_types=val_types['general']['object']
+        )),
+
+        ('needsEndSpacing', dict(  # TODO polar
+
+        ))
 
     ])),
 
@@ -1802,7 +1818,11 @@ INFO = OrderedDict([
             examples=examples['general']['color']
         )),
 
-        ('opacity', drop_in['opacity'])
+        ('opacity', drop_in['opacity']),
+
+        ('type', dict(  # TODO REMOVE, this should be changed...
+            required=False,
+            type='style'))
 
     ])),
 
@@ -1831,7 +1851,6 @@ INFO = OrderedDict([
     ])),
 
     ('radialAxis', OrderedDict([
-        
 
     ])),
 
