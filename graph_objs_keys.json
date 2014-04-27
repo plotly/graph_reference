@@ -191,7 +191,7 @@
     "xaxis": [
         "'title': 'plot_info'", 
         "'domain': 'plot_info'", 
-        "'range': 'plot_info'", 
+        "'range': 'style'", 
         "'type': 'plot_info'", 
         "'showline': 'style'", 
         "'linecolor': 'style'", 
@@ -366,7 +366,7 @@
     "yaxis": [
         "'title': 'plot_info'", 
         "'domain': 'plot_info'", 
-        "'range': 'plot_info'", 
+        "'range': 'style'", 
         "'type': 'plot_info'", 
         "'showline': 'style'", 
         "'linecolor': 'style'", 

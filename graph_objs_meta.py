@@ -1848,7 +1848,7 @@ INFO = OrderedDict([
 
         ('range', dict(
             required=False,
-            type='plot_info',
+            type='style',  # TODO: changed this!!!  was plot_info
             val_types="number array of length 2",
             description="Defines the start and end point for the axis.",
             examples=[[-13, 20], [0, 1]])),
@@ -2102,7 +2102,7 @@ INFO = OrderedDict([
 
         ('range', dict(
             required=False,
-            type='plot_info',
+            type='style',  # TODO: changed this!!!  was plot_info
             val_types="number array of length 2",
             description="Defines the start and end point for the axis.",
             examples=[[-13, 20], [0, 1]])),
@@ -2219,7 +2219,7 @@ INFO = OrderedDict([
 
         ('rangemode', dict(
             required=False,
-            type='plot_info',
+            type='plot_info',  # TODO: style?
             val_types="string: 'normal' | 'tozero' | 'nonnegative'")),
 
         ('autotick', dict(

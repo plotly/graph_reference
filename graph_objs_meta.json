@@ -1831,7 +1831,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "examples": [
                 [
                     -13, 
@@ -2092,7 +2092,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "examples": [
                 [
                     -13, 
