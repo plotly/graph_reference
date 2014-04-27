@@ -220,7 +220,7 @@
         "'tickfont': 'object'", 
         "'overlaying': UNCLASSIFIED", 
         "'position': 'style'", 
-        "'anchor': 'style'", 
+        "'anchor': 'plot_info'", 
         "'side': 'style'", 
         "'mirror': 'style'"
     ], 
@@ -394,7 +394,7 @@
         "'titlefont': 'object'", 
         "'tickfont': 'object'", 
         "'position': 'style'", 
-        "'anchor': 'style'", 
+        "'anchor': 'plot_info'", 
         "'side': 'style'", 
         "'mirror': 'style'", 
         "'overlaying': UNCLASSIFIED"

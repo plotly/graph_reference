@@ -2037,7 +2037,7 @@ INFO = OrderedDict([
 
         ('anchor', dict(
             required=False,
-            type='style',
+            type='plot_info',
             val_types="'y' | 'free'",
             description="Sets whether the xaxis will be anchored to its "
                         "corresponding yaxis OR 'free' to appear anywhere in "
@@ -2270,7 +2270,7 @@ INFO = OrderedDict([
 
         ('anchor', dict(
             required=False,
-            type='style',
+            type='plot_info',
             val_types="'x' | 'free'",
             description="Sets whether the yaxis will be anchored to its "
                         "corresponding xaxis OR 'free' to appear anywhere in "

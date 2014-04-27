@@ -2030,7 +2030,7 @@
         "anchor": {
             "val_types": "'y' | 'free'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Sets whether the xaxis will be anchored to its corresponding yaxis OR 'free' to appear anywhere in the vertical space of the plot."
         }, 
         "side": {
@@ -2290,7 +2290,7 @@
         "anchor": {
             "val_types": "'x' | 'free'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Sets whether the yaxis will be anchored to its corresponding xaxis OR 'free' to appear anywhere in the horizontal space of the plot."
         }, 
         "side": {
