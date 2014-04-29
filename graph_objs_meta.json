@@ -64,7 +64,7 @@
         "type": {
             "type": "plot_info"
         }, 
-        "bardir": {
+        "orientation": {
             "type": "plot_info"
         }, 
         "boxpoints": {
@@ -304,7 +304,7 @@
         "type": {
             "type": "plot_info"
         }, 
-        "bardir": {
+        "orientation": {
             "type": "plot_info"
         }, 
         "boxpoints": {
@@ -380,11 +380,11 @@
             "type": "data", 
             "description": "The y coordinates of the bars or the bar chart's categories."
         }, 
-        "bardir": {
+        "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "This defines the orientation (direction) of the bars. If set to 'v', the length of each bar will run vertically.If set to 'h', the length of each bar will run horizontally"
+            "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically.If set to 'h', the length of each bar will run horizontally"
         }, 
         "text": {
             "val_types": "array-like of strings", 
@@ -966,7 +966,7 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
-        "bardir": {
+        "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
             "type": "plot_info", 
@@ -1608,7 +1608,8 @@
             "required": false
         }, 
         "orientation": {
-            "required": false
+            "required": false, 
+            "type": "plot_info"
         }, 
         "direction": {
             "required": false
@@ -1640,10 +1641,6 @@
             "required": false, 
             "type": "object", 
             "description": "A list-like object that holds annotation dictionaries."
-        }, 
-        "bardir": {
-            "required": false, 
-            "type": "plot_info"
         }, 
         "radialAxis": {
             "val_types": "dictionary-like", 

@@ -41,7 +41,7 @@ val_types = dict(
         z="matrix-like: list of lists, numpy.matrix"
     ),
     bar=dict(
-        bardir="'v' | 'h'",
+        orientation="'v' | 'h'",
     ),
     histogram=dict(
 
@@ -116,9 +116,9 @@ description = dict(
     bar=dict(
         x="The x coordinates of the bars OR the bar chart's categories.",
         y="The y data for bar charts, which is the length of the bars.",
-        bardir="This defines the orientation (direction) of the bars. If "
-               "set to 'v', the length of each bar will run vertically.If set "
-               "to 'h', the length of each bar will run horizontally",
+        orientation="This defines the direction of the bars. If set to 'v', "
+                    "the length of each bar will run vertically.If set to 'h', "
+                    "the length of each bar will run horizontally",
     ),
     histogram=dict(
 
@@ -425,7 +425,7 @@ INFO = OrderedDict([
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
-        ('bardir', dict(type='plot_info')),
+        ('orientation', dict(type='plot_info')),
         ('boxpoints', dict(type='style')),
         ('jitter', dict(type='style')),
         ('pointpos', dict(type='style')),
@@ -575,7 +575,7 @@ INFO = OrderedDict([
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
-        ('bardir', dict(type='plot_info')),
+        ('orientation', dict(type='plot_info')),
         ('boxpoints', dict(type='style')),
         ('jitter', dict(type='style')),
         ('pointpos', dict(type='style')),
@@ -622,11 +622,11 @@ INFO = OrderedDict([
                         "categories."
         )),
 
-        ('bardir', dict(
+        ('orientation', dict(
             required=False,
             type='plot_info',
-            val_types=val_types['bar']['bardir'],
-            description=description['bar']['bardir']
+            val_types=val_types['bar']['orientation'],
+            description=description['bar']['orientation']
         )),
 
         ('text', dict(
@@ -1030,11 +1030,11 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('bardir', dict(
+        ('orientation', dict(
             required=False,
             type='plot_info',
-            val_types=val_types['bar']['bardir'],
-            description=val_types['bar']['bardir']
+            val_types=val_types['bar']['orientation'],
+            description=val_types['bar']['orientation']
         )),
 
         ('marker', dict(
@@ -1614,7 +1614,7 @@ INFO = OrderedDict([
             description="A list-like object that holds annotation "
                         "dictionaries.")),
 
-        ('bardir', dict(
+        ('orientation', dict(
             required=False,
             type='plot_info')),
 
