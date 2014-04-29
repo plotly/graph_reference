@@ -244,6 +244,129 @@
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
         }
     }, 
+    "area": {
+        "x": {
+            "type": "data"
+        }, 
+        "y": {
+            "type": "data"
+        }, 
+        "z": {
+            "type": "data"
+        }, 
+        "r": {
+            "type": "data"
+        }, 
+        "t": {
+            "type": "data"
+        }, 
+        "text": {
+            "type": "data"
+        }, 
+        "name": {
+            "type": "data"
+        }, 
+        "mode": {
+            "type": "plot_info"
+        }, 
+        "marker": {
+            "type": "object"
+        }, 
+        "line": {
+            "type": "object"
+        }, 
+        "fill": {
+            "type": "style"
+        }, 
+        "fillcolor": {
+            "type": "style"
+        }, 
+        "opacity": {
+            "type": "style"
+        }, 
+        "showlegend": {
+            "type": "style"
+        }, 
+        "xaxis": {
+            "type": "plot_info"
+        }, 
+        "yaxis": {
+            "type": "plot_info"
+        }, 
+        "angularAxis": {}, 
+        "radialAxis": {}, 
+        "error_y": {
+            "type": "object"
+        }, 
+        "textfont": {
+            "type": "object"
+        }, 
+        "type": {
+            "type": "plot_info"
+        }, 
+        "bardir": {
+            "type": "plot_info"
+        }, 
+        "boxpoints": {
+            "type": "style"
+        }, 
+        "jitter": {
+            "type": "style"
+        }, 
+        "pointpos": {
+            "type": "style"
+        }, 
+        "boxmean": {
+            "type": "style"
+        }, 
+        "whiskerwidth": {
+            "type": "style"
+        }, 
+        "scl": {
+            "type": "style"
+        }, 
+        "colorbar": {
+            "type": "object"
+        }, 
+        "autobinx": {
+            "type": "style"
+        }, 
+        "autobiny": {
+            "type": "style"
+        }, 
+        "xbins": {
+            "type": "object"
+        }, 
+        "ybins": {
+            "type": "object"
+        }, 
+        "histnorm": {
+            "type": "plot_info"
+        }, 
+        "zmax": {
+            "type": "plot_info"
+        }, 
+        "zmin": {
+            "type": "plot_info"
+        }, 
+        "dx": {}, 
+        "dy": {}, 
+        "x0": {}, 
+        "y0": {}, 
+        "zauto": {
+            "type": "plot_info"
+        }, 
+        "hm_id": {}, 
+        "nbinsx": {
+            "type": "style"
+        }, 
+        "nbinsy": {
+            "type": "style"
+        }, 
+        "showscale": {
+            "type": "style"
+        }
+    }, 
     "bar": {
         "x": {
             "val_types": "array-like of numbers, strings, datetimes OR array-like of strings", 
