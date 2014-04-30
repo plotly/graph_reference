@@ -146,6 +146,12 @@
             "type": "data", 
             "description": "The text elements associated with every (x,y) pair on the scatter plot. If the scatter 'mode' doesn't include 'text' then text will appear on hover. If 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified by their corresponding (x, y) pair."
         }, 
+        "textposition": {
+            "val_types": "'top' | 'bottom'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set's position of the text elements in the 'text' key."
+        }, 
         "name": {
             "val_types": "string", 
             "required": false, 
@@ -270,6 +276,9 @@
         }, 
         "text": {
             "type": "data"
+        }, 
+        "textposition": {
+            "type": "plot_info"
         }, 
         "name": {
             "type": "data"
@@ -399,6 +408,12 @@
             "required": false, 
             "type": "data", 
             "description": "This array of strings corresponds to the bar at location 'x' with length 'y'. This will appear upon hovering over the bar."
+        }, 
+        "textposition": {
+            "val_types": "'top' | 'bottom'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set's position of the text elements in the 'text' key."
         }, 
         "name": {
             "val_types": "string", 
@@ -1276,6 +1291,12 @@
             "required": false, 
             "type": "plot_info", 
             "description": "The text note that will be added with this annotation."
+        }, 
+        "textposition": {
+            "val_types": "'top' | 'bottom'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set's position of the text elements in the 'text' key."
         }, 
         "bordercolor": {
             "val_types": "str describing color", 

@@ -258,6 +258,13 @@ drop_in = dict(
                     "color is given in terms of 'rgba', this does not need to "
                     "be defined."),
 
+    textposition=dict(
+        required=False,
+        type='style',
+        val_types="'top' | 'bottom'",
+        description="Set's position of the text elements in the 'text' key."
+    ),
+
     scl=dict(
         required=False,
         type="style",
@@ -479,6 +486,8 @@ INFO = OrderedDict([
                         "specified by their corresponding (x, y) pair."
         )),
 
+        ('textposition', drop_in['textposition']),
+
         ('name', drop_in['name']),
 
         ('mode', dict(
@@ -570,6 +579,7 @@ INFO = OrderedDict([
         ('r', dict(type='data')),
         ('t', dict(type='data')),
         ('text', dict(type='data')),
+        ('textposition', dict(type='plot_info')),
         ('name', dict(type='data')),
         ('mode', dict(type='plot_info')),
         ('marker', dict(type='object')),
@@ -647,6 +657,8 @@ INFO = OrderedDict([
                         "location 'x' with length 'y'. This will appear upon "
                         "hovering over the bar."
         )),
+
+        ('textposition', drop_in['textposition']),
 
         ('name', drop_in['name']),
 
@@ -1225,6 +1237,8 @@ INFO = OrderedDict([
             description="The text note that will be added with this "
                         "annotation.")),
 
+        ('textposition', drop_in['textposition']),
+
         ('bordercolor', dict(
             required=False,
             type='style',
@@ -1322,7 +1336,7 @@ INFO = OrderedDict([
             required=False,
             type='data'
         )),
-        
+
         ('array', dict(
             required=False,
             type='data',
