@@ -1587,8 +1587,9 @@ INFO = OrderedDict([
             required=False,
         )),
 
-        ('orientation', dict(
+        ('bardir', dict(
             required=False,
+            type='plot_info'
         )),
 
         ('direction', dict(

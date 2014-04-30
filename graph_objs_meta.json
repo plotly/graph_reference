@@ -1615,7 +1615,7 @@
         "labeloffset": {
             "required": false
         }, 
-        "orientation": {
+        "bardir": {
             "required": false, 
             "type": "plot_info"
         }, 
@@ -1649,6 +1649,10 @@
             "required": false, 
             "type": "object", 
             "description": "A list-like object that holds annotation dictionaries."
+        }, 
+        "orientation": {
+            "required": false, 
+            "type": "plot_info"
         }, 
         "radialAxis": {
             "val_types": "dictionary-like", 
