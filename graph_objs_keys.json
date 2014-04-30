@@ -88,6 +88,7 @@
         "'needsEndSpacing': UNCLASSIFIED"
     ], 
     "error_y": [
+        "'value': 'data'", 
         "'array': 'data'", 
         "'color': 'style'", 
         "'opacity': 'style'", 

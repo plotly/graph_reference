@@ -1399,6 +1399,10 @@
     }, 
     "colorbar": {}, 
     "error_y": {
+        "value": {
+            "required": false, 
+            "type": "data"
+        }, 
         "array": {
             "val_types": "array-like of numbers, strings, datetimes or number", 
             "required": false, 

@@ -1318,6 +1318,11 @@ INFO = OrderedDict([
     ('colorbar', OrderedDict([])),
 
     ('error_y', OrderedDict([  # TODO: Line object here?
+        ('value', dict(
+            required=False,
+            type='data'
+        )),
+        
         ('array', dict(
             required=False,
             type='data',
