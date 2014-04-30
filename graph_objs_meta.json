@@ -85,6 +85,9 @@
         "scl": {
             "type": "style"
         }, 
+        "reversescl": {
+            "type": "style"
+        }, 
         "colorbar": {
             "type": "object"
         }, 
@@ -340,6 +343,9 @@
             "type": "style"
         }, 
         "scl": {
+            "type": "style"
+        }, 
+        "reversescl": {
             "type": "style"
         }, 
         "colorbar": {
@@ -710,6 +716,10 @@
             ], 
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
+        "reversescl": {
+            "required": false, 
+            "type": "style"
+        }, 
         "colorbar": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -877,6 +887,10 @@
                 ]
             ], 
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
+        }, 
+        "reversescl": {
+            "required": false, 
+            "type": "style"
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 
@@ -1165,6 +1179,10 @@
                 ]
             ], 
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
+        }, 
+        "reversescl": {
+            "required": false, 
+            "type": "style"
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 

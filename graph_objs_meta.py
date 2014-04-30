@@ -258,6 +258,11 @@ drop_in = dict(
                     "color is given in terms of 'rgba', this does not need to "
                     "be defined."),
 
+    reversescl=dict(
+        required=False,
+        type='style'
+    ),
+
     textposition=dict(
         required=False,
         type='style',
@@ -439,6 +444,7 @@ INFO = OrderedDict([
         ('boxmean', dict(type='style')),
         ('whiskerwidth', dict(type='style')),
         ('scl', dict(type='style')),
+        ('reversescl', dict(type='style')),
         ('colorbar', dict(type='object')),
         ('autobinx', dict(type='style')),
         ('autobiny', dict(type='style')),
@@ -602,6 +608,7 @@ INFO = OrderedDict([
         ('boxmean', dict(type='style')),
         ('whiskerwidth', dict(type='style')),
         ('scl', dict(type='style')),
+        ('reversescl', dict(type='style')),
         ('colorbar', dict(type='object')),
         ('autobinx', dict(type='style')),
         ('autobiny', dict(type='style')),
@@ -891,6 +898,8 @@ INFO = OrderedDict([
 
         ('scl', drop_in['scl']),
 
+        ('reversescl', drop_in['reversescl']),
+
         ('colorbar', drop_in['colorbar']),
 
         ('zmin', dict(
@@ -972,6 +981,8 @@ INFO = OrderedDict([
         ('name', drop_in['name']),
 
         ('scl', drop_in['scl']),
+
+        ('reversescl', drop_in['reversescl']),
 
         ('colorbar', drop_in['colorbar']),
 
@@ -1143,6 +1154,8 @@ INFO = OrderedDict([
             description=description['histogram']['y'])),
 
         ('scl', drop_in['scl']),
+
+        ('reversescl', drop_in['reversescl']),
 
         ('colorbar', drop_in['colorbar']),
 
