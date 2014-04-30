@@ -237,6 +237,14 @@
             "type": "object", 
             "description": "A dictionary-like object describing the font style of this scatter's text elements. This only has an effect if 'text' is an array of strings and 'mode' is set to include 'text'."
         }, 
+        "r": {
+            "requried": false, 
+            "type": "data"
+        }, 
+        "t": {
+            "requried": false, 
+            "type": "data"
+        }, 
         "type": {
             "val_types": "'scatter'", 
             "required": false, 

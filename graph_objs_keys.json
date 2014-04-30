@@ -467,6 +467,8 @@
         "'error_y': 'object'", 
         "'visible': 'plot_info'", 
         "'textfont': 'object'", 
+        "'r': 'data'", 
+        "'t': 'data'", 
         "'type': 'plot_info'"
     ]
 }

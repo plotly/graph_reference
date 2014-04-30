@@ -544,6 +544,16 @@ INFO = OrderedDict([
                         "an effect if 'text' is an array of strings and "
                         "'mode' is set to include 'text'.")),
 
+        ('r', dict(
+            requried=False,
+            type='data'
+        )),
+
+        ('t', dict(
+            requried=False,
+            type='data'
+        )),
+
         ('type', dict(
             required=False,
             type='plot_info',
