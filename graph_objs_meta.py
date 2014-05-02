@@ -983,6 +983,126 @@ INFO = OrderedDict([
 
     ])),
 
+    ('histogram2dcontour', OrderedDict([
+
+        ('x', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['x'])),
+
+        ('y', dict(
+            required=True,
+            type='data',
+            val_types=val_types['general']['data_array'],
+            description=description['histogram']['y'])),
+
+        ('scl', drop_in['scl']),
+
+        ('colorbar', drop_in['colorbar']),
+
+        ('name', drop_in['name']),
+
+        ('marker', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('line', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'])),
+
+        ('autobinx', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobinx'])),
+
+        ('autobiny', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description=description['histogram']['autobiny'])),
+
+        ('xbins', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description=description['histogram']['xbins'])),
+
+        ('ybins', dict(
+            required=False,
+            type='object',
+            val_types=val_types['general']['object'],
+            description=description['histogram']['ybins'])),
+
+        ('nbinsx', dict()),
+
+        ('nbinsy', dict()),
+
+        ('histnorm', dict()),
+
+        ('autocontour', dict(
+            required=False,
+            type='style',
+            default=True,
+            val_types=val_types['general']['bool'],
+            description="If True, the contours settings are set automatically. "
+                        "If False, the contours settings must be set manually "
+                        "with the contours object.")),
+
+        ('ncontours', dict(
+            required=False,
+            type='style',
+            default=0,
+            val_types=val_types['general']['bool'])),
+
+        ('contours', dict(
+            required=False,
+            type='object',  # TODO: this was 'style' before, any reason?
+            val_types=val_types['general']['object'])),
+
+        ('xtype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('ytype', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=val_types['map']['xtype'])),
+
+        ('dx', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),
+
+        ('dy', dict(  # TODO: ??
+            required=False,
+            type='style',
+            val_types=number())),        
+
+        ('showlegend', drop_in['showlegend_trace']),
+
+        ('xaxis', drop_in['xaxis_trace']),
+
+        ('yaxis', drop_in['yaxis_trace']),
+
+        ('visible', drop_in['visible']),
+
+        ('showscale', dict()),
+
+        ('stream', drop_in['stream']),
+
+        ('type', dict(
+            required=True,
+            type='plot_info',
+            val_types='histogram2dcontour',
+            description=description['trace']['type'])),
+
+    ])),
+
     ('annotation', OrderedDict([
 
         ('x', dict(

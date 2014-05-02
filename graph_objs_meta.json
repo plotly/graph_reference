@@ -1033,6 +1033,201 @@
             "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
         }
     }, 
+    "histogram2dcontour": {
+        "x": {
+            "val_types": "array_like of numbers, strings, datetimes", 
+            "required": true, 
+            "type": "data", 
+            "description": "The x data that is binned and plotted as bars along the x-axis."
+        }, 
+        "y": {
+            "val_types": "array_like of numbers, strings, datetimes", 
+            "required": true, 
+            "type": "data", 
+            "description": "The y data that is binned and plotted as bars along the y-axis."
+        }, 
+        "scl": {
+            "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "Greys", 
+                [
+                    [
+                        0, 
+                        "rgb(0,0,0)"
+                    ], 
+                    [
+                        1, 
+                        "rgb(255,255,255)"
+                    ]
+                ], 
+                [
+                    [
+                        0, 
+                        "rgb(8, 29, 88)"
+                    ], 
+                    [
+                        0.125, 
+                        "rgb(37, 52, 148)"
+                    ], 
+                    [
+                        0.25, 
+                        "rgb(34, 94, 168)"
+                    ], 
+                    [
+                        0.375, 
+                        "rgb(29, 145, 192)"
+                    ], 
+                    [
+                        0.5, 
+                        "rgb(65, 182, 196)"
+                    ], 
+                    [
+                        0.625, 
+                        "rgb(127, 205, 187)"
+                    ], 
+                    [
+                        0.75, 
+                        "rgb(199, 233, 180)"
+                    ], 
+                    [
+                        0.875, 
+                        "rgb(237, 248, 217)"
+                    ], 
+                    [
+                        1, 
+                        "rgb(255, 255, 217)"
+                    ]
+                ]
+            ], 
+            "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
+        }, 
+        "colorbar": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
+        }, 
+        "name": {
+            "val_types": "string", 
+            "required": false, 
+            "type": "data", 
+            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
+        }, 
+        "marker": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
+        }, 
+        "line": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
+        }, 
+        "autobinx": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not to allow plotly to automatically pick the bin sizing in the x direction for this histogram."
+        }, 
+        "autobiny": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not to allow plotly to automatically pick the bin sizing in the y direction for this histogram."
+        }, 
+        "xbins": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object explaining how the bins should be created in the x direction for this histogram."
+        }, 
+        "ybins": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object explaining how the bins should be created in the y direction for this histogram."
+        }, 
+        "nbinsx": {}, 
+        "nbinsy": {}, 
+        "histnorm": {}, 
+        "autocontour": {
+            "default": true, 
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "If True, the contours settings are set automatically. If False, the contours settings must be set manually with the contours object."
+        }, 
+        "ncontours": {
+            "default": 0, 
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "contours": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
+        }, 
+        "xtype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "ytype": {
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dx": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "dy": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style"
+        }, 
+        "showlegend": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not this trace will show up in the legend."
+        }, 
+        "xaxis": {
+            "val_types": "string: 'x1' | 'x2' | 'x3' | etc.", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "This key determines which xaxis the x coordinates in this trace will reference in the figure. 'x' references layout['xaxis'] and 'x2' references layout['xaxis2']. 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
+        }, 
+        "yaxis": {
+            "val_types": "string: 'y1' | 'y2' | 'y3' | etc.", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "This key determines which yaxis the y coordinates in this trace will reference in the figure. 'y' references layout['yaxis'] and 'y2' references layout['yaxis2']. 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
+        }, 
+        "visible": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggles whether this will actually be visible in the rendered figure."
+        }, 
+        "showscale": {}, 
+        "stream": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        }, 
+        "type": {
+            "val_types": "histogram2dcontour", 
+            "required": true, 
+            "type": "plot_info", 
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
+        }
+    }, 
     "annotation": {
         "x": {
             "val_types": "number", 
