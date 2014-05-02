@@ -1293,13 +1293,13 @@
     }, 
     "histogram2dcontour": {
         "x": {
-            "val_types": "array_like of numbers, strings, datetimes", 
+            "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
             "description": "The x data that is binned and plotted as bars along the x-axis."
         }, 
         "y": {
-            "val_types": "array_like of numbers, strings, datetimes", 
+            "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
             "description": "The y data that is binned and plotted as bars along the y-axis."
@@ -1483,7 +1483,7 @@
             "val_types": "histogram2dcontour", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
         }
     }, 
     "annotation": {
