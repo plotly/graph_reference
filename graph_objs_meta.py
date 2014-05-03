@@ -1245,6 +1245,8 @@ INFO = OrderedDict([
 
         ('scl', drop_in['scl']),
 
+        ('reversescl', drop_in['reversescl']),
+
         ('colorbar', drop_in['colorbar']),
 
         ('name', drop_in['name']),
