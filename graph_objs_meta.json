@@ -135,18 +135,21 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The x coordinates from the (x,y) pair on the scatter plot."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The y coordinates from the (x,y) pair on the scatter plot."
         }, 
         "text": {
             "val_types": "array-like of strings", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "The text elements associated with every (x,y) pair on the scatter plot. If the scatter 'mode' doesn't include 'text' then text will appear on hover. If 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified by their corresponding (x, y) pair."
         }, 
         "textposition": {
@@ -171,6 +174,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
+            "streamable": true, 
             "description": "A dictionary-like object containing information about the marker style of the scatter plot."
         }, 
         "line": {
@@ -395,12 +399,14 @@
             "val_types": "array-like of numbers, strings, datetimes OR array-like of strings", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The x coordinates of the bars or the bar chart's categories."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes OR array-like of strings", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The y coordinates of the bars or the bar chart's categories."
         }, 
         "orientation": {
@@ -413,6 +419,7 @@
             "val_types": "array-like of strings", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array of strings corresponds to the bar at location 'x' with length 'y'. This will appear upon hovering over the bar."
         }, 
         "textposition": {
@@ -430,7 +437,8 @@
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "streamable": true
         }, 
         "line": {
             "val_types": "dictionary-like", 
@@ -508,14 +516,16 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array is used to define the an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "code": ">>> y0 = [1,2,3,1,1]>>> y1 = [3,2,1,2,3]>>> y = y0+y1  # the syntax is different for numpy arrays!>>> x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)>>> Box(y=y, x=x, name='two boxes SHARE this name.')", 
-            "type": "data", 
             "description": "Usually, you do NOT need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of MANY y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. When making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. Then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to THE SAME VALUE, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
-            "required": false
+            "required": false, 
+            "type": "data", 
+            "streamable": true
         }, 
         "x0": {
             "val_types": "number", 
@@ -600,6 +610,7 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "marker": {
+            "streamable": true, 
             "required": false, 
             "type": "object"
         }, 
@@ -619,18 +630,21 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
         }, 
         "name": {
@@ -811,18 +825,21 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array-like value contains the HORIZONTAL labels referring to the COLUMNS of the 'z' matrix. If strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
+            "streamable": true, 
             "description": "This array-like value contains the VERTICAL labels referring to the ROWS of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
         }, 
         "name": {
@@ -989,12 +1006,14 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The x data that is binned and plotted as bars along the x-axis."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The y data that is binned and plotted as bars along the y-axis."
         }, 
         "name": {
@@ -1010,9 +1029,10 @@
             "description": "'v' | 'h'"
         }, 
         "marker": {
-            "val_types": "dictionary-like", 
+            "streamable": true, 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "val_types": "dictionary-like"
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1]", 
@@ -1115,12 +1135,14 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The x data that is binned and plotted as bars along the x-axis."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The y data that is binned and plotted as bars along the y-axis."
         }, 
         "scl": {
@@ -1197,9 +1219,10 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "marker": {
-            "val_types": "dictionary-like", 
+            "streamable": true, 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "val_types": "dictionary-like"
         }, 
         "line": {
             "val_types": "dictionary-like", 
@@ -1296,12 +1319,14 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The x data that is binned and plotted as bars along the x-axis."
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
+            "streamable": true, 
             "description": "The y data that is binned and plotted as bars along the y-axis."
         }, 
         "scl": {
@@ -1378,9 +1403,10 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "marker": {
-            "val_types": "dictionary-like", 
+            "streamable": true, 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "val_types": "dictionary-like"
         }, 
         "line": {
             "val_types": "dictionary-like", 
@@ -2080,6 +2106,7 @@
             "val_types": "number", 
             "required": false, 
             "type": "style", 
+            "streamable": true, 
             "description": "The size of the marker to be drawn."
         }, 
         "sizemode": {
@@ -2091,17 +2118,18 @@
             "type": "style"
         }, 
         "color": {
-            "requried": false, 
             "val_types": "str describing color", 
+            "description": "The color of the marker face.", 
+            "requried": false, 
             "type": "style", 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ], 
-            "description": "The color of the marker face."
+            ]
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1]", 

@@ -474,7 +474,7 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description="The x coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
@@ -482,7 +482,7 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description="The y coordinates from the (x,y) pair on the scatter "
                         "plot.")),
 
@@ -490,7 +490,7 @@ INFO = OrderedDict([
             required=False,
             type='data',
             val_types=val_types['general']['string_array'],
-            streamble=True,
+            streamable=True,
             description="The text elements associated with every (x,y) pair on "
                         "the scatter plot. If the scatter 'mode' doesn't "
                         "include 'text' then text will appear on hover. If "
@@ -517,7 +517,7 @@ INFO = OrderedDict([
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            streamble=True,
+            streamable=True,
             description="A dictionary-like object containing information "
                         "about the marker style of the scatter plot.")),
 
@@ -643,7 +643,7 @@ INFO = OrderedDict([
             val_types=" ".join([val_types['general']['data_array'],
                                 "OR",
                                 val_types['general']['string_array']]),
-            streamble=True,
+            streamable=True,
             description="The x coordinates of the bars or the bar chart's "
                         "categories."
         )),
@@ -654,7 +654,7 @@ INFO = OrderedDict([
             val_types=" ".join([val_types['general']['data_array'],
                                 "OR",
                                 val_types['general']['string_array']]),
-            streamble=True,
+            streamable=True,
             description="The y coordinates of the bars or the bar chart's "
                         "categories."
         )),
@@ -670,7 +670,7 @@ INFO = OrderedDict([
             required=False,
             type='data',
             val_types=val_types['general']['string_array'],
-            streamble=True,
+            streamable=True,
             description="This array of strings corresponds to the bar at "
                         "location 'x' with length 'y'. This will appear upon "
                         "hovering over the bar."
@@ -683,7 +683,7 @@ INFO = OrderedDict([
         ('marker', dict(
             required=False,
             type='object',
-            streamble=True,
+            streamable=True,
             val_types=val_types['general']['object'])),
 
         ('line', dict(
@@ -742,7 +742,7 @@ INFO = OrderedDict([
             required=True,
             type="data",
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description="This array is used to define the an individual "
                         "box plot, or, a concatenation of multiple boxplots. "
                         "Statistics from these numbers define the bounds of "
@@ -754,7 +754,7 @@ INFO = OrderedDict([
             required=False,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description="Usually, you do NOT need to set this value as "
                         "plotly will handle box locations for you. However "
                         "this allows you to have fine control over the "
@@ -850,7 +850,7 @@ INFO = OrderedDict([
         ('marker', dict(  # TODO!!! both line and marker CAN describe box color!
             required=False,
             type='object',
-            streamble=True)),
+            streamable=True)),
 
         ('line', dict(  # TODO!!! both line and marker CAN describe box color!
             required=False,
@@ -870,21 +870,21 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['map']['z'],
-            streamble=True,
+            streamable=True,
             description=description['map']['z'])),
 
         ('x', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['map']['x'])),
 
         ('y', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['map']['y'])),
 
         ('name', drop_in['name']),
@@ -982,21 +982,21 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['map']['z'],
-            streamble=True,
+            streamable=True,
             description=description['map']['z'])),
 
         ('x', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['map']['x'])),
 
         ('y', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['map']['y'])),
 
         ('name', drop_in['name']),
@@ -1074,14 +1074,14 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['x'])),
 
         ('y', dict(
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['y'])),
 
         ('name', drop_in['name']),
@@ -1097,7 +1097,7 @@ INFO = OrderedDict([
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            streamble=True)),
+            streamable=True)),
 
         ('opacity', drop_in['opacity']),
 
@@ -1169,14 +1169,14 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['x'])),
 
         ('y', dict(
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['y'])),
 
         ('scl', drop_in['scl']),
@@ -1191,7 +1191,7 @@ INFO = OrderedDict([
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            streamble=True)),
+            streamable=True)),
 
         ('line', dict(
             required=False,
@@ -1262,14 +1262,14 @@ INFO = OrderedDict([
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['x'])),
 
         ('y', dict(
             required=True,
             type='data',
             val_types=val_types['general']['data_array'],
-            streamble=True,
+            streamable=True,
             description=description['histogram']['y'])),
 
         ('scl', drop_in['scl']),
@@ -1284,7 +1284,7 @@ INFO = OrderedDict([
             required=False,
             type='object',
             val_types=val_types['general']['object'],
-            streamble=True)),
+            streamable=True)),
 
         ('line', dict(
             required=False,
@@ -1994,7 +1994,7 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types=number(),
-            streamble=True,
+            streamable=True,
             description="The size of the marker to be drawn."
         )),
 
@@ -2013,7 +2013,7 @@ INFO = OrderedDict([
             type='style',
             val_types=val_types['general']['color'],
             description="The color of the marker face.",
-            streamble=True,
+            streamable=True,
             examples=examples['general']['color']
         )),
 
