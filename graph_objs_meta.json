@@ -53,8 +53,8 @@
         "yaxis": {
             "type": "plot_info"
         }, 
-        "angularAxis": {}, 
-        "radialAxis": {}, 
+        "angularaxis": {}, 
+        "radialaxis": {}, 
         "error_y": {
             "type": "object"
         }, 
@@ -313,8 +313,8 @@
         "yaxis": {
             "type": "plot_info"
         }, 
-        "angularAxis": {}, 
-        "radialAxis": {}, 
+        "angularaxis": {}, 
+        "radialaxis": {}, 
         "error_y": {
             "type": "object"
         }, 
@@ -1724,6 +1724,19 @@
                 "'hsla(120,100%,50%,0.3)'"
             ], 
             "description": "Color of the text."
+        }, 
+        "outlinecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Color of the text's outline (polar only!)."
         }
     }, 
     "layout": {
@@ -1861,9 +1874,7 @@
             "required": false, 
             "type": "plot_info"
         }, 
-        "direction": {
-            "required": false
-        }, 
+        "direction": {}, 
         "tickcolor": {
             "required": false, 
             "type": "style"
@@ -1876,6 +1887,7 @@
             "required": false, 
             "type": "style"
         }, 
+        "opacity": {}, 
         "hidesources": {
             "required": false, 
             "type": "plot_info"
@@ -1896,12 +1908,12 @@
             "required": false, 
             "type": "plot_info"
         }, 
-        "radialAxis": {
+        "radialaxis": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object"
         }, 
-        "angularAxis": {
+        "angularaxis": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object"
@@ -2128,8 +2140,19 @@
             "description": "Sets the maximum number of points to keep on the plots from an incoming stream. For example, if 'maxpoints'=50, only the newest 50 points will be displayed on the plot."
         }
     }, 
-    "radialAxis": {}, 
-    "angularAxis": {}, 
+    "radialaxis": {
+        "orientation": {}, 
+        "ticksuffix": {}, 
+        "visible": {}, 
+        "tickorientation": {}, 
+        "showline": {}, 
+        "ticklen": {}, 
+        "tickcolor": {}
+    }, 
+    "angularaxis": {
+        "ticksuffix": {}, 
+        "tickorientation": {}
+    }, 
     "xaxis": {
         "title": {
             "val_types": "string", 
@@ -2345,7 +2368,9 @@
             "type": "object", 
             "description": "A dictionary for configuring the tick font."
         }, 
-        "overlaying": {}, 
+        "overlaying": {
+            "type": "style"
+        }, 
         "position": {
             "val_types": "number: x in [0, 1]", 
             "required": false, 
