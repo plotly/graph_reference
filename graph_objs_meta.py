@@ -1770,11 +1770,15 @@ INFO = OrderedDict([
 
         ('defaultcolorrange', dict(  # TODO: polar only
             required=False,
-            type='style'
+            type='style',
         )),
 
         ('opacity', dict(  # TODO: polar only
-
+            required=False,
+            type='style',
+            val_types=number(le=1, ge=0),
+            description="Used with polar plots ONLY. Sets the opacity of the "
+                        "entire plot."
         )),
 
         ('hidesources', dict(
@@ -1795,23 +1799,27 @@ INFO = OrderedDict([
             required=False,
             type='plot_info')),
 
-        ('radialaxis', dict(  # TODO polar
+        ('radialaxis', dict(  # TODO: polar only
             required=False,
             type='object',
-            val_types=val_types['general']['object']
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the radial axis "
+                        "in a polar plot."
         )),
 
-        ('angularaxis', dict(  # TODO polar
+        ('angularaxis', dict(  # TODO: polar only
             required=False,
             type='object',
-            val_types=val_types['general']['object']
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the angular axis "
+                        "in a polar plot."
         )),
 
-        ('needsEndSpacing', dict(  # TODO polar
+        ('needsEndSpacing', dict(  # TODO: polar only
 
         )),
 
-        ('direction', dict( # TODO polar
+        ('direction', dict(  # TODO: polar only
 
         ))
 
@@ -2034,16 +2042,16 @@ INFO = OrderedDict([
     ])),
 
     ('radialaxis', OrderedDict([
-        ('orientation', dict(  # TODO polar only
+        ('orientation', dict(  # TODO: polar only only
 
         )),
-        ('ticksuffix', dict(  # TODO polar only
+        ('ticksuffix', dict(  # TODO: polar only only
 
         )),
-        ('visible', dict(  # TODO polar only
+        ('visible', dict(  # TODO: polar only only
 
         )),
-        ('tickorientation', dict(  # TODO polar only
+        ('tickorientation', dict(  # TODO: polar only only
 
         )),
         ('showline', dict(
@@ -2055,10 +2063,10 @@ INFO = OrderedDict([
     ])),
 
     ('angularaxis', OrderedDict([
-        ('ticksuffix', dict(  # TODO polar only
+        ('ticksuffix', dict(  # TODO: polar only only
 
         )),
-        ('tickorientation', dict(  # TODO polar only
+        ('tickorientation', dict(  # TODO: polar only only
 
         )),
 

@@ -1887,7 +1887,12 @@
             "required": false, 
             "type": "style"
         }, 
-        "opacity": {}, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Used with polar plots ONLY. Sets the opacity of the entire plot."
+        }, 
         "hidesources": {
             "required": false, 
             "type": "plot_info"
@@ -1911,12 +1916,14 @@
         "radialaxis": {
             "val_types": "dictionary-like", 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "description": "A dictionary-like object describing the radial axis in a polar plot."
         }, 
         "angularaxis": {
             "val_types": "dictionary-like", 
             "required": false, 
-            "type": "object"
+            "type": "object", 
+            "description": "A dictionary-like object describing the angular axis in a polar plot."
         }, 
         "needsEndSpacing": {}
     }, 

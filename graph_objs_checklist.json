@@ -320,12 +320,6 @@
         }
     }, 
     "layout": {
-        "opacity": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
         "direction": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
@@ -355,9 +349,6 @@
             "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
-        "radialaxis": {
-            "description": "UNDOCUMENTED"
-        }, 
         "labeloffset": {
             "val_types": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
@@ -369,9 +360,6 @@
         }, 
         "bardir": {
             "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "angularaxis": {
             "description": "UNDOCUMENTED"
         }, 
         "hidesources": {
