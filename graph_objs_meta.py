@@ -436,8 +436,8 @@ INFO = OrderedDict([
         ('showlegend', dict(type='style')),
         ('xaxis', dict(type='plot_info')),
         ('yaxis', dict(type='plot_info')),
-        ('angularAxis', dict()),
-        ('radialAxis', dict()),
+        ('angularaxis', dict()),
+        ('radialaxis', dict()),
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
@@ -604,8 +604,8 @@ INFO = OrderedDict([
         ('showlegend', dict(type='style')),
         ('xaxis', dict(type='plot_info')),
         ('yaxis', dict(type='plot_info')),
-        ('angularAxis', dict()),
-        ('radialAxis', dict()),
+        ('angularaxis', dict()),
+        ('radialaxis', dict()),
         ('error_y', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
@@ -1580,6 +1580,14 @@ INFO = OrderedDict([
             val_types=val_types['general']['color'],
             description="Color of the text.",
             examples=examples['general']['color']
+        )),
+
+        ('outlinecolor', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description="Color of the text's outline (polar only!).",
+            examples=examples['general']['color']
         ))
     ])),
 
@@ -1790,9 +1798,17 @@ INFO = OrderedDict([
             type='style'
         )),
 
-        ('defaultcolorrange', dict(
+        ('defaultcolorrange', dict(  # TODO: polar only
             required=False,
-            type='style'
+            type='style',
+        )),
+
+        ('opacity', dict(  # TODO: polar only
+            required=False,
+            type='style',
+            val_types=number(le=1, ge=0),
+            description="Used with polar plots ONLY. Sets the opacity of the "
+                        "entire plot."
         )),
 
         ('hidesources', dict(
@@ -1813,19 +1829,27 @@ INFO = OrderedDict([
             required=False,
             type='plot_info')),
 
-        ('radialAxis', dict(  # TODO polar
+        ('radialaxis', dict(  # TODO: polar only
             required=False,
             type='object',
-            val_types=val_types['general']['object']
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the radial axis "
+                        "in a polar plot."
         )),
 
-        ('angularAxis', dict(  # TODO polar
+        ('angularaxis', dict(  # TODO: polar only
             required=False,
             type='object',
-            val_types=val_types['general']['object']
+            val_types=val_types['general']['object'],
+            description="A dictionary-like object describing the angular axis "
+                        "in a polar plot."
         )),
 
-        ('needsEndSpacing', dict(  # TODO polar
+        ('needsEndSpacing', dict(  # TODO: polar only
+
+        )),
+
+        ('direction', dict(  # TODO: polar only
 
         ))
 
@@ -2049,11 +2073,34 @@ INFO = OrderedDict([
 
     ])),
 
-    ('radialAxis', OrderedDict([
+    ('radialaxis', OrderedDict([
+        ('orientation', dict(  # TODO: polar only only
+
+        )),
+        ('ticksuffix', dict(  # TODO: polar only only
+
+        )),
+        ('visible', dict(  # TODO: polar only only
+
+        )),
+        ('tickorientation', dict(  # TODO: polar only only
+
+        )),
+        ('showline', dict(
+
+        )),
+        ('ticklen', dict()),
+        ('tickcolor', dict()),
 
     ])),
 
-    ('angularAxis', OrderedDict([
+    ('angularaxis', OrderedDict([
+        ('ticksuffix', dict(  # TODO: polar only only
+
+        )),
+        ('tickorientation', dict(  # TODO: polar only only
+
+        )),
 
     ])),
 
@@ -2250,7 +2297,9 @@ INFO = OrderedDict([
             description="A dictionary for configuring the tick font."
         )),
 
-        ('overlaying', dict()),  # TODO: ??
+        ('overlaying', dict(  # TODO: ??
+            type='style'
+        )),
 
         ('position', dict(
             required=False,
@@ -2284,10 +2333,7 @@ INFO = OrderedDict([
             type='style',
             val_types=val_types['general']['bool'],
             description="Toggle whether to mirror the axis line to the "
-                        "opposite side of the plot.")),
-
-        # ('drange', dict()),
-        # ('r0', dict()),
+                        "opposite side of the plot."))
     ])),
 
     ('xbins', OrderedDict([
@@ -2580,12 +2626,32 @@ if __name__ == "__main__":
 
     obj_keys = dict()
     for key, val in INFO.items():
-        obj_keys[key] = list()
-        for k, v in val.items():
-            try:
-                obj_keys[key].append("'{}': '{}'".format(k, v['type']))
-            except KeyError:
-                obj_keys[key].append("'{}': {}".format(k, 'UNCLASSIFIED'))
+        obj_keys[key] = val.keys()
+        obj_keys[key].sort()
+        # for k in val:
+        #     try:
+        #         obj_keys[key][k] = INFO[key][k]['type']
+        #     except KeyError:
+        #         obj_keys[key][k] = 'UNCLASSIFIED'
     with open('graph_objs_keys.json', 'w') as f:
-        f.write(json.dumps(obj_keys, indent=4, sort_keys=False))
+        f.write(json.dumps(obj_keys, indent=4, sort_keys=True))
 
+    checklist = dict()
+    for key, val in INFO.items():
+        checklist[key] = dict()
+        for k in val:
+            checklist[key][k] = dict()
+            if 'required' not in INFO[key][k]:
+                checklist[key][k]['required'] = 'UNDOCUMENTED'
+            if 'type' not in INFO[key][k]:
+                checklist[key][k]['type'] = 'UNDOCUMENTED'
+            if 'val_types' not in INFO[key][k]:
+                checklist[key][k]['val_types'] = 'UNDOCUMENTED'
+            if 'description' not in INFO[key][k]:
+                checklist[key][k]['description'] = 'UNDOCUMENTED'
+            if checklist[key][k] == dict():
+                del checklist[key][k]
+        if checklist[key] == dict():
+            del checklist[key]
+    with open('graph_objs_checklist.json', 'w') as f:
+        f.write(json.dumps(checklist, indent=4, sort_keys=False))
