@@ -74,6 +74,11 @@
             "required": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
+        "error_x": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
         "error_y": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
@@ -319,55 +324,25 @@
             "description": "UNDOCUMENTED"
         }
     }, 
-    "layout": {
-        "direction": {
+    "error_x": {
+        "value": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "thickness": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "width": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "traceref": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "orientation": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "defaultcolorrange": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "minortickcolor": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "needsEndSpacing": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "separators": {
-            "val_types": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "labeloffset": {
-            "val_types": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "tickcolor": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "bardir": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "hidesources": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "categories": {
-            "val_types": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 
@@ -381,14 +356,14 @@
         }
     }, 
     "histogram": {
+        "histnorm": {
+            "required": "UNDOCUMENTED"
+        }, 
         "marker": {
             "description": "UNDOCUMENTED"
         }, 
         "line": {
             "description": "UNDOCUMENTED"
-        }, 
-        "histnorm": {
-            "required": "UNDOCUMENTED"
         }
     }, 
     "angularaxis": {
@@ -462,6 +437,58 @@
     "ybins": {
         "size": {
             "required": "UNDOCUMENTED"
+        }
+    }, 
+    "layout": {
+        "direction": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "defaultcolorrange": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "minortickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "needsEndSpacing": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "separators": {
+            "val_types": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "labeloffset": {
+            "val_types": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "bardir": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "hidesources": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "categories": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
         }
     }, 
     "box": {

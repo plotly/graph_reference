@@ -64,8 +64,8 @@ description = dict(
         "Plotly identifier for this data's trace type. This defines how this "
         "data dictionary will be handled. For example, 'scatter' type expects "
         "x and y data-arrays corresponding to (x, y) coordinates wheras a "
-        "'histogramx' only requires a single x array and a 'heatmap' type "
-        "requires x and y data-arrays as well as a z matrix.",
+        "'histogram' only requires a single x or y array and a 'heatmap' type "
+        "requires a z matrix.",
 
         error_y=
         "A dictionary-like object describing vertical error bars that can be "
@@ -192,6 +192,13 @@ drop_in = dict(
         type='object',
         val_types=val_types['general']['object'],
         description="A dictionary-like object describing vertical error bars "
+                    "that can be drawn with this trace's (x, y) points."),
+
+    error_x=dict(
+        required=False,
+        type='object',
+        val_types=val_types['general']['object'],
+        description="A dictionary-like object describing horizontal error bars "
                     "that can be drawn with this trace's (x, y) points."),
 
     exponentformat=dict(
@@ -439,6 +446,7 @@ INFO = OrderedDict([
         ('angularaxis', dict()),
         ('radialaxis', dict()),
         ('error_y', dict(type='object')),
+        ('error_x', dict(type='object')),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
         ('orientation', dict(type='plot_info')),
@@ -557,6 +565,8 @@ INFO = OrderedDict([
 
         ('error_y', drop_in['error_y']),
 
+        ('error_x', drop_in['error_x']),
+
         ('visible', drop_in['visible']),
 
         ('textfont', dict(
@@ -607,6 +617,7 @@ INFO = OrderedDict([
         ('angularaxis', dict()),
         ('radialaxis', dict()),
         ('error_y', dict(type='object')),
+        ('error_x', drop_in['error_x']),
         ('textfont', dict(type='object')),
         ('type', dict(type='plot_info')),
         ('orientation', dict(type='plot_info')),
@@ -705,6 +716,8 @@ INFO = OrderedDict([
         ('yaxis', drop_in['yaxis_trace']),
 
         ('error_y', drop_in['error_y']),
+
+        ('error_x', drop_in['error_x']),
 
         ('textfont', dict(
             required=False,
@@ -1156,6 +1169,8 @@ INFO = OrderedDict([
 
         ('error_y', drop_in['error_y']),
 
+        ('error_x', drop_in['error_x']),
+
         ('type', dict(
             required=True,
             type='plot_info',
@@ -1532,10 +1547,54 @@ INFO = OrderedDict([
                         "error associated with all data points, e.g., "
                         "array=50. Using 'constant' will set each error bar "
                         "span to the single value specified in 'array', e.g., "
-                        "array=2. Use 'sqrt' with histogramx or histogramy. "
-                        "This will set the error bar span to be sqrt(n) where "
-                        "n is equal to the number of values in a particular "
-                        "bin."
+                        "array=2. Use 'sqrt' with histogram. This will set the "
+                        "error bar span to be sqrt(n) where n is equal to the "
+                        "number of values in a particular bin."
+        )),
+        ('visible', drop_in['visible']),
+        ('width', dict(type='style'))
+    ])),
+
+    ('error_x', OrderedDict([  # TODO: Line object here?
+        ('value', dict(
+            required=False,
+            type='data'
+        )),
+
+        ('array', dict(  # TODO: yuck, this description is not very good...
+            required=False,
+            type='data',
+            val_types=val_types['general']['data_array'] + " or " + number(),
+            description="The array of error bar spans to be drawn. This can "
+                        "be specified as a data-array or as a single value ("
+                        "see error_x's 'type' help for more information."
+        )),
+
+        ('color', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['color'],
+            description=description['general']['color'],
+            examples=examples['general']['color']
+        )),
+        ('opacity', drop_in['opacity']),
+        ('thickness', dict(type='style')),  # TODO: why thickness and width?
+        ('traceref', dict()),
+        ('type', dict(
+            required=False,
+            type='plot_info',  # TODO: data?
+            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
+            description="Specify how the 'array' key in this error bar will "
+                        "be used to render the bars. Using 'data' will "
+                        "require 'array' to be set to a multi-valued list of "
+                        "spans for the error bar. Using 'percent' requires "
+                        "'array' to be a single value set to the percent of "
+                        "error associated with all data points, e.g., "
+                        "array=50. Using 'constant' will set each error bar "
+                        "span to the single value specified in 'array', e.g., "
+                        "array=2. Use 'sqrt' with histogram. This will set the "
+                        "error bar span to be sqrt(n) where n is equal to the "
+                        "number of values in a particular bin."
         )),
         ('visible', drop_in['visible']),
         ('width', dict(type='style'))

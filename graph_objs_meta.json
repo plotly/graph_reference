@@ -58,6 +58,9 @@
         "error_y": {
             "type": "object"
         }, 
+        "error_x": {
+            "type": "object"
+        }, 
         "textfont": {
             "type": "object"
         }, 
@@ -239,6 +242,12 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "error_x": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing horizontal error bars that can be drawn with this trace's (x, y) points."
+        }, 
         "visible": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -262,7 +271,7 @@
             "val_types": "'scatter'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "area": {
@@ -321,6 +330,12 @@
         "radialaxis": {}, 
         "error_y": {
             "type": "object"
+        }, 
+        "error_x": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing horizontal error bars that can be drawn with this trace's (x, y) points."
         }, 
         "textfont": {
             "type": "object"
@@ -482,6 +497,12 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "error_x": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing horizontal error bars that can be drawn with this trace's (x, y) points."
+        }, 
         "textfont": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -498,7 +519,7 @@
             "val_types": "'bar'", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }, 
         "r": {
             "val_types": "array-like of numbers, strings, datetimes", 
@@ -622,7 +643,7 @@
             "val_types": "box", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "contour": {
@@ -817,7 +838,7 @@
             "val_types": "contour", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "heatmap": {
@@ -998,7 +1019,7 @@
             "val_types": "heatmap", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "histogram": {
@@ -1123,11 +1144,17 @@
             "type": "object", 
             "description": "A dictionary-like object describing vertical error bars that can be drawn with this trace's (x, y) points."
         }, 
+        "error_x": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing horizontal error bars that can be drawn with this trace's (x, y) points."
+        }, 
         "type": {
             "val_types": "histogram", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "histogram2d": {
@@ -1311,7 +1338,7 @@
             "val_types": "histogram2d", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "histogram2dcontour": {
@@ -1513,7 +1540,7 @@
             "val_types": "histogram2dcontour", 
             "required": true, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogramx' only requires a single x array and a 'heatmap' type requires x and y data-arrays as well as a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates wheras a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "annotation": {
@@ -1700,7 +1727,57 @@
             "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogramx or histogramy. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
+            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogram. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
+        }, 
+        "visible": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggles whether this will actually be visible in the rendered figure."
+        }, 
+        "width": {
+            "type": "style"
+        }
+    }, 
+    "error_x": {
+        "value": {
+            "required": false, 
+            "type": "data"
+        }, 
+        "array": {
+            "val_types": "array-like of numbers, strings, datetimes or number", 
+            "required": false, 
+            "type": "data", 
+            "description": "The array of error bar spans to be drawn. This can be specified as a data-array or as a single value (see error_x's 'type' help for more information."
+        }, 
+        "color": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "str describing color"
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
+        }, 
+        "thickness": {
+            "type": "style"
+        }, 
+        "traceref": {}, 
+        "type": {
+            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogram. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
         }, 
         "visible": {
             "val_types": "bool: True | False", 
