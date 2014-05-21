@@ -1691,14 +1691,40 @@
     "colorbar": {}, 
     "error_y": {
         "value": {
+            "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data"
+            "type": "data", 
+            "description": "This is the single-sided span of error. This 'value', in coordination with the 'type' specified, determines how long the error bar is for ALL points. This is useful when 'type' is set to something like 'percent'. To specify multiple error bar lengths, you should use the 'array' key instead."
         }, 
         "array": {
             "val_types": "array-like of numbers, strings, datetimes or number", 
             "required": false, 
             "type": "data", 
-            "description": "The array of error bar spans to be drawn. This can be specified as a data-array or as a single value (see error_y's 'type' help for more information."
+            "description": "The array of error bar spans to be drawn."
+        }, 
+        "type": {
+            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Specify how the 'value' or 'array' key in this error bar will be used to render the bars. Using 'data' will set error bar lengths to the actual numbers specified in 'value' or 'array'. Using 'percent' will set bar lengths to the percent of error associated with 'value' or 'array'. Using 'constant' will set each error bar length to the single value specified in 'array' or 'value'. Using 'sqrt' will set each error bar length to the square root of the y data at each point ('value' and 'array' do not apply)."
+        }, 
+        "symmetric": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not error bars are the same length in both directions."
+        }, 
+        "valueminus": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "data", 
+            "description": "Only functional when 'symmetric' error bars are selected. Same as 'value' but allows asymmetric error bars of specified length."
+        }, 
+        "arrayminus": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "data", 
+            "description": "Only functional when 'symmetric' error bars are selected. Same as 'array' but allows asymmetric error bars of specified lengths."
         }, 
         "color": {
             "val_types": "str describing color", 
@@ -1720,15 +1746,12 @@
             "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "thickness": {
-            "type": "style"
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set the line thickness for the error bar."
         }, 
         "traceref": {}, 
-        "type": {
-            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogram. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
-        }, 
         "visible": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1736,19 +1759,48 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "width": {
-            "type": "style"
+            "requried": false, 
+            "val_types": "number: x >= 0", 
+            "type": "style", 
+            "description": "Set the width of the cross-bar at the end of the error bar."
         }
     }, 
     "error_x": {
         "value": {
+            "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data"
+            "type": "data", 
+            "description": "This is the single-sided span of error. This 'value', in coordination with the 'type' specified, determines how long the error bar is for ALL points. This is useful when 'type' is set to something like 'percent'. To specify multiple error bar lengths, you should use the 'array' key instead."
         }, 
         "array": {
             "val_types": "array-like of numbers, strings, datetimes or number", 
             "required": false, 
             "type": "data", 
-            "description": "The array of error bar spans to be drawn. This can be specified as a data-array or as a single value (see error_x's 'type' help for more information."
+            "description": "The array of error bar spans to be drawn."
+        }, 
+        "type": {
+            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Specify how the 'value' or 'array' key in this error bar will be used to render the bars. Using 'data' will set error bar lengths to the actual numbers specified in 'value' or 'array'. Using 'percent' will set bar lengths to the percent of error associated with 'value' or 'array'. Using 'constant' will set each error bar length to the single value specified in 'array' or 'value'. Using 'sqrt' will set each error bar length to the square root of the x data at each point ('value' and 'array' do not apply)."
+        }, 
+        "symmetric": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not error bars are the same length in both directions."
+        }, 
+        "valueminus": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "data", 
+            "description": "Only functional when 'symmetric' error bars are selected. Same as 'value' but allows asymmetric error bars of specified length."
+        }, 
+        "arrayminus": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "data", 
+            "description": "Only functional when 'symmetric' error bars are selected. Same as 'array' but allows asymmetric error bars of specified lengths."
         }, 
         "color": {
             "val_types": "str describing color", 
@@ -1770,15 +1822,12 @@
             "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "thickness": {
-            "type": "style"
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set the line thickness for the error bar."
         }, 
         "traceref": {}, 
-        "type": {
-            "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Specify how the 'array' key in this error bar will be used to render the bars. Using 'data' will require 'array' to be set to a multi-valued list of spans for the error bar. Using 'percent' requires 'array' to be a single value set to the percent of error associated with all data points, e.g., array=50. Using 'constant' will set each error bar span to the single value specified in 'array', e.g., array=2. Use 'sqrt' with histogram. This will set the error bar span to be sqrt(n) where n is equal to the number of values in a particular bin."
-        }, 
         "visible": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1786,7 +1835,10 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "width": {
-            "type": "style"
+            "requried": false, 
+            "val_types": "number: x >= 0", 
+            "type": "style", 
+            "description": "Set the width of the cross-bar at the end of the error bar."
         }
     }, 
     "figure": {
@@ -1800,7 +1852,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The layout dictionary-like object contains axes information, gobal settings, and layout information related to the rendering of the figure."
+            "description": "The layout dictionary-like object contains axes information, global settings, and layout information related to the rendering of the figure."
         }
     }, 
     "font": {

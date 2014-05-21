@@ -325,19 +325,8 @@
         }
     }, 
     "error_x": {
-        "value": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "thickness": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
         "width": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
+            "required": "UNDOCUMENTED"
         }, 
         "traceref": {
             "val_types": "UNDOCUMENTED", 
@@ -518,19 +507,8 @@
         }
     }, 
     "error_y": {
-        "value": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "thickness": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
         "width": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
+            "required": "UNDOCUMENTED"
         }, 
         "traceref": {
             "val_types": "UNDOCUMENTED", 

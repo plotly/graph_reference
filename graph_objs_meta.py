@@ -1512,19 +1512,68 @@ INFO = OrderedDict([
     ('colorbar', OrderedDict([])),
 
     ('error_y', OrderedDict([  # TODO: Line object here?
+
         ('value', dict(
             required=False,
-            type='data'
+            type='data',
+            val_types=number(ge=0),
+            description="This is the single-sided span of error. This 'value', "
+                        "in coordination with the 'type' specified, determines "
+                        "how long the error bar is for ALL points. This is "
+                        "useful when 'type' is set to something like "
+                        "'percent'. To specify multiple error bar lengths, "
+                        "you should use the 'array' key instead."
         )),
 
         ('array', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'] + " or " + number(),
-            description="The array of error bar spans to be drawn. This can "
-                        "be specified as a data-array or as a single value ("
-                        "see error_y's 'type' help for more information."
+            description="The array of error bar spans to be drawn."
         )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',  # TODO: data?
+            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
+            description="Specify how the 'value' or 'array' key in this error "
+                        "bar will be used to render the bars. Using 'data' "
+                        "will set error bar lengths to the actual numbers "
+                        "specified in 'value' or 'array'. Using 'percent' will "
+                        "set bar lengths to the percent of error associated "
+                        "with 'value' or 'array'. Using 'constant' will set "
+                        "each error bar length to the single value specified "
+                        "in 'array' or 'value'. Using 'sqrt' will set each "
+                        "error bar length to the square root of the y data at "
+                        "each point ('value' and 'array' do not apply)."
+        )),
+
+        ('symmetric', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether or not error bars are the same length "
+                        "in both directions."
+        )),
+
+        ('valueminus', dict(
+            required=False,
+            type='data',
+            val_types=number(ge=0),
+            description="Only functional when 'symmetric' error bars are "
+                        "selected. Same as 'value' but allows asymmetric "
+                        "error bars of specified length."
+        )),
+
+        ('arrayminus', dict(
+            required=False,
+            type='data',
+            val_types=number(ge=0),
+            description="Only functional when 'symmetric' error bars are "
+                        "selected. Same as 'array' but allows asymmetric "
+                        "error bars of specified lengths."
+        )),
+
         ('color', dict(
             required=False,
             type='style',
@@ -1532,42 +1581,88 @@ INFO = OrderedDict([
             description=description['general']['color'],
             examples=examples['general']['color']
         )),
+
         ('opacity', drop_in['opacity']),
-        ('thickness', dict(type='style')),  # TODO: why thickness and width?
-        ('traceref', dict()),
-        ('type', dict(
+
+        ('thickness', dict(
             required=False,
-            type='plot_info',  # TODO: data?
-            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
-            description="Specify how the 'array' key in this error bar will "
-                        "be used to render the bars. Using 'data' will "
-                        "require 'array' to be set to a multi-valued list of "
-                        "spans for the error bar. Using 'percent' requires "
-                        "'array' to be a single value set to the percent of "
-                        "error associated with all data points, e.g., "
-                        "array=50. Using 'constant' will set each error bar "
-                        "span to the single value specified in 'array', e.g., "
-                        "array=2. Use 'sqrt' with histogram. This will set the "
-                        "error bar span to be sqrt(n) where n is equal to the "
-                        "number of values in a particular bin."
-        )),
+            type='style',
+            val_types=number(ge=0),
+            description="Set the line thickness for the error bar.")),
+
+        ('traceref', dict()),
+
         ('visible', drop_in['visible']),
-        ('width', dict(type='style'))
+
+        ('width', dict(
+            requried=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Set the width of the cross-bar at the end of "
+                        "the error bar."))
     ])),
 
     ('error_x', OrderedDict([  # TODO: Line object here?
+
         ('value', dict(
             required=False,
-            type='data'
+            type='data',
+            val_types=number(ge=0),
+            description="This is the single-sided span of error. This 'value', "
+                        "in coordination with the 'type' specified, determines "
+                        "how long the error bar is for ALL points. This is "
+                        "useful when 'type' is set to something like "
+                        "'percent'. To specify multiple error bar lengths, "
+                        "you should use the 'array' key instead."
         )),
 
-        ('array', dict(  # TODO: yuck, this description is not very good...
+        ('array', dict(
             required=False,
             type='data',
             val_types=val_types['general']['data_array'] + " or " + number(),
-            description="The array of error bar spans to be drawn. This can "
-                        "be specified as a data-array or as a single value ("
-                        "see error_x's 'type' help for more information."
+            description="The array of error bar spans to be drawn."
+        )),
+
+        ('type', dict(
+            required=False,
+            type='plot_info',  # TODO: data?
+            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
+            description="Specify how the 'value' or 'array' key in this error "
+                        "bar will be used to render the bars. Using 'data' "
+                        "will set error bar lengths to the actual numbers "
+                        "specified in 'value' or 'array'. Using 'percent' will "
+                        "set bar lengths to the percent of error associated "
+                        "with 'value' or 'array'. Using 'constant' will set "
+                        "each error bar length to the single value specified "
+                        "in 'array' or 'value'. Using 'sqrt' will set each "
+                        "error bar length to the square root of the x data at "
+                        "each point ('value' and 'array' do not apply)."
+        )),
+
+        ('symmetric', dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether or not error bars are the same length "
+                        "in both directions."
+        )),
+
+        ('valueminus', dict(
+            required=False,
+            type='data',
+            val_types=number(ge=0),
+            description="Only functional when 'symmetric' error bars are "
+                        "selected. Same as 'value' but allows asymmetric "
+                        "error bars of specified length."
+        )),
+
+        ('arrayminus', dict(
+            required=False,
+            type='data',
+            val_types=number(ge=0),
+            description="Only functional when 'symmetric' error bars are "
+                        "selected. Same as 'array' but allows asymmetric "
+                        "error bars of specified lengths."
         )),
 
         ('color', dict(
@@ -1577,27 +1672,26 @@ INFO = OrderedDict([
             description=description['general']['color'],
             examples=examples['general']['color']
         )),
+
         ('opacity', drop_in['opacity']),
-        ('thickness', dict(type='style')),  # TODO: why thickness and width?
-        ('traceref', dict()),
-        ('type', dict(
+
+        ('thickness', dict(
             required=False,
-            type='plot_info',  # TODO: data?
-            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
-            description="Specify how the 'array' key in this error bar will "
-                        "be used to render the bars. Using 'data' will "
-                        "require 'array' to be set to a multi-valued list of "
-                        "spans for the error bar. Using 'percent' requires "
-                        "'array' to be a single value set to the percent of "
-                        "error associated with all data points, e.g., "
-                        "array=50. Using 'constant' will set each error bar "
-                        "span to the single value specified in 'array', e.g., "
-                        "array=2. Use 'sqrt' with histogram. This will set the "
-                        "error bar span to be sqrt(n) where n is equal to the "
-                        "number of values in a particular bin."
-        )),
+            type='style',
+            val_types=number(ge=0),
+            description="Set the line thickness for the error bar.")),
+
+        ('traceref', dict()),
+
         ('visible', drop_in['visible']),
-        ('width', dict(type='style'))
+
+        ('width', dict(
+            requried=False,
+            type='style',
+            val_types=number(ge=0),
+            description="Set the width of the cross-bar at the end of "
+                        "the error bar."))
+
     ])),
 
     ('figure', OrderedDict([
@@ -1614,7 +1708,7 @@ INFO = OrderedDict([
             type='object',
             val_types=val_types['general']['object'],
             description="The layout dictionary-like object contains axes "
-                        "information, gobal settings, and layout information "
+                        "information, global settings, and layout information "
                         "related to the rendering of the figure."))
     ])),
 
