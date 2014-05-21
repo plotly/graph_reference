@@ -162,6 +162,7 @@
         "array", 
         "arrayminus", 
         "color", 
+        "copy_ystyle", 
         "opacity", 
         "symmetric", 
         "thickness", 

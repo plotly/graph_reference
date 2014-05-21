@@ -1828,6 +1828,12 @@
             "description": "Set the line thickness for the error bar."
         }, 
         "traceref": {}, 
+        "copy_ystyle": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether to set x error bar style to the same style as y error bars."
+        }, 
         "visible": {
             "val_types": "bool: True | False", 
             "required": false, 

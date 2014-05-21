@@ -1683,6 +1683,14 @@ INFO = OrderedDict([
 
         ('traceref', dict()),
 
+        ('copy_ystyle', dict(
+            required=False,
+            type='style',
+            val_types=val_types['general']['bool'],
+            description="Toggle whether to set x error bar style to the same "
+                        "style as y error bars."
+        )),
+
         ('visible', drop_in['visible']),
 
         ('width', dict(
