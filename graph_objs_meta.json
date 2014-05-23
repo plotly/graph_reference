@@ -2312,15 +2312,21 @@
     }, 
     "radialaxis": {
         "orientation": {}, 
+        "domain": {}, 
         "ticksuffix": {}, 
         "visible": {}, 
         "tickorientation": {}, 
         "showline": {}, 
-        "ticklen": {}, 
+        "showticklabels": {}, 
         "tickcolor": {}
     }, 
     "angularaxis": {
         "ticksuffix": {}, 
+        "domain": {}, 
+        "showline": {}, 
+        "showticklabels": {}, 
+        "tickcolor": {}, 
+        "ticklen": {}, 
         "tickorientation": {}
     }, 
     "xaxis": {

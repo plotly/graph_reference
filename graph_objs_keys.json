@@ -1,5 +1,10 @@
 {
     "angularaxis": [
+        "domain", 
+        "showline", 
+        "showticklabels", 
+        "tickcolor", 
+        "ticklen", 
         "tickorientation", 
         "ticksuffix"
     ], 
@@ -382,10 +387,11 @@
     "plotlylist": [], 
     "plotlytrace": [], 
     "radialaxis": [
+        "domain", 
         "orientation", 
         "showline", 
+        "showticklabels", 
         "tickcolor", 
-        "ticklen", 
         "tickorientation", 
         "ticksuffix", 
         "visible"

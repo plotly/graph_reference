@@ -2238,6 +2238,9 @@ INFO = OrderedDict([
         ('orientation', dict(  # TODO: polar only only
 
         )),
+
+        ('domain', dict()),
+
         ('ticksuffix', dict(  # TODO: polar only only
 
         )),
@@ -2250,7 +2253,7 @@ INFO = OrderedDict([
         ('showline', dict(
 
         )),
-        ('ticklen', dict()),
+        ('showticklabels', dict()),
         ('tickcolor', dict()),
 
     ])),
@@ -2259,6 +2262,11 @@ INFO = OrderedDict([
         ('ticksuffix', dict(  # TODO: polar only only
 
         )),
+        ('domain', dict()),
+        ('showline', dict()),
+        ('showticklabels', dict()),
+        ('tickcolor', dict()),
+        ('ticklen', dict()),
         ('tickorientation', dict(  # TODO: polar only only
 
         )),

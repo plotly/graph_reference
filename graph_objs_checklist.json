@@ -259,13 +259,19 @@
         }
     }, 
     "radialaxis": {
-        "orientation": {
+        "domain": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
-        "ticklen": {
+        "showticklabels": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
@@ -356,13 +362,43 @@
         }
     }, 
     "angularaxis": {
-        "tickorientation": {
+        "domain": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showticklabels": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ticklen": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "ticksuffix": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showline": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickorientation": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
             "type": "UNDOCUMENTED", 
