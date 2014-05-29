@@ -843,6 +843,80 @@
             "description": "UNDOCUMENTED"
         }
     }, 
+    "colorbar": {
+        "yanchor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xanchor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "title": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ticks": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "len": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "thickness": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ypad": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "y": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nticks": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xpad": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "titleside": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
     "heatmap": {
         "xtype": {
             "description": "UNDOCUMENTED"

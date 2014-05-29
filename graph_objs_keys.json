@@ -128,7 +128,20 @@
         "xaxis", 
         "y"
     ], 
-    "colorbar": [], 
+    "colorbar": [
+        "len", 
+        "nticks", 
+        "thickness", 
+        "ticks", 
+        "title", 
+        "titleside", 
+        "x", 
+        "xanchor", 
+        "xpad", 
+        "y", 
+        "yanchor", 
+        "ypad"
+    ], 
     "contour": [
         "autocontour", 
         "colorbar", 
@@ -424,29 +437,6 @@
         "maxpoints", 
         "token"
     ], 
-<<<<<<< HEAD
-    "colorbar": [
-        "'title': UNCLASSIFIED", 
-        "'titleside': UNCLASSIFIED", 
-        "'thickness': UNCLASSIFIED", 
-        "'xanchor': UNCLASSIFIED", 
-        "'yanchor': UNCLASSIFIED", 
-        "'ticks': UNCLASSIFIED", 
-        "'nticks': UNCLASSIFIED", 
-        "'len': UNCLASSIFIED", 
-        "'xpad': UNCLASSIFIED", 
-        "'ypad': UNCLASSIFIED", 
-        "'x': UNCLASSIFIED", 
-        "'y': UNCLASSIFIED"
-    ], 
-    "margin": [
-        "'l': 'style'", 
-        "'r': 'style'", 
-        "'b': 'style'", 
-        "'t': 'style'", 
-        "'pad': 'style'", 
-        "'autoexpand': 'style'"
-=======
     "trace": [
         "angularaxis", 
         "autobinx", 
@@ -495,7 +485,6 @@
         "zauto", 
         "zmax", 
         "zmin"
->>>>>>> 49ab2744a589a27c86fa42e02cc4e7040d790909
     ], 
     "xaxis": [
         "anchor", 
