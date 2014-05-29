@@ -1126,7 +1126,7 @@ INFO = OrderedDict([
 
         ('x', dict()),
 
-        ('y', dict()),
+        ('y', dict())
 
     ])),
 
