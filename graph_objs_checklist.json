@@ -1,0 +1,991 @@
+{
+    "trace": {
+        "scl": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "jitter": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "text": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zmin": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "dy": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "radialaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "y0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zmax": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "pointpos": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "angularaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "fill": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showlegend": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "error_x": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "error_y": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "boxmean": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zauto": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "type": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "mode": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "opacity": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "textfont": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsy": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "fillcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "dx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xbins": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showscale": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "autobiny": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ybins": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "whiskerwidth": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "autobinx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "name": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "yaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "histnorm": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "colorbar": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "r": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "t": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "y": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "hm_id": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "z": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "boxpoints": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "histogram2d": {
+        "histnorm": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "radialaxis": {
+        "domain": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showticklabels": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "visible": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ticksuffix": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showline": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickorientation": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "xbins": {
+        "size": {
+            "required": "UNDOCUMENTED"
+        }
+    }, 
+    "marker": {
+        "sizeref": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "color": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "sizemode": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "type": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "error_x": {
+        "width": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "traceref": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "line": {
+        "dash": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "smoothing": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED"
+        }
+    }, 
+    "histogram": {
+        "histnorm": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "angularaxis": {
+        "domain": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showticklabels": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ticklen": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ticksuffix": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showline": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickorientation": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "annotation": {
+        "arrowwidth": {
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "arrowhead": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xatype": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "yatype": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "arrowsize": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tag": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ay": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ax": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "font": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "ref": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "arrowcolor": {
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "ybins": {
+        "size": {
+            "required": "UNDOCUMENTED"
+        }
+    }, 
+    "layout": {
+        "direction": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "defaultcolorrange": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "minortickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "needsEndSpacing": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "separators": {
+            "val_types": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "labeloffset": {
+            "val_types": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "tickcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "bardir": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "hidesources": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "categories": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "box": {
+        "marker": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "font": {
+        "family": {
+            "val_types": "UNDOCUMENTED"
+        }
+    }, 
+    "bar": {
+        "r": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "t": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "error_y": {
+        "width": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "traceref": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "area": {
+        "opacity": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "jitter": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "orientation": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "scl": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "text": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zmin": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "dy": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "radialaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "y0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zmax": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "pointpos": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "angularaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "fill": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showlegend": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "error_y": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "boxmean": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zauto": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "type": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "mode": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "textposition": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "textfont": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsy": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "fillcolor": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "dx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "xbins": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showscale": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "autobiny": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ybins": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "whiskerwidth": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "autobinx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "name": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "yaxis": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "histnorm": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "colorbar": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "r": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "t": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "y": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "hm_id": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "z": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "boxpoints": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "margin": {
+        "autoexpand": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "yaxis": {
+        "ticks": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "gridwidth": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "dtick": {
+            "val_types": "UNDOCUMENTED"
+        }, 
+        "rangemode": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "overlaying": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "contour": {
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ytype": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "xtype": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dx": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dy": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "zauto": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "heatmap": {
+        "xtype": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dx": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dy": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "y0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "x0": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "zauto": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ytype": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "contours": {
+        "start": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "showlines": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "coloring": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "end": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "size": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "xaxis": {
+        "ticks": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "gridwidth": {
+            "required": "UNDOCUMENTED"
+        }, 
+        "dtick": {
+            "val_types": "UNDOCUMENTED"
+        }, 
+        "rangemode": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "overlaying": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "histogram2dcontour": {
+        "xtype": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "showscale": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsx": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "histnorm": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ncontours": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "reversescl": {
+            "val_types": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "nbinsy": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "type": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "ytype": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "contours": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dx": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "dy": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "marker": {
+            "description": "UNDOCUMENTED"
+        }, 
+        "line": {
+            "description": "UNDOCUMENTED"
+        }
+    }, 
+    "scatter": {
+        "textfont": {
+            "val_types": "UNDOCUMENTED"
+        }, 
+        "r": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }, 
+        "t": {
+            "val_types": "UNDOCUMENTED", 
+            "required": "UNDOCUMENTED", 
+            "description": "UNDOCUMENTED"
+        }
+    }
+}
