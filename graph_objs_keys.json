@@ -128,7 +128,20 @@
         "xaxis", 
         "y"
     ], 
-    "colorbar": [], 
+    "colorbar": [
+        "len", 
+        "nticks", 
+        "thickness", 
+        "ticks", 
+        "title", 
+        "titleside", 
+        "x", 
+        "xanchor", 
+        "xpad", 
+        "y", 
+        "yanchor", 
+        "ypad"
+    ], 
     "contour": [
         "autocontour", 
         "colorbar", 

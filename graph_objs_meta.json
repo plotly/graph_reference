@@ -1688,7 +1688,20 @@
             "type": "plot_info"
         }
     }, 
-    "colorbar": {}, 
+    "colorbar": {
+        "title": {}, 
+        "titleside": {}, 
+        "thickness": {}, 
+        "xanchor": {}, 
+        "yanchor": {}, 
+        "ticks": {}, 
+        "nticks": {}, 
+        "len": {}, 
+        "xpad": {}, 
+        "ypad": {}, 
+        "x": {}, 
+        "y": {}
+    }, 
     "error_y": {
         "value": {
             "val_types": "number: x >= 0", 
