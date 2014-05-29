@@ -1689,18 +1689,48 @@
         }
     }, 
     "colorbar": {
-        "title": {}, 
-        "titleside": {}, 
-        "thickness": {}, 
-        "xanchor": {}, 
-        "yanchor": {}, 
-        "ticks": {}, 
-        "nticks": {}, 
-        "len": {}, 
+        "title": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "titleside": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "thickness": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "xanchor": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "yanchor": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "ticks": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "nticks": {
+            "required": false, 
+            "type": "style"
+        }, 
+        "len": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
         "xpad": {}, 
         "ypad": {}, 
-        "x": {}, 
-        "y": {}
+        "x": {
+            "required": false, 
+            "type": "plot_info"
+        }, 
+        "y": {
+            "required": false, 
+            "type": "plot_info"
+        }
     }, 
     "error_y": {
         "value": {

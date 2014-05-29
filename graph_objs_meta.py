@@ -1511,29 +1511,59 @@ INFO = OrderedDict([
 
     ('colorbar', OrderedDict([
     
-        ('title', dict()),
+        ('title', dict(
+            required=False,
+            type='plot_info'
+        )),
         
-        ('titleside', dict()),
+        ('titleside', dict(
+            required=False,
+            type='plot_info'
+        )),
         
-        ('thickness', dict()),
+        ('thickness', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('xanchor', dict()),
+        ('xanchor', dict(
+            required=False,
+            type='plot_info'
+        )),
         
-        ('yanchor', dict()),
+        ('yanchor', dict(
+            required=False,
+            type='plot_info'
+        )),
         
-        ('ticks', dict()),
+        ('ticks', dict(
+            required=False,
+            type='style'
+        )),
         
-        ('nticks', dict()),
+        ('nticks', dict(
+            required=False,
+            type='style'
+        )),
 
-        ('len', dict()),
+        ('len', dict(
+            required=False,
+            type='plot_info'
+        )),
 
         ('xpad', dict()),
 
         ('ypad', dict()),
 
-        ('x', dict()),
+        ('x', dict(
+            required=False,
+            type='plot_info'
+        )),
 
-        ('y', dict())
+        ('y', dict(
+            required=False,
+            type='plot_info'
+        ))
 
     ])),
 
