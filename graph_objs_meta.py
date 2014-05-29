@@ -1102,7 +1102,33 @@ INFO = OrderedDict([
         ('ref', dict())
     ])),
 
-    ('colorbar', OrderedDict([])),
+    ('colorbar', OrderedDict([
+    
+        ('title', dict()),
+        
+        ('titleside', dict()),
+        
+        ('thickness', dict()),
+
+        ('xanchor', dict()),
+        
+        ('yanchor', dict()),
+        
+        ('ticks', dict()),
+        
+        ('nticks', dict()),
+
+        ('len', dict()),
+
+        ('xpad', dict()),
+
+        ('ypad', dict()),
+
+        ('x', dict()),
+
+        ('y', dict()),
+
+    ])),
 
     ('error_y', OrderedDict([
         ('array', dict(

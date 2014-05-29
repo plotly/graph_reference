@@ -1144,7 +1144,20 @@
         "yatype": {}, 
         "ref": {}
     }, 
-    "colorbar": {}, 
+    "colorbar": {
+        "title": {}, 
+        "titleside": {}, 
+        "thickness": {}, 
+        "xanchor": {}, 
+        "yanchor": {}, 
+        "ticks": {}, 
+        "nticks": {}, 
+        "len": {}, 
+        "xpad": {}, 
+        "ypad": {}, 
+        "x": {}, 
+        "y": {}
+    }, 
     "error_y": {
         "array": {
             "val_types": "array_like of numbers, strings, datetimes or number", 

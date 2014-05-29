@@ -406,7 +406,20 @@
         "'side': UNCLASSIFIED", 
         "'color': UNCLASSIFIED"
     ], 
-    "colorbar": [], 
+    "colorbar": [
+        "'title': UNCLASSIFIED", 
+        "'titleside': UNCLASSIFIED", 
+        "'thickness': UNCLASSIFIED", 
+        "'xanchor': UNCLASSIFIED", 
+        "'yanchor': UNCLASSIFIED", 
+        "'ticks': UNCLASSIFIED", 
+        "'nticks': UNCLASSIFIED", 
+        "'len': UNCLASSIFIED", 
+        "'xpad': UNCLASSIFIED", 
+        "'ypad': UNCLASSIFIED", 
+        "'x': UNCLASSIFIED", 
+        "'y': UNCLASSIFIED"
+    ], 
     "margin": [
         "'l': 'style'", 
         "'r': 'style'", 
