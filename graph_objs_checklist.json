@@ -244,11 +244,7 @@
         }
     }, 
     "histogram2d": {
-        "histnorm": {
-            "required": "UNDOCUMENTED"
-        }, 
         "reversescl": {
-            "val_types": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "marker": {
@@ -256,6 +252,9 @@
         }, 
         "line": {
             "description": "UNDOCUMENTED"
+        }, 
+        "histnorm": {
+            "required": "UNDOCUMENTED"
         }
     }, 
     "radialaxis": {
@@ -824,134 +823,25 @@
     }, 
     "contour": {
         "reversescl": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "ytype": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "xtype": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dx": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dy": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "zauto": {
             "description": "UNDOCUMENTED"
         }
     }, 
     "colorbar": {
-        "yanchor": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "xanchor": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "title": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
         "ticks": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
+            "required": "UNDOCUMENTED"
         }, 
-        "len": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "thickness": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "ypad": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "y": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "x": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "nticks": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "xpad": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "titleside": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
+        "dtick": {
+            "val_types": "UNDOCUMENTED"
         }
     }, 
     "heatmap": {
-        "xtype": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dx": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dy": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "y0": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "x0": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "zauto": {
-            "description": "UNDOCUMENTED"
-        }, 
         "reversescl": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "ytype": {
             "description": "UNDOCUMENTED"
         }
     }, 
     "contours": {
-        "start": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
         "showlines": {
             "required": "UNDOCUMENTED"
-        }, 
-        "coloring": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "end": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "size": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
         }
     }, 
     "xaxis": {
@@ -974,57 +864,14 @@
         }
     }, 
     "histogram2dcontour": {
-        "xtype": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "showscale": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "nbinsx": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "histnorm": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "ncontours": {
-            "description": "UNDOCUMENTED"
-        }, 
         "reversescl": {
-            "val_types": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "nbinsy": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }, 
-        "ytype": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "contours": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dx": {
-            "description": "UNDOCUMENTED"
-        }, 
-        "dy": {
             "description": "UNDOCUMENTED"
         }, 
         "marker": {
             "description": "UNDOCUMENTED"
         }, 
-        "line": {
-            "description": "UNDOCUMENTED"
+        "histnorm": {
+            "required": "UNDOCUMENTED"
         }
     }, 
     "scatter": {
