@@ -105,35 +105,6 @@ description = dict(
         "the number of COLUMNS. If you ARE using numpy, then running z.shape "
         "will give you the tuple, (n, m), e.g., (3, 5).",
 
-        zauto=
-        "Set to False to overwrite the default values of 'zmax' and 'zmax'.",
-
-        zmax=
-        "The value used as the maximum in the color scale normalization in "
-        "'scl'. The default is the minimum of the 'z' data values.",
-
-        zmin=
-        "The value used as the minimum in the color scale normalization in "
-        "'scl'. The default is the minimum of the 'z' data values.",
-
-        xtype=
-        "If set to 'scaled' and 'x' is linked to a list or array, then the "
-        "horizontal labels are scaled to a list of integers of unit step "
-        "starting from 0. 'array' is the default value",
-
-        ytype=
-        "If set to 'scaled' and 'y' is linked to a list or array, then the "
-        "vertical labels are scaled to a list of integers of unit step "
-        "starting from 0. 'array' is the default value",
-
-        dx=
-        "Spacing between horizontal partitions. Default value is 1. "
-        "Overwritten is list or array is linked to 'x'.",
-
-        dy=
-        "Spacing between vertical partitions. Default value is 1. "
-        "Overwritten is list or array is linked to 'y'."
-
     ),
 
     bar=dict(
@@ -340,11 +311,119 @@ drop_in = dict(
 
     showscale=dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types=val_types['general']['bool'],
         description="Toggle whether or not the color scale associated with "
                     "this mapping will be shown alongside the rendered "
                     "figure."),
+
+    zauto=dict(   
+        required=False,
+        type='data',
+        val_types=val_types['general']['bool'],
+        description="Set to False to overwrite the default values "
+                    "of 'zmax' and 'zmax'."),
+
+    zmin=dict(
+        required=False,
+        type='style',
+        val_types=number(),
+        description="The value used as the minimum in the color scale "
+                    "normalization in 'scl'. "
+                    "The default is the minimum of the 'z' data values."),
+
+    zmax=dict(
+        required=False,
+        type='style',
+        val_types=number(),
+        description="The value used as the maximum in the color scale "
+                    "normalization in 'scl'. " 
+                    "The default is the minimum of the 'z' data values."),
+
+    zsmooth=dict(
+        required=False,
+        type='style',
+        default=False,
+        val_types=" False | 'best' | 'fast' ",
+        description="Choose between algorithms ('best' or 'fast') "
+                    "to smooth data linked to 'z'."),
+
+   autocontour=dict(
+        required=False,
+        type='style',
+        default=True,
+        val_types=val_types['general']['bool'],
+        description="If True, the contours settings are set automatically. "
+                    "If False, the contours settings must be set manually "
+                    "with the contours object."),
+
+    ncontours=dict(
+        required=False,
+        type='style',
+        default=0,
+        val_types=val_types['general']['bool'],
+        description="Speficy the number of countours lines that will "
+                    "appear."),
+
+    contours=dict(
+        required=False,
+        type='object',
+        val_types=val_types['general']['object'],
+        description="A dictionary-like object defining parameters of "
+                    "the contours in this plot like spacing, whether or "
+                    "not to show lines, etc."),
+
+    x0=dict(
+        required=False,
+        type='data',
+        default=0,
+        val_types=number(),
+        description="The location of the first coordinate of the x-axis."
+                    "Use with 'dx' an alternative to an 'x' list/array."),
+
+    dx=dict(
+        required=False,
+        type='data',
+        default=1,
+        val_types=number(),
+        description="Spacing between x-axis coordinates. "
+                    "Use with 'x0' an alternative to an 'x' list/array."),
+    
+    y0=dict(
+        required=False,
+        type='data',
+        default=0,
+        val_types=number(),
+        description="The location of the first coordinate of the y-axis."
+                    "Use with 'dy' an alternative to an 'y' list/array."),
+    
+    dy=dict(
+        required=False,
+        type='data',
+        default=1,
+        val_types=number(),
+        description="Spacing between y-axis coordinates. "
+                    "Use with 'y0' an alternative to an 'y' list/array."),
+
+    xtype=dict(
+        required=False,
+        type='data',
+        default='array',
+        val_types=val_types['map']['xtype'],
+        description= "If set to 'scaled' and 'x' is linked to a list/array, "
+                    "then the horizontal labels are scaled to a list "
+                    "of integers of unit step "
+                    "starting from 0."),
+
+    ytype=dict(
+        required=False,
+        type='data',
+        default='array',
+        val_types=val_types['map']['xtype'],
+        description="If set to 'scaled' and 'y' is linked to a list/array, "
+                    "then the vertical labels are scaled to a list "
+                    "of integers of unit step "
+                    "starting from 0."),
 
     stream=dict(
         required=False,
@@ -925,30 +1004,11 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('autocontour', dict(
-            required=False,
-            type='style',
-            default=True,
-            val_types=val_types['general']['bool'],
-            description="If True, the contours settings are set automatically. "
-                        "If False, the contours settings must be set manually "
-                        "with the contours object.")),
+        ('autocontour', drop_in['autocontour']),
 
-        ('ncontours', dict(
-            required=False,
-            type='style',
-            default=0,
-            val_types=val_types['general']['bool'],
-            description="Speficy the number of countours lines that will "
-                        "appear.")),
+        ('ncontours', drop_in['ncontours']),
 
-        ('contours', dict(
-            required=False,
-            type='object',
-            val_types=val_types['general']['object'],
-            description="A dictionary-like object defining parameters of "
-                        "the contours in this plot like spacing, whether or "
-                        "not to show lines, etc.")),
+        ('contours', drop_in['contours']),
 
         ('line', dict(
             required=False,
@@ -966,23 +1026,11 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
 
-        ('zauto', dict(   # put in drop_in[] ???
-            required=False,
-            type='sytle',
-            val_types=val_types['general']['bool'],
-            description=description['map']['zauto'])),
+        ('zauto', drop_in['zauto']),
 
-        ('zmin', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
+        ('zmin', drop_in['zmin']),
 
-        ('zmax', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
+        ('zmax', drop_in['zmax']),
 
         ('opacity', drop_in['opacity']),
 
@@ -996,46 +1044,18 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('x0', dict(        # put in drop_in[] ???
-            required=False,
-            type='data',
-            val_types=number(),
-            description="The location of the first coordinate of the x-axis"
-                        "This is an alternatively to linking a"
-                        "list or an array to 'x'")),
+        ('x0', drop_in['x0']), 
 
-        ('y0', dict(        # put in drop_in[] ??? 
-            required=False,
-            type='data',
-            val_types=number(),
-            description="The location of the first coordinate of the y-axis"
-                        "This is an alternatively to linking a"
-                        "list or an array to 'y'")),
+        ('dx', drop_in['dx']), 
 
-        ('xtype', dict(     # put in drop_in[] ??? 
-            required=False,
-            type='style',
-            val_types=val_types['map']['xtype'],
-            description=description['map']['xtype'])),
+        ('y0', drop_in['y0']), 
 
-        ('ytype', dict(     # put in drop_in[] ??? 
-            required=False,
-            type='style',
-            val_types=val_types['map']['ytype'],
-            description=description['map']['ytype'])),
-
-        ('dx', dict(        # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['dx'])),
-
-        ('dy', dict(        # put in drop_in[] ??? 
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['dy'])),
-
+        ('dy', drop_in['dy']), 
+        
+        ('xtype', drop_in['xtype']),
+        
+        ('ytype', drop_in['ytype']),
+        
         ('type', dict(
             required=True,
             type='plot_info',
@@ -1076,30 +1096,13 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
 
-        ('zauto', dict(   # put in drop_in[] ???
-            required=False,
-            type='sytle',
-            val_types=val_types['general']['bool'],
-            description=description['map']['zauto'])),
+        ('zauto', drop_in['zauto']),
 
-        ('zmin', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
+        ('zmin', drop_in['zmin']),
 
-        ('zmax', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
+        ('zmax', drop_in['zmax']),
 
-        ('zsmooth', dict(    # not a valid key in Contour
-            required=False,
-            type='style',
-            val_types=" False | 'best' | 'fast' ",
-            description="Choose between algorithms ('best' or 'fast') "
-                        "to smooth data linked to 'z'. Default is False.")),
+        ('zsmooth', drop_in['zsmooth']),    # not a valid key in Contour
 
         ('opacity', drop_in['opacity']),
 
@@ -1113,45 +1116,17 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('x0', dict(
-            required=False,
-            type='data',
-            val_types=number(),
-            description="The location of the first partition on the x-axis"
-                        "This is an alternatively to linking a"
-                        "list or an array to 'x'")),
+        ('x0', drop_in['x0']), 
 
-        ('y0', dict(    # put in drop_in[] ???
-            required=False,
-            type='data',
-            val_types=number(),
-            description="The location of the first partition on the y-axis"
-                        "This is an alternatively to linking a"
-                        "list or an array to 'y'")),
+        ('dx', drop_in['dx']), 
 
-        ('xtype', dict(  # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=val_types['map']['xtype'],
-            description=description['map']['xtype'])),
+        ('y0', drop_in['y0']), 
 
-        ('ytype', dict(  # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=val_types['map']['ytype'],
-            description=description['map']['ytype'])),
-
-        ('dx', dict(     # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['dx'])),
-
-        ('dy', dict(     # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['dy'])),
+        ('dy', drop_in['dy']), 
+        
+        ('xtype', drop_in['xtype']),
+        
+        ('ytype', drop_in['ytype']),
 
         ('type', dict(
             required=True,
@@ -1284,30 +1259,13 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
         
-        ('zauto', dict(   # put in drop_in[] ???
-            required=False,
-            type='sytle',
-            val_types=val_types['general']['bool'],
-            description=description['map']['zauto'])),
+        ('zauto', drop_in['zauto']),
 
-        ('zmin', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
+        ('zmin', drop_in['zmin']),
 
-        ('zmax', dict(    # put in drop_in[] ???
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
+        ('zmax', drop_in['zmax']),
 
-        ('zsmooth', dict(    # not a valid key in Histogram2dContour
-            required=False,
-            type='style',
-            val_types=" False | 'best' | 'fast' ",
-            description="Choose between algorithms ('best' or 'fast') "
-                        "to smooth data linked to 'x' and . Default is False.")),
+        ('zsmooth', drop_in['zsmooth']),  # not a valid key in Histogram2dContour
 
         ('autobinx', dict(
             required=False,
@@ -1396,31 +1354,12 @@ INFO = OrderedDict([
 
         ('name', drop_in['name']),
 
-        ('autocontour', dict(
-            required=False,
-            type='style',
-            default=True,
-            val_types=val_types['general']['bool'],
-            description="If True, the contours settings are set automatically. "
-                        "If False, the contours settings must be set manually "
-                        "with the contours object.")),
+        ('autocontour', drop_in['autocontour']),
 
-        ('ncontours', dict(
-            required=False,
-            type='style',
-            default=0,
-            val_types=val_types['general']['bool'],
-            description="Speficy the number of countours lines that will "
-                        "appear.")),
+        ('ncontours', drop_in['ncontours']),
 
-        ('contours', dict(
-            required=False,
-            type='object',
-            val_types=val_types['general']['object'],
-            description="A dictionary-like object defining parameters of "
-                        "the contours in this plot like spacing, whether or "
-                        "not to show lines, etc.")),
-        
+        ('contours', drop_in['contours']),
+
         ('line', dict(
             required=False,
             type='object',
@@ -1437,24 +1376,11 @@ INFO = OrderedDict([
 
         ('colorbar', drop_in['colorbar']),
 
-        ('zauto', dict(   # put in drop_in[] ??? Can't be accessed in GUI
-            required=False,
-            type='sytle',
-            val_types=val_types['general']['bool'],
-            description=description['map']['zauto'])),
+        ('zauto', drop_in['zauto']),
 
-        ('zmin', dict(    # put in drop_in[] ??? Can't be accessed in GUI
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmin'])),
+        ('zmin', drop_in['zmin']),
 
-        ('zmax', dict(    # put in drop_in[] ??? Can't be accessed in GUI  
-            required=False,
-            type='style',
-            val_types=number(),
-            description=description['map']['zmax'])),
-
+        ('zmax', drop_in['zmax']),
 
         ('autobinx', dict(
             required=False,
@@ -3069,7 +2995,7 @@ INFO = OrderedDict([
 
         ('showlines', dict(
             requried=False,
-            type='sytle',
+            type='style',
             val_types=val_types['general']['bool'],
             description="Toggle whether the contour lines appear on the "
                         "plot.")),
