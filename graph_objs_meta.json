@@ -2396,7 +2396,9 @@
             "required": false, 
             "type": "plot_info"
         }, 
-        "direction": {}, 
+        "direction": {
+            "type": "style"
+        }, 
         "tickcolor": {
             "required": false, 
             "type": "style"

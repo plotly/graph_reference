@@ -450,7 +450,6 @@
         "direction": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "orientation": {

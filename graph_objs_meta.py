@@ -2246,7 +2246,7 @@ INFO = OrderedDict([
         )),
 
         ('direction', dict(  # TODO: polar only
-
+            type='style'
         ))
 
     ])),
