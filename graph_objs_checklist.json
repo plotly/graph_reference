@@ -261,49 +261,41 @@
         "domain": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "showticklabels": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "orientation": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "visible": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "ticksuffix": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "tickcolor": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "showline": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "tickorientation": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 
@@ -336,7 +328,6 @@
         "traceref": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 
@@ -364,43 +355,36 @@
         "domain": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "showticklabels": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "ticklen": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "ticksuffix": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "tickcolor": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "showline": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "tickorientation": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 
@@ -432,7 +416,6 @@
         "tag": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "ay": {
@@ -485,17 +468,14 @@
         "needsEndSpacing": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "separators": {
             "val_types": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "labeloffset": {
             "val_types": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "tickcolor": {
@@ -548,7 +528,6 @@
         "traceref": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 
@@ -586,19 +565,16 @@
         "dy": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "radialaxis": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "y0": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "marker": {
@@ -619,7 +595,6 @@
         "angularaxis": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "fill": {
@@ -690,7 +665,6 @@
         "dx": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "xbins": {
@@ -741,7 +715,6 @@
         "x0": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "histnorm": {
@@ -782,7 +755,6 @@
         "hm_id": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }, 
         "z": {
@@ -817,7 +789,6 @@
         "overlaying": {
             "val_types": "UNDOCUMENTED", 
             "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
     }, 

@@ -326,8 +326,12 @@
         "yaxis": {
             "type": "plot_info"
         }, 
-        "angularaxis": {}, 
-        "radialaxis": {}, 
+        "angularaxis": {
+            "type": "plot_info"
+        }, 
+        "radialaxis": {
+            "type": "plot_info"
+        }, 
         "error_y": {
             "type": "object"
         }, 
@@ -391,14 +395,24 @@
         "zmin": {
             "type": "plot_info"
         }, 
-        "dx": {}, 
-        "dy": {}, 
-        "x0": {}, 
-        "y0": {}, 
+        "dx": {
+            "type": "plot_info"
+        }, 
+        "dy": {
+            "type": "plot_info"
+        }, 
+        "x0": {
+            "type": "plot_info"
+        }, 
+        "y0": {
+            "type": "plot_info"
+        }, 
         "zauto": {
             "type": "plot_info"
         }, 
-        "hm_id": {}, 
+        "hm_id": {
+            "type": "plot_info"
+        }, 
         "nbinsx": {
             "type": "style"
         }, 
@@ -1773,7 +1787,9 @@
             "requried": false, 
             "type": "style"
         }, 
-        "tag": {}, 
+        "tag": {
+            "type": "plot_info"
+        }, 
         "font": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -2090,7 +2106,9 @@
             "type": "style", 
             "description": "Set the line thickness for the error bar."
         }, 
-        "traceref": {}, 
+        "traceref": {
+            "type": "plot_info"
+        }, 
         "visible": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -2166,7 +2184,9 @@
             "type": "style", 
             "description": "Set the line thickness for the error bar."
         }, 
-        "traceref": {}, 
+        "traceref": {
+            "type": "plot_info"
+        }, 
         "copy_ystyle": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -2365,10 +2385,12 @@
             "description": "Set the title font for the figure."
         }, 
         "separators": {
-            "required": false
+            "required": false, 
+            "type": "plot_info"
         }, 
         "labeloffset": {
-            "required": false
+            "required": false, 
+            "type": "style"
         }, 
         "bardir": {
             "required": false, 
@@ -2425,7 +2447,9 @@
             "type": "object", 
             "description": "A dictionary-like object describing the angular axis in a polar plot."
         }, 
-        "needsEndSpacing": {}
+        "needsEndSpacing": {
+            "type": "plot_info"
+        }
     }, 
     "legend": {
         "x": {
@@ -2650,23 +2674,53 @@
         }
     }, 
     "radialaxis": {
-        "orientation": {}, 
-        "domain": {}, 
-        "ticksuffix": {}, 
-        "visible": {}, 
-        "tickorientation": {}, 
-        "showline": {}, 
-        "showticklabels": {}, 
-        "tickcolor": {}
+        "orientation": {
+            "type": "plot_info"
+        }, 
+        "domain": {
+            "type": "plot_info"
+        }, 
+        "ticksuffix": {
+            "type": "style"
+        }, 
+        "visible": {
+            "type": "style"
+        }, 
+        "tickorientation": {
+            "type": "style"
+        }, 
+        "showline": {
+            "type": "style"
+        }, 
+        "showticklabels": {
+            "type": "style"
+        }, 
+        "tickcolor": {
+            "type": "style"
+        }
     }, 
     "angularaxis": {
-        "ticksuffix": {}, 
-        "domain": {}, 
-        "showline": {}, 
-        "showticklabels": {}, 
-        "tickcolor": {}, 
-        "ticklen": {}, 
-        "tickorientation": {}
+        "ticksuffix": {
+            "type": "style"
+        }, 
+        "domain": {
+            "type": "plot_info"
+        }, 
+        "showline": {
+            "type": "style"
+        }, 
+        "showticklabels": {
+            "type": "style"
+        }, 
+        "tickcolor": {
+            "type": "style"
+        }, 
+        "ticklen": {
+            "type": "style"
+        }, 
+        "tickorientation": {
+            "type": "style"
+        }
     }, 
     "xaxis": {
         "title": {
@@ -3170,7 +3224,9 @@
             "type": "style", 
             "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
         }, 
-        "overlaying": {}
+        "overlaying": {
+            "type": "style"
+        }
     }, 
     "ybins": {
         "start": {

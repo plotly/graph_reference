@@ -716,8 +716,8 @@ INFO = OrderedDict([
         ('showlegend', dict(type='style')),
         ('xaxis', dict(type='plot_info')),
         ('yaxis', dict(type='plot_info')),
-        ('angularaxis', dict()),
-        ('radialaxis', dict()),
+        ('angularaxis', dict(type='plot_info')),
+        ('radialaxis', dict(type='plot_info')),
         ('error_y', dict(type='object')),
         ('error_x', drop_in['error_x']),
         ('textfont', dict(type='object')),
@@ -738,12 +738,12 @@ INFO = OrderedDict([
         ('histnorm', dict(type='plot_info')),
         ('zmax', dict(type='plot_info')),
         ('zmin', dict(type='plot_info')),
-        ('dx', dict()),
-        ('dy', dict()),
-        ('x0', dict()),
-        ('y0', dict()),
+        ('dx', dict(type='plot_info')),
+        ('dy', dict(type='plot_info')),
+        ('x0', dict(type='plot_info')),
+        ('y0', dict(type='plot_info')),
         ('zauto', dict(type='plot_info')),
-        ('hm_id', dict()),
+        ('hm_id', dict(type='plot_info')),
         ('nbinsx', dict(type='style')),
         ('nbinsy', dict(type='style')),
         ('showscale', dict(type='style'))
@@ -1529,7 +1529,7 @@ INFO = OrderedDict([
             type='style',
         )),
 
-        ('tag', dict()),
+        ('tag', dict(type='plot_info')),
 
         ('font', dict(
             required=False,
@@ -1821,7 +1821,7 @@ INFO = OrderedDict([
             val_types=number(ge=0),
             description="Set the line thickness for the error bar.")),
 
-        ('traceref', dict()),
+        ('traceref', dict(type='plot_info')),
 
         ('visible', drop_in['visible']),
 
@@ -1912,7 +1912,7 @@ INFO = OrderedDict([
             val_types=number(ge=0),
             description="Set the line thickness for the error bar.")),
 
-        ('traceref', dict()),
+        ('traceref', dict(type='plot_info')),
 
         ('copy_ystyle', dict(
             required=False,
@@ -2165,10 +2165,12 @@ INFO = OrderedDict([
 
         ('separators', dict(
             required=False,
+            type='plot_info'
         )),
 
         ('labeloffset', dict(
             required=False,
+            type='style'
         )),
 
         ('bardir', dict(
@@ -2178,6 +2180,7 @@ INFO = OrderedDict([
 
         ('direction', dict(
             required=False,
+            type='style'
         )),
 
         ('tickcolor', dict(
@@ -2238,6 +2241,7 @@ INFO = OrderedDict([
         )),
 
         ('needsEndSpacing', dict(  # TODO: polar only
+            type='plot_info'
 
         )),
 
@@ -2467,39 +2471,55 @@ INFO = OrderedDict([
 
     ('radialaxis', OrderedDict([
         ('orientation', dict(  # TODO: polar only only
-
+            type='plot_info'
         )),
 
-        ('domain', dict()),
+        ('domain', dict(
+            type='plot_info'
+        )),
 
         ('ticksuffix', dict(  # TODO: polar only only
-
+            type='style'
         )),
         ('visible', dict(  # TODO: polar only only
-
+            type='style'
         )),
         ('tickorientation', dict(  # TODO: polar only only
-
+            type='style'
         )),
         ('showline', dict(
-
+            type='style'
         )),
-        ('showticklabels', dict()),
-        ('tickcolor', dict()),
+        ('showticklabels', dict(
+            type='style'
+        )),
+        ('tickcolor', dict(
+            type='style'
+        )),
 
     ])),
 
     ('angularaxis', OrderedDict([
         ('ticksuffix', dict(  # TODO: polar only only
-
+            type='style'
         )),
-        ('domain', dict()),
-        ('showline', dict()),
-        ('showticklabels', dict()),
-        ('tickcolor', dict()),
-        ('ticklen', dict()),
+        ('domain', dict(
+            type='plot_info'
+        )),
+        ('showline', dict(
+            type='style'
+        )),
+        ('showticklabels', dict(
+            type='style'
+        )),
+        ('tickcolor', dict(
+            type='style'
+        )),
+        ('ticklen', dict(
+            type='style'
+        )),
         ('tickorientation', dict(  # TODO: polar only only
-
+            type='style'
         )),
 
     ])),
@@ -2962,7 +2982,9 @@ INFO = OrderedDict([
             description="Toggle whether to mirror the axis line to the "
                         "opposite side of the plot.")),
 
-        ('overlaying', dict()),
+        ('overlaying', dict(
+            type='style'
+        )),
 
         # ('drange', dict()),
         # ('r0', dict()),
