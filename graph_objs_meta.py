@@ -73,8 +73,8 @@ description = dict(
 
         stream=
         "The stream dict that initializes traces as writable-streams, "
-        "for use with the real-time streaming API. See examples here:\n"
-        "http://nbviewer.ipython.org/github/plotly/Streaming-Demos",
+        "for use with the real-time streaming API. Learn more here:\n"
+        "https://plot.ly/python/streaming/",
     ),
     map=dict(
 
@@ -317,7 +317,7 @@ drop_in = dict(
                     "this mapping will be shown alongside the rendered "
                     "figure."),
 
-    zauto=dict(   
+    zauto=dict(
         required=False,
         type='data',
         val_types=val_types['general']['bool'],
@@ -337,7 +337,7 @@ drop_in = dict(
         type='style',
         val_types=number(),
         description="The value used as the maximum in the color scale "
-                    "normalization in 'scl'. " 
+                    "normalization in 'scl'. "
                     "The default is the minimum of the 'z' data values."),
 
     zsmooth=dict(
@@ -388,7 +388,7 @@ drop_in = dict(
         val_types=number(),
         description="Spacing between x-axis coordinates. "
                     "Use with 'x0' an alternative to an 'x' list/array."),
-    
+
     y0=dict(
         required=False,
         type='data',
@@ -396,7 +396,7 @@ drop_in = dict(
         val_types=number(),
         description="The location of the first coordinate of the y-axis."
                     "Use with 'dy' an alternative to an 'y' list/array."),
-    
+
     dy=dict(
         required=False,
         type='data',
@@ -431,8 +431,8 @@ drop_in = dict(
         val_types=val_types['general']['object'],
         description="The stream dict that initializes traces as "
                     "writable-streams, for use with the real-time streaming "
-                    "API. See examples here:\n"
-                    "http://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+                    "API. Learn more here:\n"
+                    "https://plot.ly/python/streaming/"
     ),
 
     visible=dict(
@@ -1021,7 +1021,7 @@ INFO = OrderedDict([
         ('scl', drop_in['scl']),
 
         ('reversescl', drop_in['reversescl']),
-        
+
         ('showscale', drop_in['showscale']),
 
         ('colorbar', drop_in['colorbar']),
@@ -1044,18 +1044,18 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('x0', drop_in['x0']), 
+        ('x0', drop_in['x0']),
 
-        ('dx', drop_in['dx']), 
+        ('dx', drop_in['dx']),
 
-        ('y0', drop_in['y0']), 
+        ('y0', drop_in['y0']),
 
-        ('dy', drop_in['dy']), 
-        
+        ('dy', drop_in['dy']),
+
         ('xtype', drop_in['xtype']),
-        
+
         ('ytype', drop_in['ytype']),
-        
+
         ('type', dict(
             required=True,
             type='plot_info',
@@ -1116,16 +1116,16 @@ INFO = OrderedDict([
 
         ('visible', drop_in['visible']),
 
-        ('x0', drop_in['x0']), 
+        ('x0', drop_in['x0']),
 
-        ('dx', drop_in['dx']), 
+        ('dx', drop_in['dx']),
 
-        ('y0', drop_in['y0']), 
+        ('y0', drop_in['y0']),
 
-        ('dy', drop_in['dy']), 
-        
+        ('dy', drop_in['dy']),
+
         ('xtype', drop_in['xtype']),
-        
+
         ('ytype', drop_in['ytype']),
 
         ('type', dict(
@@ -1258,7 +1258,7 @@ INFO = OrderedDict([
         ('showscale', drop_in['showscale']),
 
         ('colorbar', drop_in['colorbar']),
-        
+
         ('zauto', drop_in['zauto']),
 
         ('zmin', drop_in['zmin']),
@@ -1304,7 +1304,7 @@ INFO = OrderedDict([
             description="Specifies the number of bins in the y-direction.")),
 
         ('histnorm', drop_in['histnorm']),
-        
+
         ('opacity', drop_in['opacity']),
 
         ('showlegend', drop_in['showlegend_trace']),
@@ -1560,13 +1560,13 @@ INFO = OrderedDict([
     ])),
 
     ('colorbar', OrderedDict([
-    
+
         ('title', dict(
             required=False,
             type='plot_info',
             val_types=val_types['general']['string'],
             description="The colorbar title.")),
-        
+
         ('titleside', dict(
             required=False,
             type='plot_info',
@@ -1578,7 +1578,7 @@ INFO = OrderedDict([
             type='object',
             val_types=val_types['general']['object'],
             description="A dictionary for configuring the axis title font.")),
-        
+
         ('thickness', dict(
             required=False,
             type='style',
@@ -1590,7 +1590,7 @@ INFO = OrderedDict([
             type='style',
             val_types="string: 'pixels' | 'fraction' ",
             description="Set thickness unit mode")),
-        
+
         ('len', dict(
             required=False,
             type='style',
@@ -1602,7 +1602,7 @@ INFO = OrderedDict([
             type='style',
             val_types="string: 'pixels' | 'fraction' ",
             description="Set length unit mode")),
-        
+
         ('x', dict(
             required=False,
             type='plot_info',
@@ -1618,14 +1618,14 @@ INFO = OrderedDict([
         ('xanchor', drop_in['xanchor']),
 
         ('yanchor', drop_in['yanchor']),
-        
+
         ('ticks', dict(  # TODO: separate object for ticks?
             requried=False,
             type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
             description="Sets the direction of the colorbar's ticks "
                         "with respect to its outline frame.")),
-        
+
         ('autotick', dict(
             required=False,
             type='style',
@@ -1662,7 +1662,7 @@ INFO = OrderedDict([
             type='style',
             val_types=number(gt=0),
             description="Sets the width of the colorbar's tick lines.")),
-        
+
         ('tickcolor', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
@@ -2027,7 +2027,7 @@ INFO = OrderedDict([
             type='style',
             val_types=number(gt=0),
             description="The height in pixels of the figure you're creating.")),
-        
+
         ('autosize', dict(
             required=False,
             type='style',
@@ -2991,7 +2991,7 @@ INFO = OrderedDict([
 
     ])),
 
-    ('contours', OrderedDict([  
+    ('contours', OrderedDict([
 
         ('showlines', dict(
             requried=False,

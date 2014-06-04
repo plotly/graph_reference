@@ -222,7 +222,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "xaxis": {
             "val_types": "string: 'x1' | 'x2' | 'x3' | etc.", 
@@ -477,7 +477,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "xaxis": {
             "val_types": "string: 'x1' | 'x2' | 'x3' | etc.", 
@@ -616,7 +616,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "xaxis": {
             "val_types": "string: 'y1' | 'y2' | 'y3' | etc.", 
@@ -809,7 +809,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "xaxis": {
             "val_types": "string: 'x1' | 'x2' | 'x3' | etc.", 
@@ -1022,7 +1022,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "xaxis": {
             "val_types": "string: 'x1' | 'x2' | 'x3' | etc.", 
@@ -1205,7 +1205,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "error_y": {
             "val_types": "dictionary-like", 
@@ -1423,7 +1423,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "marker": {
             "streamable": true, 
@@ -1659,7 +1659,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
-            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+            "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
         }, 
         "marker": {
             "streamable": true, 
