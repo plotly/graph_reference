@@ -538,7 +538,7 @@
             "required": true, 
             "type": "data", 
             "streamable": true, 
-            "description": "This array is used to define the an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'."
+            "description": "This array is used to define an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'."
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
@@ -694,6 +694,12 @@
             "type": "object", 
             "description": "A dictionary-like object defining parameters of the contours in this plot like spacing, whether or not to show lines, etc."
         }, 
+        "line": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "Set contour line style (e.g. dash) and width. If showlines=True in Contour, select line color. Select smoothing level."
+        }, 
         "scl": {
             "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
@@ -752,14 +758,28 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
+            "decription": "Set to True to reverse the color scale.", 
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "style"
+        }, 
+        "showscale": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
+        }, 
+        "zauto": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "data", 
+            "description": "Set to False to overwrite the default values of 'zmax' and 'zmax'."
         }, 
         "zmin": {
             "val_types": "number", 
@@ -772,6 +792,12 @@
             "required": false, 
             "type": "style", 
             "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "showlegend": {
             "val_types": "bool: True | False", 
@@ -803,36 +829,47 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
-        "showscale": {
-            "val_types": "bool: True | False", 
+        "x0": {
+            "default": 0, 
+            "val_types": "number", 
             "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
-        }, 
-        "xtype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "ytype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "The location of the first coordinate of the x-axis.Use with 'dx' an alternative to an 'x' list/array."
         }, 
         "dx": {
+            "default": 1, 
             "val_types": "number", 
             "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' list/array."
+        }, 
+        "y0": {
+            "default": 0, 
+            "val_types": "number", 
+            "required": false, 
+            "type": "data", 
+            "description": "The location of the first coordinate of the y-axis.Use with 'dy' an alternative to an 'y' list/array."
         }, 
         "dy": {
+            "default": 1, 
             "val_types": "number", 
             "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' list/array."
         }, 
-        "zauto": {
-            "val_types": "bool: True | False", 
+        "xtype": {
+            "default": "array", 
+            "val_types": "'array' | 'scaled'", 
             "required": false, 
-            "type": "sytle"
+            "type": "data", 
+            "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
+        }, 
+        "ytype": {
+            "default": "array", 
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "data", 
+            "description": "If set to 'scaled' and 'y' is linked to a list/array, then the vertical labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "type": {
             "val_types": "contour", 
@@ -927,14 +964,28 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
+            "decription": "Set to True to reverse the color scale.", 
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "style"
+        }, 
+        "showscale": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
+        }, 
+        "zauto": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "data", 
+            "description": "Set to False to overwrite the default values of 'zmax' and 'zmax'."
         }, 
         "zmin": {
             "val_types": "number", 
@@ -947,6 +998,19 @@
             "required": false, 
             "type": "style", 
             "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
+        }, 
+        "zsmooth": {
+            "default": false, 
+            "val_types": " False | 'best' | 'fast' ", 
+            "required": false, 
+            "type": "style", 
+            "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'."
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "showlegend": {
             "val_types": "bool: True | False", 
@@ -978,42 +1042,47 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
-        "showscale": {
-            "val_types": "bool: True | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
-        }, 
         "x0": {
-            "type": "plot_info"
-        }, 
-        "y0": {
-            "type": "plot_info"
-        }, 
-        "xtype": {
-            "val_types": "'array' | 'scaled'", 
+            "default": 0, 
+            "val_types": "number", 
             "required": false, 
-            "type": "style"
-        }, 
-        "ytype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "The location of the first coordinate of the x-axis.Use with 'dx' an alternative to an 'x' list/array."
         }, 
         "dx": {
+            "default": 1, 
             "val_types": "number", 
             "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' list/array."
+        }, 
+        "y0": {
+            "default": 0, 
+            "val_types": "number", 
+            "required": false, 
+            "type": "data", 
+            "description": "The location of the first coordinate of the y-axis.Use with 'dy' an alternative to an 'y' list/array."
         }, 
         "dy": {
+            "default": 1, 
             "val_types": "number", 
             "required": false, 
-            "type": "style"
+            "type": "data", 
+            "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' list/array."
         }, 
-        "zauto": {
-            "val_types": "bool: True | False", 
+        "xtype": {
+            "default": "array", 
+            "val_types": "'array' | 'scaled'", 
             "required": false, 
-            "type": "sytle"
+            "type": "data", 
+            "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
+        }, 
+        "ytype": {
+            "default": "array", 
+            "val_types": "'array' | 'scaled'", 
+            "required": false, 
+            "type": "data", 
+            "description": "If set to 'scaled' and 'y' is linked to a list/array, then the vertical labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "type": {
             "val_types": "heatmap", 
@@ -1172,6 +1241,12 @@
             "streamable": true, 
             "description": "The y data that is binned and plotted as bars along the y-axis."
         }, 
+        "name": {
+            "val_types": "string", 
+            "required": false, 
+            "type": "data", 
+            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
+        }, 
         "scl": {
             "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
@@ -1230,8 +1305,16 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
+            "decription": "Set to True to reverse the color scale.", 
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "style"
+        }, 
+        "showscale": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 
@@ -1239,22 +1322,30 @@
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
-        "name": {
-            "val_types": "string", 
+        "zauto": {
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "data", 
-            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
+            "description": "Set to False to overwrite the default values of 'zmax' and 'zmax'."
         }, 
-        "marker": {
-            "streamable": true, 
+        "zmin": {
+            "val_types": "number", 
             "required": false, 
-            "type": "object", 
-            "val_types": "dictionary-like"
+            "type": "style", 
+            "description": "The value used as the minimum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
-        "line": {
-            "val_types": "dictionary-like", 
+        "zmax": {
+            "val_types": "number", 
             "required": false, 
-            "type": "object"
+            "type": "style", 
+            "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
+        }, 
+        "zsmooth": {
+            "default": false, 
+            "val_types": " False | 'best' | 'fast' ", 
+            "required": false, 
+            "type": "style", 
+            "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'."
         }, 
         "autobinx": {
             "val_types": "bool: True | False", 
@@ -1298,6 +1389,12 @@
             "type": "plot_info", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
+        }, 
         "showlegend": {
             "val_types": "bool: True | False", 
             "required": false, 
@@ -1322,17 +1419,22 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
-        "showscale": {
-            "val_types": "bool: True | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
-        }, 
         "stream": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
             "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        }, 
+        "marker": {
+            "streamable": true, 
+            "required": false, 
+            "type": "object", 
+            "val_types": "dictionary-like"
+        }, 
+        "line": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object"
         }, 
         "type": {
             "val_types": "histogram2d", 
@@ -1355,6 +1457,38 @@
             "type": "data", 
             "streamable": true, 
             "description": "The y data that is binned and plotted as bars along the y-axis."
+        }, 
+        "name": {
+            "val_types": "string", 
+            "required": false, 
+            "type": "data", 
+            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
+        }, 
+        "autocontour": {
+            "default": true, 
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "If True, the contours settings are set automatically. If False, the contours settings must be set manually with the contours object."
+        }, 
+        "ncontours": {
+            "default": 0, 
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Speficy the number of countours lines that will appear."
+        }, 
+        "contours": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object defining parameters of the contours in this plot like spacing, whether or not to show lines, etc."
+        }, 
+        "line": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "Set contour line style (e.g. dash) and width. If showlines=True in Contour, select line color. Select smoothing level."
         }, 
         "scl": {
             "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
@@ -1414,8 +1548,16 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
+            "decription": "Set to True to reverse the color scale.", 
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "style"
+        }, 
+        "showscale": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the rendered figure."
         }, 
         "colorbar": {
             "val_types": "dictionary-like", 
@@ -1423,22 +1565,23 @@
             "type": "object", 
             "description": "This object represents a color bar that will be shown on the figure where the color is related to the data being shown."
         }, 
-        "name": {
-            "val_types": "string", 
+        "zauto": {
+            "val_types": "bool: True | False", 
             "required": false, 
             "type": "data", 
-            "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
+            "description": "Set to False to overwrite the default values of 'zmax' and 'zmax'."
         }, 
-        "marker": {
-            "streamable": true, 
+        "zmin": {
+            "val_types": "number", 
             "required": false, 
-            "type": "object", 
-            "val_types": "dictionary-like"
+            "type": "style", 
+            "description": "The value used as the minimum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
-        "line": {
-            "val_types": "dictionary-like", 
+        "zmax": {
+            "val_types": "number", 
             "required": false, 
-            "type": "object"
+            "type": "style", 
+            "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
         "autobinx": {
             "val_types": "bool: True | False", 
@@ -1464,46 +1607,29 @@
             "type": "object", 
             "description": "A dictionary-like object explaining how the bins should be created in the y direction for this histogram."
         }, 
-        "nbinsx": {}, 
-        "nbinsy": {}, 
-        "histnorm": {}, 
-        "autocontour": {
-            "default": true, 
-            "val_types": "bool: True | False", 
+        "nbinsx": {
+            "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "If True, the contours settings are set automatically. If False, the contours settings must be set manually with the contours object."
+            "description": "Specifies the number of bins in the x-direction."
         }, 
-        "ncontours": {
-            "default": 0, 
-            "val_types": "bool: True | False", 
+        "nbinsy": {
+            "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Specifies the number of bins in the y-direction."
         }, 
-        "contours": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object"
+        "histnorm": {
+            "requried": false, 
+            "val_types": "'' | 'percent' | 'probability' | 'density' | 'probability density'", 
+            "type": "plot_info", 
+            "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
-        "xtype": {
-            "val_types": "'array' | 'scaled'", 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
             "required": false, 
-            "type": "style"
-        }, 
-        "ytype": {
-            "val_types": "'array' | 'scaled'", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dx": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
-        }, 
-        "dy": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of this object. Also known as the alpha channel of colors, if the object's color is given in terms of 'rgba', this does not need to be defined."
         }, 
         "showlegend": {
             "val_types": "bool: True | False", 
@@ -1529,12 +1655,17 @@
             "type": "plot_info", 
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
-        "showscale": {}, 
         "stream": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "plot_info", 
             "description": "The stream dict that initializes traces as writable-streams, for use with the real-time streaming API. See examples here:\nhttp://nbviewer.ipython.org/github/plotly/Streaming-Demos"
+        }, 
+        "marker": {
+            "streamable": true, 
+            "required": false, 
+            "type": "object", 
+            "val_types": "dictionary-like"
         }, 
         "type": {
             "val_types": "histogram2dcontour", 
@@ -1690,46 +1821,211 @@
     }, 
     "colorbar": {
         "title": {
+            "val_types": "string", 
             "required": false, 
-            "type": "plot_info"
+            "type": "plot_info", 
+            "description": "The colorbar title."
         }, 
         "titleside": {
+            "val_types": "string: right | top | bottom", 
             "required": false, 
-            "type": "plot_info"
+            "type": "plot_info", 
+            "description": "Location of colorbar title"
+        }, 
+        "titlefont": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the axis title font."
         }, 
         "thickness": {
+            "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set the thickness of the colorbar."
         }, 
-        "xanchor": {
+        "thicknessmode": {
+            "val_types": "string: 'pixels' | 'fraction' ", 
             "required": false, 
-            "type": "plot_info"
-        }, 
-        "yanchor": {
-            "required": false, 
-            "type": "plot_info"
-        }, 
-        "ticks": {
-            "required": false, 
-            "type": "style"
-        }, 
-        "nticks": {
-            "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set thickness unit mode"
         }, 
         "len": {
+            "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "plot_info"
+            "type": "style", 
+            "description": "Set the length of the colorbar."
         }, 
-        "xpad": {}, 
-        "ypad": {}, 
-        "x": {
+        "lenmode": {
+            "val_types": "string: 'pixels' | 'fraction' ", 
             "required": false, 
-            "type": "plot_info"
+            "type": "style", 
+            "description": "Set length unit mode"
+        }, 
+        "x": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the 'x' location of the colorbar."
         }, 
         "y": {
+            "val_types": "number", 
             "required": false, 
-            "type": "plot_info"
+            "type": "plot_info", 
+            "description": "Sets the 'y' location of the colorbar."
+        }, 
+        "xanchor": {
+            "val_types": "'left' | 'center' | 'right'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "This defines the horizontal location on the object referenced by 'x'. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
+        }, 
+        "yanchor": {
+            "val_types": "'bottom' | 'middle' | 'top'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "This defines the vertical location on the object referenced by 'y'. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the upper edge of this object will line up with the upper edge of the plotting area."
+        }, 
+        "ticks": {
+            "requried": false, 
+            "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "type": "style", 
+            "description": "Sets the direction of the colorbar's ticks with respect to its outline frame."
+        }, 
+        "autotick": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Set to True for custom colorbar ticks."
+        }, 
+        "nticks": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the number of ticks to appear on the colorbar."
+        }, 
+        "tick0": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the starting point of the colorbar's ticks."
+        }, 
+        "dtick": {
+            "val_type": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the difference between ticks on this colorbar."
+        }, 
+        "ticklen": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the length of the colorbar's tick lines."
+        }, 
+        "tickwidth": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of the colorbar's tick lines."
+        }, 
+        "tickcolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the color of the colorbar's tick lines."
+        }, 
+        "showticklabels": {
+            "val_types": "bool: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Show/Hide the colorbar tick labels."
+        }, 
+        "tickfont": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary for configuring the tick font."
+        }, 
+        "tickangle": {
+            "val_types": "number: x in [-90, 90]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the angle of the colorbar's ticks in degrees."
+        }, 
+        "exponentformat": {
+            "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency."
+        }, 
+        "showexponent": {
+            "val_types": "'all' | 'first' | 'last' | 'none'", 
+            "required": false, 
+            "type": "style", 
+            "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', NO exponents will appear, only the significands."
+        }, 
+        "outlinecolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "The color of the outline surrounding this colorbar."
+        }, 
+        "outlinewidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "The width of the outline surrounding this colorbar"
+        }, 
+        "bordercolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "The color of the enclosing boarder of this colorbar."
+        }, 
+        "borderwidth": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "style", 
+            "description": "The width of the boarder enclosing this colorbar"
+        }, 
+        "xpad": {
+            "val_types": "number: x in [0, 50]", 
+            "required": false, 
+            "type": "style", 
+            "description": "The amount of space (padding) between the colorbar and the enclosing boarder in the x-direction."
+        }, 
+        "ypad": {
+            "val_types": "number: x in [0, 50]", 
+            "required": false, 
+            "type": "style", 
+            "description": "The amount of space (padding) between the colorbar and the enclosing boarder in the y-direction."
+        }, 
+        "bgcolor": {
+            "val_types": "str describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "The background (bg) color for this colorbar."
         }
     }, 
     "error_y": {
@@ -2897,24 +3193,35 @@
         }
     }, 
     "contours": {
-        "start": {
-            "requried": false, 
-            "type": "plot_info"
-        }, 
-        "end": {
-            "requried": false, 
-            "type": "plot_info"
-        }, 
-        "size": {
-            "requried": false, 
-            "type": "plot_info"
-        }, 
-        "coloring": {}, 
         "showlines": {
             "requried": false, 
             "val_types": "bool: True | False", 
-            "type": "sytle", 
+            "type": "style", 
             "description": "Toggle whether the contour lines appear on the plot."
+        }, 
+        "start": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the value of the first contour level."
+        }, 
+        "end": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the value of the last contour level."
+        }, 
+        "size": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the size of each contour level."
+        }, 
+        "coloring": {
+            "val_types": "number: x <  'fill' | 'heatmap' | 'lines' | 'none' ", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Choose coloring method. The default value is 'fill' where coloring is done even between each contour line. 'heatmap' colors on a grid point-by-grid point basis. 'lines' colors only the contour lines, each with respect to the color scale.'none' prints all contour lines with the same color,choose color in Line."
         }
     }
 }
