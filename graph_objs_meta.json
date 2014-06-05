@@ -187,7 +187,6 @@
             "description": "A dictionary-like object containing information about the line connecting points on the scatter plot."
         }, 
         "fill": {
-            "default": "none", 
             "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx", 
             "required": false, 
             "type": "style", 
@@ -260,11 +259,11 @@
             "description": "A dictionary-like object describing the font style of this scatter's text elements. This only has an effect if 'text' is an array of strings and 'mode' is set to include 'text'."
         }, 
         "r": {
-            "requried": false, 
+            "required": false, 
             "type": "data"
         }, 
         "t": {
-            "requried": false, 
+            "required": false, 
             "type": "data"
         }, 
         "type": {
@@ -575,7 +574,6 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "boxpoints": {
-            "default": false, 
             "val_types": "'all' | 'outliers' | False", 
             "required": false, 
             "type": "plot_info", 
@@ -594,14 +592,12 @@
             "description": "Horizontal position of the center of the boxpoints relative to the center and width of the box."
         }, 
         "boxmean": {
-            "default": "False", 
             "val_types": "False | True | 'sd'", 
             "required": false, 
             "type": "style", 
             "description": "If True then the mean of the y-points is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False, then no line shown."
         }, 
         "whiskerwidth": {
-            "default": 0.75, 
             "val_types": "number: x in [0, 1]", 
             "required": false, 
             "type": "style", 
@@ -689,14 +685,12 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "autocontour": {
-            "default": true, 
             "val_types": "bool: True | False", 
             "required": false, 
             "type": "style", 
             "description": "If True, the contours settings are set automatically. If False, the contours settings must be set manually with the contours object."
         }, 
         "ncontours": {
-            "default": 0, 
             "val_types": "bool: True | False", 
             "required": false, 
             "type": "style", 
@@ -772,10 +766,10 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
-            "decription": "Set to True to reverse the color scale.", 
             "val_types": "bool: True | False", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set to True to reverse the color scale."
         }, 
         "showscale": {
             "val_types": "bool: True | False", 
@@ -844,42 +838,36 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "x0": {
-            "default": 0, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "The location of the first coordinate of the x-axis.Use with 'dx' an alternative to an 'x' list/array."
         }, 
         "dx": {
-            "default": 1, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' list/array."
         }, 
         "y0": {
-            "default": 0, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "The location of the first coordinate of the y-axis.Use with 'dy' an alternative to an 'y' list/array."
         }, 
         "dy": {
-            "default": 1, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' list/array."
         }, 
         "xtype": {
-            "default": "array", 
             "val_types": "'array' | 'scaled'", 
             "required": false, 
             "type": "data", 
             "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "ytype": {
-            "default": "array", 
             "val_types": "'array' | 'scaled'", 
             "required": false, 
             "type": "data", 
@@ -978,10 +966,10 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
-            "decription": "Set to True to reverse the color scale.", 
             "val_types": "bool: True | False", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set to True to reverse the color scale."
         }, 
         "showscale": {
             "val_types": "bool: True | False", 
@@ -1014,7 +1002,6 @@
             "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
         "zsmooth": {
-            "default": false, 
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
             "type": "style", 
@@ -1057,42 +1044,36 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "x0": {
-            "default": 0, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "The location of the first coordinate of the x-axis.Use with 'dx' an alternative to an 'x' list/array."
         }, 
         "dx": {
-            "default": 1, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' list/array."
         }, 
         "y0": {
-            "default": 0, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "The location of the first coordinate of the y-axis.Use with 'dy' an alternative to an 'y' list/array."
         }, 
         "dy": {
-            "default": 1, 
             "val_types": "number", 
             "required": false, 
             "type": "data", 
             "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' list/array."
         }, 
         "xtype": {
-            "default": "array", 
             "val_types": "'array' | 'scaled'", 
             "required": false, 
             "type": "data", 
             "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "ytype": {
-            "default": "array", 
             "val_types": "'array' | 'scaled'", 
             "required": false, 
             "type": "data", 
@@ -1186,8 +1167,8 @@
             "description": "Specifies the number of bins in the y-direction."
         }, 
         "histnorm": {
-            "requried": false, 
             "val_types": "'' | 'percent' | 'probability' | 'density' | 'probability density'", 
+            "required": false, 
             "type": "plot_info", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
@@ -1319,10 +1300,10 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
-            "decription": "Set to True to reverse the color scale.", 
             "val_types": "bool: True | False", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set to True to reverse the color scale."
         }, 
         "showscale": {
             "val_types": "bool: True | False", 
@@ -1355,7 +1336,6 @@
             "description": "The value used as the maximum in the color scale normalization in 'scl'. The default is the minimum of the 'z' data values."
         }, 
         "zsmooth": {
-            "default": false, 
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
             "type": "style", 
@@ -1398,8 +1378,8 @@
             "description": "Specifies the number of bins in the y-direction."
         }, 
         "histnorm": {
-            "requried": false, 
             "val_types": "'' | 'percent' | 'probability' | 'density' | 'probability density'", 
+            "required": false, 
             "type": "plot_info", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
@@ -1479,14 +1459,12 @@
             "description": "The label associated with this trace. This name will appear in the legend, in the column header in the spreadsheet, and on hover."
         }, 
         "autocontour": {
-            "default": true, 
             "val_types": "bool: True | False", 
             "required": false, 
             "type": "style", 
             "description": "If True, the contours settings are set automatically. If False, the contours settings must be set manually with the contours object."
         }, 
         "ncontours": {
-            "default": 0, 
             "val_types": "bool: True | False", 
             "required": false, 
             "type": "style", 
@@ -1562,10 +1540,10 @@
             "description": "The color scale. The strings are pre-defined color scales. For custom color scales, define a list of color-value pairs, where the first element of the pair corresponds to a normalized value of z from 0-1  (i.e. (z-zmin)/(zmax-zmin)), and the second element of pair corresponds to a color."
         }, 
         "reversescl": {
-            "decription": "Set to True to reverse the color scale.", 
             "val_types": "bool: True | False", 
             "required": false, 
-            "type": "style"
+            "type": "style", 
+            "description": "Set to True to reverse the color scale."
         }, 
         "showscale": {
             "val_types": "bool: True | False", 
@@ -1634,8 +1612,8 @@
             "description": "Specifies the number of bins in the y-direction."
         }, 
         "histnorm": {
-            "requried": false, 
             "val_types": "'' | 'percent' | 'probability' | 'density' | 'probability density'", 
+            "required": false, 
             "type": "plot_info", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
@@ -1770,21 +1748,21 @@
             "description": "Show the arrow associated with this annotation."
         }, 
         "arrowwidth": {
-            "requried": false, 
             "val_types": "number: x > 0", 
+            "required": false, 
             "type": "style"
         }, 
         "arrowcolor": {
-            "requried": false, 
             "val_types": "str describing color", 
+            "required": false, 
             "type": "style"
         }, 
         "arrowhead": {
-            "requried": false, 
+            "required": false, 
             "type": "style"
         }, 
         "arrowsize": {
-            "requried": false, 
+            "required": false, 
             "type": "style"
         }, 
         "tag": {
@@ -1903,8 +1881,8 @@
             "description": "This defines the vertical location on the object referenced by 'y'. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the upper edge of this object will line up with the upper edge of the plotting area."
         }, 
         "ticks": {
-            "requried": false, 
             "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "required": false, 
             "type": "style", 
             "description": "Sets the direction of the colorbar's ticks with respect to its outline frame."
         }, 
@@ -1927,7 +1905,7 @@
             "description": "Sets the starting point of the colorbar's ticks."
         }, 
         "dtick": {
-            "val_type": "number", 
+            "val_types": "number", 
             "required": false, 
             "type": "style", 
             "description": "Sets the difference between ticks on this colorbar."
@@ -2116,8 +2094,8 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "width": {
-            "requried": false, 
             "val_types": "number: x >= 0", 
+            "required": false, 
             "type": "style", 
             "description": "Set the width of the cross-bar at the end of the error bar."
         }
@@ -2200,8 +2178,8 @@
             "description": "Toggles whether this will actually be visible in the rendered figure."
         }, 
         "width": {
-            "requried": false, 
             "val_types": "number: x >= 0", 
+            "required": false, 
             "type": "style", 
             "description": "Set the width of the cross-bar at the end of the error bar."
         }
@@ -2543,8 +2521,8 @@
     }, 
     "line": {
         "dash": {
-            "requried": false, 
             "val_types": "'dash' | 'dashdot' | 'dot' | 'solid'", 
+            "required": false, 
             "type": "style", 
             "description": "The style of the line."
         }, 
@@ -2639,7 +2617,7 @@
         "color": {
             "val_types": "str describing color", 
             "description": "The color of the marker face.", 
-            "requried": false, 
+            "required": false, 
             "type": "style", 
             "streamable": true, 
             "examples": [
@@ -2801,14 +2779,14 @@
             "description": "Sets the starting point of the axis."
         }, 
         "dtick": {
-            "val_type": "number", 
+            "val_types": "number", 
             "required": false, 
             "type": "style", 
             "description": "Sets the difference between ticks on this axis."
         }, 
         "ticks": {
-            "requried": false, 
             "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "required": false, 
             "type": "style", 
             "description": "Sets format of tick visibility."
         }, 
@@ -2880,8 +2858,8 @@
             "description": "Sets the axis grid color. Any HTML specified color is accepted."
         }, 
         "gridwidth": {
-            "requried": false, 
             "val_types": "number: x > 0", 
+            "required": false, 
             "type": "style", 
             "description": "Sets the grid width."
         }, 
@@ -2981,8 +2959,8 @@
             "description": "The end point on the xaxis for the FINAL bin."
         }, 
         "size": {
-            "requried": false, 
             "val_types": "number: x > 0", 
+            "required": false, 
             "type": "plot_info", 
             "description": "The size of each bin."
         }
@@ -3064,14 +3042,14 @@
             "description": "Sets the starting point of the axis."
         }, 
         "dtick": {
-            "val_type": "number: x >= 0", 
+            "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
             "description": "Sets the difference between ticks on this axis."
         }, 
         "ticks": {
-            "requried": false, 
             "val_types": "string: 'inside' | 'outside' | '' (Empty str for NONE)", 
+            "required": false, 
             "type": "style", 
             "description": "Sets format of tick visibility."
         }, 
@@ -3143,8 +3121,8 @@
             "description": "Sets the axis grid color. Any HTML specified color is accepted."
         }, 
         "gridwidth": {
-            "requried": false, 
             "val_types": "number: x > 0", 
+            "required": false, 
             "type": "style", 
             "description": "Sets the grid width."
         }, 
@@ -3244,16 +3222,16 @@
             "description": "The end point on the yaxis for the FINAL bin."
         }, 
         "size": {
-            "requried": false, 
             "val_types": "number: x > 0", 
+            "required": false, 
             "type": "plot_info", 
             "description": "The size of each bin."
         }
     }, 
     "contours": {
         "showlines": {
-            "requried": false, 
             "val_types": "bool: True | False", 
+            "required": false, 
             "type": "style", 
             "description": "Toggle whether the contour lines appear on the plot."
         }, 

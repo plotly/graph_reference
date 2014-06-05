@@ -219,7 +219,7 @@ drop_in = dict(
                     "NO exponents will appear, only the significands."),
 
     histnorm=dict(
-        requried=False,
+        required=False,
         type='plot_info',
         val_types="'' | 'percent' | 'probability' | 'density' | 'probability "
                   "density'",
@@ -265,7 +265,7 @@ drop_in = dict(
         required=False,
         type='style',
         val_types=val_types['general']['bool'],
-        decription="Set to True to reverse the color scale."
+        description="Set to True to reverse the color scale."
     ),
 
     textposition=dict(
@@ -343,7 +343,6 @@ drop_in = dict(
     zsmooth=dict(
         required=False,
         type='style',
-        default=False,
         val_types=" False | 'best' | 'fast' ",
         description="Choose between algorithms ('best' or 'fast') "
                     "to smooth data linked to 'z'."),
@@ -351,7 +350,6 @@ drop_in = dict(
    autocontour=dict(
         required=False,
         type='style',
-        default=True,
         val_types=val_types['general']['bool'],
         description="If True, the contours settings are set automatically. "
                     "If False, the contours settings must be set manually "
@@ -360,7 +358,6 @@ drop_in = dict(
     ncontours=dict(
         required=False,
         type='style',
-        default=0,
         val_types=val_types['general']['bool'],
         description="Speficy the number of countours lines that will "
                     "appear."),
@@ -376,7 +373,6 @@ drop_in = dict(
     x0=dict(
         required=False,
         type='data',
-        default=0,
         val_types=number(),
         description="The location of the first coordinate of the x-axis."
                     "Use with 'dx' an alternative to an 'x' list/array."),
@@ -384,7 +380,6 @@ drop_in = dict(
     dx=dict(
         required=False,
         type='data',
-        default=1,
         val_types=number(),
         description="Spacing between x-axis coordinates. "
                     "Use with 'x0' an alternative to an 'x' list/array."),
@@ -392,7 +387,6 @@ drop_in = dict(
     y0=dict(
         required=False,
         type='data',
-        default=0,
         val_types=number(),
         description="The location of the first coordinate of the y-axis."
                     "Use with 'dy' an alternative to an 'y' list/array."),
@@ -400,7 +394,6 @@ drop_in = dict(
     dy=dict(
         required=False,
         type='data',
-        default=1,
         val_types=number(),
         description="Spacing between y-axis coordinates. "
                     "Use with 'y0' an alternative to an 'y' list/array."),
@@ -408,7 +401,6 @@ drop_in = dict(
     xtype=dict(
         required=False,
         type='data',
-        default='array',
         val_types=val_types['map']['xtype'],
         description= "If set to 'scaled' and 'x' is linked to a list/array, "
                     "then the horizontal labels are scaled to a list "
@@ -418,7 +410,6 @@ drop_in = dict(
     ytype=dict(
         required=False,
         type='data',
-        default='array',
         val_types=val_types['map']['xtype'],
         description="If set to 'scaled' and 'y' is linked to a list/array, "
                     "then the vertical labels are scaled to a list "
@@ -641,7 +632,6 @@ INFO = OrderedDict([
 
         ('fill', dict(
             required=False,
-            default='none',
             type='style',
             val_types="'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx",
             description="Used to make area-style charts. "
@@ -680,12 +670,12 @@ INFO = OrderedDict([
                         "'mode' is set to include 'text'.")),
 
         ('r', dict(
-            requried=False,
+            required=False,
             type='data'
         )),
 
         ('t', dict(
-            requried=False,
+            required=False,
             type='data'
         )),
 
@@ -909,8 +899,7 @@ INFO = OrderedDict([
             val_types="'all' | 'outliers' | False",
             description="If 'all' then the 'y' points are shown with the box. "
                         "If 'outliers' then only the 'outliers' of the 'y' "
-                        "points are shown. If False then no points are shown",
-            default=False)),
+                        "points are shown. If False then no points are shown")),
 
         ('jitter', dict(
             required=False,
@@ -932,7 +921,6 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types="False | True | 'sd'",
-            default='False',
             description="If True then the mean of the y-points is shown as a "
                         "dashed line in the box. If 'sd', then the standard "
                         "deviation is also shown. If False, then no line "
@@ -942,7 +930,6 @@ INFO = OrderedDict([
             required=False,
             type='style',
             val_types=number(ge=0, le=1),
-            default=0.75,
             description="Width of the whisker of the box.")),
 
         ('fillcolor', dict(
@@ -1508,24 +1495,24 @@ INFO = OrderedDict([
             description="Show the arrow associated with this annotation.")),
 
         ('arrowwidth', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=number(gt=0)
         )),
 
         ('arrowcolor', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=val_types['general']['color']
         )),
 
         ('arrowhead', dict(
-            requried=False,
+            required=False,
             type='style',
         )),
 
         ('arrowsize', dict(
-            requried=False,
+            required=False,
             type='style',
         )),
 
@@ -1620,7 +1607,7 @@ INFO = OrderedDict([
         ('yanchor', drop_in['yanchor']),
 
         ('ticks', dict(  # TODO: separate object for ticks?
-            requried=False,
+            required=False,
             type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
             description="Sets the direction of the colorbar's ticks "
@@ -1647,7 +1634,7 @@ INFO = OrderedDict([
         ('dtick', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_type=number(),
+            val_types=number(),
             description="Sets the difference between ticks on this colorbar.")),
 
         ('ticklen', dict(  # TODO: separate object for ticks?
@@ -1826,7 +1813,7 @@ INFO = OrderedDict([
         ('visible', drop_in['visible']),
 
         ('width', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=number(ge=0),
             description="Set the width of the cross-bar at the end of "
@@ -1925,7 +1912,7 @@ INFO = OrderedDict([
         ('visible', drop_in['visible']),
 
         ('width', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=number(ge=0),
             description="Set the width of the cross-bar at the end of "
@@ -2321,7 +2308,7 @@ INFO = OrderedDict([
     ('line', OrderedDict([
 
         ('dash', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types="'dash' | 'dashdot' | 'dot' | 'solid'",
             description="The style of the line."
@@ -2429,7 +2416,7 @@ INFO = OrderedDict([
         )),
 
         ('color', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=val_types['general']['color'],
             description="The color of the marker face.",
@@ -2581,12 +2568,12 @@ INFO = OrderedDict([
         ('dtick', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_type=number(),
+            val_types=number(),
             description="Sets the difference between ticks on this axis."
         )),
 
         ('ticks', dict(  # TODO: separate object for ticks?
-            requried=False,
+            required=False,
             type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
             description="Sets format of tick visibility.")),
@@ -2654,7 +2641,7 @@ INFO = OrderedDict([
         )),
 
         ('gridwidth', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=number(gt=0),
             description="Sets the grid width."
@@ -2769,7 +2756,7 @@ INFO = OrderedDict([
             description="The end point on the xaxis for the FINAL bin."
         )),
         ('size', dict(
-            requried=False,
+            required=False,
             type='plot_info',
             val_types=number(gt=0),
             description="The size of each bin."
@@ -2833,11 +2820,11 @@ INFO = OrderedDict([
         ('dtick', dict(  # TODO: separate object for ticks?
             required=False,
             type='style',
-            val_type=number(ge=0),
+            val_types=number(ge=0),
             description="Sets the difference between ticks on this axis.")),
 
         ('ticks', dict(  # TODO: separate object for ticks?
-            requried=False,
+            required=False,
             type='style',
             val_types="string: 'inside' | 'outside' | '' (Empty str for NONE)",
             description="Sets format of tick visibility.")),
@@ -2898,7 +2885,7 @@ INFO = OrderedDict([
             examples=examples['general']['color'])),
 
         ('gridwidth', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=number(gt=0),
             description="Sets the grid width.")),
@@ -3006,7 +2993,7 @@ INFO = OrderedDict([
             description="The end point on the yaxis for the FINAL bin.")),
 
         ('size', dict(
-            requried=False,
+            required=False,
             type='plot_info',
             val_types=number(gt=0),
             description="The size of each bin."))
@@ -3016,7 +3003,7 @@ INFO = OrderedDict([
     ('contours', OrderedDict([
 
         ('showlines', dict(
-            requried=False,
+            required=False,
             type='style',
             val_types=val_types['general']['bool'],
             description="Toggle whether the contour lines appear on the "
@@ -3079,8 +3066,8 @@ if __name__ == "__main__":
         checklist[key] = dict()
         for k in val:
             checklist[key][k] = dict()
-            if 'required' not in INFO[key][k]:
-                checklist[key][k]['required'] = 'UNDOCUMENTED'
+            # if 'required' not in INFO[key][k]:
+            #     checklist[key][k]['required'] = 'UNDOCUMENTED'
             if 'type' not in INFO[key][k]:
                 checklist[key][k]['type'] = 'UNDOCUMENTED'
             if 'val_types' not in INFO[key][k]:
