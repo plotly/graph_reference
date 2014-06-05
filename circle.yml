@@ -1,0 +1,4 @@
+## Customize test commands
+test:
+  post:
+    - nosetests -w plotly/tests
