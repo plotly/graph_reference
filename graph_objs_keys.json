@@ -1,12 +1,13 @@
 {
     "angularaxis": [
-        "domain", 
+        "endpadding", 
+        "range", 
         "showline", 
         "showticklabels", 
         "tickcolor", 
-        "ticklen", 
         "tickorientation", 
-        "ticksuffix"
+        "ticksuffix", 
+        "visible"
     ], 
     "annotation": [
         "align", 
@@ -26,7 +27,6 @@
         "showarrow", 
         "tag", 
         "text", 
-        "textposition", 
         "x", 
         "xanchor", 
         "xatype", 
@@ -36,56 +36,20 @@
         "yatype", 
         "yref"
     ], 
-    "annotations": [], 
+    "annotations": [
+        "annotations"
+    ], 
     "area": [
         "angularaxis", 
-        "autobinx", 
-        "autobiny", 
-        "boxmean", 
-        "boxpoints", 
-        "colorbar", 
-        "dx", 
-        "dy", 
-        "error_x", 
-        "error_y", 
-        "fill", 
-        "fillcolor", 
-        "histnorm", 
-        "hm_id", 
-        "jitter", 
-        "line", 
         "marker", 
-        "mode", 
         "name", 
-        "nbinsx", 
-        "nbinsy", 
-        "opacity", 
-        "orientation", 
-        "pointpos", 
         "r", 
         "radialaxis", 
-        "reversescl", 
-        "scl", 
         "showlegend", 
-        "showscale", 
+        "stream", 
         "t", 
-        "text", 
-        "textfont", 
-        "textposition", 
         "type", 
-        "whiskerwidth", 
-        "x", 
-        "x0", 
-        "xaxis", 
-        "xbins", 
-        "y", 
-        "y0", 
-        "yaxis", 
-        "ybins", 
-        "z", 
-        "zauto", 
-        "zmax", 
-        "zmin"
+        "visible"
     ], 
     "bar": [
         "error_x", 
@@ -101,7 +65,6 @@
         "t", 
         "text", 
         "textfont", 
-        "textposition", 
         "type", 
         "visible", 
         "x", 
@@ -117,6 +80,7 @@
         "line", 
         "marker", 
         "name", 
+        "opacity", 
         "pointpos", 
         "showlegend", 
         "stream", 
@@ -126,12 +90,12 @@
         "x", 
         "x0", 
         "xaxis", 
-        "y"
+        "y", 
+        "yaxis"
     ], 
     "colorbar": [
         "autotick", 
         "bgcolor", 
-        "bordercolor", 
         "borderwidth", 
         "dtick", 
         "exponentformat", 
@@ -158,7 +122,6 @@
         "xanchor", 
         "xpad", 
         "y", 
-        "yanchor", 
         "ypad"
     ], 
     "contour": [
@@ -198,7 +161,9 @@
         "size", 
         "start"
     ], 
-    "data": [], 
+    "data": [
+        "data"
+    ], 
     "error_x": [
         "array", 
         "arrayminus", 
@@ -294,8 +259,6 @@
         "autobiny", 
         "colorbar", 
         "histnorm", 
-        "line", 
-        "marker", 
         "name", 
         "nbinsx", 
         "nbinsy", 
@@ -326,7 +289,6 @@
         "contours", 
         "histnorm", 
         "line", 
-        "marker", 
         "name", 
         "nbinsx", 
         "nbinsy", 
@@ -357,9 +319,6 @@
         "bargap", 
         "bargroupgap", 
         "barmode", 
-        "boxgap", 
-        "boxgroupgap", 
-        "boxmode", 
         "categories", 
         "defaultcolorrange", 
         "direction", 
@@ -371,7 +330,6 @@
         "labeloffset", 
         "legend", 
         "margin", 
-        "minortickcolor", 
         "needsEndSpacing", 
         "opacity", 
         "orientation", 
@@ -380,7 +338,6 @@
         "radialaxis", 
         "separators", 
         "showlegend", 
-        "tickcolor", 
         "title", 
         "titlefont", 
         "width", 
@@ -405,6 +362,7 @@
         "color", 
         "dash", 
         "opacity", 
+        "shape", 
         "smoothing", 
         "width"
     ], 
@@ -418,28 +376,39 @@
     ], 
     "marker": [
         "color", 
+        "colorscale", 
         "line", 
+        "maxdisplayed", 
         "opacity", 
         "size", 
         "sizemode", 
         "sizeref", 
-        "symbol", 
-        "type"
+        "symbol"
     ], 
-    "plotlydict": [], 
-    "plotlylist": [], 
-    "plotlytrace": [], 
+    "plotlydict": [
+        "plotlydict"
+    ], 
+    "plotlylist": [
+        "plotlylist"
+    ], 
+    "plotlytrace": [
+        "plotlytrace"
+    ], 
     "radialaxis": [
         "domain", 
+        "endpadding", 
         "orientation", 
+        "range", 
         "showline", 
         "showticklabels", 
         "tickcolor", 
+        "ticklen", 
         "tickorientation", 
         "ticksuffix", 
         "visible"
     ], 
     "scatter": [
+        "connectgaps", 
         "error_x", 
         "error_y", 
         "fill", 
