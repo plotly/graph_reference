@@ -7,10 +7,10 @@
 #
 # * ALL plotly keys should be placed a single JSON file.
 #
-# * A fully described key is an object with the keys: 
+# * A fully described key is an object with the keys:
 #   (1) 'required', (2) 'type', (3) 'val_types', and (4) 'description',
 #
-#   - and additionally (5) streamable, (6) example and (7) code. 
+#   - and additionally (5) streamable, (6) example and (7) code.
 #
 # * All keys that are contained in more than 1 object has a
 #   corresponding shortcut function (`make_ `) or dictionary (`drop_ `).
@@ -18,7 +18,7 @@
 # -------------------------------------------------------------------------------
 #
 # Contents -----------------
-# 
+#
 # Section -- Required modules
 #
 # Section  -- Shortcuts Definitions:
@@ -26,8 +26,8 @@
 # * Inventory of value types repeated over several keys
 #   - search for `$val_types`
 #
-# * Inventory of shortcuts for repeated keys of meta-generating functions 
-#   - search for `$shortcuts--` for top of the section 
+# * Inventory of shortcuts for repeated keys of meta-generating functions
+#   - search for `$shortcuts--` for top of the section
 #   - search for e.g. `$shortcut-x` for shortcut of specific key
 #
 # Section -- Graph Objects Meta:
@@ -42,7 +42,7 @@
 #   - Histogram2d ( `$histogram2d`)
 #   - Histogram2dContour ( `$histogram2dcontour`)
 #   - Area ( `$Area`)
-#   
+#
 # * 'Auxiliary trace' graph objects ( `$graph-objs-meta-trace-aux`):
 #   - ErrorY (search for `$error_y`)
 #   - ErrorX ( `$error_x`)
@@ -50,7 +50,7 @@
 #   - YBins ( `$ybins`)
 #   - Contours ( `$contours`)
 #   - Stream ( `$stream`)
-# 
+#
 # * 'Style' graph objects ( `$graph-objs-meta-style`)
 #   - Marker (search for `$marker`)
 #   - Line ( `$line`)
@@ -61,7 +61,7 @@
 #   - YAxis ( `$yaxis`)
 #   - RadialAxis  ( `$radialaxis`)
 #   - AngularAxis ( `$angularaxis`)
-# 
+#
 # * Other 'auxiliary layout' graph objects ( `$graph-objs-meta-layout-aux`)
 #   - Legend (search for `$legend`)
 #   - ColorBar ( `$colorbar`)
@@ -86,7 +86,7 @@
 
 ## Required modules
 
-# Use ordered dictionaries to list graph object keys 
+# Use ordered dictionaries to list graph object keys
 from collections import OrderedDict
 
 # -------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ from collections import OrderedDict
 # List of value types repeated over several keys
 
 # $val_types-number
-# Use this to format key accepting numbers 
+# Use this to format key accepting numbers
 def _number(lt=None, le=None, gt=None, ge=None, list=False):
     if any((all((lt is not None, le is not None)),
             all((gt is not None, ge is not None)))):
@@ -143,7 +143,7 @@ val_types = dict(
     required_when= _required_when,
     color="string describing color",
     string="string",
-    number= _number, 
+    number= _number,
     data_array="array-like of numbers, strings, datetimes",
     string_array="array-like of strings",
     color_array="array-like of string describing color",
@@ -155,7 +155,7 @@ val_types = dict(
 
 # $shortcuts--
 #
-# List of shortcuts for repeated keys of meta-generating functions 
+# List of shortcuts for repeated keys of meta-generating functions
 
 # $shortcut-shortcuts
 
@@ -192,7 +192,7 @@ def make_x(obj):
         histogram2dcontour=True,
     )
     _type='data'
-    _val_types=val_types['data_array']  
+    _val_types=val_types['data_array']
     _description=dict(
         scatter="The x coordinates of the points of this scatter trace. "
             "If 'x' is linked to an list or array of strings, "
@@ -243,7 +243,7 @@ def make_x(obj):
                       code=_code)
     else:
         return output(_required[obj],_type,_val_types,_description[obj])
-    
+
 # $shortcut-y
 def make_y(obj):
     _required=dict(
@@ -362,7 +362,7 @@ def make_t(obj):
 
 # $shortcut-x0y0 $shortcut-x0 | $shortcut-y0
 def make_x0y0(obj, x_or_y=False):
-    _required=False   
+    _required=False
     _type='plot_info'  # TO DO! 'data' maybe?
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
@@ -475,7 +475,7 @@ def make_marker(obj):
     _description=dict(
         scatter="A dictionary-like object containing marker style "
                 "parameters for this scatter trace. "
-                "Has an effect only if 'mode' contains 'markers'.", 
+                "Has an effect only if 'mode' contains 'markers'.",
         bar="A dictionary-like object containing marker style "
             "parameters for this bar trace, for example, "
             "the bars' fill color, border width and border color.",
@@ -488,7 +488,7 @@ def make_marker(obj):
     )
     _description['histogram']= _description['bar']
     return output(_required,_type,_val_types,_description[obj])
-    
+
 # $shortcut-line
 def make_line(obj):
     _required=False
@@ -670,7 +670,7 @@ def make_type(trace=False, axis=False, error=False):
                              ])
     elif axis:  # TO DO! Info on category
         _val_types="'linear' | 'log' | 'category'"
-        _description="Defines format of this axis." 
+        _description="Defines format of this axis."
     elif error:
         _type='plot_info'  # TO DO! 'data' maybe?
         _val_types="'data' | 'percent' | 'constant' | 'sqrt'"
@@ -773,7 +773,7 @@ drop_colorbar=dict(
                 "(including its title, length and width)."
 )
 
-# $shortcut-scl 
+# $shortcut-scl
 drop_scl=dict(
     required=False,
     type="style",
@@ -818,7 +818,7 @@ def make_zminmax(min_or_max):
                          ]).format(S0=s)
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-reversescl 
+# $shortcut-reversescl
 drop_reversescl=dict(
     required=False,
     type='style',
@@ -843,7 +843,7 @@ drop_zsmooth=dict(
     type='style',
     val_types=" False | 'best' | 'fast' ",
     description="Choose between algorithms ('best' or 'fast') "
-                "to smooth data linked to 'z'. " 
+                "to smooth data linked to 'z'. "
                 "The default value is False "
                 "corresponding to no smoothing."
 )
@@ -882,9 +882,9 @@ drop_contours=dict(
 # $shortcuts-color
 
 # $example-color
-examples_color = ["'green'", "'rgb(0, 255, 0)'", 
+examples_color = ["'green'", "'rgb(0, 255, 0)'",
                  "'rgba(0, 255, 0, 0.3)'",
-                 "'hsl(120,100%,50%)'", 
+                 "'hsl(120,100%,50%)'",
                  "'hsla(120,100%,50%,0.3)'"]
 
 # $shortcut-color
@@ -912,7 +912,7 @@ def make_color(obj):
              "color of the global font.",
         error="Sets the color of the error bars."
     )
-    return output(_required,_type,_val_types,_description[obj], 
+    return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
 # $shortcut-fillcolor
@@ -926,7 +926,7 @@ def make_fillcolor(obj):
                     "Has no effect if 'fill' is set to 'none'.",
             box="Sets the color of the box interior."
     )
-    return output(_required,_type,_val_types,_description[obj], 
+    return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
 # $shortcut-outlinecolor
@@ -938,9 +938,9 @@ def make_outlinecolor(obj):
         font="For polar chart only. Sets the color of the text's outline.",
         colorbar="The color of the outline surrounding this colorbar."
     )
-    return output(_required,_type,_val_types,_description[obj], 
+    return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
-    
+
 # $shortcut-bgcolor
 def make_bgcolor(obj):
     _required=False
@@ -951,7 +951,7 @@ def make_bgcolor(obj):
         colorbar="Sets the background (bg) color for this colorbar.",
         annotation="Sets the background (bg) color for this annotation."
     )
-    return output(_required,_type,_val_types,_description[obj], 
+    return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
 # $shortcut-bordercolor
@@ -964,10 +964,10 @@ def make_bordercolor(obj):
         colorbar="Sets the color of the enclosing boarder of this colorbar.",
         annotation="The color of the enclosing boarder of this annotation."
     )
-    return output(_required,_type,_val_types,_description[obj], 
+    return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
-# $shortcuts-dimensions 
+# $shortcuts-dimensions
 
 # $shortcut-size
 def make_size(obj, x_or_y=False):
@@ -1035,7 +1035,7 @@ def make_thickness(obj, x_or_y=False):
     _val_types=val_types['number'](ge=0)
     S={'x': ['x',], 'y': ['y',], False:['',]}
     s=S[x_or_y]
-    _description=dict( 
+    _description=dict(
         error="Sets the line thickness of the {S0} error bars.".format(S0=s[0]),
         colorbar="Sets the thickness of the line surrounding the colorbar."
     )
@@ -1094,13 +1094,13 @@ def make_range(what_axis):
                           "this {} axis."
                          ]).format(what_axis)
     _examples=[[-13, 20], [0, 1]]
-    return output(_required,_type,_val_types,_description, 
+    return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
 # $shortcut-domain
 def make_domain(what_axis):
     _required=False,
-    _type='plot_info',  
+    _type='plot_info',
     _val_types="number array of length 2",
     _description=''.join(["Sets the domain of this {S} axis. "
                           "The available space "
@@ -1108,7 +1108,7 @@ def make_domain(what_axis):
                           "from 0 to 1."
                          ]).format(S=what_axis)
     _examples=[[-13, 20], [0, 1]]
-    return output(_required,_type,_val_types,_description, 
+    return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
 # $shortcut-showline
@@ -1136,7 +1136,7 @@ def make_autotick(axis_or_colorbar):
                          ]).format(S=axis_or_colorbar)
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-nticks 
+# $shortcut-nticks
 def make_nticks(axis_or_colorbar):
     _required=False
     _type='style'    # TO DO! Shouldn't this be 'plot_info' ?
@@ -1226,7 +1226,7 @@ def make_xy_layout(obj, x_or_y):
 #
 # Initialize the list of meta for all graph objects
 
-META = [] 
+META = []
 
 # $graph-objs-meta-trace
 #
@@ -1234,9 +1234,9 @@ META = []
 
 # $scatter
 META += [('scatter', OrderedDict([
-        
+
     ('x', make_x('scatter')),
-    
+
     ('y', make_y('scatter')),
 
     ('r', make_r('scatter')),
@@ -1253,7 +1253,7 @@ META += [('scatter', OrderedDict([
                     "the (x,y) points, otherwise it will appear on "
                     "hover."
     )),
-    
+
     ('name', drop_name),
 
     ('text', make_text('scatter')),
@@ -1261,11 +1261,11 @@ META += [('scatter', OrderedDict([
     ('error_y', make_error('scatter','y')),
 
     ('error_x', make_error('scatter','x')),
-    
+
     ('marker', make_marker('scatter')),
 
     ('line', make_line('scatter')),
-    
+
     ('connectgaps', dict(
         required=False,
         type='plot_info',
@@ -1288,10 +1288,10 @@ META += [('scatter', OrderedDict([
 
     ('fillcolor', make_fillcolor('scatter')),
 
-    ('opacity', make_opacity()),  
+    ('opacity', make_opacity()),
 
     ('textfont', make_textfont('scatter')),
-        
+
     ('textposition', dict(
         required=False,
         type='style',
@@ -1307,7 +1307,7 @@ META += [('scatter', OrderedDict([
     )),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1324,7 +1324,7 @@ META += [('scatter', OrderedDict([
 META += [('bar', OrderedDict([
 
     ('x', make_x('bar')),
-    
+
     ('y', make_y('bar')),
 
     ('r', make_r('bar')),
@@ -1332,21 +1332,21 @@ META += [('bar', OrderedDict([
     ('t', make_t('bar')),
 
     ('name', drop_name),
-    
+
     ('orientation', make_orientation('bar')),
-    
+
     ('text', make_text('bar')),
 
     ('error_y', make_error('bar','y')),
 
     ('error_x', make_error('bar','x')),
-    
+
     ('marker', make_marker('bar')),
 
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1358,7 +1358,7 @@ META += [('bar', OrderedDict([
     ('type', make_type('bar')),
 
     ('line', make_line('bar')),  # TO DO! Artifact?
-     
+
     ('textfont', make_textfont('bar'))  # TO DO! Artifact?
 
 ]))]
@@ -1371,7 +1371,7 @@ META += [('histogram', OrderedDict([
     ('y', make_y('histogram')),
 
     ('histnorm', drop_histnorm),
-    
+
     ('name', drop_name),
 
     ('autobinx', make_autobin('x')),
@@ -1395,7 +1395,7 @@ META += [('histogram', OrderedDict([
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1477,9 +1477,9 @@ META += [('box', OrderedDict([
     ('line', make_line('box')),
 
     ('opacity', make_opacity()),
-    
+
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1517,12 +1517,12 @@ META += [('heatmap', OrderedDict([
 
     ('colorbar', drop_colorbar),
 
-    ('zsmooth', drop_zsmooth),    
+    ('zsmooth', drop_zsmooth),
 
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1583,7 +1583,7 @@ META += [('contour', OrderedDict([
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1645,12 +1645,12 @@ META += [('histogram2d', OrderedDict([
 
     ('zmax', make_zminmax('max')),
 
-    ('zsmooth', drop_zsmooth),  
+    ('zsmooth', drop_zsmooth),
 
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1711,7 +1711,7 @@ META += [('histogram2dcontour', OrderedDict([
     ('opacity', make_opacity()),
 
     ('xaxis', make_axis('x',trace=True)),
-    
+
     ('yaxis', make_axis('y',trace=True)),
 
     ('showlegend', make_showlegend(trace=True)),
@@ -1773,7 +1773,7 @@ def meta_error(y_or_x):
     s=S[y_or_x]
 
     meta=[
-        
+
         ('type', make_type(error=True)),
 
         ('symmetric', dict(
@@ -1803,7 +1803,7 @@ def meta_error(y_or_x):
                                 "and 'arrayminus' is empty."
                                ]).format(S0=s[0],S1=s[1])
        )),
-            
+
         ('value', dict(
             required=False,
             type='data',
@@ -1811,14 +1811,14 @@ def meta_error(y_or_x):
             description="The value or percentage determining the error bars' "
                         "span, at all trace coordinates. "
                         "Has an effect if 'type' is set to 'value' or "
-                        "'percent'. " 
+                        "'percent'. "
                         "If 'symmetric' is set to False, this value corresponds "
                         "to the span {S4} the trace of coordinates. "
                         "To specify multiple error bar lengths, "
                         "you should set 'type' to 'data' and "
                         "use the 'array' key instead.".format(S4=s[4])
         )),
-    
+
         ('arrayminus', dict(
             required=False,
             type='data',
@@ -1861,7 +1861,7 @@ def meta_error(y_or_x):
                                      "style to the same style ",
                                      "(color, thickness, width, opacity) ",
                                      "as y error bars set in YAxis."
-                                    ]) 
+                                    ])
             ))]
 
     meta+=[
@@ -1901,8 +1901,8 @@ def meta_bins(x_or_y):
     ]
 
     return [('{}bins'.format(x_or_y), OrderedDict(meta))]
-        
-# $xbins 
+
+# $xbins
 META += meta_bins('x')
 
 # $ybins
@@ -2036,7 +2036,7 @@ META += [('marker', OrderedDict([
         val_types=val_types['number'](ge=0),
         description="Set maximum number of displayed points for this "
                     "trace. Applies only to scatter traces."
-    ))  
+    ))
 
 ]))]
 
@@ -2064,14 +2064,14 @@ META += [('line', OrderedDict([
                     "Applies only to contour traces "
                     "and scatter trace if 'shape' is set to 'spline'."
     )),
-    
+
     ('shape', dict(         # TO DO! Better description
         required=False,
         type='style',
         val_types="'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'",
         description="Choose the line shape between each coordinate pair. "
                     "Applies only to scatter traces."
-    )),    
+    )),
 
     # ('thickness', dict()),  # TO DO! Does this exist somewhere?
 
@@ -2106,11 +2106,11 @@ META += [('font', OrderedDict([
     ('size', make_size('font')),
 
     ('color', make_color('font')),
-       
+
     ('outlinecolor', make_outlinecolor('font')),
 
 ]))]
-    
+
 
 # $graph-objs-meta-layout-axis
 #
@@ -2123,7 +2123,7 @@ def meta_ticks(axis_or_colorbar):
 
     meta= [
 
-        ('ticks', dict(  
+        ('ticks', dict(
             required=False,
             type='style',
             val_types="'' | 'inside' | 'outside'",
@@ -2132,8 +2132,8 @@ def meta_ticks(axis_or_colorbar):
         )),
 
         ('showticklabels', make_showticklabels(axis_or_colorbar)),
-        
-        ('tick0', dict(     
+
+        ('tick0', dict(
             required=False,
             type='plot_info',
             val_types=val_types['number'](),
@@ -2141,7 +2141,7 @@ def meta_ticks(axis_or_colorbar):
                         "of this {}.".format(axis_or_colorbar)
         )),
 
-        ('dtick', dict(  
+        ('dtick', dict(
             required=False,
             type='style',
             val_types=val_types['number'](),
@@ -2149,7 +2149,7 @@ def meta_ticks(axis_or_colorbar):
                         "on this {}.".format(axis_or_colorbar)
         )),
 
-        ('ticklen', dict(  
+        ('ticklen', dict(
             required=False,
             type='style',
             val_types=val_types['number'](),  # Units?
@@ -2157,15 +2157,15 @@ def meta_ticks(axis_or_colorbar):
                         "on this {}.".format(axis_or_colorbar)
         )),
 
-        ('tickwidth', dict( 
+        ('tickwidth', dict(
             required=False,
             type='style',
             val_types=val_types['number'](gt=0),
             description="Sets the width of the tick lines "
                         "on this {}.".format(axis_or_colorbar)
         )),
-        
-        ('tickcolor', dict(  
+
+        ('tickcolor', dict(
             required=False,
             type='style',
             val_types=val_types['color'],
@@ -2174,7 +2174,7 @@ def meta_ticks(axis_or_colorbar):
             examples=examples_color
         )),
 
-        ('tickangle', dict(  
+        ('tickangle', dict(
             required=False,
             type='style',
             val_types=val_types['number'](le=90, ge=-90),
@@ -2182,7 +2182,7 @@ def meta_ticks(axis_or_colorbar):
                         "on this {}.".format(axis_or_colorbar)
         )),
 
-        ('tickfont', dict(  
+        ('tickfont', dict(
             required=False,
             type='object',
             val_types=val_types['object'],
@@ -2216,20 +2216,20 @@ def meta_ticks(axis_or_colorbar):
                         "appear--only the significands. If set to 'none', "
                         "no exponents will appear, only the significands."
        ))
-    
+
     ]
-    
+
     return meta
 
 # $axis
 #
 # META generation for 'xaxis' and 'yaxis'
 def meta_axis(x_or_y):
-    
+
     S={'x':['x','bottom','top','y'], 'y':['y','left','right','x']}
     s=S[x_or_y]
 
-    meta=[              
+    meta=[
 
         ('title', make_title('axis',x_or_y)),
 
@@ -2243,7 +2243,7 @@ def meta_axis(x_or_y):
                         "this {}-axis.".format(x_or_y),
             examples=[-13, 20]
         )),
-        
+
         ('domain', dict(
             required=False,
             type='plot_info',
@@ -2260,7 +2260,7 @@ def meta_axis(x_or_y):
             val_types="'linear' | 'log' | 'category'",
             description="Sets the format of this axis."
         )),
-        
+
         ('rangemode', dict(
             required=False,
             type='plot_info',
@@ -2299,7 +2299,7 @@ def meta_axis(x_or_y):
         ]
 
     meta += meta_ticks('axis')
-         
+
     meta+=[
 
         ('gridcolor', dict(
@@ -2332,7 +2332,7 @@ def meta_axis(x_or_y):
             description="Sets the width of this axis' zeroline (in pixels)."
         )),
 
-        ('linecolor', dict(  
+        ('linecolor', dict(
             required=False,
             type='style',
             val_types=val_types['color'],
@@ -2340,7 +2340,7 @@ def meta_axis(x_or_y):
             examples=examples_color
         )),
 
-        ('linewidth', dict(  
+        ('linewidth', dict(
             required=False,
             type='style',
             val_types=val_types['number'](gt=0),
@@ -2388,9 +2388,9 @@ def meta_axis(x_or_y):
             required=False,
             type='style',
             val_types='',
-            description="more info coming soon."  
+            description="more info coming soon."
         )),
-        
+
         ('autorange', dict(  # TO DO! Artifact
             required=False,
             type='plot_info',
@@ -2407,7 +2407,7 @@ def meta_axis(x_or_y):
 
 #    print meta
     return [('{}axis'.format(x_or_y), OrderedDict(meta))]
-        
+
 # $xaxis
 META += meta_axis('x')
 
@@ -2416,9 +2416,9 @@ META += meta_axis('y')
 
 # $radialaxis
 META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
-        
+
     ('range', make_range('radial')),
-    
+
     ('domain', make_domain('radial')),
 
     ('orientation', dict(
@@ -2433,7 +2433,7 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
 
     ('showticklabels', make_showticklabels('radial axis')),
 
-    ('tickorientation', dict(  
+    ('tickorientation', dict(
         required=False,
         type='style',
         val_types="'horizontal' | 'vertical'",
@@ -2447,7 +2447,7 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
         val_types=val_types['number'](ge=0),
         description="Sets the length of the tick lines "
                     "on this radial axis."
-    )),    
+    )),
 
     ('tickcolor', dict(
         required=False,
@@ -2458,7 +2458,7 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
         examples=examples_color
     )),
 
-    ('ticksuffix', dict(  
+    ('ticksuffix', dict(
         required=False,
         type='style',
         val_types=val_types['string'],
@@ -2478,17 +2478,17 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
 ]))]
 
 # $angularaxis
-META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description     
+META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description
 
     ('range', make_range('angular')),
-    
+
     #('domain', make_domain('angular')),  #TO DO! Does not apply, right?
 
     ('showline', drop_showline),
 
     ('showticklabels', make_showticklabels('angular axis')),
 
-    ('tickorientation', dict(  
+    ('tickorientation', dict(
         required=False,
         type='style',
         val_types="'horizontal' | 'vertical'",
@@ -2505,7 +2505,7 @@ META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description
         examples=examples_color
     )),
 
-    ('ticksuffix', dict(  
+    ('ticksuffix', dict(
         required=False,
         type='style',
         val_types=val_types['string'],
@@ -2530,7 +2530,7 @@ META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description
 # Other graph object linked inside layout object
 
 # $legend
-META += [('legend', OrderedDict([      
+META += [('legend', OrderedDict([
 
     ('x', make_xy_layout('legend', 'x')),
 
@@ -2614,11 +2614,11 @@ meta=[
      ]
 
 meta+=meta_ticks('colorbar')
-          
+
 meta+=[
 
      ('xanchor', make_xyanchor('x')),
-     
+
      ('xanchor', make_xyanchor('y')),
 
      ('bgcolor', make_bgcolor('colorbar')),
@@ -2655,7 +2655,7 @@ meta+=[
 META += [('colorbar', OrderedDict(meta))]
 
 # $margin
-META += [('margin', OrderedDict([      
+META += [('margin', OrderedDict([
 
     ('l', dict(
         required=False,
@@ -2687,7 +2687,7 @@ META += [('margin', OrderedDict([
         val_types=val_types['number'](ge=0),
         description="The distance between edge of the plot and the "
                     "bounding rectangle that encloses the plot "
-                    "(in pixels)."               
+                    "(in pixels)."
     )),
 
     ('autoexpand', dict(  # TODO: ??
@@ -2700,12 +2700,12 @@ META += [('margin', OrderedDict([
 ]))]
 
 # $annotation
-META += [('annotation', OrderedDict([      
+META += [('annotation', OrderedDict([
 
     ('x', make_xy_layout('annotation','x')),
 
     ('y', make_xy_layout('annotation','y')),
-    
+
     ('xref', make_xyref('x')),
 
     ('yref', make_xyref('y')),
@@ -2741,7 +2741,7 @@ META += [('annotation', OrderedDict([
         description="Sets the arrowhead style. "
                     "Has an effect only if 'showarrow' is set to True."
     )),
-    
+
     ('arrowsize', dict(
         required=False,
         type='style',
@@ -2776,7 +2776,7 @@ META += [('annotation', OrderedDict([
                     "Has an effect only if 'showarrow' is set to True."
     )),
 
-    ('ay', dict(            # TO DO! Better description 
+    ('ay', dict(            # TO DO! Better description
         required=False,
         type='plot_info',
         val_types=val_types['number'](),
@@ -2797,7 +2797,7 @@ META += [('annotation', OrderedDict([
                     "the enclosing boarder.")),
 
     ('bgcolor', make_bgcolor('annotation')),
-    
+
     ('opacity', make_opacity()),
 
     ('xanchor', make_xyanchor('x')),
@@ -2837,7 +2837,7 @@ META += [('annotation', OrderedDict([
 # $layout
 #
 #
-META += [('layout', OrderedDict([      
+META += [('layout', OrderedDict([
 
     ('title', make_title('layout')),
 
@@ -2874,7 +2874,7 @@ META += [('layout', OrderedDict([
     )),
 
     ('xaxis', make_axis('x',layout=True)),
-    
+
     ('yaxis', make_axis('y',layout=True)),
 
     ('legend', dict(
@@ -2952,7 +2952,7 @@ META += [('layout', OrderedDict([
         required=False,
         type='plot_info',
         val_types="'stack' | 'group' | 'overlay'",
-        description="For bar, histogram and box plots only. " 
+        description="For bar, histogram and box plots only. "
                     "This sets how multiple bar objects are plotted "
                     "together. In other words, this defines how bars at "
                     "the same location appear on the plot. If set to "
@@ -2963,11 +2963,24 @@ META += [('layout', OrderedDict([
                     "another, you may need to set the opacity to see this."
     )),
 
+    ('boxmode', dict(
+        required=False,
+        type='plot_info',
+        val_types="'overlay' | 'group'",
+        description="Sets how groups of box plots appear. "
+                    "If set to 'overlay', a group of boxes "
+                    "will be plotted directly on top of one "
+                    "another at their specified location. "
+                    "If set to 'group', the boxes will be "
+                    "centered around their shared location, "
+                    "but they will not overlap."
+    )),
+
     ('bargap', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="For bar, histogram and box plots only. " 
+        description="For bar, histogram and box plots only. "
                     "Sets the gap between bars (or sets of bars) at "
                     "different locations."
     )),
@@ -2976,7 +2989,7 @@ META += [('layout', OrderedDict([
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="For bar, histogram and box plots only. " 
+        description="For bar, histogram and box plots only. "
                     "Sets the gap between bars in the same group. "
                     "That is, when multiple bar objects are plotted and "
                     "share the same locations, this sets the distance "
@@ -3080,7 +3093,7 @@ META += [('layout', OrderedDict([
 # $figure
 #
 #
-META += [('figure', OrderedDict([      
+META += [('figure', OrderedDict([
 
     ('data', dict(
         required=False,
@@ -3105,7 +3118,7 @@ META += [('figure', OrderedDict([
 
 # $graph-objs-meta-others
 #
-# 
+#
 
 # $data (accepts no keys)
 META += [('data', OrderedDict([('data', dict())] ))]
@@ -3180,7 +3193,7 @@ META += [('plotlytrace', OrderedDict([('plotlytrace', dict())] ))]
 
 ## Write to json
 
-# 
+#
 INFO = OrderedDict(META)
 
 if __name__ == "__main__":

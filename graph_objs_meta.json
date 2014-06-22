@@ -3155,6 +3155,12 @@
             "type": "plot_info", 
             "description": "For bar, histogram and box plots only. This sets how multiple bar objects are plotted together. In other words, this defines how bars at the same location appear on the plot. If set to 'stack' the bars are stacked ontop of one another. If set to 'group', the bars are plotted next to one another, centered around the shared location. If set to 'overlay', the bars are simply plotted over one another, you may need to set the opacity to see this."
         }, 
+        "boxmode": {
+            "val_types": "'overlay' | 'group'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
+        }, 
         "bargap": {
             "val_types": "number: x >= 0", 
             "required": false, 

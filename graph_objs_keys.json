@@ -319,6 +319,7 @@
         "bargap", 
         "bargroupgap", 
         "barmode", 
+        "boxmode", 
         "categories", 
         "defaultcolorrange", 
         "direction", 
