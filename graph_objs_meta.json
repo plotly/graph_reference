@@ -2396,15 +2396,9 @@
             ]
         }, 
         "domain": {
-            "val_types": [
-                "number array of length 2"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
             "description": "Sets the domain of this radial axis. The available space for this radial axis to live in is  from 0 to 1.", 
             "examples": [
                 [
@@ -2585,15 +2579,9 @@
             ]
         }, 
         "bordercolor": {
-            "val_types": [
-                "string describing color"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "style"
-            ], 
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
             "description": "Sets the enclosing border color for the legend.", 
             "examples": [
                 "'green'", 
@@ -2604,15 +2592,9 @@
             ]
         }, 
         "borderwidth": {
-            "val_types": [
-                "number: x >= 0"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "style"
-            ], 
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
             "description": "Sets the width of the border enclosing for the legend."
         }, 
         "xref": {
@@ -2629,22 +2611,14 @@
         }, 
         "xanchor": {
             "val_types": "'left' | 'center' | 'right'", 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "required": false, 
+            "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
         }, 
         "yanchor": {
             "val_types": "'bottom' | 'middle' | 'top'", 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "required": false, 
+            "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }, 
         "showlegend": {
@@ -2796,12 +2770,8 @@
         }, 
         "xanchor": {
             "val_types": "'bottom' | 'middle' | 'top'", 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "required": false, 
+            "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }, 
         "bgcolor": {
@@ -2837,15 +2807,9 @@
             "description": "The width of the outline surrounding this colorbar."
         }, 
         "borderwidth": {
-            "val_types": [
-                "number: x >= 0"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "style"
-            ], 
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
             "description": "Sets the width of the boarder enclosing this colorbar"
         }, 
         "xpad": {
@@ -2992,15 +2956,9 @@
             "description": "Position of the annotation text relative to the arrowhead about the y-axis. Has an effect only if 'showarrow' is set to True."
         }, 
         "bordercolor": {
-            "val_types": [
-                "string describing color"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "style"
-            ], 
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
             "description": "The color of the enclosing boarder of this annotation.", 
             "examples": [
                 "'green'", 
@@ -3011,15 +2969,9 @@
             ]
         }, 
         "borderwidth": {
-            "val_types": [
-                "number: x >= 0"
-            ], 
-            "required": [
-                false
-            ], 
-            "type": [
-                "style"
-            ], 
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
             "description": "Sets the width of the boarder enclosing this annotation"
         }, 
         "borderpad": {
@@ -3049,22 +3001,14 @@
         }, 
         "xanchor": {
             "val_types": "'left' | 'center' | 'right'", 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "required": false, 
+            "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
         }, 
         "yanchor": {
             "val_types": "'bottom' | 'middle' | 'top'", 
-            "required": [
-                false
-            ], 
-            "type": [
-                "plot_info"
-            ], 
+            "required": false, 
+            "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }, 
         "xatype": {
@@ -3314,12 +3258,8 @@
             "description": "A dictionary-like object that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
         }
     }, 
-    "data": {
-        "data": {}
-    }, 
-    "annotations": {
-        "annotations": {}
-    }, 
+    "data": {}, 
+    "annotations": {}, 
     "trace": {
         "x": {
             "type": "data"
@@ -3449,13 +3389,7 @@
             "type": "style"
         }
     }, 
-    "plotlylist": {
-        "plotlylist": {}
-    }, 
-    "plotlydict": {
-        "plotlydict": {}
-    }, 
-    "plotlytrace": {
-        "plotlytrace": {}
-    }
+    "plotlylist": {}, 
+    "plotlydict": {}, 
+    "plotlytrace": {}
 }
