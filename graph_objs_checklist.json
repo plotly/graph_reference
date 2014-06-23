@@ -242,45 +242,5 @@
             "required": "UNDOCUMENTED", 
             "description": "UNDOCUMENTED"
         }
-    }, 
-    "plotlydict": {
-        "plotlydict": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }
-    }, 
-    "plotlylist": {
-        "plotlylist": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }
-    }, 
-    "plotlytrace": {
-        "plotlytrace": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }
-    }, 
-    "data": {
-        "data": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }
-    }, 
-    "annotations": {
-        "annotations": {
-            "val_types": "UNDOCUMENTED", 
-            "required": "UNDOCUMENTED", 
-            "type": "UNDOCUMENTED", 
-            "description": "UNDOCUMENTED"
-        }
     }
 }

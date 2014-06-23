@@ -36,9 +36,7 @@
         "yatype", 
         "yref"
     ], 
-    "annotations": [
-        "annotations"
-    ], 
+    "annotations": [], 
     "area": [
         "angularaxis", 
         "marker", 
@@ -161,9 +159,7 @@
         "size", 
         "start"
     ], 
-    "data": [
-        "data"
-    ], 
+    "data": [], 
     "error_x": [
         "array", 
         "arrayminus", 
@@ -386,15 +382,9 @@
         "sizeref", 
         "symbol"
     ], 
-    "plotlydict": [
-        "plotlydict"
-    ], 
-    "plotlylist": [
-        "plotlylist"
-    ], 
-    "plotlytrace": [
-        "plotlytrace"
-    ], 
+    "plotlydict": [], 
+    "plotlylist": [], 
+    "plotlytrace": [], 
     "radialaxis": [
         "domain", 
         "endpadding", 

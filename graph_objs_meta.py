@@ -975,9 +975,9 @@ def make_bgcolor(obj):
 
 # $shortcut-bordercolor
 def make_bordercolor(obj):
-    _required=False,
-    _type='style',
-    _val_types=val_types['color'],
+    _required=False
+    _type='style'
+    _val_types=val_types['color']
     _description=dict(
         legend="Sets the enclosing border color for the legend.",
         colorbar="Sets the color of the enclosing boarder of this colorbar.",
@@ -1064,9 +1064,9 @@ def make_thickness(obj, x_or_y=False):
 
 # $shortcut-borderwidth
 def make_borderwidth(obj):
-    _required=False,
-    _type='style',
-    _val_types=val_types['number'](ge=0),
+    _required=False
+    _type='style'
+    _val_types=val_types['number'](ge=0)
     _description=dict(
         legend="Sets the width of the border enclosing for the legend.",
         colorbar="Sets the width of the boarder enclosing this colorbar",
@@ -1120,9 +1120,9 @@ def make_range(what_axis):
 
 # $shortcut-domain
 def make_domain(what_axis):
-    _required=False,
-    _type='plot_info',
-    _val_types="number array of length 2",
+    _required=False
+    _type='plot_info'
+    _val_types="number array of length 2"
     _description=''.join(["Sets the domain of this {S} axis. "
                           "The available space "
                           "for this {S} axis to live in is  "
@@ -1205,8 +1205,8 @@ def make_xyref(x_or_y):
 
 # $shortcut-xyanchor
 def make_xyanchor(x_or_y):
-    _required=False,
-    _type='plot_info',
+    _required=False
+    _type='plot_info'
     _val_types={
         'x':"'left' | 'center' | 'right'",
         'y':"'bottom' | 'middle' | 'top'"
@@ -3143,10 +3143,10 @@ META += [('figure', OrderedDict([
 #
 
 # $data (accepts no keys)
-META += [('data', OrderedDict([('data', dict())] ))]
+META += [('data', dict())]
 
 # $annotations (accepts no keys)
-META += [('annotations', OrderedDict([('annotations', dict())] ))]
+META += [('annotations', dict())]
 
 # $trace
 META += [('trace', OrderedDict([  # TO DO! Why keep this?
@@ -3202,13 +3202,13 @@ META += [('trace', OrderedDict([  # TO DO! Why keep this?
 ]))]
 
 # $plotlylist (accepts no keys)
-META += [('plotlylist', OrderedDict([('plotlylist', dict())] ))]
+META += [('plotlylist', dict())]
 
 # $plotlydict (accepts no keys)
-META += [('plotlydict', OrderedDict([('plotlydict', dict())] ))]
+META += [('plotlydict', dict())] 
 
 # $plotlytrace (accepts no keys)
-META += [('plotlytrace', OrderedDict([('plotlytrace', dict())] ))]
+META += [('plotlytrace', dict())]
 
 # -------------------------------------------------------------------------------
 
