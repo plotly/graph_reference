@@ -232,6 +232,7 @@ def make_x(obj):
     )
     _description['contour']= _description['heatmap']
     _description['histogram2dcontour']= _description['histogram2d']
+    _streamable=True
     if obj=='box':      # TO DO! Sub 'code' for example link?
         _code=''.join([">>> y0 = [1,2,3,1,1]",
                        ">>> y1 = [3,2,1,2,3]",
@@ -240,9 +241,10 @@ def make_x(obj):
                        ">>> Box(y=y, x=x, name='two boxes SHARE this name.')"
                       ])
         return output(_required[obj],_type,_val_types,_description[obj],
-                      code=_code)
+                      streamable=_streamable,code=_code)
     else:
-        return output(_required[obj],_type,_val_types,_description[obj])
+        return output(_required[obj],_type,_val_types,_description[obj],
+                      streamable=_streamable)
 
 # $shortcut-y
 def make_y(obj):
@@ -288,7 +290,9 @@ def make_y(obj):
     )
     _description['contour']= _description['heatmap']
     _description['histogram2dcontour']= _description['histogram2d']
-    return output(_required[obj],_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required[obj],_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-z
 def make_z(obj):
@@ -315,8 +319,10 @@ def make_z(obj):
                 "the number of COLUMNS. If you ARE using numpy, then running "
                 "z.shape will give you the tuple, (n, m), e.g., (3, 5)."
     )
+    _streamable=True
     _description['contour']= _description['heatmap']
-    return output(_required,_type,_val_types,_description[obj])
+    return output(_required,_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-r
 def make_r(obj):
@@ -336,7 +342,9 @@ def make_r(obj):
         area="The radial coordinates of the circle sectors in this "
              "polar area trace.",
     )
-    return output(_required[obj],_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required[obj],_type,_val_types,_description[obj],
+                 streamable=_streamable)
 
 # $shortcut-t
 def make_t(obj):
@@ -356,7 +364,9 @@ def make_t(obj):
         area="The angular coordinates of the circle sectors in this "
              "polar area trace.",
     )
-    return output(_required[obj],_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required[obj],_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcuts-coordinates-alternative
 
@@ -430,7 +440,9 @@ def make_text(obj):
             "at the top of the bars in this trace."
     )
     _description['histogram']=_description['bar']
-    return output(_required,_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required,_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-error | $shortcut-error_y | $shortcut-error_x
 def make_error(obj, x_or_y):
@@ -449,7 +461,9 @@ def make_error(obj, x_or_y):
             "be drawn from bar tops.".format(S0=s[0],S1=s[1])
     )
     _description['histogram']= _description['bar']
-    return output(_required,_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required,_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcuts-trace-style
 
@@ -487,7 +501,9 @@ def make_marker(obj):
              "color and sector boundary line width and sector boundary color."
     )
     _description['histogram']= _description['bar']
-    return output(_required,_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required,_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-line
 def make_line(obj):
@@ -513,7 +529,9 @@ def make_line(obj):
     )
     _description['histogram']= _description['bar']
     _description['histogram2dcontour']= _description['contour']
-    return output(_required,_type,_val_types,_description[obj])
+    _streamable=True
+    return output(_required,_type,_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-opacity
 def make_opacity(marker=False):
@@ -912,8 +930,9 @@ def make_color(obj):
              "color of the global font.",
         error="Sets the color of the error bars."
     )
+    _streamable=True
     return output(_required,_type,_val_types,_description[obj],
-                  examples=examples_color)
+                  streamable=_streamable,examples=examples_color)
 
 # $shortcut-fillcolor
 def make_fillcolor(obj):
@@ -996,7 +1015,9 @@ def make_size(obj, x_or_y=False):
              "{S0}-axis bin.".format(S0=s[0]),
         contours="Sets the size of each contour level."
     )
-    return output(_required,_type[obj],_val_types,_description[obj])
+    _streamable=True
+    return output(_required,_type[obj],_val_types,_description[obj],
+                  streamable=_streamable)
 
 # $shortcut-startend | $shortcut-start | $shortcut-end
 def make_startend(obj, start_or_end, x_or_y=False):
@@ -2952,7 +2973,7 @@ META += [('layout', OrderedDict([
         required=False,
         type='plot_info',
         val_types="'stack' | 'group' | 'overlay'",
-        description="For bar, histogram and box plots only. "
+        description="For bar and histogram plots only. "
                     "This sets how multiple bar objects are plotted "
                     "together. In other words, this defines how bars at "
                     "the same location appear on the plot. If set to "
@@ -2963,24 +2984,11 @@ META += [('layout', OrderedDict([
                     "another, you may need to set the opacity to see this."
     )),
 
-    ('boxmode', dict(
-        required=False,
-        type='plot_info',
-        val_types="'overlay' | 'group'",
-        description="Sets how groups of box plots appear. "
-                    "If set to 'overlay', a group of boxes "
-                    "will be plotted directly on top of one "
-                    "another at their specified location. "
-                    "If set to 'group', the boxes will be "
-                    "centered around their shared location, "
-                    "but they will not overlap."
-    )),
-
     ('bargap', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="For bar, histogram and box plots only. "
+        description="For bar and histogram plots only. "
                     "Sets the gap between bars (or sets of bars) at "
                     "different locations."
     )),
@@ -2989,11 +2997,25 @@ META += [('layout', OrderedDict([
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="For bar, histogram and box plots only. "
+        description="For bar and histogram plots only. "
                     "Sets the gap between bars in the same group. "
                     "That is, when multiple bar objects are plotted and "
                     "share the same locations, this sets the distance "
                     "between bars at each location."
+    )),
+
+    ('boxmode', dict(
+        required=False,
+        type='plot_info',
+        val_types="'overlay' | 'group'",
+        description="For box plots only. "
+                    "Sets how groups of box plots appear. "
+                    "If set to 'overlay', a group of boxes "
+                    "will be plotted directly on top of one "
+                    "another at their specified location. "
+                    "If set to 'group', the boxes will be "
+                    "centered around their shared location, "
+                    "but they will not overlap."
     )),
 
     ('radialaxis', dict(  # TO DO! How does this work?
