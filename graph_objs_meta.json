@@ -4,25 +4,29 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'y','r' and 't' are unset", 
             "type": "data", 
-            "description": "The x coordinates of the points of this scatter trace. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'."
+            "description": "The x coordinates of the points of this scatter trace. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x','r' and 't' are unset", 
             "type": "data", 
-            "description": "The y coordinates of the points of this scatter trace. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'."
+            "description": "The y coordinates of the points of this scatter trace. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'.", 
+            "streamable": true
         }, 
         "r": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace."
+            "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace.", 
+            "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace."
+            "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace.", 
+            "streamable": true
         }, 
         "mode": {
             "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
@@ -40,31 +44,36 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "The text elements associated with every (x,y) pair on the scatter plot. If the scatter 'mode' doesn't include 'text' then text will appear on hover only. If 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified by their corresponding coordinate pair."
+            "description": "The text elements associated with every (x,y) pair on the scatter plot. If the scatter 'mode' doesn't include 'text' then text will appear on hover only. If 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified by their corresponding coordinate pair.", 
+            "streamable": true
         }, 
         "error_y": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates."
+            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+            "streamable": true
         }, 
         "error_x": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates."
+            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+            "streamable": true
         }, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'."
+            "description": "A dictionary-like object containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+            "streamable": true
         }, 
         "line": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing line style parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'."
+            "description": "A dictionary-like object containing line style parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+            "streamable": true
         }, 
         "connectgaps": {
             "val_types": "boolean: True | False", 
@@ -151,25 +160,29 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'y','r' and 't' are unset", 
             "type": "data", 
-            "description": "The x coordinates of the bars. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the list or array linked to 'x'."
+            "description": "The x coordinates of the bars. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the list or array linked to 'x'.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x','r' and 't' are unset", 
             "type": "data", 
-            "description": "The y coordinates of the bars. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the list or array linked to 'y'."
+            "description": "The y coordinates of the bars. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the list or array linked to 'y'.", 
+            "streamable": true
         }, 
         "r": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace"
+            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace", 
+            "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace."
+            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace.", 
+            "streamable": true
         }, 
         "name": {
             "val_types": "string", 
@@ -187,25 +200,29 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "The text elements associated with every bar in this trace The entries in 'text' will be rendered on the plot at the at the top of the bars in this trace."
+            "description": "The text elements associated with every bar in this trace The entries in 'text' will be rendered on the plot at the at the top of the bars in this trace.", 
+            "streamable": true
         }, 
         "error_y": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops."
+            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+            "streamable": true
         }, 
         "error_x": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops."
+            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+            "streamable": true
         }, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color."
+            "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+            "streamable": true
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1]", 
@@ -253,7 +270,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "Artifact. Has no effect."
+            "description": "Artifact. Has no effect.", 
+            "streamable": true
         }, 
         "textfont": {
             "val_types": "dictionary-like", 
@@ -267,13 +285,15 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'y','r' and 't' are unset", 
             "type": "data", 
-            "description": "The data sample to be binned (done by Plotly) on the x-axis and plotted as vertical bars."
+            "description": "The data sample to be binned (done by Plotly) on the x-axis and plotted as vertical bars.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x','r' and 't' are unset", 
             "type": "data", 
-            "description": "The data sample to be binned (done by Plotly) on the y-axis and plotted as horizontal bars."
+            "description": "The data sample to be binned (done by Plotly) on the y-axis and plotted as horizontal bars.", 
+            "streamable": true
         }, 
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
@@ -327,19 +347,22 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops."
+            "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+            "streamable": true
         }, 
         "error_x": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops."
+            "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+            "streamable": true
         }, 
         "marker": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color."
+            "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+            "streamable": true
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1]", 
@@ -387,7 +410,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "Artifact. Has no effect."
+            "description": "Artifact. Has no effect.", 
+            "streamable": true
         }, 
         "orientation": {
             "val_types": "array-like of numbers, strings, datetimes", 
@@ -401,7 +425,8 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "This array is used to define an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'."
+            "description": "This array is used to define an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'.", 
+            "streamable": true
         }, 
         "x0": {
             "val_types": "number", 
@@ -410,11 +435,12 @@
             "description": "The location of this box. When 'y' defines a single box, 'x0' can be used to set where this box is centered on the x-axis. If many boxes are set to appear at the same 'x0' location, they will form a box group."
         }, 
         "x": {
-            "code": ">>> y0 = [1,2,3,1,1]>>> y1 = [3,2,1,2,3]>>> y = y0+y1  # N.B. list not numpy arrays here>>> x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)>>> Box(y=y, x=x, name='two boxes SHARE this name.')", 
             "val_types": "array-like of numbers, strings, datetimes", 
+            "code": ">>> y0 = [1,2,3,1,1]>>> y1 = [3,2,1,2,3]>>> y = y0+y1  # N.B. list not numpy arrays here>>> x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)>>> Box(y=y, x=x, name='two boxes SHARE this name.')", 
+            "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
             "required": false, 
-            "type": "data", 
-            "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location."
+            "streamable": true, 
+            "type": "data"
         }, 
         "name": {
             "val_types": "string", 
@@ -469,13 +495,15 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style parameters for this the box points of box trace. Has an effect only 'boxpoints' is set to 'outliers' or 'all'."
+            "description": "A dictionary-like object containing marker style parameters for this the box points of box trace. Has an effect only 'boxpoints' is set to 'outliers' or 'all'.", 
+            "streamable": true
         }, 
         "line": {
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing line style parameters for the border of this box trace (including the whiskers)."
+            "description": "A dictionary-like object containing line style parameters for the border of this box trace (including the whiskers).", 
+            "streamable": true
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1]", 
@@ -525,19 +553,22 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": false, 
             "type": "data", 
-            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
+            "streamable": true
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly.if the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
+            "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly.if the dimensions of z are (n x m), the length of the 'x' array should be 'm'.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly.If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
+            "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly.If the dimensions of z are (n x m), the length of the 'y' array should be 'n'.", 
+            "streamable": true
         }, 
         "name": {
             "val_types": "string", 
@@ -732,19 +763,22 @@
             "val_types": "matrix-like: list of lists, numpy.matrix", 
             "required": false, 
             "type": "data", 
-            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5)."
+            "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
+            "streamable": true
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly.if the dimensions of z are (n x m), the length of the 'x' array should be 'm'."
+            "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly.if the dimensions of z are (n x m), the length of the 'x' array should be 'm'.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": false, 
             "type": "data", 
-            "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly.If the dimensions of z are (n x m), the length of the 'y' array should be 'n'."
+            "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly.If the dimensions of z are (n x m), the length of the 'y' array should be 'n'.", 
+            "streamable": true
         }, 
         "name": {
             "val_types": "string", 
@@ -792,7 +826,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours."
+            "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours.", 
+            "streamable": true
         }, 
         "scl": {
             "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
@@ -957,13 +992,15 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace."
+            "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace."
+            "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
+            "streamable": true
         }, 
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
@@ -1160,13 +1197,15 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace."
+            "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
+            "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace."
+            "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
+            "streamable": true
         }, 
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
@@ -1238,7 +1277,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours."
+            "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours.", 
+            "streamable": true
         }, 
         "scl": {
             "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
@@ -1381,13 +1421,15 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The radial coordinates of the circle sectors in this polar area trace."
+            "description": "The radial coordinates of the circle sectors in this polar area trace.", 
+            "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The angular coordinates of the circle sectors in this polar area trace."
+            "description": "The angular coordinates of the circle sectors in this polar area trace.", 
+            "streamable": true
         }, 
         "name": {
             "val_types": "string", 
@@ -1399,7 +1441,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color."
+            "description": "A dictionary-like object containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
+            "streamable": true
         }, 
         "showlegend": {
             "val_types": "boolean: True | False", 
@@ -1477,16 +1520,17 @@
         }, 
         "color": {
             "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
             "description": "Sets the color of the error bars.", 
+            "required": false, 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ]
+            ], 
+            "type": "style"
         }, 
         "thickness": {
             "val_types": "number: x >= 0", 
@@ -1558,16 +1602,17 @@
         }, 
         "color": {
             "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
             "description": "Sets the color of the error bars.", 
+            "required": false, 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ]
+            ], 
+            "type": "style"
         }, 
         "thickness": {
             "val_types": "number: x >= 0", 
@@ -1623,7 +1668,8 @@
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the size (i.e. their width) of each x-axis bin."
+            "description": "Sets the size (i.e. their width) of each x-axis bin.", 
+            "streamable": true
         }
     }, 
     "ybins": {
@@ -1643,7 +1689,8 @@
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the size (i.e. their width) of each y-axis bin."
+            "description": "Sets the size (i.e. their width) of each y-axis bin.", 
+            "streamable": true
         }
     }, 
     "contours": {
@@ -1669,7 +1716,8 @@
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the size of each contour level."
+            "description": "Sets the size of each contour level.", 
+            "streamable": true
         }, 
         "coloring": {
             "val_types": " 'fill' | 'heatmap' | 'lines' | 'none' ", 
@@ -1695,22 +1743,24 @@
     "marker": {
         "color": {
             "val_types": "array-like of string describing color", 
-            "required": false, 
-            "type": "style", 
             "description": "Sets the color of the face of the marker object. If 'color' is linked to a list or an array of numbers, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use the 'line' key in Marker.", 
+            "required": false, 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ]
+            ], 
+            "type": "style"
         }, 
         "size": {
             "val_types": "number: x > 0, or list of these numbers", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays."
+            "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays.", 
+            "streamable": true
         }, 
         "symbol": {
             "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values", 
@@ -1722,7 +1772,8 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object describing the line belonging to the marker. For example, the line around each point in a scatter trace or the line around each bar in a bar trace."
+            "description": "A dictionary-like object describing the line belonging to the marker. For example, the line around each point in a scatter trace or the line around each bar in a bar trace.", 
+            "streamable": true
         }, 
         "opacity": {
             "val_types": "number: x in [0, 1], or list of these numbers", 
@@ -1758,16 +1809,17 @@
     "line": {
         "color": {
             "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
             "description": "Sets the color of the line object. If linked within 'marker', sets the color of the marker's bordering line. If linked within, 'contours', sets the color of the contour lines.", 
+            "required": false, 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ]
+            ], 
+            "type": "style"
         }, 
         "width": {
             "val_types": "number: x >= 0", 
@@ -1811,20 +1863,22 @@
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the size of font.If linked in the first level of the layout object, set the color of the global font."
+            "description": "Sets the size of font.If linked in the first level of the layout object, set the color of the global font.", 
+            "streamable": true
         }, 
         "color": {
             "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
             "description": "Sets the color of the font. If linked in the first level of the layout object, set the color of the global font.", 
+            "required": false, 
+            "streamable": true, 
             "examples": [
                 "'green'", 
                 "'rgb(0, 255, 0)'", 
                 "'rgba(0, 255, 0, 0.3)'", 
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
-            ]
+            ], 
+            "type": "style"
         }, 
         "outlinecolor": {
             "val_types": "string describing color", 
@@ -3153,25 +3207,25 @@
             "val_types": "'stack' | 'group' | 'overlay'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "For bar, histogram and box plots only. This sets how multiple bar objects are plotted together. In other words, this defines how bars at the same location appear on the plot. If set to 'stack' the bars are stacked ontop of one another. If set to 'group', the bars are plotted next to one another, centered around the shared location. If set to 'overlay', the bars are simply plotted over one another, you may need to set the opacity to see this."
-        }, 
-        "boxmode": {
-            "val_types": "'overlay' | 'group'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
+            "description": "For bar and histogram plots only. This sets how multiple bar objects are plotted together. In other words, this defines how bars at the same location appear on the plot. If set to 'stack' the bars are stacked ontop of one another. If set to 'group', the bars are plotted next to one another, centered around the shared location. If set to 'overlay', the bars are simply plotted over one another, you may need to set the opacity to see this."
         }, 
         "bargap": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "For bar, histogram and box plots only. Sets the gap between bars (or sets of bars) at different locations."
+            "description": "For bar and histogram plots only. Sets the gap between bars (or sets of bars) at different locations."
         }, 
         "bargroupgap": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "For bar, histogram and box plots only. Sets the gap between bars in the same group. That is, when multiple bar objects are plotted and share the same locations, this sets the distance between bars at each location."
+            "description": "For bar and histogram plots only. Sets the gap between bars in the same group. That is, when multiple bar objects are plotted and share the same locations, this sets the distance between bars at each location."
+        }, 
+        "boxmode": {
+            "val_types": "'overlay' | 'group'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "For box plots only. Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
         }, 
         "radialaxis": {
             "val_types": "dictionary-like", 
