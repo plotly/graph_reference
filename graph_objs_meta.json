@@ -121,13 +121,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -233,13 +233,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -373,13 +373,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -514,13 +514,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -684,13 +684,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -913,13 +913,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -1158,13 +1158,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {
@@ -1382,13 +1382,13 @@
         "xaxis": {
             "val_types": "'x1' | 'x2' | 'x3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to layout['xaxis'], 'x2' references layout['xaxis2'], and so on. Note that 'x1' will always refer to layout['xaxis'] or layout['xaxis1'], they are the same."
         }, 
         "yaxis": {
             "val_types": "'y1' | 'y2' | 'y3' | etc.", 
             "required": false, 
-            "type": "plot-info", 
+            "type": "plot_info", 
             "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to layout['yaxis'], 'y2' references layout['yaxis2'], and so on. Note that 'y1' will always refer to layout['yaxis'] or layout['yaxis1'], they are the same."
         }, 
         "showlegend": {

@@ -646,7 +646,7 @@ def make_axis(x_or_y, trace=False, layout=False):
     S={'x':['x','horizontal','X'], 'y':['y','vertical','Y']}
     s=S[x_or_y]
     if trace:
-        _type='plot-info'
+        _type='plot_info'
         _val_types="'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
         _description=''.join(["This key determines which {S0}-axis ",
                               "the {S0}-coordinates of this trace will ",
