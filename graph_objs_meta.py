@@ -2779,10 +2779,12 @@ META += [('annotation', OrderedDict([
         description="The text associated with this annotation. "
                     "Plotly uses a subset of HTML escape characters "
                     "to do things like newline (<br>), bold (<b></b>), "
-                    "italics (<i></i>), etc.",
+                    "italics (<i></i>), hyperlinks (<a href='...'></a>), etc.",
         examples=["regular text", 
                   "an annotation<br>spanning two lines",
-                  "<b>bold text</b>"]
+                  "<b>bold text</b>", 
+                  "<a href='https://plot.ly/'>a link to plot.ly</a>"
+                 ]
     )),
 
     ('font', make_font('annotation')),
