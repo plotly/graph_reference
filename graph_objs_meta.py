@@ -237,7 +237,7 @@ def make_x(obj):
     _description['contour']= _description['heatmap']
     _description['histogram2dcontour']= _description['histogram2d']
     _streamable=True
-    if obj=='box':      # TO DO! Sub 'code' for example link?
+    if obj=='box':      # TODO! Sub 'code' for example link?
         _code=''.join([">>> y0 = [1,2,3,1,1]",
                        ">>> y1 = [3,2,1,2,3]",
                        ">>> y = y0+y1  # N.B. list not numpy arrays here",
@@ -300,7 +300,7 @@ def make_y(obj):
 
 # $shortcut-z
 def make_z(obj):
-    _required=False # TO DO! How to phrase this?
+    _required=False # TODO! How to phrase this?
     _type='data'
     _val_types=val_types['matrix']
     _description=dict(
@@ -336,7 +336,7 @@ def make_r(obj):
         area=True
     )
     _type='data'
-    _val_types=val_types['number_array'] # TO DO! Should this support string too?
+    _val_types=val_types['number_array'] # Q? Should this support string too?
     _description=dict(  
         scatter="For Polar charts only. "
                 "The radial coordinates of the points in this "
@@ -399,11 +399,11 @@ def make_t(obj):
 # $shortcut-x0y0 $shortcut-x0 | $shortcut-y0
 def make_x0y0(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TO DO! 'data' maybe?
+    _type='plot_info'  # TODO! 'data' maybe?
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
-    _description=dict( # TO DO! Add scatter?
+    _description=dict( # TODO! Add scatter?
         box="The location of this box. When 'y' defines a single "
             "box, 'x0' can be used to set where this box is "
             "centered on the x-axis. If many boxes are set to "
@@ -419,11 +419,11 @@ def make_x0y0(obj, x_or_y=False):
 # $shortcut-dxdy | $shortcut-dx | $shortcut-dy
 def make_dxdy(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TO DO! 'data' maybe?
+    _type='plot_info'  # TODO! 'data' maybe?
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
-    _description=dict( # TO DO! Add scatter?
+    _description=dict( # TODO! Add scatter?
         heatmap="Spacing between {S0}-axis coordinates. "
                 "Use with '{S0}0' an alternative to an '{S0}' list/array. "
                 "Has no effect if '{S0}' is set.".format(S0=s[0]),
@@ -434,7 +434,7 @@ def make_dxdy(obj, x_or_y=False):
 # $shortcut-xytype | $shortcut-xtype | $shortcut-ytype
 def make_xytype(obj, x_or_y):
     _required=False
-    _type='data'
+    _type='data'    # TODO! 'data' maybe?
     _val_types="'array' | 'scaled'",
     S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
     s=S[x_or_y]
@@ -498,7 +498,7 @@ def make_error(obj, x_or_y):
 # $shortcut-orientation
 def make_orientation(obj):
     _required=False
-    _type='style'   # TO DO! 'plot_info' instead?
+    _type='style'   # TODO! 'plot_info' instead?
     _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
@@ -714,11 +714,11 @@ def make_type(trace=False, axis=False, error=False):
                               "only requires a single x or y array ",
                               " and a 'heatmap' type requires a z matrix."
                              ])
-    elif axis:  # TO DO! Info on category
+    elif axis:  # TODO! Info on category
         _val_types="'linear' | 'log' | 'category'"
         _description="Defines format of this axis."
     elif error:
-        _type='plot_info'  # TO DO! 'data' maybe?
+        _type='plot_info'  # TODO! 'data' maybe?
         _val_types="'data' | 'percent' | 'constant' | 'sqrt'"
         _description=''.join(["Specify how the 'value' or 'array' key in ",
                               "this error bar will be used to render the bars. ",
@@ -782,7 +782,7 @@ def make_autobin(x_or_y):
 # $shortcut-nbins | $shortcut-nbinsx | $shortcut-nbinsy
 def make_nbins(x_or_y):
     _required=False
-    _type='style'    # TO DO! Shouldn't this be 'plot_info' ?
+    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
     _val_types=val_types['number'](gt=0)
     S={'x':['x',], 'y':['y',]}
     s=S[x_or_y]
@@ -882,7 +882,7 @@ drop_showscale=dict(
 
 # $shortcuts-2d-specs-more
 
-# $shortcut-zsmooth  # TO DO! Describe the 2 algorithms
+# $shortcut-zsmooth  # TODO! Describe the 2 algorithms
 drop_zsmooth=dict(
     required=False,
     type='style',
@@ -1136,7 +1136,7 @@ def make_titlefont(obj, x_or_y=False):
 # $shortcut-range
 def make_range(what_axis):
     _required=False
-    _type='style'          # TO DO! changed this!!!  was plot_info
+    _type='style'          # TODO! changed this!!!  was plot_info
     _val_types="number array of length 2"
     _description=''.join(["Defines the start and end point of "
                           "this {S} axis."
@@ -1200,7 +1200,7 @@ def make_autotick(axis_or_colorbar):
 # $shortcut-nticks
 def make_nticks(axis_or_colorbar):
     _required=False
-    _type='style'    # TO DO! Shouldn't this be 'plot_info' ?
+    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
     _val_types=val_types['number'](gt=0)
     _description=''.join(["Specifies the number of {S} ticks. ",
                           "No need to set 'autoticks' to False ",
@@ -1418,9 +1418,9 @@ META += [('bar', OrderedDict([
 
     ('type', make_type('bar')),
 
-    ('line', make_line('bar')),  # TO DO! Artifact?
+    ('line', make_line('bar')),  # ARTIFACT
 
-    ('textfont', make_textfont('bar'))  # TO DO! Artifact?
+    ('textfont', make_textfont('bar'))  # ARTIFACT
 
 ]))]
 
@@ -1469,9 +1469,9 @@ META += [('histogram', OrderedDict([
 
     ('type', make_type('histogram')),
 
-    ('line', make_line('histogram')),  # TO DO! Artifact? Drop?
+    ('line', make_line('histogram')),  # ARTIFACT
 
-    ('orientation', make_orientation('histogram'))  # TO DO! Artifact Drop?
+    ('orientation', make_orientation('histogram'))  # ARTIFACT
 
 ]))]
 
@@ -1486,7 +1486,7 @@ META += [('box', OrderedDict([
 
     ('name', drop_name),
 
-    ('boxpoints', dict(  # TO DO! What does 'suspectedoutliers' do?
+    ('boxpoints', dict(  # TODO! What does 'suspectedoutliers' do?
         required=False,
         type='plot_info',
         val_types="'all' | 'outliers' | 'suspectedoutliers' | False",
@@ -1788,7 +1788,7 @@ META += [('histogram2dcontour', OrderedDict([
 ]))]
 
 # $area
-META += [('area', OrderedDict([  # TO DO! More testing, better descriptions
+META += [('area', OrderedDict([  
 
     ('r', make_r('area')),
 
@@ -1804,14 +1804,14 @@ META += [('area', OrderedDict([  # TO DO! More testing, better descriptions
 
     ('visible', drop_visible),
 
-    ('angularaxis', dict(  # TO DO! How do polar axes this work?
+    ('angularaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
         description='info coming soon'
     )),
 
-    ('radialaxis', dict(  # TO DO! How do polar axes this work?
+    ('radialaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
@@ -1931,7 +1931,7 @@ def meta_error(y_or_x):
 
         ('visible', drop_visible),
 
-        ('traceref', dict(   # TO DO! What does this do?
+        ('traceref', dict(   # TODO! What does this do?
             required=False,
             type='plot_info',
             val_types='',
@@ -2060,7 +2060,7 @@ META += [('marker', OrderedDict([
 
     ('opacity', make_opacity(marker=True)),
 
-    ('colorscale', dict(  # TO DO! Check if right, example, merge with 'scl'?
+    ('colorscale', dict(  # TODO! Check if right, example, merge with 'scl'?
         required=False,
         type="style",
         val_types="array_like of value-color pairs | "
@@ -2076,7 +2076,7 @@ META += [('marker', OrderedDict([
                     "corresponds to a color."
     )),
 
-    ('sizemode', dict(  # TO DO! Better description
+    ('sizemode', dict(  # TODO! Better description
         required=False,
         type='style',
         val_types="'diameter' | 'area'",
@@ -2085,7 +2085,7 @@ META += [('marker', OrderedDict([
                     "Applies only to scatter traces."
     )),
 
-    ('sizeref', dict(  # TO DO! Better description
+    ('sizeref', dict(  # TODO! Better description
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
@@ -2119,7 +2119,7 @@ META += [('line', OrderedDict([
 
     ('opacity', make_opacity()),
 
-    ('smoothing', dict(     # TO DO! Better description
+    ('smoothing', dict(     # TODO! Better description
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
@@ -2128,7 +2128,7 @@ META += [('line', OrderedDict([
                     "and scatter trace if 'shape' is set to 'spline'."
     )),
 
-    ('shape', dict(         # TO DO! Better description
+    ('shape', dict(         # TODO! Better description
         required=False,
         type='style',
         val_types="'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'",
@@ -2136,7 +2136,7 @@ META += [('line', OrderedDict([
                     "Applies only to scatter traces."
     )),
 
-    # ('thickness', dict()),  # TO DO! Does this exist somewhere?
+    # ('thickness', dict()),  # TODO! Artifact?
 
 ]))]
 
@@ -2178,7 +2178,7 @@ META += [('font', OrderedDict([
 #
 # Axis trace objects linked inside layout object
 
-# $ticks        TO DO! Separate object for ticks?
+# $ticks 
 #
 # META generation for ticks (axis and colorbar)
 def meta_ticks(axis_or_colorbar):
@@ -2299,7 +2299,7 @@ def meta_axis(x_or_y):
 
         ('range', dict(
             required=False,
-            type='style',  # TO DO! changed this!!!  was plot_info
+            type='style',  # TODO! changed this!!!  was plot_info
             val_types="number array of length 2",
             description="Defines the start and end point of "
                         "this {}-axis.".format(x_or_y),
@@ -2446,14 +2446,14 @@ def meta_axis(x_or_y):
                         "opposite side of the plot."
         )),
 
-        ('overlaying', dict(  # TO DO! What does this do?
+        ('overlaying', dict(  # TODO! What does this do?
             required=False,
             type='style',
             val_types='',
             description="more info coming soon."
         )),
 
-        ('autorange', dict(  # TO DO! Artifact
+        ('autorange', dict(  # TODO! Artifact?
             required=False,
             type='plot_info',
             val_types=val_types['bool'],
@@ -2462,12 +2462,11 @@ def meta_axis(x_or_y):
                         "is overwritten."
         )),
 
-        # ('drange', dict()),  # TO DO! What are these?
+        # ('drange', dict()),  # TODO! Artifact
         # ('r0', dict()),
 
     ]
 
-#    print meta
     return [('{}axis'.format(x_or_y), OrderedDict(meta))]
 
 # $xaxis
@@ -2477,7 +2476,7 @@ META += meta_axis('x')
 META += meta_axis('y')
 
 # $radialaxis
-META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
+META += [('radialaxis', OrderedDict([ 
 
     ('range', make_range('radial')),
 
@@ -2540,13 +2539,13 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
 ]))]
 
 # $angularaxis
-META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description
+META += [('angularaxis', OrderedDict([
 
     ('range', make_range('angular')),
 
-    ('domain', make_domain('angular')),  # TO DO! Does not apply, right?
+    ('domain', make_domain('angular')),  # TODO! Does not apply, right?
 
-    ('showline', make_showline('angular')), # TO DO! This should be 'gridline'
+    ('showline', make_showline('angular')), # Q? Should be 'gridline'
 
     ('showticklabels', make_showticklabels('angular axis')),
 
@@ -2623,7 +2622,7 @@ META += [('legend', OrderedDict([
 
     ('yanchor', make_xyanchor('y')),
 
-    ('showlegend', make_showlegend(layout=True)), # TO DO! Redundant w/ 'layout'
+    ('showlegend', make_showlegend(layout=True)), # TODO! Redundant w/ 'layout'?
 
 ]))]
 
@@ -2837,7 +2836,7 @@ META += [('annotation', OrderedDict([
         examples=examples_color
     )),
 
-    ('ax', dict(            # TO DO! Better description
+    ('ax', dict(            # TODO! Better description
         required=False,
         type='plot_info',
         val_types=val_types['number'](),
@@ -2846,7 +2845,7 @@ META += [('annotation', OrderedDict([
                     "Has an effect only if 'showarrow' is set to True."
     )),
 
-    ('ay', dict(            # TO DO! Better description
+    ('ay', dict(            # TODO! Better description
         required=False,
         type='plot_info',
         val_types=val_types['number'](),
@@ -2874,28 +2873,28 @@ META += [('annotation', OrderedDict([
 
     ('yanchor', make_xyanchor('y')),
 
-    ('xatype', dict(    # TO DO! What does this do?
+    ('xatype', dict(    # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('yatype', dict(    # TO DO! What does this do?
+    ('yatype', dict(    # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('tag', dict(       # TO DO! What does this do?
+    ('tag', dict(       # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('ref', dict(       # TO DO! What does this do?
+    ('ref', dict(       # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
@@ -3067,7 +3066,7 @@ META += [('layout', OrderedDict([
                     "but they will not overlap."
     )),
 
-    ('radialaxis', dict(  # TO DO! How does this work?
+    ('radialaxis', dict(  # TODO! How does this work?
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3075,7 +3074,7 @@ META += [('layout', OrderedDict([
                     "in a polar plot."
     )),
 
-    ('angularaxis', dict( # TO DO! How does this work?
+    ('angularaxis', dict( # TODO! How does this work?
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3124,35 +3123,35 @@ META += [('layout', OrderedDict([
 #                    "info coming soon."
 #    )),
 
-    ('categories', dict(  # TO DO! What does this do? Artifact?
+    ('categories', dict(  # TODO! What does this do? Artifact?
         required=False,
         type='plot_info',
         val_types='',
         description='info coming soon'
     )),
 
-    ('separators', dict(  # TO DO! What does this do?
+    ('separators', dict(  # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description='info coming soon'
     )),
 
-    ('labeloffset', dict(  # TO DO! Does this actually work?
+    ('labeloffset', dict(  # TODO! Does this actually work?
         required=False,
         type='style',
         val_types='',
         description='info coming soon'
     )),
 
-    ('hidesources', dict(  # TO DO! Artifact?
+    ('hidesources', dict(  # TODO! Artifact?
         required=False,
         type='plot_info',
         val_types='',
         description='more info coming soon'
     )),
 
-    ('bardir', dict(    # TO DO! Artifact?
+    ('bardir', dict(    # TODO! Artifact?
         required=False,
         type='plot_info',
         val_types='',
@@ -3198,7 +3197,7 @@ META += [('data', dict())]
 META += [('annotations', dict())]
 
 # $trace
-META += [('trace', OrderedDict([  # TO DO! Why keep this?
+META += [('trace', OrderedDict([  # TODO! Why keep this?
 
     ('x', dict(type='data')),
     ('y', dict(type='data')),
