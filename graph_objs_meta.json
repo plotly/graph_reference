@@ -191,9 +191,7 @@
             "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
         }, 
         "orientation": {
-            "val_types": [
-                "'v' | 'h'"
-            ], 
+            "val_types": "'v' | 'h'", 
             "required": false, 
             "type": "style", 
             "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
@@ -423,9 +421,7 @@
             "streamable": true
         }, 
         "orientation": {
-            "val_types": [
-                "'v' | 'h'"
-            ], 
+            "val_types": "'v' | 'h'", 
             "required": false, 
             "type": "style", 
             "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."

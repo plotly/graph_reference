@@ -499,7 +499,7 @@ def make_error(obj, x_or_y):
 def make_orientation(obj):
     _required=False
     _type='style'   # TO DO! 'plot_info' instead?
-    _val_types="'v' | 'h'",
+    _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
             "If set to 'v', the length of each bar will run vertically. "
