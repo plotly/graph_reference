@@ -15,17 +15,17 @@
             "streamable": true
         }, 
         "r": {
-            "val_types": "array-like of numbers, strings, datetimes", 
+            "val_types": "array-like of numbers", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace.", 
+            "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace about the origin.", 
             "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace.", 
+            "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
             "streamable": true
         }, 
         "mode": {
@@ -171,17 +171,17 @@
             "streamable": true
         }, 
         "r": {
-            "val_types": "array-like of numbers, strings, datetimes", 
+            "val_types": "array-like of numbers", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace", 
+            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace about the original; that is, the radial extent of each bar.", 
             "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": " when 'x' and 'y' are unset", 
             "type": "data", 
-            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace.", 
+            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
             "streamable": true
         }, 
         "name": {
@@ -191,7 +191,9 @@
             "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
         }, 
         "orientation": {
-            "val_types": "array-like of numbers, strings, datetimes", 
+            "val_types": [
+                "'v' | 'h'"
+            ], 
             "required": false, 
             "type": "style", 
             "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
@@ -421,7 +423,9 @@
             "streamable": true
         }, 
         "orientation": {
-            "val_types": "array-like of numbers, strings, datetimes", 
+            "val_types": [
+                "'v' | 'h'"
+            ], 
             "required": false, 
             "type": "style", 
             "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."
@@ -606,7 +610,7 @@
             "required": false, 
             "type": "style", 
             "examples": [
-                "Greys", 
+                "'Greys'", 
                 [
                     [
                         0, 
@@ -807,7 +811,7 @@
             "required": false, 
             "type": "style", 
             "examples": [
-                "Greys", 
+                "'Greys'", 
                 [
                     [
                         0, 
@@ -994,7 +998,7 @@
             "required": false, 
             "type": "style", 
             "examples": [
-                "Greys", 
+                "'Greys'", 
                 [
                     [
                         0, 
@@ -1190,7 +1194,7 @@
             "required": false, 
             "type": "style", 
             "examples": [
-                "Greys", 
+                "'Greys'", 
                 [
                     [
                         0, 
@@ -1289,17 +1293,17 @@
     }, 
     "area": {
         "r": {
-            "val_types": "array-like of numbers, strings, datetimes", 
+            "val_types": "array-like of numbers", 
             "required": true, 
             "type": "data", 
-            "description": "The radial coordinates of the circle sectors in this polar area trace.", 
+            "description": "The radial coordinates of the circle sectors in this polar area trace about the origin; that is, the radial extent of each circle sector.", 
             "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "The angular coordinates of the circle sectors in this polar area trace.", 
+            "description": "The angular coordinates of the circle sectors in this polar area trace. There are as many circle sectors as coordinates linked to 't' and 'r'. Each circle sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinate at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
             "streamable": true
         }, 
         "name": {
@@ -1630,7 +1634,7 @@
             "val_types": "number: x > 0, or list of these numbers", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays.", 
+            "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays ", 
             "streamable": true
         }, 
         "symbol": {
@@ -1725,7 +1729,7 @@
     }, 
     "font": {
         "family": {
-            "val_types": " 'Arial, sans-serif' |  'Balto, sans-serif' |  'Courier New, monospace' |  'Droid Sans, sans-serif' |  'Droid Serif, serif' |  'Droid Sans Mono, sans-serif' |  'Georgia, serif' |  'Gravitas One, cursive' |  'Old Standard TT, serif' |  'Open Sans, sans-serif' or ('')|  'PT Sans Narrow, sans-serif' |  'Raleway, sans-serif' |  'Times New Roman, Times, serif' |", 
+            "val_types": " 'Arial, sans-serif' |  'Balto, sans-serif' |  'Courier New, monospace' |  'Droid Sans, sans-serif' |  'Droid Serif, serif' |  'Droid Sans Mono, sans-serif' |  'Georgia, serif' |  'Gravitas One, cursive' |  'Old Standard TT, serif' |  'Open Sans, sans-serif' or ('') |  'PT Sans Narrow, sans-serif' |  'Raleway, sans-serif' |  'Times New Roman, Times, serif'", 
             "required": false, 
             "type": "style", 
             "description": "Sets the font family. If linked in the first level of the layout object,  set the color of the global font. The default font in Plotly is 'Open Sans, sans-serif'."
@@ -1826,7 +1830,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Toggle whether or not to show the label (i.e. bordering) line of the axis."
+            "description": "Toggle whether or not the line bounding this x axis will be shown on the figure."
         }, 
         "autotick": {
             "val_types": "boolean: True | False", 
@@ -1905,7 +1909,7 @@
             "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'", 
             "required": false, 
             "type": "style", 
-            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency."
+            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency)."
         }, 
         "showexponent": {
             "val_types": "'all' | 'first' | 'last' | 'none'", 
@@ -2068,7 +2072,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Toggle whether or not to show the label (i.e. bordering) line of the axis."
+            "description": "Toggle whether or not the line bounding this y axis will be shown on the figure."
         }, 
         "autotick": {
             "val_types": "boolean: True | False", 
@@ -2147,7 +2151,7 @@
             "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'", 
             "required": false, 
             "type": "style", 
-            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency."
+            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency)."
         }, 
         "showexponent": {
             "val_types": "'all' | 'first' | 'last' | 'none'", 
@@ -2273,11 +2277,11 @@
             "description": "Sets the domain of this radial axis. The available space for this radial axis to live in is  from 0 to 1.", 
             "examples": [
                 [
-                    -13, 
-                    20
+                    0, 
+                    0.4
                 ], 
                 [
-                    0, 
+                    0.6, 
                     1
                 ]
             ]
@@ -2292,7 +2296,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Toggle whether or not to show the label (i.e. bordering) line of the axis."
+            "description": "Toggle whether or not the line bounding this radial axis will be shown on the figure."
         }, 
         "showticklabels": {
             "val_types": "boolean: True | False", 
@@ -2349,14 +2353,30 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "style", 
-            "description": "Defines the start and end point of this angular axis.", 
+            "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array-like of string.", 
             "examples": [
                 [
-                    -13, 
-                    20
+                    0, 
+                    180
                 ], 
                 [
                     0, 
+                    6.2831
+                ]
+            ]
+        }, 
+        "domain": {
+            "val_types": "number array of length 2", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the domain of this angular axis. The available space for this angular axis to live in is  from 0 to 1.", 
+            "examples": [
+                [
+                    0, 
+                    0.4
+                ], 
+                [
+                    0.6, 
                     1
                 ]
             ]
@@ -2365,7 +2385,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Toggle whether or not to show the label (i.e. bordering) line of the axis."
+            "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to True, the bounding line starts from the origin and extends to the edge of radial axis."
         }, 
         "showticklabels": {
             "val_types": "boolean: True | False", 
@@ -2631,7 +2651,7 @@
             "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'", 
             "required": false, 
             "type": "style", 
-            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency."
+            "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted. If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency)."
         }, 
         "showexponent": {
             "val_types": "'all' | 'first' | 'last' | 'none'", 
@@ -3063,31 +3083,13 @@
             "val_types": "'clockwise' | 'counterclockwise'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "For polar plots only. Choose the direction corresponding to positive angular distances."
+            "description": "For polar plots only. Sets the direction corresponding to positive angles."
         }, 
         "orientation": {
             "val_types": "number: x in [-360, 360]", 
             "required": false, 
             "type": "plot_info", 
-            "description": "For polar plots only. Sets the orientation of (i.e. rotate) the polar plot."
-        }, 
-        "defaultcolorrange": {
-            "val_types": "number: x in [-360, 360]", 
-            "required": false, 
-            "type": "style", 
-            "description": "For polar plots only. More info coming soon."
-        }, 
-        "opacity": {
-            "val_types": "number: x in [0, 1]", 
-            "required": false, 
-            "type": "style", 
-            "description": "For polar plots only.Sets the opacity of the entire plot."
-        }, 
-        "needsEndSpacing": {
-            "val_types": "", 
-            "required": false, 
-            "type": "style", 
-            "description": "For polar plots only. info coming soon."
+            "description": "For polar plots only. Rotates the entire polar by the given angle."
         }, 
         "categories": {
             "val_types": "", 

@@ -1,5 +1,6 @@
 {
     "angularaxis": [
+        "domain", 
         "endpadding", 
         "range", 
         "showline", 
@@ -318,7 +319,6 @@
         "barmode", 
         "boxmode", 
         "categories", 
-        "defaultcolorrange", 
         "direction", 
         "dragmode", 
         "font", 
@@ -328,8 +328,6 @@
         "labeloffset", 
         "legend", 
         "margin", 
-        "needsEndSpacing", 
-        "opacity", 
         "orientation", 
         "paper_bgcolor", 
         "plot_bgcolor", 
