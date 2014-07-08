@@ -368,14 +368,14 @@ def make_t(obj):
         bar="For Polar charts only. "
             "The angular coordinates of the bars in this polar bar trace.",
         area="The angular coordinates of the circle sectors in this "
-             "polar area trace. There are as many circle sectors as coordinates "
-             "linked to 't' and 'r'. Each circle sector is drawn about the "
+             "polar area trace. There are as many sectors as coordinates "
+             "linked to 't' and 'r'. Each sector is drawn about the "
              "coordinates linked to 't', where they spanned symmetrically "
              "in both the positive and negative angular directions. "
              "The angular extent of each sector is equal to the angular range "
              "(360 degree by default) divided by the number of sectors. "
              "Note that the sectors are drawn in order; coordinates at the end "
-             "of the array may overlay the coordinate at the start."
+             "of the array may overlay the coordinates at the start."
     )
     for k in _description.keys():
         _description[k]+=''.join([" By default, the angular coordinates "
