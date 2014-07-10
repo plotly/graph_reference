@@ -2276,7 +2276,7 @@ def meta_ticks(axis_or_colorbar):
                         "1000000000 (1 billion) shows up in each. If set to "
                         "'none': 1,000,000,000. If set to 'e': 1e+9. If set "
                         "to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 "
-                        "will appear super-scripted. If set to 'SI': 1G. If "
+                        "will appear super-scripted). If set to 'SI': 1G. If "
                         "set to 'B': 1B (useful when referring to currency)."
         )),
 
