@@ -1782,21 +1782,33 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "style", 
+            "description": "Defines the start and end point of this x axis.", 
             "examples": [
-                -13, 
-                20
-            ], 
-            "description": "Defines the start and end point of this x-axis."
+                [
+                    -13, 
+                    20
+                ], 
+                [
+                    0, 
+                    1
+                ]
+            ]
         }, 
         "domain": {
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
+            "description": "Sets the domain of this x axis; that is, the available space for this x axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
             "examples": [
-                0, 
-                0.5
-            ], 
-            "description": "Sets the domain of this x-axis. The available space for this axis to live in is  from 0 to 1."
+                [
+                    0, 
+                    0.4
+                ], 
+                [
+                    0.6, 
+                    1
+                ]
+            ]
         }, 
         "type": {
             "val_types": "'linear' | 'log' | 'category'", 
@@ -2024,21 +2036,33 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "style", 
+            "description": "Defines the start and end point of this y axis.", 
             "examples": [
-                -13, 
-                20
-            ], 
-            "description": "Defines the start and end point of this y-axis."
+                [
+                    -13, 
+                    20
+                ], 
+                [
+                    0, 
+                    1
+                ]
+            ]
         }, 
         "domain": {
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
+            "description": "Sets the domain of this y axis; that is, the available space for this y axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
             "examples": [
-                0, 
-                0.5
-            ], 
-            "description": "Sets the domain of this y-axis. The available space for this axis to live in is  from 0 to 1."
+                [
+                    0, 
+                    0.4
+                ], 
+                [
+                    0.6, 
+                    1
+                ]
+            ]
         }, 
         "type": {
             "val_types": "'linear' | 'log' | 'category'", 
@@ -2270,7 +2294,7 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the domain of this radial axis. The available space for this radial axis to live in is  from 0 to 1.", 
+            "description": "Sets the domain of this radial axis; that is, the available space for this radial axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
             "examples": [
                 [
                     0, 
@@ -2365,7 +2389,7 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the domain of this angular axis. The available space for this angular axis to live in is  from 0 to 1.", 
+            "description": "Sets the domain of this angular axis; that is, the available space for this angular axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
             "examples": [
                 [
                     0, 
@@ -2785,7 +2809,7 @@
                 "<b>bold text</b>", 
                 "<a href='https://plot.ly/'>a link to plot.ly</a>"
             ], 
-            "description": "The text associated with this annotation. Plotly uses a subset of HTML escape characters to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>), etc."
+            "description": "The text associated with this annotation. Plotly uses a subset of HTML tags to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>). Tags <em>, <sup>, <sub>, <span> are also supported."
         }, 
         "font": {
             "val_types": "dictionary-like", 

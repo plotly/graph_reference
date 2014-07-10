@@ -1172,10 +1172,11 @@ def make_domain(what_axis):
     _required=False
     _type='plot_info'
     _val_types="number array of length 2"
-    _description=''.join(["Sets the domain of this {S} axis. "
-                          "The available space "
-                          "for this {S} axis to live in is  "
-                          "from 0 to 1."
+    _description=''.join(["Sets the domain of this {S} axis; "
+                          "that is, the available space "
+                          "for this {S} axis to live in. "
+                          "Domain coordinates are given in normalized "
+                          "coordinates with respect to the paper."
                          ]).format(S=what_axis)
     _examples=[[0,0.4], [0.6, 1]]
     return output(_required,_type,_val_types,_description,
@@ -2313,24 +2314,9 @@ def meta_axis(x_or_y):
 
         ('titlefont', make_titlefont('axis',x_or_y)),
 
-        ('range', dict(
-            required=False,
-            type='style',  # TODO! changed this!!!  was plot_info
-            val_types="number array of length 2",
-            description="Defines the start and end point of "
-                        "this {}-axis.".format(x_or_y),
-            examples=[-13, 20]
-        )),
+        ('range', make_range(x_or_y)),
 
-        ('domain', dict(
-            required=False,
-            type='plot_info',
-            val_types="number array of length 2",
-            description="Sets the domain of this {}-axis. The available space "
-                        "for this axis to live in is  "
-                        "from 0 to 1.".format(x_or_y),
-            examples=[0, 0.5]
-        )),
+        ('domain', make_domain(x_or_y)),
 
         ('type', dict(   # Different enough from shortcut-type
             required=False,
@@ -2792,9 +2778,10 @@ META += [('annotation', OrderedDict([
         type='plot_info',
         val_types=val_types['string'],
         description="The text associated with this annotation. "
-                    "Plotly uses a subset of HTML escape characters "
+                    "Plotly uses a subset of HTML tags "
                     "to do things like newline (<br>), bold (<b></b>), "
-                    "italics (<i></i>), hyperlinks (<a href='...'></a>), etc.",
+                    "italics (<i></i>), hyperlinks (<a href='...'></a>). "
+                    "Tags <em>, <sup>, <sub>, <span> are also supported.",
         examples=["regular text", 
                   "an annotation<br>spanning two lines",
                   "<b>bold text</b>", 
