@@ -21,7 +21,7 @@
 #
 # Section -- Required module(s)
 #
-# Section  -- Shortcuts Definitions:
+# Section  -- Shortcuts definitions:
 #
 # * Inventory of value types repeated over several keys
 #   - search for `$val_types`
@@ -99,7 +99,7 @@ from collections import OrderedDict
 
 # $val_types
 #
-# List of value types repeated over several keys
+# Inventory of value types shortcuts 
 
 # $val_types-number
 # Use this to format key accepting numbers
@@ -144,17 +144,33 @@ val_types = dict(
     object="dictionary-like",
 )
 
-# $required_when
+# $required_cond
 #
-# Shortcut to describe conditional required keys
+# Inventory of shortcuts to describe conditional required keys
 
-def required_when(when):
-    if type(when)==str:
+# $required_cond-keys
+# Use this for conditions involving keys
+def _required_keys(keys):
+    if type(keys)==str:
         to_be = 'is'
-    elif type(when)==list:
-        when=','.join(when[0:-1])+' and '+when[-1]
+    if all([type(keys)==list, len(keys)==1]):
+        to_be = 'is'
+        keys = keys[0]
+    elif type(keys)==list:
+        keys=','.join(keys[0:-1])+' and '+keys[-1]
         to_be = 'are'
-    return " when {key} {to_be} unset".format(key=when,to_be=to_be)
+    return " when {keys} {to_be} unset".format(keys=keys,to_be=to_be)
+
+# $required_cond-plottype
+# Use this for conditions involving plot type
+def _required_plottype(plottype):
+    return " when making a {plottype}".format(plottype=plottype)
+
+# $required_cond-dict
+required_cond = dict(
+   keys= _required_keys,
+   plottype= _required_plottype
+)
 
 
 # $shortcuts--
@@ -186,9 +202,9 @@ def output(_required, _type, _val_types, _description, **kwargs):
 # $shortcut-x
 def make_x(obj):
     _required=dict(
-        scatter=required_when(["'y'","'r'","'t'"]),
-        bar=required_when(["'y'","'r'","'t'"]),
-        histogram=required_when(["'y'","'r'","'t'"]),
+        scatter=required_cond['keys'](["'y'","'r'","'t'"]),
+        bar=required_cond['keys'](["'y'"]),
+        histogram=required_cond['keys'](["'y'"]),
         box=False,
         heatmap=False,
         contour=False,
@@ -253,9 +269,9 @@ def make_x(obj):
 # $shortcut-y
 def make_y(obj):
     _required=dict(
-        scatter=required_when(["'x'","'r'","'t'"]),
-        bar=required_when(["'x'","'r'","'t'"]),
-        histogram=required_when(["'x'","'r'","'t'"]),
+        scatter=required_cond['keys'](["'x'","'r'","'t'"]),
+        bar=required_cond['keys'](["'x'"]),
+        histogram=required_cond['keys'](["'x'"]),
         box=True,
         heatmap=False,
         contour=False,
@@ -331,8 +347,8 @@ def make_z(obj):
 # $shortcut-r
 def make_r(obj):
     _required=dict(
-        scatter=required_when(["'x'","'y'"]),
-        bar=required_when(["'x'","'y'"]),
+        scatter=required_cond['plottype']("Polar Chart"),
+        bar=required_cond['plottype']("Polar Chart"),
         area=True
     )
     _type='data'
@@ -355,8 +371,8 @@ def make_r(obj):
 # $shortcut-t
 def make_t(obj):
     _required=dict(
-        scatter=required_when(["'x'","'y'"]),
-        bar=required_when(["'x'","'y'"]),
+        scatter=required_cond['plottype']("Polar Chart"),
+        bar=required_cond['plottype']("Polar Chart"),
         area=True
     )
     _type='data'
@@ -1300,7 +1316,7 @@ META += [('scatter', OrderedDict([
 
     ('y', make_y('scatter')),
 
-    ('r', make_r('scatter')),
+    ('r', make_r('scatter')),  
 
     ('t', make_t('scatter')),
 
@@ -1388,10 +1404,6 @@ META += [('bar', OrderedDict([
 
     ('y', make_y('bar')),
 
-    ('r', make_r('bar')),
-
-    ('t', make_t('bar')),
-
     ('name', drop_name),
 
     ('orientation', make_orientation('bar')),
@@ -1417,6 +1429,10 @@ META += [('bar', OrderedDict([
     ('visible', drop_visible),
 
     ('type', make_type('bar')),
+
+    ('r', make_r('bar')),   # ARTIFACT
+ 
+    ('t', make_t('bar')),   # ARTIFACT
 
     ('line', make_line('bar')),  # ARTIFACT
 
@@ -1808,14 +1824,14 @@ META += [('area', OrderedDict([
         required=False,
         type='plot_info',
         val_types='',
-        description='info coming soon'
+        description='Polar chart subplot are not supported yet. Info coming soon'
     )),
 
     ('radialaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
-        description='info coming soon'
+        description='Polar chart subplot are not supported yet. Info coming soon'
     )),
 
     ('type', make_type('area'))

@@ -16,14 +16,14 @@
         }, 
         "r": {
             "val_types": "array-like of numbers", 
-            "required": " when 'x' and 'y' are unset", 
+            "required": " when making a Polar Chart", 
             "type": "data", 
             "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace about the origin.", 
             "streamable": true
         }, 
         "t": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'x' and 'y' are unset", 
+            "required": " when making a Polar Chart", 
             "type": "data", 
             "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
             "streamable": true
@@ -158,30 +158,16 @@
     "bar": {
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'y','r' and 't' are unset", 
+            "required": " when 'y' is unset", 
             "type": "data", 
             "description": "The x coordinates of the bars. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the list or array linked to 'x'.", 
             "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'x','r' and 't' are unset", 
+            "required": " when 'x' is unset", 
             "type": "data", 
             "description": "The y coordinates of the bars. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the list or array linked to 'y'.", 
-            "streamable": true
-        }, 
-        "r": {
-            "val_types": "array-like of numbers", 
-            "required": " when 'x' and 'y' are unset", 
-            "type": "data", 
-            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace about the original; that is, the radial extent of each bar.", 
-            "streamable": true
-        }, 
-        "t": {
-            "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'x' and 'y' are unset", 
-            "type": "data", 
-            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
             "streamable": true
         }, 
         "name": {
@@ -266,6 +252,20 @@
             "type": "plot_info", 
             "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
         }, 
+        "r": {
+            "val_types": "array-like of numbers", 
+            "required": " when making a Polar Chart", 
+            "type": "data", 
+            "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace about the original; that is, the radial extent of each bar.", 
+            "streamable": true
+        }, 
+        "t": {
+            "val_types": "array-like of numbers, strings, datetimes", 
+            "required": " when making a Polar Chart", 
+            "type": "data", 
+            "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
+            "streamable": true
+        }, 
         "line": {
             "val_types": "dictionary-like", 
             "required": false, 
@@ -283,14 +283,14 @@
     "histogram": {
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'y','r' and 't' are unset", 
+            "required": " when 'y' is unset", 
             "type": "data", 
             "description": "The data sample to be binned (done by Plotly) on the x-axis and plotted as vertical bars.", 
             "streamable": true
         }, 
         "y": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "required": " when 'x','r' and 't' are unset", 
+            "required": " when 'x' is unset", 
             "type": "data", 
             "description": "The data sample to be binned (done by Plotly) on the y-axis and plotted as horizontal bars.", 
             "streamable": true
@@ -1337,13 +1337,13 @@
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "info coming soon"
+            "description": "Polar chart subplot are not supported yet. Info coming soon"
         }, 
         "radialaxis": {
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "info coming soon"
+            "description": "Polar chart subplot are not supported yet. Info coming soon"
         }, 
         "type": {
             "val_types": "area", 
