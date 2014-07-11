@@ -19,14 +19,17 @@
 #
 # Contents -----------------
 #
-# Section -- Required modules
+# Section -- Required module(s)
 #
-# Section  -- Shortcuts Definitions:
+# Section  -- Shortcuts definitions:
 #
 # * Inventory of value types repeated over several keys
 #   - search for `$val_types`
 #
-# * Inventory of shortcuts for repeated keys of meta-generating functions
+# * Shortcut to described conditionally required keys
+#   - search for `$required_when`
+#
+# * Inventory of shortcuts of meta-generating functions for repeated keys 
 #   - search for `$shortcuts--` for top of the section
 #   - search for e.g. `$shortcut-x` for shortcut of specific key
 #
@@ -84,7 +87,7 @@
 #
 # ===============================================================================
 
-## Required modules
+## Required module(s)
 
 # Use ordered dictionaries to list graph object keys
 from collections import OrderedDict
@@ -96,7 +99,7 @@ from collections import OrderedDict
 
 # $val_types
 #
-# List of value types repeated over several keys
+# Inventory of value types shortcuts 
 
 # $val_types-number
 # Use this to format key accepting numbers
@@ -127,23 +130,13 @@ def _number(lt=None, le=None, gt=None, ge=None, list=False):
     else:
         return out
 
-# $val_types-required-when
-# Use this for conditional booleans (e.g. for 'required' values)
-def _required_when(when):
-    if type(when)==str:
-        to_be = 'is'
-    elif type(when)==list:
-        when=','.join(when[0:-1])+' and '+when[-1]
-        to_be = 'are'
-    return " when {key} {to_be} unset".format(key=when,to_be=to_be)
-
 # $val_types-dict
 val_types = dict(
     bool="boolean: True | False",
-    required_when= _required_when,
     color="string describing color",
     string="string",
-    number= _number,
+    number= _number,  
+    number_array="array-like of numbers",
     data_array="array-like of numbers, strings, datetimes",
     string_array="array-like of strings",
     color_array="array-like of string describing color",
@@ -151,7 +144,34 @@ val_types = dict(
     object="dictionary-like",
 )
 
-# -------------------------------------------------------------------------------
+# $required_cond
+#
+# Inventory of shortcuts to describe conditional required keys
+
+# $required_cond-keys
+# Use this for conditions involving keys
+def _required_keys(keys):
+    if type(keys)==str:
+        to_be = 'is'
+    if all([type(keys)==list, len(keys)==1]):
+        to_be = 'is'
+        keys = keys[0]
+    elif type(keys)==list:
+        keys=','.join(keys[0:-1])+' and '+keys[-1]
+        to_be = 'are'
+    return " when {keys} {to_be} unset".format(keys=keys,to_be=to_be)
+
+# $required_cond-plottype
+# Use this for conditions involving plot type
+def _required_plottype(plottype):
+    return " when making a {plottype}".format(plottype=plottype)
+
+# $required_cond-dict
+required_cond = dict(
+   keys= _required_keys,
+   plottype= _required_plottype
+)
+
 
 # $shortcuts--
 #
@@ -182,9 +202,9 @@ def output(_required, _type, _val_types, _description, **kwargs):
 # $shortcut-x
 def make_x(obj):
     _required=dict(
-        scatter=val_types['required_when'](["'y'","'r'","'t'"]),
-        bar=val_types['required_when'](["'y'","'r'","'t'"]),
-        histogram=val_types['required_when'](["'y'","'r'","'t'"]),
+        scatter=required_cond['keys'](["'y'","'r'","'t'"]),
+        bar=required_cond['keys'](["'y'"]),
+        histogram=required_cond['keys'](["'y'"]),
         box=False,
         heatmap=False,
         contour=False,
@@ -233,7 +253,7 @@ def make_x(obj):
     _description['contour']= _description['heatmap']
     _description['histogram2dcontour']= _description['histogram2d']
     _streamable=True
-    if obj=='box':      # TO DO! Sub 'code' for example link?
+    if obj=='box':      # TODO! Sub 'code' for example link?
         _code=''.join([">>> y0 = [1,2,3,1,1]",
                        ">>> y1 = [3,2,1,2,3]",
                        ">>> y = y0+y1  # N.B. list not numpy arrays here",
@@ -249,9 +269,9 @@ def make_x(obj):
 # $shortcut-y
 def make_y(obj):
     _required=dict(
-        scatter=val_types['required_when'](["'x'","'r'","'t'"]),
-        bar=val_types['required_when'](["'x'","'r'","'t'"]),
-        histogram=val_types['required_when'](["'x'","'r'","'t'"]),
+        scatter=required_cond['keys'](["'x'","'r'","'t'"]),
+        bar=required_cond['keys'](["'x'"]),
+        histogram=required_cond['keys'](["'x'"]),
         box=True,
         heatmap=False,
         contour=False,
@@ -296,7 +316,7 @@ def make_y(obj):
 
 # $shortcut-z
 def make_z(obj):
-    _required=False # TO DO! How to phrase this?
+    _required=False # TODO! How to phrase this?
     _type='data'
     _val_types=val_types['matrix']
     _description=dict(
@@ -327,20 +347,22 @@ def make_z(obj):
 # $shortcut-r
 def make_r(obj):
     _required=dict(
-        scatter=val_types['required_when'](["'x'","'y'"]),
-        bar=val_types['required_when'](["'x'","'y'"]),
+        scatter=required_cond['plottype']("Polar Chart"),
+        bar=required_cond['plottype']("Polar Chart"),
         area=True
     )
     _type='data'
-    _val_types=val_types['data_array']
-    _description=dict(  # TO DO! Better description of how the coords work
+    _val_types=val_types['number_array'] # Q? Should this support string too?
+    _description=dict(  
         scatter="For Polar charts only. "
                 "The radial coordinates of the points in this "
-                "polar scatter trace.",
+                "polar scatter trace about the origin.",
         bar="For Polar charts only. "
-            "The radial coordinates of the bars in this polar bar trace",
+            "The radial coordinates of the bars in this polar bar trace "
+            "about the original; that is, the radial extent of each bar.",
         area="The radial coordinates of the circle sectors in this "
-             "polar area trace.",
+             "polar area trace about the origin; that is, the radial extent of "
+             "each circle sector."
     )
     _streamable=True
     return output(_required[obj],_type,_val_types,_description[obj],
@@ -349,8 +371,8 @@ def make_r(obj):
 # $shortcut-t
 def make_t(obj):
     _required=dict(
-        scatter=val_types['required_when'](["'x'","'y'"]),
-        bar=val_types['required_when'](["'x'","'y'"]),
+        scatter=required_cond['plottype']("Polar Chart"),
+        bar=required_cond['plottype']("Polar Chart"),
         area=True
     )
     _type='data'
@@ -362,8 +384,28 @@ def make_t(obj):
         bar="For Polar charts only. "
             "The angular coordinates of the bars in this polar bar trace.",
         area="The angular coordinates of the circle sectors in this "
-             "polar area trace.",
+             "polar area trace. There are as many sectors as coordinates "
+             "linked to 't' and 'r'. Each sector is drawn about the "
+             "coordinates linked to 't', where they spanned symmetrically "
+             "in both the positive and negative angular directions. "
+             "The angular extent of each sector is equal to the angular range "
+             "(360 degree by default) divided by the number of sectors. "
+             "Note that the sectors are drawn in order; coordinates at the end "
+             "of the array may overlay the coordinates at the start."
     )
+    for k in _description.keys():
+        _description[k]+=''.join([" By default, the angular coordinates "
+                                  "are in degrees (0 to 360) where the angles "
+                                  "are measured clockwise about the right-hand "
+                                  "side of the origin. To change this "
+                                  "behavior, modify 'range' in AngularAxis "
+                                  "or/and 'direction' in Layout. "
+                                  "If 't' is linked to an array-like of "
+                                  "strings, then the angular coordinates are "
+                                  "[0, 360\N, 2*360/N, ...] where N is the "
+                                  "number of coordinates given labeled by the "
+                                  "array-like of strings linked to 't'."
+                                 ])  
     _streamable=True
     return output(_required[obj],_type,_val_types,_description[obj],
                   streamable=_streamable)
@@ -373,11 +415,11 @@ def make_t(obj):
 # $shortcut-x0y0 $shortcut-x0 | $shortcut-y0
 def make_x0y0(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TO DO! 'data' maybe?
+    _type='plot_info'  # TODO! 'data' maybe?
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
-    _description=dict( # TO DO! Add scatter?
+    _description=dict( # TODO! Add scatter?
         box="The location of this box. When 'y' defines a single "
             "box, 'x0' can be used to set where this box is "
             "centered on the x-axis. If many boxes are set to "
@@ -393,11 +435,11 @@ def make_x0y0(obj, x_or_y=False):
 # $shortcut-dxdy | $shortcut-dx | $shortcut-dy
 def make_dxdy(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TO DO! 'data' maybe?
+    _type='plot_info'  # TODO! 'data' maybe?
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
-    _description=dict( # TO DO! Add scatter?
+    _description=dict( # TODO! Add scatter?
         heatmap="Spacing between {S0}-axis coordinates. "
                 "Use with '{S0}0' an alternative to an '{S0}' list/array. "
                 "Has no effect if '{S0}' is set.".format(S0=s[0]),
@@ -408,7 +450,7 @@ def make_dxdy(obj, x_or_y=False):
 # $shortcut-xytype | $shortcut-xtype | $shortcut-ytype
 def make_xytype(obj, x_or_y):
     _required=False
-    _type='data'
+    _type='data'    # TODO! 'data' maybe?
     _val_types="'array' | 'scaled'",
     S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
     s=S[x_or_y]
@@ -472,8 +514,8 @@ def make_error(obj, x_or_y):
 # $shortcut-orientation
 def make_orientation(obj):
     _required=False
-    _type='style'   # TO DO! 'plot_info' instead?
-    _val_types=val_types['data_array']
+    _type='style'   # TODO! 'plot_info' instead?
+    _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
             "If set to 'v', the length of each bar will run vertically. "
@@ -550,15 +592,15 @@ def make_opacity(marker=False):
                              ])
     else:
         _val_types=val_types['number'](ge=0, le=1, list=True)
-        _description=''.join(["Sets the opacity, or transparency ",
-                              "also known as the alpha channel of colors) ",
-                              "of the marker points. ",
-                              "If the marker points' ",
-                              "color is given in terms of 'rgba' ",
-                              "color model, this does not need to be defined. ",
-                              "If 'opacity' is linked to a list or an array ",
-                              "of numbers, opacity values are mapped to ",
-                              "individual marker points in the ",
+        _description=''.join(["Sets the opacity, or transparency "
+                              "also known as the alpha channel of colors) "
+                              "of the marker points. "
+                              "If the marker points' "
+                              "color is given in terms of 'rgba' "
+                              "color model, this does not need to be defined. "
+                              "If 'opacity' is linked to a list or an array "
+                              "of numbers, opacity values are mapped to "
+                              "individual marker points in the "
                               "same order as in the data lists or arrays."
                              ])
     return output(_required,_type,_val_types,_description)
@@ -688,11 +730,11 @@ def make_type(trace=False, axis=False, error=False):
                               "only requires a single x or y array ",
                               " and a 'heatmap' type requires a z matrix."
                              ])
-    elif axis:  # TO DO! Info on category
+    elif axis:  # TODO! Info on category
         _val_types="'linear' | 'log' | 'category'"
         _description="Defines format of this axis."
     elif error:
-        _type='plot_info'  # TO DO! 'data' maybe?
+        _type='plot_info'  # TODO! 'data' maybe?
         _val_types="'data' | 'percent' | 'constant' | 'sqrt'"
         _description=''.join(["Specify how the 'value' or 'array' key in ",
                               "this error bar will be used to render the bars. ",
@@ -756,7 +798,7 @@ def make_autobin(x_or_y):
 # $shortcut-nbins | $shortcut-nbinsx | $shortcut-nbinsy
 def make_nbins(x_or_y):
     _required=False
-    _type='style'    # TO DO! Shouldn't this be 'plot_info' ?
+    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
     _val_types=val_types['number'](gt=0)
     S={'x':['x',], 'y':['y',]}
     s=S[x_or_y]
@@ -807,7 +849,7 @@ drop_scl=dict(
                 "corresponds to a normalized value of z from 0-1, "
                 "i.e. (z-zmin)/ (zmax-zmin), and the second element of pair "
                 "corresponds to a color.",
-    examples=["Greys", 
+    examples=["'Greys'", 
               [[0, "rgb(0,0,0)"], 
                [0.5, "rgb(65, 182, 196)"],
                [1, "rgb(255,255,255)"]]
@@ -856,7 +898,7 @@ drop_showscale=dict(
 
 # $shortcuts-2d-specs-more
 
-# $shortcut-zsmooth  # TO DO! Describe the 2 algorithms
+# $shortcut-zsmooth  # TODO! Describe the 2 algorithms
 drop_zsmooth=dict(
     required=False,
     type='style',
@@ -909,7 +951,7 @@ examples_color = ["'green'", "'rgb(0, 255, 0)'",
 # $shortcut-color
 def make_color(obj):
     _required=False
-    _type='style'
+    _type='style'     # data in bubble charts (i.e. if linked to array)
     if obj=='marker':
         _val_types=val_types['color_array']
     else:
@@ -993,7 +1035,7 @@ def make_bordercolor(obj):
 def make_size(obj, x_or_y=False):
     _required=False
     _type=dict(
-        marker='style',
+        marker='style',       # data in bubble charts (i.e. if linked to array)
         font='style',
         bins='plot_info',
         contours='plot_info'
@@ -1008,7 +1050,7 @@ def make_size(obj, x_or_y=False):
         marker="Sets the size of the markers (in pixels). "
                "If 'size' is linked to a list or an array of numbers, "
                "size values are mapped to individual marker points "
-               "in the same order as in the data lists or arrays.",
+               "in the same order as in the data lists or arrays ",
         font="Sets the size of font."
              "If linked in the first level of the layout object, set the "
              "color of the global font.",
@@ -1084,7 +1126,7 @@ def make_title(obj, x_or_y=False):
     _type='plot_info'
     _val_types=val_types['string']
     _description=dict(
-            axis="The {}-axis title.".format(x_or_y),
+            axis="The {S}-axis title.".format(S=x_or_y),
             colorbar="The title of the colorbar.",
             layout="The title of the figure."
     )
@@ -1097,7 +1139,7 @@ def make_titlefont(obj, x_or_y=False):
     _val_types=val_types['string']
     _description=dict(
             axis="A dictionary-like object describing the font "
-                 "settings of the {}-axis title.".format(x_or_y),
+                 "settings of the {S}-axis title.".format(S=x_or_y),
             colorbar="A dictionary-like object describing the font "
                      "settings of the colorbar title.",
             layout="A dictionary-like object describing the font "
@@ -1110,12 +1152,18 @@ def make_titlefont(obj, x_or_y=False):
 # $shortcut-range
 def make_range(what_axis):
     _required=False
-    _type='style'          # TO DO! changed this!!!  was plot_info
+    _type='style'          # TODO! changed this!!!  was plot_info
     _val_types="number array of length 2"
     _description=''.join(["Defines the start and end point of "
-                          "this {} axis."
-                         ]).format(what_axis)
+                          "this {S} axis."
+                         ]).format(S=what_axis)
     _examples=[[-13, 20], [0, 1]]
+    if what_axis=='angular':
+        _description += ''.join([" By default, 'range' is set to [0,360]. "
+                                 "Has no effect if 't' is linked to "
+                                 "an array-like of string."
+                               ])
+        _examples=[[0, 180], [0, 6.2831]]
     return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
@@ -1124,23 +1172,31 @@ def make_domain(what_axis):
     _required=False
     _type='plot_info'
     _val_types="number array of length 2"
-    _description=''.join(["Sets the domain of this {S} axis. "
-                          "The available space "
-                          "for this {S} axis to live in is  "
-                          "from 0 to 1."
+    _description=''.join(["Sets the domain of this {S} axis; "
+                          "that is, the available space "
+                          "for this {S} axis to live in. "
+                          "Domain coordinates are given in normalized "
+                          "coordinates with respect to the paper."
                          ]).format(S=what_axis)
-    _examples=[[-13, 20], [0, 1]]
+    _examples=[[0,0.4], [0.6, 1]]
     return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
 # $shortcut-showline
-drop_showline=dict(
-    required=False,
-    type='style',
-    val_types=val_types['bool'],
-    description="Toggle whether or not to show the label (i.e. bordering) "
-                "line of the axis."
-)
+def make_showline(what_axis):
+    _required=False
+    _type='style'
+    _val_types=val_types['bool']
+    _description=''.join(["Toggle whether or not the line bounding this "
+                          "{S} axis will "
+                          "be shown on the figure.".format(S=what_axis)
+                        ])
+    if what_axis=='angular':
+        _description += ''.join([" If 'showline' is set to True, "
+                                 "the bounding line starts from the origin and "
+                                 "extends to the edge of radial axis."
+                               ])
+    return output(_required,_type,_val_types,_description)
 
 # $shortcuts-ticks
 
@@ -1161,7 +1217,7 @@ def make_autotick(axis_or_colorbar):
 # $shortcut-nticks
 def make_nticks(axis_or_colorbar):
     _required=False
-    _type='style'    # TO DO! Shouldn't this be 'plot_info' ?
+    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
     _val_types=val_types['number'](gt=0)
     _description=''.join(["Specifies the number of {S} ticks. ",
                           "No need to set 'autoticks' to False ",
@@ -1261,7 +1317,7 @@ META += [('scatter', OrderedDict([
 
     ('y', make_y('scatter')),
 
-    ('r', make_r('scatter')),
+    ('r', make_r('scatter')),  
 
     ('t', make_t('scatter')),
 
@@ -1349,10 +1405,6 @@ META += [('bar', OrderedDict([
 
     ('y', make_y('bar')),
 
-    ('r', make_r('bar')),
-
-    ('t', make_t('bar')),
-
     ('name', drop_name),
 
     ('orientation', make_orientation('bar')),
@@ -1379,9 +1431,13 @@ META += [('bar', OrderedDict([
 
     ('type', make_type('bar')),
 
-    ('line', make_line('bar')),  # TO DO! Artifact?
+    ('r', make_r('bar')),   # ARTIFACT
+ 
+    ('t', make_t('bar')),   # ARTIFACT
 
-    ('textfont', make_textfont('bar'))  # TO DO! Artifact?
+    ('line', make_line('bar')),  # ARTIFACT
+
+    ('textfont', make_textfont('bar'))  # ARTIFACT
 
 ]))]
 
@@ -1430,9 +1486,9 @@ META += [('histogram', OrderedDict([
 
     ('type', make_type('histogram')),
 
-    ('line', make_line('histogram')),  # TO DO! Artifact? Drop?
+    ('line', make_line('histogram')),  # ARTIFACT
 
-    ('orientation', make_orientation('histogram'))  # TO DO! Artifact Drop?
+    ('orientation', make_orientation('histogram'))  # ARTIFACT
 
 ]))]
 
@@ -1447,7 +1503,7 @@ META += [('box', OrderedDict([
 
     ('name', drop_name),
 
-    ('boxpoints', dict(  # TO DO! What does 'suspectedoutliers' do?
+    ('boxpoints', dict(  # TODO! What does 'suspectedoutliers' do?
         required=False,
         type='plot_info',
         val_types="'all' | 'outliers' | 'suspectedoutliers' | False",
@@ -1749,7 +1805,7 @@ META += [('histogram2dcontour', OrderedDict([
 ]))]
 
 # $area
-META += [('area', OrderedDict([  # TO DO! More testing, better descriptions
+META += [('area', OrderedDict([  
 
     ('r', make_r('area')),
 
@@ -1765,18 +1821,18 @@ META += [('area', OrderedDict([  # TO DO! More testing, better descriptions
 
     ('visible', drop_visible),
 
-    ('angularaxis', dict(  # TO DO! How do polar axes this work?
+    ('angularaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
-        description='info coming soon'
+        description='Polar chart subplot are not supported yet. Info coming soon'
     )),
 
-    ('radialaxis', dict(  # TO DO! How do polar axes this work?
+    ('radialaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
-        description='info coming soon'
+        description='Polar chart subplot are not supported yet. Info coming soon'
     )),
 
     ('type', make_type('area'))
@@ -1892,7 +1948,7 @@ def meta_error(y_or_x):
 
         ('visible', drop_visible),
 
-        ('traceref', dict(   # TO DO! What does this do?
+        ('traceref', dict(   # TODO! What does this do?
             required=False,
             type='plot_info',
             val_types='',
@@ -2021,7 +2077,7 @@ META += [('marker', OrderedDict([
 
     ('opacity', make_opacity(marker=True)),
 
-    ('colorscale', dict(  # TO DO! Check if right, example, merge with 'scl'?
+    ('colorscale', dict(  # TODO! Check if right, example, merge with 'scl'?
         required=False,
         type="style",
         val_types="array_like of value-color pairs | "
@@ -2037,7 +2093,7 @@ META += [('marker', OrderedDict([
                     "corresponds to a color."
     )),
 
-    ('sizemode', dict(  # TO DO! Better description
+    ('sizemode', dict(  # TODO! Better description
         required=False,
         type='style',
         val_types="'diameter' | 'area'",
@@ -2046,7 +2102,7 @@ META += [('marker', OrderedDict([
                     "Applies only to scatter traces."
     )),
 
-    ('sizeref', dict(  # TO DO! Better description
+    ('sizeref', dict(  # TODO! Better description
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
@@ -2080,7 +2136,7 @@ META += [('line', OrderedDict([
 
     ('opacity', make_opacity()),
 
-    ('smoothing', dict(     # TO DO! Better description
+    ('smoothing', dict(     # TODO! Better description
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
@@ -2089,7 +2145,7 @@ META += [('line', OrderedDict([
                     "and scatter trace if 'shape' is set to 'spline'."
     )),
 
-    ('shape', dict(         # TO DO! Better description
+    ('shape', dict(         # TODO! Better description
         required=False,
         type='style',
         val_types="'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'",
@@ -2097,7 +2153,7 @@ META += [('line', OrderedDict([
                     "Applies only to scatter traces."
     )),
 
-    # ('thickness', dict()),  # TO DO! Does this exist somewhere?
+    # ('thickness', dict()),  # TODO! Artifact?
 
 ]))]
 
@@ -2115,10 +2171,10 @@ META += [('font', OrderedDict([
                   " 'Georgia, serif' | "
                   " 'Gravitas One, cursive' | "
                   " 'Old Standard TT, serif' | "
-                  " 'Open Sans, sans-serif' or ('')| "
+                  " 'Open Sans, sans-serif' or ('') | "
                   " 'PT Sans Narrow, sans-serif' | "
                   " 'Raleway, sans-serif' | "
-                  " 'Times New Roman, Times, serif' |",
+                  " 'Times New Roman, Times, serif'",
         type='style',
         description="Sets the font family. "
                     "If linked in the first level of the layout object,  "
@@ -2139,7 +2195,7 @@ META += [('font', OrderedDict([
 #
 # Axis trace objects linked inside layout object
 
-# $ticks        TO DO! Separate object for ticks?
+# $ticks 
 #
 # META generation for ticks (axis and colorbar)
 def meta_ticks(axis_or_colorbar):
@@ -2221,8 +2277,8 @@ def meta_ticks(axis_or_colorbar):
                         "1000000000 (1 billion) shows up in each. If set to "
                         "'none': 1,000,000,000. If set to 'e': 1e+9. If set "
                         "to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 "
-                        "will appear super-scripted. If set to 'SI': 1G. If "
-                        "set to 'B': 1B (useful when referring to currency."
+                        "will appear super-scripted). If set to 'SI': 1G. If "
+                        "set to 'B': 1B (useful when referring to currency)."
         )),
 
         ('showexponent', dict(
@@ -2258,26 +2314,11 @@ def meta_axis(x_or_y):
 
         ('titlefont', make_titlefont('axis',x_or_y)),
 
-        ('range', dict(
-            required=False,
-            type='style',  # TO DO! changed this!!!  was plot_info
-            val_types="number array of length 2",
-            description="Defines the start and end point of "
-                        "this {}-axis.".format(x_or_y),
-            examples=[-13, 20]
-        )),
+        ('range', make_range(x_or_y)),
 
-        ('domain', dict(
-            required=False,
-            type='plot_info',
-            val_types="number array of length 2",
-            description="Sets the domain of this {}-axis. The available space "
-                        "for this axis to live in is  "
-                        "from 0 to 1.".format(x_or_y),
-            examples=[0, 0.5]
-        )),
+        ('domain', make_domain(x_or_y)),
 
-        ('type', dict(   # Different enough from make_type()
+        ('type', dict(   # Different enough from shortcut-type
             required=False,
             type='plot_info',
             val_types="'linear' | 'log' | 'category'",
@@ -2313,7 +2354,7 @@ def meta_axis(x_or_y):
                         "will appear on this axis along {}=0.".format(x_or_y)
         )),
 
-        ('showline', drop_showline),
+        ('showline', make_showline(x_or_y)),
 
         ('autotick', make_autotick('axis')),
 
@@ -2407,14 +2448,14 @@ def meta_axis(x_or_y):
                         "opposite side of the plot."
         )),
 
-        ('overlaying', dict(  # TO DO! What does this do?
+        ('overlaying', dict(  # TODO! What does this do?
             required=False,
             type='style',
             val_types='',
             description="more info coming soon."
         )),
 
-        ('autorange', dict(  # TO DO! Artifact
+        ('autorange', dict(  # TODO! Artifact?
             required=False,
             type='plot_info',
             val_types=val_types['bool'],
@@ -2423,12 +2464,11 @@ def meta_axis(x_or_y):
                         "is overwritten."
         )),
 
-        # ('drange', dict()),  # TO DO! What are these?
+        # ('drange', dict()),  # TODO! Artifact
         # ('r0', dict()),
 
     ]
 
-#    print meta
     return [('{}axis'.format(x_or_y), OrderedDict(meta))]
 
 # $xaxis
@@ -2438,7 +2478,7 @@ META += meta_axis('x')
 META += meta_axis('y')
 
 # $radialaxis
-META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
+META += [('radialaxis', OrderedDict([ 
 
     ('range', make_range('radial')),
 
@@ -2452,7 +2492,7 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
                     "of the radial axis."
     )),
 
-    ('showline', drop_showline),
+    ('showline', make_showline('radial')),
 
     ('showticklabels', make_showticklabels('radial axis')),
 
@@ -2501,13 +2541,13 @@ META += [('radialaxis', OrderedDict([ # TO DO! More testing, better description
 ]))]
 
 # $angularaxis
-META += [('angularaxis', OrderedDict([ # TO DO! More testing, better description
+META += [('angularaxis', OrderedDict([
 
     ('range', make_range('angular')),
 
-    #('domain', make_domain('angular')),  #TO DO! Does not apply, right?
+    ('domain', make_domain('angular')),  # TODO! Does not apply, right?
 
-    ('showline', drop_showline),
+    ('showline', make_showline('angular')), # Q? Should be 'gridline'
 
     ('showticklabels', make_showticklabels('angular axis')),
 
@@ -2584,7 +2624,7 @@ META += [('legend', OrderedDict([
 
     ('yanchor', make_xyanchor('y')),
 
-    ('showlegend', make_showlegend(layout=True)), # TO DO! Redundant w/ 'layout'
+    ('showlegend', make_showlegend(layout=True)), # TODO! Redundant w/ 'layout'?
 
 ]))]
 
@@ -2733,17 +2773,20 @@ META += [('annotation', OrderedDict([
 
     ('yref', make_xyref('y')),
 
-    ('text', dict(      # Different enough from make_text()
+    ('text', dict(      # Different enough from shortcut-text
         required=False,
         type='plot_info',
         val_types=val_types['string'],
         description="The text associated with this annotation. "
-                    "Plotly uses a subset of HTML escape characters "
+                    "Plotly uses a subset of HTML tags "
                     "to do things like newline (<br>), bold (<b></b>), "
-                    "italics (<i></i>), etc.",
+                    "italics (<i></i>), hyperlinks (<a href='...'></a>). "
+                    "Tags <em>, <sup>, <sub>, <span> are also supported.",
         examples=["regular text", 
                   "an annotation<br>spanning two lines",
-                  "<b>bold text</b>"]
+                  "<b>bold text</b>", 
+                  "<a href='https://plot.ly/'>a link to plot.ly</a>"
+                 ]
     )),
 
     ('font', make_font('annotation')),
@@ -2796,7 +2839,7 @@ META += [('annotation', OrderedDict([
         examples=examples_color
     )),
 
-    ('ax', dict(            # TO DO! Better description
+    ('ax', dict(            # TODO! Better description
         required=False,
         type='plot_info',
         val_types=val_types['number'](),
@@ -2805,7 +2848,7 @@ META += [('annotation', OrderedDict([
                     "Has an effect only if 'showarrow' is set to True."
     )),
 
-    ('ay', dict(            # TO DO! Better description
+    ('ay', dict(            # TODO! Better description
         required=False,
         type='plot_info',
         val_types=val_types['number'](),
@@ -2833,28 +2876,28 @@ META += [('annotation', OrderedDict([
 
     ('yanchor', make_xyanchor('y')),
 
-    ('xatype', dict(    # TO DO! What does this do?
+    ('xatype', dict(    # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('yatype', dict(    # TO DO! What does this do?
+    ('yatype', dict(    # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('tag', dict(       # TO DO! What does this do?
+    ('tag', dict(       # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description="more info coming soon"
     )),
 
-    ('ref', dict(       # TO DO! What does this do?
+    ('ref', dict(       # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
@@ -3026,7 +3069,7 @@ META += [('layout', OrderedDict([
                     "but they will not overlap."
     )),
 
-    ('radialaxis', dict(  # TO DO! How does this work?
+    ('radialaxis', dict(  # TODO! How does this work?
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3034,7 +3077,7 @@ META += [('layout', OrderedDict([
                     "in a polar plot."
     )),
 
-    ('angularaxis', dict( # TO DO! How does this work?
+    ('angularaxis', dict( # TODO! How does this work?
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3047,71 +3090,71 @@ META += [('layout', OrderedDict([
         type='plot_info',
         val_types="'clockwise' | 'counterclockwise'",
         description="For polar plots only. "
-                    "Choose the direction corresponding to "
-                    "positive angular distances."
+                    "Sets the direction corresponding to "
+                    "positive angles."
     )),
 
-    ('orientation', dict(
+    ('orientation', dict(  # Different enough than in shortcut-orientation
         required=False,
         type='plot_info',
         val_types=val_types['number'](ge=-360,le=360),
         description="For polar plots only. "
-                    "Sets the orientation of (i.e. rotate) the polar plot."
+                    "Rotates the entire polar by the given angle."
     )),
 
-    ('defaultcolorrange', dict(  # TODO: polar only
-        required=False,
-        type='style',
-        val_types=val_types['number'](ge=-360,le=360),
-        description="For polar plots only. "
-                    "More info coming soon."
-    )),
+#    ('defaultcolorrange', dict(  # TODO: polar only
+#        required=False,
+#        type='style',
+#        val_types=val_types['number'](ge=-360,le=360),
+#        description="For polar plots only. "
+#                    "More info coming soon."
+#    )),
 
-    ('opacity', dict(  # TODO: polar only
-        required=False,
-        type='style',
-        val_types=val_types['number'](le=1, ge=0),
-        description="For polar plots only."
-                    "Sets the opacity of the entire plot."
-    )),
+#    ('opacity', dict(  # TODO: polar only
+#        required=False,
+#        type='style',
+#        val_types=val_types['number'](le=1, ge=0),
+#        description="For polar plots only."
+#                    "Sets the opacity of the entire plot."
+#    )),
 
-    ('needsEndSpacing', dict(  # TODO: polar only
-        required=False,
-        type='style',
-        val_types='',
-        description="For polar plots only. "
-                    "info coming soon."
-    )),
+#    ('needsEndSpacing', dict(  # TODO: polar only
+#        required=False,
+#        type='style',
+#        val_types='',
+#        description="For polar plots only. "
+#                    "info coming soon."
+#    )),
 
-    ('categories', dict(  # TO DO! What does this do? Artifact?
+    ('categories', dict(  # TODO! What does this do? Artifact?
         required=False,
         type='plot_info',
         val_types='',
         description='info coming soon'
     )),
 
-    ('separators', dict(  # TO DO! What does this do?
+    ('separators', dict(  # TODO! What does this do?
         required=False,
         type='style',
         val_types='',
         description='info coming soon'
     )),
 
-    ('labeloffset', dict(  # TO DO! Does this actually work?
+    ('labeloffset', dict(  # TODO! Does this actually work?
         required=False,
         type='style',
         val_types='',
         description='info coming soon'
     )),
 
-    ('hidesources', dict(  # TO DO! Artifact?
+    ('hidesources', dict(  # TODO! Artifact?
         required=False,
         type='plot_info',
         val_types='',
         description='more info coming soon'
     )),
 
-    ('bardir', dict(    # TO DO! Artifact?
+    ('bardir', dict(    # TODO! Artifact?
         required=False,
         type='plot_info',
         val_types='',
@@ -3157,7 +3200,7 @@ META += [('data', dict())]
 META += [('annotations', dict())]
 
 # $trace
-META += [('trace', OrderedDict([  # TO DO! Why keep this?
+META += [('trace', OrderedDict([  # TODO! Why keep this?
 
     ('x', dict(type='data')),
     ('y', dict(type='data')),
