@@ -48,45 +48,61 @@ Graph reference is used:
 
 * A fully described key is an object with the keys: 
   1. `'required'`: Whether the key is required or not to create the chart type,
-  1. `'type'`: `'style'`, `'plot_info'`, `'object'` or `'data'` (**Important**),
+  1. `'type'`: (**IMPORTANT**) `'data'` (the only keys that remain after
+  `.get_data()`), `'style'` (is stripped by `.strip_style()`), `'plot_info'` (not
+  affected by `.strip_style()`), or `'object'` (when key is to be linked to
+  another object),
   1. `'val_types'`: Valid types (e.g. array-like of strings, number: in [0, 1]),
   1. `'description'`: making help helpful!
 
-* There are two additional keys: `'streamable'` and `'examples'`.
+* Additionally, there are two optional keys: 
+
+  1. `'streamable'`: whether not this key can be streamed using the Streaming
+     API,
+  1. `'examples'`: List of examples of accepted values for this key.
 
 * Repetition in the meta-generating file should be kept to a minimum.  More
-  precisely, meta for keys that are contained in more than 1 object and they
+  precisely, meta for keys that are contained in more than 1 object and that
   show significant similarities, is generated using shortcuts. These
   meta-generating shortcuts come in two flavors:
   1. functions, named `make_<key>` e.g. `make_x`, used when small discrepancies
-  occur from object to object,
+  occur from object to object.
   1. dictionaries, named `drop_<key>` e.g. `drop_ visisble`, used when the exact
   same meta is used for all objects containing a particular key.
+
+  Regardless of flavor, all shortcuts are labelled as `@key@` in
+  `graph_objs_meta.py` making navigation between objects, keys and shortcuts a
+  breeze.
   
 ### Contributing
 
-1. Clone and/or pull the latest master version: 
+Clone and/or pull the latest master version: 
 ```
 $ git pull origin master
 ```
 
-1. Make a new branch (for testing purposes) and checkout: 
+Make a new branch (for testing purposes) and checkout: 
 ```
 $ git branch your_branch_name
 $ git checkout your_branch_name
 ```
 
-1. Add and modified keys in `graph_objs_meta.py`, with special attention to
-   existing shortcuts (search for key shortcuts with `@key@`).  Update the table
-   content in `graph_objs_mets-toc.md` if keys were added or if the order was
-   modified.
+Add and modified keys in `graph_objs_meta.py`:
 
-1. Generate the JSON files:
+1. with special attention to existing shortcuts (search for key shortcuts with
+   `@key@`).  
+1. if making a new shortcut function use `output` (see `@output@` to format the
+   meta dictionary.
+1. (more step-by-step info coming soon ...)
+1. Update the table content in `graph_objs_mets-toc.md` if keys were added or if
+   the order was modified.
+
+Generate the JSON files:
 ```
 $ python graph_objs_meta.py
 ```
 
-1. Add, commit and push to online repo:
+Add, commit and push to online repo:
 ```
 $ git add .
 $ git commit 
@@ -96,8 +112,23 @@ When you push any branch to the online repo, Nose is going to test the
 `test_graph_references.py` file. To see if your push passed, go 
 [here](https://circleci.com/gh/plotly/graph_reference)
 
+Then, to see the changes made in Plotly's API online documentation:
+
+1. the `graph_reference` submodule in the
+   [Python-API](https://github.com/plotly/python-api) needs to be updated and
+   tests need to pass
+1. the [Python-API](https://github.com/plotly/python-api) needs to be pushed to pip
+1. our backend's `requirements.txt` needs to be updated with the new version of
+   the Python-API.
 
 ### Glossary
 
-*
-
+* `#Q`: in `graph_objs_meta.py` these comments refer to questions about Plotly's
+  functionality.
+* `#TODO!`: in `graph_objs_meta.py` these comments refer to tasks that remain
+  to be completed,
+* Artifact (or `#ARTIFACT`): Artifact keys are keys that not intended for API
+  use (i.e. meant for GUI use), but that must remain part of graph reference to 
+  ensure reproducibility.
+* Obsolete: Obsolete keys are keys no longer relevant in both from the APIs and
+  the GUI. Obsolete keys must be dropped from graph reference.
