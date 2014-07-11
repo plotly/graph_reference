@@ -3,89 +3,13 @@
 #
 # Welcome to the ultimate reference of Plotly's JSON graph format.
 #
-# Philosophy:
+# Refer to 
 #
-# * ALL plotly keys should be placed a single JSON file.
-#
-# * A fully described key is an object with the keys:
-#   (1) 'required', (2) 'type', (3) 'val_types', and (4) 'description',
-#
-#   - and additionally (5) streamable, (6) example and (7) code.
-#
-# * All keys that are contained in more than 1 object has a
-#   corresponding shortcut function (`make_ `) or dictionary (`drop_ `).
+# - ./README.md for philosophy and info about the repo 
+# - ./graph_objs_meta-toc for the table contents
 #
 # -------------------------------------------------------------------------------
-#
-# Contents -----------------
-#
-# Section -- Required module(s)
-#
-# Section  -- Shortcuts definitions:
-#
-# * Inventory of value types repeated over several keys
-#   - search for `$val_types`
-#
-# * Shortcut to described conditionally required keys
-#   - search for `$required_when`
-#
-# * Inventory of shortcuts of meta-generating functions for repeated keys 
-#   - search for `$shortcuts--` for top of the section
-#   - search for e.g. `$shortcut-x` for shortcut of specific key
-#
-# Section -- Graph Objects Meta:
-#
-# * 'Trace' graph objects (search for `$graph-objs-meta-trace`):
-#   - Scatter (search for `$scatter`)
-#   - Bar ( `$bar`)
-#   - Histogram ( `$histogram`)
-#   - Bar ( `$box`)
-#   - Heatmap ( `$heatmap`)
-#   - Contour ( `$contour`)
-#   - Histogram2d ( `$histogram2d`)
-#   - Histogram2dContour ( `$histogram2dcontour`)
-#   - Area ( `$Area`)
-#
-# * 'Auxiliary trace' graph objects ( `$graph-objs-meta-trace-aux`):
-#   - ErrorY (search for `$error_y`)
-#   - ErrorX ( `$error_x`)
-#   - XBins ( `$xbins`)
-#   - YBins ( `$ybins`)
-#   - Contours ( `$contours`)
-#   - Stream ( `$stream`)
-#
-# * 'Style' graph objects ( `$graph-objs-meta-style`)
-#   - Marker (search for `$marker`)
-#   - Line ( `$line`)
-#   - Font ( `$font`)
-#
-# * 'Axis' graph objects ( `$graph-objs-meta-layout-axis`)
-#   - XAxis (search for `$xaxis`)
-#   - YAxis ( `$yaxis`)
-#   - RadialAxis  ( `$radialaxis`)
-#   - AngularAxis ( `$angularaxis`)
-#
-# * Other 'auxiliary layout' graph objects ( `$graph-objs-meta-layout-aux`)
-#   - Legend (search for `$legend`)
-#   - ColorBar ( `$colorbar`)
-#   - Margin ( `$margin`)
-#   - Annotation ( `$annotation`)
-#
-# * Layout ( `$layout`)
-#
-# * Figure ( `$figure`)
-#
-# * Other graph objects ( `$graph-objs-meta-others`)
-#   - Data (search for `$plotlydata`)
-#   - Annotations ( `$annotations`)
-#   - Trace ( `$trace`)
-#   - PlotlyList ( `$plotlylist`)
-#   - PlotlyDict ( `$plotlydict`)
-#   - PlotlyTrace ( `$plotlytrace`)
-#
-# Section -- Write to JSON
-#
-# ===============================================================================
+
 
 ## Required module(s)
 
@@ -95,13 +19,40 @@ from collections import OrderedDict
 # -------------------------------------------------------------------------------
 
 
-## Shortcut definitions
+## Shortcut definitions and inventories
 
-# $val_types
-#
-# Inventory of value types shortcuts 
+### @meta-shortcut@ - Shortcut of shortcuts
 
-# $val_types-number
+# @output@
+# Format the keys' values into a dictionary
+def output(_required, _type, _val_types, _description, **kwargs):
+    '''
+    Outputs a dictionary of key-value pairs, given the keys.
+    (pos. arg. 1) _required: value of 'required' key
+    (pos. arg. 2) _type: value of 'type' key
+    (pos. arg. 3) _val_types: value of 'val_types' key
+    (pos. arg. 4) _description: value of 'description' key
+    (keyword args) kwargs: dictionary of additional key-value pairs
+    '''
+    _dict = dict(
+        required= _required,
+        type= _type,
+        val_types= _val_types,
+        description= _description)
+    if len(kwargs):
+        for k, v in kwargs.iteritems():
+            _dict[k] = v
+    return _dict
+
+# @lS@
+# Format long strings ...
+
+# @api@ ...
+# for API specific meta
+
+### @val_types@ - Inventory of value types shortcuts 
+
+# @val_types-number@
 # Use this to format key accepting numbers
 def _number(lt=None, le=None, gt=None, ge=None, list=False):
     if any((all((lt is not None, le is not None)),
@@ -130,7 +81,7 @@ def _number(lt=None, le=None, gt=None, ge=None, list=False):
     else:
         return out
 
-# $val_types-dict
+# @val_types-dict@
 val_types = dict(
     bool="boolean: True | False",
     color="string describing color",
@@ -144,11 +95,9 @@ val_types = dict(
     object="dictionary-like",
 )
 
-# $required_cond
-#
-# Inventory of shortcuts to describe conditional required keys
+### @required_cond@ - Inventory of shortcuts for conditionally required keys
 
-# $required_cond-keys
+# @required_cond-keys@
 # Use this for conditions involving keys
 def _required_keys(keys):
     if type(keys)==str:
@@ -161,45 +110,23 @@ def _required_keys(keys):
         to_be = 'are'
     return " when {keys} {to_be} unset".format(keys=keys,to_be=to_be)
 
-# $required_cond-plottype
+# @required_cond-plottype@
 # Use this for conditions involving plot type
 def _required_plottype(plottype):
     return " when making a {plottype}".format(plottype=plottype)
 
-# $required_cond-dict
+# @required_cond-dict@
 required_cond = dict(
    keys= _required_keys,
    plottype= _required_plottype
 )
 
 
-# $shortcuts--
-#
-# List of shortcuts for repeated keys of meta-generating functions
+### @shortcuts@ - Inventory of meta generators for repeated keys
 
-# $shortcut-shortcuts
+#### @shortcuts-coordinates@
 
-# $shortcut-output
-def output(_required, _type, _val_types, _description, **kwargs):
-    '''
-    Outputs a dictionary of key-value pairs, given the keys.
-    (pos. arg. 1) _required: value of 'required' key
-    (pos. arg. 2) _type: value of 'type' key
-    (pos. arg. 3) _val_types: value of 'val_types' key
-    (pos. arg. 4) _description: value of 'description' key
-    (keyword args) kwargs: dictionary of additional key-value pairs
-    '''
-    _dict = dict(
-        required= _required,
-        type= _type,
-        val_types= _val_types,
-        description= _description)
-    if len(kwargs):
-        for k, v in kwargs.iteritems():
-            _dict[k] = v
-    return _dict
-
-# $shortcut-x
+# @x@
 def make_x(obj):
     _required=dict(
         scatter=required_cond['keys'](["'y'","'r'","'t'"]),
@@ -266,7 +193,7 @@ def make_x(obj):
         return output(_required[obj],_type,_val_types,_description[obj],
                       streamable=_streamable)
 
-# $shortcut-y
+# @y@
 def make_y(obj):
     _required=dict(
         scatter=required_cond['keys'](["'x'","'r'","'t'"]),
@@ -314,7 +241,7 @@ def make_y(obj):
     return output(_required[obj],_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-z
+# @z@
 def make_z(obj):
     _required=False # TODO! How to phrase this?
     _type='data'
@@ -344,7 +271,7 @@ def make_z(obj):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-r
+# @r@
 def make_r(obj):
     _required=dict(
         scatter=required_cond['plottype']("Polar Chart"),
@@ -368,7 +295,7 @@ def make_r(obj):
     return output(_required[obj],_type,_val_types,_description[obj],
                  streamable=_streamable)
 
-# $shortcut-t
+# @t@
 def make_t(obj):
     _required=dict(
         scatter=required_cond['plottype']("Polar Chart"),
@@ -410,9 +337,9 @@ def make_t(obj):
     return output(_required[obj],_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcuts-coordinates-alternative
+#### @shortcuts-coordinates-alternative@
 
-# $shortcut-x0y0 $shortcut-x0 | $shortcut-y0
+# @x0y0@ | @x0@ | @y0@
 def make_x0y0(obj, x_or_y=False):
     _required=False
     _type='plot_info'  # TODO! 'data' maybe?
@@ -432,7 +359,7 @@ def make_x0y0(obj, x_or_y=False):
     _description['contour']= _description['heatmap']
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-dxdy | $shortcut-dx | $shortcut-dy
+# @dxdy@ | @dx@ | @dy@
 def make_dxdy(obj, x_or_y=False):
     _required=False
     _type='plot_info'  # TODO! 'data' maybe?
@@ -447,7 +374,7 @@ def make_dxdy(obj, x_or_y=False):
     _description['contour']= _description['heatmap']
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-xytype | $shortcut-xtype | $shortcut-ytype
+# @xytype@ | @xtype@ | @ytype@
 def make_xytype(obj, x_or_y):
     _required=False
     _type='data'    # TODO! 'data' maybe?
@@ -463,9 +390,9 @@ def make_xytype(obj, x_or_y):
     _description['contour']= _description['heatmap']
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcuts-trace-aux
+#### @shortcuts-trace-aux@
 
-# $shortcut-text
+# @text@
 def make_text(obj):
     _required=False
     _type='data'
@@ -488,7 +415,7 @@ def make_text(obj):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-error | $shortcut-error_y | $shortcut-error_x
+# @error@ | @error_y@ | @error_x@
 def make_error(obj, x_or_y):
     _required=False
     _type='object'
@@ -509,9 +436,9 @@ def make_error(obj, x_or_y):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcuts-trace-style
+#### @shortcuts-trace-style@
 
-# $shortcut-orientation
+# @orientation@
 def make_orientation(obj):
     _required=False
     _type='style'   # TODO! 'plot_info' instead?
@@ -525,7 +452,7 @@ def make_orientation(obj):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-marker
+# @marker@
 def make_marker(obj):
     _required=False
     _type='object'
@@ -549,7 +476,7 @@ def make_marker(obj):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-line
+# @line@
 def make_line(obj):
     _required=False
     _type='object'
@@ -577,7 +504,7 @@ def make_line(obj):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-opacity
+# @opacity@
 def make_opacity(marker=False):
     _required=False
     _type="style"
@@ -605,7 +532,7 @@ def make_opacity(marker=False):
                              ])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-textfont
+# @textfont@
 def make_textfont(obj):
     _required=False
     _type='object'
@@ -619,7 +546,7 @@ def make_textfont(obj):
     _description['histogram']= _description['bar']
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-font
+# @font@
 def make_font(obj):
     _required=False
     _type='object'
@@ -634,9 +561,9 @@ def make_font(obj):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcuts-for-all-traces
+#### @shortcuts-for-all-traces@
 
-# $shortcut-name
+# @name@
 drop_name=dict(
     required=False,
     type='data',
@@ -646,7 +573,7 @@ drop_name=dict(
                 "in the column header in the online spreadsheet."
 )
 
-# $shortcut-stream
+# @stream@
 drop_stream=dict(
     required=False,
     type='plot_info',
@@ -657,7 +584,7 @@ drop_stream=dict(
                 "https://plot.ly/python/streaming/"
 )
 
-# $shortcut-visible
+# @visible@
 drop_visible=dict(
     required=False,
     type='plot_info',
@@ -666,9 +593,9 @@ drop_visible=dict(
                 "visible in the rendered figure."
 )
 
-# $shortcuts-trace-and-layout
+#### @shortcuts-trace-and-layout@
 
-# $shortcut-showlegend
+# @showlegend@
 def make_showlegend(trace=False, layout=False):
     _required=False
     _type='style'
@@ -683,7 +610,7 @@ def make_showlegend(trace=False, layout=False):
                              ])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-axis | $shortcut-xaxis | $shortcut-yaxis
+# @axis@ | @xaxis@ | @yaxis@
 def make_axis(x_or_y, trace=False, layout=False):
     _required=False
     S={'x':['x','horizontal','X'], 'y':['y','vertical','Y']}
@@ -715,7 +642,7 @@ def make_axis(x_or_y, trace=False, layout=False):
                              ]).format(S0=s[0],S1=s[1],S2=s[2])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-type
+# @type@
 def make_type(trace=False, axis=False, error=False):
     _required=False
     _type='plot_info'
@@ -751,9 +678,9 @@ def make_type(trace=False, axis=False, error=False):
                              ])
     return output(_required,_type,_val_types,_description)
 
-# $shortcuts-histograms-specs
+#### @shortcuts-histograms-specs@
 
-# $shortcut-histnorm
+# @histnorm@
 drop_histnorm=dict(
     required=False,
     type='plot_info',
@@ -780,7 +707,7 @@ drop_histnorm=dict(
                 "bins."
 )
 
-# $shortcut-autobin | $shortcut-autobinx | $shortcut-autobiny
+# @autobin@ | @autobinx@ | @autobiny@
 def make_autobin(x_or_y):
     _required=False
     _type='plot_info'
@@ -795,7 +722,7 @@ def make_autobin(x_or_y):
                          ]).format(S0=s[0],S1=s[1])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-nbins | $shortcut-nbinsx | $shortcut-nbinsy
+# @nbins@ | @nbinsx@ | @nbinsy@
 def make_nbins(x_or_y):
     _required=False
     _type='style'    # TODO! Shouldn't this be 'plot_info' ?
@@ -808,7 +735,7 @@ def make_nbins(x_or_y):
                          ]).format(S0=s[0])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-bins | $shortcut-xbins | $shortcut-ybins
+# @bins@ | @xbins@ | @ybins@
 def make_bins(x_or_y):
     _required=False
     _type='object'
@@ -823,9 +750,9 @@ def make_bins(x_or_y):
                          ]).format(S0=s[0])
     return output(_required,_type,_val_types,_description)
 
-# $shortcuts-2d-specs
+#### @shortcuts-2d-specs@
 
-# $shortcut-colorbar
+# @colorbar@
 drop_colorbar=dict(
     required=False,
     type='object',
@@ -835,7 +762,7 @@ drop_colorbar=dict(
                 "(including its title, length and width)."
 )
 
-# $shortcut-scl
+# @scl@
 drop_scl=dict(
     required=False,
     type="style",
@@ -856,7 +783,7 @@ drop_scl=dict(
              ]
 )
 
-# $shortcut-zauto
+# @zauto@
 drop_zauto=dict(
     required=False,
     type='style',
@@ -865,7 +792,7 @@ drop_zauto=dict(
                 "of 'zmax' and 'zmax' can be overwritten."
 )
 
-# $shortcut-zminmax | $shortcut-zmin | $shortcut-zmax
+# @zminmax@ | @zmin@ | @zmax@
 def make_zminmax(min_or_max):
     _required=False
     _type='style'
@@ -879,7 +806,7 @@ def make_zminmax(min_or_max):
                          ]).format(S0=s)
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-reversescl
+# @reversescl@
 drop_reversescl=dict(
     required=False,
     type='style',
@@ -887,7 +814,7 @@ drop_reversescl=dict(
     description="Toggle whether or not the color scale will be reversed."
 )
 
-# $shortcut-showscale
+# @showscale@
 drop_showscale=dict(
     required=False,
     type='style',
@@ -896,9 +823,9 @@ drop_showscale=dict(
                 "this mapping will be shown alongside the figure."
 )
 
-# $shortcuts-2d-specs-more
+#### @shortcuts-2d-specs-more
 
-# $shortcut-zsmooth  # TODO! Describe the 2 algorithms
+# @zsmooth@  # TODO! Describe the 2 algorithms
 drop_zsmooth=dict(
     required=False,
     type='style',
@@ -909,7 +836,7 @@ drop_zsmooth=dict(
                 "corresponding to no smoothing."
 )
 
-# $shortcut-autocontour
+# @autocontour@
 drop_autocontour=dict(
     required=False,
     type='style',
@@ -920,7 +847,7 @@ drop_autocontour=dict(
                 "in the Contours object."
 )
 
-# $shortcut-ncontours
+# @ncontours@
 drop_ncontours=dict(
     required=False,
     type='style',
@@ -931,7 +858,7 @@ drop_ncontours=dict(
                 "to apply."
 )
 
-# $shortcut-contours
+# @contours@
 drop_contours=dict(
     required=False,
     type='object',
@@ -940,15 +867,15 @@ drop_contours=dict(
                 "the contours of this trace."
 )
 
-# $shortcuts-color
+#### @shortcuts-color@
 
-# $example-color
+# @examples-color@
 examples_color = ["'green'", "'rgb(0, 255, 0)'",
                  "'rgba(0, 255, 0, 0.3)'",
                  "'hsl(120,100%,50%)'",
                  "'hsla(120,100%,50%,0.3)'"]
 
-# $shortcut-color
+# @color@
 def make_color(obj):
     _required=False
     _type='style'     # data in bubble charts (i.e. if linked to array)
@@ -977,7 +904,7 @@ def make_color(obj):
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable,examples=examples_color)
 
-# $shortcut-fillcolor
+# @fillcolor@
 def make_fillcolor(obj):
     _required=False
     _type='style'
@@ -991,7 +918,7 @@ def make_fillcolor(obj):
     return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
-# $shortcut-outlinecolor
+# @outlinecolor@
 def make_outlinecolor(obj):
     _required=False
     _type='style'
@@ -1003,7 +930,7 @@ def make_outlinecolor(obj):
     return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
-# $shortcut-bgcolor
+# @bgcolor@
 def make_bgcolor(obj):
     _required=False
     _type='style'
@@ -1016,7 +943,7 @@ def make_bgcolor(obj):
     return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
-# $shortcut-bordercolor
+# @bordercolor@
 def make_bordercolor(obj):
     _required=False
     _type='style'
@@ -1029,9 +956,9 @@ def make_bordercolor(obj):
     return output(_required,_type,_val_types,_description[obj],
                   examples=examples_color)
 
-# $shortcuts-dimensions
+#### @shortcuts-dimensions@
 
-# $shortcut-size
+# @size@
 def make_size(obj, x_or_y=False):
     _required=False
     _type=dict(
@@ -1062,7 +989,7 @@ def make_size(obj, x_or_y=False):
     return output(_required,_type[obj],_val_types,_description[obj],
                   streamable=_streamable)
 
-# $shortcut-startend | $shortcut-start | $shortcut-end
+# @startend@ | @start@ | @end@
 def make_startend(obj, start_or_end, x_or_y=False):
     _required=False
     _type='plot_info'
@@ -1079,7 +1006,7 @@ def make_startend(obj, start_or_end, x_or_y=False):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-width
+# @width@
 def make_width(obj):
     _required=False
     _type='style'
@@ -1092,7 +1019,7 @@ def make_width(obj):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-thickness
+# @thickness@
 def make_thickness(obj, x_or_y=False):
     _required=False
     _type='style'
@@ -1105,7 +1032,7 @@ def make_thickness(obj, x_or_y=False):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-borderwidth
+# @borderwidth@
 def make_borderwidth(obj):
     _required=False
     _type='style'
@@ -1118,9 +1045,9 @@ def make_borderwidth(obj):
     return output(_required,_type,_val_types,_description[obj])
 
 
-# $shortcuts-layout-misc
+#### @shortcuts-title@
 
-# $shortcut-title
+# @title@
 def make_title(obj, x_or_y=False):
     _required=False
     _type='plot_info'
@@ -1132,7 +1059,7 @@ def make_title(obj, x_or_y=False):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcut-titlefont
+# @titlefont@
 def make_titlefont(obj, x_or_y=False):
     _required=False
     _type='plot_info'
@@ -1147,9 +1074,9 @@ def make_titlefont(obj, x_or_y=False):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-# $shortcuts-axis-other
+#### @shortcuts-axis-other
 
-# $shortcut-range
+# @range@
 def make_range(what_axis):
     _required=False
     _type='style'          # TODO! changed this!!!  was plot_info
@@ -1167,7 +1094,7 @@ def make_range(what_axis):
     return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
-# $shortcut-domain
+# @domain@
 def make_domain(what_axis):
     _required=False
     _type='plot_info'
@@ -1182,7 +1109,7 @@ def make_domain(what_axis):
     return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
-# $shortcut-showline
+# @showline@
 def make_showline(what_axis):
     _required=False
     _type='style'
@@ -1198,9 +1125,9 @@ def make_showline(what_axis):
                                ])
     return output(_required,_type,_val_types,_description)
 
-# $shortcuts-ticks
+#### @shortcuts-ticks@
 
-# $shortcut-autotick
+# @autotick@
 def make_autotick(axis_or_colorbar):
     _required=False
     _type='style'
@@ -1214,7 +1141,7 @@ def make_autotick(axis_or_colorbar):
                          ]).format(S=axis_or_colorbar)
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-nticks
+# @nticks@
 def make_nticks(axis_or_colorbar):
     _required=False
     _type='style'    # TODO! Shouldn't this be 'plot_info' ?
@@ -1225,7 +1152,7 @@ def make_nticks(axis_or_colorbar):
                          ]).format(S=axis_or_colorbar)
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-showticklabels
+# @showticklabels@
 def make_showticklabels(what_ticks):
     _required=False
     _type='style'
@@ -1235,9 +1162,9 @@ def make_showticklabels(what_ticks):
                          ]).format(what_ticks)
     return output(_required,_type,_val_types,_description)
 
-# $shortcuts-refs-anchors
+#### @shortcuts-refs-anchors@
 
-# $shortcut-xyref
+# @xyref@ | @xref@ | @yref@
 def make_xyref(x_or_y):
     _required=False
     _type='plot_info'
@@ -1260,7 +1187,7 @@ def make_xyref(x_or_y):
                          ]).format(S0=s[0],S1=s[1],S2=s[2])
     return output(_required,_type,_val_types,_description)
 
-# $shortcut-xyanchor
+# @xyanchor@ | @xanchor@ | @yanchor@
 def make_xyanchor(x_or_y):
     _required=False
     _type='plot_info'
@@ -1279,9 +1206,9 @@ def make_xyanchor(x_or_y):
                          ]).format(S0=s[0],S2=s[2])
     return output(_required,_type,_val_types[x_or_y],_description)
 
-# $shortcuts-layout-position
+#### @shortcuts-layout-position@
 
-# $shortcut-xy_layout
+# @xy_layout@ | @x_layout@ | @y_layout@
 def make_xy_layout(obj, x_or_y):
     _required=False
     _type='plot_info'
@@ -1294,23 +1221,17 @@ def make_xy_layout(obj, x_or_y):
     )
     return output(_required,_type,_val_types,_description[obj])
 
-
 # -------------------------------------------------------------------------------
 
 
 ## Graph Objects Meta
 
-# $graph-objs-meta
-#
 # Initialize the list of meta for all graph objects
-
 META = []
 
-# $graph-objs-meta-trace
-#
-# Meta of 'trace' graph objects (i.e. elements of data object)
+### @graph-objs-meta-trace@ - Meta of 'trace' graph objects (i.e. elements of data object) 
 
-# $scatter
+# @Scatter@
 META += [('scatter', OrderedDict([
 
     ('x', make_x('scatter')),
@@ -1398,7 +1319,7 @@ META += [('scatter', OrderedDict([
 
 ]))]
 
-# $bar
+# @Bar@
 META += [('bar', OrderedDict([
 
     ('x', make_x('bar')),
@@ -1441,7 +1362,7 @@ META += [('bar', OrderedDict([
 
 ]))]
 
-# $histogram
+# @Histogram@
 META += [('histogram', OrderedDict([
 
     ('x', make_x('histogram')),
@@ -1492,7 +1413,7 @@ META += [('histogram', OrderedDict([
 
 ]))]
 
-# $box
+# @Box@
 META += [('box', OrderedDict([
 
     ('y', make_y('box')),
@@ -1572,7 +1493,7 @@ META += [('box', OrderedDict([
 
 ]))]
 
-# $heatmap
+# @Heatmap@
 META += [('heatmap', OrderedDict([
 
     ('z', make_z('heatmap')),
@@ -1627,7 +1548,7 @@ META += [('heatmap', OrderedDict([
 
 ]))]
 
-# $contour
+# @Contour@
 META += [('contour', OrderedDict([
 
     ('z', make_z('contour')),
@@ -1688,7 +1609,7 @@ META += [('contour', OrderedDict([
 
 ]))]
 
-# $histogram2d
+# @Histogram2d@
 META += [('histogram2d', OrderedDict([
 
     ('x', make_x('histogram2d')),
@@ -1743,7 +1664,7 @@ META += [('histogram2d', OrderedDict([
 
 ]))]
 
-# $histogram2dcontour
+# @Histogram2dContour@
 META += [('histogram2dcontour', OrderedDict([
 
     ('x', make_x('histogram2dcontour')),
@@ -1804,7 +1725,7 @@ META += [('histogram2dcontour', OrderedDict([
 
 ]))]
 
-# $area
+# @Area@
 META += [('area', OrderedDict([  
 
     ('r', make_r('area')),
@@ -1839,13 +1760,9 @@ META += [('area', OrderedDict([
 
 ]))]
 
-# $graph-objs-meta-trace-aux
-#
-# Meta of auxiliary trace graph objects (linked to trace graph object keys)
+### @graph-objs-meta-trace-aux@ - Meta of auxiliary trace graph objects (linked to trace graph object keys)
 
-# $error
-#
-# META generation for 'error_y' and 'error_x'
+#### @Error@ (META generation for ErrorY' and ErrorX')
 def meta_error(y_or_x):
 
     S={'y': ['y','vertically','up','down','above','below'],
@@ -1959,15 +1876,13 @@ def meta_error(y_or_x):
 
     return [('error_{}'.format(y_or_x), OrderedDict(meta))]
 
-# $error_y
+# @ErrorY
 META += meta_error('y')
 
-# $error_x
+# @ErrorX
 META += meta_error('x')
 
-# $bins
-#
-# META generation for 'xbins' and 'ybins'
+#### @Bins@ (META generation for 'XBins' and 'YBins')
 def meta_bins(x_or_y):
 
     meta=[
@@ -1982,13 +1897,13 @@ def meta_bins(x_or_y):
 
     return [('{}bins'.format(x_or_y), OrderedDict(meta))]
 
-# $xbins
+# @XBins@
 META += meta_bins('x')
 
-# $ybins
+# @YBins
 META += meta_bins('y')
 
-# $contours
+# @Contours@
 META += [('contours', OrderedDict([
 
     ('showlines', dict(
@@ -2022,7 +1937,7 @@ META += [('contours', OrderedDict([
 
 ]))]
 
-# $stream
+# @Stream@
 META += [('stream', OrderedDict([
 
     ('token', dict(  # TODO: these are public!! Is that OK?
@@ -2049,11 +1964,9 @@ META += [('stream', OrderedDict([
 
 ]))]
 
-# $graph-objs-meta-style
-#
-# Meta of graph objects corresponding to style features
+### @graph-objs-meta-style@ - Meta of graph objects corresponding to style features
 
-# $marker
+# @marker@
 META += [('marker', OrderedDict([
 
     ('color', make_color('marker')),
@@ -2120,7 +2033,7 @@ META += [('marker', OrderedDict([
 
 ]))]
 
-# $line
+# @Line@
 META += [('line', OrderedDict([
 
     ('color', make_color('line')),
@@ -2157,7 +2070,7 @@ META += [('line', OrderedDict([
 
 ]))]
 
-# $font
+# @Font@
 META += [('font', OrderedDict([
 
     ('family', dict(
@@ -2191,13 +2104,9 @@ META += [('font', OrderedDict([
 ]))]
 
 
-# $graph-objs-meta-layout-axis
-#
-# Axis trace objects linked inside layout object
+### @graph-objs-meta-layout-axis@ - Axis trace objects linked inside layout object
 
-# $ticks 
-#
-# META generation for ticks (axis and colorbar)
+#### @Ticks@ - (META generation for ticks in XAxis, YAXis and ColorBar)
 def meta_ticks(axis_or_colorbar):
 
     meta= [
@@ -2300,9 +2209,7 @@ def meta_ticks(axis_or_colorbar):
 
     return meta
 
-# $axis
-#
-# META generation for 'xaxis' and 'yaxis'
+#### @Axis@ (META generation for 'xaxis' and 'yaxis')
 def meta_axis(x_or_y):
 
     S={'x':['x','bottom','top','y'], 'y':['y','left','right','x']}
@@ -2471,13 +2378,13 @@ def meta_axis(x_or_y):
 
     return [('{}axis'.format(x_or_y), OrderedDict(meta))]
 
-# $xaxis
+# @YAxis@
 META += meta_axis('x')
 
-# $yaxis
+# @YAxis@
 META += meta_axis('y')
 
-# $radialaxis
+# @RadialAxis@
 META += [('radialaxis', OrderedDict([ 
 
     ('range', make_range('radial')),
@@ -2540,7 +2447,7 @@ META += [('radialaxis', OrderedDict([
 
 ]))]
 
-# $angularaxis
+# @AngularAxis@
 META += [('angularaxis', OrderedDict([
 
     ('range', make_range('angular')),
@@ -2588,11 +2495,9 @@ META += [('angularaxis', OrderedDict([
 ]))]
 
 
-# $graph-objs-meta-layout-aux
-#
-# Other graph object linked inside layout object
+### @graph-objs-meta-layout-aux - Other graph object linked inside layout object
 
-# $legend
+# @Legend@
 META += [('legend', OrderedDict([
 
     ('x', make_xy_layout('legend', 'x')),
@@ -2628,7 +2533,7 @@ META += [('legend', OrderedDict([
 
 ]))]
 
-# $colorbar
+# @ColorBar@
 meta=[
 
      ('title', make_title('colorbar')),
@@ -2717,7 +2622,7 @@ meta+=[
 
 META += [('colorbar', OrderedDict(meta))]
 
-# $margin
+# @Margin@
 META += [('margin', OrderedDict([
 
     ('l', dict(
@@ -2762,7 +2667,7 @@ META += [('margin', OrderedDict([
 
 ]))]
 
-# $annotation
+# @Annotation@
 META += [('annotation', OrderedDict([
 
     ('x', make_xy_layout('annotation','x')),
@@ -2906,9 +2811,7 @@ META += [('annotation', OrderedDict([
 
 ]))]
 
-# $layout
-#
-#
+### @Layout@
 META += [('layout', OrderedDict([
 
     ('title', make_title('layout')),
@@ -3163,9 +3066,7 @@ META += [('layout', OrderedDict([
 
 ]))]
 
-# $figure
-#
-#
+### @Figure@
 META += [('figure', OrderedDict([
 
     ('data', dict(
@@ -3189,17 +3090,15 @@ META += [('figure', OrderedDict([
 ]))]
 
 
-# $graph-objs-meta-others
-#
-#
+### @graph-objs-meta-others@ -
 
-# $data (accepts no keys)
+# @Data@ (accepts no keys)
 META += [('data', dict())]
 
-# $annotations (accepts no keys)
+# @Annotations@ (accepts no keys)
 META += [('annotations', dict())]
 
-# $trace
+# @Trace@
 META += [('trace', OrderedDict([  # TODO! Why keep this?
 
     ('x', dict(type='data')),
@@ -3252,13 +3151,13 @@ META += [('trace', OrderedDict([  # TODO! Why keep this?
 
 ]))]
 
-# $plotlylist (accepts no keys)
+# @PlotlyList@ (accepts no keys)
 META += [('plotlylist', dict())]
 
-# $plotlydict (accepts no keys)
+# @PlotlyDict@ (accepts no keys)
 META += [('plotlydict', dict())] 
 
-# $plotlytrace (accepts no keys)
+# @PlotlyTrace@ (accepts no keys)
 META += [('plotlytrace', dict())]
 
 # -------------------------------------------------------------------------------
