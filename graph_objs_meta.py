@@ -342,7 +342,7 @@ def make_t(obj):
 # @x0y0@ | @x0@ | @y0@
 def make_x0y0(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TODO! 'data' maybe?
+    _type='plot_info'  
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
@@ -362,7 +362,7 @@ def make_x0y0(obj, x_or_y=False):
 # @dxdy@ | @dx@ | @dy@
 def make_dxdy(obj, x_or_y=False):
     _required=False
-    _type='plot_info'  # TODO! 'data' maybe?
+    _type='plot_info'  
     _val_types=val_types['number']()
     S={'x':['x',], 'y':['y',], False:['',]}
     s=S[x_or_y]
@@ -377,7 +377,7 @@ def make_dxdy(obj, x_or_y=False):
 # @xytype@ | @xtype@ | @ytype@
 def make_xytype(obj, x_or_y):
     _required=False
-    _type='data'    # TODO! 'data' maybe?
+    _type='data'    
     _val_types="'array' | 'scaled'",
     S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
     s=S[x_or_y]
@@ -646,36 +646,16 @@ def make_axis(x_or_y, trace=False, layout=False):
 def make_type(trace=False, axis=False, error=False):
     _required=False
     _type='plot_info'
-    if trace:
-        _val_types=trace
-        _description=''.join(["Plotly identifier for this data's trace type. ",
-                              " This defines how this ",
-                              " data dictionary will be handled. ",
-                              " For example, 'scatter' type expects ",
-                              " x and y data-arrays corresponding to ",
-                              "(x, y) coordinates whereas a 'histogram' ",
-                              "only requires a single x or y array ",
-                              " and a 'heatmap' type requires a z matrix."
-                             ])
-    elif axis:  # TODO! Info on category
-        _val_types="'linear' | 'log' | 'category'"
-        _description="Defines format of this axis."
-    elif error:
-        _type='plot_info'  # TODO! 'data' maybe?
-        _val_types="'data' | 'percent' | 'constant' | 'sqrt'"
-        _description=''.join(["Specify how the 'value' or 'array' key in ",
-                              "this error bar will be used to render the bars. ",
-                              "Using 'data' will set error bar lengths to the ",
-                              "actual numbers specified in 'array'.  ",
-                              "Using 'percent' will set bar lengths to the ",
-                              "percent of error associated with 'value'. ",
-                              "Using 'constant' will set each error ",
-                              "bar length to the single value specified ",
-                              "in 'value'. Using 'sqrt' will set ",
-                              "each error bar length to the square root of ",
-                              "the x data at each point ('value' and 'array' ",
-                              "do not apply)."
-                             ])
+    _val_types=trace
+    _description=''.join(["Plotly identifier for this data's trace type. ",
+                          " This defines how this ",
+                          " data dictionary will be handled. ",
+                          " For example, 'scatter' type expects ",
+                          " x and y data-arrays corresponding to ",
+                          "(x, y) coordinates whereas a 'histogram' ",
+                          "only requires a single x or y array ",
+                          " and a 'heatmap' type requires a z matrix."
+                         ])
     return output(_required,_type,_val_types,_description)
 
 #### @shortcuts-histograms-specs@
@@ -1771,7 +1751,24 @@ def meta_error(y_or_x):
 
     meta=[
 
-        ('type', make_type(error=True)),
+        ('type', dict(      # Different enough from shortcut
+            required=False,
+            type='plot_info', 
+            val_types="'data' | 'percent' | 'constant' | 'sqrt'",
+            description=''.join(["Specify how the 'value' or 'array' key in ",
+                                 "this error bar will be used to render the bars. ",
+                                 "Using 'data' will set error bar lengths to the ",
+                                 "actual numbers specified in 'array'.  ",
+                                 "Using 'percent' will set bar lengths to the ",
+                                 "percent of error associated with 'value'. ",
+                                 "Using 'constant' will set each error ",
+                                 "bar length to the single value specified ",
+                                 "in 'value'. Using 'sqrt' will set ",
+                                 "each error bar length to the square root of ",
+                                 "the x data at each point ('value' and 'array' ",
+                                 "do not apply)."
+                                ]),
+        )),
 
         ('symmetric', dict(
             required=False,
@@ -1803,7 +1800,7 @@ def meta_error(y_or_x):
 
         ('value', dict(
             required=False,
-            type='data',
+            type='plot_info',
             val_types=val_types['number'](ge=0),
             description="The value or percentage determining the error bars' "
                         "span, at all trace coordinates. "
@@ -1828,7 +1825,7 @@ def meta_error(y_or_x):
 
         ('valueminus', dict(
             required=False,
-            type='data',
+            type='plot_info',
             val_types=val_types['number'](ge=0),
             description=''.join(["Only functional when 'symmetric' ",
                                  "is set to False. ",
@@ -2225,11 +2222,11 @@ def meta_axis(x_or_y):
 
         ('domain', make_domain(x_or_y)),
 
-        ('type', dict(   # Different enough from shortcut-type
+        ('type', dict(      # Different enough from shortcut
             required=False,
             type='plot_info',
             val_types="'linear' | 'log' | 'category'",
-            description="Sets the format of this axis."
+            description="Sets the format of this axis."  # TODO! Add info
         )),
 
         ('rangemode', dict(
@@ -2528,8 +2525,6 @@ META += [('legend', OrderedDict([
     ('xanchor', make_xyanchor('x')),
 
     ('yanchor', make_xyanchor('y')),
-
-    ('showlegend', make_showlegend(layout=True)), # TODO! Redundant w/ 'layout'?
 
 ]))]
 
@@ -3003,37 +2998,6 @@ META += [('layout', OrderedDict([
         val_types=val_types['number'](ge=-360,le=360),
         description="For polar plots only. "
                     "Rotates the entire polar by the given angle."
-    )),
-
-#    ('defaultcolorrange', dict(  # TODO: polar only
-#        required=False,
-#        type='style',
-#        val_types=val_types['number'](ge=-360,le=360),
-#        description="For polar plots only. "
-#                    "More info coming soon."
-#    )),
-
-#    ('opacity', dict(  # TODO: polar only
-#        required=False,
-#        type='style',
-#        val_types=val_types['number'](le=1, ge=0),
-#        description="For polar plots only."
-#                    "Sets the opacity of the entire plot."
-#    )),
-
-#    ('needsEndSpacing', dict(  # TODO: polar only
-#        required=False,
-#        type='style',
-#        val_types='',
-#        description="For polar plots only. "
-#                    "info coming soon."
-#    )),
-
-    ('categories', dict(  # TODO! What does this do? Artifact?
-        required=False,
-        type='plot_info',
-        val_types='',
-        description='info coming soon'
     )),
 
     ('separators', dict(  # TODO! What does this do?

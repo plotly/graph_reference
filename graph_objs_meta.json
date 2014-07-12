@@ -1374,7 +1374,7 @@
         "value": {
             "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to False, this value corresponds to the span above the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
         }, 
         "arrayminus": {
@@ -1386,7 +1386,7 @@
         "valueminus": {
             "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "Only functional when 'symmetric' is set to False. Same as 'value' but corresponding to the span of the error bars below the trace coordinates"
         }, 
         "color": {
@@ -1456,7 +1456,7 @@
         "value": {
             "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to False, this value corresponds to the span right of the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
         }, 
         "arrayminus": {
@@ -1468,7 +1468,7 @@
         "valueminus": {
             "val_types": "number: x >= 0", 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "Only functional when 'symmetric' is set to False. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates"
         }, 
         "color": {
@@ -2531,12 +2531,6 @@
             "required": false, 
             "type": "plot_info", 
             "description": "This defines the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
-        }, 
-        "showlegend": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether or not the legend will be shown in this figure."
         }
     }, 
     "colorbar": {
@@ -3111,12 +3105,6 @@
             "required": false, 
             "type": "plot_info", 
             "description": "For polar plots only. Rotates the entire polar by the given angle."
-        }, 
-        "categories": {
-            "val_types": "", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "info coming soon"
         }, 
         "separators": {
             "val_types": "", 
