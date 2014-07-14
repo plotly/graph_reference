@@ -126,11 +126,12 @@ Then, to see the changes made in Plotly's API online documentation:
 ### Glossary
 
 * `#Q`: in `graph_objs_meta.py` these comments refer to questions about Plotly's
-  functionality,
+  functionality.
 * `#TODO!`: in `graph_objs_meta.py` these comments refer to tasks that remain
-  to be completed,
+  to be completed.
 * Artifact (or `#ARTIFACT`): Artifact keys are keys that not intended for API
   use (i.e. meant for GUI use), but that must remain part of graph reference to 
-  ensure reproducibility,
+  ensure reproducibility. Artifact keys should be placed last in each graph
+  objects. 
 * Obsolete: Obsolete keys are keys no longer relevant in both from the APIs and
   the GUI. Obsolete keys must be dropped from graph reference.

@@ -558,7 +558,7 @@
     "heatmap": {
         "z": {
             "val_types": "matrix-like: list of lists, numpy.matrix", 
-            "required": false, 
+            "required": true, 
             "type": "data", 
             "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
             "streamable": true
@@ -734,7 +734,7 @@
     "contour": {
         "z": {
             "val_types": "matrix-like: list of lists, numpy.matrix", 
-            "required": false, 
+            "required": true, 
             "type": "data", 
             "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
             "streamable": true
@@ -1337,13 +1337,13 @@
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Polar chart subplot are not supported yet. Info coming soon"
+            "description": "Polar chart subplots are not supported yet. Info coming soon"
         }, 
         "radialaxis": {
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Polar chart subplot are not supported yet. Info coming soon"
+            "description": "Polar chart subplots are not supported yet. Info coming soon"
         }, 
         "type": {
             "val_types": "area", 
@@ -1431,7 +1431,7 @@
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "more info coming soon"
+            "description": "Artifact. Intended for web GUI use only."
         }
     }, 
     "error_x": {
@@ -1519,7 +1519,7 @@
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 
-            "description": "more info coming soon"
+            "description": "Artifact. Intended for web GUI use only."
         }
     }, 
     "xbins": {
@@ -2294,17 +2294,7 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the domain of this radial axis; that is, the available space for this radial axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
-            "examples": [
-                [
-                    0, 
-                    0.4
-                ], 
-                [
-                    0.6, 
-                    1
-                ]
-            ]
+            "description": "Polar chart subplots are not supported yet. This key has currently no effect."
         }, 
         "orientation": {
             "val_types": "number: x in [-360, 360]", 
@@ -2389,17 +2379,7 @@
             "val_types": "number array of length 2", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the domain of this angular axis; that is, the available space for this angular axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
-            "examples": [
-                [
-                    0, 
-                    0.4
-                ], 
-                [
-                    0.6, 
-                    1
-                ]
-            ]
+            "description": "Polar chart subplots are not supported yet. This key has currently no effect."
         }, 
         "showline": {
             "val_types": "boolean: True | False", 

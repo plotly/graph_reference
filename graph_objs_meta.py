@@ -243,7 +243,7 @@ def make_y(obj):
 
 # @z@
 def make_z(obj):
-    _required=False # TODO! How to phrase this?
+    _required=True
     _type='data'
     _val_types=val_types['matrix']
     _description=dict(
@@ -266,8 +266,8 @@ def make_z(obj):
                 "the number of COLUMNS. If you ARE using numpy, then running "
                 "z.shape will give you the tuple, (n, m), e.g., (3, 5)."
     )
-    _streamable=True
     _description['contour']= _description['heatmap']
+    _streamable=True
     return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
@@ -1085,9 +1085,15 @@ def make_domain(what_axis):
                           "Domain coordinates are given in normalized "
                           "coordinates with respect to the paper."
                          ]).format(S=what_axis)
-    _examples=[[0,0.4], [0.6, 1]]
-    return output(_required,_type,_val_types,_description,
-                  examples=_examples)
+    if what_axis in ['radial','angular']:
+        _description = ''.join(["Polar chart subplots are not supported yet. "
+                                "This key has currently no effect."
+                               ])
+        return output(_required,_type,_val_types,_description)
+    else:
+        _examples=[[0,0.4], [0.6, 1]]
+        return output(_required,_type,_val_types,_description,
+                      examples=_examples)
 
 # @showline@
 def make_showline(what_axis):
@@ -1862,11 +1868,11 @@ def meta_error(y_or_x):
 
         ('visible', drop_visible),
 
-        ('traceref', dict(   # TODO! What does this do?
+        ('traceref', dict(   
             required=False,
             type='plot_info',
             val_types='',
-            description='more info coming soon'
+            description='Artifact. Intended for web GUI use only.'
         ))
 
     ]
