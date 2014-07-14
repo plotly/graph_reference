@@ -1822,6 +1822,12 @@
             "type": "plot_info", 
             "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to {}=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
         }, 
+        "autorange": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not the range of this axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this axis can respond to adjustments made in the web GUI automatically."
+        }, 
         "showgrid": {
             "val_types": "boolean: True | False", 
             "required": false, 
@@ -2011,12 +2017,6 @@
             "required": false, 
             "type": "style", 
             "description": "more info coming soon."
-        }, 
-        "autorange": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Artifact. If 'range' is set than Plotly's autorange is overwritten."
         }
     }, 
     "yaxis": {
@@ -2075,6 +2075,12 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to {}=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
+        }, 
+        "autorange": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not the range of this axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this axis can respond to adjustments made in the web GUI automatically."
         }, 
         "showgrid": {
             "val_types": "boolean: True | False", 
@@ -2265,12 +2271,6 @@
             "required": false, 
             "type": "style", 
             "description": "more info coming soon."
-        }, 
-        "autorange": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Artifact. If 'range' is set than Plotly's autorange is overwritten."
         }
     }, 
     "radialaxis": {
@@ -2976,7 +2976,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Toggle whether or not the dimensions of the figure are picked automatically by Plotly. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
+            "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
         }, 
         "width": {
             "val_types": "number: x > 0", 
@@ -3119,12 +3119,6 @@
             "description": "info coming soon"
         }, 
         "hidesources": {
-            "val_types": "", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "more info coming soon"
-        }, 
-        "bardir": {
             "val_types": "", 
             "required": false, 
             "type": "plot_info", 

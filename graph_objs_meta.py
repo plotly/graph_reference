@@ -6,7 +6,7 @@
 # Refer to 
 #
 # - ./README.md for philosophy and info about the repo 
-# - ./graph_objs_meta-toc for the table contents
+# - ./graph_objs_meta-toc.md for the table contents
 #
 # -------------------------------------------------------------------------------
 
@@ -1726,14 +1726,14 @@ META += [('area', OrderedDict([
         required=False,
         type='plot_info',
         val_types='',
-        description='Polar chart subplot are not supported yet. Info coming soon'
+        description='Polar chart subplots are not supported yet. Info coming soon'
     )),
 
     ('radialaxis', dict(  # TODO! How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
-        description='Polar chart subplot are not supported yet. Info coming soon'
+        description='Polar chart subplots are not supported yet. Info coming soon'
     )),
 
     ('type', make_type('area'))
@@ -2063,8 +2063,6 @@ META += [('line', OrderedDict([
                     "Applies only to scatter traces."
     )),
 
-    # ('thickness', dict()),  # TODO! Artifact?
-
 ]))]
 
 # @Font@
@@ -2241,6 +2239,19 @@ def meta_axis(x_or_y):
                         "non-negative range no matter the data plotted."
         )),
 
+        ('autorange', dict(  
+            required=False,
+            type='plot_info',
+            val_types=val_types['bool'],
+            description="Toggle whether or not the range of this axis is "
+                        "automatically picked by Plotly. "
+                        "If 'range' is set, then 'autorange' is set "
+                        "to False automatically. Otherwise, if 'autorange' "
+                        "is set to True (the default behavior), the range "
+                        "of this axis can respond to adjustments made in "
+                        "the web GUI automatically."
+        )),
+
         ('showgrid', dict(
             required=False,
             type='style',
@@ -2358,18 +2369,6 @@ def meta_axis(x_or_y):
             val_types='',
             description="more info coming soon."
         )),
-
-        ('autorange', dict(  # TODO! Artifact?
-            required=False,
-            type='plot_info',
-            val_types=val_types['bool'],
-            #description="Toggle whether to let plotly autorange the axis."
-            description="Artifact. If 'range' is set than Plotly's autorange "
-                        "is overwritten."
-        )),
-
-        # ('drange', dict()),  # TODO! Artifact
-        # ('r0', dict()),
 
     ]
 
@@ -2822,9 +2821,11 @@ META += [('layout', OrderedDict([
         type='style',
         val_types=val_types['bool'],
         description="Toggle whether or not the dimensions of the figure are "
-                    "picked automatically by Plotly. "
+                    "automatically picked by Plotly. Plotly picks figure's "
+                    "dimensions as a function of your machine's display "
+                    "resolution. "
                     "Once 'autosize' is set to False, the figure's dimensions "
-                    "can be set with 'width' and 'height'.",
+                    "can be set with 'width' and 'height'."
     )),
 
     ('width', dict(
@@ -3020,13 +3021,6 @@ META += [('layout', OrderedDict([
         val_types='',
         description='more info coming soon'
     )),
-
-    ('bardir', dict(    # TODO! Artifact?
-        required=False,
-        type='plot_info',
-        val_types='',
-        description='more info coming soon'
-    ))
 
 ]))]
 
