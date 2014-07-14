@@ -355,6 +355,8 @@
         "color", 
         "dash", 
         "opacity", 
+        "outliercolor", 
+        "outlierwidth", 
         "shape", 
         "smoothing", 
         "width"
@@ -373,6 +375,7 @@
         "line", 
         "maxdisplayed", 
         "opacity", 
+        "outliercolor", 
         "size", 
         "sizemode", 
         "sizeref", 

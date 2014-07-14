@@ -221,11 +221,14 @@ def make_y(obj):
             "If 'x' is not set, the bars are plotted vertically, "
             "with their length determined by the list or array linked to 'y'.",
         box="This array is used to define an individual "
-            "box plot, or, a concatenation of multiple boxplots. "
+            "box plot, or, a concatenation of multiple box plots. "
             "Statistics from these numbers define the bounds of "
             "the box, the length of the whiskers, etc. For "
             "details on defining multiple boxes with locations "
-            "see 'x'.",
+            "see 'x'. Each box spans from the first quartile to the third. "
+            "The second quartile is marked by a line inside the box. "
+            "By default, the whiskers are correspond to box' edges +/- 1.5 times "
+            "the interquartile range. See also 'boxpoints' for more info",
         heatmap="This array-like value contains the vertical coordinates "
                 "referring to the rows of the 'z' matrix. "
                 "If strings, the y-labels are spaced evenly."
@@ -465,8 +468,9 @@ def make_marker(obj):
             "parameters for this bar trace, for example, "
             "the bars' fill color, border width and border color.",
         box="A dictionary-like object containing marker style "
-            "parameters for this the box points of box trace. "
-            "Has an effect only 'boxpoints' is set to 'outliers' or 'all'.",
+            "parameters for this the boxpoints of box trace. "
+            "Has an effect only 'boxpoints' is set to 'outliers', "
+            "'suspectedoutliers' or 'all'.",
         area="A dictionary-like object containing marker style "
              "of the area sectors of this trace, for example the sector fill "
              "color and sector boundary line width and sector boundary color."
@@ -1410,48 +1414,65 @@ META += [('box', OrderedDict([
 
     ('name', drop_name),
 
-    ('boxpoints', dict(  # TODO! What does 'suspectedoutliers' do?
-        required=False,
-        type='plot_info',
-        val_types="'all' | 'outliers' | 'suspectedoutliers' | False",
-        description="If 'all' then the 'y' points are shown with the box. "
-                    "If 'outliers' then only the 'outliers' of the 'y' "
-                    "points are shown. If False then no points are shown."
-    )),
-
     ('boxmean', dict(
         required=False,
         type='style',
         val_types="False | True | 'sd'",
-        description="If True then the mean of the y-points is shown as a "
-                    "dashed line in the box. If 'sd', then the standard "
-                    "deviation is also shown. If False, then no line "
-                    "shown."
+        description="Choose between add-on features for this box trace. "
+                    "If True then the mean of the data linked to 'y' is shown "
+                    "as a dashed line in the box. If 'sd', then the standard "
+                    "deviation is also shown. If False (the default), "
+                    "then no line shown."
+    )),
+
+    ('boxpoints', dict(
+        required=False,
+        type='plot_info',
+        val_types="'outliers' | 'all' | 'suspectedoutliers' | False",
+        description="Choose between boxpoints options for this box trace. "
+                    "If 'outliers' (the default), then only the points lying "
+                    "outside the box' whiskers (more info in 'y') are shown. "
+                    "If 'all', then all data points linked 'y' are shown. "
+                    "If 'suspectedoutliers', then outliers points are shown and "
+                    "points either less than 4*Q1-3*Q3 or greater than "
+                    "4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). "
+                    "If False, then only the boxes are shown and the whiskers "
+                    "correspond to the minimum and maximum value linked to 'y'."
     )),
 
     ('jitter', dict(
         required=False,
         type='style',
-        val_types="number in [0, 1]",
-        description="Width of the jittered scatter. If 0, then the "
-                    "boxpoints are aligned vertically, if 1 then the "
-                    "points are randomly jittered horizontally up to the "
-                    "width of the box."
+        val_types=val_types['number'](ge=0,le=1),
+        description="Sets the width of the jitter in the boxpoints scatter "
+                    "in this trace. "
+                    "Has an no effect if 'boxpoints' is set to False. "
+                    "If 0, then the "
+                    "boxpoints are aligned vertically. If 1 then the "
+                    "boxpoints are placed in a random horizontal jitter of width "
+                    "equal to the width of the boxes."
     )),
 
     ('pointpos', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=-2, le=2),
-        description="Horizontal position of the center of the boxpoints "
-                    "relative to the center and width of the box."
+        description="Sets the horizontal position of the boxpoints "
+                    "in relation to the boxes in this trace. "
+                    "Has an no effect if 'boxpoints' is set to False. "
+                    "If 0, then the boxpoints are placed over the center of " 
+                    "each box. If 1 (-1), then the boxpoints are placed on the "
+                    "right (left) each box border. "
+                    "If 2 (-2), then the boxpoints are  "
+                    "placed 1 one box width to right (left) of each box. "
     )),
 
     ('whiskerwidth', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0, le=1),
-        description="Width of the whisker of the box relative to the box' "
+        description="Sets the width of the whisker of the box relative "
+                    "to the box' "
                     "width (in normalized coordinates, e.g. if "
                     "'whiskerwidth' set 1, then the whiskers are as wide "
                     "as the box."
@@ -1969,7 +1990,7 @@ META += [('stream', OrderedDict([
 
 ### @graph-objs-meta-style@ - Meta of graph objects corresponding to style features
 
-# @marker@
+# @Marker@
 META += [('marker', OrderedDict([
 
     ('color', make_color('marker')),
@@ -2025,12 +2046,22 @@ META += [('marker', OrderedDict([
         description="Select scale factor for the size of each point. "
                     "Applies only to scatter traces."
     )),
+        
+    ('outliercolor', dict(
+        required=False,
+        type='style',  
+        val_types=val_types['color'],
+        description="For box plots only. Has an effect only if 'boxpoints' is "
+                    "set to 'suspectedoutliers'. Sets the face color of the "
+                    "outlier points.",
+       examples=examples_color
+    )),
 
     ('maxdisplayed', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Set maximum number of displayed points for this "
+        description="Sets maximum number of displayed points for this "
                     "trace. Applies only to scatter traces."
     ))
 
@@ -2068,6 +2099,26 @@ META += [('line', OrderedDict([
         description="Choose the line shape between each coordinate pair. "
                     "Applies only to scatter traces."
     )),
+
+    ('outliercolor', dict(
+        required=False,
+        type='style',  
+        val_types=val_types['color'],
+        description="For box plots only. Has an effect only if 'boxpoints' is "
+                    "set to 'suspectedoutliers'. Sets the color of the "
+                    "bordering line of the outlier points.",
+       examples=examples_color
+    )),
+
+    ('outlierwidth', dict(
+        required=False,
+        type='style',  
+        val_types=val_types['color'],
+        description="For box plots only. Has an effect only if 'boxpoints' is "
+                    "set to 'suspectedoutliers'. Sets the width in pixels of "
+                    "bordering line of the outlier points.",
+       examples=examples_color
+    ))
 
 ]))]
 

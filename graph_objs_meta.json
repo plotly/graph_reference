@@ -432,7 +432,7 @@
             "val_types": "array-like of numbers, strings, datetimes", 
             "required": true, 
             "type": "data", 
-            "description": "This array is used to define an individual box plot, or, a concatenation of multiple boxplots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'.", 
+            "description": "This array is used to define an individual box plot, or, a concatenation of multiple box plots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'. Each box spans from the first quartile to the third. The second quartile is marked by a line inside the box. By default, the whiskers are correspond to box' edges +/- 1.5 times the interquartile range. See also 'boxpoints' for more info", 
             "streamable": true
         }, 
         "x0": {
@@ -455,35 +455,35 @@
             "type": "data", 
             "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
         }, 
-        "boxpoints": {
-            "val_types": "'all' | 'outliers' | 'suspectedoutliers' | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "If 'all' then the 'y' points are shown with the box. If 'outliers' then only the 'outliers' of the 'y' points are shown. If False then no points are shown."
-        }, 
         "boxmean": {
             "val_types": "False | True | 'sd'", 
             "required": false, 
             "type": "style", 
-            "description": "If True then the mean of the y-points is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False, then no line shown."
+            "description": "Choose between add-on features for this box trace. If True then the mean of the data linked to 'y' is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False (the default), then no line shown."
+        }, 
+        "boxpoints": {
+            "val_types": "'outliers' | 'all' | 'suspectedoutliers' | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Choose between boxpoints options for this box trace. If 'outliers' (the default), then only the points lying outside the box' whiskers (more info in 'y') are shown. If 'all', then all data points linked 'y' are shown. If 'suspectedoutliers', then outliers points are shown and points either less than 4*Q1-3*Q3 or greater than 4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). If False, then only the boxes are shown and the whiskers correspond to the minimum and maximum value linked to 'y'."
         }, 
         "jitter": {
-            "val_types": "number in [0, 1]", 
+            "val_types": "number: x in [0, 1]", 
             "required": false, 
             "type": "style", 
-            "description": "Width of the jittered scatter. If 0, then the boxpoints are aligned vertically, if 1 then the points are randomly jittered horizontally up to the width of the box."
+            "description": "Sets the width of the jitter in the boxpoints scatter in this trace. Has an no effect if 'boxpoints' is set to False. If 0, then the boxpoints are aligned vertically. If 1 then the boxpoints are placed in a random horizontal jitter of width equal to the width of the boxes."
         }, 
         "pointpos": {
             "val_types": "number: x in [-2, 2]", 
             "required": false, 
             "type": "style", 
-            "description": "Horizontal position of the center of the boxpoints relative to the center and width of the box."
+            "description": "Sets the horizontal position of the boxpoints in relation to the boxes in this trace. Has an no effect if 'boxpoints' is set to False. If 0, then the boxpoints are placed over the center of each box. If 1 (-1), then the boxpoints are placed on the right (left) each box border. If 2 (-2), then the boxpoints are  placed 1 one box width to right (left) of each box. "
         }, 
         "whiskerwidth": {
             "val_types": "number: x in [0, 1]", 
             "required": false, 
             "type": "style", 
-            "description": "Width of the whisker of the box relative to the box' width (in normalized coordinates, e.g. if 'whiskerwidth' set 1, then the whiskers are as wide as the box."
+            "description": "Sets the width of the whisker of the box relative to the box' width (in normalized coordinates, e.g. if 'whiskerwidth' set 1, then the whiskers are as wide as the box."
         }, 
         "fillcolor": {
             "val_types": "string describing color", 
@@ -502,7 +502,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "A dictionary-like object containing marker style parameters for this the box points of box trace. Has an effect only 'boxpoints' is set to 'outliers' or 'all'.", 
+            "description": "A dictionary-like object containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
             "streamable": true
         }, 
         "line": {
@@ -1670,11 +1670,24 @@
             "type": "style", 
             "description": "Select scale factor for the size of each point. Applies only to scatter traces."
         }, 
+        "outliercolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "For box plots only. Has an effect only if 'boxpoints' is set to 'suspectedoutliers'. Sets the face color of the outlier points."
+        }, 
         "maxdisplayed": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Set maximum number of displayed points for this trace. Applies only to scatter traces."
+            "description": "Sets maximum number of displayed points for this trace. Applies only to scatter traces."
         }
     }, 
     "line": {
@@ -1721,6 +1734,32 @@
             "required": false, 
             "type": "style", 
             "description": "Choose the line shape between each coordinate pair. Applies only to scatter traces."
+        }, 
+        "outliercolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "For box plots only. Has an effect only if 'boxpoints' is set to 'suspectedoutliers'. Sets the color of the bordering line of the outlier points."
+        }, 
+        "outlierwidth": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "For box plots only. Has an effect only if 'boxpoints' is set to 'suspectedoutliers'. Sets the width in pixels of bordering line of the outlier points."
         }
     }, 
     "font": {
