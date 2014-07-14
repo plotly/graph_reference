@@ -2543,13 +2543,13 @@
             "val_types": "'auto' | 'left' | 'center' | 'right'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the horizontal location on the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
+            "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
         }, 
         "yanchor": {
             "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
+            "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }
     }, 
     "colorbar": {
@@ -2696,7 +2696,7 @@
             "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
+            "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }, 
         "bgcolor": {
             "val_types": "string describing color", 
@@ -2840,13 +2840,13 @@
             "val_types": "'auto' | 'left' | 'center' | 'right'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the horizontal location on the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
+            "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
         }, 
         "yanchor": {
             "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets the horizontal location on the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
+            "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
         }, 
         "align": {
             "val_types": "'left' | 'center' | 'right'", 
@@ -2900,7 +2900,7 @@
         "textangle": {
             "val_types": "number: x in [-180, 180]", 
             "required": false, 
-            "type": "sytle", 
+            "type": "style", 
             "description": "Sets the angle of the text linked to 'text' with respect to the horizontal."
         }, 
         "bordercolor": {

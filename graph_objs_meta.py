@@ -1191,7 +1191,7 @@ def make_xyanchor(x_or_y):
     }
     S={'x': ['x','left','right'], 'y':['y','bottom','top']}
     s=S[x_or_y]
-    _description=''.join(["Sets the horizontal location on the object ",
+    _description=''.join(["Sets the horizontal location of the object ",
                           "referenced by the '{S0}' (position) key. ",
                           "For example, if '{S0}'==1, ",
                           "'{S0}ref'='paper', and '{S0}anchor'='{S2}', ",
@@ -2855,7 +2855,7 @@ META += [('annotation', OrderedDict([
 
     ('textangle', dict(
         required=False,
-        type='sytle',
+        type='style',
         val_types=val_types['number'](ge=-180,le=180),
         description="Sets the angle of the text linked to 'text' with respect "
                     "to the horizontal."
