@@ -946,7 +946,7 @@ def make_bordercolor(obj):
 def make_size(obj, x_or_y=False):
     _required=False
     _type=dict(
-        marker='style',       # data in bubble charts (i.e. if linked to array)
+        marker='style',   #TODO! data in bubble charts (i.e. if linked to array)
         font='style',
         bins='plot_info',
         contours='plot_info'
@@ -961,7 +961,11 @@ def make_size(obj, x_or_y=False):
         marker="Sets the size of the markers (in pixels). "
                "If 'size' is linked to a list or an array of numbers, "
                "size values are mapped to individual marker points "
-               "in the same order as in the data lists or arrays ",
+               "in the same order as in the 'x', 'y' lists or arrays. "
+               "In this case, use 'size' in conjunction "
+               "with 'sizeref' and 'sizemode' "
+               "to fine-tune the map from the numbers linked to 'size' "
+               "and the marker points' rendered sizes.",
         font="Sets the size of font."
              "If linked in the first level of the layout object, set the "
              "color of the global font.",
@@ -2004,7 +2008,7 @@ META += [('marker', OrderedDict([
                   "| 'triangle-down' | 'triangle-left' | 'triangle-right' "
                   "| 'triangle-up' | 'x' OR list of these string values",
         description="The symbol that is drawn on the plot for each marker. "
-                    "Supported only in scatter trace. "
+                    "Supported only in scatter traces. "
                     "If 'symbol' is linked to a list or an array of numbers, "
                     "symbol values are mapped to individual marker points "
                     "in the same order as in the data lists or arrays."
@@ -2030,23 +2034,35 @@ META += [('marker', OrderedDict([
                     "corresponds to a color."
     )),
 
-    ('sizemode', dict(  # TODO! Better description
-        required=False,
-        type='style',
-        val_types="'diameter' | 'area'",
-        description="Scale the size each points with respect "
-                    "to diameter or area. "
-                    "Applies only to scatter traces."
-    )),
-
-    ('sizeref', dict(  # TODO! Better description
+    ('sizeref', dict(  
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Select scale factor for the size of each point. "
-                    "Applies only to scatter traces."
+        description="Sets the scale factor used to determine the rendered size "
+                    "of each marker point in this trace. "
+                    "Applies only to scatter traces that have an array linked "
+                    "to the 'size' key in Marker. "
+                    "If set, the value linked to 'sizeref' is used to divide "
+                    "each entry linked to 'size'. That is, setting 'sizeref' to "
+                    "less (greater) than 1, increases (decreases) the "
+                    "rendered marker sizes."
     )),
         
+    ('sizemode', dict(  
+        required=False,
+        type='style',
+        val_types="'diameter'| 'area'",
+        description="Choose between marker size scaling options for the marker "
+                    "points in this trace. "
+                    "Applies only to scatter traces that have an array linked "
+                    "to the 'size' key in Marker. "
+                    "If 'diameter' ('area'), then the diameter (area) of the "
+                    "rendered marker points (in pixels) are "
+                    "proportional to the numbers linked to 'size'." 
+                    "E.g. set 'sizemode' to 'area' for a more a smaller "
+                    "range of rendered marker sizes."
+    )),
+
     ('outliercolor', dict(
         required=False,
         type='style',  
