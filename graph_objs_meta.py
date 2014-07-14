@@ -1186,12 +1186,12 @@ def make_xyanchor(x_or_y):
     _required=False
     _type='plot_info'
     _val_types={
-        'x':"'left' | 'center' | 'right'",
-        'y':"'bottom' | 'middle' | 'top'"
+        'x':"'auto' | 'left' | 'center' | 'right'",
+        'y':"'auto' | 'bottom' | 'middle' | 'top'"
     }
     S={'x': ['x','left','right'], 'y':['y','bottom','top']}
     s=S[x_or_y]
-    _description=''.join(["This defines the horizontal location on the object ",
+    _description=''.join(["Sets the horizontal location on the object ",
                           "referenced by the '{S0}' (position) key. ",
                           "For example, if '{S0}'==1, ",
                           "'{S0}ref'='paper', and '{S0}anchor'='{S2}', ",
@@ -1206,14 +1206,15 @@ def make_xyanchor(x_or_y):
 def make_xy_layout(obj, x_or_y):
     _required=False
     _type='plot_info'
-    _val_types=val_types['number'](ge=0)
-    _description=dict(
-        legend="Sets the '{}' position of the legend.".format(x_or_y),
-        colorbar="Sets the '{}' position of the colorbar "
-                 "(in paper coordinates).".format(x_or_y),
-        annotation="Sets the '{}' position of this annotations.".format(x_or_y)
-    )
-    return output(_required,_type,_val_types,_description[obj])
+    _val_types=val_types['number']()
+    _description=''.join(["Sets the '{x_or_y}' position of this {obj}. "
+                         ]).format(x_or_y=x_or_y, obj=obj)
+    if obj in ['legend','annotation']:
+        _description += ''.join(["Use in conjunction with '{x_or_y}ref' and "
+                                 "'{x_or_y}anchor' to fine-tune the location of "
+                                 "this {obj}."
+                                ]).format(x_or_y=x_or_y, obj=obj)
+    return output(_required,_type,_val_types,_description)
 
 # -------------------------------------------------------------------------------
 
@@ -2099,21 +2100,33 @@ META += [('line', OrderedDict([
 
     ('opacity', make_opacity()),
 
-    ('smoothing', dict(     # TODO! Better description
-        required=False,
-        type='style',
-        val_types=val_types['number'](ge=0),
-        description="The amount of smoothing. "
-                    "Applies only to contour traces "
-                    "and scatter trace if 'shape' is set to 'spline'."
-    )),
-
-    ('shape', dict(         # TODO! Better description
+    ('shape', dict(
         required=False,
         type='style',
         val_types="'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'",
-        description="Choose the line shape between each coordinate pair. "
-                    "Applies only to scatter traces."
+        description="Choose the line shape between each coordinate pair "
+                    "in this trace. "
+                    "Applies only to scatter traces. " 
+                    "The default value is 'linear'. "
+                    "If 'spline', then the lines are drawn using spline "
+                    "interpolation between the coordinate pairs. "
+                    "The remaining available values correspond to "
+                    "step-wise line shapes, see example in: "
+                    "https://plot.ly/~alex/315 ."
+    )),
+
+    ('smoothing', dict(
+        required=False,
+        type='style',
+        val_types=val_types['number'](ge=0),
+        description="Sets the amount of smoothing applied to this line object. "
+                    "Applies only to contour traces "
+                    "and scatter traces if 'shape' is set to 'spline'. "
+                    "The default value is 1. If 'smoothing' is set to 0, then "
+                    "no smoothing is applied. "
+                    "Set 'smoothing' to a value less "
+                    "(greater) than 1 for a less (more) pronounced line "
+                    "smoothing. "
     )),
 
     ('outliercolor', dict(
@@ -2761,21 +2774,32 @@ META += [('annotation', OrderedDict([
                  ]
     )),
 
-    ('font', make_font('annotation')),
-
-    ('align', dict(
-        required=False,
-        type='plot_info',
-        val_types="'left' | 'center' | 'right'",
-        description="Sets the alignment of the text in the annotation."
-    )),
-
     ('showarrow', dict(
         required=False,
         type='plot_info',
         val_types=val_types['bool'],
         description="Toggle whether or not the arrow associated with "
-                    "this annotation with be shown."
+                    "this annotation with be shown. "
+                    "If False, then the text linked to 'text' lines up with "
+                    "the 'x', 'y' coordinates'. If True (the default), then "
+                    "'text' is placed near the arrow's tail."
+    )),
+
+    ('font', make_font('annotation')),
+
+    ('xanchor', make_xyanchor('x')),
+
+    ('yanchor', make_xyanchor('y')),
+
+    ('align', dict(
+        required=False,
+        type='plot_info',
+        val_types="'left' | 'center' | 'right'",
+        description="Sets the vertical alignment of the text in the "
+                    "annotation with respect to the set 'x', 'y' position. "
+                    "Has only an effect if the text linked to "
+                    "'text' spans more two or more lines "
+                    "(using <br> HTML one or more tags)."
     )),
 
     ('arrowhead', dict(
@@ -2829,6 +2853,15 @@ META += [('annotation', OrderedDict([
                     "Has an effect only if 'showarrow' is set to True."
     )),
 
+    ('textangle', dict(
+        required=False,
+        type='sytle',
+        val_types=val_types['number'](ge=-180,le=180),
+        description="Sets the angle of the text linked to 'text' with respect "
+                    "to the horizontal."
+
+    )),
+
     ('bordercolor', make_bordercolor('annotation')),
 
     ('borderwidth', make_borderwidth('annotation')),
@@ -2842,39 +2875,7 @@ META += [('annotation', OrderedDict([
 
     ('bgcolor', make_bgcolor('annotation')),
 
-    ('opacity', make_opacity()),
-
-    ('xanchor', make_xyanchor('x')),
-
-    ('yanchor', make_xyanchor('y')),
-
-    ('xatype', dict(    # TODO! What does this do?
-        required=False,
-        type='style',
-        val_types='',
-        description="more info coming soon"
-    )),
-
-    ('yatype', dict(    # TODO! What does this do?
-        required=False,
-        type='style',
-        val_types='',
-        description="more info coming soon"
-    )),
-
-    ('tag', dict(       # TODO! What does this do?
-        required=False,
-        type='style',
-        val_types='',
-        description="more info coming soon"
-    )),
-
-    ('ref', dict(       # TODO! What does this do?
-        required=False,
-        type='style',
-        val_types='',
-        description="more info coming soon"
-    ))
+    ('opacity', make_opacity())
 
 ]))]
 
@@ -2967,7 +2968,7 @@ META += [('layout', OrderedDict([
         required=False,
         type='style',
         val_types="'closest' | 'x' | 'y'",
-        description="Set what happens when a user hovers over the figure. "
+        description="Sets this figure's behavior when a user hovers over it. "
                     "When set to 'x', all data sharing the same 'x' "
                     "coordinate will be shown on screen with "
                     "corresponding trace labels. When set to 'y' all data "
@@ -2981,8 +2982,8 @@ META += [('layout', OrderedDict([
         required=False,
         type='style',
         val_types="'zoom' | 'pan'",
-        description="Set what happens when a user preforms a mouse 'drag' "
-                    "in the plot area. When set to 'zoom', a portion of "
+        description="Sets this figure's behavior when a user preforms a mouse "
+                    "'drag' in the plot area. When set to 'zoom', a portion of "
                     "the plot will be highlighted, when the viewer "
                     "exits the drag, this highlighted section will be "
                     "zoomed in on. When set to 'pan', data in the plot "
@@ -2990,6 +2991,22 @@ META += [('layout', OrderedDict([
                     "user can always depress the 'shift' key to access "
                     "the whatever functionality has not been set as the "
                     "default."
+    )),
+
+    ('separators', dict(  
+        required=False,
+        type='style',
+        val_types="a two-character string",
+        description="Sets the decimal (the first character) and thousands "
+                    "(the second character) separators to be displayed on "
+                    "this figure's tick labels and hover mode. "
+                    "This is meant for internationalization purposes. "
+                    "For example, if "
+                    "'separator' is set to ', ', then decimals are separated "
+                    "by commas and thousands by spaces. "
+                    "One may have to set 'exponentformat' to 'none' "
+                    "in the corresponding axis object(s) to see the "
+                    "effects.",
     )),
 
     ('barmode', dict(
@@ -3000,7 +3017,7 @@ META += [('layout', OrderedDict([
                     "This sets how multiple bar objects are plotted "
                     "together. In other words, this defines how bars at "
                     "the same location appear on the plot. If set to "
-                    "'stack' the bars are stacked ontop of one another. "
+                    "'stack' the bars are stacked on top of one another. "
                     "If set to 'group', the bars are plotted next to one "
                     "another, centered around the shared location. If set "
                     "to 'overlay', the bars are simply plotted over one "
@@ -3041,7 +3058,7 @@ META += [('layout', OrderedDict([
                     "but they will not overlap."
     )),
 
-    ('radialaxis', dict(  # TODO! How does this work?
+    ('radialaxis', dict(  
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3049,7 +3066,7 @@ META += [('layout', OrderedDict([
                     "in a polar plot."
     )),
 
-    ('angularaxis', dict( # TODO! How does this work?
+    ('angularaxis', dict(
         required=False,
         type='object',
         val_types=val_types['object'],
@@ -3074,25 +3091,14 @@ META += [('layout', OrderedDict([
                     "Rotates the entire polar by the given angle."
     )),
 
-    ('separators', dict(  # TODO! What does this do?
-        required=False,
-        type='style',
-        val_types='',
-        description='info coming soon'
-    )),
-
-    ('labeloffset', dict(  # TODO! Does this actually work?
-        required=False,
-        type='style',
-        val_types='',
-        description='info coming soon'
-    )),
-
-    ('hidesources', dict(  # TODO! Artifact?
+    ('hidesources', dict(
         required=False,
         type='plot_info',
-        val_types='',
-        description='more info coming soon'
+        val_types=val_types['bool'],
+        description="Toggle whether or not an annotation citing the data "
+                    "source is placed at the bottom-right corner of the figure." 
+                    "This key has an effect only on graphs that have been "
+                    "generated from forked graphs from plot.ly."
     )),
 
 ]))]
