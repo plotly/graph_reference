@@ -1,7 +1,7 @@
 # How to contribute?
 
 
-## To Add and/or modify keys in graph reference
+## To add and/or modify keys in graph reference
 
 Clone and/or pull the latest master version: 
 ```
@@ -46,11 +46,9 @@ To see if your push passed, go
 [here](https://circleci.com/gh/plotly/graph_reference).
 
 
-## To see the see the changes in the APIs and online
+## To see the changes in the APIs' help function and online documentation
 
-Then, to see the changes made in Plotly's API online documentation:
-
-1. the `graph_reference` submodule in the
+1. The `graph_reference` submodule in the
    [Python-API](https://github.com/plotly/python-api) needs to be updated and
    tests need to pass,
 1. the [Python-API](https://github.com/plotly/python-api) needs to be pushed to
