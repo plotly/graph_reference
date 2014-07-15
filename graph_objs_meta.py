@@ -777,14 +777,6 @@ def make_colorscale(z_or_color):
     return output(_required,_type,_val_types,_description,
                   examples=_examples)
 
-# @scl@
-drop_scl=dict(       # ARTIFACT
-    required=False,
-    type="style",
-    val_types="",
-    description="Artifact. Has the same effect as 'colorscale'."
-)
-
 # @zcauto@ | @zauto@ | @cauto@
 def make_zcauto(z_or_c):
     _required=False
@@ -822,14 +814,6 @@ drop_reversescale=dict(
     type='style',
     val_types=val_types['bool'],
     description="Toggle whether or not the color scale will be reversed."
-)
-
-# @reversescl@
-drop_reversescl=dict(   # ARTIFACT
-    required=False,
-    type="style",
-    val_types="",
-    description="Artifact. Has the same effect as 'reversescale'."
 )
 
 # @showscale@
@@ -908,7 +892,7 @@ def make_color(obj):
                "in the same order as in the data lists or arrays. "
                "To set the color of the marker's bordering line, "
                "use the 'line' key in Marker. "
-               "The 'color' key can also accept a list or an array ofof  numbers, "
+               "The 'color' key can also accept a list or an array of numbers, "
                "where each number is then mapped to a color using the "
                "color scale set in 'colorscale'.",
         line="Sets the color of the line object. "
@@ -1595,10 +1579,6 @@ META += [('heatmap', OrderedDict([
 
     ('type', make_type('heatmap')),
 
-    ('scl', drop_scl),  # ARTIFACT
-
-    ('reversescl', drop_reversescl),  # ARTIFACT
-
 ]))]
 
 # @Contour@
@@ -1660,10 +1640,6 @@ META += [('contour', OrderedDict([
 
     ('type', make_type('contour')),
 
-    ('scl', drop_scl),  # ARTIFACT
-
-    ('reversescl', drop_reversescl),  # ARTIFACT
-
 ]))]
 
 # @Histogram2d@
@@ -1718,10 +1694,6 @@ META += [('histogram2d', OrderedDict([
     ('visible', drop_visible),
 
     ('type', make_type('histogram2d')),
-
-    ('scl', drop_scl),  # ARTIFACT
-
-    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
@@ -1783,10 +1755,6 @@ META += [('histogram2dcontour', OrderedDict([
     ('visible', drop_visible),
 
     ('type', make_type('histogram2dcontour')),
-
-    ('scl', drop_scl),  # ARTIFACT
-   
-    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
