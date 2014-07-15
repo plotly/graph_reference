@@ -51,13 +51,12 @@ Graph reference is used:
 
 * A fully described key is an object with the keys: 
   1. `'required'`: whether the key is required or not to create the chart type,
-  1. `'type'`: **IMPORTANT** 
-  
-  ...`'data'` (the only keys that remain after`.get_data()`), 
-  ...`'style'` (keys that are stripped by `.strip_style()`),
-  ...`'plot_info'` (keys that not affected by `.strip_style()`, i.e. keys that may
-  have an important effect on the information presented in a given figure), or
-  ...`'object'` (keys that are to be linked to another object),
+  1. `'type'`: &nbsp; **IMPORTANT**  <br>
+    'data'` (the only keys that remain after`.get_data()`), <br>
+    `'style'` (keys that are stripped by `.strip_style()`), <br>
+    `'plot_info'` (keys that not affected by `.strip_style()`, i.e. keys that may
+    have an important effect on the information presented in a given figure), or <br>
+    `'object'` (keys that are to be linked to another object),
   1. `'val_types'`: valid types (e.g. array-like of strings, number: in [0, 1]),
   1. `'description'`: making help helpful!
 
