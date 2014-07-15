@@ -444,7 +444,7 @@ def make_error(obj, x_or_y):
 # @orientation@
 def make_orientation(obj):
     _required=False
-    _type='style' 
+    _type='plot_info' 
     _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
@@ -982,7 +982,7 @@ def make_size(obj, x_or_y=False):
                "with 'sizeref' and 'sizemode' "
                "to fine-tune the map from the numbers linked to 'size' "
                "and the marker points' rendered sizes.",
-        font="Sets the size of font."
+        font="Sets the size of font. "
              "If linked in the first level of the layout object, set the "
              "color of the global font.",
         bins="Sets the size (i.e. their width) of each "

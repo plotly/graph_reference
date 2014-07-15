@@ -179,7 +179,7 @@
         "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
         }, 
         "text": {
@@ -423,7 +423,7 @@
         "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."
         }
     }, 
@@ -1796,7 +1796,7 @@
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the size of font.If linked in the first level of the layout object, set the color of the global font.", 
+            "description": "Sets the size of font. If linked in the first level of the layout object, set the color of the global font.", 
             "streamable": true
         }, 
         "color": {
