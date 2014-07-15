@@ -170,8 +170,8 @@ def make_x(obj):
             "simply be assigned a location.",
         heatmap="This array-like value contains the horizontal coordinates "
                 "referring to the columns of the 'z' matrix. "
-                "if strings, the x-labels are spaced evenly."
-                "if the dimensions of z are (n x m), "
+                "if strings, the x-labels are spaced evenly. "
+                "If the dimensions of z are (n x m), "
                 "the length of the 'x' array should be 'm'.",
         histogram2d="The data sample to be binned on the x-axis and "
                     "whose distribution (computed by Plotly) will correspond "
@@ -231,7 +231,7 @@ def make_y(obj):
             "the interquartile range. See also 'boxpoints' for more info",
         heatmap="This array-like value contains the vertical coordinates "
                 "referring to the rows of the 'z' matrix. "
-                "If strings, the y-labels are spaced evenly."
+                "If strings, the y-labels are spaced evenly. "
                 "If the dimensions of z are (n x m), "
                 "the length of the 'y' array should be 'n'.",
         histogram2d="The data sample to be binned on the y-axis and "
@@ -444,7 +444,7 @@ def make_error(obj, x_or_y):
 # @orientation@
 def make_orientation(obj):
     _required=False
-    _type='style'   # TODO! 'plot_info' instead?
+    _type='plot_info' 
     _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
@@ -746,56 +746,90 @@ drop_colorbar=dict(
                 "(including its title, length and width)."
 )
 
-# @scl@
-drop_scl=dict(
-    required=False,
-    type="style",
-    val_types="array_like of value-color pairs | "
-              "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
-              "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
-              "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'",
-    description="The color scale. The strings are pre-defined color "
-                "scales. For custom color scales, define a list of "
-                "color-value pairs, where the first element of the pair "
-                "corresponds to a normalized value of z from 0-1, "
-                "i.e. (z-zmin)/ (zmax-zmin), and the second element of pair "
-                "corresponds to a color.",
-    examples=["'Greys'", 
+# @colorscale@
+def make_colorscale(z_or_color):
+    _required=False
+    _type="style"
+    _val_types=''.join(["array_like of value-color pairs | "
+                        "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
+                        "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
+                        "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                       ])
+    S={'c': ['color', 'c'], 'z': ['z', 'z']}
+    s = S[z_or_color]
+    _description=''.join(["Sets and/or defines the color scale for this trace. "
+                          "The string values are pre-defined color "
+                          "scales. For custom color scales, define a list of "
+                          "color-value pairs where, by default, the first "
+                          "element of the pair "
+                          "corresponds to a normalized value of {S0} from 0-1, "
+                          "i.e. ({S1}-{S1}min)/ ({S1}max-{S1}min), and the "
+                          "second element of pair corresponds to a color. "
+                          "Use with '{S1}auto', '{S1}min' and "
+                          "'{S1}max to fine-tune the map from '{S0}' to "
+                          "rendered colors."
+                         ]).format(S0=s[0],S1=s[1])
+    _examples=["'Greys'", 
               [[0, "rgb(0,0,0)"], 
                [0.5, "rgb(65, 182, 196)"],
                [1, "rgb(255,255,255)"]]
              ]
-)
+    return output(_required,_type,_val_types,_description,
+                  examples=_examples)
 
-# @zauto@
-drop_zauto=dict(
+# @scl@
+drop_scl=dict(       # ARTIFACT
     required=False,
-    type='style',
-    val_types=val_types['bool'],
-    description="Toggle whether or not the default values "
-                "of 'zmax' and 'zmax' can be overwritten."
+    type="style",
+    val_types="",
+    description="Artifact. Has the same effect as 'colorscale'."
 )
 
-# @zminmax@ | @zmin@ | @zmax@
-def make_zminmax(min_or_max):
+# @zcauto@ | @zauto@ | @cauto@
+def make_zcauto(z_or_c):
+    _required=False
+    _type='style'
+    _val_types=val_types['bool']
+    _description=''.join(["Toggle whether or not the default values "
+                          "of '{}max' and '{}max' can be overwritten."
+                         ]).format(z_or_c, z_or_c)
+    return output(_required,_type,_val_types,_description)
+
+
+# @zcminmax@ | @zmin@ | @zmax@ | @cmin@ | @cmax@ 
+def make_zcminmax(min_or_max, z_or_color):
     _required=False
     _type='style'
     _val_types=val_types['number']()
     S={'min': 'minimum', 'max': 'maximum'}
     s=S[min_or_max]
-    _description=''.join(["The value used as the {S0} in the color scale ",
-                          "normalization in 'scl'. ",
-                          "The default value is the {S0} of the ",
-                          "'z' data values."
-                         ]).format(S0=s)
+    _description=''.join(["Sets the {S0} '{z_or_color}' data value to be "
+                          "resolved by the color scale. "
+                          "Its default value is the {S0} of the "
+                          "'{z_or_color}' data values. "
+                          "This value will be used as the {S0} in the color scale "
+                          "normalization. For more info see 'colorscale'."
+                         ]).format(S0=s,z_or_color=z_or_color)
+    if z_or_color=='color':
+        _description += ''.join([" Has only an effect if 'color' is linked "
+                                 "to an array-like and 'colorscale' is set."
+                                ])
     return output(_required,_type,_val_types,_description)
 
-# @reversescl@
-drop_reversescl=dict(
+# @reversescale@
+drop_reversescale=dict(
     required=False,
     type='style',
     val_types=val_types['bool'],
     description="Toggle whether or not the color scale will be reversed."
+)
+
+# @reversescl@
+drop_reversescl=dict(   # ARTIFACT
+    required=False,
+    type="style",
+    val_types="",
+    description="Artifact. Has the same effect as 'reversescale'."
 )
 
 # @showscale@
@@ -862,18 +896,21 @@ examples_color = ["'green'", "'rgb(0, 255, 0)'",
 # @color@
 def make_color(obj):
     _required=False
-    _type='style'     # data in bubble charts (i.e. if linked to array)
+    _type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
     if obj=='marker':
-        _val_types=val_types['color_array']
+        _val_types=val_types['color_array']  #Q? Add "or 'data_array'" 
     else:
         _val_types=val_types['color']
     _description=dict(
         marker="Sets the color of the face of the marker object. "
-               "If 'color' is linked to a list or an array of numbers, "
+               "If 'color' is linked to a list or an array of color strings, "
                "color values are mapped to individual marker points "
                "in the same order as in the data lists or arrays. "
                "To set the color of the marker's bordering line, "
-               "use the 'line' key in Marker.",
+               "use the 'line' key in Marker. "
+               "The 'color' key can also accept a list or an array of numbers, "
+               "where each number is then mapped to a color using the "
+               "color scale set in 'colorscale'.",
         line="Sets the color of the line object. "
              "If linked within 'marker', sets the color of the marker's "
              "bordering line. "
@@ -961,7 +998,7 @@ def make_size(obj, x_or_y=False):
         marker="Sets the size of the markers (in pixels). "
                "If 'size' is linked to a list or an array of numbers, "
                "size values are mapped to individual marker points "
-               "in the same order as in the 'x', 'y' lists or arrays. "
+               "in the same order as in the data lists or arrays. "
                "In this case, use 'size' in conjunction "
                "with 'sizeref' and 'sizemode' "
                "to fine-tune the map from the numbers linked to 'size' "
@@ -1138,7 +1175,7 @@ def make_autotick(axis_or_colorbar):
 # @nticks@
 def make_nticks(axis_or_colorbar):
     _required=False
-    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
+    _type='style'    
     _val_types=val_types['number'](gt=0)
     _description=''.join(["Specifies the number of {S} ticks. ",
                           "No need to set 'autoticks' to False ",
@@ -1516,15 +1553,15 @@ META += [('heatmap', OrderedDict([
 
     ('name', drop_name),
 
-    ('zauto', drop_zauto),
+    ('zauto', make_zcauto('z')),
 
-    ('zmin', make_zminmax('min')),
+    ('zmin', make_zcminmax('min','z')),
 
-    ('zmax', make_zminmax('max')),
+    ('zmax', make_zcminmax('max','z')),
 
-    ('scl', drop_scl),
+    ('colorscale', make_colorscale('z')),
 
-    ('reversescl', drop_reversescl),
+    ('reversescale', drop_reversescale),  
 
     ('showscale', drop_showscale),
 
@@ -1556,7 +1593,11 @@ META += [('heatmap', OrderedDict([
 
     ('ytype', make_xytype('heatmap','y')),
 
-    ('type', make_type('heatmap'))
+    ('type', make_type('heatmap')),
+
+    ('scl', drop_scl),  # ARTIFACT
+
+    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
@@ -1571,11 +1612,11 @@ META += [('contour', OrderedDict([
 
     ('name', drop_name),
 
-    ('zauto', drop_zauto),
+    ('zauto', make_zcauto('z')),
 
-    ('zmin', make_zminmax('min')),
+    ('zmin', make_zcminmax('min','z')),
 
-    ('zmax', make_zminmax('max')),
+    ('zmax', make_zcminmax('max','z')),
 
     ('autocontour', drop_autocontour),
 
@@ -1585,9 +1626,9 @@ META += [('contour', OrderedDict([
 
     ('line', make_line('contour')),
 
-    ('scl', drop_scl),
+    ('colorscale', make_colorscale('z')),
 
-    ('reversescl', drop_reversescl),
+    ('reversescale', drop_reversescale),
 
     ('showscale', drop_showscale),
 
@@ -1617,7 +1658,11 @@ META += [('contour', OrderedDict([
 
     ('ytype', make_xytype('heatmap','y')),
 
-    ('type', make_type('contour'))
+    ('type', make_type('contour')),
+
+    ('scl', drop_scl),  # ARTIFACT
+
+    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
@@ -1644,19 +1689,19 @@ META += [('histogram2d', OrderedDict([
 
     ('ybins', make_bins('y')),
 
-    ('scl', drop_scl),
+    ('colorscale', make_colorscale('z')),
 
-    ('reversescl', drop_reversescl),
+    ('reversescale', drop_reversescale),
 
     ('showscale', drop_showscale),
 
     ('colorbar', drop_colorbar),
 
-    ('zauto', drop_zauto),
+    ('zauto', make_zcauto('z')),
 
-    ('zmin', make_zminmax('min')),
+    ('zmin', make_zcminmax('min','z')),
 
-    ('zmax', make_zminmax('max')),
+    ('zmax', make_zcminmax('max','z')),
 
     ('zsmooth', drop_zsmooth),
 
@@ -1672,7 +1717,11 @@ META += [('histogram2d', OrderedDict([
 
     ('visible', drop_visible),
 
-    ('type', make_type('histogram2d'))
+    ('type', make_type('histogram2d')),
+
+    ('scl', drop_scl),  # ARTIFACT
+
+    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
@@ -1707,19 +1756,19 @@ META += [('histogram2dcontour', OrderedDict([
 
     ('line', make_line('histogram2dcontour')),
 
-    ('scl', drop_scl),
+    ('colorscale', make_colorscale('z')),
 
-    ('reversescl', drop_reversescl),
+    ('reversescale', drop_reversescale),
 
     ('showscale', drop_showscale),
 
     ('colorbar', drop_colorbar),
 
-    ('zauto', drop_zauto),
+    ('zauto', make_zcauto('z')),
 
-    ('zmin', make_zminmax('min')),
+    ('zmin', make_zcminmax('min','z')),
 
-    ('zmax', make_zminmax('max')),
+    ('zmax', make_zcminmax('max','z')),
 
     ('opacity', make_opacity()),
 
@@ -1733,7 +1782,11 @@ META += [('histogram2dcontour', OrderedDict([
 
     ('visible', drop_visible),
 
-    ('type', make_type('histogram2dcontour'))
+    ('type', make_type('histogram2dcontour')),
+
+    ('scl', drop_scl),  # ARTIFACT
+   
+    ('reversescl', drop_reversescl),  # ARTIFACT
 
 ]))]
 
@@ -2019,22 +2072,6 @@ META += [('marker', OrderedDict([
 
     ('opacity', make_opacity(marker=True)),
 
-    ('colorscale', dict(  # TODO! Check if right, example, merge with 'scl'?
-        required=False,
-        type="style",
-        val_types="array_like of value-color pairs | "
-                  "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
-                  "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
-                  "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'",
-        description="The color scale. The strings are pre-defined color "
-                    "scales. For custom color scales, define a list of "
-                    "color-value pairs, where the first element of the pair "
-                    "corresponds to a normalized value of the y coordinates "
-                    "(for scatter traces) from 0-1 "
-                    "and the second element of pair "
-                    "corresponds to a color."
-    )),
-
     ('sizeref', dict(  
         required=False,
         type='style',
@@ -2063,6 +2100,14 @@ META += [('marker', OrderedDict([
                     "E.g. set 'sizemode' to 'area' for a more a smaller "
                     "range of rendered marker sizes."
     )),
+
+    ('colorscale', make_colorscale('c')),
+
+    ('cauto', make_zcauto('c')),
+
+    ('cmin', make_zcminmax('min','color')),
+
+    ('cmin', make_zcminmax('max','color')),
 
     ('outliercolor', dict(
         required=False,
@@ -2204,7 +2249,7 @@ def meta_ticks(axis_or_colorbar):
 
         ('tick0', dict(
             required=False,
-            type='plot_info',
+            type='style',
             val_types=val_types['number'](),
             description="Sets the starting point of the ticks "
                         "of this {}.".format(axis_or_colorbar)
