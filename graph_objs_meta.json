@@ -31,7 +31,7 @@
         "mode": {
             "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Plotting mode (or style) for the scatter plot. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
         }, 
         "name": {
@@ -179,7 +179,7 @@
         "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
         }, 
         "text": {
@@ -298,7 +298,7 @@
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
         "name": {
@@ -310,13 +310,13 @@
         "autobinx": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in the XBins object."
         }, 
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -328,13 +328,13 @@
         "autobiny": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in the YBins object."
         }, 
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -423,7 +423,7 @@
         "orientation": {
             "val_types": "'v' | 'h'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."
         }
     }, 
@@ -458,13 +458,13 @@
         "boxmean": {
             "val_types": "False | True | 'sd'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Choose between add-on features for this box trace. If True then the mean of the data linked to 'y' is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False (the default), then no line shown."
         }, 
         "boxpoints": {
             "val_types": "'outliers' | 'all' | 'suspectedoutliers' | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Choose between boxpoints options for this box trace. If 'outliers' (the default), then only the points lying outside the box' whiskers (more info in 'y') are shown. If 'all', then all data points linked 'y' are shown. If 'suspectedoutliers', then outliers points are shown and points either less than 4*Q1-3*Q3 or greater than 4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). If False, then only the boxes are shown and the whiskers correspond to the minimum and maximum value linked to 'y'."
         }, 
         "jitter": {
@@ -645,7 +645,7 @@
         "zsmooth": {
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
         }, 
         "opacity": {
@@ -713,7 +713,7 @@
                 "'array' | 'scaled'"
             ], 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "ytype": {
@@ -721,7 +721,7 @@
                 "'array' | 'scaled'"
             ], 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "If set to 'scaled' and 'y' is linked to a list/array, then the vertical labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "type": {
@@ -780,13 +780,13 @@
         "autocontour": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in the Contours object."
         }, 
         "ncontours": {
             "val_types": "number: x > 1", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
         }, 
         "contours": {
@@ -908,7 +908,7 @@
                 "'array' | 'scaled'"
             ], 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "If set to 'scaled' and 'x' is linked to a list/array, then the horizontal labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "ytype": {
@@ -916,7 +916,7 @@
                 "'array' | 'scaled'"
             ], 
             "required": false, 
-            "type": "data", 
+            "type": "plot_info", 
             "description": "If set to 'scaled' and 'y' is linked to a list/array, then the vertical labels are scaled to a list of integers of unit step starting from 0."
         }, 
         "type": {
@@ -944,7 +944,7 @@
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
         "name": {
@@ -956,13 +956,13 @@
         "autobinx": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in the XBins object."
         }, 
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -974,13 +974,13 @@
         "autobiny": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in the YBins object."
         }, 
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -1051,7 +1051,7 @@
         "zsmooth": {
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
         }, 
         "opacity": {
@@ -1115,7 +1115,7 @@
         "histnorm": {
             "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "If histnorm is not specified, or histnorm='' (empty string), the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If histnorm='percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If histnorm='probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If histnorm='density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If histnorm='probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1, i.e. an event must fall into one of the bins."
         }, 
         "name": {
@@ -1127,13 +1127,13 @@
         "autobinx": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in the XBins object."
         }, 
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -1145,13 +1145,13 @@
         "autobiny": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in the YBins object."
         }, 
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -1163,13 +1163,13 @@
         "autocontour": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in the Contours object."
         }, 
         "ncontours": {
             "val_types": "number: x > 1", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
         }, 
         "contours": {
@@ -1426,12 +1426,6 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Toggles whether or not this object will actually be visible in the rendered figure."
-        }, 
-        "traceref": {
-            "val_types": "", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Artifact. Intended for web GUI use only."
         }
     }, 
     "error_x": {
@@ -1514,31 +1508,27 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Toggles whether or not this object will actually be visible in the rendered figure."
-        }, 
-        "traceref": {
-            "val_types": "", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Artifact. Intended for web GUI use only."
         }
     }, 
     "xbins": {
         "start": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the starting point on the x-axis for the first bin."
         }, 
         "end": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the end point on the x-axis for the last bin."
         }, 
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": [
+                "style"
+            ], 
             "description": "Sets the size (i.e. their width) of each x-axis bin.", 
             "streamable": true
         }
@@ -1547,19 +1537,21 @@
         "start": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the starting point on the y-axis for the first bin."
         }, 
         "end": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the end point on the y-axis for the last bin."
         }, 
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": [
+                "style"
+            ], 
             "description": "Sets the size (i.e. their width) of each y-axis bin.", 
             "streamable": true
         }
@@ -1574,26 +1566,28 @@
         "start": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the value of the first contour level."
         }, 
         "end": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the value of the last contour level."
         }, 
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": [
+                "style"
+            ], 
             "description": "Sets the size of each contour level.", 
             "streamable": true
         }, 
         "coloring": {
             "val_types": " 'fill' | 'heatmap' | 'lines' | 'none' ", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Choose the coloring method for this contour trace. The default value is 'fill' where coloring is done evenly between each contour line. 'heatmap' colors on a grid point-by-grid point basis. 'lines' colors only the contour lines, each with respect to the color scale. 'none' prints all contour lines with the same color; choose their color in a Line object at the trace level if desired."
         }
     }, 
@@ -1607,7 +1601,7 @@
         "maxpoints": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the maximum number of points to keep on the plots from an incoming stream. For example, if 'maxpoints' is set to 50, only the newest 50 points will be displayed on the plot."
         }
     }, 
@@ -1629,7 +1623,9 @@
         "size": {
             "val_types": "number: x > 0, or list of these numbers", 
             "required": false, 
-            "type": "style", 
+            "type": [
+                "style"
+            ], 
             "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
             "streamable": true
         }, 
@@ -1807,7 +1803,9 @@
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": [
+                "style"
+            ], 
             "description": "Sets the size of font.If linked in the first level of the layout object, set the color of the global font.", 
             "streamable": true
         }, 
@@ -1855,7 +1853,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Defines the start and end point of this x axis.", 
             "examples": [
                 [
@@ -1885,22 +1883,22 @@
             ]
         }, 
         "type": {
-            "val_types": "'linear' | 'log' | 'category'", 
+            "val_types": "'linear' | 'log' | 'date' | 'category'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the format of this axis."
         }, 
         "rangemode": {
-            "val_types": "string: 'normal' | 'tozero' | 'nonnegative'", 
+            "val_types": "'normal' | 'tozero' | 'nonnegative'", 
             "required": false, 
-            "type": "plot_info", 
-            "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to {}=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
+            "type": "style", 
+            "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to x=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
         }, 
         "autorange": {
-            "val_types": "boolean: True | False", 
+            "val_types": "True | False | 'reversed'", 
             "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the range of this axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this axis can respond to adjustments made in the web GUI automatically."
+            "type": "style", 
+            "description": "Toggle whether or not the range of this x-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this x-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this x-axis is drawn in reverse i.e. from right to left instead of from left to right (the default behavior)."
         }, 
         "showgrid": {
             "val_types": "boolean: True | False", 
@@ -2005,6 +2003,12 @@
             "type": "style", 
             "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands."
         }, 
+        "mirror": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+        }, 
         "gridcolor": {
             "val_types": "string describing color", 
             "required": false, 
@@ -2035,7 +2039,7 @@
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
             ], 
-            "description": "Set the color of this axis' zeroline."
+            "description": "Sets the color of this axis' zeroline."
         }, 
         "zerolinewidth": {
             "val_types": "number: x > 0", 
@@ -2054,43 +2058,37 @@
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
             ], 
-            "description": "Defines the axis line color."
+            "description": "Sets the axis line color."
         }, 
         "linewidth": {
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the width of the axis line (in pixels)"
+            "description": "Sets the width of the axis line (in pixels)."
         }, 
         "anchor": {
-            "val_types": "'y' | 'free'", 
+            "val_types": "'y' | 'y1' | 'y2' | ... | 'free'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets whether the x-axis will be anchored to its corresponding y-axis OR 'free' to appear  anywhere in the vertical space of the plot."
+            "description": "Choose whether the position of this x-axis will be anchored to a corresponding y-axis or will be 'free' to appear anywhere in the vertical space of this figure."
+        }, 
+        "overlaying": {
+            "val_types": "'x' | 'x1' | 'x2' | ... | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Choose to overlay the data bound to this x-axis on the same plotting area as a corresponding y-axis or choose not overlay other x-the other axis/axes of this figure."
         }, 
         "side": {
             "val_types": "'bottom' | 'top'", 
             "required": false, 
-            "type": "style", 
-            "description": "Set whether this x-axis sits at the 'bottom' of the plot or at the 'top' of the plot."
+            "type": "plot_info", 
+            "description": "Sets whether this x-axis sits at the 'bottom' of the plot or at the 'top' of the plot."
         }, 
         "position": {
             "val_types": "number: x in [0, 1]", 
             "required": false, 
             "type": "style", 
-            "description": "Sets where the axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. This only has functionality if 'anchor'='free'."
-        }, 
-        "mirror": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
-        }, 
-        "overlaying": {
-            "val_types": "", 
-            "required": false, 
-            "type": "style", 
-            "description": "more info coming soon."
+            "description": "Sets where this x-axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'."
         }
     }, 
     "yaxis": {
@@ -2109,7 +2107,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Defines the start and end point of this y axis.", 
             "examples": [
                 [
@@ -2139,22 +2137,22 @@
             ]
         }, 
         "type": {
-            "val_types": "'linear' | 'log' | 'category'", 
+            "val_types": "'linear' | 'log' | 'date' | 'category'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the format of this axis."
         }, 
         "rangemode": {
-            "val_types": "string: 'normal' | 'tozero' | 'nonnegative'", 
+            "val_types": "'normal' | 'tozero' | 'nonnegative'", 
             "required": false, 
-            "type": "plot_info", 
-            "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to {}=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
+            "type": "style", 
+            "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to y=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted."
         }, 
         "autorange": {
-            "val_types": "boolean: True | False", 
+            "val_types": "True | False | 'reversed'", 
             "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the range of this axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this axis can respond to adjustments made in the web GUI automatically."
+            "type": "style", 
+            "description": "Toggle whether or not the range of this y-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to False automatically. Otherwise, if 'autorange' is set to True (the default behavior), the range of this y-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this y-axis is drawn in reverse i.e. from top to bottom instead of from bottom to top (the default behavior)."
         }, 
         "showgrid": {
             "val_types": "boolean: True | False", 
@@ -2259,6 +2257,12 @@
             "type": "style", 
             "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands."
         }, 
+        "mirror": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+        }, 
         "gridcolor": {
             "val_types": "string describing color", 
             "required": false, 
@@ -2289,7 +2293,7 @@
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
             ], 
-            "description": "Set the color of this axis' zeroline."
+            "description": "Sets the color of this axis' zeroline."
         }, 
         "zerolinewidth": {
             "val_types": "number: x > 0", 
@@ -2308,50 +2312,44 @@
                 "'hsl(120,100%,50%)'", 
                 "'hsla(120,100%,50%,0.3)'"
             ], 
-            "description": "Defines the axis line color."
+            "description": "Sets the axis line color."
         }, 
         "linewidth": {
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the width of the axis line (in pixels)"
+            "description": "Sets the width of the axis line (in pixels)."
         }, 
         "anchor": {
-            "val_types": "'x' | 'free'", 
+            "val_types": "'x' | 'x1' | 'x2' | ... | 'free'", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Sets whether the y-axis will be anchored to its corresponding x-axis OR 'free' to appear  anywhere in the vertical space of the plot."
+            "description": "Choose whether the position of this y-axis will be anchored to a corresponding x-axis or will be 'free' to appear anywhere in the horizontal space of this figure."
+        }, 
+        "overlaying": {
+            "val_types": "'y' | 'y1' | 'y2' | ... | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Choose to overlay the data bound to this y-axis on the same plotting area as a corresponding x-axis or choose not overlay other y-the other axis/axes of this figure."
         }, 
         "side": {
             "val_types": "'left' | 'right'", 
             "required": false, 
-            "type": "style", 
-            "description": "Set whether this y-axis sits at the 'left' of the plot or at the 'right' of the plot."
+            "type": "plot_info", 
+            "description": "Sets whether this y-axis sits at the 'left' of the plot or at the 'right' of the plot."
         }, 
         "position": {
             "val_types": "number: x in [0, 1]", 
             "required": false, 
             "type": "style", 
-            "description": "Sets where the axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. This only has functionality if 'anchor'='free'."
-        }, 
-        "mirror": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
-        }, 
-        "overlaying": {
-            "val_types": "", 
-            "required": false, 
-            "type": "style", 
-            "description": "more info coming soon."
+            "description": "Sets where this y-axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'."
         }
     }, 
     "radialaxis": {
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Defines the start and end point of this radial axis.", 
             "examples": [
                 [
@@ -2373,7 +2371,7 @@
         "orientation": {
             "val_types": "number: x in [-360, 360]", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Sets the orientation (an angle with respect to the origin) of the radial axis."
         }, 
         "showline": {
@@ -2436,7 +2434,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array-like of string.", 
             "examples": [
                 [
@@ -2597,7 +2595,7 @@
         "titleside": {
             "val_types": "'right' | 'top' | 'bottom'", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Location of colorbar title with respect to the colorbar."
         }, 
         "titlefont": {
@@ -2763,7 +2761,7 @@
             "val_types": "number", 
             "required": false, 
             "type": "style", 
-            "description": "The width of the outline surrounding this colorbar."
+            "description": "Sets the width of the outline surrounding this colorbar."
         }, 
         "borderwidth": {
             "val_types": "number: x >= 0", 
@@ -2775,13 +2773,13 @@
             "val_types": "number: x in [0, 50]", 
             "required": false, 
             "type": "style", 
-            "description": "The amount of space (padding) between the colorbar and the enclosing boarder in the x-direction."
+            "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the x-direction."
         }, 
         "ypad": {
             "val_types": "number: x in [0, 50]", 
             "required": false, 
             "type": "style", 
-            "description": "The amount of space (padding) between the colorbar and the enclosing boarder in the y-direction."
+            "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction."
         }
     }, 
     "margin": {
@@ -2789,31 +2787,31 @@
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Left margin size in pixels."
+            "description": "Sets the left margin size in pixels."
         }, 
         "r": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Right margin size in pixels."
+            "description": "Sets the right margin size in pixels."
         }, 
         "b": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Bottom margin size in pixels."
+            "description": "Sets the bottom margin size in pixels."
         }, 
         "t": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Top margin size in pixels."
+            "description": "Sets the top margin size in pixels."
         }, 
         "pad": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "The distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels)."
+            "description": "Sets the distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels)."
         }, 
         "autoexpand": {
             "val_types": "boolean: True | False", 
@@ -3151,7 +3149,7 @@
         "hidesources": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
         }
     }, 

@@ -380,7 +380,7 @@ def make_dxdy(obj, x_or_y=False):
 # @xytype@ | @xtype@ | @ytype@
 def make_xytype(obj, x_or_y):
     _required=False
-    _type='data'    
+    _type='plot_info'    
     _val_types="'array' | 'scaled'",
     S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
     s=S[x_or_y]
@@ -444,7 +444,7 @@ def make_error(obj, x_or_y):
 # @orientation@
 def make_orientation(obj):
     _required=False
-    _type='plot_info' 
+    _type='style' 
     _val_types="'v' | 'h'"
     _description=dict(
         bar="This defines the direction of the bars. "
@@ -647,7 +647,7 @@ def make_axis(x_or_y, trace=False, layout=False):
     return output(_required,_type,_val_types,_description)
 
 # @type@
-def make_type(trace=False, axis=False, error=False):
+def make_type(trace):
     _required=False
     _type='plot_info'
     _val_types=trace
@@ -667,7 +667,7 @@ def make_type(trace=False, axis=False, error=False):
 # @histnorm@
 drop_histnorm=dict(
     required=False,
-    type='plot_info',
+    type='style',
     val_types="'' (or 'count') | 'percent' | 'probability' | 'density' | "
               "'probability density'",
     description="If histnorm is not specified, or histnorm='' ("
@@ -694,7 +694,7 @@ drop_histnorm=dict(
 # @autobin@ | @autobinx@ | @autobiny@
 def make_autobin(x_or_y):
     _required=False
-    _type='plot_info'
+    _type='style'
     _val_types=val_types['bool']
     S={'x':['x','X'], 'y':['y','Y']}
     s=S[x_or_y]
@@ -709,7 +709,7 @@ def make_autobin(x_or_y):
 # @nbins@ | @nbinsx@ | @nbinsy@
 def make_nbins(x_or_y):
     _required=False
-    _type='plot_info'
+    _type='style'
     _val_types=val_types['number'](gt=0)
     S={'x':['x',], 'y':['y',]}
     s=S[x_or_y]
@@ -830,7 +830,7 @@ drop_showscale=dict(
 # @zsmooth@  # TODO! Describe the 2 algorithms
 drop_zsmooth=dict(
     required=False,
-    type='plot_info',
+    type='style',
     val_types=" False | 'best' | 'fast' ",
     description="Choose between algorithms ('best' or 'fast') "
                 "to smooth data linked to 'z'. "
@@ -841,7 +841,7 @@ drop_zsmooth=dict(
 # @autocontour@
 drop_autocontour=dict(
     required=False,
-    type='plot_info',
+    type='style',
     val_types=val_types['bool'],
     description="Toggle whether or not the contour parameters are picked "
                 "automatically by Plotly. "
@@ -852,7 +852,7 @@ drop_autocontour=dict(
 # @ncontours@
 drop_ncontours=dict(
     required=False,
-    type='plot_info',
+    type='style',
     val_types=val_types['number'](gt=1),
     description="Specifies the number of contours lines "
                 "in the contour plot. "
@@ -966,12 +966,7 @@ def make_bordercolor(obj):
 # @size@
 def make_size(obj, x_or_y=False):
     _required=False
-    _type=dict(
-        marker='style',   #Q? 'data' in bubble charts (i.e. if linked to array)
-        font='style',
-        bins='plot_info',
-        contours='plot_info'
-    )
+    _type='style',   #Q? 'data' in bubble charts (i.e. if linked to array)
     if obj=='marker':
         _val_types=val_types['number'](gt=0,list=True)
     else:
@@ -995,13 +990,13 @@ def make_size(obj, x_or_y=False):
         contours="Sets the size of each contour level."
     )
     _streamable=True
-    return output(_required,_type[obj],_val_types,_description[obj],
+    return output(_required,_type,_val_types,_description[obj],
                   streamable=_streamable)
 
 # @startend@ | @start@ | @end@
 def make_startend(obj, start_or_end, x_or_y=False):
     _required=False
-    _type='plot_info'
+    _type='style'
     _val_types=val_types['number'](gt=0)
     S_se={'start':['first','starting'], 'end':['last','end']}
     s_se=S_se[start_or_end]
@@ -1088,7 +1083,7 @@ def make_titlefont(obj, x_or_y=False):
 # @range@
 def make_range(what_axis):
     _required=False
-    _type='plot_info'
+    _type='style'
     _val_types="number array of length 2"
     _description=''.join(["Defines the start and end point of "
                           "this {S} axis."
@@ -1260,7 +1255,7 @@ META += [('scatter', OrderedDict([
 
     ('mode', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types="'lines' | 'markers' | 'text' | 'lines+markers' | "
                   "'lines+text' | 'markers+text' | 'lines+markers+text'",
         description="Plotting mode (or style) for the scatter plot. If the "
@@ -1442,7 +1437,7 @@ META += [('box', OrderedDict([
 
     ('boxmean', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types="False | True | 'sd'",
         description="Choose between add-on features for this box trace. "
                     "If True then the mean of the data linked to 'y' is shown "
@@ -1453,7 +1448,7 @@ META += [('box', OrderedDict([
 
     ('boxpoints', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types="'outliers' | 'all' | 'suspectedoutliers' | False",
         description="Choose between boxpoints options for this box trace. "
                     "If 'outliers' (the default), then only the points lying "
@@ -1468,7 +1463,7 @@ META += [('box', OrderedDict([
 
     ('jitter', dict(
         required=False,
-        type='style',    #Q? Should this be 'style' or 'plot_info'?
+        type='style',    
         val_types=val_types['number'](ge=0,le=1),
         description="Sets the width of the jitter in the boxpoints scatter "
                     "in this trace. "
@@ -1915,13 +1910,6 @@ def meta_error(y_or_x):
 
         ('visible', drop_visible),
 
-        ('traceref', dict(   
-            required=False,
-            type='plot_info',
-            val_types='',
-            description='Artifact. Intended for web GUI use only.'
-        ))
-
     ]
 
     return [('error_{}'.format(y_or_x), OrderedDict(meta))]
@@ -1972,7 +1960,7 @@ META += [('contours', OrderedDict([
 
     ('coloring', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types=" 'fill' | 'heatmap' | 'lines' | 'none' ",
         description="Choose the coloring method for this contour trace. "
                     "The default value is 'fill' "
@@ -1990,7 +1978,7 @@ META += [('contours', OrderedDict([
 # @Stream@
 META += [('stream', OrderedDict([
 
-    ('token', dict(  # TODO: these are public!! Is that OK?
+    ('token', dict(  #Q? These are public!! Is that OK?
         required=True,
         type='plot_info',
         val_types="A stream id number, see https://plot.ly/settings",
@@ -2004,7 +1992,7 @@ META += [('stream', OrderedDict([
 
     ('maxpoints', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types=val_types['number'](gt=0),
         description="Sets the maximum number of points to keep on the "
                     "plots from an incoming stream. For example, "
@@ -2306,7 +2294,8 @@ def meta_ticks(axis_or_colorbar):
 #### @Axis@ (META generation for 'xaxis' and 'yaxis')
 def meta_axis(x_or_y):
 
-    S={'x':['x','bottom','top','y'], 'y':['y','left','right','x']}
+    S={'x':['x','bottom','top','y','left','right','vertical'], 
+       'y':['y','left','right','x','bottom','top','horizontal']}
     s=S[x_or_y]
 
     meta=[
@@ -2321,34 +2310,38 @@ def meta_axis(x_or_y):
 
         ('type', dict(      # Different enough from shortcut
             required=False,
-            type='plot_info',
-            val_types="'linear' | 'log' | 'category'",
+            type='style',
+            val_types="'linear' | 'log' | 'date' | 'category'",
             description="Sets the format of this axis."  # TODO! Add info
         )),
 
         ('rangemode', dict(
             required=False,
-            type='plot_info',
-            val_types="string: 'normal' | 'tozero' | 'nonnegative'",
+            type='style',
+            val_types="'normal' | 'tozero' | 'nonnegative'",
             description="Choose between Plotly's automated axis generation "
                         "modes: 'normal' (the default) sets the axis range "
                         "in relation to the extrema in the data object, "
-                        "'tozero' extends the axes to {}=0 no matter "
+                        "'tozero' extends the axes to {S0}=0 no matter "
                         "the data plotted and 'nonnegative' sets a "
-                        "non-negative range no matter the data plotted."
+                        "non-negative range no matter the "
+                        "data plotted.".format(S0=s[0])
         )),
 
         ('autorange', dict(  
             required=False,
-            type='plot_info',
-            val_types=val_types['bool'],
-            description="Toggle whether or not the range of this axis is "
+            type='style',
+            val_types="True | False | 'reversed'",
+            description="Toggle whether or not the range of this {S0}-axis is "
                         "automatically picked by Plotly. "
                         "If 'range' is set, then 'autorange' is set "
                         "to False automatically. Otherwise, if 'autorange' "
                         "is set to True (the default behavior), the range "
-                        "of this axis can respond to adjustments made in "
-                        "the web GUI automatically."
+                        "of this {S0}-axis can respond to adjustments made in "
+                        "the web GUI automatically. If 'autorange' is set "
+                        "to 'reversed', then this {S0}-axis is drawn in reverse "
+                        "i.e. from {S5} to {S4} instead of from {S4} to {S5} "
+                        "(the default behavior).".format(S0=s[0],S4=s[4],S5=s[5])
         )),
 
         ('showgrid', dict(
@@ -2380,6 +2373,14 @@ def meta_axis(x_or_y):
 
     meta+=[
 
+        ('mirror', dict(
+            required=False,
+            type='style',
+            val_types=val_types['bool'],
+            description="Toggle whether to mirror the axis line to the "
+                        "opposite side of the plot."
+        )),
+
         ('gridcolor', dict(
             required=False,
             type='style',
@@ -2399,7 +2400,7 @@ def meta_axis(x_or_y):
             required=False,
             type='style',
             val_types=val_types['color'],
-            description="Set the color of this axis' zeroline.",
+            description="Sets the color of this axis' zeroline.",
             examples=examples_color
         )),
 
@@ -2414,7 +2415,7 @@ def meta_axis(x_or_y):
             required=False,
             type='style',
             val_types=val_types['color'],
-            description="Defines the axis line color.",
+            description="Sets the axis line color.",
             examples=examples_color
         )),
 
@@ -2422,24 +2423,36 @@ def meta_axis(x_or_y):
             required=False,
             type='style',
             val_types=val_types['number'](gt=0),
-            description="Sets the width of the axis line (in pixels)"
+            description="Sets the width of the axis line (in pixels)."
         )),
 
         ('anchor', dict(
             required=False,
             type='plot_info',
-            val_types="'{S3}' | 'free'".format(S3=s[3]),
-            description="Sets whether the {S0}-axis will be anchored to its "
-                        "corresponding {S3}-axis OR 'free' to appear  "
-                        "anywhere in the vertical space of "
-                        "the plot.".format(S0=s[0],S3=s[3])
+            val_types="'{S3}' | '{S3}1' | '{S3}2' | ... | 'free'".format(S3=s[3]),
+            description="Choose whether the position of this {S0}-axis "
+                        "will be anchored to a "
+                        "corresponding {S3}-axis or will be 'free' to appear "
+                        "anywhere in the {S6} space of "
+                        "this figure.".format(S0=s[0],S3=s[3],S6=s[6])
+        )),
+
+        ('overlaying', dict(  
+            required=False,
+            type='plot_info',
+            val_types="'{S0}' | '{S0}1' | '{S0}2' | ... | False".format(S0=s[0]),
+            description="Choose to overlay the data bound to this {S0}-axis "
+                        "on the same plotting area as a "
+                        "corresponding {S3}-axis or choose not overlay other {S0}-"
+                        "the other axis/axes of this "
+                        "figure.".format(S0=s[0],S3=s[3],S6=s[6])
         )),
 
         ('side', dict(
             required=False,
-            type='style',
+            type='plot_info',
             val_types="'{S1}' | '{S2}'".format(S1=s[1],S2=s[2]),
-            description="Set whether this {S0}-axis sits at the '{S1}' of the "
+            description="Sets whether this {S0}-axis sits at the '{S1}' of the "
                         "plot or at the '{S2}' "
                         "of the plot.".format(S0=s[0],S1=s[1],S2=s[2])
         )),
@@ -2448,27 +2461,13 @@ def meta_axis(x_or_y):
             required=False,
             type='style',
             val_types=val_types['number'](le=1, ge=0),
-            description="Sets where the axis is positioned in the plotting "
+            description="Sets where this {S0}-axis is positioned in the plotting "
                         "space. For example 'position'=0.5 will place this "
-                        "axis in the exact center of the plotting space. This "
-                        "only has functionality if 'anchor'='free'."
-        )),
-
-        ('mirror', dict(
-            required=False,
-            type='style',
-            val_types=val_types['bool'],
-            description="Toggle whether to mirror the axis line to the "
-                        "opposite side of the plot."
-        )),
-
-        ('overlaying', dict(  # TODO! What does this do?
-            required=False,
-            type='style',
-            val_types='',
-            description="more info coming soon."
-        )),
-
+                        "axis in the exact center of the plotting space. Has "
+                        "an effect only if 'anchor' "
+                        "is set to 'free'.".format(S0=s[0])
+        ))
+        
     ]
 
     return [('{}axis'.format(x_or_y), OrderedDict(meta))]
@@ -2488,7 +2487,7 @@ META += [('radialaxis', OrderedDict([
 
     ('orientation', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types=val_types['number'](ge=-360,le=360),
         description="Sets the orientation (an angle with respect to the origin) "
                     "of the radial axis."
@@ -2633,7 +2632,7 @@ meta=[
 
      ('titleside', dict(
          required=False,
-         type='plot_info',
+         type='style',
          val_types="'right' | 'top' | 'bottom'",
          description="Location of colorbar title with respect "
                      "to the colorbar."
@@ -2690,7 +2689,7 @@ meta+=[
          required=False,
          type='style',
          val_types=val_types['number'](),
-         description="The width of the outline surrounding this colorbar."
+         description="Sets the width of the outline surrounding this colorbar."
      )),
 
      ('borderwidth', make_borderwidth('colorbar')),
@@ -2699,7 +2698,7 @@ meta+=[
          required=False,
          type='style',
          val_types=val_types['number'](le=50, ge=0),
-         description="The amount of space (padding) between the colorbar and "
+         description="Sets the amount of space (padding) between the colorbar and "
                      "the enclosing boarder in the x-direction."
      )),
 
@@ -2707,7 +2706,7 @@ meta+=[
          required=False,
          type='style',
          val_types=val_types['number'](le=50, ge=0),
-         description="The amount of space (padding) between the colorbar and "
+         description="Sets the amount of space (padding) between the colorbar and "
                      "the enclosing boarder in the y-direction."
      ))
 
@@ -2722,35 +2721,35 @@ META += [('margin', OrderedDict([
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Left margin size in pixels."
+        description="Sets the left margin size in pixels."
     )),
 
     ('r', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Right margin size in pixels."
+        description="Sets the right margin size in pixels."
     )),
 
     ('b', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Bottom margin size in pixels."
+        description="Sets the bottom margin size in pixels."
     )),
 
     ('t', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Top margin size in pixels."
+        description="Sets the top margin size in pixels."
     )),
 
     ('pad', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="The distance between edge of the plot and the "
+        description="Sets the distance between edge of the plot and the "
                     "bounding rectangle that encloses the plot "
                     "(in pixels)."
     )),
@@ -3110,7 +3109,7 @@ META += [('layout', OrderedDict([
 
     ('hidesources', dict(
         required=False,
-        type='plot_info',
+        type='style',
         val_types=val_types['bool'],
         description="Toggle whether or not an annotation citing the data "
                     "source is placed at the bottom-right corner of the figure." 
