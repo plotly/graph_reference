@@ -316,7 +316,7 @@
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -334,7 +334,7 @@
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -458,7 +458,7 @@
         "boxmean": {
             "val_types": "False | True | 'sd'", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Choose between add-on features for this box trace. If True then the mean of the data linked to 'y' is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If False (the default), then no line shown."
         }, 
         "boxpoints": {
@@ -645,7 +645,7 @@
         "zsmooth": {
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
         }, 
         "opacity": {
@@ -792,13 +792,13 @@
         "autocontour": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in the Contours object."
         }, 
         "ncontours": {
             "val_types": "number: x > 1", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
         }, 
         "contours": {
@@ -986,7 +986,7 @@
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -1004,7 +1004,7 @@
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -1075,7 +1075,7 @@
         "zsmooth": {
             "val_types": " False | 'best' | 'fast' ", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
         }, 
         "opacity": {
@@ -1169,7 +1169,7 @@
         "nbinsx": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
         }, 
         "xbins": {
@@ -1187,7 +1187,7 @@
         "nbinsy": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
         }, 
         "ybins": {
@@ -1199,13 +1199,13 @@
         "autocontour": {
             "val_types": "boolean: True | False", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in the Contours object."
         }, 
         "ncontours": {
             "val_types": "number: x > 1", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
         }, 
         "contours": {
@@ -1897,13 +1897,13 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "A dictionary-like object describing the font settings of the x-axis title."
         }, 
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Defines the start and end point of this x axis.", 
             "examples": [
                 [
@@ -2151,13 +2151,13 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "A dictionary-like object describing the font settings of the y-axis title."
         }, 
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Defines the start and end point of this y axis.", 
             "examples": [
                 [
@@ -2399,7 +2399,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Defines the start and end point of this radial axis.", 
             "examples": [
                 [
@@ -2484,7 +2484,7 @@
         "range": {
             "val_types": "number array of length 2", 
             "required": false, 
-            "type": "style", 
+            "type": "plot_info", 
             "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array-like of string.", 
             "examples": [
                 [
@@ -2651,7 +2651,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "A dictionary-like object describing the font settings of the colorbar title."
         }, 
         "thickness": {
@@ -3041,7 +3041,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "plot_info", 
+            "type": "style", 
             "description": "A dictionary-like object describing the font settings of the figure's title."
         }, 
         "font": {

@@ -709,7 +709,7 @@ def make_autobin(x_or_y):
 # @nbins@ | @nbinsx@ | @nbinsy@
 def make_nbins(x_or_y):
     _required=False
-    _type='style'    # TODO! Shouldn't this be 'plot_info' ?
+    _type='plot_info'
     _val_types=val_types['number'](gt=0)
     S={'x':['x',], 'y':['y',]}
     s=S[x_or_y]
@@ -846,7 +846,7 @@ drop_showscale=dict(
 # @zsmooth@  # TODO! Describe the 2 algorithms
 drop_zsmooth=dict(
     required=False,
-    type='style',
+    type='plot_info',
     val_types=" False | 'best' | 'fast' ",
     description="Choose between algorithms ('best' or 'fast') "
                 "to smooth data linked to 'z'. "
@@ -857,7 +857,7 @@ drop_zsmooth=dict(
 # @autocontour@
 drop_autocontour=dict(
     required=False,
-    type='style',
+    type='plot_info',
     val_types=val_types['bool'],
     description="Toggle whether or not the contour parameters are picked "
                 "automatically by Plotly. "
@@ -868,7 +868,7 @@ drop_autocontour=dict(
 # @ncontours@
 drop_ncontours=dict(
     required=False,
-    type='style',
+    type='plot_info',
     val_types=val_types['number'](gt=1),
     description="Specifies the number of contours lines "
                 "in the contour plot. "
@@ -983,7 +983,7 @@ def make_bordercolor(obj):
 def make_size(obj, x_or_y=False):
     _required=False
     _type=dict(
-        marker='style',   #TODO! data in bubble charts (i.e. if linked to array)
+        marker='style',   #Q? 'data' in bubble charts (i.e. if linked to array)
         font='style',
         bins='plot_info',
         contours='plot_info'
@@ -1087,7 +1087,7 @@ def make_title(obj, x_or_y=False):
 # @titlefont@
 def make_titlefont(obj, x_or_y=False):
     _required=False
-    _type='plot_info'
+    _type='style'
     _val_types=val_types['string']
     _description=dict(
             axis="A dictionary-like object describing the font "
@@ -1104,7 +1104,7 @@ def make_titlefont(obj, x_or_y=False):
 # @range@
 def make_range(what_axis):
     _required=False
-    _type='style'          # TODO! changed this!!!  was plot_info
+    _type='plot_info'
     _val_types="number array of length 2"
     _description=''.join(["Defines the start and end point of "
                           "this {S} axis."
@@ -1458,7 +1458,7 @@ META += [('box', OrderedDict([
 
     ('boxmean', dict(
         required=False,
-        type='style',
+        type='plot_info',
         val_types="False | True | 'sd'",
         description="Choose between add-on features for this box trace. "
                     "If True then the mean of the data linked to 'y' is shown "
@@ -1807,14 +1807,14 @@ META += [('area', OrderedDict([
 
     ('visible', drop_visible),
 
-    ('angularaxis', dict(  # TODO! How do polar axes this work?
+    ('angularaxis', dict(  #Q? How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
         description='Polar chart subplots are not supported yet. Info coming soon'
     )),
 
-    ('radialaxis', dict(  # TODO! How do polar axes this work?
+    ('radialaxis', dict(  #Q? How do polar axes this work?
         required=False,
         type='plot_info',
         val_types='',
@@ -2579,9 +2579,9 @@ META += [('angularaxis', OrderedDict([
 
     ('range', make_range('angular')),
 
-    ('domain', make_domain('angular')),  # TODO! Does not apply, right?
+    ('domain', make_domain('angular')),  #Q? Does not apply, right?
 
-    ('showline', make_showline('angular')), # Q? Should be 'gridline'
+    ('showline', make_showline('angular')), #Q? Should be 'gridline'
 
     ('showticklabels', make_showticklabels('angular axis')),
 
@@ -2754,25 +2754,29 @@ META += [('margin', OrderedDict([
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Left margin size in pixels.")),
+        description="Left margin size in pixels."
+    )),
 
     ('r', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Right margin size in pixels.")),
+        description="Right margin size in pixels."
+    )),
 
     ('b', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Bottom margin size in pixels.")),
+        description="Bottom margin size in pixels."
+    )),
 
     ('t', dict(
         required=False,
         type='style',
         val_types=val_types['number'](ge=0),
-        description="Top margin size in pixels.")),
+        description="Top margin size in pixels."
+    )),
 
     ('pad', dict(
         required=False,
@@ -3181,7 +3185,7 @@ META += [('data', dict())]
 META += [('annotations', dict())]
 
 # @Trace@
-META += [('trace', OrderedDict([  # TODO! Why keep this?
+META += [('trace', OrderedDict([  #Q? Why keep this?
 
     ('x', dict(type='data')),
     ('y', dict(type='data')),

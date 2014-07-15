@@ -51,7 +51,8 @@ Graph reference is used:
   1. `'required'`: whether the key is required or not to create the chart type,
   1. `'type'`: **IMPORTANT** `'data'` (the only keys that remain after
   `.get_data()`), `'style'` (is stripped by `.strip_style()`), `'plot_info'` (not
-  affected by `.strip_style()`), or `'object'` (when key is to be linked to
+  affected by `.strip_style()`, i.e. keys that may have an important effect on
+  the information presented in the figure), or `'object'` (when key is to be linked to
   another object),
   1. `'val_types'`: valid types (e.g. array-like of strings, number: in [0, 1]),
   1. `'description'`: making help helpful!
