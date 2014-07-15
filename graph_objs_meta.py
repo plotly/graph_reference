@@ -908,7 +908,7 @@ def make_color(obj):
                "in the same order as in the data lists or arrays. "
                "To set the color of the marker's bordering line, "
                "use the 'line' key in Marker. "
-               "The 'color' key can also accept a list or an array of numbers, "
+               "The 'color' key can also accept a list or an array ofof  numbers, "
                "where each number is then mapped to a color using the "
                "color scale set in 'colorscale'.",
         line="Sets the color of the line object. "
@@ -2107,7 +2107,7 @@ META += [('marker', OrderedDict([
 
     ('cmin', make_zcminmax('min','color')),
 
-    ('cmin', make_zcminmax('max','color')),
+    ('cmax', make_zcminmax('max','color')),
 
     ('outliercolor', dict(
         required=False,
