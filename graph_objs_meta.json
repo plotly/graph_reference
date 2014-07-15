@@ -1526,9 +1526,7 @@
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": [
-                "style"
-            ], 
+            "type": "style", 
             "description": "Sets the size (i.e. their width) of each x-axis bin.", 
             "streamable": true
         }
@@ -1549,9 +1547,7 @@
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": [
-                "style"
-            ], 
+            "type": "style", 
             "description": "Sets the size (i.e. their width) of each y-axis bin.", 
             "streamable": true
         }
@@ -1578,9 +1574,7 @@
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": [
-                "style"
-            ], 
+            "type": "style", 
             "description": "Sets the size of each contour level.", 
             "streamable": true
         }, 
@@ -1623,9 +1617,7 @@
         "size": {
             "val_types": "number: x > 0, or list of these numbers", 
             "required": false, 
-            "type": [
-                "style"
-            ], 
+            "type": "style", 
             "description": "Sets the size of the markers (in pixels). If 'size' is linked to a list or an array of numbers, size values are mapped to individual marker points in the same order as in the data lists or arrays. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
             "streamable": true
         }, 
@@ -1803,9 +1795,7 @@
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
-            "type": [
-                "style"
-            ], 
+            "type": "style", 
             "description": "Sets the size of font.If linked in the first level of the layout object, set the color of the global font.", 
             "streamable": true
         }, 

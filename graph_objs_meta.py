@@ -966,7 +966,7 @@ def make_bordercolor(obj):
 # @size@
 def make_size(obj, x_or_y=False):
     _required=False
-    _type='style',   #Q? 'data' in bubble charts (i.e. if linked to array)
+    _type='style'   #Q? 'data' in bubble charts (i.e. if linked to array)
     if obj=='marker':
         _val_types=val_types['number'](gt=0,list=True)
     else:
