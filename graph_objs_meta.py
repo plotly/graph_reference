@@ -1468,7 +1468,7 @@ META += [('box', OrderedDict([
 
     ('jitter', dict(
         required=False,
-        type='style',
+        type='style',    #Q? Should this be 'style' or 'plot_info'?
         val_types=val_types['number'](ge=0,le=1),
         description="Sets the width of the jitter in the boxpoints scatter "
                     "in this trace. "
