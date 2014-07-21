@@ -1066,7 +1066,7 @@ def make_title(obj, x_or_y=False):
 # @titlefont@
 def make_titlefont(obj, x_or_y=False):
     _required=False
-    _type='style'
+    _type='object'
     _val_types=val_types['string']
     _description=dict(
             axis="A dictionary-like object describing the font "

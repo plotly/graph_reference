@@ -1837,7 +1837,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "style", 
+            "type": "object", 
             "description": "A dictionary-like object describing the font settings of the x-axis title."
         }, 
         "range": {
@@ -2091,7 +2091,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "style", 
+            "type": "object", 
             "description": "A dictionary-like object describing the font settings of the y-axis title."
         }, 
         "range": {
@@ -2591,7 +2591,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "style", 
+            "type": "object", 
             "description": "A dictionary-like object describing the font settings of the colorbar title."
         }, 
         "thickness": {
@@ -2981,7 +2981,7 @@
         "titlefont": {
             "val_types": "string", 
             "required": false, 
-            "type": "style", 
+            "type": "object", 
             "description": "A dictionary-like object describing the font settings of the figure's title."
         }, 
         "font": {
