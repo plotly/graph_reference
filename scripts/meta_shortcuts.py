@@ -1,0 +1,1384 @@
+# Import language table!
+import language_table 
+
+# -------------------------------------------------------------------------------
+#
+# Define shortcuts for value types in `.val_types()`, for conditional 
+# require in `.required_cond()` and all meta field in `.Make()`.
+#
+# ** Defining a `.Make()` class allows for smooth transitions from language to 
+#    language along with `run.py`
+# 
+#    `.val_types()` and `.required_cond()` are language-independent (for now),
+#    so they are defined with just functions. **
+#
+# -------------------------------------------------------------------------------
+
+def val_types(val_type):
+    '''@val_types@ -- Inventory of value types
+    '''
+    def _number(lt=None, le=None, gt=None, ge=None, list=False):
+        '''@val_types-number@ -- Use this to format key accepting numbers
+        '''
+        if any((all((lt is not None, le is not None)),
+                all((gt is not None, ge is not None)))):
+            raise Exception("over-constrained number definition")
+        if [lt, le, gt, ge] == [None, None, None, None]:
+            out = "number"
+        elif lt is not None and ([ge, gt] == [None, None]):
+            out = "number: x < {lt}".format(lt=lt)
+        elif le is not None and ([ge, gt] == [None, None]):
+            out = "number: x <= {le}".format(le=le)
+        elif gt is not None and ([le, lt] == [None, None]):
+            out = "number: x > {gt}".format(gt=gt)
+        elif ge is not None and ([le, lt] == [None, None]):
+            out = "number: x >= {ge}".format(ge=ge)
+        elif (lt is not None) and (gt is not None):
+            out = "number: x in ({gt}, {lt})".format(gt=gt, lt=lt)
+        elif (lt is not None) and (ge is not None):
+            out = "number: x in [{ge}, {lt})".format(ge=ge, lt=lt)
+        elif (le is not None) and (gt is not None):
+            out = "number: x in ({gt}, {le}]".format(gt=gt, le=le)
+        elif (le is not None) and (ge is not None):
+            out = "number: x in [{ge}, {le}]".format(le=le, ge=ge)
+        if list:
+            return out+", or list of these numbers"
+        else:
+            return out
+    val_types_dict = dict(
+        bool="boolean: True | False",
+        color="string describing color",
+        string="string",
+        number= _number,  
+        number_array="array-like of numbers",
+        data_array="array-like of numbers, strings, datetimes",
+        string_array="array-like of strings",
+        color_array="array-like of string describing color",
+        matrix="matrix-like: list of lists, numpy.matrix",
+        object="dictionary-like",
+        object_list="array-like of one or several dictionaries",
+    )
+    return val_types_dict[val_type]
+
+# -------------------------------------------------------------------------------
+
+def required_cond(cond):
+    '''@required_cond-dict@ -- Inventory of required conditions
+    '''
+    def _required_keys(keys):
+        '''@required_cond-keys@ -- Use this for conditions involving keys
+        '''
+        if type(keys)==str:
+            to_be = 'is'
+        if all([type(keys)==list, len(keys)==1]):
+            to_be = 'is'
+            keys = keys[0]
+        elif type(keys)==list:
+            keys=','.join(keys[0:-1])+' and '+keys[-1]
+            to_be = 'are'
+        return " when {keys} {to_be} unset".format(keys=keys,to_be=to_be)
+    
+    def _required_plottype(plottype):
+        '''@required_cond-plottype@ -- Use this for conditions involving plot type
+        '''
+        return " when making a {plottype}".format(plottype=plottype)
+    required_cond_dict = dict(
+        keys= _required_keys,
+        plottype= _required_plottype
+     )
+    return required_cond_dict[cond]
+
+# -------------------------------------------------------------------------------
+
+class Make():
+    '''@Make@ -- Inventory of meta generators for repeated keys
+    '''
+
+    def __init__(self, language):
+        '''Initialize class with specific language table'''
+        global G
+        G = language_table.table[language]
+
+    def _output(self,_required, _type, _val_types, _description, **kwargs):
+        '''@output@ -- Format the keys' values into a dictionary
+        Outputs a dictionary of key-value pairs, given the keys.
+        (pos. arg. 1) _required: value of 'required' key
+        (pos. arg. 2) _type: value of 'type' key
+        (pos. arg. 3) _val_types: value of 'val_types' key
+        (pos. arg. 4) _description: value of 'description' key
+        (keyword args) kwargs: dictionary of additional key-value pairs
+        '''
+        _dict = dict(
+            required= _required,
+            type= _type,
+            val_types= _val_types,
+            description= _description)
+        if len(kwargs):
+            for k, v in kwargs.iteritems():
+                _dict[k] = v
+        return _dict
+
+    def x(self,obj):
+        '''@x@'''
+        _required = dict(
+            scatter=required_cond('keys')(["'y'","'r'","'t'"]),
+            bar=required_cond('keys')(["'y'"]),
+            histogram=required_cond('keys')(["'y'"]),
+            box=False,
+            heatmap=False,
+            contour=False,
+            histogram2d=True,
+            histogram2dcontour=True,
+        )
+        _type='data'
+        _val_types=val_types('data_array')
+        _description = dict(
+            scatter=(
+                "The x coordinates of the points of this scatter trace. "
+                "If 'x' is linked to an list or array of strings, "
+                "then the x coordinates are integers [0,1,2,3, ...] labeled "
+                "on the x-axis by the list or array of strings linked to 'x'."
+            ),
+            bar=(
+                "The x coordinates of the bars. "
+                "If 'x' is linked to an list or array of strings, "
+                "then the x coordinates are integers [0,1,2,3, ...] labeled "
+                "on the x-axis by the list or array of strings linked to 'x'. "
+                "If 'y' is not set, the bars are plotted horizontally, "
+                "with their length determined by the list or array linked to 'x'."
+            ),
+            histogram=(
+                "The data sample to be binned (done by Plotly) on the x-axis "
+                "and plotted as vertical bars."
+            ),
+            box=(
+                "Usually, you do not need to set this value as "
+                "plotly will handle box locations for you. However "
+                "this allows you to have fine control over the "
+                "location data for the box. Unlike making a bar, "
+                "a box plot is made of many y values. Therefore, "
+                "to give location data to the values you place in "
+                "'y', the length of 'x' must equal the length of 'y'. "
+                "when making multiple box plots, you can concatenate "
+                "the data sets for each box into a single 'y' array. "
+                "then, the entries in 'x' define which box plot each "
+                "entry in 'y' belongs to. When making a single box "
+                "plot, you must set each entry in 'x' to the same "
+                "value, see 'x0' for a more practical way to handle "
+                "this case. If you don't include 'x', the box will "
+                "simply be assigned a location."
+            ),
+            heatmap=(
+                "This array-like value contains the horizontal coordinates "
+                "referring to the columns of the 'z' matrix. "
+                "if strings, the x-labels are spaced evenly. "
+                "If the dimensions of z are (n x m), "
+                "the length of the 'x' array should be 'm'."
+            ),
+            histogram2d=(
+                "The data sample to be binned on the x-axis and "
+                "whose distribution (computed by Plotly) will correspond "
+                "to the x-coordinates of this 2D histogram trace."
+           )
+        )
+        _description['contour']= _description['heatmap']
+        _description['histogram2dcontour']= _description['histogram2d']
+        _streamable=True
+        return self._output(_required[obj],_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def y(self,obj):
+       '''@y@'''
+       _required=dict(
+            scatter=required_cond('keys')(["'x'","'r'","'t'"]),
+            bar=required_cond('keys')(["'x'"]),
+            histogram=required_cond('keys')(["'x'"]),
+            box=True,
+            heatmap=False,
+            contour=False,
+            histogram2d=True,
+            histogram2dcontour=True,
+        )
+       _type='data'
+       _val_types=val_types('data_array')
+       _description=dict(
+           scatter=(
+               "The y coordinates of the points of this scatter trace. "
+               "If 'y' is linked to an list or array of strings, "
+               "then the y coordinates are integers [0,1,2,3, ...] labeled "
+               "on the y-axis by the list or array of strings linked to 'y'."
+           ),
+           histogram=(
+               "The data sample to be binned (done by Plotly) on the y-axis "
+               "and plotted as horizontal bars."
+           ),
+           bar=(
+               "The y coordinates of the bars. "
+               "If 'y' is linked to an list or array of strings, "
+               "then the y coordinates are integers [0,1,2,3, ...] labeled "
+               "on the y-axis by the list or array of strings linked to 'y'. "
+               "If 'x' is not set, the bars are plotted vertically, "
+               "with their length determined by the list or array linked to 'y'."
+           ),
+           box=(
+               "This array is used to define an individual "
+               "box plot, or, a concatenation of multiple box plots. "
+               "Statistics from these numbers define the bounds of "
+               "the box, the length of the whiskers, etc. For "
+               "details on defining multiple boxes with locations "
+               "see 'x'. Each box spans from the first quartile to the third. "
+               "The second quartile is marked by a line inside the box. "
+               "By default, the whiskers are correspond to box' edges +/- 1.5 times "
+               "the interquartile range. See also 'boxpoints' for more info"
+           ),
+           heatmap=(
+               "This array-like value contains the vertical coordinates "
+               "referring to the rows of the 'z' matrix. "
+               "If strings, the y-labels are spaced evenly. "
+               "If the dimensions of z are (n x m), "
+               "the length of the 'y' array should be 'n'."
+           ),
+           histogram2d=(
+               "The data sample to be binned on the y-axis and "
+               "whose distribution (computed by Plotly) will correspond "
+               "to the y-coordinates of this 2D histogram trace."
+          )
+       )
+       _description['contour']= _description['heatmap']
+       _description['histogram2dcontour']= _description['histogram2d']
+       _streamable=True
+       return self._output(_required[obj],_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def z(self,obj):
+        '''@z@'''
+        _required=True
+        _type='data'
+        _val_types=val_types('matrix')
+        _description=dict(
+            heatmap=(
+                "The data that describes the mapping. "
+                "The dimensions of the 'z' matrix are (n x m) "
+                "where there are 'n' ROWS defining the "
+                "number of partitions along the y-axis; this is equal to the "
+                "length of the 'y' array. "
+                "There are 'm' COLUMNS defining the number "
+                "of partitions along the x-axis; "
+                "this is equal to the length of the 'x' array. "
+                "Therefore, the color of the cell z[i][j] is mapped to "
+                "the ith partition of the y-axis (starting from the bottom "
+                "of the plot) and the jth partition of the x-axis "
+                "(starting from the left of the plot). "
+                "In Python, a (non-numpy) matrix is best thought of as "
+                "a list of lists (of lists, of lists, etc.). "
+                "Therefore, running len(z) will give you the number "
+                "of ROWS and running len(z[0]) will give you "
+                "the number of COLUMNS. If you ARE using numpy, then running "
+                "z.shape will give you the tuple, (n, m), e.g., (3, 5)."
+            )
+        )
+        _description['contour']= _description['heatmap']
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def r(self,obj):
+        '''@r@'''
+        _required=dict(
+            scatter=required_cond('plottype')("Polar Chart"),
+            bar=required_cond('plottype')("Polar Chart"),
+            area=True
+        )
+        _type='data'
+        _val_types=val_types('number_array') # Q? Should this support string too?
+        _description=dict(  
+            scatter=(
+                "For Polar charts only. "
+                "The radial coordinates of the points in this "
+                "polar scatter trace about the origin."
+            ),
+            bar=(
+                "For Polar charts only. "
+                "The radial coordinates of the bars in this polar bar trace "
+                "about the original; that is, the radial extent of each bar."
+            ),
+            area=(
+                "The radial coordinates of the circle sectors in this "
+                "polar area trace about the origin; that is, the radial extent of "
+                "each circle sector."
+           )
+        )
+        _streamable=True
+        return self._output(_required[obj],_type,_val_types,_description[obj],
+                     streamable=_streamable)
+    
+    def t(self,obj):
+        '''@t@'''
+        _required=dict(
+            scatter=required_cond('plottype')("Polar Chart"),
+            bar=required_cond('plottype')("Polar Chart"),
+            area=True
+        )
+        _type='data'
+        _val_types=val_types('data_array')
+        _description=dict(
+            scatter=(
+                "For Polar charts only. "
+                "The angular coordinates of the points in this "
+                "polar scatter trace."
+            ),
+            bar=(
+                "For Polar charts only. "
+                "The angular coordinates of the bars in this polar bar trace."
+            ),
+            area=(
+                "The angular coordinates of the circle sectors in this "
+                "polar area trace. There are as many sectors as coordinates "
+                "linked to 't' and 'r'. Each sector is drawn about the "
+                "coordinates linked to 't', where they spanned symmetrically "
+                "in both the positive and negative angular directions. "
+                "The angular extent of each sector is equal to the angular range "
+                "(360 degree by default) divided by the number of sectors. "
+                "Note that the sectors are drawn in order; coordinates at the end "
+                "of the array may overlay the coordinates at the start."
+           )
+        )
+        for k in _description.keys():
+            _description[k]+=(
+                " By default, the angular coordinates "
+                "are in degrees (0 to 360) where the angles "
+                "are measured clockwise about the right-hand "
+                "side of the origin. To change this "
+                "behavior, modify 'range' in AngularAxis "
+                "or/and 'direction' in Layout. "
+                "If 't' is linked to an array-like of "
+                "strings, then the angular coordinates are "
+                "[0, 360\N, 2*360/N, ...] where N is the "
+                "number of coordinates given labeled by the "
+                "array-like of strings linked to 't'."
+            )  
+        _streamable=True
+        return self._output(_required[obj],_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def x0y0(self,obj,x_or_y=False):
+        '''@x0y0@ | @x0@ | @y0@'''
+
+        S={'x':['x',], 'y':['y',], False:['',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='plot_info'  
+        _val_types=val_types('number')()
+        _description=dict( # TODO! Add scatter?
+            box=(
+                "The location of this box. When 'y' defines a single "
+                "box, 'x0' can be used to set where this box is "
+                "centered on the x-axis. If many boxes are set to "
+                "appear at the same 'x0' location, they will form a "
+                "box group."
+            ),
+            heatmap=(
+                "The location of the first coordinate of the {S0}-axis. "
+                "Use with 'd{S0}' an alternative to an '{S0}' list/array. "
+                "Has no effect if '{S0}' is set."
+            ).format(S0=s[0])
+        )
+        _description['contour']= _description['heatmap']
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def dxdy(self,obj,x_or_y=False):
+        '''@dxdy@ | @dx@ | @dy@'''
+        S={'x':['x',], 'y':['y',], False:['',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='plot_info'  
+        _val_types=val_types('number')()
+        _description=dict( # TODO! Add scatter?
+            heatmap=(
+                "Spacing between {S0}-axis coordinates. "
+                "Use with '{S0}0' an alternative to an '{S0}' list/array. "
+                "Has no effect if '{S0}' is set."
+            ).format(S0=s[0]),
+        )
+        _description['contour']= _description['heatmap']
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def xytype(self,obj,x_or_y):
+        '''@xytype@ | @xtype@ | @ytype@'''
+        S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='plot_info'    
+        _val_types="'array' | 'scaled'",
+        _description=dict(
+            heatmap=(
+                "If set to 'scaled' and '{S0}' is linked to a list/array, "
+                "then the {S1} labels are scaled to a list "
+                "of integers of unit step "
+                "starting from 0."
+           ).format(S0=s[0],S1=s[1])
+        )
+        _description['contour']= _description['heatmap']
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def text(self, obj):
+        '''@text@'''
+        _required=False
+        _type='data'
+        _val_types=val_types('string_array')
+        _description=dict(
+            scatter=(
+                "The text elements associated with each (x,y) pair in "
+                "this scatter trace. If the scatter 'mode' does not "
+                "include 'text' then text elements will appear on hover only. "
+                "In contrast, if 'text' is included in 'mode', "
+                "the entries in 'text' "
+                "will be rendered on the plot at the locations "
+                "specified in part by their corresponding (x,y) coordinate pair "
+                "and the 'textposition' key."
+            ),
+            bar=(
+                "The text elements associated with each bar in this trace. "
+                "The entries in 'text' will appear on hover only, in a text "
+                "box located at the top of each bar."
+            )
+        )
+        _description['histogram']=_description['bar']
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def error(self, obj, x_or_y):
+        '''@error@ | @error_y@ | @error_x@'''
+
+        S={'x':['horizontal','x'], 'y':['vetical','y']}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+            scatter=(
+                "A dictionary-like object describing "
+                "the {S0} error bars (i.e. along the {S1}-axis) "
+                "that can be drawn "
+                "from the (x, y) coordinates."
+            ).format(S0=s[0],S1=s[1]),
+            bar=(
+                "A dictionary-like object describing the {S0} error bars "
+                "(i.e. along the {S1}-axis) that can "
+                "be drawn from bar tops."
+           ).format(S0=s[0],S1=s[1])
+        )
+        _description['histogram']= _description['bar']
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def orientation(self,obj):
+        '''@orientation@'''
+        _required=False
+        _type='plot_info' 
+        _val_types="'v' | 'h'"
+        _description=dict(
+            bar=(
+                "This defines the direction of the bars. "
+                "If set to 'v', the length of each bar will run vertically. "
+                "If set to 'h', the length of each bar will run horizontally"
+            ),
+            histogram=(
+                "Web GUI Artifact. Histogram orientation is determined "
+                "by which of 'x' or 'y' the data sample is linked to."
+            )
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def marker(self, obj):
+        '''@marker@'''
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+            scatter=(
+                "A dictionary-like object containing marker style "
+                "parameters for this scatter trace. "
+                "Has an effect only if 'mode' contains 'markers'."
+            ),
+            bar=(
+                "A dictionary-like object containing marker style "
+                "parameters for this bar trace, for example, "
+                "the bars' fill color, border width and border color."
+            ),
+            box=(
+                "A dictionary-like object containing marker style "
+                "parameters for this the boxpoints of box trace. "
+                "Has an effect only 'boxpoints' is set to 'outliers', "
+                "'suspectedoutliers' or 'all'."
+            ),
+            area=(
+                "A dictionary-like object containing marker style "
+                "of the area sectors of this trace, for example the sector fill "
+                "color and sector boundary line width and sector boundary color."
+           )
+        )
+        _description['histogram']= _description['bar']
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def line(self, obj):
+        '''@line@'''
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+            scatter=(
+                "A dictionary-like object containing line style "
+                "parameters for this scatter trace. "
+                "Has an effect only if 'mode' contains 'lines'."
+            ),
+            bar="Artifact. Has no effect.",
+            box=(
+                "A dictionary-like object containing line style "
+                "parameters for the border of this box trace "
+                "(including the whiskers)."
+            ),
+            contour=(
+                "A dictionary-like object containing line style "
+                "parameters for contour lines of this contour trace "
+                "(including line width, dash, color and smoothing level). "
+                "Has no an effect if 'showlines' is set to False in Contours."
+            ),
+            marker=(
+                "A dictionary-like object describing the line belonging to "
+                "the marker. For example, the line around each point "
+                "in a scatter trace or the line around each bar in a "
+                "bar trace."
+           )
+        )
+        _description['histogram']= _description['bar']
+        _description['histogram2dcontour']= _description['contour']
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def opacity(self, marker=False):
+        '''@opacity@'''
+        _required=False
+        _type="style"
+        if not marker:
+            _val_types=val_types('number')(ge=0, le=1)
+            _description=(
+                 "Sets the opacity, or transparency, "
+                 "of the entire object, "
+                 "also known as the alpha channel of colors. "
+                 "If the object's color is given in terms of "
+                 "'rgba' color "
+                 "model, 'opacity' is redundant."
+            )
+        else:
+            _val_types=val_types('number')(ge=0, le=1, list=True)
+            _description=(
+                "Sets the opacity, or transparency "
+                "also known as the alpha channel of colors) "
+                "of the marker points. "
+                "If the marker points' "
+                "color is given in terms of 'rgba' "
+                "color model, this does not need to be defined. "
+                "If 'opacity' is linked to a list or an array "
+                "of numbers, opacity values are mapped to "
+                "individual marker points in the "
+                "same order as in the data lists or arrays."
+            )
+        return self._output(_required,_type,_val_types,_description)
+    
+    def textfont(self, obj):
+        '''@textfont@'''
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+            scatter=(
+                "A dictionary-like object describing the font style "
+                "of this scatter trace's text elements. Has only "
+                "an effect if 'mode' is set and includes 'text'."
+            ),
+            bar="Not currently supported, has no effect."
+        )
+        _description['histogram']= _description['bar']
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def font(self, obj):
+        '''@font@'''
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+            legend=(
+                "A dictionary-like object describing the font "
+                "settings within the legend."
+            ),
+            annotation=(
+                "A dictionary-like object describing the font "
+                "settings within this annotation."
+            ),
+            layout=(
+                "A dictionary-like object describing the global font "
+                "settings for this figure (e.g. all axis titles and labels)."
+            )
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def name(self):
+        '''@name@'''
+        return dict(
+            required=False,
+            type='data',
+            val_types=val_types('string'),
+            description=(
+                "The label associated with this trace. "
+                "This name will appear in the legend, on hover and "
+                "in the column header in the online spreadsheet."
+            )
+        )
+    
+    def stream(self):
+        '''@stream@'''
+        return dict(
+            required=False,
+            type='object',
+            val_types=val_types('object'),
+            description=(
+                "The stream dictionary-like object that initializes traces as "
+                "writable-streams, for use with the real-time streaming API."
+            )
+        )
+    
+    def visible(self):
+        '''@visible@'''
+        return dict(
+            required=False,
+            type='plot_info',
+            val_types=val_types('bool'),
+            description=(
+                "Toggles whether or not this object will actually be "
+                "visible in the rendered figure."
+            )
+        )
+    
+    def showlegend(self, trace=False, layout=False):
+        '''@showlegend@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        if trace:
+            _description=(
+                "Toggle whether or not this trace will be "
+                "labeled in the legend."
+            )
+        elif layout:
+            _description=(
+                "Toggle whether or not the legend will "
+                "be shown in this figure."
+            )
+        return self._output(_required,_type,_val_types,_description)
+    
+    def axis(self, x_or_y, trace=False, layout=False):
+        '''@axis@ | @xaxis@ | @yaxis@'''
+
+        S={'x':['x','horizontal','X'], 'y':['y','vertical','Y']}
+        s=S[x_or_y]
+    
+        _required=False
+        if trace:
+            _type='plot_info'
+            _val_types="'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
+            _description=(
+                "This key determines which {S0}-axis "
+                "the {S0}-coordinates of this trace will "
+                "reference in the figure.  Values '{S0}1' "
+                "and '{S0}' reference to layout['{S0}axis'], "
+                "'{S0}2' references layout['{S0}axis2'], and "
+                "so on. Note that '{S0}1' will always refer to "
+                "layout['{S0}axis'] or layout['{S0}axis1'], "
+                "they are the same."
+            ).format(S0=s[0])
+        elif layout:
+            _type='object'
+            _val_types=val_types('object')
+            _description=(
+                "A dictionary-like object describing an "
+                "{S0}-axis (i.e. an {S1} axis). "
+                "The first {S2}Axis object can be entered into "
+                "layout by linking it to '{S0}axis' OR "
+                "'{S0}axis1', both keys are identical to Plotly.  "
+                " To create references other {S0}-axes, "
+                "you need to define them in the layout "
+                "dictionary-like object using keys '{S0}axis2', "
+                "'{S0}axis3' and so on."
+            ).format(S0=s[0],S1=s[1],S2=s[2])
+        return self._output(_required,_type,_val_types,_description)
+    
+    def type(self, trace):
+        '''@type@'''
+        _required=False
+        _type='plot_info'
+        _val_types=trace
+        _description=(
+            "Plotly identifier for this data's trace type. "
+            "This defines how this "
+            "data dictionary will be handled. "
+            "For example, 'scatter' type expects "
+            "x and y data-arrays corresponding to "
+            "(x, y) coordinates whereas a 'histogram' "
+            "only requires a single x or y array "
+            "and a 'heatmap' type requires a z matrix."
+        )
+        return self._output(_required,_type,_val_types,_description)
+    
+    def histnorm(self):
+        '''@histnorm@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types=(
+                "'' (or 'count') | 'percent' | 'probability' | 'density' | "
+                "'probability density'"
+            ),
+            description=(
+                "If histnorm is not specified, or histnorm='' ("
+                "empty string), the height of each bar displays the "
+                "frequency of occurrence, i.e., the number of times this "
+                "value was found in the corresponding bin. If "
+                "histnorm='percent', the height of each bar displays the "
+                "percentage of total occurrences found within the "
+                "corresponding bin. If histnorm='probability', the height "
+                "of each bar displays the probability that an event will "
+                "fall into the corresponding bin. If histnorm='density', "
+                "the height of each bar is equal to the number of "
+                "occurrences in a bin divided by the size of the bin "
+                "interval such that summing the area of all bins will "
+                "yield the total number of occurrences. If "
+                "histnorm='probability density', the height of each bar "
+                "is equal to the number of probability that an event will "
+                "fall into the corresponding bin divided by the size of "
+                "the bin interval such that summing the area of all bins "
+                "will yield 1, i.e. an event must fall into one of the "
+                "bins."
+           )
+        )
+    
+    def autobin(self, x_or_y):
+        '''@autobin@ | @autobinx@ | @autobiny@'''
+
+        S={'x':['x','X'], 'y':['y','Y']}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        _description=(
+            "Toggle whether or not the {S0}-axis bin parameters "
+            "are picked automatically by Plotly. "
+            "Once 'autobin{S0}' is set to False, the {S0}-axis "
+            "bins parameters can be declared "
+            "in the {S1}Bins object."
+        ).format(S0=s[0],S1=s[1])
+        return self._output(_required,_type,_val_types,_description)
+    
+    def nbins(self, x_or_y):
+        '''@nbins@ | @nbinsx@ | @nbinsy@'''
+
+        S={'x':['x',], 'y':['y',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='style'
+        _val_types=val_types('number')(gt=0)
+        _description=(
+            "Specifies the number of {S0}-axis bins. "
+            "No need to set 'autobin{S0}' to False "
+            "for 'nbins{S0}' to apply."
+        ).format(S0=s[0])
+        return self._output(_required,_type,_val_types,_description)
+    
+    def bins(self, x_or_y):
+        '''@bins@ | @xbins@ | @ybins@'''
+        S={'x':['x',], 'y':['y',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=(
+            "A dictionary-like object defining the parameters "
+            "of {S0}-axis bins of this trace, for example, "
+            "the bin width and the bins' starting and  "
+            "ending value. Has an effect only if "
+            "'autobin{S0}'=False."
+        ).format(S0=s[0])
+        return self._output(_required,_type,_val_types,_description)
+    
+    def colorbar(self):
+        '''@colorbar@'''
+        return dict(
+            required=False,
+            type='object',
+            val_types=val_types('object'),
+            description=(
+                "A dictionary-like object defining the parameters of "
+                "the color bar associated with this trace "
+                "(including its title, length and width)."
+           )
+        )
+    
+    def colorscale(self, z_or_color):
+        '''@colorscale@'''
+
+        S={'c': ['color', 'c'], 'z': ['z', 'z']}
+        s = S[z_or_color]
+    
+        _required=False
+        _type="style"
+        _val_types=(
+            "array_like of value-color pairs | "
+            "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
+            "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
+            "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+        )
+        _description=(
+            "Sets and/or defines the color scale for this trace. "
+            "The string values are pre-defined color "
+            "scales. For custom color scales, define a list of "
+            "color-value pairs where, by default, the first "
+            "element of the pair "
+            "corresponds to a normalized value of {S0} from 0-1, "
+            "i.e. ({S1}-{S1}min)/ ({S1}max-{S1}min), and the "
+            "second element of pair corresponds to a color. "
+            "Use with '{S1}auto', '{S1}min' and "
+            "'{S1}max to fine-tune the map from '{S0}' to "
+            "rendered colors."
+        ).format(S0=s[0],S1=s[1])
+        _examples=["'Greys'", 
+                  [[0, "rgb(0,0,0)"], 
+                   [0.5, "rgb(65, 182, 196)"],
+                   [1, "rgb(255,255,255)"]]
+                  ]
+        return self._output(_required,_type,_val_types,_description,
+                      examples=_examples)
+    
+    def zcauto(self, z_or_c):
+        '''@zcauto@ | @zauto@ | @cauto@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        _description=(
+            "Toggle whether or not the default values "
+            "of '{}max' and '{}max' can be overwritten."
+        ).format(z_or_c, z_or_c)
+        return self._output(_required,_type,_val_types,_description)
+    
+    def zcminmax(self, min_or_max, z_or_color):
+        '''@zcminmax@ | @zmin@ | @zmax@ | @cmin@ | @cmax@'''
+
+        S={'min': 'minimum', 'max': 'maximum'}
+        s=S[min_or_max]
+    
+        _required=False
+        _type='style'
+        _val_types=val_types('number')()
+        _description=(
+            "Sets the {S0} '{z_or_color}' data value to be "
+            "resolved by the color scale. "
+            "Its default value is the {S0} of the "
+            "'{z_or_color}' data values. "
+            "This value will be used as the {S0} in the color scale "
+            "normalization. For more info see 'colorscale'."
+        ).format(S0=s,z_or_color=z_or_color)
+        if z_or_color=='color':
+            _description+=(
+                " Has only an effect if 'color' is linked "
+                "to an array-like and 'colorscale' is set."
+            )
+        return self._output(_required,_type,_val_types,_description)
+    
+    def reversescale(self):
+        '''@reversescale@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types=val_types('bool'),
+            description="Toggle whether or not the color scale will be reversed."
+        )
+    
+    def showscale(self):
+        '''@showscale@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types=val_types('bool'),
+            description=(
+                "Toggle whether or not the color scale associated with "
+                "this mapping will be shown alongside the figure."
+            )
+        )
+    
+    def zsmooth(self):
+        '''@zsmooth@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types="False | 'best' | 'fast'",
+            description=( # TODO! Describe the 2 algorithms
+                "Choose between algorithms ('best' or 'fast') "
+                "to smooth data linked to 'z'. "
+                "The default value is False "
+                "corresponding to no smoothing."
+            )
+        )
+    
+    def autocontour(self):
+        '''@autocontour@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types=val_types('bool'),
+            description=(
+                "Toggle whether or not the contour parameters are picked "
+                "automatically by Plotly. "
+                "If False, declare the contours parameters "
+                "in the Contours object."
+            )
+        )
+    
+    def ncontours(self):
+        '''@ncontours@'''
+        return dict(
+            required=False,
+            type='style',
+            val_types=val_types('number')(gt=1),
+            description=(
+                "Specifies the number of contours lines "
+                "in the contour plot. "
+                "No need to set 'autocontour' to False for 'ncontours' "
+                "to apply."
+            )
+        )
+    
+    def contours(self):
+        '''@contours@'''
+        return dict(
+            required=False,
+            type='object',
+            val_types=val_types('object'),
+            description=(
+                "A dictionary-like object defining the parameters of "
+                "the contours of this trace."
+            )
+        )
+    
+    def examples_color(self):
+        '''@examples-color@'''
+        return [
+            "'green'", 
+            "'rgb(0, 255, 0)'",
+            "'rgba(0, 255, 0, 0.3)'",
+            "'hsl(120,100%,50%)'",
+            "'hsla(120,100%,50%,0.3)'"
+        ]
+    
+    def color(self,obj):
+        '''@color@'''
+        _required=False
+        _type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
+        if obj=='marker':
+            _val_types=val_types('color_array')  #Q? Add "or 'data_array'" 
+        else:
+            _val_types=val_types('color')
+        _description=dict(
+            marker=(
+                "Sets the color of the face of the marker object. "
+                "If 'color' is linked to a list or an array of color strings, "
+                "color values are mapped to individual marker points "
+                "in the same order as in the data lists or arrays. "
+                "To set the color of the marker's bordering line, "
+                "use the 'line' key in Marker. "
+                "The 'color' key can also accept a list or an array of numbers, "
+                "where each number is then mapped to a color using the "
+                "color scale set in 'colorscale'."
+            ),
+            line=(
+                "Sets the color of the line object. "
+                "If linked within 'marker', sets the color of the marker's "
+                "bordering line. "
+                "If linked within, 'contours', sets the color of the "
+                "contour lines."
+            ),
+            font=(
+                "Sets the color of the font. "
+                "If linked in the first level of the layout object, set the "
+                "color of the global font."
+            ),
+            error="Sets the color of the error bars."
+        )
+        _streamable=True
+        return self._output(
+            _required,_type,_val_types,_description[obj],
+            streamable=_streamable,examples=self.examples_color())
+    
+    def fillcolor(self,obj):
+        '''@fillcolor@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('color')
+        _description=dict(
+            scatter=(
+                "Sets the color that will appear "
+                "in the specified fill area (set in 'fill'). "
+                "Has no effect if 'fill' is set to 'none'."
+            ),
+            box="Sets the color of the box interior."
+        )
+        return self._output(
+            _required,_type,_val_types,_description[obj],
+            examples=self.examples_color())
+    
+    def outlinecolor(self,obj):
+        '''@outlinecolor@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('color')
+        _description=dict(
+            font="For polar chart only. Sets the color of the text's outline.",
+            colorbar="The color of the outline surrounding this colorbar."
+        )
+        return self._output(_required,_type,_val_types,_description[obj],
+                      examples=self.examples_color())
+    
+    def bgcolor(self,obj):
+        '''@bgcolor@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('color')
+        _description=dict(
+            legend="Sets the background (bg) color for the legend.",
+            colorbar="Sets the background (bg) color for this colorbar.",
+            annotation="Sets the background (bg) color for this annotation."
+        )
+        return self._output(_required,_type,_val_types,_description[obj],
+                      examples=self.examples_color())
+    
+    def bordercolor(self,obj):
+        '''@bordercolor@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('color')
+        _description=dict(
+            legend="Sets the enclosing border color for the legend.",
+            colorbar="Sets the color of the enclosing boarder of this colorbar.",
+            annotation="The color of the enclosing boarder of this annotation."
+        )
+        return self._output(_required,_type,_val_types,_description[obj],
+                      examples=self.examples_color())
+    
+    def size(self, obj, x_or_y=False):
+        '''@size@'''
+        S={'x': ['x',], 'y': ['y',], False:['',]}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='style'   #Q? 'data' in bubble charts (i.e. if linked to array)
+        if obj=='marker':
+            _val_types=val_types('number')(gt=0,list=True)
+        else:
+            _val_types=val_types('number')(gt=0)
+        _description=dict(
+            marker=(
+                "Sets the size of the markers (in pixels). "
+                "If 'size' is linked to a list or an array of numbers, "
+                "size values are mapped to individual marker points "
+                "in the same order as in the data lists or arrays. "
+                "In this case, use 'size' in conjunction "
+                "with 'sizeref' and 'sizemode' "
+                "to fine-tune the map from the numbers linked to 'size' "
+                "and the marker points' rendered sizes."
+            ),
+            font=(
+                "Sets the size of font. "
+                "If linked in the first level of the layout object, set the "
+                "color of the global font."
+            ),
+            bins=(
+                "Sets the size (i.e. their width) of each "
+                "{S0}-axis bin."
+            ).format(S0=s[0]),
+            contours="Sets the size of each contour level."
+        )
+        _streamable=True
+        return self._output(_required,_type,_val_types,_description[obj],
+                      streamable=_streamable)
+    
+    def startend(self, obj, start_or_end, x_or_y=False):
+        '''@startend@ | @start@ | @end@'''
+        S_se={'start':['first','starting'], 'end':['last','end']}
+        s_se=S_se[start_or_end]
+        S_xy={'x': ['x',], 'y': ['y',], False:['',]}
+        s_xy=S_xy[x_or_y]
+    
+        _required=False
+        _type='style'
+        _val_types=val_types('number')(gt=0)
+        _description=dict(
+            bins=(
+                "Sets the {S_se1} point on the {S_xy0}-axis for the {S_se0} "
+                "bin."
+            ).format(S_se0=s_se[0],S_se1=s_se[1],S_xy0=s_xy[0]),
+            contours=(
+                "Sets the value of the {S_se0} "
+                "contour level."
+            ).format(S_se0=s_se[0])
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def width(self, obj):
+        '''@width@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('number')(ge=0)
+        _description=dict(
+            line="Sets the width (in pixels) of the line object.",
+            error=(
+                "Sets the width (in pixels) of the cross-bar at both ends of "
+                "the error bars."
+            ),
+            figure="The width in pixels of the figure you're creating."
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def thickness(self, obj, x_or_y=False):
+        '''@thickness@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('number')(ge=0)
+        S={'x': ['x',], 'y': ['y',], False:['',]}
+        s=S[x_or_y]
+        _description=dict(
+            error=(
+                "Sets the line thickness of the {S0} error bars."
+            ).format(S0=s[0]),
+            colorbar="Sets the thickness of the line surrounding the colorbar."
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def borderwidth(self, obj):
+        '''@borderwidth@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('number')(ge=0)
+        _description=dict(
+            legend="Sets the width of the border enclosing for the legend.",
+            colorbar="Sets the width of the boarder enclosing this colorbar",
+            annotation="Sets the width of the boarder enclosing this annotation"
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def title(self, obj, x_or_y=False):
+        '''@title@'''
+        _required=False
+        _type='plot_info'
+        _val_types=val_types('string')
+        _description=dict(
+                axis="The {S}-axis title.".format(S=x_or_y),
+                colorbar="The title of the colorbar.",
+                layout="The title of the figure."
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def titlefont(self, obj, x_or_y=False):
+        '''@titlefont@'''
+        _required=False
+        _type='object'
+        _val_types=val_types('object')
+        _description=dict(
+                axis=("A dictionary-like object describing the font "
+                      "settings of the {S}-axis title."
+                ).format(S=x_or_y),
+                colorbar=(
+                    "A dictionary-like object describing the font "
+                    "settings of the colorbar title."
+                ),
+                layout=(
+                    "A dictionary-like object describing the font "
+                    "settings of the figure's title."
+                )
+        )
+        return self._output(_required,_type,_val_types,_description[obj])
+    
+    def range(self, what_axis):
+        '''@range@'''
+        _required=False
+        _type='style'
+        _val_types="number array of length 2"
+        _description=(
+            "Defines the start and end point of "
+            "this {S} axis."
+        ).format(S=what_axis)
+        _examples=[[-13, 20], [0, 1]]
+        if what_axis=='angular':
+            _description+=(
+                " By default, 'range' is set to [0,360]. "
+                "Has no effect if 't' is linked to "
+                "an array-like of string."
+        )
+            _examples=[[0, 180], [0, 6.2831]]
+        return self._output(_required,_type,_val_types,_description,
+                      examples=_examples)
+    
+    def domain(self, what_axis):
+        '''@domain@'''
+        _required=False
+        _type='plot_info'
+        _val_types="number array of length 2"
+        _description=(
+            "Sets the domain of this {S} axis; "
+            "that is, the available space "
+            "for this {S} axis to live in. "
+            "Domain coordinates are given in normalized "
+            "coordinates with respect to the paper."
+        ).format(S=what_axis)
+        if what_axis in ['radial','angular']:
+            _description=(
+                "Polar chart subplots are not supported yet. "
+                "This key has currently no effect."
+            )
+            return self._output(_required,_type,_val_types,_description)
+        else:
+            _examples=[[0,0.4], [0.6, 1]]
+            return self._output(_required,_type,_val_types,_description,
+                          examples=_examples)
+    
+    def showline(self, what_axis):
+        '''@showline@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        _description=(
+            "Toggle whether or not the line bounding this "
+            "{S} axis will "
+            "be shown on the figure."
+        ).format(S=what_axis)
+        if what_axis=='angular':
+            _description+=(
+                " If 'showline' is set to True, "
+                "the bounding line starts from the origin and "
+                "extends to the edge of radial axis."
+            )
+        return self._output(_required,_type,_val_types,_description)
+    
+    def autotick(self, axis_or_colorbar):
+        '''@autotick@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        _description=(
+            "Toggle whether or not the {S} ticks parameters "
+            "are picked automatically by Plotly. "
+            "Once 'autotick' is set to False, "
+            "the {S} ticks parameters can be declared "
+            "with 'ticks', 'tick0', 'dtick0' and other "
+            "tick-related key in this {S} object."
+        ).format(S=axis_or_colorbar)
+        return self._output(_required,_type,_val_types,_description)
+    
+    def nticks(self, axis_or_colorbar):
+        '''@nticks@'''
+        _required=False
+        _type='style'    
+        _val_types=val_types('number')(gt=0)
+        _description=(
+            "Specifies the number of {S} ticks. "
+            "No need to set 'autoticks' to False "
+            "for 'nticks' to apply."
+        ).format(S=axis_or_colorbar)
+        return self._output(_required,_type,_val_types,_description)
+    
+    def showticklabels(self, what_ticks):
+        '''@showticklabels@'''
+        _required=False
+        _type='style'
+        _val_types=val_types('bool')
+        _description=(
+            "Toggle whether or not the {} ticks "
+            "will feature tick labels."
+        ).format(what_ticks)
+        return self._output(_required,_type,_val_types,_description)
+    
+    def xyref(self, x_or_y):
+        '''@xyref@ | @xref@ | @yref@'''
+
+        S={'x': ['x','left','right'], 'y':['y','bottom','top']}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='plot_info'
+        _val_types="'paper' | '{S0}1' | '{S0}2' | etc".format(S0=s[0])
+        _description=(
+            "Sets the {S0} coordinate for this object "
+            "refers to. If you reference an axis, e.g., "
+            "'{S0}2', the object will move with pan-and-zoom "
+            "to stay fixed to this point. If you reference "
+            "the 'paper', it remains fixed regardless of "
+            "pan-and-zoom. In other words, if set to 'paper', "
+            "the '{S0}' location refers to the distance from "
+            "the left side of the plotting area in normalized "
+            "coordinates where 0=='{S1}' and 1=='{S2}'. "
+            "If set to refer to an {S0}axis' object, e.g., "
+            "'{S0}1', '{S0}2', '{S0}3', etc., the "
+            "'{S0}' location will refer to the location in "
+            "terms of this axis."
+        ).format(S0=s[0],S1=s[1],S2=s[2])
+        return self._output(_required,_type,_val_types,_description)
+    
+    def xyanchor(self, x_or_y):
+        '''@xyanchor@ | @xanchor@ | @yanchor@'''
+
+        S={'x': ['x','left','right'], 'y':['y','bottom','top']}
+        s=S[x_or_y]
+    
+        _required=False
+        _type='plot_info'
+        _val_types={
+            'x':"'auto' | 'left' | 'center' | 'right'",
+            'y':"'auto' | 'bottom' | 'middle' | 'top'"
+        }
+        _description=(
+            "Sets the horizontal location of the object "
+            "referenced by the '{S0}' (position) key. "
+            "For example, if '{S0}'==1, "
+            "'{S0}ref'='paper', and '{S0}anchor'='{S2}', "
+            "the {S2}most portion of this object will line "
+            "up with the {S2}most edge of the plotting area."
+        ).format(S0=s[0],S2=s[2])
+        return self._output(_required,_type,_val_types[x_or_y],_description)
+    
+    def xy_layout(self, obj, x_or_y):
+        '''@xy_layout@ | @x_layout@ | @y_layout@'''
+        _required=False
+        _type='plot_info'
+        _val_types=val_types('number')()
+        _description=(
+            "Sets the '{x_or_y}' position of this {obj}. "
+        ).format(x_or_y=x_or_y, obj=obj)
+        if obj in ['legend','annotation']:
+            _description+=(
+                "Use in conjunction with '{x_or_y}ref' and "
+                "'{x_or_y}anchor' to fine-tune the location of "
+                "this {obj}."
+            ).format(x_or_y=x_or_y, obj=obj)
+        return self._output(_required,_type,_val_types,_description)
+    
+# -------------------------------------------------------------------------------
+

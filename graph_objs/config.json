@@ -1,0 +1,92 @@
+{
+    "graph_objs": [
+        "Scatter", 
+        "Bar", 
+        "Histogram", 
+        "Box", 
+        "Heatmap", 
+        "Contour", 
+        "Histogram2d", 
+        "Histogram2dContour", 
+        "Area", 
+        "ErrorY", 
+        "ErrorX", 
+        "XBins", 
+        "YBins", 
+        "Marker", 
+        "Line", 
+        "Contours", 
+        "Stream", 
+        "XAxis", 
+        "YAxis", 
+        "RadialAxis", 
+        "AngularAxis", 
+        "Layout", 
+        "Font", 
+        "Legend", 
+        "Annotation", 
+        "ColorBar", 
+        "Margin", 
+        "Figure"
+    ], 
+    "toc": [
+        {
+            "description": "Bind your data to traces with these", 
+            "group": "Trace graph objects", 
+            "names": [
+                "Scatter", 
+                "Bar", 
+                "Histogram", 
+                "Box", 
+                "Heatmap", 
+                "Contour", 
+                "Histogram2d", 
+                "Histogram2dContour", 
+                "Area"
+            ]
+        }, 
+        {
+            "description": "Add some spice to your traces with these", 
+            "group": "Trace auxiliary objects", 
+            "names": [
+                "ErrorY", 
+                "ErrorX", 
+                "XBins", 
+                "YBins", 
+                "Marker", 
+                "Line", 
+                "Contours", 
+                "Stream"
+            ]
+        }, 
+        {
+            "description": "Set the your axes' specifications and style with these", 
+            "group": "Axis objects", 
+            "names": [
+                "XAxis", 
+                "YAxis", 
+                "RadialAxis", 
+                "AngularAxis"
+            ]
+        }, 
+        {
+            "description": "Customize your figure's layout with these", 
+            "group": "Layout and layout style objects", 
+            "names": [
+                "Layout", 
+                "Font", 
+                "Legend", 
+                "Annotation", 
+                "ColorBar", 
+                "Margin"
+            ]
+        }, 
+        {
+            "description": "Package layout and data with this object", 
+            "group": "Figure object", 
+            "names": [
+                "Figure"
+            ]
+        }
+    ]
+}

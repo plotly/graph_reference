@@ -1,5 +1,5 @@
 import json
-with open('graph_objs_meta.json') as f:
+with open('./graph_objs/python/graph_objs_meta.json') as f:
     INFO = json.load(f)
 
 types = ['data', 'plot_info', 'style', 'object']

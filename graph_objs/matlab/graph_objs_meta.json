@@ -91,7 +91,7 @@
             "val_types": "boolean: True | False", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Toggle whether or not missing data points (i.e. '' or NaNs) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
+            "description": "Toggle whether or not missing data points (i.e. '' or `NaN`) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
         }, 
         "fill": {
             "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx", 
@@ -140,7 +140,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -152,7 +152,7 @@
             "val_types": "scatter", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "bar": {
@@ -238,7 +238,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -250,7 +250,7 @@
             "val_types": "bar", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }, 
         "r": {
             "val_types": "array-like of numbers", 
@@ -399,7 +399,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -411,7 +411,7 @@
             "val_types": "histogram", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }, 
         "line": {
             "val_types": "dictionary-like", 
@@ -443,11 +443,10 @@
         }, 
         "x": {
             "val_types": "array-like of numbers, strings, datetimes", 
-            "code": ">>> y0 = [1,2,3,1,1]>>> y1 = [3,2,1,2,3]>>> y = y0+y1  # N.B. list not numpy arrays here>>> x = [0,0,0,0,0,1,1,1,1,1]  # len(x) == len(y)>>> Box(y=y, x=x, name='two boxes SHARE this name.')", 
-            "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
             "required": false, 
-            "streamable": true, 
-            "type": "data"
+            "type": "data", 
+            "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
+            "streamable": true
         }, 
         "name": {
             "val_types": "string", 
@@ -540,7 +539,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -552,7 +551,7 @@
             "val_types": "box", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "heatmap": {
@@ -643,7 +642,7 @@
             "description": "A dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
         }, 
         "zsmooth": {
-            "val_types": " False | 'best' | 'fast' ", 
+            "val_types": "False | 'best' | 'fast'", 
             "required": false, 
             "type": "style", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
@@ -676,7 +675,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -728,7 +727,7 @@
             "val_types": "heatmap", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "contour": {
@@ -871,7 +870,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -923,7 +922,7 @@
             "val_types": "contour", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "histogram2d": {
@@ -1049,7 +1048,7 @@
             "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "zsmooth": {
-            "val_types": " False | 'best' | 'fast' ", 
+            "val_types": "False | 'best' | 'fast'", 
             "required": false, 
             "type": "style", 
             "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is False corresponding to no smoothing."
@@ -1082,7 +1081,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -1094,7 +1093,7 @@
             "val_types": "histogram2d", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "histogram2dcontour": {
@@ -1272,7 +1271,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -1284,7 +1283,7 @@
             "val_types": "histogram2dcontour", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "area": {
@@ -1325,7 +1324,7 @@
             "val_types": "dictionary-like", 
             "required": false, 
             "type": "object", 
-            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API. Learn more here:\nhttps://plot.ly/python/streaming/"
+            "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
         }, 
         "visible": {
             "val_types": "boolean: True | False", 
@@ -1349,7 +1348,7 @@
             "val_types": "area", 
             "required": false, 
             "type": "plot_info", 
-            "description": "Plotly identifier for this data's trace type.  This defines how this  data dictionary will be handled.  For example, 'scatter' type expects  x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array  and a 'heatmap' type requires a z matrix."
+            "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
         }
     }, 
     "error_y": {
@@ -1552,53 +1551,6 @@
             "streamable": true
         }
     }, 
-    "contours": {
-        "showlines": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether or not the contour lines appear on the plot."
-        }, 
-        "start": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the value of the first contour level."
-        }, 
-        "end": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the value of the last contour level."
-        }, 
-        "size": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the size of each contour level.", 
-            "streamable": true
-        }, 
-        "coloring": {
-            "val_types": " 'fill' | 'heatmap' | 'lines' | 'none' ", 
-            "required": false, 
-            "type": "style", 
-            "description": "Choose the coloring method for this contour trace. The default value is 'fill' where coloring is done evenly between each contour line. 'heatmap' colors on a grid point-by-grid point basis. 'lines' colors only the contour lines, each with respect to the color scale. 'none' prints all contour lines with the same color; choose their color in a Line object at the trace level if desired."
-        }
-    }, 
-    "stream": {
-        "token": {
-            "val_types": "A stream id number, see https://plot.ly/settings", 
-            "required": true, 
-            "type": "plot_info", 
-            "description": "This number links a data object on a plot with a stream. In other words, any data object you create can reference a 'stream'. If you stream data to Plotly with the same stream id (token), Plotly knows update this data object with the incoming data stream."
-        }, 
-        "maxpoints": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the maximum number of points to keep on the plots from an incoming stream. For example, if 'maxpoints' is set to 50, only the newest 50 points will be displayed on the plot."
-        }
-    }, 
     "marker": {
         "color": {
             "val_types": "array-like of string describing color", 
@@ -1750,13 +1702,13 @@
             "val_types": "'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'", 
             "required": false, 
             "type": "style", 
-            "description": "Choose the line shape between each coordinate pair in this trace. Applies only to scatter traces. The default value is 'linear'. If 'spline', then the lines are drawn using spline interpolation between the coordinate pairs. The remaining available values correspond to step-wise line shapes, see example in: https://plot.ly/~alex/315 ."
+            "description": "Choose the line shape between each coordinate pair in this trace. Applies only to scatter traces. The default value is 'linear'. If 'spline', then the lines are drawn using spline interpolation between the coordinate pairs. The remaining available values correspond to step-wise line shapes."
         }, 
         "smoothing": {
             "val_types": "number: x >= 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the amount of smoothing applied to this line object. Applies only to contour traces and scatter traces if 'shape' is set to 'spline'. The default value is 1. If 'smoothing' is set to 0, then no smoothing is applied. Set 'smoothing' to a value less (greater) than 1 for a less (more) pronounced line smoothing. "
+            "description": "Sets the amount of smoothing applied to this line object. Applies only to contour traces and scatter traces if 'shape' is set to 'spline'. The default value is 1. If 'smoothing' is set to 0, then no smoothing is applied. Set 'smoothing' to a value less (greater) than 1 for a less (more) pronounced line smoothing."
         }, 
         "outliercolor": {
             "val_types": "string describing color", 
@@ -1785,46 +1737,51 @@
             "description": "For box plots only. Has an effect only if 'boxpoints' is set to 'suspectedoutliers'. Sets the width in pixels of bordering line of the outlier points."
         }
     }, 
-    "font": {
-        "family": {
-            "val_types": " 'Arial, sans-serif' |  'Balto, sans-serif' |  'Courier New, monospace' |  'Droid Sans, sans-serif' |  'Droid Serif, serif' |  'Droid Sans Mono, sans-serif' |  'Georgia, serif' |  'Gravitas One, cursive' |  'Old Standard TT, serif' |  'Open Sans, sans-serif' or ('') |  'PT Sans Narrow, sans-serif' |  'Raleway, sans-serif' |  'Times New Roman, Times, serif'", 
+    "contours": {
+        "showlines": {
+            "val_types": "boolean: True | False", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the font family. If linked in the first level of the layout object,  set the color of the global font. The default font in Plotly is 'Open Sans, sans-serif'."
+            "description": "Toggle whether or not the contour lines appear on the plot."
+        }, 
+        "start": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the value of the first contour level."
+        }, 
+        "end": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the value of the last contour level."
         }, 
         "size": {
             "val_types": "number: x > 0", 
             "required": false, 
             "type": "style", 
-            "description": "Sets the size of font. If linked in the first level of the layout object, set the color of the global font.", 
+            "description": "Sets the size of each contour level.", 
             "streamable": true
         }, 
-        "color": {
-            "val_types": "string describing color", 
-            "description": "Sets the color of the font. If linked in the first level of the layout object, set the color of the global font.", 
-            "required": false, 
-            "streamable": true, 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ], 
-            "type": "style"
-        }, 
-        "outlinecolor": {
-            "val_types": "string describing color", 
+        "coloring": {
+            "val_types": " 'fill' | 'heatmap' | 'lines' | 'none' ", 
             "required": false, 
             "type": "style", 
-            "description": "For polar chart only. Sets the color of the text's outline.", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ]
+            "description": "Choose the coloring method for this contour trace. The default value is 'fill' where coloring is done evenly between each contour line. 'heatmap' colors on a grid point-by-grid point basis. 'lines' colors only the contour lines, each with respect to the color scale. 'none' prints all contour lines with the same color; choose their color in a Line object at the trace level if desired."
+        }
+    }, 
+    "stream": {
+        "token": {
+            "val_types": "A stream id number, see https://plot.ly/settings", 
+            "required": true, 
+            "type": "plot_info", 
+            "description": "This number links a data object on a plot with a stream. In other words, any data object you create can reference a 'stream'. If you stream data to Plotly with the same stream id (token), Plotly knows update this data object with the incoming data stream."
+        }, 
+        "maxpoints": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the maximum number of points to keep on the plots from an incoming stream. For example, if 'maxpoints' is set to 50, only the newest 50 points will be displayed on the plot."
         }
     }, 
     "xaxis": {
@@ -2493,6 +2450,220 @@
             "description": "Toggles whether or not this object will actually be visible in the rendered figure."
         }
     }, 
+    "layout": {
+        "title": {
+            "val_types": "string", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "The title of the figure."
+        }, 
+        "titlefont": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the font settings of the figure's title."
+        }, 
+        "font": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the global font settings for this figure (e.g. all axis titles and labels)."
+        }, 
+        "showlegend": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the legend will be shown in this figure."
+        }, 
+        "autosize": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
+        }, 
+        "width": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width in pixels of the figure you are generating."
+        }, 
+        "height": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the height in pixels of the figure you are generating."
+        }, 
+        "xaxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into layout by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.   To create references other x-axes, you need to define them in the layout dictionary-like object using keys 'xaxis2', 'xaxis3' and so on."
+        }, 
+        "yaxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into layout by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.   To create references other y-axes, you need to define them in the layout dictionary-like object using keys 'yaxis2', 'yaxis3' and so on."
+        }, 
+        "legend": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object containing the legend parameters for this figure."
+        }, 
+        "annotations": {
+            "val_types": "array-like of one or several dictionaries", 
+            "required": false, 
+            "type": "object", 
+            "description": "A list-like object that contains one or multiple annotation dictionaries."
+        }, 
+        "margin": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object containing the margin parameters for this figure."
+        }, 
+        "paper_bgcolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Sets the color of the figure's paper (i.e. area representing the canvas of the figure)."
+        }, 
+        "plot_bgcolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Sets the background color of the plot (i.e. the area laying inside this figure's axes."
+        }, 
+        "hovermode": {
+            "val_types": "'closest' | 'x' | 'y'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets this figure's behavior when a user hovers over it. When set to 'x', all data sharing the same 'x' coordinate will be shown on screen with corresponding trace labels. When set to 'y' all data sharing the same 'y' coordainte will be shown on the screen with corresponding trace labels. When set to 'closest', information about the data point closest to where the viewer is hovering will appear."
+        }, 
+        "dragmode": {
+            "val_types": "'zoom' | 'pan'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets this figure's behavior when a user preforms a mouse 'drag' in the plot area. When set to 'zoom', a portion of the plot will be highlighted, when the viewer exits the drag, this highlighted section will be zoomed in on. When set to 'pan', data in the plot will move along with the viewers dragging motions. A user can always depress the 'shift' key to access the whatever functionality has not been set as the default."
+        }, 
+        "separators": {
+            "val_types": "a two-character string", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the decimal (the first character) and thousands (the second character) separators to be displayed on this figure's tick labels and hover mode. This is meant for internationalization purposes. For example, if 'separator' is set to ', ', then decimals are separated by commas and thousands by spaces. One may have to set 'exponentformat' to 'none' in the corresponding axis object(s) to see the effects."
+        }, 
+        "barmode": {
+            "val_types": "'stack' | 'group' | 'overlay'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "For bar and histogram plots only. This sets how multiple bar objects are plotted together. In other words, this defines how bars at the same location appear on the plot. If set to 'stack' the bars are stacked on top of one another. If set to 'group', the bars are plotted next to one another, centered around the shared location. If set to 'overlay', the bars are simply plotted over one another, you may need to set the opacity to see this."
+        }, 
+        "bargap": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "For bar and histogram plots only. Sets the gap between bars (or sets of bars) at different locations."
+        }, 
+        "bargroupgap": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "For bar and histogram plots only. Sets the gap between bars in the same group. That is, when multiple bar objects are plotted and share the same locations, this sets the distance between bars at each location."
+        }, 
+        "boxmode": {
+            "val_types": "'overlay' | 'group'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "For box plots only. Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
+        }, 
+        "radialaxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the radial axis in a polar plot."
+        }, 
+        "angularaxis": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the angular axis in a polar plot."
+        }, 
+        "direction": {
+            "val_types": "'clockwise' | 'counterclockwise'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "For polar plots only. Sets the direction corresponding to positive angles."
+        }, 
+        "orientation": {
+            "val_types": "number: x in [-360, 360]", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "For polar plots only. Rotates the entire polar by the given angle."
+        }, 
+        "hidesources": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "style", 
+            "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
+        }
+    }, 
+    "font": {
+        "family": {
+            "val_types": "'Arial, sans-serif' |  'Balto, sans-serif' |  'Courier New, monospace' |  'Droid Sans, sans-serif' |  'Droid Serif, serif' |  'Droid Sans Mono, sans-serif' |  'Georgia, serif' |  'Gravitas One, cursive' |  'Old Standard TT, serif' |  'Open Sans, sans-serif' or ('') |  'PT Sans Narrow, sans-serif' |  'Raleway, sans-serif' |  'Times New Roman, Times, serif'", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the font family. If linked in the first level of the layout object,  set the color of the global font. The default font in Plotly is 'Open Sans, sans-serif'."
+        }, 
+        "size": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the size of font. If linked in the first level of the layout object, set the color of the global font.", 
+            "streamable": true
+        }, 
+        "color": {
+            "val_types": "string describing color", 
+            "description": "Sets the color of the font. If linked in the first level of the layout object, set the color of the global font.", 
+            "required": false, 
+            "streamable": true, 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "type": "style"
+        }, 
+        "outlinecolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "For polar chart only. Sets the color of the text's outline.", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ]
+        }
+    }, 
     "legend": {
         "x": {
             "val_types": "number", 
@@ -2573,6 +2744,167 @@
             "required": false, 
             "type": "plot_info", 
             "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
+        }
+    }, 
+    "annotation": {
+        "x": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the 'x' position of this annotation. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation."
+        }, 
+        "y": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the 'y' position of this annotation. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation."
+        }, 
+        "xref": {
+            "val_types": "'paper' | 'x1' | 'x2' | etc", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the x coordinate for this object refers to. If you reference an axis, e.g., 'x2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'x' location refers to the distance from the left side of the plotting area in normalized coordinates where 0=='left' and 1=='right'. If set to refer to an xaxis' object, e.g., 'x1', 'x2', 'x3', etc., the 'x' location will refer to the location in terms of this axis."
+        }, 
+        "yref": {
+            "val_types": "'paper' | 'y1' | 'y2' | etc", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the y coordinate for this object refers to. If you reference an axis, e.g., 'y2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'y' location refers to the distance from the left side of the plotting area in normalized coordinates where 0=='bottom' and 1=='top'. If set to refer to an yaxis' object, e.g., 'y1', 'y2', 'y3', etc., the 'y' location will refer to the location in terms of this axis."
+        }, 
+        "text": {
+            "val_types": "string", 
+            "required": false, 
+            "type": "plot_info", 
+            "examples": [
+                "regular text", 
+                "an annotation<br>spanning two lines", 
+                "<b>bold text</b>", 
+                "<a href='https://plot.ly/'>a link to plot.ly</a>"
+            ], 
+            "description": "The text associated with this annotation. Plotly uses a subset of HTML tags to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>). Tags <em>, <sup>, <sub>, <span> are also supported."
+        }, 
+        "showarrow": {
+            "val_types": "boolean: True | False", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Toggle whether or not the arrow associated with this annotation with be shown. If False, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If True (the default), then 'text' is placed near the arrow's tail."
+        }, 
+        "font": {
+            "val_types": "dictionary-like", 
+            "required": false, 
+            "type": "object", 
+            "description": "A dictionary-like object describing the font settings within this annotation."
+        }, 
+        "xanchor": {
+            "val_types": "'auto' | 'left' | 'center' | 'right'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
+        }, 
+        "yanchor": {
+            "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
+        }, 
+        "align": {
+            "val_types": "'left' | 'center' | 'right'", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Sets the vertical alignment of the text in the annotation with respect to the set 'x', 'y' position. Has only an effect if the text linked to 'text' spans more two or more lines (using <br> HTML one or more tags)."
+        }, 
+        "arrowhead": {
+            "val_types": "0 | 1 | 2 | 3 | 4 | 5 | 6 | 7", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the arrowhead style. Has an effect only if 'showarrow' is set to True."
+        }, 
+        "arrowsize": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Scales the arrowhead's size. Has an effect only if 'showarrow' is set to True."
+        }, 
+        "arrowwidth": {
+            "val_types": "number: x > 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the arrowhead's width (in pixels). Has an effect only if 'showarrow' is set to True."
+        }, 
+        "arrowcolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ], 
+            "description": "Sets the color of the arrowhead. Has an effect only if 'showarrow' is set to True."
+        }, 
+        "ax": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Position of the annotation text relative to the arrowhead about the x-axis. Has an effect only if 'showarrow' is set to True."
+        }, 
+        "ay": {
+            "val_types": "number", 
+            "required": false, 
+            "type": "plot_info", 
+            "description": "Position of the annotation text relative to the arrowhead about the y-axis. Has an effect only if 'showarrow' is set to True."
+        }, 
+        "textangle": {
+            "val_types": "number: x in [-180, 180]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the angle of the text linked to 'text' with respect to the horizontal."
+        }, 
+        "bordercolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "The color of the enclosing boarder of this annotation.", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ]
+        }, 
+        "borderwidth": {
+            "val_types": "number: x >= 0", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the width of the boarder enclosing this annotation"
+        }, 
+        "borderpad": {
+            "val_types": "number: x in [0, 10]", 
+            "required": false, 
+            "type": "style", 
+            "description": "The amount of space (padding) between the text and the enclosing boarder."
+        }, 
+        "bgcolor": {
+            "val_types": "string describing color", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the background (bg) color for this annotation.", 
+            "examples": [
+                "'green'", 
+                "'rgb(0, 255, 0)'", 
+                "'rgba(0, 255, 0, 0.3)'", 
+                "'hsl(120,100%,50%)'", 
+                "'hsla(120,100%,50%,0.3)'"
+            ]
+        }, 
+        "opacity": {
+            "val_types": "number: x in [0, 1]", 
+            "required": false, 
+            "type": "style", 
+            "description": "Sets the opacity, or transparency, of the entire object, also known as the alpha channel of colors. If the object's color is given in terms of 'rgba' color model, 'opacity' is redundant."
         }
     }, 
     "colorbar": {
@@ -2808,339 +3140,6 @@
             "required": false, 
             "type": "style", 
             "description": "more info coming soon"
-        }
-    }, 
-    "annotation": {
-        "x": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the 'x' position of this annotation. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation."
-        }, 
-        "y": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the 'y' position of this annotation. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation."
-        }, 
-        "xref": {
-            "val_types": "'paper' | 'x1' | 'x2' | etc", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the x coordinate for this object refers to. If you reference an axis, e.g., 'x2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'x' location refers to the distance from the left side of the plotting area in normalized coordinates where 0=='left' and 1=='right'. If set to refer to an xaxis' object, e.g., 'x1', 'x2', 'x3', etc., the 'x' location will refer to the location in terms of this axis."
-        }, 
-        "yref": {
-            "val_types": "'paper' | 'y1' | 'y2' | etc", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the y coordinate for this object refers to. If you reference an axis, e.g., 'y2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'y' location refers to the distance from the left side of the plotting area in normalized coordinates where 0=='bottom' and 1=='top'. If set to refer to an yaxis' object, e.g., 'y1', 'y2', 'y3', etc., the 'y' location will refer to the location in terms of this axis."
-        }, 
-        "text": {
-            "val_types": "string", 
-            "required": false, 
-            "type": "plot_info", 
-            "examples": [
-                "regular text", 
-                "an annotation<br>spanning two lines", 
-                "<b>bold text</b>", 
-                "<a href='https://plot.ly/'>a link to plot.ly</a>"
-            ], 
-            "description": "The text associated with this annotation. Plotly uses a subset of HTML tags to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>). Tags <em>, <sup>, <sub>, <span> are also supported."
-        }, 
-        "showarrow": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Toggle whether or not the arrow associated with this annotation with be shown. If False, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If True (the default), then 'text' is placed near the arrow's tail."
-        }, 
-        "font": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing the font settings within this annotation."
-        }, 
-        "xanchor": {
-            "val_types": "'auto' | 'left' | 'center' | 'right'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x'==1, 'xref'='paper', and 'xanchor'='right', the rightmost portion of this object will line up with the rightmost edge of the plotting area."
-        }, 
-        "yanchor": {
-            "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
-        }, 
-        "align": {
-            "val_types": "'left' | 'center' | 'right'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Sets the vertical alignment of the text in the annotation with respect to the set 'x', 'y' position. Has only an effect if the text linked to 'text' spans more two or more lines (using <br> HTML one or more tags)."
-        }, 
-        "arrowhead": {
-            "val_types": "0 | 1 | 2 | 3 | 4 | 5 | 6 | 7", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the arrowhead style. Has an effect only if 'showarrow' is set to True."
-        }, 
-        "arrowsize": {
-            "val_types": "number: x >= 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Scales the arrowhead's size. Has an effect only if 'showarrow' is set to True."
-        }, 
-        "arrowwidth": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the arrowhead's width (in pixels). Has an effect only if 'showarrow' is set to True."
-        }, 
-        "arrowcolor": {
-            "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ], 
-            "description": "Sets the color of the arrowhead. Has an effect only if 'showarrow' is set to True."
-        }, 
-        "ax": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Position of the annotation text relative to the arrowhead about the x-axis. Has an effect only if 'showarrow' is set to True."
-        }, 
-        "ay": {
-            "val_types": "number", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "Position of the annotation text relative to the arrowhead about the y-axis. Has an effect only if 'showarrow' is set to True."
-        }, 
-        "textangle": {
-            "val_types": "number: x in [-180, 180]", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the angle of the text linked to 'text' with respect to the horizontal."
-        }, 
-        "bordercolor": {
-            "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
-            "description": "The color of the enclosing boarder of this annotation.", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ]
-        }, 
-        "borderwidth": {
-            "val_types": "number: x >= 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the width of the boarder enclosing this annotation"
-        }, 
-        "borderpad": {
-            "val_types": "number: x in [0, 10]", 
-            "required": false, 
-            "type": "style", 
-            "description": "The amount of space (padding) between the text and the enclosing boarder."
-        }, 
-        "bgcolor": {
-            "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the background (bg) color for this annotation.", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ]
-        }, 
-        "opacity": {
-            "val_types": "number: x in [0, 1]", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the opacity, or transparency, of the entire object, also known as the alpha channel of colors. If the object's color is given in terms of 'rgba' color model, 'opacity' is redundant."
-        }
-    }, 
-    "layout": {
-        "title": {
-            "val_types": "string", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "The title of the figure."
-        }, 
-        "titlefont": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing the font settings of the figure's title."
-        }, 
-        "font": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing the global font settings for this figure (e.g. all axis titles and labels)."
-        }, 
-        "showlegend": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether or not the legend will be shown in this figure."
-        }, 
-        "autosize": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
-        }, 
-        "width": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the width in pixels of the figure you are generating."
-        }, 
-        "height": {
-            "val_types": "number: x > 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the height in pixels of the figure you are generating."
-        }, 
-        "xaxis": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into layout by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.   To create references other x-axes, you need to define them in the layout dictionary-like object using keys 'xaxis2', 'xaxis3' and so on."
-        }, 
-        "yaxis": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into layout by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.   To create references other y-axes, you need to define them in the layout dictionary-like object using keys 'yaxis2', 'yaxis3' and so on."
-        }, 
-        "legend": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object containing the legend parameters for this figure."
-        }, 
-        "annotations": {
-            "val_types": "array-like of one or several dictionaries", 
-            "required": false, 
-            "type": "object", 
-            "description": "A list-like object that contains one or multiple annotation dictionaries."
-        }, 
-        "margin": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object containing the margin parameters for this figure."
-        }, 
-        "paper_bgcolor": {
-            "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ], 
-            "description": "Sets the color of the figure's paper (i.e. area representing the canvas of the figure)."
-        }, 
-        "plot_bgcolor": {
-            "val_types": "string describing color", 
-            "required": false, 
-            "type": "style", 
-            "examples": [
-                "'green'", 
-                "'rgb(0, 255, 0)'", 
-                "'rgba(0, 255, 0, 0.3)'", 
-                "'hsl(120,100%,50%)'", 
-                "'hsla(120,100%,50%,0.3)'"
-            ], 
-            "description": "Sets the background color of the plot (i.e. the area laying inside this figure's axes."
-        }, 
-        "hovermode": {
-            "val_types": "'closest' | 'x' | 'y'", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets this figure's behavior when a user hovers over it. When set to 'x', all data sharing the same 'x' coordinate will be shown on screen with corresponding trace labels. When set to 'y' all data sharing the same 'y' coordainte will be shown on the screen with corresponding trace labels. When set to 'closest', information about the data point closest to where the viewer is hovering will appear."
-        }, 
-        "dragmode": {
-            "val_types": "'zoom' | 'pan'", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets this figure's behavior when a user preforms a mouse 'drag' in the plot area. When set to 'zoom', a portion of the plot will be highlighted, when the viewer exits the drag, this highlighted section will be zoomed in on. When set to 'pan', data in the plot will move along with the viewers dragging motions. A user can always depress the 'shift' key to access the whatever functionality has not been set as the default."
-        }, 
-        "separators": {
-            "val_types": "a two-character string", 
-            "required": false, 
-            "type": "style", 
-            "description": "Sets the decimal (the first character) and thousands (the second character) separators to be displayed on this figure's tick labels and hover mode. This is meant for internationalization purposes. For example, if 'separator' is set to ', ', then decimals are separated by commas and thousands by spaces. One may have to set 'exponentformat' to 'none' in the corresponding axis object(s) to see the effects."
-        }, 
-        "barmode": {
-            "val_types": "'stack' | 'group' | 'overlay'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "For bar and histogram plots only. This sets how multiple bar objects are plotted together. In other words, this defines how bars at the same location appear on the plot. If set to 'stack' the bars are stacked on top of one another. If set to 'group', the bars are plotted next to one another, centered around the shared location. If set to 'overlay', the bars are simply plotted over one another, you may need to set the opacity to see this."
-        }, 
-        "bargap": {
-            "val_types": "number: x >= 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "For bar and histogram plots only. Sets the gap between bars (or sets of bars) at different locations."
-        }, 
-        "bargroupgap": {
-            "val_types": "number: x >= 0", 
-            "required": false, 
-            "type": "style", 
-            "description": "For bar and histogram plots only. Sets the gap between bars in the same group. That is, when multiple bar objects are plotted and share the same locations, this sets the distance between bars at each location."
-        }, 
-        "boxmode": {
-            "val_types": "'overlay' | 'group'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "For box plots only. Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
-        }, 
-        "radialaxis": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing the radial axis in a polar plot."
-        }, 
-        "angularaxis": {
-            "val_types": "dictionary-like", 
-            "required": false, 
-            "type": "object", 
-            "description": "A dictionary-like object describing the angular axis in a polar plot."
-        }, 
-        "direction": {
-            "val_types": "'clockwise' | 'counterclockwise'", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "For polar plots only. Sets the direction corresponding to positive angles."
-        }, 
-        "orientation": {
-            "val_types": "number: x in [-360, 360]", 
-            "required": false, 
-            "type": "plot_info", 
-            "description": "For polar plots only. Rotates the entire polar by the given angle."
-        }, 
-        "hidesources": {
-            "val_types": "boolean: True | False", 
-            "required": false, 
-            "type": "style", 
-            "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
         }
     }, 
     "figure": {
