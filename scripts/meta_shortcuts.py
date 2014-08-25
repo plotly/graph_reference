@@ -14,6 +14,7 @@ import language_table
 #
 # -------------------------------------------------------------------------------
 
+# class ValTypes:
 def val_types(val_type):
     '''@val_types@ -- Inventory of value types
     '''
@@ -50,7 +51,7 @@ def val_types(val_type):
         color="string describing color",
         string="string",
         number= _number,  
-        number_array="array-like of numbers",
+        number_array="array-like of numbers",  # TODO make this a class!
         data_array="array-like of numbers, strings, datetimes",
         string_array="array-like of strings",
         color_array="array-like of string describing color",
@@ -62,7 +63,7 @@ def val_types(val_type):
 
 # -------------------------------------------------------------------------------
 
-def required_cond(cond):
+def required_cond(cond):  # TODO make this a class!
     '''@required_cond-dict@ -- Inventory of required conditions
     '''
     def _required_keys(keys):

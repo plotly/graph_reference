@@ -1,4 +1,4 @@
-# Import shortcuts!
+# Import shortcuts objects!
 from meta_shortcuts import Make, required_cond, val_types
 
 # Import language table!
@@ -33,7 +33,12 @@ class MakeMeta(list):
 
     def Scatter(self):
         '''@Scatter@'''
-        meta = [
+        docstring = (
+
+        )
+        link = ( )
+        example = ()
+        meta = OrderedDict([
             ('x', make.x('scatter')),
             ('y', make.y('scatter')),
             ('r', make.r('scatter')),  
@@ -108,8 +113,8 @@ class MakeMeta(list):
             ('stream', make.stream()),
             ('visible', make.visible()),
             ('type', make.type('scatter')),
-        ]
-        self += [('scatter', OrderedDict(meta))]
+        ])
+        self += [('scatter', docstring, example, link, meta)]
  
     def Bar(self):
         '''@Bar@'''
