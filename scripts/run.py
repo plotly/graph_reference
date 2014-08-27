@@ -39,21 +39,21 @@ def get_tree(language):
 
 def write_meta(tree, meta_language):
     '''Write meta to <tree>/graph_objs_meta.json'''
-    _meta = OrderedDict(meta_language)
-    file_meta = os.path.join(tree,"graph_objs_meta.json")
+    meta_to_dump = OrderedDict(meta_language)
+    file_meta = os.path.join(tree, "graph_objs_meta.json")
     with open(file_meta, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_meta
-        json.dump(_meta, f, indent=4, sort_keys=False)
+        json.dump(meta_to_dump, f, indent=4, sort_keys=False)
     return
 
 def write_objs_keys(tree, meta_language):
     '''Write keys to <tree>/graph_objs_keys.json'''
-    _meta = OrderedDict(meta_language)
+    meta_to_dump = OrderedDict(meta_language)
     _obj_keys = dict()
-    for key, val in _meta.items():
-        _obj_keys[key] = val.keys()
-        _obj_keys[key].sort()
-    file_keys = os.path.join(tree,"graph_objs_keys.json")
+    for obj, stuff in meta_to_dump.items():
+        _obj_keys[obj] = stuff['meta'].keys()
+        _obj_keys[obj].sort()
+    file_keys = os.path.join(tree, "graph_objs_keys.json")
     with open(file_keys, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_keys
         json.dump(_obj_keys, f, indent=4, sort_keys=True)
@@ -91,9 +91,7 @@ def main():
         tree = get_tree(language)
         write_meta(tree, meta_language)
         write_objs_keys(tree, meta_language) 
-
-    write_config(graph_objs_info) # table of cont. is language-independent
-
+        write_config(graph_objs_info) 
 
 if __name__ == '__main__':
     main()

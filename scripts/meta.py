@@ -34,10 +34,15 @@ class MakeMeta(list):
     def Scatter(self):
         '''@Scatter@'''
         docstring = (
-
-        )
-        link = ( )
-        example = ()
+            "A {UL}-like object for representing a scatter trace in plotly."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
+            "{WEB}bubble-charts/".format(WEB=G['WEB']),
+            "{WEB}filled-area-plots/".format(WEB=G['WEB']),
+            "{WEB}time-series/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
         meta = OrderedDict([
             ('x', make.x('scatter')),
             ('y', make.y('scatter')),
@@ -114,11 +119,21 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('scatter')),
         ])
-        self += [('scatter', docstring, example, link, meta)]
+        self += [('scatter', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
  
     def Bar(self):
         '''@Bar@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a bar trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}bar-charts/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.x('bar')),
             ('y', make.y('bar')),
             ('name', make.name()),
@@ -138,12 +153,22 @@ class MakeMeta(list):
             ('t', make.t('bar')),   # ARTIFACT
             ('line', make.line('bar')),  # ARTIFACT
             ('textfont', make.textfont('bar'))  # ARTIFACT
-        ]
-        self += [('bar', OrderedDict(meta))]
+        ])
+        self += [('bar', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Histogram(self):
         '''@Histogram@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a histogram trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}histograms/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.x('histogram')),
             ('y', make.y('histogram')),
             ('histnorm', make.histnorm()),
@@ -167,12 +192,22 @@ class MakeMeta(list):
             ('type', make.type('histogram')),
             ('line', make.line('histogram')),  # ARTIFACT
             ('orientation', make.orientation('histogram'))  # ARTIFACT
-        ]
-        self += [('histogram', OrderedDict(meta))]
+        ])
+        self += [('histogram', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Box(self):
         '''@Box@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a box trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}box-plots/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('y', make.y('box')),
             ('x0', make.x0y0('box')),
             ('x', make.x('box')),
@@ -256,12 +291,22 @@ class MakeMeta(list):
             ('stream', make.stream()),
             ('visible', make.visible()),
             ('type', make.type('box'))
-        ]
-        self += [('box', OrderedDict(meta))]
+        ])
+        self += [('box', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Heatmap(self):
         '''@Heatmap@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a heatmap trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}heatmaps/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('z', make.z('heatmap')),
             ('x', make.x('heatmap')),
             ('y', make.y('heatmap')),
@@ -287,12 +332,22 @@ class MakeMeta(list):
             ('xtype', make.xytype('heatmap','x')),
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('heatmap')),
-        ]
-        self += [('heatmap', OrderedDict(meta))]
+        ])
+        self += [('heatmap', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Contour(self):
         '''@Contour@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a contour trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}contour-plots/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('z', make.z('contour')),
             ('x', make.x('contour')),
             ('y', make.y('contour')),
@@ -321,12 +376,22 @@ class MakeMeta(list):
             ('xtype', make.xytype('heatmap','x')),
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('contour'))
-        ]
-        self += [('contour', OrderedDict(meta))]
+        ])
+        self += [('contour', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Histogram2d(self):
         '''@Histogram2d@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a 2D histogram trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}2D-Histograms/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.x('histogram2d')),
             ('y', make.y('histogram2d')),
             ('histnorm', make.histnorm()),
@@ -352,12 +417,23 @@ class MakeMeta(list):
             ('stream', make.stream()),
             ('visible', make.visible()),
             ('type', make.type('histogram2d'))
-        ]
-        self += [('histogram2d', OrderedDict(meta))]
+        ])
+        self += [('histogram2d', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Histogram2dContour(self):
         '''@Histogram2dContour@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a 2D histogram contour "
+            "trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}2D-Histograms/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.x('histogram2dcontour')),
             ('y', make.y('histogram2dcontour')),
             ('histnorm', make.histnorm()),
@@ -386,12 +462,22 @@ class MakeMeta(list):
             ('stream', make.stream()),
             ('visible', make.visible()),
             ('type', make.type('histogram2dcontour'))
-        ]
-        self += [('histogram2dcontour', OrderedDict(meta))]
+        ])
+        self += [('histogram2dcontour', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Area(self):
         '''@Area@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing an area trace in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}polar-chart/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('r', make.r('area')),
             ('t', make.t('area')),
             ('name', make.name()),
@@ -416,17 +502,22 @@ class MakeMeta(list):
                 )
             )),
             ('type', make.type('area'))
-        ]
-        self += [('area', OrderedDict(meta))]
+        ])
+        self += [('area', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def meta_error(self,y_or_x):
         '''@meta_error@ -- meta for ErrorY and ErrorX'''
     
-        S={'y': ['y','vertically','up','down','above','below'],
-           'x': ['x','horizontally','right','left','right of','left of']}
-        s=S[y_or_x]
+        S = {'y': ['y','vertically','up','down','above','below'],
+             'x': ['x','horizontally','right','left','right of','left of']}
+        s = S[y_or_x]
         
-        meta = [
+        _meta = [
             ('type', dict(      # Different enough from shortcut
                 required=False,
                 type='plot_info', 
@@ -518,7 +609,7 @@ class MakeMeta(list):
         ]
     
         if y_or_x=='x':
-            meta += [
+            _meta += [
                 ('copy_ystyle', dict(
                     required=False,
                     type='style',
@@ -532,41 +623,98 @@ class MakeMeta(list):
                 ))
             ]
     
-        meta += [('visible', make.visible())]
-        return meta
+        _meta += [('visible', make.visible())]
+        return _meta
       
     def ErrorY(self):
         '''@ErrorY@'''
-        meta = self.meta_error('y')
-        self += [('error_y', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object representing a set of error bar spanning "
+            "along the y-axis."
+        ).format(UL=G['UL'])
+        links = ["{WEB}error-bars/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict(self.meta_error('y'))
+        self += [('error_y', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def ErrorX(self):
         '''@ErrorX@'''
-        meta = self.meta_error('x')
-        self += [('error_x', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object representing a set of error bars spanning "
+            "along the x-axis."
+        ).format(UL=G['UL'])
+        links = ["{WEB}error-bars/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict(self.meta_error('x'))
+        self += [('error_x', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def meta_bins(self,x_or_y):
         '''@meta_bins@ -- meta for XBins and YBins'''
-        meta = [
+        _meta = [
             ('start', make.startend('bins','start',x_or_y)),
             ('end', make.startend('bins','end',x_or_y)),
             ('size', make.size('bins',x_or_y))
         ]
-        return meta
+        return _meta
     
     def XBins(self):
         '''@XBins@'''
-        meta = self.meta_bins('x')
-        self += [('xbins', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object containing specifications of the bins "
+            "lying along the x-axis."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}histograms/".format(WEB=G['WEB']),
+            "{WEB}2D-Histograms/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict(self.meta_bins('x'))
+        self += [('xbins', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def YBins(self):
         '''@YBins@'''
-        meta = self.meta_bins('y')
-        self += [('ybins', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object containing specifications of the bins "
+            "lying along the y-axis."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}histograms/".format(WEB=G['WEB']),
+            "{WEB}2D-Histograms/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict(self.meta_bins('y'))
+        self += [('ybins', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Contours(self):
         '''@Contours@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specifications of the contours."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}contour-plots/".format(WEB=G['WEB']),
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('showlines', dict(
                 required=False, type='style',
                 val_types=val_types('bool'),
@@ -593,12 +741,24 @@ class MakeMeta(list):
                     "if desired."
                 )
             ))
-        ]
-        self += [('contours', OrderedDict(meta))]
+        ])
+        self += [('contours', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Stream(self):
         '''@Stream@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specifications of the data stream."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}streaming/".format(WEB=G['WEB']),
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('token', dict(  #Q? These are public!! Is that OK?
                 required=True,
                 type='plot_info',
@@ -623,12 +783,25 @@ class MakeMeta(list):
                     "will be displayed on the plot."
                 )
             ))
-        ]
-        self += [('stream', OrderedDict(meta))]
+        ])
+        self += [('stream', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Marker(self):
         '''@Marker@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specifications of the marker points."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
+            "{WEB}bubble-charts/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('color', make.color('marker')),
             ('size', make.size('marker')),
             ('symbol', dict(
@@ -704,12 +877,26 @@ class MakeMeta(list):
                     "trace. Applies only to scatter traces."
                 )
             ))
-        ]
-        self += [('marker', OrderedDict(meta))]
+        ])
+        self += [('marker', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Line(self):
         '''@Line@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specifications of the line segments."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
+            "{WEB}filled-area-plots/".format(WEB=G['WEB']),
+            "{WEB}contour-plots/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('color', make.color('line')),
             ('width', make.width('line')),
             ('dash', dict(
@@ -771,12 +958,26 @@ class MakeMeta(list):
                ),
                examples=make.examples_color()
             ))
-        ]
-        self += [('line', OrderedDict(meta))]
+        ])
+        self += [('line', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Font(self):
         '''@Font@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specifications of the text font."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}font/".format(WEB=G['WEB']),
+            "{WEB}text-and-annotations/".format(WEB=G['WEB']),
+            "{WEB}line-and-scatter/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('family', dict(
                 required=False,
                 val_types=(
@@ -805,12 +1006,17 @@ class MakeMeta(list):
             ('size', make.size('font')),
             ('color', make.color('font')),
             ('outlinecolor', make.outlinecolor('font'))
-        ]
-        self += [('font', OrderedDict(meta))]
+        ])
+        self += [('font', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def meta_ticks(self,axis_or_colorbar):
         '''@meta_ticks@ -- ticks meta for XAxis, YAxis and ColorBar''' 
-        meta = [
+        _meta = [
             ('ticks', dict(
                   required=False,
                   type='style',
@@ -908,16 +1114,16 @@ class MakeMeta(list):
                 )
             ))
         ]
-        return meta
+        return _meta
       
     def meta_axis(self,x_or_y):
         '''@make.axis@ -- meta for XAxis and YAxis'''
           
-        S={'x':['x','bottom','top','y','left','right','vertical'], 
+        S = {'x':['x','bottom','top','y','left','right','vertical'], 
              'y':['y','left','right','x','bottom','top','horizontal']}
-        s=S[x_or_y]
+        s = S[x_or_y]
       
-        meta = [
+        _meta = [
             ('title', make.title('axis',x_or_y)),
             ('titlefont', make.titlefont('axis',x_or_y)),
             ('range', make.range(x_or_y)),
@@ -981,8 +1187,8 @@ class MakeMeta(list):
             ('autotick', make.autotick('axis')),
             ('nticks', make.nticks('axis')),
         ]
-        meta += self.meta_ticks('axis')
-        meta += [
+        _meta += self.meta_ticks('axis')
+        _meta += [
             ('mirror', dict(
                 required=False,
                 type='style',
@@ -1082,21 +1288,56 @@ class MakeMeta(list):
                 ).format(S0=s[0])
             ))
         ]
-        return meta
+        return _meta
     
     def XAxis(self):
         '''@XAxis@'''
-        meta = self.meta_axis('x')
-        self += [('xaxis', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object for representing an x-axis in plotly."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}axes/".format(WEB=G['WEB']),
+            "{WEB}multiple-axes/".format(WEB=G['WEB']),
+            "{WEB}subplots/".format(WEB=G['WEB']),
+            "{WEB}insets/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict(self.meta_axis('x'))
+        self += [('xaxis', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def YAxis(self):
         '''@YAxis@'''
-        meta = self.meta_axis('y')
-        self += [('yaxis', OrderedDict(meta))]
+        docstring = (
+            "A {UL}-like object for representing a y-axis in plotly."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}axes/".format(WEB=G['WEB']),
+            "{WEB}multiple-axes/".format(WEB=G['WEB']),
+            "{WEB}subplots/".format(WEB=G['WEB']),
+            "{WEB}insets/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict(self.meta_axis('y'))
+        self += [('yaxis', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def RadialAxis(self):
         '''@RadialAxis@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a radial axis in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}/polar-chart/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('range', make.range('radial')),
             ('domain', make.domain('radial')),
             ('orientation', dict(
@@ -1151,12 +1392,22 @@ class MakeMeta(list):
                 description="more info coming soon"
             )),
             ('visible', make.visible())
-        ]
-        self += [('radialaxis', OrderedDict(meta))]
+        ])
+        self += [('radialaxis', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def AngularAxis(self):
         '''@AngularAxis@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing an angular axis in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}/polar-chart/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('range', make.range('angular')),
             ('domain', make.domain('angular')),  #Q? Does not apply, right?
             ('showline', make.showline('angular')), #Q? Should be 'gridline'
@@ -1194,12 +1445,25 @@ class MakeMeta(list):
                 description="more info coming soon"
             )),
             ('visible', make.visible())
-        ]
-        self += [('angularaxis', OrderedDict(meta))]
+        ])
+        self += [('angularaxis', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Legend(self):
         '''@Legend@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a legend in plotly."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}/legend/".format(WEB=G['WEB']),
+            "{WEB}/figure-labels/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.xy_layout('legend', 'x')),
             ('y', make.xy_layout('legend', 'y')),
             ('traceorder', dict(
@@ -1221,12 +1485,22 @@ class MakeMeta(list):
             ('yref', make.xyref('y')),
             ('xanchor', make.xyanchor('x')),
             ('yanchor', make.xyanchor('y'))
-        ]
-        self += [('legend', OrderedDict(meta))]
+        ])
+        self += [('legend', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def ColorBar(self):
         '''@ColorBar@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing a color bar in plotly."
+        ).format(UL=G['UL'])
+        links = ['']
+        examples = ['']
+        _meta = [
             ('title', make.title('colorbar')),
             ('titleside', dict(
                 required=False,
@@ -1261,8 +1535,8 @@ class MakeMeta(list):
             ('autotick', make.autotick('colorbar')),
             ('nticks', make.nticks('colorbar'))
         ]
-        meta += self.meta_ticks('colorbar')
-        meta += [
+        _meta += self.meta_ticks('colorbar')
+        _meta += [
             ('xanchor', make.xyanchor('x')),
             ('xanchor', make.xyanchor('y')),
             ('bgcolor', make.bgcolor('colorbar')),
@@ -1295,11 +1569,22 @@ class MakeMeta(list):
                 )
             ))
         ]
-        self += [('colorbar', OrderedDict(meta))]
+        meta = OrderedDict(_meta)
+        self += [('colorbar', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Margin(self):
         '''@Margin@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specification of the margins."
+        ).format(UL=G['UL'])
+        links = ["{WEB}/setting-graph-size/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('l', dict(
                 required=False,
                 type='style',
@@ -1339,12 +1624,22 @@ class MakeMeta(list):
                 val_types=val_types('bool'),
                 description="more info coming soon"
             ))
-        ]
-        self += [('margin', OrderedDict(meta))]
+        ])
+        self += [('margin', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Annotation(self):
         '''@Annotation@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object for representing an annotation in plotly."
+        ).format(UL=G['UL'])
+        links = ["{WEB}/text-and-annotations/".format(WEB=G['WEB'])]
+        examples = ['']
+        meta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
             ('y', make.xy_layout('annotation','y')),
             ('xref', make.xyref('x')),
@@ -1473,12 +1768,28 @@ class MakeMeta(list):
             )),
             ('bgcolor', make.bgcolor('annotation')),
             ('opacity', make.opacity())
-        ]
-        self += [('annotation', OrderedDict(meta))]
+        ])
+        self += [('annotation', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Layout(self):
         '''@Layout@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object containing specification of the layout "
+            "of a plotly figure."
+        ).format(UL=G['UL'])
+        links = [
+            "{WEB}/figure-labels/".format(WEB=G['WEB']),
+            "{WEB}/axes/".format(WEB=G['WEB']),
+            "{WEB}/bar-charts/".format(WEB=G['WEB']),
+            "{WEB}/log-plot/".format(WEB=G['WEB'])
+        ]
+        examples = ['']
+        meta = OrderedDict([
             ('title', make.title('layout')),
             ('titlefont', make.titlefont('layout')),
             ('font', make.font('layout')),
@@ -1710,12 +2021,22 @@ class MakeMeta(list):
                     "generated from forked graphs from plot.ly."
                 )
             ))
-        ]
-        self += [('layout', OrderedDict(meta))]
+        ])
+        self += [('layout', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Figure(self):
         '''@Figure@'''
-        meta = [
+        docstring = (
+            "A {UL}-like object representing a figure to be rendered by plotly."
+        ).format(UL=G['UL'])
+        links = ['']
+        examples = ['']
+        meta = OrderedDict([
             ('data', dict(
                 required=False,
                 type='object',
@@ -1736,20 +2057,50 @@ class MakeMeta(list):
                    "related to the rendering of the figure)."
                )
             ))
-        ]
-        self += [('figure', OrderedDict(meta))]
+        ])
+        self += [('figure', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Data(self):
         '''@Data@ (accepts no keys)'''
-        self += [('data', dict())]
+        docstring = (
+            "A {OL} of traces to be shown on one plotly figure."
+        ).format(OL=G['OL'])
+        links = ['']
+        examples = ['']
+        meta = dict()
+        self += [('data', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def Annotations(self):
         '''@Annotations@ (accepts no keys)'''
-        self += [('annotations', dict())]
+        docstring = (
+            "A {OL} of annotations to be shown on one plotly figure."
+        ).format(OL=G['OL'])
+        links = ['']
+        examples = ['']
+        meta = dict()
+        self += [('annotations', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
     
     def Trace(self):
         '''@Trace@'''  #Q? Why keep this?
-        meta = [
+        docstring = ''
+        links = ['']
+        examples = ['']
+        meta = OrderedDict([
             ('x', dict(type='data')),
             ('y', dict(type='data')),
             ('z', dict(type='data')),
@@ -1797,20 +2148,51 @@ class MakeMeta(list):
             ('nbinsx', dict(type='style')),
             ('nbinsy', dict(type='style')),
             ('showscale', dict(type='style'))
-        ]
-        self += [('trace', OrderedDict(meta))]
+        ])
+        self += [('trace', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
      
     def PlotlyList(self):
         '''@PlotlyList@ (accepts no keys)'''
-        self += [('plotlylist', dict())]
+        docstring = ''
+        links = ['']
+        examples = ['']
+        meta = dict()
+        self += [('plotlylist', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def PlotlyDict(self):
         '''@PlotlyDict@ (accepts no keys)'''
-        self += [('plotlydict', dict())] 
+        docstring = ''
+        links = ['']
+        examples = ['']
+        meta = dict()
+        self += [('plotlydict', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
       
     def PlotlyTrace(self):
         '''@PlotlyTrace@ (accepts no keys)'''
-        self += [('plotlytrace', dict())]
+        docstring = ''
+        links = ['']
+        examples = ['']
+        meta = dict()
+        self += [('plotlytrace', dict(
+            docstring=docstring, 
+            examples=examples, 
+            links=links, 
+            meta=meta
+        ))]
 
 # -------------------------------------------------------------------------------
-
