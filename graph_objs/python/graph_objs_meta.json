@@ -1,29 +1,39 @@
 {
     "scatter": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a scatter trace in plotly.", 
+        "examples": [
+            "py.plot([Scatter(name='tacters', x=[1,4,2,3], y=[1,6,2,1])])"
+        ], 
+        "links": [
+            "https://plot.ly/python/line-and-scatter/", 
+            "https://plot.ly/python/bubble-charts/", 
+            "https://plot.ly/python/filled-area-plots/", 
+            "https://plot.ly/python/time-series/"
+        ], 
+        "keymeta": {
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'y','r' and 't' are unset", 
                 "type": "data", 
                 "description": "The x coordinates of the points of this scatter trace. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'x','r' and 't' are unset", 
                 "type": "data", 
                 "description": "The y coordinates of the points of this scatter trace. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'.", 
                 "streamable": true
             }, 
             "r": {
-                "val_types": "array-like of numbers", 
+                "val_types": "list or 1d numpy array of numbers", 
                 "required": " when making a Polar Chart", 
                 "type": "data", 
                 "description": "For Polar charts only. The radial coordinates of the points in this polar scatter trace about the origin.", 
                 "streamable": true
             }, 
             "t": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
                 "type": "data", 
                 "description": "For Polar charts only. The angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
@@ -42,35 +52,35 @@
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "text": {
-                "val_types": "array-like of strings", 
+                "val_types": "list or 1d numpy array of strings", 
                 "required": false, 
                 "type": "data", 
                 "description": "The text elements associated with each (x,y) pair in this scatter trace. If the scatter 'mode' does not include 'text' then text elements will appear on hover only. In contrast, if 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y) coordinate pair and the 'textposition' key.", 
                 "streamable": true
             }, 
             "error_y": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing line style parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
@@ -83,7 +93,7 @@
                 "description": "Sets the position of the text elements in the 'text' key with respect to the data points. By default, the text elements are plotted directly at the (x,y) coordinates."
             }, 
             "textfont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
@@ -138,7 +148,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -155,29 +165,26 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a scatter trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/line-and-scatter/", 
-            "https://plot.ly/python/bubble-charts/", 
-            "https://plot.ly/python/filled-area-plots/", 
-            "https://plot.ly/python/time-series/"
-        ]
+        }
     }, 
     "bar": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a bar trace in plotly.", 
+        "examples": [
+            "py.plot([Bar(x=['yesterday', 'today', 'tomorrow'], y=[5, 4, 10])])"
+        ], 
+        "links": [
+            "https://plot.ly/python/bar-charts/"
+        ], 
+        "keymeta": {
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'y' is unset", 
                 "type": "data", 
                 "description": "The x coordinates of the bars. If 'x' is linked to an list or array of strings, then the x coordinates are integers [0,1,2,3, ...] labeled on the x-axis by the list or array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the list or array linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'x' is unset", 
                 "type": "data", 
                 "description": "The y coordinates of the bars. If 'y' is linked to an list or array of strings, then the y coordinates are integers [0,1,2,3, ...] labeled on the y-axis by the list or array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the list or array linked to 'y'.", 
@@ -196,28 +203,28 @@
                 "description": "This defines the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
             }, 
             "text": {
-                "val_types": "array-like of strings", 
+                "val_types": "list or 1d numpy array of strings", 
                 "required": false, 
                 "type": "data", 
                 "description": "The text elements associated with each bar in this trace. The entries in 'text' will appear on hover only, in a text box located at the top of each bar.", 
                 "streamable": true
             }, 
             "error_y": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
@@ -248,7 +255,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -266,52 +273,53 @@
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }, 
             "r": {
-                "val_types": "array-like of numbers", 
+                "val_types": "list or 1d numpy array of numbers", 
                 "required": " when making a Polar Chart", 
                 "type": "data", 
                 "description": "For Polar charts only. The radial coordinates of the bars in this polar bar trace about the original; that is, the radial extent of each bar.", 
                 "streamable": true
             }, 
             "t": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
                 "type": "data", 
                 "description": "For Polar charts only. The angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
                 "streamable": true
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "Artifact. Has no effect.", 
                 "streamable": true
             }, 
             "textfont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "Not currently supported, has no effect."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a bar trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/bar-charts/"
-        ]
+        }
     }, 
     "histogram": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a histogram trace in plotly.", 
+        "examples": [
+            "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # along bins along x-axis", 
+            "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # along bins along y-axis"
+        ], 
+        "links": [
+            "https://plot.ly/python/histograms/"
+        ], 
+        "keymeta": {
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'y' is unset", 
                 "type": "data", 
                 "description": "The data sample to be binned (done by Plotly) on the x-axis and plotted as vertical bars.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": " when 'x' is unset", 
                 "type": "data", 
                 "description": "The data sample to be binned (done by Plotly) on the y-axis and plotted as horizontal bars.", 
@@ -342,7 +350,7 @@
                 "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
             }, 
             "xbins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx'=False."
@@ -360,34 +368,34 @@
                 "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
             }, 
             "ybins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny'=False."
             }, 
             "text": {
-                "val_types": "array-like of strings", 
+                "val_types": "list or 1d numpy array of strings", 
                 "required": false, 
                 "type": "data", 
                 "description": "The text elements associated with each bar in this trace. The entries in 'text' will appear on hover only, in a text box located at the top of each bar.", 
                 "streamable": true
             }, 
             "error_y": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
@@ -418,7 +426,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -436,7 +444,7 @@
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "Artifact. Has no effect.", 
@@ -448,19 +456,19 @@
                 "type": "plot_info", 
                 "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a histogram trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/histograms/"
-        ]
+        }
     }, 
     "box": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a box trace in plotly.", 
+        "examples": [
+            "py.plot([Box(name='boxy', y=[1,3,9,2,4,2,3,5,2])])"
+        ], 
+        "links": [
+            "https://plot.ly/python/box-plots/"
+        ], 
+        "keymeta": {
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "This array is used to define an individual box plot, or, a concatenation of multiple box plots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'. Each box spans from the first quartile to the third. The second quartile is marked by a line inside the box. By default, the whiskers are correspond to box' edges +/- 1.5 times the interquartile range. See also 'boxpoints' for more info", 
@@ -473,7 +481,7 @@
                 "description": "The location of this box. When 'y' defines a single box, 'x0' can be used to set where this box is centered on the x-axis. If many boxes are set to appear at the same 'x0' location, they will form a box group."
             }, 
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
@@ -529,14 +537,14 @@
                 ]
             }, 
             "marker": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing line style parameters for the border of this box trace (including the whiskers).", 
@@ -567,7 +575,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -584,33 +592,35 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a box trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/box-plots/"
-        ]
+        }
     }, 
     "heatmap": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a heatmap trace in plotly.", 
+        "examples": [
+            "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]", 
+            "y = ['a', 'b', 'c']", 
+            "x = [1, 2, 3, 4, 5]py.plot([Contour(z=z, x=x, y=y)])"
+        ], 
+        "links": [
+            "https://plot.ly/python/heatmaps/"
+        ], 
+        "keymeta": {
             "z": {
-                "val_types": "matrix-like: list of lists, numpy.matrix", 
+                "val_types": "list of lists or 2d numpy array of numbers", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
                 "streamable": true
             }, 
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'.", 
@@ -647,20 +657,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list of color-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    [
-                        [
-                            0, 
-                            "rgb(0,0,0)"
-                        ], 
-                        [
-                            0.5, 
-                            "rgb(65, 182, 196)"
-                        ], 
-                        [
-                            1, 
-                            "rgb(255,255,255)"
-                        ]
-                    ]
+                    "[[0, 'rgb(0,0,0)'],\n[0.5, 'rgb(65, 182, 196)'],\n[1, 'rgb(255,255,255)']]"
                 ]
             }, 
             "reversescale": {
@@ -676,7 +673,7 @@
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
@@ -712,7 +709,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -769,33 +766,35 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a heatmap trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/heatmaps/"
-        ]
+        }
     }, 
     "contour": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a contour trace in plotly.", 
+        "examples": [
+            "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]", 
+            "y = ['a', 'b', 'c']", 
+            "x = [1, 2, 3, 4, 5]py.plot([Contour(z=z, x=x, y=y)])"
+        ], 
+        "links": [
+            "https://plot.ly/python/contour-plots/"
+        ], 
+        "keymeta": {
             "z": {
-                "val_types": "matrix-like: list of lists, numpy.matrix", 
+                "val_types": "list of lists or 2d numpy array of numbers", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data that describes the mapping. The dimensions of the 'z' matrix are (n x m) where there are 'n' ROWS defining the number of partitions along the y-axis; this is equal to the length of the 'y' array. There are 'm' COLUMNS defining the number of partitions along the x-axis; this is equal to the length of the 'x' array. Therefore, the color of the cell z[i][j] is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). In Python, a (non-numpy) matrix is best thought of as a list of lists (of lists, of lists, etc.). Therefore, running len(z) will give you the number of ROWS and running len(z[0]) will give you the number of COLUMNS. If you ARE using numpy, then running z.shape will give you the tuple, (n, m), e.g., (3, 5).", 
                 "streamable": true
             }, 
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "This array-like value contains the horizontal coordinates referring to the columns of the 'z' matrix. if strings, the x-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'x' array should be 'm'.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "This array-like value contains the vertical coordinates referring to the rows of the 'z' matrix. If strings, the y-labels are spaced evenly. If the dimensions of z are (n x m), the length of the 'y' array should be 'n'.", 
@@ -838,13 +837,13 @@
                 "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
             }, 
             "contours": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the contours of this trace."
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours.", 
@@ -857,20 +856,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list of color-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    [
-                        [
-                            0, 
-                            "rgb(0,0,0)"
-                        ], 
-                        [
-                            0.5, 
-                            "rgb(65, 182, 196)"
-                        ], 
-                        [
-                            1, 
-                            "rgb(255,255,255)"
-                        ]
-                    ]
+                    "[[0, 'rgb(0,0,0)'],\n[0.5, 'rgb(65, 182, 196)'],\n[1, 'rgb(255,255,255)']]"
                 ]
             }, 
             "reversescale": {
@@ -886,7 +872,7 @@
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
@@ -916,7 +902,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -973,26 +959,29 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a contour trace in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python/contour-plots/"
-        ]
+        }
     }, 
     "histogram2d": {
-        "meta": {
+        "docstring": "A dictionary-like object for representing a 2D histogram trace in plotly.", 
+        "examples": [
+            "import numpy as np", 
+            "x = np.random.randn(500)", 
+            "y = np.random.randn(500)+1", 
+            "py.iplot([Histogram2d(x=x, y=y)])"
+        ], 
+        "links": [
+            "https://plot.ly/python/2D-Histograms/"
+        ], 
+        "keymeta": {
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
@@ -1023,7 +1012,7 @@
                 "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
             }, 
             "xbins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx'=False."
@@ -1041,7 +1030,7 @@
                 "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
             }, 
             "ybins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny'=False."
@@ -1053,20 +1042,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list of color-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    [
-                        [
-                            0, 
-                            "rgb(0,0,0)"
-                        ], 
-                        [
-                            0.5, 
-                            "rgb(65, 182, 196)"
-                        ], 
-                        [
-                            1, 
-                            "rgb(255,255,255)"
-                        ]
-                    ]
+                    "[[0, 'rgb(0,0,0)'],\n[0.5, 'rgb(65, 182, 196)'],\n[1, 'rgb(255,255,255)']]"
                 ]
             }, 
             "reversescale": {
@@ -1082,7 +1058,7 @@
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
@@ -1136,7 +1112,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -1153,26 +1129,29 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a 2D histogram trace in plotly.", 
+        }
+    }, 
+    "histogram2dcontour": {
+        "docstring": "A dictionary-like object for representing a 2D histogram contour trace in plotly.", 
         "examples": [
-            ""
+            "import numpy as np", 
+            "x = np.random.randn(500)", 
+            "y = np.random.randn(500)+1", 
+            "py.iplot([Histogram2dContour(x=x, y=y)])"
         ], 
         "links": [
             "https://plot.ly/python/2D-Histograms/"
-        ]
-    }, 
-    "histogram2dcontour": {
-        "meta": {
+        ], 
+        "keymeta": {
             "x": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
                 "streamable": true
             }, 
             "y": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "The data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
@@ -1203,7 +1182,7 @@
                 "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to False for 'nbinsx' to apply."
             }, 
             "xbins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx'=False."
@@ -1221,7 +1200,7 @@
                 "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to False for 'nbinsy' to apply."
             }, 
             "ybins": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny'=False."
@@ -1239,13 +1218,13 @@
                 "description": "Specifies the number of contours lines in the contour plot. No need to set 'autocontour' to False for 'ncontours' to apply."
             }, 
             "contours": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the contours of this trace."
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing line style parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in Contours.", 
@@ -1258,20 +1237,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list of color-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    [
-                        [
-                            0, 
-                            "rgb(0,0,0)"
-                        ], 
-                        [
-                            0.5, 
-                            "rgb(65, 182, 196)"
-                        ], 
-                        [
-                            1, 
-                            "rgb(255,255,255)"
-                        ]
-                    ]
+                    "[[0, 'rgb(0,0,0)'],\n[0.5, 'rgb(65, 182, 196)'],\n[1, 'rgb(255,255,255)']]"
                 ]
             }, 
             "reversescale": {
@@ -1287,7 +1253,7 @@
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
@@ -1335,7 +1301,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -1352,26 +1318,26 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a 2D histogram contour trace in plotly.", 
+        }
+    }, 
+    "area": {
+        "docstring": "A dictionary-like object for representing an area trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/2D-Histograms/"
-        ]
-    }, 
-    "area": {
-        "meta": {
+            "https://plot.ly/python/polar-chart/"
+        ], 
+        "keymeta": {
             "r": {
-                "val_types": "array-like of numbers", 
+                "val_types": "list or 1d numpy array of numbers", 
                 "required": true, 
                 "type": "data", 
                 "description": "The radial coordinates of the circle sectors in this polar area trace about the origin; that is, the radial extent of each circle sector.", 
                 "streamable": true
             }, 
             "t": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
                 "type": "data", 
                 "description": "The angular coordinates of the circle sectors in this polar area trace. There are as many sectors as coordinates linked to 't' and 'r'. Each sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinates at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in AngularAxis or/and 'direction' in Layout. If 't' is linked to an array-like of strings, then the angular coordinates are [0, 360\\N, 2*360/N, ...] where N is the number of coordinates given labeled by the array-like of strings linked to 't'.", 
@@ -1384,7 +1350,7 @@
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "marker": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
@@ -1397,7 +1363,7 @@
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "The stream dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
@@ -1426,17 +1392,17 @@
                 "type": "plot_info", 
                 "description": "Plotly identifier for this data's trace type. This defines how this data dictionary will be handled. For example, 'scatter' type expects x and y data-arrays corresponding to (x, y) coordinates whereas a 'histogram' only requires a single x or y array and a 'heatmap' type requires a z matrix."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing an area trace in plotly.", 
+        }
+    }, 
+    "error_y": {
+        "docstring": "A dictionary-like object representing a set of error bar spanning along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/polar-chart/"
-        ]
-    }, 
-    "error_y": {
-        "meta": {
+            "https://plot.ly/python/error-bars/"
+        ], 
+        "keymeta": {
             "type": {
                 "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
                 "required": false, 
@@ -1450,7 +1416,7 @@
                 "description": "Toggle whether or not error bars are the same length in both directions (up and down). If not specified, the error bars will be symmetric."
             }, 
             "array": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span vertically from y= 0 to 2 and y= 0 to 4 if 'symmetric'=True; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
@@ -1511,17 +1477,17 @@
                 "type": "plot_info", 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
-        }, 
-        "docstring": "A dictionary-like object representing a set of error bar spanning along the y-axis.", 
+        }
+    }, 
+    "error_x": {
+        "docstring": "A dictionary-like object representing a set of error bars spanning along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
             "https://plot.ly/python/error-bars/"
-        ]
-    }, 
-    "error_x": {
-        "meta": {
+        ], 
+        "keymeta": {
             "type": {
                 "val_types": "'data' | 'percent' | 'constant' | 'sqrt'", 
                 "required": false, 
@@ -1535,7 +1501,7 @@
                 "description": "Toggle whether or not error bars are the same length in both directions (right and left). If not specified, the error bars will be symmetric."
             }, 
             "array": {
-                "val_types": "array-like of numbers, strings, datetimes", 
+                "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
                 "type": "data", 
                 "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span horizontally from x= 0 to 2 and x= 0 to 4 if 'symmetric'=True; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
@@ -1602,17 +1568,18 @@
                 "type": "plot_info", 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
-        }, 
-        "docstring": "A dictionary-like object representing a set of error bars spanning along the x-axis.", 
+        }
+    }, 
+    "xbins": {
+        "docstring": "A dictionary-like object containing specifications of the bins lying along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/error-bars/"
-        ]
-    }, 
-    "xbins": {
-        "meta": {
+            "https://plot.ly/python/histograms/", 
+            "https://plot.ly/python/2D-Histograms/"
+        ], 
+        "keymeta": {
             "start": {
                 "val_types": "number: x > 0", 
                 "required": false, 
@@ -1632,18 +1599,17 @@
                 "description": "Sets the size (i.e. their width) of each x-axis bin.", 
                 "streamable": true
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the bins lying along the x-axis.", 
+        }
+    }, 
+    "ybins": {
+        "docstring": "A dictionary-like object containing specifications of the bins lying along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/histograms/", 
-            "https://plot.ly/python/2D-Histograms/"
-        ]
-    }, 
-    "ybins": {
-        "meta": {
+            "https://plot.ly/python/histograms/https://plot.ly/python/2D-Histograms/"
+        ], 
+        "keymeta": {
             "start": {
                 "val_types": "number: x > 0", 
                 "required": false, 
@@ -1663,20 +1629,20 @@
                 "description": "Sets the size (i.e. their width) of each y-axis bin.", 
                 "streamable": true
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the bins lying along the y-axis.", 
+        }
+    }, 
+    "marker": {
+        "docstring": "A dictionary-like object containing specifications of the marker points.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/histograms/", 
-            "https://plot.ly/python/2D-Histograms/"
-        ]
-    }, 
-    "marker": {
-        "meta": {
+            "https://plot.ly/python/line-and-scatter/", 
+            "https://plot.ly/python/bubble-charts/"
+        ], 
+        "keymeta": {
             "color": {
-                "val_types": "array-like of string describing color", 
+                "val_types": "list or 1d numpy array of string describing color", 
                 "description": "Sets the color of the face of the marker object. If 'color' is linked to a list or an array of color strings, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use the 'line' key in Marker. The 'color' key can also accept a list or an array of numbers, where each number is then mapped to a color using the color scale set in 'colorscale'.", 
                 "required": false, 
                 "streamable": true, 
@@ -1703,7 +1669,7 @@
                 "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to a list or an array of numbers, symbol values are mapped to individual marker points in the same order as in the data lists or arrays."
             }, 
             "line": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the line belonging to the marker. For example, the line around each point in a scatter trace or the line around each bar in a bar trace.", 
@@ -1734,20 +1700,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list of color-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    [
-                        [
-                            0, 
-                            "rgb(0,0,0)"
-                        ], 
-                        [
-                            0.5, 
-                            "rgb(65, 182, 196)"
-                        ], 
-                        [
-                            1, 
-                            "rgb(255,255,255)"
-                        ]
-                    ]
+                    "[[0, 'rgb(0,0,0)'],\n[0.5, 'rgb(65, 182, 196)'],\n[1, 'rgb(255,255,255)']]"
                 ]
             }, 
             "cauto": {
@@ -1787,18 +1740,19 @@
                 "type": "style", 
                 "description": "Sets maximum number of displayed points for this trace. Applies only to scatter traces."
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the marker points.", 
+        }
+    }, 
+    "line": {
+        "docstring": "A dictionary-like object containing specifications of the line segments.", 
         "examples": [
             ""
         ], 
         "links": [
             "https://plot.ly/python/line-and-scatter/", 
-            "https://plot.ly/python/bubble-charts/"
-        ]
-    }, 
-    "line": {
-        "meta": {
+            "https://plot.ly/python/filled-area-plots/", 
+            "https://plot.ly/python/contour-plots/"
+        ], 
+        "keymeta": {
             "color": {
                 "val_types": "string describing color", 
                 "description": "Sets the color of the line object. If linked within 'marker', sets the color of the marker's bordering line. If linked within, 'contours', sets the color of the contour lines.", 
@@ -1869,19 +1823,17 @@
                 ], 
                 "description": "For box plots only. Has an effect only if 'boxpoints' is set to 'suspectedoutliers'. Sets the width in pixels of bordering line of the outlier points."
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the line segments.", 
+        }
+    }, 
+    "contours": {
+        "docstring": "A dictionary-like object containing specifications of the contours.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/line-and-scatter/", 
-            "https://plot.ly/python/filled-area-plots/", 
             "https://plot.ly/python/contour-plots/"
-        ]
-    }, 
-    "contours": {
-        "meta": {
+        ], 
+        "keymeta": {
             "showlines": {
                 "val_types": "boolean: True | False", 
                 "required": false, 
@@ -1913,17 +1865,17 @@
                 "type": "style", 
                 "description": "Choose the coloring method for this contour trace. The default value is 'fill' where coloring is done evenly between each contour line. 'heatmap' colors on a grid point-by-grid point basis. 'lines' colors only the contour lines, each with respect to the color scale. 'none' prints all contour lines with the same color; choose their color in a Line object at the trace level if desired."
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the contours.", 
+        }
+    }, 
+    "stream": {
+        "docstring": "A dictionary-like object containing specifications of the data stream.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/contour-plots/"
-        ]
-    }, 
-    "stream": {
-        "meta": {
+            "https://plot.ly/python/streaming/"
+        ], 
+        "keymeta": {
             "token": {
                 "val_types": "A stream id number, see https://plot.ly/settings", 
                 "required": true, 
@@ -1936,17 +1888,20 @@
                 "type": "style", 
                 "description": "Sets the maximum number of points to keep on the plots from an incoming stream. For example, if 'maxpoints' is set to 50, only the newest 50 points will be displayed on the plot."
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the data stream.", 
+        }
+    }, 
+    "xaxis": {
+        "docstring": "A dictionary-like object for representing an x-axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/streaming/"
-        ]
-    }, 
-    "xaxis": {
-        "meta": {
+            "https://plot.ly/python/axes/", 
+            "https://plot.ly/python/multiple-axes/", 
+            "https://plot.ly/python/subplots/", 
+            "https://plot.ly/python/insets/"
+        ], 
+        "keymeta": {
             "title": {
                 "val_types": "string", 
                 "required": false, 
@@ -1954,7 +1909,7 @@
                 "description": "The x-axis title."
             }, 
             "titlefont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings of the x-axis title."
@@ -1965,14 +1920,8 @@
                 "type": "style", 
                 "description": "Defines the start and end point of this x axis.", 
                 "examples": [
-                    [
-                        -13, 
-                        20
-                    ], 
-                    [
-                        0, 
-                        1
-                    ]
+                    "[-13, 20]", 
+                    "[0, 1]"
                 ]
             }, 
             "domain": {
@@ -1981,14 +1930,7 @@
                 "type": "plot_info", 
                 "description": "Sets the domain of this x axis; that is, the available space for this x axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
-                    [
-                        0, 
-                        0.4
-                    ], 
-                    [
-                        0.6, 
-                        1
-                    ]
+                    "[0,0.4], [0.6, 1]"
                 ]
             }, 
             "type": {
@@ -2095,7 +2037,7 @@
                 "description": "Sets the angle in degrees of the ticks on this axis."
             }, 
             "tickfont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the ticks' font."
@@ -2199,8 +2141,10 @@
                 "type": "style", 
                 "description": "Sets where this x-axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing an x-axis in plotly.", 
+        }
+    }, 
+    "yaxis": {
+        "docstring": "A dictionary-like object for representing a y-axis in plotly.", 
         "examples": [
             ""
         ], 
@@ -2209,10 +2153,8 @@
             "https://plot.ly/python/multiple-axes/", 
             "https://plot.ly/python/subplots/", 
             "https://plot.ly/python/insets/"
-        ]
-    }, 
-    "yaxis": {
-        "meta": {
+        ], 
+        "keymeta": {
             "title": {
                 "val_types": "string", 
                 "required": false, 
@@ -2220,7 +2162,7 @@
                 "description": "The y-axis title."
             }, 
             "titlefont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings of the y-axis title."
@@ -2231,14 +2173,8 @@
                 "type": "style", 
                 "description": "Defines the start and end point of this y axis.", 
                 "examples": [
-                    [
-                        -13, 
-                        20
-                    ], 
-                    [
-                        0, 
-                        1
-                    ]
+                    "[-13, 20]", 
+                    "[0, 1]"
                 ]
             }, 
             "domain": {
@@ -2247,14 +2183,7 @@
                 "type": "plot_info", 
                 "description": "Sets the domain of this y axis; that is, the available space for this y axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
-                    [
-                        0, 
-                        0.4
-                    ], 
-                    [
-                        0.6, 
-                        1
-                    ]
+                    "[0,0.4], [0.6, 1]"
                 ]
             }, 
             "type": {
@@ -2361,7 +2290,7 @@
                 "description": "Sets the angle in degrees of the ticks on this axis."
             }, 
             "tickfont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the ticks' font."
@@ -2465,34 +2394,25 @@
                 "type": "style", 
                 "description": "Sets where this y-axis is positioned in the plotting space. For example 'position'=0.5 will place this axis in the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a y-axis in plotly.", 
+        }
+    }, 
+    "radialaxis": {
+        "docstring": "A dictionary-like object for representing a radial axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/axes/", 
-            "https://plot.ly/python/multiple-axes/", 
-            "https://plot.ly/python/subplots/", 
-            "https://plot.ly/python/insets/"
-        ]
-    }, 
-    "radialaxis": {
-        "meta": {
+            "https://plot.ly/python//polar-chart/"
+        ], 
+        "keymeta": {
             "range": {
                 "val_types": "number array of length 2", 
                 "required": false, 
                 "type": "style", 
                 "description": "Defines the start and end point of this radial axis.", 
                 "examples": [
-                    [
-                        -13, 
-                        20
-                    ], 
-                    [
-                        0, 
-                        1
-                    ]
+                    "[-13, 20]", 
+                    "[0, 1]"
                 ]
             }, 
             "domain": {
@@ -2562,31 +2482,25 @@
                 "type": "plot_info", 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a radial axis in plotly.", 
+        }
+    }, 
+    "angularaxis": {
+        "docstring": "A dictionary-like object for representing an angular axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
             "https://plot.ly/python//polar-chart/"
-        ]
-    }, 
-    "angularaxis": {
-        "meta": {
+        ], 
+        "keymeta": {
             "range": {
                 "val_types": "number array of length 2", 
                 "required": false, 
                 "type": "style", 
                 "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array-like of string.", 
                 "examples": [
-                    [
-                        0, 
-                        180
-                    ], 
-                    [
-                        0, 
-                        6.2831
-                    ]
+                    "[0, 180]", 
+                    "[0, 6.2831]"
                 ]
             }, 
             "domain": {
@@ -2644,17 +2558,20 @@
                 "type": "plot_info", 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing an angular axis in plotly.", 
+        }
+    }, 
+    "layout": {
+        "docstring": "A dictionary-like object containing specification of the layout of a plotly figure.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python//polar-chart/"
-        ]
-    }, 
-    "layout": {
-        "meta": {
+            "https://plot.ly/python//figure-labels/", 
+            "https://plot.ly/python//axes/", 
+            "https://plot.ly/python//bar-charts/", 
+            "https://plot.ly/python//log-plot/"
+        ], 
+        "keymeta": {
             "title": {
                 "val_types": "string", 
                 "required": false, 
@@ -2662,13 +2579,13 @@
                 "description": "The title of the figure."
             }, 
             "titlefont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings of the figure's title."
             }, 
             "font": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the global font settings for this figure (e.g. all axis titles and labels)."
@@ -2698,31 +2615,31 @@
                 "description": "Sets the height in pixels of the figure you are generating."
             }, 
             "xaxis": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into layout by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.   To create references other x-axes, you need to define them in the layout dictionary-like object using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into layout by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.   To create references other y-axes, you need to define them in the layout dictionary-like object using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing the legend parameters for this figure."
             }, 
             "annotations": {
-                "val_types": "array-like of one or several dictionaries", 
+                "val_types": "list or 1d numpy array of one or several dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A list-like object that contains one or multiple annotation dictionaries."
             }, 
             "margin": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object containing the margin parameters for this figure."
@@ -2796,13 +2713,13 @@
                 "description": "For box plots only. Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
             }, 
             "radialaxis": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the angular axis in a polar plot."
@@ -2825,20 +2742,19 @@
                 "type": "style", 
                 "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
             }
-        }, 
-        "docstring": "A dictionary-like object containing specification of the layout of a plotly figure.", 
+        }
+    }, 
+    "font": {
+        "docstring": "A dictionary-like object containing specifications of the text font.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python//figure-labels/", 
-            "https://plot.ly/python//axes/", 
-            "https://plot.ly/python//bar-charts/", 
-            "https://plot.ly/python//log-plot/"
-        ]
-    }, 
-    "font": {
-        "meta": {
+            "https://plot.ly/python/font/", 
+            "https://plot.ly/python/text-and-annotations/", 
+            "https://plot.ly/python/line-and-scatter/"
+        ], 
+        "keymeta": {
             "family": {
                 "val_types": "'Arial, sans-serif' |  'Balto, sans-serif' |  'Courier New, monospace' |  'Droid Sans, sans-serif' |  'Droid Serif, serif' |  'Droid Sans Mono, sans-serif' |  'Georgia, serif' |  'Gravitas One, cursive' |  'Old Standard TT, serif' |  'Open Sans, sans-serif' or ('') |  'PT Sans Narrow, sans-serif' |  'Raleway, sans-serif' |  'Times New Roman, Times, serif'", 
                 "required": false, 
@@ -2879,19 +2795,18 @@
                     "'hsla(120,100%,50%,0.3)'"
                 ]
             }
-        }, 
-        "docstring": "A dictionary-like object containing specifications of the text font.", 
+        }
+    }, 
+    "legend": {
+        "docstring": "A dictionary-like object for representing a legend in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python/font/", 
-            "https://plot.ly/python/text-and-annotations/", 
-            "https://plot.ly/python/line-and-scatter/"
-        ]
-    }, 
-    "legend": {
-        "meta": {
+            "https://plot.ly/python//legend/", 
+            "https://plot.ly/python//figure-labels/"
+        ], 
+        "keymeta": {
             "x": {
                 "val_types": "number", 
                 "required": false, 
@@ -2911,7 +2826,7 @@
                 "description": "Trace order is set by the order of the data in associated grid for the plot. This sets whether this order is read from left-to-right or from right-to-left."
             }, 
             "font": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings within the legend."
@@ -2972,18 +2887,17 @@
                 "type": "plot_info", 
                 "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y'==1, 'yref'='paper', and 'yanchor'='top', the topmost portion of this object will line up with the topmost edge of the plotting area."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a legend in plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            "https://plot.ly/python//legend/", 
-            "https://plot.ly/python//figure-labels/"
-        ]
+        }
     }, 
     "annotation": {
-        "meta": {
+        "docstring": "\n            A dictionary-like object for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
+        "examples": [
+            "annotation = Annotation(\n     text='what i want this to say is:<br>THIS!',\n     x=0,\n     y=0,\n     xref='paper',\n     yref='paper,\n     yanchor='bottom',\n     xanchor='left')"
+        ], 
+        "links": [
+            "https://plot.ly/python//text-and-annotations/"
+        ], 
+        "keymeta": {
             "x": {
                 "val_types": "number", 
                 "required": false, 
@@ -3027,7 +2941,7 @@
                 "description": "Toggle whether or not the arrow associated with this annotation with be shown. If False, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If True (the default), then 'text' is placed near the arrow's tail."
             }, 
             "font": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings within this annotation."
@@ -3143,17 +3057,17 @@
                 "type": "style", 
                 "description": "Sets the opacity, or transparency, of the entire object, also known as the alpha channel of colors. If the object's color is given in terms of 'rgba' color model, 'opacity' is redundant."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing an annotation in plotly.", 
+        }
+    }, 
+    "colorbar": {
+        "docstring": "A dictionary-like object for representing a color bar in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python//text-and-annotations/"
-        ]
-    }, 
-    "colorbar": {
-        "meta": {
+            ""
+        ], 
+        "keymeta": {
             "title": {
                 "val_types": "string", 
                 "required": false, 
@@ -3167,7 +3081,7 @@
                 "description": "Location of colorbar title with respect to the colorbar."
             }, 
             "titlefont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object describing the font settings of the colorbar title."
@@ -3276,7 +3190,7 @@
                 "description": "Sets the angle in degrees of the ticks on this colorbar."
             }, 
             "tickfont": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object defining the parameters of the ticks' font."
@@ -3349,17 +3263,17 @@
                 "type": "style", 
                 "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction."
             }
-        }, 
-        "docstring": "A dictionary-like object for representing a color bar in plotly.", 
+        }
+    }, 
+    "margin": {
+        "docstring": "A dictionary-like object containing specification of the margins.", 
         "examples": [
             ""
         ], 
         "links": [
-            ""
-        ]
-    }, 
-    "margin": {
-        "meta": {
+            "https://plot.ly/python//setting-graph-size/"
+        ], 
+        "keymeta": {
             "l": {
                 "val_types": "number: x >= 0", 
                 "required": false, 
@@ -3396,60 +3310,60 @@
                 "type": "style", 
                 "description": "more info coming soon"
             }
-        }, 
-        "docstring": "A dictionary-like object containing specification of the margins.", 
+        }
+    }, 
+    "figure": {
+        "docstring": "\n            A dictionary-like object representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/python//setting-graph-size/"
-        ]
-    }, 
-    "figure": {
-        "meta": {
+            ""
+        ], 
+        "keymeta": {
             "data": {
-                "val_types": "array-like of one or several dictionaries", 
+                "val_types": "list or 1d numpy array of one or several dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A list-like array of the data trace(s) that is/are to be visualized."
             }, 
             "layout": {
-                "val_types": "dictionary-like", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "type": "object", 
                 "description": "A dictionary-like object that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }
-        }, 
-        "docstring": "A dictionary-like object representing a figure to be rendered by plotly.", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            ""
-        ]
+        }
     }, 
     "data": {
-        "meta": {}, 
         "docstring": "A list or 1d numpy array of traces to be shown on one plotly figure.", 
         "examples": [
-            ""
+            "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2],y[2,3])])"
         ], 
         "links": [
             ""
-        ]
+        ], 
+        "keymeta": {}
     }, 
     "annotations": {
-        "meta": {}, 
         "docstring": "A list or 1d numpy array of annotations to be shown on one plotly figure.", 
         "examples": [
             ""
         ], 
         "links": [
             ""
-        ]
+        ], 
+        "keymeta": {}
     }, 
     "trace": {
-        "meta": {
+        "docstring": "", 
+        "examples": [
+            ""
+        ], 
+        "links": [
+            ""
+        ], 
+        "keymeta": {
             "x": {
                 "type": "data"
             }, 
@@ -3577,43 +3491,36 @@
             "showscale": {
                 "type": "style"
             }
-        }, 
-        "docstring": "", 
-        "examples": [
-            ""
-        ], 
-        "links": [
-            ""
-        ]
+        }
     }, 
     "plotlylist": {
-        "meta": {}, 
         "docstring": "", 
         "examples": [
             ""
         ], 
         "links": [
             ""
-        ]
+        ], 
+        "keymeta": {}
     }, 
     "plotlydict": {
-        "meta": {}, 
         "docstring": "", 
         "examples": [
             ""
         ], 
         "links": [
             ""
-        ]
+        ], 
+        "keymeta": {}
     }, 
     "plotlytrace": {
-        "meta": {}, 
         "docstring": "", 
         "examples": [
             ""
         ], 
         "links": [
             ""
-        ]
+        ], 
+        "keymeta": {}
     }
 }
