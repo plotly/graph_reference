@@ -38,14 +38,14 @@ def get_meta(graph_objs, meta_make):
 # -------------------------------------------------------------------------------
 
 def retrieve_examples(meta, language):
-    '''Retrieve example (language-specific or not) from MakeExamples class'''
+    '''Retrieve example (language-specific or not) from MakeExamples instances'''
     for obj, stuff in meta.items():
         for k1, v1 in stuff.items():
             if isinstance(v1, MakeExamples):
                 meta[obj][k1] = getattr(v1, language)
             elif isinstance(v1, list):
                 for i_v2, v2 in enumerate(v1):
-                    if isinstance(v1, MakeExamples):
+                    if isinstance(v2, MakeExamples):
                         meta[obj][k1][i_v2] = getattr(v2, language)
             elif isinstance(v1, (OrderedDict, dict)):
                 for k2, v2 in v1.items():
@@ -57,8 +57,6 @@ def retrieve_examples(meta, language):
 def format_meta(meta, table):
     '''Format meta to language-specific vocabulary'''
     for obj, stuff in meta.items():
-        obj_format = obj.format(**table)
-        meta[obj_format] = meta.pop(obj, None)
         for k1, v1 in stuff.items():
             if isinstance(v1, str):
                 v1_format = v1.format(**table)
@@ -117,7 +115,7 @@ def write_config(graph_objs_info):
     and the table of content
     '''
     _info = [info for info in graph_objs_info if info['description']]
-    _graph_objs = [name for __info in _info for name in __info['names']]
+    _graph_objs = [graph_obj for __info in _info for graph_obj in __info['graph_objs']]
     _config = dict(
         graph_objs=_graph_objs,
         toc=_info

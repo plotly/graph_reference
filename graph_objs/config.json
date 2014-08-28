@@ -1,92 +1,92 @@
 {
     "graph_objs": [
-        "Scatter", 
-        "Bar", 
-        "Histogram", 
-        "Box", 
-        "Heatmap", 
-        "Contour", 
-        "Histogram2d", 
-        "Histogram2dContour", 
-        "Area", 
-        "ErrorY", 
-        "ErrorX", 
-        "XBins", 
-        "YBins", 
-        "Marker", 
-        "Line", 
-        "Contours", 
-        "Stream", 
-        "XAxis", 
-        "YAxis", 
-        "RadialAxis", 
-        "AngularAxis", 
-        "Layout", 
-        "Font", 
-        "Legend", 
-        "Annotation", 
-        "ColorBar", 
-        "Margin", 
-        "Figure"
+        "scatter", 
+        "bar", 
+        "histogram", 
+        "box", 
+        "heatmap", 
+        "contour", 
+        "histogram2d", 
+        "histogram2dcontour", 
+        "area", 
+        "error_y", 
+        "error_x", 
+        "xbins", 
+        "ybins", 
+        "marker", 
+        "line", 
+        "contours", 
+        "stream", 
+        "xaxis", 
+        "yaxis", 
+        "radialaxis", 
+        "angularaxis", 
+        "layout", 
+        "font", 
+        "legend", 
+        "annotation", 
+        "colorbar", 
+        "margin", 
+        "figure"
     ], 
     "toc": [
         {
             "description": "Bind your data to traces with these", 
-            "group": "Trace graph objects", 
-            "names": [
-                "Scatter", 
-                "Bar", 
-                "Histogram", 
-                "Box", 
-                "Heatmap", 
-                "Contour", 
-                "Histogram2d", 
-                "Histogram2dContour", 
-                "Area"
-            ]
+            "graph_objs": [
+                "scatter", 
+                "bar", 
+                "histogram", 
+                "box", 
+                "heatmap", 
+                "contour", 
+                "histogram2d", 
+                "histogram2dcontour", 
+                "area"
+            ], 
+            "group": "Trace graph objects"
         }, 
         {
             "description": "Add some spice to your traces with these", 
-            "group": "Trace auxiliary objects", 
-            "names": [
-                "ErrorY", 
-                "ErrorX", 
-                "XBins", 
-                "YBins", 
-                "Marker", 
-                "Line", 
-                "Contours", 
-                "Stream"
-            ]
+            "graph_objs": [
+                "error_y", 
+                "error_x", 
+                "xbins", 
+                "ybins", 
+                "marker", 
+                "line", 
+                "contours", 
+                "stream"
+            ], 
+            "group": "Trace auxiliary objects"
         }, 
         {
             "description": "Set the your axes' specifications and style with these", 
-            "group": "Axis objects", 
-            "names": [
-                "XAxis", 
-                "YAxis", 
-                "RadialAxis", 
-                "AngularAxis"
-            ]
+            "graph_objs": [
+                "xaxis", 
+                "yaxis", 
+                "radialaxis", 
+                "angularaxis"
+            ], 
+            "group": "Axis objects"
         }, 
         {
             "description": "Customize your figure's layout with these", 
-            "group": "Layout and layout style objects", 
-            "names": [
-                "Layout", 
-                "Font", 
-                "Legend", 
-                "Annotation", 
-                "ColorBar", 
-                "Margin"
-            ]
+            "graph_objs": [
+                "layout", 
+                "font", 
+                "legend", 
+                "annotation", 
+                "colorbar", 
+                "margin"
+            ], 
+            "group": "Layout and layout style objects"
         }, 
         {
             "description": "Package layout and data with this object", 
-            "group": "Figure object", 
-            "names": [
-                "Figure"
-            ]
+            "graph_objs": [
+                "figure"
+            ], 
+            "group": "Figure object"
         }
     ]
 }

@@ -38,19 +38,37 @@ class MakeMeta(list):
             ])
         )]
 
-    def Scatter(self):
+    def __stuff(self, graph_obj, name, obj_type, parents,
+              docstring, examples, links, keymeta):
+        ''' @stuff@ -- Return a list of a tuple packaging graph object stuff
+        '''
+        return [(graph_obj, 
+            OrderedDict([
+                ('name', name),
+                ('obj_type', obj_type),
+                ('parents', parents),
+                ('docstring', docstring),
+                ('examples',examples), 
+                ('links', links), 
+                ('keymeta', keymeta)
+            ])
+        )]
+
+    def scatter(self):
         '''@Scatter@'''
-        name = 'scatter'
+        name = "{scatter}"
+        obj_type = "{UL}"
+        parents = ["'data'"]
         docstring = (
             "A {UL}-like object for representing a scatter trace in plotly."
         )
+        examples = MakeExamples.Scatter(MakeExamples())
         links = [
             "{WEB}line-and-scatter/",
             "{WEB}bubble-charts/",
             "{WEB}filled-area-plots/",
             "{WEB}time-series/"
         ]
-        examples = MakeExamples.Scatter(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.x('scatter')),
             ('y', make.y('scatter')),
@@ -127,9 +145,10 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('scatter')),
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self.__stuff('scatter', name, obj_type, parents, 
+                            docstring, examples, links, keymeta)
  
-    def Bar(self):
+    def bar(self):
         '''@Bar@'''
         name = 'bar'
         docstring = (
@@ -160,7 +179,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Histogram(self):
+    def histogram(self):
         '''@Histogram@'''
         name = 'histogram'
         docstring = (
@@ -195,7 +214,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Box(self):
+    def box(self):
         '''@Box@'''
         name = 'box'
         docstring = (
@@ -290,7 +309,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Heatmap(self):
+    def heatmap(self):
         '''@Heatmap@'''
         name = 'heatmap'
         docstring = (
@@ -327,7 +346,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Contour(self):
+    def contour(self):
         '''@Contour@'''
         name = 'contour'
         docstring = (
@@ -367,7 +386,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
 
-    def Histogram2d(self):
+    def histogram2d(self):
         '''@Histogram2d@'''
         name = 'histogram2d'
         docstring = (
@@ -404,7 +423,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Histogram2dContour(self):
+    def histogram2dcontour(self):
         '''@Histogram2dContour@'''
         name = 'histogram2dcontour'
         docstring = (
@@ -445,7 +464,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Area(self):
+    def area(self):
         '''@Area@'''
         name = 'area'
         docstring = (
@@ -481,7 +500,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def keymeta_error(self,y_or_x):
+    def _keymeta_error(self,y_or_x):
         '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
     
         S = {'y': ['y','vertically','up','down','above','below'],
@@ -597,7 +616,7 @@ class MakeMeta(list):
         _keymeta += [('visible', make.visible())]
         return _keymeta
       
-    def ErrorY(self):
+    def error_y(self):
         '''@ErrorY@'''
         name = 'error_y'
         docstring = (
@@ -606,10 +625,10 @@ class MakeMeta(list):
         )
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.ErrorY(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_error('y'))
+        keymeta = OrderedDict(self._keymeta_error('y'))
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def ErrorX(self):
+    def error_x(self):
         '''@ErrorX@'''
         name = 'error_x'
         docstring = (
@@ -618,10 +637,10 @@ class MakeMeta(list):
         )
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.ErrorX(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_error('x'))
+        keymeta = OrderedDict(self._keymeta_error('x'))
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def keymeta_bins(self,x_or_y):
+    def _keymeta_bins(self,x_or_y):
         '''@keymeta_bins@ -- keymeta for XBins and YBins'''
         _keymeta = [
             ('start', make.startend('bins','start',x_or_y)),
@@ -630,7 +649,7 @@ class MakeMeta(list):
         ]
         return _keymeta
     
-    def XBins(self):
+    def xbins(self):
         '''@XBins@'''
         name = 'xbins'
         docstring = (
@@ -642,10 +661,10 @@ class MakeMeta(list):
             "{WEB}2D-Histograms/"
         ]
         examples = MakeExamples.XBins(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_bins('x'))
+        keymeta = OrderedDict(self._keymeta_bins('x'))
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def YBins(self):
+    def ybins(self):
         '''@YBins@'''
         name = 'ybins'
         docstring = (
@@ -657,10 +676,10 @@ class MakeMeta(list):
             "{WEB}2D-Histograms/"
         ]
         examples = MakeExamples.YBins(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_bins('y'))
+        keymeta = OrderedDict(self._keymeta_bins('y'))
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Contours(self):
+    def contours(self):
         '''@Contours@'''
         name = 'contours'
         docstring = (
@@ -698,7 +717,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Stream(self):
+    def stream(self):
         '''@Stream@'''
         name = 'stream'
         docstring = (
@@ -734,7 +753,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Marker(self):
+    def marker(self):
         '''@Marker@'''
         name = 'marker'
         docstring = (
@@ -824,7 +843,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Line(self):
+    def line(self):
         '''@Line@'''
         name = 'line'
         docstring = (
@@ -901,7 +920,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Font(self):
+    def font(self):
         '''@Font@'''
         name = 'font'
         docstring = (
@@ -945,7 +964,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def keymeta_ticks(self,axis_or_colorbar):
+    def _keymeta_ticks(self,axis_or_colorbar):
         '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar''' 
         _keymeta = [
             ('ticks', dict(
@@ -1047,7 +1066,7 @@ class MakeMeta(list):
         ]
         return _keymeta
       
-    def keymeta_axis(self,x_or_y):
+    def _keymeta_axis(self,x_or_y):
         '''@make.axis@ -- keymeta for XAxis and YAxis'''
           
         S = {'x':['x','bottom','top','y','left','right','vertical'], 
@@ -1118,7 +1137,7 @@ class MakeMeta(list):
             ('autotick', make.autotick('axis')),
             ('nticks', make.nticks('axis')),
         ]
-        _keymeta += self.keymeta_ticks('axis')
+        _keymeta += self._keymeta_ticks('axis')
         _keymeta += [
             ('mirror', dict(
                 required=False,
@@ -1221,7 +1240,7 @@ class MakeMeta(list):
         ]
         return _keymeta
     
-    def XAxis(self):
+    def xaxis(self):
         '''@XAxis@'''
         name = 'xaxis'
         docstring = (
@@ -1234,10 +1253,10 @@ class MakeMeta(list):
             "{WEB}insets/"
         ]
         examples = MakeExamples.XAxis(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_axis('x'))
+        keymeta = OrderedDict(self._keymeta_axis('x'))
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def YAxis(self):
+    def yaxis(self):
         '''@YAxis@'''
         name = 'yaxis'
         docstring = (
@@ -1250,10 +1269,10 @@ class MakeMeta(list):
             "{WEB}insets/"
         ]
         examples = MakeExamples.YAxis(MakeExamples())
-        keymeta = OrderedDict(self.keymeta_axis('y'))
+        keymeta = OrderedDict(self._keymeta_axis('y'))
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def RadialAxis(self):
+    def radialaxis(self):
         '''@RadialAxis@'''
         name = 'radialaxis'
         docstring = (
@@ -1319,7 +1338,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def AngularAxis(self):
+    def angularaxis(self):
         '''@AngularAxis@'''
         name = 'angularaxis'
         docstring = (
@@ -1368,7 +1387,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Legend(self):
+    def legend(self):
         '''@Legend@'''
         name = 'legend'
         docstring = (
@@ -1404,7 +1423,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def ColorBar(self):
+    def colorbar(self):
         '''@ColorBar@'''
         name = 'colorbar'
         docstring = (
@@ -1447,7 +1466,7 @@ class MakeMeta(list):
             ('autotick', make.autotick('colorbar')),
             ('nticks', make.nticks('colorbar'))
         ]
-        _keymeta += self.keymeta_ticks('colorbar')
+        _keymeta += self._keymeta_ticks('colorbar')
         _keymeta += [
             ('xanchor', make.xyanchor('x')),
             ('xanchor', make.xyanchor('y')),
@@ -1484,7 +1503,7 @@ class MakeMeta(list):
         keymeta = OrderedDict(_keymeta)
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Margin(self):
+    def margin(self):
         '''@Margin@'''
         name = 'margin'
         docstring = (
@@ -1535,7 +1554,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Annotation(self):
+    def annotation(self):
         '''@Annotation@'''
         name = 'annotation'
         docstring = ("""
@@ -1680,7 +1699,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Layout(self):
+    def layout(self):
         '''@Layout@'''
         name = 'layout'
         docstring = (
@@ -1929,7 +1948,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Figure(self):
+    def figure(self):
         '''@Figure@'''
         name = 'figure'
         docstring = ("""
@@ -1963,7 +1982,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Data(self):
+    def data(self):
         '''@Data@ (accepts no keys)'''
         name = 'data'
         docstring = (
@@ -1974,7 +1993,7 @@ class MakeMeta(list):
         keymeta = dict()
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def Annotations(self):
+    def annotations(self):
         '''@Annotations@ (accepts no keys)'''
         name = 'annotations'
         docstring = (
@@ -1985,7 +2004,7 @@ class MakeMeta(list):
         keymeta = dict()
         self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def Trace(self):
+    def trace(self):
         '''@Trace@'''  #Q? Why keep this?
         name = 'trace'
         docstring = ''
@@ -2042,7 +2061,7 @@ class MakeMeta(list):
         ])
         self += self._stuff(name, docstring, examples, links, keymeta)
      
-    def PlotlyList(self):
+    def plotlylist(self):
         '''@PlotlyList@ (accepts no keys)'''
         name = 'plotlylist'
         docstring = ''
@@ -2051,7 +2070,7 @@ class MakeMeta(list):
         keymeta = dict()
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def PlotlyDict(self):
+    def plotlydict(self):
         '''@PlotlyDict@ (accepts no keys)'''
         name = 'plotlydict'
         docstring = ''
@@ -2060,7 +2079,7 @@ class MakeMeta(list):
         keymeta = dict()
         self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def PlotlyTrace(self):
+    def plotlytrace(self):
         '''@PlotlyTrace@ (accepts no keys)'''
         name = 'plotlytrace'
         docstring = ''

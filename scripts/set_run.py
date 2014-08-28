@@ -1,3 +1,4 @@
+
 # -------------------------------------------------------------------------------
 # 
 # Set which language and which graph object to generate meta for.
@@ -26,81 +27,83 @@ def graph_objs():
         dict(
             group='Trace graph objects',
             description='Bind your data to traces with these',
-            names=[
-                'Scatter',
-                'Bar',
-                'Histogram',
-                'Box', 
-                'Heatmap',
-                'Contour',
-                'Histogram2d',
-                'Histogram2dContour',
-                'Area'
+            graph_objs=[
+                'scatter',
+                'bar',
+                'histogram',
+                'box', 
+                'heatmap',
+                'contour',
+                'histogram2d',
+                'histogram2dcontour',
+                'area'
             ]
         ),
         dict(
             group='Trace auxiliary objects',
             description='Add some spice to your traces with these',
-            names=[
-                'ErrorY',
-                'ErrorX',
-                'XBins',
-                'YBins',
-                'Marker',
-                'Line',
-                'Contours',
-                'Stream'
+            graph_objs=[
+                'error_y',
+                'error_x',
+                'xbins',
+                'ybins',
+                'marker',
+                'line',
+                'contours',
+                'stream'
             ]
         ),
         dict(
             group='Axis objects',
             description="Set the your axes' specifications and style with these",
-            names=[
-                'XAxis',
-                'YAxis',
-                'RadialAxis',
-                'AngularAxis'
+            graph_objs=[
+                'xaxis',
+                'yaxis',
+                'radialaxis',
+                'angularaxis'
             ]
         ),
         dict(
             group='Layout and layout style objects',
             description="Customize your figure's layout with these",
-            names=[
-                'Layout',
-                'Font',
-                'Legend',
-                'Annotation',
-                'ColorBar',
-                'Margin'
+            graph_objs=[
+                'layout',
+                'font',
+                'legend',
+                'annotation',
+                'colorbar',
+                'margin'
             ]
         ),
         dict(
             group='Figure object',
             description='Package layout and data with this object',
-            names=[
-                'Figure'
+            graph_objs=[
+                'figure'
             ]
         ),
         dict(
             group='List-like objects',
             description=False,        # => will not appear on plot.ly/
-            names=[
-                'Data',
-                'Annotations'
+            graph_objs=[
+                'data',
+                'annotations'
             ],
         ),
         dict(
             group='Primitive',
             description=False,        # => will not appear on plot.ly/
-            names=[
-                'Trace',
-                'PlotlyList',
-                'PlotlyDict',
-                'PlotlyTrace'
+            graph_objs=[
+                'trace',
+                'plotlylist',
+                'plotlydict',
+                'plotlytrace'
             ]
         )
     ]
-    graph_objs = [name for info in graph_objs_info for name in info['names']]
+    graph_objs = [graph_obj 
+                 for info in graph_objs_info 
+                 for graph_obj in info['graph_objs']]
     return graph_objs_info, graph_objs
 
 # -------------------------------------------------------------------------------

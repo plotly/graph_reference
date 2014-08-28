@@ -1,5 +1,10 @@
 {
     "scatter": {
+        "name": "trace type='scatter'", 
+        "obj_type": "structure", 
+        "parents": [
+            "'data'"
+        ], 
         "docstring": "A structure-like object for representing a scatter trace in plotly.", 
         "examples": [
             ""

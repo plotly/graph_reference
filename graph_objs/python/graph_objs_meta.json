@@ -1,5 +1,10 @@
 {
     "scatter": {
+        "name": "Scatter", 
+        "obj_type": "dictionary", 
+        "parents": [
+            "'data'"
+        ], 
         "docstring": "A dictionary-like object for representing a scatter trace in plotly.", 
         "examples": [
             "py.plot([Scatter(name='tacters', x=[1,4,2,3], y=[1,6,2,1])])"
