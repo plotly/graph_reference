@@ -1,55 +1,78 @@
 import json
+
+# -------------------------------------------------------------------------------
+#
+# Each dictionary is represented with KEYS and VALS i.e. dict(KEY=VAL),
+# to avoid confusion with graph objs key, keymeta, etc ...
+#
+# -------------------------------------------------------------------------------
+
 with open('./graph_objs/python/graph_objs_meta.json') as f:
-    INFO = json.load(f)
+    META = json.load(f)
 
-types = ['data', 'plot_info', 'style', 'object']
+# -------------------------------------------------------------------------------
 
-attr_keys = ['required',
-             'description',
-             'examples',  # todo: do we want this?
-             'type',
-             'val_types',
-             'streamable',
-             'code',    # todo: do we want this?
-             'default']  # todo: do we want this?
+graph_obj_meta_KEYS = [
+    'docstring',
+    'examples',
+    'links',
+    'keymeta'
+]
 
+graph_obj_key_KEYS = [
+    'type',
+    'required',
+    'val_types',
+    'description',
+    'examples',
+    'streamable'
+]
 
-def test_type_exists():
-    print "\n\ntesting if keys have 'type'\n"
+graph_obj_key_type_VALS = [
+    'data', 
+    'plot_info',
+    'style',
+    'object'
+]
+
+# -------------------------------------------------------------------------------
+
+def test_meta_KEYS():
+    print "\n\ntesting if graph objs KEYS are in graph_objs_meta_KEYS\n"
     checks = True
-    for obj_key, obj in INFO.items():
-        if obj_key != 'trace':
-            for attr_key, attr_dict in obj.items():
-                if 'type' not in attr_dict:
-                    checks = False
-                    print obj_key, attr_key
+    for graph_obj, graph_obj_meta in META.items():
+        for graph_obj_meta_KEY in graph_obj_meta.keys():
+            if graph_obj_meta_KEY not in graph_obj_meta_KEYS:
+                checks = False
+                print graph_obj, graph_obj_meta_KEY
     if not checks:
         raise Exception
 
-
-def test_for_invalid_attr_keys():
-    print "\n\ntesting if attr keys are valid\n"
+def test_key_KEYS():
+    print "\n\ntesting if graph objs key KEYS are graph_objs_key_KEYS\n"
     checks = True
-    for obj_key, obj in INFO.items():
-        if obj_key != 'trace':
-            for attr_key, attr_dict in obj.items():
-                for attr in attr_dict:
-                    if attr not in attr_keys:
-                        print obj_key, attr_key, attr
+    for graph_obj, graph_obj_meta in META.items():
+        if graph_obj != 'trace':
+            KEYMETA = graph_obj_meta['keymeta']
+            for graph_obj_key, graph_obj_keymeta in KEYMETA.items():
+                for graph_obj_key_KEY in graph_obj_keymeta.keys():
+                    if graph_obj_key_KEY not in graph_obj_key_KEYS:
                         checks = False
+                        print graph_obj, graph_obj_key, graph_obj_key_KEY
     if not checks:
         raise Exception
 
-
-def test_type_value():
-    print "\n\ntesting if 'type' values are valid\n"
+def test_key_type_VALS():
+    print "\n\ntesting if graph objs key 'type' VALS are graph_objs_key_type_VALS\n"
     checks = True
-    for obj_key, obj in INFO.items():
-        if obj_key != 'trace':
-            for attr_key, attr_dict in obj.items():
-                if 'type' in attr_dict:
-                    if attr_dict['type'] not in types:
-                        print obj_key, attr_key, attr_dict['type']
-                        checks = False
+    for graph_obj, graph_obj_meta in META.items():
+        if graph_obj != 'trace':
+            KEYMETA = graph_obj_meta['keymeta']
+            for graph_obj_key, graph_obj_keymeta in KEYMETA.items():
+                for graph_obj_key_KEY, graph_obj_key_VAL in graph_obj_keymeta.items():
+                    if graph_obj_key_KEY == 'type':
+                        if graph_obj_key_VAL not in graph_obj_key_type_VALS:
+                            checks = False
+                            print graph_obj, graph_obj_key, graph_obj_key_VAL
     if not checks:
         raise Exception
