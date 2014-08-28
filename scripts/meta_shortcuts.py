@@ -1,26 +1,33 @@
-# Import language table!
-import language_table 
+from meta_examples import MakeExamples
 
 # -------------------------------------------------------------------------------
 #
-# Define shortcuts for value types in `.val_types()`, for conditional 
-# require in `.required_cond()` and all meta field in `.Make()`.
+# A set of shortcuts used in meta.MakeMeta()
 #
-# ** Defining a `.Make()` class allows for smooth transitions from language to 
-#    language along with `run.py`
-# 
-#    `.val_types()` and `.required_cond()` are language-independent (for now),
-#    so they are defined with just functions. **
+# - Define shortcuts for value types in ValTypes()
+# - Define required conditions in RequiredCond()
+# - Define shortcuts to keymeta field in Make()
 #
 # -------------------------------------------------------------------------------
 
-# class ValTypes:
-def val_types(val_type):
-    '''@val_types@ -- Inventory of value types
+class ValTypes(str):
+    '''@ValTypes@ -- Inventory of value types
     '''
-    def _number(lt=None, le=None, gt=None, ge=None, list=False):
-        '''@val_types-number@ -- Use this to format key accepting numbers
-        '''
+    
+    def __init__(self):
+        '''@val_types@'''
+        self = ''
+
+    def bool(self):
+        return "boolean: {TRUE} | {FALSE}"
+    
+    def string(self):
+        return "string"
+
+    def color(self):
+        return "string describing color"
+
+    def number(self, lt=None, le=None, gt=None, ge=None, is_list=False):
         if any((all((lt is not None, le is not None)),
                 all((gt is not None, ge is not None)))):
             raise Exception("over-constrained number definition")
@@ -42,32 +49,44 @@ def val_types(val_type):
             out = "number: x in ({gt}, {le}]".format(gt=gt, le=le)
         elif (le is not None) and (ge is not None):
             out = "number: x in [{ge}, {le}]".format(le=le, ge=ge)
-        if list:
+        if is_list:
             return out+", or list of these numbers"
         else:
             return out
-    val_types_dict = dict(
-        bool="boolean: True | False",
-        color="string describing color",
-        string="string",
-        number= _number,  
-        number_array="array-like of numbers",  # TODO make this a class!
-        data_array="array-like of numbers, strings, datetimes",
-        string_array="array-like of strings",
-        color_array="array-like of string describing color",
-        matrix="matrix-like: list of lists, numpy.matrix",
-        object="dictionary-like",
-        object_list="array-like of one or several dictionaries",
-    )
-    return val_types_dict[val_type]
+
+    def number_array(self):
+        return "{OL} of numbers"
+
+    def data_array(self):
+        return "{OL} of numbers, strings, datetimes"
+
+    def string_array(self):
+        return "{OL} of strings"
+
+    def color_array(self):
+        return "{OL} of string describing color"
+
+    def matrix(self):
+        return "{OL2D} of numbers"
+
+    def object(self):
+        return "{UL}"
+
+    def object_list(self):
+        return "{OL} of one or several {UL}"
 
 # -------------------------------------------------------------------------------
 
-def required_cond(cond):  # TODO make this a class!
-    '''@required_cond-dict@ -- Inventory of required conditions
+class RequiredCond(str):  
+    '''@RequiredCond@ -- Inventory of required conditions
     '''
-    def _required_keys(keys):
-        '''@required_cond-keys@ -- Use this for conditions involving keys
+
+    def __init__(self):
+        '''@required_cond@'''
+        self = ''
+
+    def keys(self, keys):
+        '''@required_cond.keys@ -- conditions involving keys
         '''
         if type(keys)==str:
             to_be = 'is'
@@ -75,30 +94,28 @@ def required_cond(cond):  # TODO make this a class!
             to_be = 'is'
             keys = keys[0]
         elif type(keys)==list:
-            keys=','.join(keys[0:-1])+' and '+keys[-1]
+            keys=','.join(keys[0:-1]) + ' and ' + keys[-1]
             to_be = 'are'
         return " when {keys} {to_be} unset".format(keys=keys,to_be=to_be)
     
-    def _required_plottype(plottype):
-        '''@required_cond-plottype@ -- Use this for conditions involving plot type
+    def plottype(self, plottype):
+        '''@required_cond.plottype@ -- conditions involving plot type
         '''
         return " when making a {plottype}".format(plottype=plottype)
-    required_cond_dict = dict(
-        keys= _required_keys,
-        plottype= _required_plottype
-     )
-    return required_cond_dict[cond]
 
 # -------------------------------------------------------------------------------
 
-class Make():
+class Make(dict):
     '''@Make@ -- Inventory of meta generators for repeated keys
     '''
 
-    def __init__(self, language):
-        '''Initialize class with specific language table'''
-        global G
-        G = language_table.table[language]
+    def __init__(self):
+        '''@make@'''
+        self = dict()
+        global val_types        # N.B no need to type self.val_types(...)
+        val_types = ValTypes()   
+        global required_cond
+        required_cond = RequiredCond()
 
     def _output(self,_required, _type, _val_types, _description, **kwargs):
         '''@output@ -- Format the keys' values into a dictionary
@@ -122,9 +139,9 @@ class Make():
     def x(self,obj):
         '''@x@'''
         _required = dict(
-            scatter=required_cond('keys')(["'y'","'r'","'t'"]),
-            bar=required_cond('keys')(["'y'"]),
-            histogram=required_cond('keys')(["'y'"]),
+            scatter=required_cond.keys(["'y'","'r'","'t'"]),
+            bar=required_cond.keys(["'y'"]),
+            histogram=required_cond.keys(["'y'"]),
             box=False,
             heatmap=False,
             contour=False,
@@ -132,7 +149,7 @@ class Make():
             histogram2dcontour=True,
         )
         _type='data'
-        _val_types=val_types('data_array')
+        _val_types=val_types.data_array()
         _description = dict(
             scatter=(
                 "The x coordinates of the points of this scatter trace. "
@@ -191,9 +208,9 @@ class Make():
     def y(self,obj):
        '''@y@'''
        _required=dict(
-            scatter=required_cond('keys')(["'x'","'r'","'t'"]),
-            bar=required_cond('keys')(["'x'"]),
-            histogram=required_cond('keys')(["'x'"]),
+            scatter=required_cond.keys(["'x'","'r'","'t'"]),
+            bar=required_cond.keys(["'x'"]),
+            histogram=required_cond.keys(["'x'"]),
             box=True,
             heatmap=False,
             contour=False,
@@ -201,7 +218,7 @@ class Make():
             histogram2dcontour=True,
         )
        _type='data'
-       _val_types=val_types('data_array')
+       _val_types=val_types.data_array()
        _description=dict(
            scatter=(
                "The y coordinates of the points of this scatter trace. "
@@ -255,7 +272,7 @@ class Make():
         '''@z@'''
         _required=True
         _type='data'
-        _val_types=val_types('matrix')
+        _val_types=val_types.matrix()
         _description=dict(
             heatmap=(
                 "The data that describes the mapping. "
@@ -286,12 +303,12 @@ class Make():
     def r(self,obj):
         '''@r@'''
         _required=dict(
-            scatter=required_cond('plottype')("Polar Chart"),
-            bar=required_cond('plottype')("Polar Chart"),
+            scatter=required_cond.plottype("Polar Chart"),
+            bar=required_cond.plottype("Polar Chart"),
             area=True
         )
         _type='data'
-        _val_types=val_types('number_array') # Q? Should this support string too?
+        _val_types=val_types.number_array() # Q? Should this support string too?
         _description=dict(  
             scatter=(
                 "For Polar charts only. "
@@ -316,12 +333,12 @@ class Make():
     def t(self,obj):
         '''@t@'''
         _required=dict(
-            scatter=required_cond('plottype')("Polar Chart"),
-            bar=required_cond('plottype')("Polar Chart"),
+            scatter=required_cond.plottype("Polar Chart"),
+            bar=required_cond.plottype("Polar Chart"),
             area=True
         )
         _type='data'
-        _val_types=val_types('data_array')
+        _val_types=val_types.data_array()
         _description=dict(
             scatter=(
                 "For Polar charts only. "
@@ -370,7 +387,7 @@ class Make():
     
         _required=False
         _type='plot_info'  
-        _val_types=val_types('number')()
+        _val_types=val_types.number()
         _description=dict( # TODO! Add scatter?
             box=(
                 "The location of this box. When 'y' defines a single "
@@ -395,7 +412,7 @@ class Make():
     
         _required=False
         _type='plot_info'  
-        _val_types=val_types('number')()
+        _val_types=val_types.number()
         _description=dict( # TODO! Add scatter?
             heatmap=(
                 "Spacing between {S0}-axis coordinates. "
@@ -429,7 +446,7 @@ class Make():
         '''@text@'''
         _required=False
         _type='data'
-        _val_types=val_types('string_array')
+        _val_types=val_types.string_array()
         _description=dict(
             scatter=(
                 "The text elements associated with each (x,y) pair in "
@@ -460,7 +477,7 @@ class Make():
     
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
             scatter=(
                 "A dictionary-like object describing "
@@ -501,7 +518,7 @@ class Make():
         '''@marker@'''
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
             scatter=(
                 "A dictionary-like object containing marker style "
@@ -534,7 +551,7 @@ class Make():
         '''@line@'''
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
             scatter=(
                 "A dictionary-like object containing line style "
@@ -571,7 +588,7 @@ class Make():
         _required=False
         _type="style"
         if not marker:
-            _val_types=val_types('number')(ge=0, le=1)
+            _val_types=val_types.number(ge=0, le=1)
             _description=(
                  "Sets the opacity, or transparency, "
                  "of the entire object, "
@@ -581,7 +598,7 @@ class Make():
                  "model, 'opacity' is redundant."
             )
         else:
-            _val_types=val_types('number')(ge=0, le=1, list=True)
+            _val_types=val_types.number(ge=0, le=1, is_list=True)
             _description=(
                 "Sets the opacity, or transparency "
                 "also known as the alpha channel of colors) "
@@ -600,7 +617,7 @@ class Make():
         '''@textfont@'''
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
             scatter=(
                 "A dictionary-like object describing the font style "
@@ -616,7 +633,7 @@ class Make():
         '''@font@'''
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
             legend=(
                 "A dictionary-like object describing the font "
@@ -638,7 +655,7 @@ class Make():
         return dict(
             required=False,
             type='data',
-            val_types=val_types('string'),
+            val_types=val_types.string(),
             description=(
                 "The label associated with this trace. "
                 "This name will appear in the legend, on hover and "
@@ -651,7 +668,7 @@ class Make():
         return dict(
             required=False,
             type='object',
-            val_types=val_types('object'),
+            val_types=val_types.object(),
             description=(
                 "The stream dictionary-like object that initializes traces as "
                 "writable-streams, for use with the real-time streaming API."
@@ -663,7 +680,7 @@ class Make():
         return dict(
             required=False,
             type='plot_info',
-            val_types=val_types('bool'),
+            val_types=val_types.bool(),
             description=(
                 "Toggles whether or not this object will actually be "
                 "visible in the rendered figure."
@@ -674,7 +691,7 @@ class Make():
         '''@showlegend@'''
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         if trace:
             _description=(
                 "Toggle whether or not this trace will be "
@@ -709,7 +726,7 @@ class Make():
             ).format(S0=s[0])
         elif layout:
             _type='object'
-            _val_types=val_types('object')
+            _val_types=val_types.object()
             _description=(
                 "A dictionary-like object describing an "
                 "{S0}-axis (i.e. an {S1} axis). "
@@ -780,7 +797,7 @@ class Make():
     
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {S0}-axis bin parameters "
             "are picked automatically by Plotly. "
@@ -798,7 +815,7 @@ class Make():
     
         _required=False
         _type='style'
-        _val_types=val_types('number')(gt=0)
+        _val_types=val_types.number(gt=0)
         _description=(
             "Specifies the number of {S0}-axis bins. "
             "No need to set 'autobin{S0}' to False "
@@ -813,7 +830,7 @@ class Make():
     
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=(
             "A dictionary-like object defining the parameters "
             "of {S0}-axis bins of this trace, for example, "
@@ -828,7 +845,7 @@ class Make():
         return dict(
             required=False,
             type='object',
-            val_types=val_types('object'),
+            val_types=val_types.object(),
             description=(
                 "A dictionary-like object defining the parameters of "
                 "the color bar associated with this trace "
@@ -863,19 +880,14 @@ class Make():
             "'{S1}max to fine-tune the map from '{S0}' to "
             "rendered colors."
         ).format(S0=s[0],S1=s[1])
-        _examples=["'Greys'", 
-                  [[0, "rgb(0,0,0)"], 
-                   [0.5, "rgb(65, 182, 196)"],
-                   [1, "rgb(255,255,255)"]]
-                  ]
         return self._output(_required,_type,_val_types,_description,
-                      examples=_examples)
+                            examples=MakeExamples.colorscale(MakeExamples()))
     
     def zcauto(self, z_or_c):
         '''@zcauto@ | @zauto@ | @cauto@'''
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the default values "
             "of '{}max' and '{}max' can be overwritten."
@@ -890,7 +902,7 @@ class Make():
     
         _required=False
         _type='style'
-        _val_types=val_types('number')()
+        _val_types=val_types.number()
         _description=(
             "Sets the {S0} '{z_or_color}' data value to be "
             "resolved by the color scale. "
@@ -911,7 +923,7 @@ class Make():
         return dict(
             required=False,
             type='style',
-            val_types=val_types('bool'),
+            val_types=val_types.bool(),
             description="Toggle whether or not the color scale will be reversed."
         )
     
@@ -920,7 +932,7 @@ class Make():
         return dict(
             required=False,
             type='style',
-            val_types=val_types('bool'),
+            val_types=val_types.bool(),
             description=(
                 "Toggle whether or not the color scale associated with "
                 "this mapping will be shown alongside the figure."
@@ -946,7 +958,7 @@ class Make():
         return dict(
             required=False,
             type='style',
-            val_types=val_types('bool'),
+            val_types=val_types.bool(),
             description=(
                 "Toggle whether or not the contour parameters are picked "
                 "automatically by Plotly. "
@@ -960,7 +972,7 @@ class Make():
         return dict(
             required=False,
             type='style',
-            val_types=val_types('number')(gt=1),
+            val_types=val_types.number(gt=1),
             description=(
                 "Specifies the number of contours lines "
                 "in the contour plot. "
@@ -974,31 +986,21 @@ class Make():
         return dict(
             required=False,
             type='object',
-            val_types=val_types('object'),
+            val_types=val_types.object(),
             description=(
                 "A dictionary-like object defining the parameters of "
                 "the contours of this trace."
             )
         )
     
-    def examples_color(self):
-        '''@examples-color@'''
-        return [
-            "'green'", 
-            "'rgb(0, 255, 0)'",
-            "'rgba(0, 255, 0, 0.3)'",
-            "'hsl(120,100%,50%)'",
-            "'hsla(120,100%,50%,0.3)'"
-        ]
-    
     def color(self,obj):
         '''@color@'''
         _required=False
         _type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
         if obj=='marker':
-            _val_types=val_types('color_array')  #Q? Add "or 'data_array'" 
+            _val_types=val_types.color_array()  #Q? Add "or 'data_array'" 
         else:
-            _val_types=val_types('color')
+            _val_types=val_types.color()
         _description=dict(
             marker=(
                 "Sets the color of the face of the marker object. "
@@ -1028,13 +1030,13 @@ class Make():
         _streamable=True
         return self._output(
             _required,_type,_val_types,_description[obj],
-            streamable=_streamable,examples=self.examples_color())
+            streamable=_streamable,examples=MakeExamples.color(MakeExamples()))
     
     def fillcolor(self,obj):
         '''@fillcolor@'''
         _required=False
         _type='style'
-        _val_types=val_types('color')
+        _val_types=val_types.color()
         _description=dict(
             scatter=(
                 "Sets the color that will appear "
@@ -1045,45 +1047,45 @@ class Make():
         )
         return self._output(
             _required,_type,_val_types,_description[obj],
-            examples=self.examples_color())
+            examples=MakeExamples.color(MakeExamples()))
     
     def outlinecolor(self,obj):
         '''@outlinecolor@'''
         _required=False
         _type='style'
-        _val_types=val_types('color')
+        _val_types=val_types.color()
         _description=dict(
             font="For polar chart only. Sets the color of the text's outline.",
             colorbar="The color of the outline surrounding this colorbar."
         )
         return self._output(_required,_type,_val_types,_description[obj],
-                      examples=self.examples_color())
+                            examples=MakeExamples.color(MakeExamples()))
     
     def bgcolor(self,obj):
         '''@bgcolor@'''
         _required=False
         _type='style'
-        _val_types=val_types('color')
+        _val_types=val_types.color()
         _description=dict(
             legend="Sets the background (bg) color for the legend.",
             colorbar="Sets the background (bg) color for this colorbar.",
             annotation="Sets the background (bg) color for this annotation."
         )
         return self._output(_required,_type,_val_types,_description[obj],
-                      examples=self.examples_color())
+                      examples=MakeExamples.color(MakeExamples()))
     
     def bordercolor(self,obj):
         '''@bordercolor@'''
         _required=False
         _type='style'
-        _val_types=val_types('color')
+        _val_types=val_types.color()
         _description=dict(
             legend="Sets the enclosing border color for the legend.",
             colorbar="Sets the color of the enclosing boarder of this colorbar.",
             annotation="The color of the enclosing boarder of this annotation."
         )
         return self._output(_required,_type,_val_types,_description[obj],
-                      examples=self.examples_color())
+                      examples=MakeExamples.color(MakeExamples()))
     
     def size(self, obj, x_or_y=False):
         '''@size@'''
@@ -1093,9 +1095,9 @@ class Make():
         _required=False
         _type='style'   #Q? 'data' in bubble charts (i.e. if linked to array)
         if obj=='marker':
-            _val_types=val_types('number')(gt=0,list=True)
+            _val_types=val_types.number(gt=0,is_list=True)
         else:
-            _val_types=val_types('number')(gt=0)
+            _val_types=val_types.number(gt=0)
         _description=dict(
             marker=(
                 "Sets the size of the markers (in pixels). "
@@ -1131,7 +1133,7 @@ class Make():
     
         _required=False
         _type='style'
-        _val_types=val_types('number')(gt=0)
+        _val_types=val_types.number(gt=0)
         _description=dict(
             bins=(
                 "Sets the {S_se1} point on the {S_xy0}-axis for the {S_se0} "
@@ -1148,7 +1150,7 @@ class Make():
         '''@width@'''
         _required=False
         _type='style'
-        _val_types=val_types('number')(ge=0)
+        _val_types=val_types.number(ge=0)
         _description=dict(
             line="Sets the width (in pixels) of the line object.",
             error=(
@@ -1163,7 +1165,7 @@ class Make():
         '''@thickness@'''
         _required=False
         _type='style'
-        _val_types=val_types('number')(ge=0)
+        _val_types=val_types.number(ge=0)
         S={'x': ['x',], 'y': ['y',], False:['',]}
         s=S[x_or_y]
         _description=dict(
@@ -1178,7 +1180,7 @@ class Make():
         '''@borderwidth@'''
         _required=False
         _type='style'
-        _val_types=val_types('number')(ge=0)
+        _val_types=val_types.number(ge=0)
         _description=dict(
             legend="Sets the width of the border enclosing for the legend.",
             colorbar="Sets the width of the boarder enclosing this colorbar",
@@ -1190,7 +1192,7 @@ class Make():
         '''@title@'''
         _required=False
         _type='plot_info'
-        _val_types=val_types('string')
+        _val_types=val_types.string()
         _description=dict(
                 axis="The {S}-axis title.".format(S=x_or_y),
                 colorbar="The title of the colorbar.",
@@ -1202,7 +1204,7 @@ class Make():
         '''@titlefont@'''
         _required=False
         _type='object'
-        _val_types=val_types('object')
+        _val_types=val_types.object()
         _description=dict(
                 axis=("A dictionary-like object describing the font "
                       "settings of the {S}-axis title."
@@ -1220,23 +1222,23 @@ class Make():
     
     def range(self, what_axis):
         '''@range@'''
-        _required=False
-        _type='style'
-        _val_types="number array of length 2"
-        _description=(
+        _required = False
+        _type = 'style'
+        _val_types = "number array of length 2"
+        _description = (
             "Defines the start and end point of "
             "this {S} axis."
         ).format(S=what_axis)
-        _examples=[[-13, 20], [0, 1]]
+        _examples = MakeExamples.range_xy(MakeExamples())
         if what_axis=='angular':
             _description+=(
                 " By default, 'range' is set to [0,360]. "
                 "Has no effect if 't' is linked to "
                 "an array-like of string."
         )
-            _examples=[[0, 180], [0, 6.2831]]
+            _examples = MakeExamples.range_polar(MakeExamples())
         return self._output(_required,_type,_val_types,_description,
-                      examples=_examples)
+                            examples=_examples)
     
     def domain(self, what_axis):
         '''@domain@'''
@@ -1257,7 +1259,7 @@ class Make():
             )
             return self._output(_required,_type,_val_types,_description)
         else:
-            _examples=[[0,0.4], [0.6, 1]]
+            _examples = MakeExamples.domain(MakeExamples())
             return self._output(_required,_type,_val_types,_description,
                           examples=_examples)
     
@@ -1265,7 +1267,7 @@ class Make():
         '''@showline@'''
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the line bounding this "
             "{S} axis will "
@@ -1283,7 +1285,7 @@ class Make():
         '''@autotick@'''
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {S} ticks parameters "
             "are picked automatically by Plotly. "
@@ -1298,7 +1300,7 @@ class Make():
         '''@nticks@'''
         _required=False
         _type='style'    
-        _val_types=val_types('number')(gt=0)
+        _val_types=val_types.number(gt=0)
         _description=(
             "Specifies the number of {S} ticks. "
             "No need to set 'autoticks' to False "
@@ -1310,7 +1312,7 @@ class Make():
         '''@showticklabels@'''
         _required=False
         _type='style'
-        _val_types=val_types('bool')
+        _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {} ticks "
             "will feature tick labels."
@@ -1369,7 +1371,7 @@ class Make():
         '''@xy_layout@ | @x_layout@ | @y_layout@'''
         _required=False
         _type='plot_info'
-        _val_types=val_types('number')()
+        _val_types=val_types.number()
         _description=(
             "Sets the '{x_or_y}' position of this {obj}. "
         ).format(x_or_y=x_or_y, obj=obj)
@@ -1382,4 +1384,3 @@ class Make():
         return self._output(_required,_type,_val_types,_description)
     
 # -------------------------------------------------------------------------------
-

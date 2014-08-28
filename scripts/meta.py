@@ -1,18 +1,11 @@
-# Import shortcuts objects!
-from meta_shortcuts import Make, required_cond, val_types
-
-# Import language table!
-import language_table 
-
-# Use ordered dictionaries to list graph object keys
 from collections import OrderedDict
+
+from meta_shortcuts import ValTypes, RequiredCond, Make
+from meta_examples import MakeExamples
 
 # -------------------------------------------------------------------------------
 #
-# Define a meta-generation method for each graph object in class `.MakeMeta()`.
-#
-# ** Defining a `.MakeMeta()` class allows for smooth transitions  
-#    from language to language along with `run.py` and `meta_shortcuts.py` **
+# Define meta-generation methods, one for each graph object in class MakeMeta()
 #
 # -------------------------------------------------------------------------------
 
@@ -20,30 +13,45 @@ class MakeMeta(list):
     '''@MakeMeta@ -- Meta-generating methods for each graph object!
     '''
     
-    def __init__(self, language):
-        '''
-        Initialize class with specific language table and with
-        meta_shortcut.Make()
+    def __init__(self):
+        ''' @make_meta@
+        Initialize class as list, 
+        link `meta_shortcuts.py` instances to global variables
         '''
         self = []
-        global G
-        G = language_table.table[language]
+        global val_types       # N.B no need to type self.val_types(...)
+        val_types = ValTypes()
+        global required_cond
+        required_cond = RequiredCond()
         global make
-        make = Make(language)
+        make = Make()
+
+    def _stuff(self, name, docstring, examples, links, keymeta):
+        ''' @stuff@ -- Return a list of a tuple packaging graph object stuff
+        '''
+        return [(name, 
+            OrderedDict([
+                ('docstring', docstring),
+                ('examples',examples), 
+                ('links', links), 
+                ('keymeta', keymeta)
+            ])
+        )]
 
     def Scatter(self):
         '''@Scatter@'''
+        name = 'scatter'
         docstring = (
             "A {UL}-like object for representing a scatter trace in plotly."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
-            "{WEB}bubble-charts/".format(WEB=G['WEB']),
-            "{WEB}filled-area-plots/".format(WEB=G['WEB']),
-            "{WEB}time-series/".format(WEB=G['WEB'])
+            "{WEB}line-and-scatter/",
+            "{WEB}bubble-charts/",
+            "{WEB}filled-area-plots/",
+            "{WEB}time-series/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Scatter(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.x('scatter')),
             ('y', make.y('scatter')),
             ('r', make.r('scatter')),  
@@ -89,12 +97,12 @@ class MakeMeta(list):
             ('connectgaps', dict(
                 required=False,
                 type='plot_info',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not missing data points "
-                    "(i.e. '' or {G}) linked to 'x' and/or 'y', are "
+                    "(i.e. '' or {NAN}) linked to 'x' and/or 'y', are "
                     "added in by Plotly using linear interpolation."
-                ).format(G=G['NAN'])
+                )
             )),
             ('fill', dict(
                 required=False,
@@ -119,21 +127,17 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('scatter')),
         ])
-        self += [('scatter', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
  
     def Bar(self):
         '''@Bar@'''
+        name = 'bar'
         docstring = (
             "A {UL}-like object for representing a bar trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}bar-charts/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}bar-charts/"]
+        examples = MakeExamples.Bar(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.x('bar')),
             ('y', make.y('bar')),
             ('name', make.name()),
@@ -154,21 +158,17 @@ class MakeMeta(list):
             ('line', make.line('bar')),  # ARTIFACT
             ('textfont', make.textfont('bar'))  # ARTIFACT
         ])
-        self += [('bar', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Histogram(self):
         '''@Histogram@'''
+        name = 'histogram'
         docstring = (
             "A {UL}-like object for representing a histogram trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}histograms/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}histograms/"]
+        examples = MakeExamples.Histogram(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.x('histogram')),
             ('y', make.y('histogram')),
             ('histnorm', make.histnorm()),
@@ -193,21 +193,17 @@ class MakeMeta(list):
             ('line', make.line('histogram')),  # ARTIFACT
             ('orientation', make.orientation('histogram'))  # ARTIFACT
         ])
-        self += [('histogram', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Box(self):
         '''@Box@'''
+        name = 'box'
         docstring = (
             "A {UL}-like object for representing a box trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}box-plots/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}box-plots/"]
+        examples = MakeExamples.Box(MakeExamples())
+        keymeta = OrderedDict([
             ('y', make.y('box')),
             ('x0', make.x0y0('box')),
             ('x', make.x('box')),
@@ -243,7 +239,7 @@ class MakeMeta(list):
             ('jitter', dict(
                 required=False,
                 type='style',    
-                val_types=val_types('number')(ge=0,le=1),
+                val_types=val_types.number(ge=0,le=1),
                 description=(
                     "Sets the width of the jitter in the boxpoints scatter "
                     "in this trace. "
@@ -257,7 +253,7 @@ class MakeMeta(list):
             ('pointpos', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=-2, le=2),
+                val_types=val_types.number(ge=-2, le=2),
                 description=(
                     "Sets the horizontal position of the boxpoints "
                     "in relation to the boxes in this trace. "
@@ -272,7 +268,7 @@ class MakeMeta(list):
             ('whiskerwidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0, le=1),
+                val_types=val_types.number(ge=0, le=1),
                 description=(
                     "Sets the width of the whisker of the box relative "
                     "to the box' "
@@ -292,21 +288,17 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('box'))
         ])
-        self += [('box', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Heatmap(self):
         '''@Heatmap@'''
+        name = 'heatmap'
         docstring = (
             "A {UL}-like object for representing a heatmap trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}heatmaps/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}heatmaps/"]
+        examples = MakeExamples.Heatmap(MakeExamples())
+        keymeta = OrderedDict([
             ('z', make.z('heatmap')),
             ('x', make.x('heatmap')),
             ('y', make.y('heatmap')),
@@ -333,21 +325,17 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('heatmap')),
         ])
-        self += [('heatmap', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Contour(self):
         '''@Contour@'''
+        name = 'contour'
         docstring = (
             "A {UL}-like object for representing a contour trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}contour-plots/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}contour-plots/"]
+        examples = MakeExamples.Contour(MakeExamples())
+        keymeta = OrderedDict([
             ('z', make.z('contour')),
             ('x', make.x('contour')),
             ('y', make.y('contour')),
@@ -377,21 +365,17 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('contour'))
         ])
-        self += [('contour', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
-    
+        self += self._stuff(name, docstring, examples, links, keymeta)
+
     def Histogram2d(self):
         '''@Histogram2d@'''
+        name = 'histogram2d'
         docstring = (
             "A {UL}-like object for representing a 2D histogram trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}2D-Histograms/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}2D-Histograms/"]
+        examples = MakeExamples.Histogram2d(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.x('histogram2d')),
             ('y', make.y('histogram2d')),
             ('histnorm', make.histnorm()),
@@ -418,22 +402,18 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2d'))
         ])
-        self += [('histogram2d', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Histogram2dContour(self):
         '''@Histogram2dContour@'''
+        name = 'histogram2dcontour'
         docstring = (
             "A {UL}-like object for representing a 2D histogram contour "
             "trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}2D-Histograms/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}2D-Histograms/"]
+        examples = MakeExamples.Histogram2dContour(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.x('histogram2dcontour')),
             ('y', make.y('histogram2dcontour')),
             ('histnorm', make.histnorm()),
@@ -463,21 +443,17 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2dcontour'))
         ])
-        self += [('histogram2dcontour', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Area(self):
         '''@Area@'''
+        name = 'area'
         docstring = (
             "A {UL}-like object for representing an area trace in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}polar-chart/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}polar-chart/"]
+        examples = MakeExamples.Area(MakeExamples())
+        keymeta = OrderedDict([
             ('r', make.r('area')),
             ('t', make.t('area')),
             ('name', make.name()),
@@ -503,21 +479,16 @@ class MakeMeta(list):
             )),
             ('type', make.type('area'))
         ])
-        self += [('area', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def meta_error(self,y_or_x):
-        '''@meta_error@ -- meta for ErrorY and ErrorX'''
+    def keymeta_error(self,y_or_x):
+        '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
     
         S = {'y': ['y','vertically','up','down','above','below'],
              'x': ['x','horizontally','right','left','right of','left of']}
         s = S[y_or_x]
         
-        _meta = [
+        _keymeta = [
             ('type', dict(      # Different enough from shortcut
                 required=False,
                 type='plot_info', 
@@ -540,7 +511,7 @@ class MakeMeta(list):
             ('symmetric', dict(
                 required=False,
                 type='plot_info',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not error bars are the same length "
                     "in both directions ({S2} and {S3}). If not specified, "
@@ -551,7 +522,7 @@ class MakeMeta(list):
             ('array', dict(
                 required=False,
                 type='data',
-                val_types=val_types('data_array'),
+                val_types=val_types.data_array(),
                 description=(
                    "The array of corresponding to "
                    "error bars' span to be drawn. "
@@ -569,7 +540,7 @@ class MakeMeta(list):
             ('value', dict(
                 required=False,
                 type='plot_info',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                    "The value or percentage determining the error bars' "
                    "span, at all trace coordinates. "
@@ -585,7 +556,7 @@ class MakeMeta(list):
             ('arrayminus', dict(
                 required=False,
                 type='data',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                       "Only functional when 'symmetric' is set to False. "
                       "Same as 'array' but corresponding to the span "
@@ -595,7 +566,7 @@ class MakeMeta(list):
             ('valueminus', dict(
                 required=False,
                 type='plot_info',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                       "Only functional when 'symmetric' "
                       "is set to False. Same as 'value' but corresponding "
@@ -609,11 +580,11 @@ class MakeMeta(list):
         ]
     
         if y_or_x=='x':
-            _meta += [
+            _keymeta += [
                 ('copy_ystyle', dict(
                     required=False,
                     type='style',
-                    val_types=val_types('bool'),
+                    val_types=val_types.bool(),
                     description=(
                           "Toggle whether to set x error bar "
                           "style to the same style "
@@ -623,101 +594,84 @@ class MakeMeta(list):
                 ))
             ]
     
-        _meta += [('visible', make.visible())]
-        return _meta
+        _keymeta += [('visible', make.visible())]
+        return _keymeta
       
     def ErrorY(self):
         '''@ErrorY@'''
+        name = 'error_y'
         docstring = (
             "A {UL}-like object representing a set of error bar spanning "
             "along the y-axis."
-        ).format(UL=G['UL'])
-        links = ["{WEB}error-bars/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict(self.meta_error('y'))
-        self += [('error_y', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        )
+        links = ["{WEB}error-bars/"]
+        examples = MakeExamples.ErrorY(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_error('y'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def ErrorX(self):
         '''@ErrorX@'''
+        name = 'error_x'
         docstring = (
             "A {UL}-like object representing a set of error bars spanning "
             "along the x-axis."
-        ).format(UL=G['UL'])
-        links = ["{WEB}error-bars/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict(self.meta_error('x'))
-        self += [('error_x', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        )
+        links = ["{WEB}error-bars/"]
+        examples = MakeExamples.ErrorX(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_error('x'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
-    def meta_bins(self,x_or_y):
-        '''@meta_bins@ -- meta for XBins and YBins'''
-        _meta = [
+    def keymeta_bins(self,x_or_y):
+        '''@keymeta_bins@ -- keymeta for XBins and YBins'''
+        _keymeta = [
             ('start', make.startend('bins','start',x_or_y)),
             ('end', make.startend('bins','end',x_or_y)),
             ('size', make.size('bins',x_or_y))
         ]
-        return _meta
+        return _keymeta
     
     def XBins(self):
         '''@XBins@'''
+        name = 'xbins'
         docstring = (
             "A {UL}-like object containing specifications of the bins "
             "lying along the x-axis."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}histograms/".format(WEB=G['WEB']),
-            "{WEB}2D-Histograms/".format(WEB=G['WEB'])
+            "{WEB}histograms/",
+            "{WEB}2D-Histograms/"
         ]
-        examples = ['']
-        meta = OrderedDict(self.meta_bins('x'))
-        self += [('xbins', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.XBins(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_bins('x'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def YBins(self):
         '''@YBins@'''
+        name = 'ybins'
         docstring = (
             "A {UL}-like object containing specifications of the bins "
             "lying along the y-axis."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}histograms/".format(WEB=G['WEB']),
-            "{WEB}2D-Histograms/".format(WEB=G['WEB'])
+            "{WEB}histograms/"
+            "{WEB}2D-Histograms/"
         ]
-        examples = ['']
-        meta = OrderedDict(self.meta_bins('y'))
-        self += [('ybins', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.YBins(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_bins('y'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Contours(self):
         '''@Contours@'''
+        name = 'contours'
         docstring = (
             "A {UL}-like object containing specifications of the contours."
-        ).format(UL=G['UL'])
-        links = [
-            "{WEB}contour-plots/".format(WEB=G['WEB']),
-        ]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}contour-plots/"]
+        examples = MakeExamples.Contours(MakeExamples())
+        keymeta = OrderedDict([
             ('showlines', dict(
                 required=False, type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the contour lines appear on the plot."
                 )
@@ -742,23 +696,17 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += [('contours', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Stream(self):
         '''@Stream@'''
+        name = 'stream'
         docstring = (
             "A {UL}-like object containing specifications of the data stream."
-        ).format(UL=G['UL'])
-        links = [
-            "{WEB}streaming/".format(WEB=G['WEB']),
-        ]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}streaming/"]
+        examples = MakeExamples.Stream(MakeExamples())
+        keymeta = OrderedDict([
             ('token', dict(  #Q? These are public!! Is that OK?
                 required=True,
                 type='plot_info',
@@ -775,7 +723,7 @@ class MakeMeta(list):
             ('maxpoints', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description=(
                     "Sets the maximum number of points to keep on the "
                     "plots from an incoming stream. For example, "
@@ -784,24 +732,20 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += [('stream', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Marker(self):
         '''@Marker@'''
+        name = 'marker'
         docstring = (
             "A {UL}-like object containing specifications of the marker points."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
-            "{WEB}bubble-charts/".format(WEB=G['WEB'])
+            "{WEB}line-and-scatter/",
+            "{WEB}bubble-charts/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Marker(MakeExamples())
+        keymeta = OrderedDict([
             ('color', make.color('marker')),
             ('size', make.size('marker')),
             ('symbol', dict(
@@ -825,7 +769,7 @@ class MakeMeta(list):
             ('sizeref', dict(  
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "Sets the scale factor used to determine the rendered size "
                     "of each marker point in this trace. "
@@ -860,43 +804,39 @@ class MakeMeta(list):
             ('outliercolor', dict(
                 required=False,
                 type='style',  
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
                     "set to 'suspectedoutliers'. Sets the face color of the "
                     "outlier points."
                ),
-               examples=make.examples_color()
+               examples=MakeExamples.color(MakeExamples())
             )),
             ('maxdisplayed', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "Sets maximum number of displayed points for this "
                     "trace. Applies only to scatter traces."
                 )
             ))
         ])
-        self += [('marker', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Line(self):
         '''@Line@'''
+        name = 'line'
         docstring = (
             "A {UL}-like object containing specifications of the line segments."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}line-and-scatter/".format(WEB=G['WEB']),
-            "{WEB}filled-area-plots/".format(WEB=G['WEB']),
-            "{WEB}contour-plots/".format(WEB=G['WEB'])
+            "{WEB}line-and-scatter/",
+            "{WEB}filled-area-plots/",
+            "{WEB}contour-plots/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Line(MakeExamples())
+        keymeta = OrderedDict([
             ('color', make.color('line')),
             ('width', make.width('line')),
             ('dash', dict(
@@ -924,7 +864,7 @@ class MakeMeta(list):
             ('smoothing', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                    "Sets the amount of smoothing applied to this line object. "
                    "Applies only to contour traces "
@@ -939,45 +879,41 @@ class MakeMeta(list):
             ('outliercolor', dict(
                 required=False,
                 type='style',  
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
                     "set to 'suspectedoutliers'. Sets the color of the "
                     "bordering line of the outlier points."
                ),
-               examples=make.examples_color()
+               examples=MakeExamples.color(MakeExamples())
             )),
             ('outlierwidth', dict(
                 required=False,
                 type='style',  
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
                     "set to 'suspectedoutliers'. Sets the width in pixels of "
                     "bordering line of the outlier points."
                ),
-               examples=make.examples_color()
+               examples=MakeExamples.color(MakeExamples())
             ))
         ])
-        self += [('line', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Font(self):
         '''@Font@'''
+        name = 'font'
         docstring = (
             "A {UL}-like object containing specifications of the text font."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}font/".format(WEB=G['WEB']),
-            "{WEB}text-and-annotations/".format(WEB=G['WEB']),
-            "{WEB}line-and-scatter/".format(WEB=G['WEB'])
+            "{WEB}font/",
+            "{WEB}text-and-annotations/",
+            "{WEB}line-and-scatter/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Font(MakeExamples())
+        keymeta = OrderedDict([
             ('family', dict(
                 required=False,
                 val_types=(
@@ -1007,16 +943,11 @@ class MakeMeta(list):
             ('color', make.color('font')),
             ('outlinecolor', make.outlinecolor('font'))
         ])
-        self += [('font', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
-    def meta_ticks(self,axis_or_colorbar):
-        '''@meta_ticks@ -- ticks meta for XAxis, YAxis and ColorBar''' 
-        _meta = [
+    def keymeta_ticks(self,axis_or_colorbar):
+        '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar''' 
+        _keymeta = [
             ('ticks', dict(
                   required=False,
                   type='style',
@@ -1029,7 +960,7 @@ class MakeMeta(list):
             ('tick0', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description=(
                     "Sets the starting point of the ticks of this {}."
                 ).format(axis_or_colorbar)
@@ -1037,7 +968,7 @@ class MakeMeta(list):
             ('dtick', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description=(
                     "Sets the distance between ticks on this {}."
                 ).format(axis_or_colorbar)
@@ -1045,7 +976,7 @@ class MakeMeta(list):
             ('ticklen', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(),  # Units?
+                val_types=val_types.number(),  # Units?
                 description=(
                     "Sets the length of the tick lines on this {}."
                 ).format(axis_or_colorbar)
@@ -1053,7 +984,7 @@ class MakeMeta(list):
             ('tickwidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description=(
                     "Sets the width of the tick lines on this {}."
                 ).format(axis_or_colorbar)
@@ -1061,16 +992,16 @@ class MakeMeta(list):
             ('tickcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this {}."
                 ).format(axis_or_colorbar),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('tickangle', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(le=90, ge=-90),
+                val_types=val_types.number(le=90, ge=-90),
                 description=(
                     "Sets the angle in degrees of the ticks on this {}."
                 ).format(axis_or_colorbar)
@@ -1078,7 +1009,7 @@ class MakeMeta(list):
             ('tickfont', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object'),
+                val_types=val_types.object(),
                 description=(
                     "A dictionary-like object defining the parameters "
                     "of the ticks' font."
@@ -1114,16 +1045,16 @@ class MakeMeta(list):
                 )
             ))
         ]
-        return _meta
+        return _keymeta
       
-    def meta_axis(self,x_or_y):
-        '''@make.axis@ -- meta for XAxis and YAxis'''
+    def keymeta_axis(self,x_or_y):
+        '''@make.axis@ -- keymeta for XAxis and YAxis'''
           
         S = {'x':['x','bottom','top','y','left','right','vertical'], 
              'y':['y','left','right','x','bottom','top','horizontal']}
         s = S[x_or_y]
       
-        _meta = [
+        _keymeta = [
             ('title', make.title('axis',x_or_y)),
             ('titlefont', make.titlefont('axis',x_or_y)),
             ('range', make.range(x_or_y)),
@@ -1168,7 +1099,7 @@ class MakeMeta(list):
             ('showgrid', dict(
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not this axis features grid lines."
                 )
@@ -1176,7 +1107,7 @@ class MakeMeta(list):
             ('zeroline', dict(
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not an additional grid line "
                     "(thicker than the other grid lines, by default) "
@@ -1187,12 +1118,12 @@ class MakeMeta(list):
             ('autotick', make.autotick('axis')),
             ('nticks', make.nticks('axis')),
         ]
-        _meta += self.meta_ticks('axis')
-        _meta += [
+        _keymeta += self.keymeta_ticks('axis')
+        _keymeta += [
             ('mirror', dict(
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether to mirror the axis line to the "
                     "opposite side of the plot."
@@ -1201,40 +1132,40 @@ class MakeMeta(list):
             ('gridcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description="Sets the axis grid color.",
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('gridwidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description="Sets the grid width (in pixels)."
             )),
             ('zerolinecolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description="Sets the color of this axis' zeroline.",
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('zerolinewidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description="Sets the width of this axis' zeroline (in pixels)."
             )),
             ('linecolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description="Sets the axis line color.",
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('linewidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description="Sets the width of the axis line (in pixels)."
             )),
             ('anchor', dict(
@@ -1278,7 +1209,7 @@ class MakeMeta(list):
             ('position', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(le=1, ge=0),
+                val_types=val_types.number(le=1, ge=0),
                 description=(
                     "Sets where this {S0}-axis is positioned in the plotting "
                     "space. For example 'position'=0.5 will place this "
@@ -1288,62 +1219,55 @@ class MakeMeta(list):
                 ).format(S0=s[0])
             ))
         ]
-        return _meta
+        return _keymeta
     
     def XAxis(self):
         '''@XAxis@'''
+        name = 'xaxis'
         docstring = (
             "A {UL}-like object for representing an x-axis in plotly."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}axes/".format(WEB=G['WEB']),
-            "{WEB}multiple-axes/".format(WEB=G['WEB']),
-            "{WEB}subplots/".format(WEB=G['WEB']),
-            "{WEB}insets/".format(WEB=G['WEB'])
+            "{WEB}axes/",
+            "{WEB}multiple-axes/",
+            "{WEB}subplots/",
+            "{WEB}insets/"
         ]
-        examples = ['']
-        meta = OrderedDict(self.meta_axis('x'))
-        self += [('xaxis', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.XAxis(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_axis('x'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def YAxis(self):
         '''@YAxis@'''
+        name = 'yaxis'
         docstring = (
             "A {UL}-like object for representing a y-axis in plotly."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}axes/".format(WEB=G['WEB']),
-            "{WEB}multiple-axes/".format(WEB=G['WEB']),
-            "{WEB}subplots/".format(WEB=G['WEB']),
-            "{WEB}insets/".format(WEB=G['WEB'])
+            "{WEB}axes/",
+            "{WEB}multiple-axes/",
+            "{WEB}subplots/",
+            "{WEB}insets/"
         ]
-        examples = ['']
-        meta = OrderedDict(self.meta_axis('y'))
-        self += [('yaxis', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.YAxis(MakeExamples())
+        keymeta = OrderedDict(self.keymeta_axis('y'))
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def RadialAxis(self):
         '''@RadialAxis@'''
+        name = 'radialaxis'
         docstring = (
             "A {UL}-like object for representing a radial axis in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}/polar-chart/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}/polar-chart/"]
+        examples = MakeExamples.RadialAxis(MakeExamples())
+        keymeta = OrderedDict([
             ('range', make.range('radial')),
             ('domain', make.domain('radial')),
             ('orientation', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=-360,le=360),
+                val_types=val_types.number(ge=-360,le=360),
                 description=(
                     "Sets the orientation (an angle with respect to the origin) "
                     "of the radial axis."
@@ -1363,7 +1287,7 @@ class MakeMeta(list):
             ('ticklen', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "Sets the length of the tick lines on this radial axis."
                 )
@@ -1371,16 +1295,16 @@ class MakeMeta(list):
             ('tickcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this radial axis."
                 ),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('ticksuffix', dict(
                 required=False,
                 type='style',
-                val_types=val_types('string'),
+                val_types=val_types.string(),
                 description=(
                     "Sets the length of the tick lines on this radial axis."
                 )
@@ -1388,26 +1312,22 @@ class MakeMeta(list):
             ('endpadding', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description="more info coming soon"
             )),
             ('visible', make.visible())
         ])
-        self += [('radialaxis', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def AngularAxis(self):
         '''@AngularAxis@'''
+        name = 'angularaxis'
         docstring = (
             "A {UL}-like object for representing an angular axis in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}/polar-chart/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}/polar-chart/"]
+        examples = MakeExamples.AngularAxis(MakeExamples())
+        keymeta = OrderedDict([
             ('range', make.range('angular')),
             ('domain', make.domain('angular')),  #Q? Does not apply, right?
             ('showline', make.showline('angular')), #Q? Should be 'gridline'
@@ -1424,16 +1344,16 @@ class MakeMeta(list):
             ('tickcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this angular axis."
                 ),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('ticksuffix', dict(
                 required=False,
                 type='style',
-                val_types=val_types('string'),
+                val_types=val_types.string(),
                 description=(
                     "Sets the length of the tick lines on this angular axis."
                 )
@@ -1441,29 +1361,25 @@ class MakeMeta(list):
             ('endpadding', dict(  # What does this do?
                 required=False,
                 type='style',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description="more info coming soon"
             )),
             ('visible', make.visible())
         ])
-        self += [('angularaxis', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Legend(self):
         '''@Legend@'''
+        name = 'legend'
         docstring = (
             "A {UL}-like object for representing a legend in plotly."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}/legend/".format(WEB=G['WEB']),
-            "{WEB}/figure-labels/".format(WEB=G['WEB'])
+            "{WEB}/legend/",
+            "{WEB}/figure-labels/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Legend(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.xy_layout('legend', 'x')),
             ('y', make.xy_layout('legend', 'y')),
             ('traceorder', dict(
@@ -1486,21 +1402,17 @@ class MakeMeta(list):
             ('xanchor', make.xyanchor('x')),
             ('yanchor', make.xyanchor('y'))
         ])
-        self += [('legend', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def ColorBar(self):
         '''@ColorBar@'''
+        name = 'colorbar'
         docstring = (
             "A {UL}-like object for representing a color bar in plotly."
-        ).format(UL=G['UL'])
+        )
         links = ['']
-        examples = ['']
-        _meta = [
+        examples = MakeExamples.ColorBar(MakeExamples())
+        _keymeta = [
             ('title', make.title('colorbar')),
             ('titleside', dict(
                 required=False,
@@ -1521,7 +1433,7 @@ class MakeMeta(list):
             ('len', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description="Sets the length of the colorbar."
             )),
             ('lenmode', dict(
@@ -1535,8 +1447,8 @@ class MakeMeta(list):
             ('autotick', make.autotick('colorbar')),
             ('nticks', make.nticks('colorbar'))
         ]
-        _meta += self.meta_ticks('colorbar')
-        _meta += [
+        _keymeta += self.keymeta_ticks('colorbar')
+        _keymeta += [
             ('xanchor', make.xyanchor('x')),
             ('xanchor', make.xyanchor('y')),
             ('bgcolor', make.bgcolor('colorbar')),
@@ -1544,7 +1456,7 @@ class MakeMeta(list):
             ('outlinewidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description=(
                     "Sets the width of the outline surrounding this colorbar."
                 )
@@ -1553,7 +1465,7 @@ class MakeMeta(list):
             ('xpad', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(le=50, ge=0),
+                val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
                     "the enclosing boarder in the x-direction."
@@ -1562,57 +1474,53 @@ class MakeMeta(list):
             ('ypad', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(le=50, ge=0),
+                val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
                     "the enclosing boarder in the y-direction."
                 )
             ))
         ]
-        meta = OrderedDict(_meta)
-        self += [('colorbar', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        keymeta = OrderedDict(_keymeta)
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Margin(self):
         '''@Margin@'''
+        name = 'margin'
         docstring = (
             "A {UL}-like object containing specification of the margins."
-        ).format(UL=G['UL'])
-        links = ["{WEB}/setting-graph-size/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        )
+        links = ["{WEB}/setting-graph-size/"]
+        examples = MakeExamples.Margin(MakeExamples())
+        keymeta = OrderedDict([
             ('l', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description="Sets the left margin size in pixels."
             )),
             ('r', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description="Sets the right margin size in pixels."
             )),
             ('b', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description="Sets the bottom margin size in pixels."
             )),
             ('t', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description="Sets the top margin size in pixels."
             )),
             ('pad', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "Sets the distance between edge of the plot and the "
                     "bounding rectangle that encloses the plot (in pixels)."
@@ -1621,25 +1529,26 @@ class MakeMeta(list):
             ('autoexpand', dict(  # TODO: ??
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description="more info coming soon"
             ))
         ])
-        self += [('margin', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Annotation(self):
         '''@Annotation@'''
-        docstring = (
-            "A {UL}-like object for representing an annotation in plotly."
-        ).format(UL=G['UL'])
-        links = ["{WEB}/text-and-annotations/".format(WEB=G['WEB'])]
-        examples = ['']
-        meta = OrderedDict([
+        name = 'annotation'
+        docstring = ("""
+            A {UL}-like object for representing an annotation in plotly.
+
+            Annotations appear as notes on the final figure. You can set all the
+            features of the annotation text, background color, and location.
+            Additionally, these notes can be anchored to actual data or the page
+            for help with location after pan-and-zoom actions.
+        """)
+        links = ["{WEB}/text-and-annotations/"]
+        examples = MakeExamples.Annotation(MakeExamples())
+        keymeta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
             ('y', make.xy_layout('annotation','y')),
             ('xref', make.xyref('x')),
@@ -1647,7 +1556,7 @@ class MakeMeta(list):
             ('text', dict(      # Different enough from shortcut-text
                 required=False,
                 type='plot_info',
-                val_types=val_types('string'),
+                val_types=val_types.string(),
                 description=(
                     "The text associated with this annotation. "
                     "Plotly uses a subset of HTML tags "
@@ -1665,7 +1574,7 @@ class MakeMeta(list):
             ('showarrow', dict(
                 required=False,
                 type='plot_info',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the arrow associated with "
                     "this annotation with be shown. "
@@ -1701,7 +1610,7 @@ class MakeMeta(list):
             ('arrowsize', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "Scales the arrowhead's size. "
                     "Has an effect only if 'showarrow' is set to True."
@@ -1710,7 +1619,7 @@ class MakeMeta(list):
             ('arrowwidth', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description=(
                     "Sets the arrowhead's width (in pixels). "
                     "Has an effect only if 'showarrow' is set to True."
@@ -1719,17 +1628,17 @@ class MakeMeta(list):
             ('arrowcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the color of the arrowhead. "
                     "Has an effect only if 'showarrow' is set to True."
                 ),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('ax', dict(            # TODO! Better description
                 required=False,
                 type='plot_info',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
                     "arrowhead about the x-axis. "
@@ -1739,7 +1648,7 @@ class MakeMeta(list):
             ('ay', dict(            # TODO! Better description
                 required=False,
                 type='plot_info',
-                val_types=val_types('number')(),
+                val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
                     "arrowhead about the y-axis. "
@@ -1749,7 +1658,7 @@ class MakeMeta(list):
             ('textangle', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=-180,le=180),
+                val_types=val_types.number(ge=-180,le=180),
                 description=(
                    "Sets the angle of the text linked to 'text' with respect "
                    "to the horizontal."
@@ -1760,7 +1669,7 @@ class MakeMeta(list):
             ('borderpad', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(le=10, ge=0),
+                val_types=val_types.number(le=10, ge=0),
                 description=(
                     "The amount of space (padding) between the text and "
                     "the enclosing boarder."
@@ -1769,27 +1678,23 @@ class MakeMeta(list):
             ('bgcolor', make.bgcolor('annotation')),
             ('opacity', make.opacity())
         ])
-        self += [('annotation', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Layout(self):
         '''@Layout@'''
+        name = 'layout'
         docstring = (
             "A {UL}-like object containing specification of the layout "
             "of a plotly figure."
-        ).format(UL=G['UL'])
+        )
         links = [
-            "{WEB}/figure-labels/".format(WEB=G['WEB']),
-            "{WEB}/axes/".format(WEB=G['WEB']),
-            "{WEB}/bar-charts/".format(WEB=G['WEB']),
-            "{WEB}/log-plot/".format(WEB=G['WEB'])
+            "{WEB}/figure-labels/",
+            "{WEB}/axes/",
+            "{WEB}/bar-charts/",
+            "{WEB}/log-plot/"
         ]
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Layout(MakeExamples())
+        keymeta = OrderedDict([
             ('title', make.title('layout')),
             ('titlefont', make.titlefont('layout')),
             ('font', make.font('layout')),
@@ -1797,7 +1702,7 @@ class MakeMeta(list):
             ('autosize', dict(
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the dimensions of the figure are "
                     "automatically picked by Plotly. Plotly picks figure's "
@@ -1810,7 +1715,7 @@ class MakeMeta(list):
             ('width', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description=(
                     "Sets the width in pixels of the figure you are generating."
                 )
@@ -1818,7 +1723,7 @@ class MakeMeta(list):
             ('height', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(gt=0),
+                val_types=val_types.number(gt=0),
                 description=(
                     "Sets the height in pixels of the figure you are generating."
                 )
@@ -1828,7 +1733,7 @@ class MakeMeta(list):
             ('legend', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object'),
+                val_types=val_types.object(),
                 description=(
                     "A dictionary-like object containing the legend "
                     "parameters for this figure."
@@ -1837,7 +1742,7 @@ class MakeMeta(list):
             ('annotations', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object_list'),
+                val_types=val_types.object_list(),
                 description=(
                     "A list-like object that contains one or multiple "
                     "annotation dictionaries."
@@ -1846,7 +1751,7 @@ class MakeMeta(list):
             ('margin', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object'),
+                val_types=val_types.object(),
                 description=(
                     "A dictionary-like object containing the margin "
                     "parameters for this figure."
@@ -1855,22 +1760,22 @@ class MakeMeta(list):
             ('paper_bgcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the color of the figure's paper "
                     "(i.e. area representing the canvas of the figure)."
                 ),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('plot_bgcolor', dict(
                 required=False,
                 type='style',
-                val_types=val_types('color'),
+                val_types=val_types.color(),
                 description=(
                     "Sets the background color of the plot (i.e. the area "
                     "laying inside this figure's axes."
                 ),
-                examples=make.examples_color()
+                examples=MakeExamples.color(MakeExamples())
             )),
             ('hovermode', dict(
                 required=False,
@@ -1939,7 +1844,7 @@ class MakeMeta(list):
             ('bargap', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars (or sets of bars) at "
@@ -1949,7 +1854,7 @@ class MakeMeta(list):
             ('bargroupgap', dict(
                 required=False,
                 type='style',
-                val_types=val_types('number')(ge=0),
+                val_types=val_types.number(ge=0),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars in the same group. "
@@ -1976,7 +1881,7 @@ class MakeMeta(list):
             ('radialaxis', dict(  
                 required=False,
                 type='object',
-                val_types=val_types('object'),
+                val_types=val_types.object(),
                 description=(
                     "A dictionary-like object describing the radial axis "
                     "in a polar plot."
@@ -1985,7 +1890,7 @@ class MakeMeta(list):
             ('angularaxis', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object'),
+                val_types=val_types.object(),
                 description=(
                     "A dictionary-like object describing the angular axis "
                     "in a polar plot."
@@ -2004,7 +1909,7 @@ class MakeMeta(list):
             ('orientation', dict(  # Different enough than in shortcut-orientation
                 required=False,
                 type='plot_info',
-                val_types=val_types('number')(ge=-360,le=360),
+                val_types=val_types.number(ge=-360,le=360),
                 description=(
                    "For polar plots only. "
                    "Rotates the entire polar by the given angle."
@@ -2013,7 +1918,7 @@ class MakeMeta(list):
             ('hidesources', dict(
                 required=False,
                 type='style',
-                val_types=val_types('bool'),
+                val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not an annotation citing the data "
                     "source is placed at the bottom-right corner of the figure." 
@@ -2022,25 +1927,23 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += [('layout', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Figure(self):
         '''@Figure@'''
-        docstring = (
-            "A {UL}-like object representing a figure to be rendered by plotly."
-        ).format(UL=G['UL'])
+        name = 'figure'
+        docstring = ("""
+            A {UL}-like object representing a figure to be rendered by plotly.
+
+            This is the container for all things to be rendered in a figure.
+        """)
         links = ['']
-        examples = ['']
-        meta = OrderedDict([
+        examples = MakeExamples.Figure(MakeExamples())
+        keymeta = OrderedDict([
             ('data', dict(
                 required=False,
                 type='object',
-                val_types=val_types('object_list'),
+                val_types=val_types.object_list(),
                 description=(
                     "A list-like array of the data trace(s) that is/are "
                     "to be visualized."
@@ -2049,7 +1952,7 @@ class MakeMeta(list):
             ('layout', dict(
                required=False,
                type='object',
-               val_types=val_types('object'),
+               val_types=val_types.object(),
                description=(
                    "A dictionary-like object that contains the layout "
                    "parameters (e.g. information about the axis, "
@@ -2058,49 +1961,37 @@ class MakeMeta(list):
                )
             ))
         ])
-        self += [('figure', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Data(self):
         '''@Data@ (accepts no keys)'''
+        name = 'data'
         docstring = (
             "A {OL} of traces to be shown on one plotly figure."
-        ).format(OL=G['OL'])
+        )
         links = ['']
-        examples = ['']
-        meta = dict()
-        self += [('data', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.Data(MakeExamples())
+        keymeta = dict()
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def Annotations(self):
         '''@Annotations@ (accepts no keys)'''
+        name = 'annotations'
         docstring = (
             "A {OL} of annotations to be shown on one plotly figure."
-        ).format(OL=G['OL'])
+        )
         links = ['']
-        examples = ['']
-        meta = dict()
-        self += [('annotations', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        examples = MakeExamples.Annotations(MakeExamples())
+        keymeta = dict()
+        self += self._stuff(name, docstring, examples, links, keymeta)
     
     def Trace(self):
         '''@Trace@'''  #Q? Why keep this?
+        name = 'trace'
         docstring = ''
         links = ['']
         examples = ['']
-        meta = OrderedDict([
+        keymeta = OrderedDict([
             ('x', dict(type='data')),
             ('y', dict(type='data')),
             ('z', dict(type='data')),
@@ -2149,50 +2040,33 @@ class MakeMeta(list):
             ('nbinsy', dict(type='style')),
             ('showscale', dict(type='style'))
         ])
-        self += [('trace', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        self += self._stuff(name, docstring, examples, links, keymeta)
      
     def PlotlyList(self):
         '''@PlotlyList@ (accepts no keys)'''
+        name = 'plotlylist'
         docstring = ''
         links = ['']
         examples = ['']
-        meta = dict()
-        self += [('plotlylist', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        keymeta = dict()
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def PlotlyDict(self):
         '''@PlotlyDict@ (accepts no keys)'''
+        name = 'plotlydict'
         docstring = ''
         links = ['']
         examples = ['']
-        meta = dict()
-        self += [('plotlydict', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        keymeta = dict()
+        self += self._stuff(name, docstring, examples, links, keymeta)
       
     def PlotlyTrace(self):
         '''@PlotlyTrace@ (accepts no keys)'''
+        name = 'plotlytrace'
         docstring = ''
         links = ['']
         examples = ['']
-        meta = dict()
-        self += [('plotlytrace', dict(
-            docstring=docstring, 
-            examples=examples, 
-            links=links, 
-            meta=meta
-        ))]
+        keymeta = dict()
+        self += self._stuff(name, docstring, examples, links, keymeta)
 
 # -------------------------------------------------------------------------------
