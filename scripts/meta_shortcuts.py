@@ -117,18 +117,18 @@ class Make(dict):
         global required_cond
         required_cond = RequiredCond()
 
-    def _output(self,_required, _type, _val_types, _description, **kwargs):
+    def _output(self,_required, _key_type, _val_types, _description, **kwargs):
         '''@output@ -- Format the keys' values into a dictionary
         Outputs a dictionary of key-value pairs, given the keys.
         (pos. arg. 1) _required: value of 'required' key
-        (pos. arg. 2) _type: value of 'type' key
+        (pos. arg. 2) _key_type: value of 'key_type' key
         (pos. arg. 3) _val_types: value of 'val_types' key
         (pos. arg. 4) _description: value of 'description' key
         (keyword args) kwargs: dictionary of additional key-value pairs
         '''
         _dict = dict(
             required= _required,
-            type= _type,
+            key_type= _key_type,
             val_types= _val_types,
             description= _description)
         if len(kwargs):
@@ -148,7 +148,7 @@ class Make(dict):
             histogram2d=True,
             histogram2dcontour=True,
         )
-        _type='data'
+        _key_type='data'
         _val_types=val_types.data_array()
         _description = dict(
             scatter=(
@@ -202,8 +202,8 @@ class Make(dict):
         _description['contour']= _description['heatmap']
         _description['histogram2dcontour']= _description['histogram2d']
         _streamable=True
-        return self._output(_required[obj],_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required[obj],_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def y(self,obj):
        '''@y@'''
@@ -217,7 +217,7 @@ class Make(dict):
             histogram2d=True,
             histogram2dcontour=True,
         )
-       _type='data'
+       _key_type='data'
        _val_types=val_types.data_array()
        _description=dict(
            scatter=(
@@ -265,13 +265,13 @@ class Make(dict):
        _description['contour']= _description['heatmap']
        _description['histogram2dcontour']= _description['histogram2d']
        _streamable=True
-       return self._output(_required[obj],_type,_val_types,_description[obj],
-                      streamable=_streamable)
+       return self._output(_required[obj],_key_type,_val_types,_description[obj],
+                          streamable=_streamable)
     
     def z(self,obj):
         '''@z@'''
         _required=True
-        _type='data'
+        _key_type='data'
         _val_types=val_types.matrix()
         _description=dict(
             heatmap=(
@@ -297,8 +297,8 @@ class Make(dict):
         )
         _description['contour']= _description['heatmap']
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                          streamable=_streamable)
     
     def r(self,obj):
         '''@r@'''
@@ -307,7 +307,7 @@ class Make(dict):
             bar=required_cond.plottype("Polar Chart"),
             area=True
         )
-        _type='data'
+        _key_type='data'
         _val_types=val_types.number_array() # Q? Should this support string too?
         _description=dict(  
             scatter=(
@@ -327,8 +327,8 @@ class Make(dict):
            )
         )
         _streamable=True
-        return self._output(_required[obj],_type,_val_types,_description[obj],
-                     streamable=_streamable)
+        return self._output(_required[obj],_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def t(self,obj):
         '''@t@'''
@@ -337,7 +337,7 @@ class Make(dict):
             bar=required_cond.plottype("Polar Chart"),
             area=True
         )
-        _type='data'
+        _key_type='data'
         _val_types=val_types.data_array()
         _description=dict(
             scatter=(
@@ -376,8 +376,8 @@ class Make(dict):
                 "array-like of strings linked to 't'."
             )  
         _streamable=True
-        return self._output(_required[obj],_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required[obj],_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def x0y0(self,obj,x_or_y=False):
         '''@x0y0@ | @x0@ | @y0@'''
@@ -386,7 +386,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='plot_info'  
+        _key_type='plot_info'  
         _val_types=val_types.number()
         _description=dict( # TODO! Add scatter?
             box=(
@@ -403,7 +403,7 @@ class Make(dict):
             ).format(S0=s[0])
         )
         _description['contour']= _description['heatmap']
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def dxdy(self,obj,x_or_y=False):
         '''@dxdy@ | @dx@ | @dy@'''
@@ -411,7 +411,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='plot_info'  
+        _key_type='plot_info'  
         _val_types=val_types.number()
         _description=dict( # TODO! Add scatter?
             heatmap=(
@@ -421,7 +421,7 @@ class Make(dict):
             ).format(S0=s[0]),
         )
         _description['contour']= _description['heatmap']
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def xytype(self,obj,x_or_y):
         '''@xytype@ | @xtype@ | @ytype@'''
@@ -429,7 +429,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='plot_info'    
+        _key_type='plot_info'    
         _val_types="'array' | 'scaled'",
         _description=dict(
             heatmap=(
@@ -440,12 +440,12 @@ class Make(dict):
            ).format(S0=s[0],S1=s[1])
         )
         _description['contour']= _description['heatmap']
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def text(self, obj):
         '''@text@'''
         _required=False
-        _type='data'
+        _key_type='data'
         _val_types=val_types.string_array()
         _description=dict(
             scatter=(
@@ -466,8 +466,8 @@ class Make(dict):
         )
         _description['histogram']=_description['bar']
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def error(self, obj, x_or_y):
         '''@error@ | @error_y@ | @error_x@'''
@@ -476,7 +476,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
             scatter=(
@@ -493,13 +493,13 @@ class Make(dict):
         )
         _description['histogram']= _description['bar']
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def orientation(self,obj):
         '''@orientation@'''
         _required=False
-        _type='plot_info' 
+        _key_type='plot_info' 
         _val_types="'v' | 'h'"
         _description=dict(
             bar=(
@@ -512,12 +512,12 @@ class Make(dict):
                 "by which of 'x' or 'y' the data sample is linked to."
             )
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def marker(self, obj):
         '''@marker@'''
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
             scatter=(
@@ -544,13 +544,13 @@ class Make(dict):
         )
         _description['histogram']= _description['bar']
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def line(self, obj):
         '''@line@'''
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
             scatter=(
@@ -580,13 +580,13 @@ class Make(dict):
         _description['histogram']= _description['bar']
         _description['histogram2dcontour']= _description['contour']
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def opacity(self, marker=False):
         '''@opacity@'''
         _required=False
-        _type="style"
+        _key_type="style"
         if not marker:
             _val_types=val_types.number(ge=0, le=1)
             _description=(
@@ -611,12 +611,12 @@ class Make(dict):
                 "individual marker points in the "
                 "same order as in the data lists or arrays."
             )
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def textfont(self, obj):
         '''@textfont@'''
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
             scatter=(
@@ -627,12 +627,12 @@ class Make(dict):
             bar="Not currently supported, has no effect."
         )
         _description['histogram']= _description['bar']
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def font(self, obj):
         '''@font@'''
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
             legend=(
@@ -648,13 +648,13 @@ class Make(dict):
                 "settings for this figure (e.g. all axis titles and labels)."
             )
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def name(self):
         '''@name@'''
         return dict(
             required=False,
-            type='data',
+            key_type='data',
             val_types=val_types.string(),
             description=(
                 "The label associated with this trace. "
@@ -667,7 +667,7 @@ class Make(dict):
         '''@stream@'''
         return dict(
             required=False,
-            type='object',
+            key_type='object',
             val_types=val_types.object(),
             description=(
                 "The stream dictionary-like object that initializes traces as "
@@ -679,7 +679,7 @@ class Make(dict):
         '''@visible@'''
         return dict(
             required=False,
-            type='plot_info',
+            key_type='plot_info',
             val_types=val_types.bool(),
             description=(
                 "Toggles whether or not this object will actually be "
@@ -690,7 +690,7 @@ class Make(dict):
     def showlegend(self, trace=False, layout=False):
         '''@showlegend@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         if trace:
             _description=(
@@ -702,7 +702,7 @@ class Make(dict):
                 "Toggle whether or not the legend will "
                 "be shown in this figure."
             )
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def axis(self, x_or_y, trace=False, layout=False):
         '''@axis@ | @xaxis@ | @yaxis@'''
@@ -712,7 +712,7 @@ class Make(dict):
     
         _required=False
         if trace:
-            _type='plot_info'
+            _key_type='plot_info'
             _val_types="'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
             _description=(
                 "This key determines which {S0}-axis "
@@ -725,7 +725,7 @@ class Make(dict):
                 "they are the same."
             ).format(S0=s[0])
         elif layout:
-            _type='object'
+            _key_type='object'
             _val_types=val_types.object()
             _description=(
                 "A dictionary-like object describing an "
@@ -738,12 +738,12 @@ class Make(dict):
                 "dictionary-like object using keys '{S0}axis2', "
                 "'{S0}axis3' and so on."
             ).format(S0=s[0],S1=s[1],S2=s[2])
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def type(self, trace):
         '''@type@'''
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types=trace
         _description=(
             "Plotly identifier for this data's trace type. "
@@ -755,13 +755,13 @@ class Make(dict):
             "only requires a single x or y array "
             "and a 'heatmap' type requires a z matrix."
         )
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def histnorm(self):
         '''@histnorm@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types=(
                 "'' (or 'count') | 'percent' | 'probability' | 'density' | "
                 "'probability density'"
@@ -796,7 +796,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {S0}-axis bin parameters "
@@ -805,7 +805,7 @@ class Make(dict):
             "bins parameters can be declared "
             "in the {S1}Bins object."
         ).format(S0=s[0],S1=s[1])
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def nbins(self, x_or_y):
         '''@nbins@ | @nbinsx@ | @nbinsy@'''
@@ -814,14 +814,14 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number(gt=0)
         _description=(
             "Specifies the number of {S0}-axis bins. "
             "No need to set 'autobin{S0}' to False "
             "for 'nbins{S0}' to apply."
         ).format(S0=s[0])
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def bins(self, x_or_y):
         '''@bins@ | @xbins@ | @ybins@'''
@@ -829,7 +829,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=(
             "A dictionary-like object defining the parameters "
@@ -838,13 +838,13 @@ class Make(dict):
             "ending value. Has an effect only if "
             "'autobin{S0}'=False."
         ).format(S0=s[0])
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def colorbar(self):
         '''@colorbar@'''
         return dict(
             required=False,
-            type='object',
+            key_type='object',
             val_types=val_types.object(),
             description=(
                 "A dictionary-like object defining the parameters of "
@@ -860,7 +860,7 @@ class Make(dict):
         s = S[z_or_color]
     
         _required=False
-        _type="style"
+        _key_type="style"
         _val_types=(
             "array_like of value-color pairs | "
             "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
@@ -880,19 +880,19 @@ class Make(dict):
             "'{S1}max to fine-tune the map from '{S0}' to "
             "rendered colors."
         ).format(S0=s[0],S1=s[1])
-        return self._output(_required,_type,_val_types,_description,
+        return self._output(_required,_key_type,_val_types,_description,
                             examples=MakeExamples.colorscale(MakeExamples()))
     
     def zcauto(self, z_or_c):
         '''@zcauto@ | @zauto@ | @cauto@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the default values "
             "of '{}max' and '{}max' can be overwritten."
         ).format(z_or_c, z_or_c)
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def zcminmax(self, min_or_max, z_or_color):
         '''@zcminmax@ | @zmin@ | @zmax@ | @cmin@ | @cmax@'''
@@ -901,7 +901,7 @@ class Make(dict):
         s=S[min_or_max]
     
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number()
         _description=(
             "Sets the {S0} '{z_or_color}' data value to be "
@@ -916,13 +916,13 @@ class Make(dict):
                 " Has only an effect if 'color' is linked "
                 "to an array-like and 'colorscale' is set."
             )
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def reversescale(self):
         '''@reversescale@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types=val_types.bool(),
             description="Toggle whether or not the color scale will be reversed."
         )
@@ -931,7 +931,7 @@ class Make(dict):
         '''@showscale@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types=val_types.bool(),
             description=(
                 "Toggle whether or not the color scale associated with "
@@ -943,7 +943,7 @@ class Make(dict):
         '''@zsmooth@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types="False | 'best' | 'fast'",
             description=( # TODO! Describe the 2 algorithms
                 "Choose between algorithms ('best' or 'fast') "
@@ -957,7 +957,7 @@ class Make(dict):
         '''@autocontour@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types=val_types.bool(),
             description=(
                 "Toggle whether or not the contour parameters are picked "
@@ -971,7 +971,7 @@ class Make(dict):
         '''@ncontours@'''
         return dict(
             required=False,
-            type='style',
+            key_type='style',
             val_types=val_types.number(gt=1),
             description=(
                 "Specifies the number of contours lines "
@@ -985,7 +985,7 @@ class Make(dict):
         '''@contours@'''
         return dict(
             required=False,
-            type='object',
+            key_type='object',
             val_types=val_types.object(),
             description=(
                 "A dictionary-like object defining the parameters of "
@@ -996,7 +996,7 @@ class Make(dict):
     def color(self,obj):
         '''@color@'''
         _required=False
-        _type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
+        _key_type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
         if obj=='marker':
             _val_types=val_types.color_array()  #Q? Add "or 'data_array'" 
         else:
@@ -1029,13 +1029,13 @@ class Make(dict):
         )
         _streamable=True
         return self._output(
-            _required,_type,_val_types,_description[obj],
+            _required,_key_type,_val_types,_description[obj],
             streamable=_streamable,examples=MakeExamples.color(MakeExamples()))
     
     def fillcolor(self,obj):
         '''@fillcolor@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.color()
         _description=dict(
             scatter=(
@@ -1045,47 +1045,46 @@ class Make(dict):
             ),
             box="Sets the color of the box interior."
         )
-        return self._output(
-            _required,_type,_val_types,_description[obj],
-            examples=MakeExamples.color(MakeExamples()))
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            examples=MakeExamples.color(MakeExamples()))
     
     def outlinecolor(self,obj):
         '''@outlinecolor@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.color()
         _description=dict(
             font="For polar chart only. Sets the color of the text's outline.",
             colorbar="The color of the outline surrounding this colorbar."
         )
-        return self._output(_required,_type,_val_types,_description[obj],
+        return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
     
     def bgcolor(self,obj):
         '''@bgcolor@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.color()
         _description=dict(
             legend="Sets the background (bg) color for the legend.",
             colorbar="Sets the background (bg) color for this colorbar.",
             annotation="Sets the background (bg) color for this annotation."
         )
-        return self._output(_required,_type,_val_types,_description[obj],
-                      examples=MakeExamples.color(MakeExamples()))
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            examples=MakeExamples.color(MakeExamples()))
     
     def bordercolor(self,obj):
         '''@bordercolor@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.color()
         _description=dict(
             legend="Sets the enclosing border color for the legend.",
             colorbar="Sets the color of the enclosing boarder of this colorbar.",
             annotation="The color of the enclosing boarder of this annotation."
         )
-        return self._output(_required,_type,_val_types,_description[obj],
-                      examples=MakeExamples.color(MakeExamples()))
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            examples=MakeExamples.color(MakeExamples()))
     
     def size(self, obj, x_or_y=False):
         '''@size@'''
@@ -1093,7 +1092,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='style'   #Q? 'data' in bubble charts (i.e. if linked to array)
+        _key_type='style'   #Q? 'data' in bubble charts (i.e. if linked to array)
         if obj=='marker':
             _val_types=val_types.number(gt=0,is_list=True)
         else:
@@ -1121,8 +1120,8 @@ class Make(dict):
             contours="Sets the size of each contour level."
         )
         _streamable=True
-        return self._output(_required,_type,_val_types,_description[obj],
-                      streamable=_streamable)
+        return self._output(_required,_key_type,_val_types,_description[obj],
+                            streamable=_streamable)
     
     def startend(self, obj, start_or_end, x_or_y=False):
         '''@startend@ | @start@ | @end@'''
@@ -1132,7 +1131,7 @@ class Make(dict):
         s_xy=S_xy[x_or_y]
     
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number(gt=0)
         _description=dict(
             bins=(
@@ -1144,12 +1143,12 @@ class Make(dict):
                 "contour level."
             ).format(S_se0=s_se[0])
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def width(self, obj):
         '''@width@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number(ge=0)
         _description=dict(
             line="Sets the width (in pixels) of the line object.",
@@ -1159,12 +1158,12 @@ class Make(dict):
             ),
             figure="The width in pixels of the figure you're creating."
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def thickness(self, obj, x_or_y=False):
         '''@thickness@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number(ge=0)
         S={'x': ['x',], 'y': ['y',], False:['',]}
         s=S[x_or_y]
@@ -1174,36 +1173,36 @@ class Make(dict):
             ).format(S0=s[0]),
             colorbar="Sets the thickness of the line surrounding the colorbar."
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def borderwidth(self, obj):
         '''@borderwidth@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.number(ge=0)
         _description=dict(
             legend="Sets the width of the border enclosing for the legend.",
             colorbar="Sets the width of the boarder enclosing this colorbar",
             annotation="Sets the width of the boarder enclosing this annotation"
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def title(self, obj, x_or_y=False):
         '''@title@'''
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types=val_types.string()
         _description=dict(
                 axis="The {S}-axis title.".format(S=x_or_y),
                 colorbar="The title of the colorbar.",
                 layout="The title of the figure."
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def titlefont(self, obj, x_or_y=False):
         '''@titlefont@'''
         _required=False
-        _type='object'
+        _key_type='object'
         _val_types=val_types.object()
         _description=dict(
                 axis=("A dictionary-like object describing the font "
@@ -1218,12 +1217,12 @@ class Make(dict):
                     "settings of the figure's title."
                 )
         )
-        return self._output(_required,_type,_val_types,_description[obj])
+        return self._output(_required,_key_type,_val_types,_description[obj])
     
     def range(self, what_axis):
         '''@range@'''
         _required = False
-        _type = 'style'
+        _key_type = 'style'
         _val_types = "number array of length 2"
         _description = (
             "Defines the start and end point of "
@@ -1237,13 +1236,13 @@ class Make(dict):
                 "an array-like of string."
         )
             _examples = MakeExamples.range_polar(MakeExamples())
-        return self._output(_required,_type,_val_types,_description,
+        return self._output(_required,_key_type,_val_types,_description,
                             examples=_examples)
     
     def domain(self, what_axis):
         '''@domain@'''
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types="number array of length 2"
         _description=(
             "Sets the domain of this {S} axis; "
@@ -1257,16 +1256,16 @@ class Make(dict):
                 "Polar chart subplots are not supported yet. "
                 "This key has currently no effect."
             )
-            return self._output(_required,_type,_val_types,_description)
+            return self._output(_required,_key_type,_val_types,_description)
         else:
             _examples = MakeExamples.domain(MakeExamples())
-            return self._output(_required,_type,_val_types,_description,
-                          examples=_examples)
+            return self._output(_required,_key_type,_val_types,_description,
+                                examples=_examples)
     
     def showline(self, what_axis):
         '''@showline@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the line bounding this "
@@ -1279,12 +1278,12 @@ class Make(dict):
                 "the bounding line starts from the origin and "
                 "extends to the edge of radial axis."
             )
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def autotick(self, axis_or_colorbar):
         '''@autotick@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {S} ticks parameters "
@@ -1294,30 +1293,30 @@ class Make(dict):
             "with 'ticks', 'tick0', 'dtick0' and other "
             "tick-related key in this {S} object."
         ).format(S=axis_or_colorbar)
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def nticks(self, axis_or_colorbar):
         '''@nticks@'''
         _required=False
-        _type='style'    
+        _key_type='style'    
         _val_types=val_types.number(gt=0)
         _description=(
             "Specifies the number of {S} ticks. "
             "No need to set 'autoticks' to False "
             "for 'nticks' to apply."
         ).format(S=axis_or_colorbar)
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def showticklabels(self, what_ticks):
         '''@showticklabels@'''
         _required=False
-        _type='style'
+        _key_type='style'
         _val_types=val_types.bool()
         _description=(
             "Toggle whether or not the {} ticks "
             "will feature tick labels."
         ).format(what_ticks)
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def xyref(self, x_or_y):
         '''@xyref@ | @xref@ | @yref@'''
@@ -1326,7 +1325,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types="'paper' | '{S0}1' | '{S0}2' | etc".format(S0=s[0])
         _description=(
             "Sets the {S0} coordinate for this object "
@@ -1343,7 +1342,7 @@ class Make(dict):
             "'{S0}' location will refer to the location in "
             "terms of this axis."
         ).format(S0=s[0],S1=s[1],S2=s[2])
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
     def xyanchor(self, x_or_y):
         '''@xyanchor@ | @xanchor@ | @yanchor@'''
@@ -1352,7 +1351,7 @@ class Make(dict):
         s=S[x_or_y]
     
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types={
             'x':"'auto' | 'left' | 'center' | 'right'",
             'y':"'auto' | 'bottom' | 'middle' | 'top'"
@@ -1365,12 +1364,12 @@ class Make(dict):
             "the {S2}most portion of this object will line "
             "up with the {S2}most edge of the plotting area."
         ).format(S0=s[0],S2=s[2])
-        return self._output(_required,_type,_val_types[x_or_y],_description)
+        return self._output(_required,_key_type,_val_types[x_or_y],_description)
     
     def xy_layout(self, obj, x_or_y):
         '''@xy_layout@ | @x_layout@ | @y_layout@'''
         _required=False
-        _type='plot_info'
+        _key_type='plot_info'
         _val_types=val_types.number()
         _description=(
             "Sets the '{x_or_y}' position of this {obj}. "
@@ -1381,6 +1380,6 @@ class Make(dict):
                 "'{x_or_y}anchor' to fine-tune the location of "
                 "this {obj}."
             ).format(x_or_y=x_or_y, obj=obj)
-        return self._output(_required,_type,_val_types,_description)
+        return self._output(_required,_key_type,_val_types,_description)
     
 # -------------------------------------------------------------------------------

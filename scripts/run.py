@@ -13,7 +13,7 @@ from meta_examples import MakeExamples
 #
 # Generate 
 #
-# - `graph_objs_meta.json`, 
+# - `graph_objs_meta.json`
 # - `graph_objs_keys.json` 
 # - `config.json`
 #
@@ -66,6 +66,11 @@ def format_meta(meta, table):
                     if isinstance(v2, str):
                         v2_format = v2.format(**table)
                         meta[obj][k1][i_v2] = v2_format
+            elif isinstance(v1, tuple):
+                for i_v2, v2 in enumerate(v1[1]):
+                    if isinstance(v2, str):
+                        v2_format = v2.format(**table)
+                        meta[obj][k1][1][i_v2] = v2_format
             elif isinstance(v1, (OrderedDict, dict)):
                 for k2, v2 in v1.items():
                     for k3, v3 in v2.items():
@@ -114,8 +119,11 @@ def write_config(graph_objs_info):
     remove graph object with no description from the to be displayed list 
     and the table of content
     '''
-    _info = [info for info in graph_objs_info if info['description']]
-    _graph_objs = [graph_obj for __info in _info for graph_obj in __info['graph_objs']]
+    _info = [info 
+            for info in graph_objs_info.values() if info['description']]
+    _graph_objs = [graph_obj 
+                  for __info in _info 
+                  for graph_obj in __info['graph_objs']]
     _config = dict(
         graph_objs=_graph_objs,
         toc=_info
@@ -134,7 +142,8 @@ def main():
     languages = set_run.languages()
 
     # Get list of graph objects and graph object info 
-    graph_objs_info, graph_objs = set_run.graph_objs()
+    graph_objs_info = set_run.graph_objs_info()
+    graph_objs = set_run.graph_objs()
 
     # Make instance of MakeMeta object and get graph object meta!
     meta_make = MakeMeta()
@@ -155,10 +164,12 @@ def main():
         # Make/Check output tree structure
         tree = get_tree(language)
 
-        # Write meta, keys and plot.ly config in JSON files
+        # Write meta and keys 
         write_meta(tree, meta_language)
         write_objs_keys(tree, meta_language) 
-        write_config(graph_objs_info) 
+    
+    # Write plot.ly config in JSON files
+    write_config(graph_objs_info) 
 
 if __name__ == '__main__':
     main()

@@ -19,26 +19,14 @@ class MakeMeta(list):
         link `meta_shortcuts.py` instances to global variables
         '''
         self = []
-        global val_types       # N.B no need to type self.val_types(...)
+        global val_types       # N.B no need to key_type self.val_types(...)
         val_types = ValTypes()
         global required_cond
         required_cond = RequiredCond()
         global make
         make = Make()
 
-    def _stuff(self, name, docstring, examples, links, keymeta):
-        ''' @stuff@ -- Return a list of a tuple packaging graph object stuff
-        '''
-        return [(name, 
-            OrderedDict([
-                ('docstring', docstring),
-                ('examples',examples), 
-                ('links', links), 
-                ('keymeta', keymeta)
-            ])
-        )]
-
-    def __stuff(self, graph_obj, name, obj_type, parents,
+    def _stuff(self, graph_obj, name, obj_type, parent_keys,
               docstring, examples, links, keymeta):
         ''' @stuff@ -- Return a list of a tuple packaging graph object stuff
         '''
@@ -46,7 +34,7 @@ class MakeMeta(list):
             OrderedDict([
                 ('name', name),
                 ('obj_type', obj_type),
-                ('parents', parents),
+                ('parent_keys', parent_keys),
                 ('docstring', docstring),
                 ('examples',examples), 
                 ('links', links), 
@@ -55,10 +43,10 @@ class MakeMeta(list):
         )]
 
     def scatter(self):
-        '''@Scatter@'''
+        '''@scatter@'''
         name = "{scatter}"
         obj_type = "{UL}"
-        parents = ["'data'"]
+        parent_keys = [""]
         docstring = (
             "A {UL}-like object for representing a scatter trace in plotly."
         )
@@ -76,7 +64,7 @@ class MakeMeta(list):
             ('t', make.t('scatter')),
             ('mode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=(
                     "'lines' | 'markers' | 'text' | 'lines+markers' | "
                     "'lines+text' | 'markers+text' | 'lines+markers+text'"
@@ -96,7 +84,7 @@ class MakeMeta(list):
             ('line', make.line('scatter')),
             ('textposition', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=(
                     "'top left' | 'top' (or 'top center')| 'top right' | "
                     "'left' (or 'middle left') | '' (or 'middle center') |"
@@ -114,7 +102,7 @@ class MakeMeta(list):
             ('textfont', make.textfont('scatter')),
             ('connectgaps', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not missing data points "
@@ -124,7 +112,7 @@ class MakeMeta(list):
             )),
             ('fill', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=(
                     "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx"
                 ),
@@ -145,12 +133,14 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('scatter')),
         ])
-        self += self.__stuff('scatter', name, obj_type, parents, 
+        self += self._stuff('scatter', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
  
     def bar(self):
-        '''@Bar@'''
-        name = 'bar'
+        '''@bar@'''
+        name = '{bar}'
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a bar trace in plotly."
         )
@@ -177,11 +167,14 @@ class MakeMeta(list):
             ('line', make.line('bar')),  # ARTIFACT
             ('textfont', make.textfont('bar'))  # ARTIFACT
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('bar', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def histogram(self):
-        '''@Histogram@'''
-        name = 'histogram'
+        '''@histogram@'''
+        name = '{histogram}'
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a histogram trace in plotly."
         )
@@ -212,11 +205,14 @@ class MakeMeta(list):
             ('line', make.line('histogram')),  # ARTIFACT
             ('orientation', make.orientation('histogram'))  # ARTIFACT
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('histogram', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def box(self):
-        '''@Box@'''
-        name = 'box'
+        '''@box@'''
+        name = "{box}"
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a box trace in plotly."
         )
@@ -229,7 +225,7 @@ class MakeMeta(list):
             ('name', make.name()),
             ('boxmean', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="False | True | 'sd'",
                 description=(
                     "Choose between add-on features for this box trace. "
@@ -241,7 +237,7 @@ class MakeMeta(list):
             )),
             ('boxpoints', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'outliers' | 'all' | 'suspectedoutliers' | False",
                 description=(
                     "Choose between boxpoints options for this box trace. "
@@ -257,7 +253,7 @@ class MakeMeta(list):
             )),
             ('jitter', dict(
                 required=False,
-                type='style',    
+                key_type='style',    
                 val_types=val_types.number(ge=0,le=1),
                 description=(
                     "Sets the width of the jitter in the boxpoints scatter "
@@ -271,7 +267,7 @@ class MakeMeta(list):
             )),
             ('pointpos', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=-2, le=2),
                 description=(
                     "Sets the horizontal position of the boxpoints "
@@ -286,7 +282,7 @@ class MakeMeta(list):
             )),
             ('whiskerwidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0, le=1),
                 description=(
                     "Sets the width of the whisker of the box relative "
@@ -307,11 +303,14 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('box'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('box', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def heatmap(self):
-        '''@Heatmap@'''
-        name = 'heatmap'
+        '''@heatmap@'''
+        name = "{heatmap}"
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a heatmap trace in plotly."
         )
@@ -344,11 +343,14 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('heatmap')),
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('heatmap', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def contour(self):
-        '''@Contour@'''
-        name = 'contour'
+        '''@contour@'''
+        name = "{contour}"
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a contour trace in plotly."
         )
@@ -384,11 +386,14 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('contour'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('contour', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
 
     def histogram2d(self):
-        '''@Histogram2d@'''
-        name = 'histogram2d'
+        '''@histogram2d@'''
+        name = '{histogram2d}'
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a 2D histogram trace in plotly."
         )
@@ -421,11 +426,14 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2d'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('histogram2d', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def histogram2dcontour(self):
-        '''@Histogram2dContour@'''
-        name = 'histogram2dcontour'
+        '''@histogram2dcontour@'''
+        name = '{histogram2dcontour}'
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing a 2D histogram contour "
             "trace in plotly."
@@ -462,11 +470,14 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2dcontour'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('histogram2dcontour', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def area(self):
-        '''@Area@'''
-        name = 'area'
+        '''@area@'''
+        name = '{area}'
+        obj_type = "{UL}"
+        parent_keys = []
         docstring = (
             "A {UL}-like object for representing an area trace in plotly."
         )
@@ -482,7 +493,7 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('angularaxis', dict(  #Q? How do polar axes this work?
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types='',
                 description=(
                     'Polar chart subplots are not supported yet. Info coming soon'
@@ -490,7 +501,7 @@ class MakeMeta(list):
             )),
             ('radialaxis', dict(  #Q? How do polar axes this work?
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types='',
                 description=(
                     'Polar chart subplots are not supported yet. Info coming soon'
@@ -498,7 +509,8 @@ class MakeMeta(list):
             )),
             ('type', make.type('area'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('area', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def _keymeta_error(self,y_or_x):
         '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
@@ -510,7 +522,7 @@ class MakeMeta(list):
         _keymeta = [
             ('type', dict(      # Different enough from shortcut
                 required=False,
-                type='plot_info', 
+                key_type='plot_info', 
                 val_types="'data' | 'percent' | 'constant' | 'sqrt'",
                 description=(
                     "Specify how the 'value' or 'array' key in "
@@ -529,7 +541,7 @@ class MakeMeta(list):
             )),
             ('symmetric', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not error bars are the same length "
@@ -540,7 +552,7 @@ class MakeMeta(list):
             )),
             ('array', dict(
                 required=False,
-                type='data',
+                key_type='data',
                 val_types=val_types.data_array(),
                 description=(
                    "The array of corresponding to "
@@ -558,7 +570,7 @@ class MakeMeta(list):
             )),
             ('value', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description=(
                    "The value or percentage determining the error bars' "
@@ -574,7 +586,7 @@ class MakeMeta(list):
             )),
             ('arrayminus', dict(
                 required=False,
-                type='data',
+                key_type='data',
                 val_types=val_types.number(ge=0),
                 description=(
                       "Only functional when 'symmetric' is set to False. "
@@ -584,7 +596,7 @@ class MakeMeta(list):
             )),
             ('valueminus', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description=(
                       "Only functional when 'symmetric' "
@@ -602,7 +614,7 @@ class MakeMeta(list):
             _keymeta += [
                 ('copy_ystyle', dict(
                     required=False,
-                    type='style',
+                    key_type='style',
                     val_types=val_types.bool(),
                     description=(
                           "Toggle whether to set x error bar "
@@ -617,8 +629,10 @@ class MakeMeta(list):
         return _keymeta
       
     def error_y(self):
-        '''@ErrorY@'''
-        name = 'error_y'
+        '''@error_y@'''
+        name = '{error_y}'
+        obj_type = "{UL}"
+        parent_keys = ["error_y"]
         docstring = (
             "A {UL}-like object representing a set of error bar spanning "
             "along the y-axis."
@@ -626,11 +640,14 @@ class MakeMeta(list):
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.ErrorY(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('y'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('error_y', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def error_x(self):
-        '''@ErrorX@'''
-        name = 'error_x'
+        '''@error_x@'''
+        name = '{error_x}'
+        obj_type = "{UL}"
+        parent_keys = ["error_x"]
         docstring = (
             "A {UL}-like object representing a set of error bars spanning "
             "along the x-axis."
@@ -638,7 +655,8 @@ class MakeMeta(list):
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.ErrorX(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('x'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('error_x', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def _keymeta_bins(self,x_or_y):
         '''@keymeta_bins@ -- keymeta for XBins and YBins'''
@@ -650,8 +668,10 @@ class MakeMeta(list):
         return _keymeta
     
     def xbins(self):
-        '''@XBins@'''
-        name = 'xbins'
+        '''@xbins@'''
+        name = '{xbins}'
+        obj_type = "{UL}"
+        parent_keys = ["xbins"]
         docstring = (
             "A {UL}-like object containing specifications of the bins "
             "lying along the x-axis."
@@ -662,11 +682,14 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.XBins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('x'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('xbins', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def ybins(self):
-        '''@YBins@'''
-        name = 'ybins'
+        '''@ybins@'''
+        name = '{ybins}'
+        obj_type = "{UL}"
+        parent_keys = ["ybins"]
         docstring = (
             "A {UL}-like object containing specifications of the bins "
             "lying along the y-axis."
@@ -677,11 +700,14 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.YBins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('y'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('ybins', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def contours(self):
-        '''@Contours@'''
-        name = 'contours'
+        '''@contours@'''
+        name = '{contours}'
+        obj_type = "{UL}"
+        parent_keys = ["contours"]
         docstring = (
             "A {UL}-like object containing specifications of the contours."
         )
@@ -689,7 +715,8 @@ class MakeMeta(list):
         examples = MakeExamples.Contours(MakeExamples())
         keymeta = OrderedDict([
             ('showlines', dict(
-                required=False, type='style',
+                required=False,
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the contour lines appear on the plot."
@@ -700,7 +727,7 @@ class MakeMeta(list):
             ('size', make.size('contours')),
             ('coloring', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=" 'fill' | 'heatmap' | 'lines' | 'none' ",
                 description=(
                     "Choose the coloring method for this contour trace. "
@@ -715,11 +742,14 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('contours', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def stream(self):
-        '''@Stream@'''
-        name = 'stream'
+        '''@stream@'''
+        name = '{stream}'
+        obj_type = "{UL}"
+        parent_keys = ["stream"]
         docstring = (
             "A {UL}-like object containing specifications of the data stream."
         )
@@ -728,7 +758,7 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('token', dict(  #Q? These are public!! Is that OK?
                 required=True,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="A stream id number, see https://plot.ly/settings",
                 description=(
                     "This number links a data object on a plot with a "
@@ -741,7 +771,7 @@ class MakeMeta(list):
             )),
             ('maxpoints', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the maximum number of points to keep on the "
@@ -751,11 +781,14 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('stream', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def marker(self):
-        '''@Marker@'''
-        name = 'marker'
+        '''@marker@'''
+        name = '{marker}'
+        obj_type = "{UL}"
+        parent_keys = ["marker"]
         docstring = (
             "A {UL}-like object containing specifications of the marker points."
         )
@@ -769,7 +802,7 @@ class MakeMeta(list):
             ('size', make.size('marker')),
             ('symbol', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=(
                     "'dot' | 'cross' | 'diamond' | 'square' "
                     "| 'triangle-down' | 'triangle-left' | 'triangle-right' "
@@ -787,7 +820,7 @@ class MakeMeta(list):
             ('opacity', make.opacity(marker=True)),
             ('sizeref', dict(  
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Sets the scale factor used to determine the rendered size "
@@ -802,7 +835,7 @@ class MakeMeta(list):
             )),
             ('sizemode', dict(  
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'diameter'| 'area'",
                 description=(
                     "Choose between marker size scaling options for the marker "
@@ -822,7 +855,7 @@ class MakeMeta(list):
             ('cmax', make.zcminmax('max','color')),
             ('outliercolor', dict(
                 required=False,
-                type='style',  
+                key_type='style',  
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -833,7 +866,7 @@ class MakeMeta(list):
             )),
             ('maxdisplayed', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Sets maximum number of displayed points for this "
@@ -841,11 +874,14 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('marker', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def line(self):
-        '''@Line@'''
-        name = 'line'
+        '''@line@'''
+        name = '{line}'
+        obj_type = "{UL}"
+        parent_keys = ["line"]
         docstring = (
             "A {UL}-like object containing specifications of the line segments."
         )
@@ -860,14 +896,14 @@ class MakeMeta(list):
             ('width', make.width('line')),
             ('dash', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'dash' | 'dashdot' | 'dot' | 'solid'",
                 description="Sets the drawing style of this line object."
             )),
             ('opacity', make.opacity()),
             ('shape', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'linear' | 'spline' | 'hv' | 'vh' | 'hvh' | 'vhv'",
                 description=(
                     "Choose the line shape between each coordinate pair "
@@ -882,7 +918,7 @@ class MakeMeta(list):
             )),
             ('smoothing', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                    "Sets the amount of smoothing applied to this line object. "
@@ -897,7 +933,7 @@ class MakeMeta(list):
             )),
             ('outliercolor', dict(
                 required=False,
-                type='style',  
+                key_type='style',  
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -908,7 +944,7 @@ class MakeMeta(list):
             )),
             ('outlierwidth', dict(
                 required=False,
-                type='style',  
+                key_type='style',  
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -918,13 +954,17 @@ class MakeMeta(list):
                examples=MakeExamples.color(MakeExamples())
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('line', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def font(self):
-        '''@Font@'''
-        name = 'font'
+        '''@font@'''
+        name = '{font}'
+        obj_type = "{UL}"
+        parent_keys = ["font","titlefont","textfont"]
         docstring = (
-            "A {UL}-like object containing specifications of the text font."
+            "A {UL}-like object containing specifications of on-plot, title or "
+            "global text font."
         )
         links = [
             "{WEB}font/",
@@ -950,7 +990,7 @@ class MakeMeta(list):
                     " 'Raleway, sans-serif' | "
                     " 'Times New Roman, Times, serif'"
                 ),
-                type='style',
+                key_type='style',
                 description=(
                     "Sets the font family. "
                     "If linked in the first level of the layout object,  "
@@ -962,14 +1002,15 @@ class MakeMeta(list):
             ('color', make.color('font')),
             ('outlinecolor', make.outlinecolor('font'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('font', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def _keymeta_ticks(self,axis_or_colorbar):
         '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar''' 
         _keymeta = [
             ('ticks', dict(
                   required=False,
-                  type='style',
+                  key_type='style',
                   val_types="'' | 'inside' | 'outside'",
                   description=(
                       "Sets the format of tick visibility on this {}."
@@ -978,7 +1019,7 @@ class MakeMeta(list):
             ('showticklabels', make.showticklabels(axis_or_colorbar)),
             ('tick0', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),
                 description=(
                     "Sets the starting point of the ticks of this {}."
@@ -986,7 +1027,7 @@ class MakeMeta(list):
             )),
             ('dtick', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),
                 description=(
                     "Sets the distance between ticks on this {}."
@@ -994,7 +1035,7 @@ class MakeMeta(list):
             )),
             ('ticklen', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),  # Units?
                 description=(
                     "Sets the length of the tick lines on this {}."
@@ -1002,7 +1043,7 @@ class MakeMeta(list):
             )),
             ('tickwidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the width of the tick lines on this {}."
@@ -1010,7 +1051,7 @@ class MakeMeta(list):
             )),
             ('tickcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this {}."
@@ -1019,7 +1060,7 @@ class MakeMeta(list):
             )),
             ('tickangle', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(le=90, ge=-90),
                 description=(
                     "Sets the angle in degrees of the ticks on this {}."
@@ -1027,7 +1068,7 @@ class MakeMeta(list):
             )),
             ('tickfont', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object(),
                 description=(
                     "A dictionary-like object defining the parameters "
@@ -1036,7 +1077,7 @@ class MakeMeta(list):
             )),
             ('exponentformat', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'none' | 'e' | 'E' | 'power' | 'SI' | 'B'",
                 description=(
                     "Sets how exponents show up. Here's how the number "
@@ -1049,7 +1090,7 @@ class MakeMeta(list):
             )),
             ('showexponent', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'all' | 'first' | 'last' | 'none'",
                 description=(
                     "If set to 'all', ALL exponents will be shown "
@@ -1067,7 +1108,7 @@ class MakeMeta(list):
         return _keymeta
       
     def _keymeta_axis(self,x_or_y):
-        '''@make.axis@ -- keymeta for XAxis and YAxis'''
+        '''@keymake_axis@ -- keymeta for XAxis and YAxis'''
           
         S = {'x':['x','bottom','top','y','left','right','vertical'], 
              'y':['y','left','right','x','bottom','top','horizontal']}
@@ -1080,13 +1121,13 @@ class MakeMeta(list):
             ('domain', make.domain(x_or_y)),
             ('type', dict(      # Different enough from shortcut
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'linear' | 'log' | 'date' | 'category'",
                 description="Sets the format of this axis."  # TODO! Add info
             )),
             ('rangemode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'normal' | 'tozero' | 'nonnegative'",
                 description=(
                     "Choose between Plotly's automated axis generation "
@@ -1100,7 +1141,7 @@ class MakeMeta(list):
             )),
             ('autorange', dict(  
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="True | False | 'reversed'",
                 description=(
                     "Toggle whether or not the range of this {S0}-axis is "
@@ -1117,7 +1158,7 @@ class MakeMeta(list):
             )),
             ('showgrid', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not this axis features grid lines."
@@ -1125,7 +1166,7 @@ class MakeMeta(list):
             )),
             ('zeroline', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not an additional grid line "
@@ -1141,7 +1182,7 @@ class MakeMeta(list):
         _keymeta += [
             ('mirror', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether to mirror the axis line to the "
@@ -1150,46 +1191,46 @@ class MakeMeta(list):
             )),
             ('gridcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description="Sets the axis grid color.",
                 examples=MakeExamples.color(MakeExamples())
             )),
             ('gridwidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description="Sets the grid width (in pixels)."
             )),
             ('zerolinecolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description="Sets the color of this axis' zeroline.",
                 examples=MakeExamples.color(MakeExamples())
             )),
             ('zerolinewidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description="Sets the width of this axis' zeroline (in pixels)."
             )),
             ('linecolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description="Sets the axis line color.",
                 examples=MakeExamples.color(MakeExamples())
             )),
             ('linewidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description="Sets the width of the axis line (in pixels)."
             )),
             ('anchor', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=(
                     "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free'"
                 ).format(S3=s[3]),
@@ -1203,7 +1244,7 @@ class MakeMeta(list):
             )),
             ('overlaying', dict(  
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=(
                     "'{S0}' | '{S0}1' | '{S0}2' | ... | False"
                 ).format(S0=s[0]),
@@ -1217,7 +1258,7 @@ class MakeMeta(list):
             )),
             ('side', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="'{S1}' | '{S2}'".format(S1=s[1],S2=s[2]),
                 description=(
                     "Sets whether this {S0}-axis sits at the '{S1}' of the "
@@ -1227,7 +1268,7 @@ class MakeMeta(list):
             )),
             ('position', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(le=1, ge=0),
                 description=(
                     "Sets where this {S0}-axis is positioned in the plotting "
@@ -1241,8 +1282,10 @@ class MakeMeta(list):
         return _keymeta
     
     def xaxis(self):
-        '''@XAxis@'''
-        name = 'xaxis'
+        '''@xaxis@'''
+        name = '{xaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["xaxis"]
         docstring = (
             "A {UL}-like object for representing an x-axis in plotly."
         )
@@ -1254,11 +1297,14 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.XAxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('x'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('xaxis', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def yaxis(self):
-        '''@YAxis@'''
-        name = 'yaxis'
+        '''@yaxis@'''
+        name = '{yaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["yaxis"]
         docstring = (
             "A {UL}-like object for representing a y-axis in plotly."
         )
@@ -1270,11 +1316,14 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.YAxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('y'))
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('yaxis', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def radialaxis(self):
-        '''@RadialAxis@'''
-        name = 'radialaxis'
+        '''@radialaxis@'''
+        name = '{radialaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["radialaxis"]
         docstring = (
             "A {UL}-like object for representing a radial axis in plotly."
         )
@@ -1285,7 +1334,7 @@ class MakeMeta(list):
             ('domain', make.domain('radial')),
             ('orientation', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=-360,le=360),
                 description=(
                     "Sets the orientation (an angle with respect to the origin) "
@@ -1296,7 +1345,7 @@ class MakeMeta(list):
             ('showticklabels', make.showticklabels('radial axis')),
             ('tickorientation', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'horizontal' | 'vertical'",
                 description=(
                     "Choose the orientation (from the paper perspective) "
@@ -1305,7 +1354,7 @@ class MakeMeta(list):
             )),
             ('ticklen', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Sets the length of the tick lines on this radial axis."
@@ -1313,7 +1362,7 @@ class MakeMeta(list):
             )),
             ('tickcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this radial axis."
@@ -1322,7 +1371,7 @@ class MakeMeta(list):
             )),
             ('ticksuffix', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.string(),
                 description=(
                     "Sets the length of the tick lines on this radial axis."
@@ -1330,17 +1379,20 @@ class MakeMeta(list):
             )),
             ('endpadding', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),
                 description="more info coming soon"
             )),
             ('visible', make.visible())
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('radialaxis', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def angularaxis(self):
-        '''@AngularAxis@'''
-        name = 'angularaxis'
+        '''@angularaxis@'''
+        name = '{angularaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["angularaxis"]
         docstring = (
             "A {UL}-like object for representing an angular axis in plotly."
         )
@@ -1353,7 +1405,7 @@ class MakeMeta(list):
             ('showticklabels', make.showticklabels('angular axis')),
             ('tickorientation', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'horizontal' | 'vertical'",
                 description=(
                     "Choose the orientation (from the paper's perspective) "
@@ -1362,7 +1414,7 @@ class MakeMeta(list):
             )),
             ('tickcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the tick lines on this angular axis."
@@ -1371,7 +1423,7 @@ class MakeMeta(list):
             )),
             ('ticksuffix', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.string(),
                 description=(
                     "Sets the length of the tick lines on this angular axis."
@@ -1379,17 +1431,20 @@ class MakeMeta(list):
             )),
             ('endpadding', dict(  # What does this do?
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),
                 description="more info coming soon"
             )),
             ('visible', make.visible())
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('angularaxis', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def legend(self):
-        '''@Legend@'''
-        name = 'legend'
+        '''@legend@'''
+        name = '{legend}'
+        obj_type = "{UL}"
+        parent_keys = ["legend"]
         docstring = (
             "A {UL}-like object for representing a legend in plotly."
         )
@@ -1403,7 +1458,7 @@ class MakeMeta(list):
             ('y', make.xy_layout('legend', 'y')),
             ('traceorder', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'normal' | 'reversed'",
                 description=(
                     "Trace order is set by the order of the data in "
@@ -1421,11 +1476,14 @@ class MakeMeta(list):
             ('xanchor', make.xyanchor('x')),
             ('yanchor', make.xyanchor('y'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('legend', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def colorbar(self):
-        '''@ColorBar@'''
-        name = 'colorbar'
+        '''@colorbar@'''
+        name = '{colorbar}'
+        obj_type = "{UL}"
+        parent_keys = ["colorbar"]
         docstring = (
             "A {UL}-like object for representing a color bar in plotly."
         )
@@ -1435,7 +1493,7 @@ class MakeMeta(list):
             ('title', make.title('colorbar')),
             ('titleside', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'right' | 'top' | 'bottom'",
                 description=(
                     "Location of colorbar title with respect to the colorbar."
@@ -1445,19 +1503,19 @@ class MakeMeta(list):
             ('thickness', make.thickness('colorbar')),
             ('thicknessmode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="string: 'pixels' | 'fraction' ",
                 description="Sets thickness unit mode."
             )),
             ('len', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description="Sets the length of the colorbar."
             )),
             ('lenmode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="string: 'pixels' | 'fraction' ",
                 description="Sets length unit mode."
             )),
@@ -1474,7 +1532,7 @@ class MakeMeta(list):
             ('outlinecolor', make.outlinecolor('colorbar')),
             ('outlinewidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(),
                 description=(
                     "Sets the width of the outline surrounding this colorbar."
@@ -1483,7 +1541,7 @@ class MakeMeta(list):
             ('borderwidth', make.borderwidth('colorbar')),
             ('xpad', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
@@ -1492,7 +1550,7 @@ class MakeMeta(list):
             )),
             ('ypad', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
@@ -1501,11 +1559,14 @@ class MakeMeta(list):
             ))
         ]
         keymeta = OrderedDict(_keymeta)
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('colorbar', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def margin(self):
-        '''@Margin@'''
-        name = 'margin'
+        '''@margin@'''
+        name = '{margin}'
+        obj_type = "{UL}"
+        parent_keys = ["margin"]
         docstring = (
             "A {UL}-like object containing specification of the margins."
         )
@@ -1514,31 +1575,31 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('l', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description="Sets the left margin size in pixels."
             )),
             ('r', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description="Sets the right margin size in pixels."
             )),
             ('b', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description="Sets the bottom margin size in pixels."
             )),
             ('t', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description="Sets the top margin size in pixels."
             )),
             ('pad', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Sets the distance between edge of the plot and the "
@@ -1547,16 +1608,19 @@ class MakeMeta(list):
             )),
             ('autoexpand', dict(  # TODO: ??
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description="more info coming soon"
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('margin', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def annotation(self):
-        '''@Annotation@'''
-        name = 'annotation'
+        '''@annotation@'''
+        name = '{annotation}'
+        obj_type = "{UL}"
+        parent_keys = [""]
         docstring = ("""
             A {UL}-like object for representing an annotation in plotly.
 
@@ -1574,7 +1638,7 @@ class MakeMeta(list):
             ('yref', make.xyref('y')),
             ('text', dict(      # Different enough from shortcut-text
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.string(),
                 description=(
                     "The text associated with this annotation. "
@@ -1592,7 +1656,7 @@ class MakeMeta(list):
             )),
             ('showarrow', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the arrow associated with "
@@ -1607,7 +1671,7 @@ class MakeMeta(list):
             ('yanchor', make.xyanchor('y')),
             ('align', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="'left' | 'center' | 'right'",
                 description=(
                     "Sets the vertical alignment of the text in the "
@@ -1619,7 +1683,7 @@ class MakeMeta(list):
             )),
             ('arrowhead', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types='0 | 1 | 2 | 3 | 4 | 5 | 6 | 7',
                 description=(
                     "Sets the arrowhead style. "
@@ -1628,7 +1692,7 @@ class MakeMeta(list):
             )),
             ('arrowsize', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Scales the arrowhead's size. "
@@ -1637,7 +1701,7 @@ class MakeMeta(list):
             )),
             ('arrowwidth', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the arrowhead's width (in pixels). "
@@ -1646,7 +1710,7 @@ class MakeMeta(list):
             )),
             ('arrowcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the arrowhead. "
@@ -1656,7 +1720,7 @@ class MakeMeta(list):
             )),
             ('ax', dict(            # TODO! Better description
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
@@ -1666,7 +1730,7 @@ class MakeMeta(list):
             )),
             ('ay', dict(            # TODO! Better description
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
@@ -1676,7 +1740,7 @@ class MakeMeta(list):
             )),
             ('textangle', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=-180,le=180),
                 description=(
                    "Sets the angle of the text linked to 'text' with respect "
@@ -1687,7 +1751,7 @@ class MakeMeta(list):
             ('borderwidth', make.borderwidth('annotation')),
             ('borderpad', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(le=10, ge=0),
                 description=(
                     "The amount of space (padding) between the text and "
@@ -1697,11 +1761,14 @@ class MakeMeta(list):
             ('bgcolor', make.bgcolor('annotation')),
             ('opacity', make.opacity())
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('annotation', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def layout(self):
-        '''@Layout@'''
-        name = 'layout'
+        '''@layout@'''
+        name = '{layout}'
+        obj_type = "{UL}"
+        parent_keys = ["layout"]
         docstring = (
             "A {UL}-like object containing specification of the layout "
             "of a plotly figure."
@@ -1720,7 +1787,7 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(layout=True)),
             ('autosize', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not the dimensions of the figure are "
@@ -1733,7 +1800,7 @@ class MakeMeta(list):
             )),
             ('width', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the width in pixels of the figure you are generating."
@@ -1741,7 +1808,7 @@ class MakeMeta(list):
             )),
             ('height', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the height in pixels of the figure you are generating."
@@ -1751,7 +1818,7 @@ class MakeMeta(list):
             ('yaxis', make.axis('y',layout=True)),
             ('legend', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object(),
                 description=(
                     "A dictionary-like object containing the legend "
@@ -1760,7 +1827,7 @@ class MakeMeta(list):
             )),
             ('annotations', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object_list(),
                 description=(
                     "A list-like object that contains one or multiple "
@@ -1769,7 +1836,7 @@ class MakeMeta(list):
             )),
             ('margin', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object(),
                 description=(
                     "A dictionary-like object containing the margin "
@@ -1778,7 +1845,7 @@ class MakeMeta(list):
             )),
             ('paper_bgcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the figure's paper "
@@ -1788,7 +1855,7 @@ class MakeMeta(list):
             )),
             ('plot_bgcolor', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "Sets the background color of the plot (i.e. the area "
@@ -1798,7 +1865,7 @@ class MakeMeta(list):
             )),
             ('hovermode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'closest' | 'x' | 'y'",
                 description=(
                     "Sets this figure's behavior when a user hovers over it. "
@@ -1813,7 +1880,7 @@ class MakeMeta(list):
             )),
             ('dragmode', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="'zoom' | 'pan'",
                 description=(
                     "Sets this figure's behavior when a user preforms a mouse "
@@ -1829,7 +1896,7 @@ class MakeMeta(list):
             )),
             ('separators', dict(  
                 required=False,
-                type='style',
+                key_type='style',
                 val_types="a two-character string",
                 description=(
                     "Sets the decimal (the first character) and thousands "
@@ -1846,7 +1913,7 @@ class MakeMeta(list):
             )),
             ('barmode', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="'stack' | 'group' | 'overlay'",
                 description=(
                     "For bar and histogram plots only. "
@@ -1862,7 +1929,7 @@ class MakeMeta(list):
             )),
             ('bargap', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "For bar and histogram plots only. "
@@ -1872,7 +1939,7 @@ class MakeMeta(list):
             )),
             ('bargroupgap', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
                     "For bar and histogram plots only. "
@@ -1884,7 +1951,7 @@ class MakeMeta(list):
             )),
             ('boxmode', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="'overlay' | 'group'",
                 description=(
                     "For box plots only. "
@@ -1899,7 +1966,7 @@ class MakeMeta(list):
             )),
             ('radialaxis', dict(  
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object(),
                 description=(
                     "A dictionary-like object describing the radial axis "
@@ -1908,7 +1975,7 @@ class MakeMeta(list):
             )),
             ('angularaxis', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object(),
                 description=(
                     "A dictionary-like object describing the angular axis "
@@ -1917,7 +1984,7 @@ class MakeMeta(list):
             )),
             ('direction', dict(
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types="'clockwise' | 'counterclockwise'",
                 description=(
                     "For polar plots only. "
@@ -1927,7 +1994,7 @@ class MakeMeta(list):
             )),
             ('orientation', dict(  # Different enough than in shortcut-orientation
                 required=False,
-                type='plot_info',
+                key_type='plot_info',
                 val_types=val_types.number(ge=-360,le=360),
                 description=(
                    "For polar plots only. "
@@ -1936,7 +2003,7 @@ class MakeMeta(list):
             )),
             ('hidesources', dict(
                 required=False,
-                type='style',
+                key_type='style',
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not an annotation citing the data "
@@ -1946,11 +2013,14 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('layout', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def figure(self):
-        '''@Figure@'''
-        name = 'figure'
+        '''@figure@'''
+        name = '{figure}'
+        obj_type = "{UL}"
+        parent_keys = [""]
         docstring = ("""
             A {UL}-like object representing a figure to be rendered by plotly.
 
@@ -1961,7 +2031,7 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('data', dict(
                 required=False,
-                type='object',
+                key_type='object',
                 val_types=val_types.object_list(),
                 description=(
                     "A list-like array of the data trace(s) that is/are "
@@ -1970,7 +2040,7 @@ class MakeMeta(list):
             )),
             ('layout', dict(
                required=False,
-               type='object',
+               key_type='object',
                val_types=val_types.object(),
                description=(
                    "A dictionary-like object that contains the layout "
@@ -1980,112 +2050,131 @@ class MakeMeta(list):
                )
             ))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('figure', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def data(self):
-        '''@Data@ (accepts no keys)'''
-        name = 'data'
+        '''@data@ (accepts no keys)'''
+        name = '{data}'
+        obj_type = "{OL}"
+        parent_keys = ["data"]
         docstring = (
             "A {OL} of traces to be shown on one plotly figure."
         )
         links = ['']
         examples = MakeExamples.Data(MakeExamples())
         keymeta = dict()
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('data', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def annotations(self):
-        '''@Annotations@ (accepts no keys)'''
-        name = 'annotations'
+        '''@annotations@ (accepts no keys)'''
+        name = '{annotations}'
+        obj_type = "{OL}"
+        parent_keys = ["annotations"]
         docstring = (
             "A {OL} of annotations to be shown on one plotly figure."
         )
         links = ['']
         examples = MakeExamples.Annotations(MakeExamples())
         keymeta = dict()
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('annotations', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
     
     def trace(self):
-        '''@Trace@'''  #Q? Why keep this?
+        '''@trace@'''  #Q? Why keep this?
         name = 'trace'
+        obj_type = "{UL}"
+        parent_keys = ['']
         docstring = ''
         links = ['']
         examples = ['']
         keymeta = OrderedDict([
-            ('x', dict(type='data')),
-            ('y', dict(type='data')),
-            ('z', dict(type='data')),
-            ('r', dict(type='data')),
-            ('t', dict(type='data')),
-            ('text', dict(type='data')),
-            ('name', dict(type='data')),
-            ('mode', dict(type='plot_info')),
-            ('marker', dict(type='object')),
-            ('line', dict(type='object')),
-            ('fill', dict(type='style')),
-            ('fillcolor', dict(type='style')),
-            ('opacity', dict(type='style')),
-            ('showlegend', dict(type='style')),
-            ('xaxis', dict(type='plot_info')),
-            ('yaxis', dict(type='plot_info')),
+            ('x', dict(key_type='data')),
+            ('y', dict(key_type='data')),
+            ('z', dict(key_type='data')),
+            ('r', dict(key_type='data')),
+            ('t', dict(key_type='data')),
+            ('text', dict(key_type='data')),
+            ('name', dict(key_type='data')),
+            ('mode', dict(key_type='plot_info')),
+            ('marker', dict(key_type='object')),
+            ('line', dict(key_type='object')),
+            ('fill', dict(key_type='style')),
+            ('fillcolor', dict(key_type='style')),
+            ('opacity', dict(key_type='style')),
+            ('showlegend', dict(key_type='style')),
+            ('xaxis', dict(key_type='plot_info')),
+            ('yaxis', dict(key_type='plot_info')),
             ('angularaxis', dict()),
             ('radialaxis', dict()),
-            ('error_y', dict(type='object')),
-            ('error_x', dict(type='object')),
-            ('textfont', dict(type='object')),
-            ('type', dict(type='plot_info')),
-            ('orientation', dict(type='plot_info')),
-            ('boxpoints', dict(type='style')),
-            ('jitter', dict(type='style')),
-            ('pointpos', dict(type='style')),
-            ('boxmean', dict(type='style')),
-            ('whiskerwidth', dict(type='style')),
-            ('scl', dict(type='style')),
-            ('reversescl', dict(type='style')),
-            ('colorbar', dict(type='object')),
-            ('autobinx', dict(type='style')),
-            ('autobiny', dict(type='style')),
-            ('xbins', dict(type='object')),
-            ('ybins', dict(type='object')),
-            ('histnorm', dict(type='plot_info')),
-            ('zmax', dict(type='plot_info')),
-            ('zmin', dict(type='plot_info')),
+            ('error_y', dict(key_type='object')),
+            ('error_x', dict(key_type='object')),
+            ('textfont', dict(key_type='object')),
+            ('type', dict(key_type='plot_info')),
+            ('orientation', dict(key_type='plot_info')),
+            ('boxpoints', dict(key_type='style')),
+            ('jitter', dict(key_type='style')),
+            ('pointpos', dict(key_type='style')),
+            ('boxmean', dict(key_type='style')),
+            ('whiskerwidth', dict(key_type='style')),
+            ('scl', dict(key_type='style')),
+            ('reversescl', dict(key_type='style')),
+            ('colorbar', dict(key_type='object')),
+            ('autobinx', dict(key_type='style')),
+            ('autobiny', dict(key_type='style')),
+            ('xbins', dict(key_type='object')),
+            ('ybins', dict(key_type='object')),
+            ('histnorm', dict(key_type='plot_info')),
+            ('zmax', dict(key_type='plot_info')),
+            ('zmin', dict(key_type='plot_info')),
             ('dx', dict()),
             ('dy', dict()),
             ('x0', dict()),
             ('y0', dict()),
-            ('zauto', dict(type='plot_info')),
+            ('zauto', dict(key_type='plot_info')),
             ('hm_id', dict()),
-            ('nbinsx', dict(type='style')),
-            ('nbinsy', dict(type='style')),
-            ('showscale', dict(type='style'))
+            ('nbinsx', dict(key_type='style')),
+            ('nbinsy', dict(key_type='style')),
+            ('showscale', dict(key_type='style'))
         ])
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('trace', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
      
     def plotlylist(self):
-        '''@PlotlyList@ (accepts no keys)'''
+        '''@plotlylist@ (accepts no keys)'''
         name = 'plotlylist'
+        obj_type = "{OL}"
+        parent_keys = ['']
         docstring = ''
         links = ['']
         examples = ['']
         keymeta = dict()
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('plotlylist', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def plotlydict(self):
-        '''@PlotlyDict@ (accepts no keys)'''
+        '''@plotlydict@ (accepts no keys)'''
         name = 'plotlydict'
+        obj_type = "{UL}"
+        parent_keys = ['']
         docstring = ''
         links = ['']
         examples = ['']
         keymeta = dict()
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('plotlydict', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
       
     def plotlytrace(self):
-        '''@PlotlyTrace@ (accepts no keys)'''
+        '''@plotlytrace@ (accepts no keys)'''
         name = 'plotlytrace'
+        obj_type = "{OL}"
+        parent_keys = ['']
         docstring = ''
         links = ['']
         examples = ['']
         keymeta = dict()
-        self += self._stuff(name, docstring, examples, links, keymeta)
+        self += self._stuff('plotlytrace', name, obj_type, parent_keys, 
+                            docstring, examples, links, keymeta)
 
 # -------------------------------------------------------------------------------
