@@ -155,26 +155,26 @@ class MakeExamples(list):
         ])
         return self
 
-    def Area(self):  # TODO!
+    def area(self):  # TODO!
         '''@Area@'''
         self.python = ['']
         return self
 
-    def Bar(self):
+    def bar(self):
         '''@Bar@'''
         self.python = [
             "py.plot([Bar(x=['yesterday', 'today', 'tomorrow'], y=[5, 4, 10])])"
         ]
         return self
 
-    def Box(self):
+    def box(self):
         '''@Box@'''
         self.python = [
             "py.plot([Box(name='boxy', y=[1,3,9,2,4,2,3,5,2])])"
         ]
         return self
 
-    def Contour(self):
+    def contour(self):
         self.python = [
             "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]",
             "y = ['a', 'b', 'c']",
@@ -183,7 +183,7 @@ class MakeExamples(list):
         ]
         return self
     
-    def Heatmap(self):
+    def heatmap(self):
         self.python = [
             "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]",
             "y = ['a', 'b', 'c']",
@@ -192,14 +192,14 @@ class MakeExamples(list):
         ]
         return self
 
-    def Histogram(self):
+    def histogram(self):
         self.python = [
             "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # along bins along x-axis",
             "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # along bins along y-axis",
         ]
         return self
 
-    def Histogram2d(self):
+    def histogram2d(self):
         self.python = [
             "import numpy as np",
             "x = np.random.randn(500)",
@@ -208,7 +208,7 @@ class MakeExamples(list):
         ]
         return self
 
-    def Histogram2dContour(self):
+    def histogram2dcontour(self):
         self.python = [
             "import numpy as np",
             "x = np.random.randn(500)",
@@ -217,21 +217,21 @@ class MakeExamples(list):
         ]
         return self
 
-    def Scatter(self):
+    def scatter(self):
         self.python = [
             "py.plot([Scatter(name='tacters', x=[1,4,2,3], y=[1,6,2,1])])"
         ]
         return self
 
-    def AngularAxis(self): # TODO!
+    def angularaxis(self): # TODO!
         self.python = ['']
         return self
 
-    def RadialAxis(self): # TODO!
+    def radialaxis(self): # TODO!
         self.python = ['']
         return self
     
-    def Annotation(self):
+    def annotation(self):
         self.python = [
             "annotation = Annotation(\n"
             "     text='what i want this to say is:<br>THIS!',\n"
@@ -244,77 +244,77 @@ class MakeExamples(list):
         ]
         return self
 
-    def ColorBar(self):
+    def colorbar(self):
         self.python = [''] # TODO!
         return self
 
-    def Contours(self):
+    def contours(self):
         self.python = [''] # TODO!
         return self
         
-    def ErrorY(self):
+    def error_y(self):
         self.python = [''] # TODO!
         return self
 
-    def ErrorX(self):
+    def error_x(self):
         self.python = [''] # TODO!
         return self
 
-    def Figure(self):
+    def figure(self):
         self.python = [''] # TODO!
         return self
 
-    def Font(self):
+    def font(self):
         self.python = [''] # TODO!
         return self
 
-    def Layout(self):
+    def layout(self):
         self.python = [''] # TODO!
         return self
         
-    def Legend(self):
+    def legend(self):
         self.python = [''] # TODO!
         return self
 
-    def Line(self):
+    def line(self):
         self.python = [''] # TODO!
         return self
 
-    def Marker(self):
+    def marker(self):
         self.python = [''] # TODO!
         return self
 
-    def Margin(self):
+    def margin(self):
         self.python = [''] # TODO!
         return self
 
-    def Stream(self):
+    def stream(self):
         self.python = [''] # TODO!
         return self
 
-    def XAxis(self):
+    def xaxis(self):
         self.python = [''] # TODO!
         return self
 
-    def XBins(self):
+    def xbins(self):
         self.python = [''] # TODO!
         return self
 
-    def YAxis(self):
+    def yaxis(self):
         self.python = [''] # TODO!
         return self
 
-    def YBins(self):
+    def ybins(self):
         self.python = [''] # TODO!
         return self
 
-    def Data(self):
+    def data(self):
         self.python = [
             "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2],y[2,3])])"
         ]
         return self
 
-    def Annotations(self):
+    def annotations(self):
         self.python = [''] # TODO!
         return self
 

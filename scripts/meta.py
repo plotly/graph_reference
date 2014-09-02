@@ -46,11 +46,11 @@ class MakeMeta(list):
         '''@scatter@'''
         name = "{scatter}"
         obj_type = "{UL}"
-        parent_keys = [""]
+        parent_keys = []
         docstring = (
             "A {ULlike} for representing a scatter trace in plotly."
         )
-        examples = MakeExamples.Scatter(MakeExamples())
+        examples = MakeExamples.scatter(MakeExamples())
         links = [
             "{WEB}line-and-scatter/",
             "{WEB}bubble-charts/",
@@ -145,7 +145,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a bar trace in plotly."
         )
         links = ["{WEB}bar-charts/"]
-        examples = MakeExamples.Bar(MakeExamples())
+        examples = MakeExamples.bar(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.x('bar')),
             ('y', make.y('bar')),
@@ -179,7 +179,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a histogram trace in plotly."
         )
         links = ["{WEB}histograms/"]
-        examples = MakeExamples.Histogram(MakeExamples())
+        examples = MakeExamples.histogram(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.x('histogram')),
             ('y', make.y('histogram')),
@@ -217,7 +217,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a box trace in plotly."
         )
         links = ["{WEB}box-plots/"]
-        examples = MakeExamples.Box(MakeExamples())
+        examples = MakeExamples.box(MakeExamples())
         keymeta = OrderedDict([
             ('y', make.y('box')),
             ('x0', make.x0y0('box')),
@@ -315,7 +315,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a heatmap trace in plotly."
         )
         links = ["{WEB}heatmaps/"]
-        examples = MakeExamples.Heatmap(MakeExamples())
+        examples = MakeExamples.heatmap(MakeExamples())
         keymeta = OrderedDict([
             ('z', make.z('heatmap')),
             ('x', make.x('heatmap')),
@@ -355,7 +355,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a contour trace in plotly."
         )
         links = ["{WEB}contour-plots/"]
-        examples = MakeExamples.Contour(MakeExamples())
+        examples = MakeExamples.contour(MakeExamples())
         keymeta = OrderedDict([
             ('z', make.z('contour')),
             ('x', make.x('contour')),
@@ -398,7 +398,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a 2D histogram trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
-        examples = MakeExamples.Histogram2d(MakeExamples())
+        examples = MakeExamples.histogram2d(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.x('histogram2d')),
             ('y', make.y('histogram2d')),
@@ -439,7 +439,7 @@ class MakeMeta(list):
             "trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
-        examples = MakeExamples.Histogram2dContour(MakeExamples())
+        examples = MakeExamples.histogram2dcontour(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.x('histogram2dcontour')),
             ('y', make.y('histogram2dcontour')),
@@ -482,7 +482,7 @@ class MakeMeta(list):
             "A {ULlike} for representing an area trace in plotly."
         )
         links = ["{WEB}polar-chart/"]
-        examples = MakeExamples.Area(MakeExamples())
+        examples = MakeExamples.area(MakeExamples())
         keymeta = OrderedDict([
             ('r', make.r('area')),
             ('t', make.t('area')),
@@ -638,7 +638,7 @@ class MakeMeta(list):
             "along the y-axis."
         )
         links = ["{WEB}error-bars/"]
-        examples = MakeExamples.ErrorY(MakeExamples())
+        examples = MakeExamples.error_y(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('y'))
         self += self._stuff('error_y', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -653,7 +653,7 @@ class MakeMeta(list):
             "along the x-axis."
         )
         links = ["{WEB}error-bars/"]
-        examples = MakeExamples.ErrorX(MakeExamples())
+        examples = MakeExamples.error_x(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('x'))
         self += self._stuff('error_x', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -680,7 +680,7 @@ class MakeMeta(list):
             "{WEB}histograms/",
             "{WEB}2D-Histograms/"
         ]
-        examples = MakeExamples.XBins(MakeExamples())
+        examples = MakeExamples.xbins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('x'))
         self += self._stuff('xbins', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -698,7 +698,7 @@ class MakeMeta(list):
             "{WEB}histograms/"
             "{WEB}2D-Histograms/"
         ]
-        examples = MakeExamples.YBins(MakeExamples())
+        examples = MakeExamples.ybins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('y'))
         self += self._stuff('ybins', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -712,7 +712,7 @@ class MakeMeta(list):
             "A {ULlike} containing specifications of the contours."
         )
         links = ["{WEB}contour-plots/"]
-        examples = MakeExamples.Contours(MakeExamples())
+        examples = MakeExamples.contours(MakeExamples())
         keymeta = OrderedDict([
             ('showlines', dict(
                 required=False,
@@ -754,7 +754,7 @@ class MakeMeta(list):
             "A {ULlike} containing specifications of the data stream."
         )
         links = ["{WEB}streaming/"]
-        examples = MakeExamples.Stream(MakeExamples())
+        examples = MakeExamples.stream(MakeExamples())
         keymeta = OrderedDict([
             ('token', dict(  #Q? These are public!! Is that OK?
                 required=True,
@@ -796,7 +796,7 @@ class MakeMeta(list):
             "{WEB}line-and-scatter/",
             "{WEB}bubble-charts/"
         ]
-        examples = MakeExamples.Marker(MakeExamples())
+        examples = MakeExamples.marker(MakeExamples())
         keymeta = OrderedDict([
             ('color', make.color('marker')),
             ('size', make.size('marker')),
@@ -891,7 +891,7 @@ class MakeMeta(list):
             "{WEB}filled-area-plots/",
             "{WEB}contour-plots/"
         ]
-        examples = MakeExamples.Line(MakeExamples())
+        examples = MakeExamples.line(MakeExamples())
         keymeta = OrderedDict([
             ('color', make.color('line')),
             ('width', make.width('line')),
@@ -976,7 +976,7 @@ class MakeMeta(list):
             "{WEB}text-and-annotations/",
             "{WEB}line-and-scatter/"
         ]
-        examples = MakeExamples.Font(MakeExamples())
+        examples = MakeExamples.font(MakeExamples())
         keymeta = OrderedDict([
             ('family', dict(
                 required=False,
@@ -1300,7 +1300,7 @@ class MakeMeta(list):
             "{WEB}subplots/",
             "{WEB}insets/"
         ]
-        examples = MakeExamples.XAxis(MakeExamples())
+        examples = MakeExamples.xaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('x'))
         self += self._stuff('xaxis', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -1319,7 +1319,7 @@ class MakeMeta(list):
             "{WEB}subplots/",
             "{WEB}insets/"
         ]
-        examples = MakeExamples.YAxis(MakeExamples())
+        examples = MakeExamples.yaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('y'))
         self += self._stuff('yaxis', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -1333,7 +1333,7 @@ class MakeMeta(list):
             "A {ULlike} for representing a radial axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
-        examples = MakeExamples.RadialAxis(MakeExamples())
+        examples = MakeExamples.radialaxis(MakeExamples())
         keymeta = OrderedDict([
             ('range', make.range('radial')),
             ('domain', make.domain('radial')),
@@ -1402,7 +1402,7 @@ class MakeMeta(list):
             "A {ULlike} for representing an angular axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
-        examples = MakeExamples.AngularAxis(MakeExamples())
+        examples = MakeExamples.angularaxis(MakeExamples())
         keymeta = OrderedDict([
             ('range', make.range('angular')),
             ('domain', make.domain('angular')),  #Q? Does not apply, right?
@@ -1457,7 +1457,7 @@ class MakeMeta(list):
             "{WEB}/legend/",
             "{WEB}/figure-labels/"
         ]
-        examples = MakeExamples.Legend(MakeExamples())
+        examples = MakeExamples.legend(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.xy_layout('legend', 'x')),
             ('y', make.xy_layout('legend', 'y')),
@@ -1492,8 +1492,8 @@ class MakeMeta(list):
         docstring = (
             "A {ULlike} object for representing a color bar in plotly."
         )
-        links = ['']
-        examples = MakeExamples.ColorBar(MakeExamples())
+        links = []
+        examples = MakeExamples.colorbar(MakeExamples())
         _keymeta = [
             ('title', make.title('colorbar')),
             ('titleside', dict(
@@ -1576,7 +1576,7 @@ class MakeMeta(list):
             "A {ULlike} containing specification of the margins."
         )
         links = ["{WEB}/setting-graph-size/"]
-        examples = MakeExamples.Margin(MakeExamples())
+        examples = MakeExamples.margin(MakeExamples())
         keymeta = OrderedDict([
             ('l', dict(
                 required=False,
@@ -1625,7 +1625,7 @@ class MakeMeta(list):
         '''@annotation@'''
         name = '{annotation}'
         obj_type = "{UL}"
-        parent_keys = [""]
+        parent_keys = []
         docstring = ("""
             A {ULlike} for representing an annotation in plotly.
 
@@ -1635,7 +1635,7 @@ class MakeMeta(list):
             for help with location after pan-and-zoom actions.
         """)
         links = ["{WEB}/text-and-annotations/"]
-        examples = MakeExamples.Annotation(MakeExamples())
+        examples = MakeExamples.annotation(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
             ('y', make.xy_layout('annotation','y')),
@@ -1779,7 +1779,7 @@ class MakeMeta(list):
             "{WEB}/bar-charts/",
             "{WEB}/log-plot/"
         ]
-        examples = MakeExamples.Layout(MakeExamples())
+        examples = MakeExamples.layout(MakeExamples())
         keymeta = OrderedDict([
             ('title', make.title('layout')),
             ('titlefont', make.titlefont('layout')),
@@ -2020,14 +2020,14 @@ class MakeMeta(list):
         '''@figure@'''
         name = '{figure}'
         obj_type = "{UL}"
-        parent_keys = [""]
+        parent_keys = []
         docstring = ("""
             A {ULlike} representing a figure to be rendered by plotly.
 
             This is the container for all things to be rendered in a figure.
         """)
-        links = ['']
-        examples = MakeExamples.Figure(MakeExamples())
+        links = []
+        examples = MakeExamples.figure(MakeExamples())
         keymeta = OrderedDict([
             ('data', dict(
                 required=False,
@@ -2061,8 +2061,8 @@ class MakeMeta(list):
         docstring = (
             "List of traces (i.e. {OLlike}) to be shown on one plotly figure."
         )
-        links = ['']
-        examples = MakeExamples.Data(MakeExamples())
+        links = []
+        examples = MakeExamples.data(MakeExamples())
         keymeta = dict()
         self += self._stuff('data', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -2075,20 +2075,20 @@ class MakeMeta(list):
         docstring = (
             "List of annotations (i.e. {OLlike}) to be shown on one plotly figure."
         )
-        links = ['']
-        examples = MakeExamples.Annotations(MakeExamples())
+        links = []
+        examples = MakeExamples.annotations(MakeExamples())
         keymeta = dict()
         self += self._stuff('annotations', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
     
     def trace(self):
         '''@trace@'''  #Q? Why keep this?
-        name = 'trace'
+        name = '{trace}'
         obj_type = "{UL}"
-        parent_keys = ['']
+        parent_keys = []
         docstring = ''
-        links = ['']
-        examples = ['']
+        links = []
+        examples = []
         keymeta = OrderedDict([
             ('x', dict(key_type='data')),
             ('y', dict(key_type='data')),
@@ -2143,36 +2143,36 @@ class MakeMeta(list):
      
     def plotlylist(self):
         '''@plotlylist@ (accepts no keys)'''
-        name = 'plotlylist'
+        name = '{plotlylist}'
         obj_type = "{OL}"
-        parent_keys = ['']
+        parent_keys = []
         docstring = ''
-        links = ['']
-        examples = ['']
+        links = []
+        examples = []
         keymeta = dict()
         self += self._stuff('plotlylist', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
       
     def plotlydict(self):
         '''@plotlydict@ (accepts no keys)'''
-        name = 'plotlydict'
+        name = '{plotlydict}'
         obj_type = "{UL}"
-        parent_keys = ['']
+        parent_keys = []
         docstring = ''
-        links = ['']
-        examples = ['']
+        links = []
+        examples = []
         keymeta = dict()
         self += self._stuff('plotlydict', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
       
     def plotlytrace(self):
         '''@plotlytrace@ (accepts no keys)'''
-        name = 'plotlytrace'
+        name = '{plotlytrace}'
         obj_type = "{OL}"
-        parent_keys = ['']
+        parent_keys = []
         docstring = ''
-        links = ['']
-        examples = ['']
+        links = []
+        examples = []
         keymeta = dict()
         self += self._stuff('plotlytrace', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
