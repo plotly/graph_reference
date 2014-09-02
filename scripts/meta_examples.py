@@ -34,7 +34,8 @@ class MakeExamples(list):
             "'rgb(0, 255, 0)'",
             "'rgba(0, 255, 0, 0.3)'",
             "'hsl(120,100%,50%)'",
-            "'hsla(120,100%,50%,0.3)'"
+            "'hsla(120,100%,50%,0.3)'",
+            "'#434F1D'"
         ])
         return self
     
@@ -42,15 +43,55 @@ class MakeExamples(list):
         '''@colorscale@'''
         self.python = [
             "'Greys'", 
-            "[[0, 'rgb(0,0,0)'],\n" 
-            "[0.5, 'rgb(65, 182, 196)'],\n"
+            "[[0, 'rgb(0,0,0)'], " 
+            "[0.5, 'rgb(65, 182, 196)'], "
             "[1, 'rgb(255,255,255)']]"
+        ]
+        self.matlab = [
+            "'Greys'", 
+            "{ { {0, 'rgb(0,0,0)'}, " 
+            "{0.5, 'rgb(65, 182, 196)'}, "
+            "{1, 'rgb(255,255,255)'} } }"
+        ]
+        self.r = [
+            "'Greys'", 
+            "list(c(0, 'rgb(0,0,0)'), " 
+            "list(0.5, 'rgb(65, 182, 196)'), "
+            "list(1, 'rgb(255,255,255)'))"
+        ]
+        self.nodejs = [
+            "'Greys'", 
+            "[[0, 'rgb(0,0,0)'], " 
+            "[0.5, 'rgb(65, 182, 196)'], "
+            "[1, 'rgb(255,255,255)']]"
+        ]
+        self.julia = [
+            "'Greys'", 
+            "{[0, 'rgb(0,0,0)'], " 
+            "[0.5, 'rgb(65, 182, 196)'], "
+            "[1, 'rgb(255,255,255)']}"
         ]
         return self
 
     def range_xy(self):
         '''@range_xy@'''
         self.python = [
+            "[-13, 20]",
+            "[0, 1]"
+        ]
+        self.matlab = [
+            "[-13, 20]",
+            "[0, 1]"
+        ]
+        self.r = [
+            "c(-13, 20)",
+            "c(0, 1)"
+        ]
+        self.nodejs = [
+            "[-13, 20]",
+            "[0, 1]"
+        ]
+        self.julia = [
             "[-13, 20]",
             "[0, 1]"
         ]
@@ -62,13 +103,56 @@ class MakeExamples(list):
             "[0, 180]",
             "[0, 6.2831]"
         ]
+        self.matlab = [
+            "[0, 180]",
+            "[0, 6.2831]"
+        ]
+        self.r = [
+            "c(0, 180)",
+            "c(0, 6.2831)"
+        ]
+        self.nodejs = [
+            "[0, 180]",
+            "[0, 6.2831]"
+        ]
+        self.julia = [
+            "[0, 180]",
+            "[0, 6.2831]"
+        ]
         return self
 
     def domain(self):
         '''@domain@'''
         self.python = [
-            "[0,0.4], [0.6, 1]"
+            "[0, 0.4]",
+            "[0.6, 1]"
         ]
+        self.matlab = [
+            "[0, 0.4]",
+            "[0.6, 1]"
+        ]
+        self.r = [
+            "c(0, 0.4)",
+            "c(0.6, 1)"
+        ]
+        self.nodejs = [
+            "[0, 0.4]",
+            "[0.6, 1]"
+        ]
+        self.julia = [
+            "[0, 0.4]",
+            "[0.6, 1]"
+        ]
+        return self
+
+    def text(self):
+        '''@text@'''
+        self._for_all([
+           "regular text", 
+           "an annotation<br>spanning two lines",
+           "<b>bold text</b>", 
+           "<a href='https://plot.ly/'>a link to plot.ly</a>"
+        ])
         return self
 
     def Area(self):  # TODO!
