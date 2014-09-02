@@ -102,7 +102,7 @@ def write_meta(tree, meta_language):
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
 
-def write_objs_keys(tree, meta_language):
+def write_objs_keys(tree, meta_language):  # Q? Do we need this?
     '''Write keys to <tree>/graph_objs_keys.json'''
     _obj_keys = dict()
     for obj, stuff in meta_language.items():
@@ -112,6 +112,39 @@ def write_objs_keys(tree, meta_language):
     with open(file_keys, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_keys
         json.dump(_obj_keys, f, indent=4, sort_keys=True)
+    return
+
+def write_NAME_TO_KEY(tree, meta_language):
+    '''
+    Write mapping from name of graph object its parent key 
+    in graph_objs/python/NAME_TO_KEY.json
+    '''
+    NAME_TO_KEY = dict()
+    for obj, stuff in meta_language.items():
+        NAME_TO_KEY[stuff['name']] = obj
+    file_NAME_TO_KEY = os.path.join(tree, "NAME_TO_KEY.json")
+    with open(file_NAME_TO_KEY, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_NAME_TO_KEY
+        json.dump(NAME_TO_KEY, f, indent=4, sort_keys=False)
+
+def write_KEY_TO_NAME(tree, meta_language):
+    '''
+    Write mapping from parent key to name of graph object
+    in graph_objs/python/KEY_TO_NAME.json
+    '''
+    KEY_TO_NAME = dict()
+    for obj, stuff in meta_language.items():
+        parent_keys = stuff['parent_keys']
+        print obj, parent_keys, bool(parent_keys)
+        if parent_keys:
+            for parent_key in parent_keys:
+                KEY_TO_NAME[parent_key] = stuff['name']
+        else:
+            KEY_TO_NAME[obj] = stuff['name']
+    file_KEY_TO_NAME = os.path.join(tree, "KEY_TO_NAME.json")
+    with open(file_KEY_TO_NAME, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_KEY_TO_NAME
+        json.dump(KEY_TO_NAME, f, indent=4, sort_keys=False)
 
 def write_config(graph_objs_info):
     '''
@@ -164,9 +197,14 @@ def main():
         # Make/Check output tree structure
         tree = get_tree(language)
 
-        # Write meta and keys 
+        # Write meta and keys
         write_meta(tree, meta_language)
         write_objs_keys(tree, meta_language) 
+
+        # Write NAME_TO_KEY and KEY_TO_NAME (if 'python')
+        if language=='python':
+            write_NAME_TO_KEY(tree, meta_language)
+            write_KEY_TO_NAME(tree, meta_language)
     
     # Write plot.ly config in JSON files
     write_config(graph_objs_info) 

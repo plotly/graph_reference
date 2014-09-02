@@ -105,6 +105,10 @@ for language in languages:
                          .replace('2D','2d')
                          .replace('bar','Bar')
                          .replace('contour','Contour')
+                         .replace('plotly','plotly')
+                         .replace('dict','Dict')
+                         .replace('list','List')
+                         .replace('trace','Trace')
             )
             table[language][graph_obj] = name
         else:
