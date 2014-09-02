@@ -13,9 +13,11 @@ import set_run
 #
 # - LANG : Language's name (with correct cases e.g. MATLAB)
 # - WEB : Online docs root URL 
-# - OL : Name for ordered lists
-# - OL2D : Name for 2d ordered lists
-# - UL : Name for unordered lists
+# - OL : Name of ordered lists
+# - OL2D : Name of 2d ordered lists
+# - UL : Name of unordered lists
+# - OLlike : Name of {OL}-like (currently only in Python API)
+# - ULlike : Name of {UL}-like (currently only in Python API)
 # - TRUE : Boolean true
 # - FALSE : Boolean false
 # - NAN : code name for Not-a-Numbers
@@ -30,6 +32,8 @@ table = dict(
         OL = 'list or 1d numpy array',
         OL2D = 'list of lists or 2d numpy array',
         UL = 'dictionary',
+        OLlike = 'list-like object',
+        ULlike = 'dictionary-like object',
         TRUE = 'True',
         FALSE = 'False',
         NAN = 'numpy.nan',
@@ -40,6 +44,8 @@ table = dict(
         OL = 'array',
         OL2D = '2d array',
         UL = 'structure',
+        OLlike = 'array',     # same as OL
+        ULlike = 'structure', # same as UL
         TRUE = 'TRUE',
         FALSE = 'FALSE',
         NAN = 'NaN',
@@ -50,6 +56,8 @@ table = dict(
         OL = 'generic vector (list) or atomic vector',
         OL2D = 'list of lists or matrix',
         UL = 'list',
+        OLlike = 'generic vector (list) or atomic vector', # same as OL
+        ULlike = 'list', # same as UL
         TRUE = 'TRUE',
         FALSE = 'FALSE',
         NAN = 'NaN'
@@ -57,9 +65,11 @@ table = dict(
     nodejs = dict(
         LANG = 'Node.js',
         WEB = 'https://plot.ly/nodejs/',
-        OL = 'object',
+        OL = 'array',
         OL2D = 'array of arrays',
         UL = 'object',
+        OLlike = 'array',  # same as OL
+        ULlike = 'object', # same as UL
         TRUE = 'true',
         FALSE = 'false',
         NAN = 'NaN'
@@ -70,6 +80,8 @@ table = dict(
         OL = 'array',
         OL2D = '2d array',
         UL = 'dictionary',
+        OLlike = 'array',      # same as OL
+        ULlike = 'dictionary', # same as UL
         TRUE = 'TRUE',
         FALSE = 'FALSE',
         NAN = 'NaN'
