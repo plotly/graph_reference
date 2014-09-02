@@ -152,21 +152,21 @@ class Make(dict):
         _val_types=val_types.data_array()
         _description = dict(
             scatter=(
-                "The x coordinates of the points of this scatter trace. "
-                "If 'x' is linked to an list or array of strings, "
-                "then the x coordinates are integers [0,1,2,3, ...] labeled "
-                "on the x-axis by the list or array of strings linked to 'x'."
+                "Sets the x coordinates of the points of this scatter trace. "
+                "If 'x' is linked to some {OL} of strings, "
+                "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
+                "on the x-axis by the {OL} of strings linked to 'x'."
             ),
             bar=(
-                "The x coordinates of the bars. "
-                "If 'x' is linked to an list or array of strings, "
-                "then the x coordinates are integers [0,1,2,3, ...] labeled "
-                "on the x-axis by the list or array of strings linked to 'x'. "
+                "Sets the x coordinates of the bars. "
+                "If 'x' is linked to some {OL} of strings, "
+                "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
+                "on the x-axis by the {OL} of strings linked to 'x'. "
                 "If 'y' is not set, the bars are plotted horizontally, "
-                "with their length determined by the list or array linked to 'x'."
+                "with their length determined by the {OL} linked to 'x'."
             ),
             histogram=(
-                "The data sample to be binned (done by Plotly) on the x-axis "
+                "Sets the data sample to be binned (done by Plotly) on the x-axis "
                 "and plotted as vertical bars."
             ),
             box=(
@@ -187,14 +187,14 @@ class Make(dict):
                 "simply be assigned a location."
             ),
             heatmap=(
-                "This array-like value contains the horizontal coordinates "
-                "referring to the columns of the 'z' matrix. "
+                "Sets the horizontal coordinates "
+                "referring to the columns of the {OL2D} linked to 'z'. "
                 "if strings, the x-labels are spaced evenly. "
-                "If the dimensions of z are (n x m), "
-                "the length of the 'x' array should be 'm'."
+                "If the dimensions of the {OL2D} linked to 'z' are (n x m), "
+                "the length of the 'x' array should equal m."
             ),
             histogram2d=(
-                "The data sample to be binned on the x-axis and "
+                "Sets the data sample to be binned on the x-axis and "
                 "whose distribution (computed by Plotly) will correspond "
                 "to the x-coordinates of this 2D histogram trace."
            )
@@ -221,22 +221,22 @@ class Make(dict):
        _val_types=val_types.data_array()
        _description=dict(
            scatter=(
-               "The y coordinates of the points of this scatter trace. "
-               "If 'y' is linked to an list or array of strings, "
-               "then the y coordinates are integers [0,1,2,3, ...] labeled "
-               "on the y-axis by the list or array of strings linked to 'y'."
-           ),
-           histogram=(
-               "The data sample to be binned (done by Plotly) on the y-axis "
-               "and plotted as horizontal bars."
+               "Sets the y coordinates of the points of this scatter trace. "
+               "If 'y' is linked to some {OL} of strings, "
+               "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
+               "on the y-axis by the {OL} of strings linked to 'y'."
            ),
            bar=(
-               "The y coordinates of the bars. "
-               "If 'y' is linked to an list or array of strings, "
-               "then the y coordinates are integers [0,1,2,3, ...] labeled "
-               "on the y-axis by the list or array of strings linked to 'y'. "
+               "Sets the y coordinates of the bars. "
+               "If 'y' is linked to some {OL} of strings, "
+               "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
+               "on the y-axis by the {OL} of strings linked to 'y'. "
                "If 'x' is not set, the bars are plotted vertically, "
-               "with their length determined by the list or array linked to 'y'."
+               "with their length determined by the {OL} linked to 'y'."
+           ),
+           histogram=(
+               "Sets the data sample to be binned (done by Plotly) on the y-axis "
+               "and plotted as horizontal bars."
            ),
            box=(
                "This array is used to define an individual "
@@ -246,18 +246,19 @@ class Make(dict):
                "details on defining multiple boxes with locations "
                "see 'x'. Each box spans from the first quartile to the third. "
                "The second quartile is marked by a line inside the box. "
-               "By default, the whiskers are correspond to box' edges +/- 1.5 times "
+               "By default, the whiskers are correspond to box' edges "
+               "+/- 1.5 times "
                "the interquartile range. See also 'boxpoints' for more info"
            ),
            heatmap=(
-               "This array-like value contains the vertical coordinates "
-               "referring to the rows of the 'z' matrix. "
+               "Sets the vertical coordinates "
+               "referring to the rows of the {OL2D} linked to 'z'. "
                "If strings, the y-labels are spaced evenly. "
-               "If the dimensions of z are (n x m), "
-               "the length of the 'y' array should be 'n'."
+               "If the dimensions of the {OL2D} linked to 'z' are (n x m), "
+               "the length of the 'y' array should equal n."
            ),
            histogram2d=(
-               "The data sample to be binned on the y-axis and "
+               "Sets the data sample to be binned on the y-axis and "
                "whose distribution (computed by Plotly) will correspond "
                "to the y-coordinates of this 2D histogram trace."
           )
@@ -275,24 +276,15 @@ class Make(dict):
         _val_types=val_types.matrix()
         _description=dict(
             heatmap=(
-                "The data that describes the mapping. "
-                "The dimensions of the 'z' matrix are (n x m) "
-                "where there are 'n' ROWS defining the "
-                "number of partitions along the y-axis; this is equal to the "
-                "length of the 'y' array. "
-                "There are 'm' COLUMNS defining the number "
-                "of partitions along the x-axis; "
-                "this is equal to the length of the 'x' array. "
-                "Therefore, the color of the cell z[i][j] is mapped to "
+                "Sets the data that describes the heatmap mapping. "
+                "Say the dimensions of the {OL2D} linked to 'z' has "
+                "n rows and m columns then the resulting heatmap will show "
+                "n partitions along the y-axis and m partitions along the "
+                "x-axis. Therefore, the ith row/ jth column cell in the "
+                "{OL2D} linked to 'z' is mapped to "
                 "the ith partition of the y-axis (starting from the bottom "
                 "of the plot) and the jth partition of the x-axis "
                 "(starting from the left of the plot). "
-                "In Python, a (non-numpy) matrix is best thought of as "
-                "a list of lists (of lists, of lists, etc.). "
-                "Therefore, running len(z) will give you the number "
-                "of ROWS and running len(z[0]) will give you "
-                "the number of COLUMNS. If you ARE using numpy, then running "
-                "z.shape will give you the tuple, (n, m), e.g., (3, 5)."
             )
         )
         _description['contour']= _description['heatmap']
@@ -312,16 +304,16 @@ class Make(dict):
         _description=dict(  
             scatter=(
                 "For Polar charts only. "
-                "The radial coordinates of the points in this "
+                "Sets the radial coordinates of the points in this "
                 "polar scatter trace about the origin."
             ),
             bar=(
                 "For Polar charts only. "
-                "The radial coordinates of the bars in this polar bar trace "
+                "Sets the radial coordinates of the bars in this polar bar trace "
                 "about the original; that is, the radial extent of each bar."
             ),
             area=(
-                "The radial coordinates of the circle sectors in this "
+                "Sets the radial coordinates of the circle sectors in this "
                 "polar area trace about the origin; that is, the radial extent of "
                 "each circle sector."
            )
@@ -342,15 +334,16 @@ class Make(dict):
         _description=dict(
             scatter=(
                 "For Polar charts only. "
-                "The angular coordinates of the points in this "
+                "Sets the angular coordinates of the points in this "
                 "polar scatter trace."
             ),
             bar=(
                 "For Polar charts only. "
-                "The angular coordinates of the bars in this polar bar trace."
+                "Sets the angular coordinates of the bars "
+                "in this polar bar trace."
             ),
             area=(
-                "The angular coordinates of the circle sectors in this "
+                "Sets the angular coordinates of the circle sectors in this "
                 "polar area trace. There are as many sectors as coordinates "
                 "linked to 't' and 'r'. Each sector is drawn about the "
                 "coordinates linked to 't', where they spanned symmetrically "
@@ -367,13 +360,13 @@ class Make(dict):
                 "are in degrees (0 to 360) where the angles "
                 "are measured clockwise about the right-hand "
                 "side of the origin. To change this "
-                "behavior, modify 'range' in AngularAxis "
+                "behavior, modify 'range' in 'angularaxis' "
                 "or/and 'direction' in Layout. "
-                "If 't' is linked to an array-like of "
+                "If 't' is linked to some {OL} of "
                 "strings, then the angular coordinates are "
-                "[0, 360\N, 2*360/N, ...] where N is the "
+                "0, 360\N, 2*360/N, ... where N is the "
                 "number of coordinates given labeled by the "
-                "array-like of strings linked to 't'."
+                "{OL} of strings linked to 't'."
             )  
         _streamable=True
         return self._output(_required[obj],_key_type,_val_types,_description[obj],
@@ -388,7 +381,7 @@ class Make(dict):
         _required=False
         _key_type='plot_info'  
         _val_types=val_types.number()
-        _description=dict( # TODO! Add scatter?
+        _description=dict( # TODO Add scatter?
             box=(
                 "The location of this box. When 'y' defines a single "
                 "box, 'x0' can be used to set where this box is "
@@ -398,7 +391,7 @@ class Make(dict):
             ),
             heatmap=(
                 "The location of the first coordinate of the {S0}-axis. "
-                "Use with 'd{S0}' an alternative to an '{S0}' list/array. "
+                "Use with 'd{S0}' an alternative to an '{S0}' {{OL}}. "
                 "Has no effect if '{S0}' is set."
             ).format(S0=s[0])
         )
@@ -413,10 +406,10 @@ class Make(dict):
         _required=False
         _key_type='plot_info'  
         _val_types=val_types.number()
-        _description=dict( # TODO! Add scatter?
+        _description=dict( # TODO Add scatter?
             heatmap=(
                 "Spacing between {S0}-axis coordinates. "
-                "Use with '{S0}0' an alternative to an '{S0}' list/array. "
+                "Use with '{S0}0' an alternative to an '{S0}' {{OL}}. "
                 "Has no effect if '{S0}' is set."
             ).format(S0=s[0]),
         )
@@ -433,8 +426,8 @@ class Make(dict):
         _val_types="'array' | 'scaled'",
         _description=dict(
             heatmap=(
-                "If set to 'scaled' and '{S0}' is linked to a list/array, "
-                "then the {S1} labels are scaled to a list "
+                "If set to 'scaled' and '{S0}' is linked to a {{OL}}, "
+                "then the {S1} labels are scaled to a {{OL}}"
                 "of integers of unit step "
                 "starting from 0."
            ).format(S0=s[0],S1=s[1])
@@ -480,13 +473,13 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "A dictionary-like object describing "
+                "Links some {{ULlike}} describing "
                 "the {S0} error bars (i.e. along the {S1}-axis) "
                 "that can be drawn "
                 "from the (x, y) coordinates."
             ).format(S0=s[0],S1=s[1]),
             bar=(
-                "A dictionary-like object describing the {S0} error bars "
+                "Links some {{ULlike}} describing the {S0} error bars "
                 "(i.e. along the {S1}-axis) that can "
                 "be drawn from bar tops."
            ).format(S0=s[0],S1=s[1])
@@ -503,11 +496,11 @@ class Make(dict):
         _val_types="'v' | 'h'"
         _description=dict(
             bar=(
-                "This defines the direction of the bars. "
+                "Sets the direction of the bars. "
                 "If set to 'v', the length of each bar will run vertically. "
                 "If set to 'h', the length of each bar will run horizontally"
             ),
-            histogram=(
+            histogram=( # ARTIFACT
                 "Web GUI Artifact. Histogram orientation is determined "
                 "by which of 'x' or 'y' the data sample is linked to."
             )
@@ -521,23 +514,23 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "A dictionary-like object containing marker style "
+                "Links some {ULlike} containing marker style "
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'markers'."
             ),
             bar=(
-                "A dictionary-like object containing marker style "
+                "Links some {ULlike} containing marker style "
                 "parameters for this bar trace, for example, "
                 "the bars' fill color, border width and border color."
             ),
             box=(
-                "A dictionary-like object containing marker style "
+                "Links some {ULlike} containing marker style "
                 "parameters for this the boxpoints of box trace. "
                 "Has an effect only 'boxpoints' is set to 'outliers', "
                 "'suspectedoutliers' or 'all'."
             ),
             area=(
-                "A dictionary-like object containing marker style "
+                "Links some {ULlike} containing marker style "
                 "of the area sectors of this trace, for example the sector fill "
                 "color and sector boundary line width and sector boundary color."
            )
@@ -554,26 +547,27 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "A dictionary-like object containing line style "
+                "Links some {ULlike} containing line "
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'lines'."
             ),
-            bar="Artifact. Has no effect.",
+            bar="Artifact. Has no effect.", # ARTIFACT
             box=(
-                "A dictionary-like object containing line style "
+                "Links some {ULlike} containing line "
                 "parameters for the border of this box trace "
                 "(including the whiskers)."
             ),
             contour=(
-                "A dictionary-like object containing line style "
+                "Links some {ULlike} containing line "
                 "parameters for contour lines of this contour trace "
                 "(including line width, dash, color and smoothing level). "
-                "Has no an effect if 'showlines' is set to False in Contours."
+                "Has no an effect if 'showlines' is set to {FALSE} in 'contours'."
             ),
             marker=(
-                "A dictionary-like object describing the line belonging to "
-                "the marker. For example, the line around each point "
-                "in a scatter trace or the line around each bar in a "
+                "Links some {ULlike} containing line parameters for the line "
+                "segments associated with this marker. "
+                "For example, the line segments around each marker point "
+                "in a scatter trace or the line segments around each bar in a "
                 "bar trace."
            )
         )
@@ -609,7 +603,7 @@ class Make(dict):
                 "If 'opacity' is linked to a list or an array "
                 "of numbers, opacity values are mapped to "
                 "individual marker points in the "
-                "same order as in the data lists or arrays."
+                "same order as in the 'x', 'y' (or 'z') {OL}."
             )
         return self._output(_required,_key_type,_val_types,_description)
     
@@ -620,11 +614,11 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "A dictionary-like object describing the font style "
+                "Links some {ULlike} describing the font style "
                 "of this scatter trace's text elements. Has only "
                 "an effect if 'mode' is set and includes 'text'."
             ),
-            bar="Not currently supported, has no effect."
+            bar="Not currently supported, has no effect." # ARTIFACT
         )
         _description['histogram']= _description['bar']
         return self._output(_required,_key_type,_val_types,_description[obj])
@@ -636,15 +630,15 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             legend=(
-                "A dictionary-like object describing the font "
+                "Links some {ULlike} describing the font "
                 "settings within the legend."
             ),
             annotation=(
-                "A dictionary-like object describing the font "
+                "Links some {ULlike} describing the font "
                 "settings within this annotation."
             ),
             layout=(
-                "A dictionary-like object describing the global font "
+                "Links some {ULlike} describing the global font "
                 "settings for this figure (e.g. all axis titles and labels)."
             )
         )
@@ -670,7 +664,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "The stream dictionary-like object that initializes traces as "
+                "Links some {ULlike} that initializes traces as "
                 "writable-streams, for use with the real-time streaming API."
             )
         )
@@ -718,25 +712,24 @@ class Make(dict):
                 "This key determines which {S0}-axis "
                 "the {S0}-coordinates of this trace will "
                 "reference in the figure.  Values '{S0}1' "
-                "and '{S0}' reference to layout['{S0}axis'], "
-                "'{S0}2' references layout['{S0}axis2'], and "
+                "and '{S0}' reference to '{S0}axis' in 'layout', "
+                "'{S0}2' references to '{S0}axis2' in 'layout', and "
                 "so on. Note that '{S0}1' will always refer to "
-                "layout['{S0}axis'] or layout['{S0}axis1'], "
+                "'{S0}axis' or '{S0}axis1' in 'layout', "
                 "they are the same."
             ).format(S0=s[0])
         elif layout:
             _key_type='object'
             _val_types=val_types.object()
             _description=(
-                "A dictionary-like object describing an "
+                "Links some {{ULlike}} describing an "
                 "{S0}-axis (i.e. an {S1} axis). "
                 "The first {S2}Axis object can be entered into "
-                "layout by linking it to '{S0}axis' OR "
+                "'layout' by linking it to '{S0}axis' OR "
                 "'{S0}axis1', both keys are identical to Plotly.  "
-                " To create references other {S0}-axes, "
-                "you need to define them in the layout "
-                "dictionary-like object using keys '{S0}axis2', "
-                "'{S0}axis3' and so on."
+                "To create references other than {S0}-axes, "
+                "you need to define them in 'layout' "
+                "using keys '{S0}axis2', '{S0}axis3' and so on."
             ).format(S0=s[0],S1=s[1],S2=s[2])
         return self._output(_required,_key_type,_val_types,_description)
     
@@ -747,13 +740,13 @@ class Make(dict):
         _val_types=trace
         _description=(
             "Plotly identifier for this data's trace type. "
-            "This defines how this "
-            "data dictionary will be handled. "
-            "For example, 'scatter' type expects "
-            "x and y data-arrays corresponding to "
-            "(x, y) coordinates whereas a 'histogram' "
-            "only requires a single x or y array "
-            "and a 'heatmap' type requires a z matrix."
+            #"This defines how this "
+            #"data dictionary will be handled. "
+            #"For example, 'scatter' type expects "
+            #"x and y data-arrays corresponding to "
+            #"(x, y) coordinates whereas a 'histogram' "
+            #"only requires a single x or y array "
+            #"and a 'heatmap' type requires a z matrix."
         )
         return self._output(_required,_key_type,_val_types,_description)
     
@@ -767,77 +760,67 @@ class Make(dict):
                 "'probability density'"
             ),
             description=(
-                "If histnorm is not specified, or histnorm='' ("
-                "empty string), the height of each bar displays the "
-                "frequency of occurrence, i.e., the number of times this "
-                "value was found in the corresponding bin. If "
-                "histnorm='percent', the height of each bar displays the "
-                "percentage of total occurrences found within the "
-                "corresponding bin. If histnorm='probability', the height "
+                "Sets the type of normalization for this histogram trace. "
+                "If 'histnorm' is not specified, or set to '' "
+                "(empty string) or set to 'count', the height of each bar "
+                "displays the frequency of occurrence, i.e., "
+                "the number of times this "
+                "value was found in the corresponding bin. "
+                "If set to 'percent', the height of each bar "
+                "displays the percentage of total occurrences found within the "
+                "corresponding bin. If set to 'probability', the height "
                 "of each bar displays the probability that an event will "
-                "fall into the corresponding bin. If histnorm='density', "
+                "fall into the corresponding bin. If set to 'density', "
                 "the height of each bar is equal to the number of "
                 "occurrences in a bin divided by the size of the bin "
                 "interval such that summing the area of all bins will "
-                "yield the total number of occurrences. If "
-                "histnorm='probability density', the height of each bar "
+                "yield the total number of occurrences. If set to "
+                "'probability density', the height of each bar "
                 "is equal to the number of probability that an event will "
                 "fall into the corresponding bin divided by the size of "
                 "the bin interval such that summing the area of all bins "
-                "will yield 1, i.e. an event must fall into one of the "
-                "bins."
+                "will yield 1."
            )
         )
     
     def autobin(self, x_or_y):
         '''@autobin@ | @autobinx@ | @autobiny@'''
-
-        S={'x':['x','X'], 'y':['y','Y']}
-        s=S[x_or_y]
-    
         _required=False
         _key_type='style'
         _val_types=val_types.bool()
         _description=(
-            "Toggle whether or not the {S0}-axis bin parameters "
+            "Toggle whether or not the {0}-axis bin parameters "
             "are picked automatically by Plotly. "
-            "Once 'autobin{S0}' is set to False, the {S0}-axis "
+            "Once 'autobin{0}' is set to {{FALSE}}, the {0}-axis "
             "bins parameters can be declared "
-            "in the {S1}Bins object."
-        ).format(S0=s[0],S1=s[1])
+            "in '{0}bins' object."
+        ).format(x_or_y)
         return self._output(_required,_key_type,_val_types,_description)
     
     def nbins(self, x_or_y):
         '''@nbins@ | @nbinsx@ | @nbinsy@'''
-
-        S={'x':['x',], 'y':['y',]}
-        s=S[x_or_y]
-    
         _required=False
         _key_type='style'
         _val_types=val_types.number(gt=0)
         _description=(
-            "Specifies the number of {S0}-axis bins. "
-            "No need to set 'autobin{S0}' to False "
-            "for 'nbins{S0}' to apply."
-        ).format(S0=s[0])
+            "Specifies the number of {0}-axis bins. "
+            "No need to set 'autobin{0}' to {{FALSE}} "
+            "for 'nbins{0}' to apply."
+        ).format(x_or_y)
         return self._output(_required,_key_type,_val_types,_description)
     
     def bins(self, x_or_y):
         '''@bins@ | @xbins@ | @ybins@'''
-        S={'x':['x',], 'y':['y',]}
-        s=S[x_or_y]
-    
         _required=False
         _key_type='object'
         _val_types=val_types.object()
         _description=(
-            "A dictionary-like object defining the parameters "
-            "of {S0}-axis bins of this trace, for example, "
+            "Links some {{ULlike}} defining the parameters "
+            "of {0}-axis bins of this trace, for example, "
             "the bin width and the bins' starting and  "
             "ending value. Has an effect only if "
-            "'autobin{S0}'=False."
-        ).format(S0=s[0])
+            "'autobin{0}' is set to {{FALSE}}."
+        ).format(x_or_y)
         return self._output(_required,_key_type,_val_types,_description)
     
     def colorbar(self):
@@ -847,7 +830,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "A dictionary-like object defining the parameters of "
+                "Links some {ULlike} defining the parameters of "
                 "the color bar associated with this trace "
                 "(including its title, length and width)."
            )
@@ -870,7 +853,7 @@ class Make(dict):
         _description=(
             "Sets and/or defines the color scale for this trace. "
             "The string values are pre-defined color "
-            "scales. For custom color scales, define a list of "
+            "scales. For custom color scales, define some {{OL}}"
             "color-value pairs where, by default, the first "
             "element of the pair "
             "corresponds to a normalized value of {S0} from 0-1, "
@@ -914,7 +897,7 @@ class Make(dict):
         if z_or_color=='color':
             _description+=(
                 " Has only an effect if 'color' is linked "
-                "to an array-like and 'colorscale' is set."
+                "to some {OL} nd 'colorscale' is set."
             )
         return self._output(_required,_key_type,_val_types,_description)
     
@@ -924,7 +907,9 @@ class Make(dict):
             required=False,
             key_type='style',
             val_types=val_types.bool(),
-            description="Toggle whether or not the color scale will be reversed."
+            description=(
+                "Toggle whether or not the color scale will be reversed."
+            )
         )
     
     def showscale(self):
@@ -944,11 +929,11 @@ class Make(dict):
         return dict(
             required=False,
             key_type='style',
-            val_types="False | 'best' | 'fast'",
-            description=( # TODO! Describe the 2 algorithms
+            val_types="{FALSE} | 'best' | 'fast'",
+            description=( # TODO Describe the 2 algorithms
                 "Choose between algorithms ('best' or 'fast') "
                 "to smooth data linked to 'z'. "
-                "The default value is False "
+                "The default value is {FALSE} "
                 "corresponding to no smoothing."
             )
         )
@@ -962,8 +947,8 @@ class Make(dict):
             description=(
                 "Toggle whether or not the contour parameters are picked "
                 "automatically by Plotly. "
-                "If False, declare the contours parameters "
-                "in the Contours object."
+                "If {FALSE}, declare the contours parameters "
+                "in 'contours'."
             )
         )
     
@@ -988,7 +973,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "A dictionary-like object defining the parameters of "
+                "Links some {ULlike} defining the parameters of "
                 "the contours of this trace."
             )
         )
@@ -996,7 +981,7 @@ class Make(dict):
     def color(self,obj):
         '''@color@'''
         _required=False
-        _key_type='style'     #Q? 'data' in bubble charts (i.e. if linked to array)
+        _key_type='style' #Q? 'data' in bubble charts (i.e. if linked to array)
         if obj=='marker':
             _val_types=val_types.color_array()  #Q? Add "or 'data_array'" 
         else:
@@ -1004,12 +989,12 @@ class Make(dict):
         _description=dict(
             marker=(
                 "Sets the color of the face of the marker object. "
-                "If 'color' is linked to a list or an array of color strings, "
+                "If 'color' is linked to some {OL} of color strings, "
                 "color values are mapped to individual marker points "
                 "in the same order as in the data lists or arrays. "
                 "To set the color of the marker's bordering line, "
-                "use the 'line' key in Marker. "
-                "The 'color' key can also accept a list or an array of numbers, "
+                "use 'line' in 'marker'. "
+                "The 'color' key can also accept {OL} of numbers, "
                 "where each number is then mapped to a color using the "
                 "color scale set in 'colorscale'."
             ),
@@ -1021,8 +1006,8 @@ class Make(dict):
                 "contour lines."
             ),
             font=(
-                "Sets the color of the font. "
-                "If linked in the first level of the layout object, set the "
+                "Sets the color of the text font. "
+                "If linked directly from 'layout', set the "
                 "color of the global font."
             ),
             error="Sets the color of the error bars."
@@ -1100,18 +1085,18 @@ class Make(dict):
         _description=dict(
             marker=(
                 "Sets the size of the markers (in pixels). "
-                "If 'size' is linked to a list or an array of numbers, "
+                "If 'size' is linked to some {OL} of numbers, "
                 "size values are mapped to individual marker points "
-                "in the same order as in the data lists or arrays. "
+                "in the same order as in the 'x', 'y (or 'z') {OL}. "
                 "In this case, use 'size' in conjunction "
                 "with 'sizeref' and 'sizemode' "
                 "to fine-tune the map from the numbers linked to 'size' "
                 "and the marker points' rendered sizes."
             ),
             font=(
-                "Sets the size of font. "
-                "If linked in the first level of the layout object, set the "
-                "color of the global font."
+                "Sets the size of text font. "
+                "If linked directly from 'layout', set the "
+                "size of the global font."
             ),
             bins=(
                 "Sets the size (i.e. their width) of each "
@@ -1151,7 +1136,7 @@ class Make(dict):
         _key_type='style'
         _val_types=val_types.number(ge=0)
         _description=dict(
-            line="Sets the width (in pixels) of the line object.",
+            line="Sets the width (in pixels) of the line segments in question.",
             error=(
                 "Sets the width (in pixels) of the cross-bar at both ends of "
                 "the error bars."
@@ -1205,15 +1190,16 @@ class Make(dict):
         _key_type='object'
         _val_types=val_types.object()
         _description=dict(
-                axis=("A dictionary-like object describing the font "
-                      "settings of the {S}-axis title."
+                axis=(
+                    "Links some {{ULlike}} describing the font "
+                    "settings of the {S}-axis title."
                 ).format(S=x_or_y),
                 colorbar=(
-                    "A dictionary-like object describing the font "
+                    "Links some {{ULlike}} describing the font "
                     "settings of the colorbar title."
                 ),
                 layout=(
-                    "A dictionary-like object describing the font "
+                    "Links some {{ULlike}} describing the font "
                     "settings of the figure's title."
                 )
         )
@@ -1223,7 +1209,7 @@ class Make(dict):
         '''@range@'''
         _required = False
         _key_type = 'style'
-        _val_types = "number array of length 2"
+        _val_types = "number array of length 2" # TODO generalize ValType.number
         _description = (
             "Defines the start and end point of "
             "this {S} axis."
@@ -1233,7 +1219,7 @@ class Make(dict):
             _description+=(
                 " By default, 'range' is set to [0,360]. "
                 "Has no effect if 't' is linked to "
-                "an array-like of string."
+                "some {OL} of strings."
         )
             _examples = MakeExamples.range_polar(MakeExamples())
         return self._output(_required,_key_type,_val_types,_description,
@@ -1274,7 +1260,7 @@ class Make(dict):
         ).format(S=what_axis)
         if what_axis=='angular':
             _description+=(
-                " If 'showline' is set to True, "
+                " If 'showline' is set to {TRUE}, "
                 "the bounding line starts from the origin and "
                 "extends to the edge of radial axis."
             )
@@ -1288,7 +1274,7 @@ class Make(dict):
         _description=(
             "Toggle whether or not the {S} ticks parameters "
             "are picked automatically by Plotly. "
-            "Once 'autotick' is set to False, "
+            "Once 'autotick' is set to {{FALSE}}, "
             "the {S} ticks parameters can be declared "
             "with 'ticks', 'tick0', 'dtick0' and other "
             "tick-related key in this {S} object."
@@ -1301,8 +1287,8 @@ class Make(dict):
         _key_type='style'    
         _val_types=val_types.number(gt=0)
         _description=(
-            "Specifies the number of {S} ticks. "
-            "No need to set 'autoticks' to False "
+            "Sets the number of {S} ticks. "
+            "No need to set 'autoticks' to {{FALSE}} "
             "for 'nticks' to apply."
         ).format(S=axis_or_colorbar)
         return self._output(_required,_key_type,_val_types,_description)
@@ -1328,7 +1314,7 @@ class Make(dict):
         _key_type='plot_info'
         _val_types="'paper' | '{S0}1' | '{S0}2' | etc".format(S0=s[0])
         _description=(
-            "Sets the {S0} coordinate for this object "
+            "Sets the {S0} coordinate system which this object "
             "refers to. If you reference an axis, e.g., "
             "'{S0}2', the object will move with pan-and-zoom "
             "to stay fixed to this point. If you reference "
@@ -1336,8 +1322,8 @@ class Make(dict):
             "pan-and-zoom. In other words, if set to 'paper', "
             "the '{S0}' location refers to the distance from "
             "the left side of the plotting area in normalized "
-            "coordinates where 0=='{S1}' and 1=='{S2}'. "
-            "If set to refer to an {S0}axis' object, e.g., "
+            "coordinates where 0 is '{S1}' and 1 is '{S2}'. "
+            "If set to refer to an {S0}axis' , e.g., "
             "'{S0}1', '{S0}2', '{S0}3', etc., the "
             "'{S0}' location will refer to the location in "
             "terms of this axis."
@@ -1359,10 +1345,10 @@ class Make(dict):
         _description=(
             "Sets the horizontal location of the object "
             "referenced by the '{S0}' (position) key. "
-            "For example, if '{S0}'==1, "
-            "'{S0}ref'='paper', and '{S0}anchor'='{S2}', "
-            "the {S2}most portion of this object will line "
-            "up with the {S2}most edge of the plotting area."
+            "For example, if '{S0}' is set to 1, "
+            "'{S0}ref' to 'paper', and '{S0}anchor' to '{S2}', "
+            "the {S2}-most portion of this object will line "
+            "up with the {S2}-most edge of the plotting area."
         ).format(S0=s[0],S2=s[2])
         return self._output(_required,_key_type,_val_types[x_or_y],_description)
     
@@ -1372,7 +1358,7 @@ class Make(dict):
         _key_type='plot_info'
         _val_types=val_types.number()
         _description=(
-            "Sets the '{x_or_y}' position of this {obj}. "
+            "Sets the '{x_or_y}' position of this {obj}."
         ).format(x_or_y=x_or_y, obj=obj)
         if obj in ['legend','annotation']:
             _description+=(

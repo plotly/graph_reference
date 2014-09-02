@@ -48,7 +48,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = [""]
         docstring = (
-            "A {UL}-like object for representing a scatter trace in plotly."
+            "A {ULlike} for representing a scatter trace in plotly."
         )
         examples = MakeExamples.Scatter(MakeExamples())
         links = [
@@ -142,7 +142,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a bar trace in plotly."
+            "A {ULlike} for representing a bar trace in plotly."
         )
         links = ["{WEB}bar-charts/"]
         examples = MakeExamples.Bar(MakeExamples())
@@ -176,7 +176,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a histogram trace in plotly."
+            "A {ULlike} for representing a histogram trace in plotly."
         )
         links = ["{WEB}histograms/"]
         examples = MakeExamples.Histogram(MakeExamples())
@@ -214,7 +214,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a box trace in plotly."
+            "A {ULlike} for representing a box trace in plotly."
         )
         links = ["{WEB}box-plots/"]
         examples = MakeExamples.Box(MakeExamples())
@@ -226,19 +226,19 @@ class MakeMeta(list):
             ('boxmean', dict(
                 required=False,
                 key_type='style',
-                val_types="False | True | 'sd'",
+                val_types="{FALSE} | {TRUE} | 'sd'",
                 description=(
                     "Choose between add-on features for this box trace. "
-                    "If True then the mean of the data linked to 'y' is shown "
+                    "If {TRUE} then the mean of the data linked to 'y' is shown "
                     "as a dashed line in the box. If 'sd', then the standard "
-                    "deviation is also shown. If False (the default), "
-                    "then no line shown."
+                    "deviation is also shown. If {FALSE} (the default), "
+                    "then no line are shown."
                 )
             )),
             ('boxpoints', dict(
                 required=False,
                 key_type='style',
-                val_types="'outliers' | 'all' | 'suspectedoutliers' | False",
+                val_types="'outliers' | 'all' | 'suspectedoutliers' | {FALSE}",
                 description=(
                     "Choose between boxpoints options for this box trace. "
                     "If 'outliers' (the default), then only the points lying "
@@ -247,7 +247,7 @@ class MakeMeta(list):
                     "If 'suspectedoutliers', then outliers points are shown and "
                     "points either less than 4*Q1-3*Q3 or greater than "
                     "4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). "
-                    "If False, then only the boxes are shown and the whiskers "
+                    "If {FALSE}, then only the boxes are shown and the whiskers "
                     "correspond to the minimum and maximum value linked to 'y'."
                 )
             )),
@@ -258,7 +258,7 @@ class MakeMeta(list):
                 description=(
                     "Sets the width of the jitter in the boxpoints scatter "
                     "in this trace. "
-                    "Has an no effect if 'boxpoints' is set to False. "
+                    "Has an no effect if 'boxpoints' is set to {FALSE}. "
                     "If 0, then the "
                     "boxpoints are aligned vertically. If 1 then the "
                     "boxpoints are placed in a random horizontal jitter of width "
@@ -272,7 +272,7 @@ class MakeMeta(list):
                 description=(
                     "Sets the horizontal position of the boxpoints "
                     "in relation to the boxes in this trace. "
-                    "Has an no effect if 'boxpoints' is set to False. "
+                    "Has an no effect if 'boxpoints' is set to {FALSE}. "
                     "If 0, then the boxpoints are placed over the center of " 
                     "each box. If 1 (-1), then the boxpoints are placed on the "
                     "right (left) each box border. "
@@ -312,7 +312,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a heatmap trace in plotly."
+            "A {ULlike} for representing a heatmap trace in plotly."
         )
         links = ["{WEB}heatmaps/"]
         examples = MakeExamples.Heatmap(MakeExamples())
@@ -352,7 +352,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a contour trace in plotly."
+            "A {ULlike} for representing a contour trace in plotly."
         )
         links = ["{WEB}contour-plots/"]
         examples = MakeExamples.Contour(MakeExamples())
@@ -395,7 +395,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a 2D histogram trace in plotly."
+            "A {ULlike} for representing a 2D histogram trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
         examples = MakeExamples.Histogram2d(MakeExamples())
@@ -435,7 +435,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing a 2D histogram contour "
+            "A {ULlike} for representing a 2D histogram contour "
             "trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
@@ -479,7 +479,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {UL}-like object for representing an area trace in plotly."
+            "A {ULlike} for representing an area trace in plotly."
         )
         links = ["{WEB}polar-chart/"]
         examples = MakeExamples.Area(MakeExamples())
@@ -577,7 +577,7 @@ class MakeMeta(list):
                    "span, at all trace coordinates. "
                    "Has an effect if 'type' is set to 'value' or "
                    "'percent'. "
-                   "If 'symmetric' is set to False, this value corresponds "
+                   "If 'symmetric' is set to {{FALSE}}, this value corresponds "
                    "to the span {S4} the trace of coordinates. "
                    "To specify multiple error bar lengths, "
                    "you should set 'type' to 'data' and "
@@ -589,7 +589,7 @@ class MakeMeta(list):
                 key_type='data',
                 val_types=val_types.number(ge=0),
                 description=(
-                      "Only functional when 'symmetric' is set to False. "
+                      "Only functional when 'symmetric' is set to {{FALSE}}. "
                       "Same as 'array' but corresponding to the span "
                       "of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
@@ -600,7 +600,7 @@ class MakeMeta(list):
                 val_types=val_types.number(ge=0),
                 description=(
                       "Only functional when 'symmetric' "
-                      "is set to False. Same as 'value' but corresponding "
+                      "is set to {{FALSE}}. Same as 'value' but corresponding "
                       "to the span of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
             )),
@@ -620,7 +620,7 @@ class MakeMeta(list):
                           "Toggle whether to set x error bar "
                           "style to the same style "
                           "(color, thickness, width, opacity) "
-                          "as y error bars set in YAxis."
+                          "as y error bars set in 'yaxis'."
                     )
                 ))
             ]
@@ -634,7 +634,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["error_y"]
         docstring = (
-            "A {UL}-like object representing a set of error bar spanning "
+            "A {ULlike} object representing a set of error bar spanning "
             "along the y-axis."
         )
         links = ["{WEB}error-bars/"]
@@ -649,7 +649,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["error_x"]
         docstring = (
-            "A {UL}-like object representing a set of error bars spanning "
+            "A {ULlike} representing a set of error bars spanning "
             "along the x-axis."
         )
         links = ["{WEB}error-bars/"]
@@ -673,7 +673,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["xbins"]
         docstring = (
-            "A {UL}-like object containing specifications of the bins "
+            "A {ULlike} containing specifications of the bins "
             "lying along the x-axis."
         )
         links = [
@@ -691,7 +691,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["ybins"]
         docstring = (
-            "A {UL}-like object containing specifications of the bins "
+            "A {ULlike} containing specifications of the bins "
             "lying along the y-axis."
         )
         links = [
@@ -709,7 +709,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["contours"]
         docstring = (
-            "A {UL}-like object containing specifications of the contours."
+            "A {ULlike} containing specifications of the contours."
         )
         links = ["{WEB}contour-plots/"]
         examples = MakeExamples.Contours(MakeExamples())
@@ -751,7 +751,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["stream"]
         docstring = (
-            "A {UL}-like object containing specifications of the data stream."
+            "A {ULlike} containing specifications of the data stream."
         )
         links = ["{WEB}streaming/"]
         examples = MakeExamples.Stream(MakeExamples())
@@ -761,8 +761,8 @@ class MakeMeta(list):
                 key_type='plot_info',
                 val_types="A stream id number, see https://plot.ly/settings",
                 description=(
-                    "This number links a data object on a plot with a "
-                    "stream. In other words, any data object you create "
+                    "The stream id number links a data trace on a plot with a "
+                    "stream. In other words, any data trace you create "
                     "can reference a 'stream'. If you stream data to "
                     "Plotly with the same stream id (token), Plotly knows "
                     "update this data object with the incoming data "
@@ -790,7 +790,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["marker"]
         docstring = (
-            "A {UL}-like object containing specifications of the marker points."
+            "A {ULlike} containing specifications of the marker points."
         )
         links = [
             "{WEB}line-and-scatter/",
@@ -803,7 +803,7 @@ class MakeMeta(list):
             ('symbol', dict(
                 required=False,
                 key_type='style',
-                val_types=(
+                val_types=( # TODO add new symbols!
                     "'dot' | 'cross' | 'diamond' | 'square' "
                     "| 'triangle-down' | 'triangle-left' | 'triangle-right' "
                     "| 'triangle-up' | 'x' OR list of these string values"
@@ -811,9 +811,10 @@ class MakeMeta(list):
                 description=(
                       "The symbol that is drawn on the plot for each marker. "
                       "Supported only in scatter traces. "
-                      "If 'symbol' is linked to a list or an array of numbers, "
+                      "If 'symbol' is linked to some {OL}, the "
                       "symbol values are mapped to individual marker points "
-                      "in the same order as in the data lists or arrays."
+                      "in the same order as in the {OL} linked to 'x', 'y' "
+                      "(or 'z')."
                 )
             )),
             ('line', make.line('marker')),
@@ -825,11 +826,11 @@ class MakeMeta(list):
                 description=(
                     "Sets the scale factor used to determine the rendered size "
                     "of each marker point in this trace. "
-                    "Applies only to scatter traces that have an array linked "
-                    "to the 'size' key in Marker. "
+                    "Applies only to scatter traces that have their 'size' key "
+                    "in 'marker' linked to some {OL}. "
                     "If set, the value linked to 'sizeref' is used to divide "
-                    "each entry linked to 'size'. That is, setting 'sizeref' to "
-                    "less (greater) than 1, increases (decreases) the "
+                    "each entry linked to 'size'. Specifically, setting 'sizeref' "
+                    "to less (greater) than 1, increases (decreases) the "
                     "rendered marker sizes."
                 )
             )),
@@ -840,12 +841,12 @@ class MakeMeta(list):
                 description=(
                     "Choose between marker size scaling options for the marker "
                     "points in this trace. "
-                    "Applies only to scatter traces that have an array linked "
-                    "to the 'size' key in Marker. "
+                    "Applies only to scatter traces that have their 'size' key "
+                    "in 'marker' linked to some {OL}. "
                     "If 'diameter' ('area'), then the diameter (area) of the "
                     "rendered marker points (in pixels) are "
                     "proportional to the numbers linked to 'size'." 
-                    "E.g. set 'sizemode' to 'area' for a more a smaller "
+                    "For example, set 'sizemode' to 'area' for a more a smaller "
                     "range of rendered marker sizes."
                 )
             )),
@@ -883,7 +884,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["line"]
         docstring = (
-            "A {UL}-like object containing specifications of the line segments."
+            "A {ULlike} containing specifications of the line segments."
         )
         links = [
             "{WEB}line-and-scatter/",
@@ -898,7 +899,10 @@ class MakeMeta(list):
                 required=False,
                 key_type='style',
                 val_types="'dash' | 'dashdot' | 'dot' | 'solid'",
-                description="Sets the drawing style of this line object."
+                description=(
+                    "Sets the drawing style of the lines segments "
+                    "in this trace."
+                )
             )),
             ('opacity', make.opacity()),
             ('shape', dict(
@@ -910,7 +914,7 @@ class MakeMeta(list):
                     "in this trace. "
                     "Applies only to scatter traces. " 
                     "The default value is 'linear'. "
-                    "If 'spline', then the lines are drawn using spline "
+                    "If set to 'spline', then the lines are drawn using spline "
                     "interpolation between the coordinate pairs. "
                     "The remaining available values correspond to "
                     "step-wise line shapes."
@@ -921,7 +925,8 @@ class MakeMeta(list):
                 key_type='style',
                 val_types=val_types.number(ge=0),
                 description=(
-                   "Sets the amount of smoothing applied to this line object. "
+                   "Sets the amount of smoothing applied to the lines segments "
+                   "in this trace. "
                    "Applies only to contour traces "
                    "and scatter traces if 'shape' is set to 'spline'. "
                    "The default value is 1. If 'smoothing' is set to 0, then "
@@ -963,7 +968,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["font","titlefont","textfont"]
         docstring = (
-            "A {UL}-like object containing specifications of on-plot, title or "
+            "A {ULlike} containing specifications of on-plot, title or "
             "global text font."
         )
         links = [
@@ -1071,7 +1076,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "A dictionary-like object defining the parameters "
+                    "Links some {ULlike} defining the parameters "
                     "of the ticks' font."
                 )
             )),
@@ -1123,7 +1128,7 @@ class MakeMeta(list):
                 required=False,
                 key_type='style',
                 val_types="'linear' | 'log' | 'date' | 'category'",
-                description="Sets the format of this axis."  # TODO! Add info
+                description="Sets the format of this axis."  # TODO Add info
             )),
             ('rangemode', dict(
                 required=False,
@@ -1142,13 +1147,13 @@ class MakeMeta(list):
             ('autorange', dict(  
                 required=False,
                 key_type='style',
-                val_types="True | False | 'reversed'",
+                val_types="{TRUE} | {FALSE} | 'reversed'",
                 description=(
                     "Toggle whether or not the range of this {S0}-axis is "
                     "automatically picked by Plotly. "
                     "If 'range' is set, then 'autorange' is set "
-                    "to False automatically. Otherwise, if 'autorange' "
-                    "is set to True (the default behavior), the range "
+                    "to {{FALSE}} automatically. Otherwise, if 'autorange' "
+                    "is set to {{TRUE}} (the default behavior), the range "
                     "of this {S0}-axis can respond to adjustments made in "
                     "the web GUI automatically. If 'autorange' is set "
                     "to 'reversed', then this {S0}-axis is drawn in reverse "
@@ -1272,9 +1277,9 @@ class MakeMeta(list):
                 val_types=val_types.number(le=1, ge=0),
                 description=(
                     "Sets where this {S0}-axis is positioned in the plotting "
-                    "space. For example 'position'=0.5 will place this "
-                    "axis in the exact center of the plotting space. Has "
-                    "an effect only if 'anchor' "
+                    "space. For example if 'position' is set to 0.5, "
+                    "then this axis is placed at the exact center of the "
+                    "plotting space. Has an effect only if 'anchor' "
                     "is set to 'free'."
                 ).format(S0=s[0])
             ))
@@ -1287,7 +1292,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["xaxis"]
         docstring = (
-            "A {UL}-like object for representing an x-axis in plotly."
+            "A {ULlike} for representing an x-axis in plotly."
         )
         links = [
             "{WEB}axes/",
@@ -1306,7 +1311,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["yaxis"]
         docstring = (
-            "A {UL}-like object for representing a y-axis in plotly."
+            "A {ULlike} for representing a y-axis in plotly."
         )
         links = [
             "{WEB}axes/",
@@ -1325,7 +1330,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["radialaxis"]
         docstring = (
-            "A {UL}-like object for representing a radial axis in plotly."
+            "A {ULlike} for representing a radial axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
         examples = MakeExamples.RadialAxis(MakeExamples())
@@ -1377,7 +1382,7 @@ class MakeMeta(list):
                     "Sets the length of the tick lines on this radial axis."
                 )
             )),
-            ('endpadding', dict(
+            ('endpadding', dict(  # TODO
                 required=False,
                 key_type='style',
                 val_types=val_types.number(),
@@ -1394,7 +1399,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["angularaxis"]
         docstring = (
-            "A {UL}-like object for representing an angular axis in plotly."
+            "A {ULlike} for representing an angular axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
         examples = MakeExamples.AngularAxis(MakeExamples())
@@ -1446,7 +1451,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["legend"]
         docstring = (
-            "A {UL}-like object for representing a legend in plotly."
+            "A {ULlike} for representing a legend in plotly."
         )
         links = [
             "{WEB}/legend/",
@@ -1461,10 +1466,10 @@ class MakeMeta(list):
                 key_type='style',
                 val_types="'normal' | 'reversed'",
                 description=(
-                    "Trace order is set by the order of the data in "
-                    "associated grid for the plot. This sets whether this "
-                    "order is read from left-to-right or from "
-                    "right-to-left."
+                    "Trace order is set by the order of trace in the data {UL}. "
+                    "The 'traceorder' key sets whether "
+                    "the legend labels are shown from first-to-last trace "
+                    "('normal') or from last-to-first ('reversed')."
                 )
             )),
             ('font', make.font('legend')),
@@ -1485,7 +1490,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["colorbar"]
         docstring = (
-            "A {UL}-like object for representing a color bar in plotly."
+            "A {ULlike} object for representing a color bar in plotly."
         )
         links = ['']
         examples = MakeExamples.ColorBar(MakeExamples())
@@ -1568,7 +1573,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["margin"]
         docstring = (
-            "A {UL}-like object containing specification of the margins."
+            "A {ULlike} containing specification of the margins."
         )
         links = ["{WEB}/setting-graph-size/"]
         examples = MakeExamples.Margin(MakeExamples())
@@ -1622,7 +1627,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = [""]
         docstring = ("""
-            A {UL}-like object for representing an annotation in plotly.
+            A {ULlike} for representing an annotation in plotly.
 
             Annotations appear as notes on the final figure. You can set all the
             features of the annotation text, background color, and location.
@@ -1647,12 +1652,7 @@ class MakeMeta(list):
                     "italics (<i></i>), hyperlinks (<a href='...'></a>). "
                     "Tags <em>, <sup>, <sub>, <span> are also supported."
                 ),
-                examples=[
-                   "regular text", 
-                   "an annotation<br>spanning two lines",
-                   "<b>bold text</b>", 
-                   "<a href='https://plot.ly/'>a link to plot.ly</a>"
-                ]
+                examples = MakeExamples.text(MakeExamples())
             )),
             ('showarrow', dict(
                 required=False,
@@ -1661,8 +1661,8 @@ class MakeMeta(list):
                 description=(
                     "Toggle whether or not the arrow associated with "
                     "this annotation with be shown. "
-                    "If False, then the text linked to 'text' lines up with "
-                    "the 'x', 'y' coordinates'. If True (the default), then "
+                    "If {FALSE}, then the text linked to 'text' lines up with "
+                    "the 'x', 'y' coordinates'. If {TRUE} (the default), then "
                     "'text' is placed near the arrow's tail."
                 )
             )),
@@ -1696,7 +1696,7 @@ class MakeMeta(list):
                 val_types=val_types.number(ge=0),
                 description=(
                     "Scales the arrowhead's size. "
-                    "Has an effect only if 'showarrow' is set to True."
+                    "Has an effect only if 'showarrow' is set to {TRUE}."
                 )
             )),
             ('arrowwidth', dict(
@@ -1705,7 +1705,7 @@ class MakeMeta(list):
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the arrowhead's width (in pixels). "
-                    "Has an effect only if 'showarrow' is set to True."
+                    "Has an effect only if 'showarrow' is set to {TRUE}."
                 )
             )),
             ('arrowcolor', dict(
@@ -1714,28 +1714,28 @@ class MakeMeta(list):
                 val_types=val_types.color(),
                 description=(
                     "Sets the color of the arrowhead. "
-                    "Has an effect only if 'showarrow' is set to True."
+                    "Has an effect only if 'showarrow' is set to {TRUE}."
                 ),
                 examples=MakeExamples.color(MakeExamples())
             )),
-            ('ax', dict(            # TODO! Better description
+            ('ax', dict(            # TODO Better description
                 required=False,
                 key_type='plot_info',
                 val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
                     "arrowhead about the x-axis. "
-                    "Has an effect only if 'showarrow' is set to True."
+                    "Has an effect only if 'showarrow' is set to {TRUE}."
                 )
             )),
-            ('ay', dict(            # TODO! Better description
+            ('ay', dict(            # TODO Better description
                 required=False,
                 key_type='plot_info',
                 val_types=val_types.number(),
                 description=(
                     "Position of the annotation text relative to the "
                     "arrowhead about the y-axis. "
-                    "Has an effect only if 'showarrow' is set to True."
+                    "Has an effect only if 'showarrow' is set to {TRUE}."
                 )
             )),
             ('textangle', dict(
@@ -1770,7 +1770,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["layout"]
         docstring = (
-            "A {UL}-like object containing specification of the layout "
+            "A {ULlike} containing specification of the layout "
             "of a plotly figure."
         )
         links = [
@@ -1794,7 +1794,7 @@ class MakeMeta(list):
                     "automatically picked by Plotly. Plotly picks figure's "
                     "dimensions as a function of your machine's display "
                     "resolution. "
-                    "Once 'autosize' is set to False, the figure's dimensions "
+                    "Once 'autosize' is set to {FALSE}, the figure's dimensions "
                     "can be set with 'width' and 'height'."
                 )
             )),
@@ -1821,7 +1821,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "A dictionary-like object containing the legend "
+                    "Links some {ULlike} containing the legend "
                     "parameters for this figure."
                 )
             )),
@@ -1830,7 +1830,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object_list(),
                 description=(
-                    "A list-like object that contains one or multiple "
+                    "Some {OLlike} that contains one or multiple "
                     "annotation dictionaries."
                 )
             )),
@@ -1839,7 +1839,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "A dictionary-like object containing the margin "
+                    "Some {ULlike} containing the margin "
                     "parameters for this figure."
                 )
             )),
@@ -1872,7 +1872,7 @@ class MakeMeta(list):
                     "When set to 'x', all data sharing the same 'x' "
                     "coordinate will be shown on screen with "
                     "corresponding trace labels. When set to 'y' all data "
-                    "sharing the same 'y' coordainte will be shown on the "
+                    "sharing the same 'y' coordinates will be shown on the "
                     "screen with corresponding trace labels. When set to "
                     "'closest', information about the data point closest "
                     "to where the viewer is hovering will appear."
@@ -1969,7 +1969,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "A dictionary-like object describing the radial axis "
+                    "Some {ULlike} describing the radial axis "
                     "in a polar plot."
                 )
             )),
@@ -1978,7 +1978,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "A dictionary-like object describing the angular axis "
+                    "Some {ULlike} describing the angular axis "
                     "in a polar plot."
                 )
             )),
@@ -2022,7 +2022,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = [""]
         docstring = ("""
-            A {UL}-like object representing a figure to be rendered by plotly.
+            A {ULlike} representing a figure to be rendered by plotly.
 
             This is the container for all things to be rendered in a figure.
         """)
@@ -2034,7 +2034,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object_list(),
                 description=(
-                    "A list-like array of the data trace(s) that is/are "
+                    "Some {OLlike} of the data trace(s) that is/are "
                     "to be visualized."
                 )
             )),
@@ -2043,7 +2043,7 @@ class MakeMeta(list):
                key_type='object',
                val_types=val_types.object(),
                description=(
-                   "A dictionary-like object that contains the layout "
+                   "Some {ULlike} that contains the layout "
                    "parameters (e.g. information about the axis, "
                    "global settings and layout information "
                    "related to the rendering of the figure)."
@@ -2059,7 +2059,7 @@ class MakeMeta(list):
         obj_type = "{OL}"
         parent_keys = ["data"]
         docstring = (
-            "A {OL} of traces to be shown on one plotly figure."
+            "List of traces (i.e. {OLlike}) to be shown on one plotly figure."
         )
         links = ['']
         examples = MakeExamples.Data(MakeExamples())
@@ -2073,7 +2073,7 @@ class MakeMeta(list):
         obj_type = "{OL}"
         parent_keys = ["annotations"]
         docstring = (
-            "A {OL} of annotations to be shown on one plotly figure."
+            "List of annotations (i.e. {OLlike}) to be shown on one plotly figure."
         )
         links = ['']
         examples = MakeExamples.Annotations(MakeExamples())
