@@ -361,7 +361,7 @@ class Make(dict):
                 "are measured clockwise about the right-hand "
                 "side of the origin. To change this "
                 "behavior, modify 'range' in 'angularaxis' "
-                "or/and 'direction' in Layout. "
+                "or/and 'direction' in 'layout'. "
                 "If 't' is linked to some {OL} of "
                 "strings, then the angular coordinates are "
                 "0, 360\N, 2*360/N, ... where N is the "

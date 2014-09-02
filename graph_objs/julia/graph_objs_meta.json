@@ -1,17 +1,17 @@
 {
     "scatter": {
-        "name": "trace structure with 'type' set to 'scatter'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'scatter'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a scatter trace in plotly.", 
+        "docstring": "A dictionary for representing a scatter trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/bubble-charts/", 
-            "https://plot.ly/matlab/filled-area-plots/", 
-            "https://plot.ly/matlab/time-series/"
+            "https://plot.ly/julia/line-and-scatter/", 
+            "https://plot.ly/julia/bubble-charts/", 
+            "https://plot.ly/julia/filled-area-plots/", 
+            "https://plot.ly/julia/time-series/"
         ], 
         "keymeta": {
             "x": {
@@ -63,30 +63,30 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links some dictionary describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links some dictionary describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+                "description": "Links some dictionary containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+                "description": "Links some dictionary containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
                 "streamable": true
             }, 
             "textposition": {
@@ -97,9 +97,9 @@
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
+                "description": "Links some dictionary describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
             }, 
             "connectgaps": {
                 "key_type": "plot_info", 
@@ -153,9 +153,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -172,15 +172,15 @@
         }
     }, 
     "bar": {
-        "name": "trace structure with 'type' set to 'bar'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'bar'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a bar trace in plotly.", 
+        "docstring": "A dictionary for representing a bar trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/bar-charts/"
+            "https://plot.ly/julia/bar-charts/"
         ], 
         "keymeta": {
             "x": {
@@ -218,23 +218,23 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links some dictionary describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links some dictionary describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links some dictionary containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -263,9 +263,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -295,29 +295,29 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "description": "Artifact. Has no effect.", 
                 "streamable": true
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "description": "Not currently supported, has no effect."
             }
         }
     }, 
     "histogram": {
-        "name": "trace structure with 'type' set to 'histogram'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'histogram'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a histogram trace in plotly.", 
+        "docstring": "A dictionary for representing a histogram trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/"
+            "https://plot.ly/julia/histograms/"
         ], 
         "keymeta": {
             "x": {
@@ -360,9 +360,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -378,9 +378,9 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "text": {
                 "key_type": "data", 
@@ -391,23 +391,23 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links some dictionary describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links some dictionary describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links some dictionary containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -436,9 +436,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -454,7 +454,7 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "description": "Artifact. Has no effect.", 
                 "streamable": true
@@ -468,15 +468,15 @@
         }
     }, 
     "box": {
-        "name": "trace structure with 'type' set to 'box'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'box'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a box trace in plotly.", 
+        "docstring": "A dictionary for representing a box trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/box-plots/"
+            "https://plot.ly/julia/box-plots/"
         ], 
         "keymeta": {
             "y": {
@@ -551,16 +551,16 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
+                "description": "Links some dictionary containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the border of this box trace (including the whiskers).", 
+                "description": "Links some dictionary containing line parameters for the border of this box trace (including the whiskers).", 
                 "streamable": true
             }, 
             "opacity": {
@@ -589,9 +589,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -608,15 +608,15 @@
         }
     }, 
     "heatmap": {
-        "name": "trace structure with 'type' set to 'heatmap'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'heatmap'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a heatmap trace in plotly.", 
+        "docstring": "A dictionary for representing a heatmap trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/heatmaps/"
+            "https://plot.ly/julia/heatmaps/"
         ], 
         "keymeta": {
             "z": {
@@ -671,7 +671,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                 ]
             }, 
             "reversescale": {
@@ -688,9 +688,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some dictionary defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zsmooth": {
                 "key_type": "style", 
@@ -724,9 +724,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -783,15 +783,15 @@
         }
     }, 
     "contour": {
-        "name": "trace structure with 'type' set to 'contour'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'contour'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a contour trace in plotly.", 
+        "docstring": "A dictionary for representing a contour trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/julia/contour-plots/"
         ], 
         "keymeta": {
             "z": {
@@ -853,15 +853,15 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links some dictionary defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links some dictionary containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
@@ -871,7 +871,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                 ]
             }, 
             "reversescale": {
@@ -888,9 +888,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some dictionary defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -918,9 +918,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -977,15 +977,15 @@
         }
     }, 
     "histogram2d": {
-        "name": "trace structure with 'type' set to 'histogram2d'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'histogram2d'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram trace in plotly.", 
+        "docstring": "A dictionary for representing a 2D histogram trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/julia/2D-Histograms/"
         ], 
         "keymeta": {
             "x": {
@@ -1028,9 +1028,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1046,9 +1046,9 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "colorscale": {
                 "key_type": "style", 
@@ -1057,7 +1057,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                 ]
             }, 
             "reversescale": {
@@ -1074,9 +1074,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some dictionary defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1128,9 +1128,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1147,15 +1147,15 @@
         }
     }, 
     "histogram2dcontour": {
-        "name": "trace structure with 'type' set to 'histogram2dcontour'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'histogram2dcontour'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram contour trace in plotly.", 
+        "docstring": "A dictionary for representing a 2D histogram contour trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/julia/2D-Histograms/"
         ], 
         "keymeta": {
             "x": {
@@ -1198,9 +1198,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1216,9 +1216,9 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some dictionary defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "autocontour": {
                 "key_type": "style", 
@@ -1234,15 +1234,15 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links some dictionary defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links some dictionary containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
@@ -1252,7 +1252,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                 ]
             }, 
             "reversescale": {
@@ -1269,9 +1269,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some dictionary defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1317,9 +1317,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1336,15 +1336,15 @@
         }
     }, 
     "area": {
-        "name": "trace structure with 'type' set to 'area'", 
-        "obj_type": "structure", 
+        "name": "trace dictionary with 'type' set to 'area'", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "A structure for representing an area trace in plotly.", 
+        "docstring": "A dictionary for representing an area trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/polar-chart/"
+            "https://plot.ly/julia/polar-chart/"
         ], 
         "keymeta": {
             "r": {
@@ -1369,9 +1369,9 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
+                "description": "Links some dictionary containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
                 "streamable": true
             }, 
             "showlegend": {
@@ -1382,9 +1382,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some dictionary that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1413,17 +1413,17 @@
         }
     }, 
     "error_y": {
-        "name": "structure error_y object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary error_y object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "error_y"
         ], 
-        "docstring": "A structure object representing a set of error bar spanning along the y-axis.", 
+        "docstring": "A dictionary object representing a set of error bar spanning along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/error-bars/"
+            "https://plot.ly/julia/error-bars/"
         ], 
         "keymeta": {
             "type": {
@@ -1504,17 +1504,17 @@
         }
     }, 
     "error_x": {
-        "name": "structure error_x object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary error_x object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "error_x"
         ], 
-        "docstring": "A structure representing a set of error bars spanning along the x-axis.", 
+        "docstring": "A dictionary representing a set of error bars spanning along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/error-bars/"
+            "https://plot.ly/julia/error-bars/"
         ], 
         "keymeta": {
             "type": {
@@ -1601,18 +1601,18 @@
         }
     }, 
     "xbins": {
-        "name": "structure xbins object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary xbins object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "xbins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the x-axis.", 
+        "docstring": "A dictionary containing specifications of the bins lying along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/", 
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/julia/histograms/", 
+            "https://plot.ly/julia/2D-Histograms/"
         ], 
         "keymeta": {
             "start": {
@@ -1637,17 +1637,17 @@
         }
     }, 
     "ybins": {
-        "name": "structure ybins object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary ybins object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "ybins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the y-axis.", 
+        "docstring": "A dictionary containing specifications of the bins lying along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/julia/histograms/https://plot.ly/julia/2D-Histograms/"
         ], 
         "keymeta": {
             "start": {
@@ -1672,18 +1672,18 @@
         }
     }, 
     "marker": {
-        "name": "structure marker object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary marker object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "marker"
         ], 
-        "docstring": "A structure containing specifications of the marker points.", 
+        "docstring": "A dictionary containing specifications of the marker points.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/bubble-charts/"
+            "https://plot.ly/julia/line-and-scatter/", 
+            "https://plot.ly/julia/bubble-charts/"
         ], 
         "keymeta": {
             "color": {
@@ -1716,9 +1716,9 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
+                "description": "Links some dictionary containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -1746,7 +1746,7 @@
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                 ]
             }, 
             "cauto": {
@@ -1790,19 +1790,19 @@
         }
     }, 
     "line": {
-        "name": "structure line object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary line object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "line"
         ], 
-        "docstring": "A structure containing specifications of the line segments.", 
+        "docstring": "A dictionary containing specifications of the line segments.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/filled-area-plots/", 
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/julia/line-and-scatter/", 
+            "https://plot.ly/julia/filled-area-plots/", 
+            "https://plot.ly/julia/contour-plots/"
         ], 
         "keymeta": {
             "color": {
@@ -1881,17 +1881,17 @@
         }
     }, 
     "contours": {
-        "name": "structure contours object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary contours object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "contours"
         ], 
-        "docstring": "A structure containing specifications of the contours.", 
+        "docstring": "A dictionary containing specifications of the contours.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/julia/contour-plots/"
         ], 
         "keymeta": {
             "showlines": {
@@ -1928,17 +1928,17 @@
         }
     }, 
     "stream": {
-        "name": "structure stream object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary stream object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "stream"
         ], 
-        "docstring": "A structure containing specifications of the data stream.", 
+        "docstring": "A dictionary containing specifications of the data stream.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/streaming/"
+            "https://plot.ly/julia/streaming/"
         ], 
         "keymeta": {
             "token": {
@@ -1956,20 +1956,20 @@
         }
     }, 
     "xaxis": {
-        "name": "structure xaxis object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary xaxis object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "xaxis"
         ], 
-        "docstring": "A structure for representing an x-axis in plotly.", 
+        "docstring": "A dictionary for representing an x-axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/axes/", 
-            "https://plot.ly/matlab/multiple-axes/", 
-            "https://plot.ly/matlab/subplots/", 
-            "https://plot.ly/matlab/insets/"
+            "https://plot.ly/julia/axes/", 
+            "https://plot.ly/julia/multiple-axes/", 
+            "https://plot.ly/julia/subplots/", 
+            "https://plot.ly/julia/insets/"
         ], 
         "keymeta": {
             "title": {
@@ -1980,9 +1980,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the x-axis title."
+                "description": "Links some dictionary describing the font settings of the x-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2110,9 +2110,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some dictionary defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2219,20 +2219,20 @@
         }
     }, 
     "yaxis": {
-        "name": "structure yaxis object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary yaxis object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "yaxis"
         ], 
-        "docstring": "A structure for representing a y-axis in plotly.", 
+        "docstring": "A dictionary for representing a y-axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/axes/", 
-            "https://plot.ly/matlab/multiple-axes/", 
-            "https://plot.ly/matlab/subplots/", 
-            "https://plot.ly/matlab/insets/"
+            "https://plot.ly/julia/axes/", 
+            "https://plot.ly/julia/multiple-axes/", 
+            "https://plot.ly/julia/subplots/", 
+            "https://plot.ly/julia/insets/"
         ], 
         "keymeta": {
             "title": {
@@ -2243,9 +2243,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the y-axis title."
+                "description": "Links some dictionary describing the font settings of the y-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2373,9 +2373,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some dictionary defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2482,17 +2482,17 @@
         }
     }, 
     "radialaxis": {
-        "name": "structure radialaxis object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary radialaxis object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "radialaxis"
         ], 
-        "docstring": "A structure for representing a radial axis in plotly.", 
+        "docstring": "A dictionary for representing a radial axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//polar-chart/"
+            "https://plot.ly/julia//polar-chart/"
         ], 
         "keymeta": {
             "range": {
@@ -2576,17 +2576,17 @@
         }
     }, 
     "angularaxis": {
-        "name": "structure angularaxis object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary angularaxis object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "angularaxis"
         ], 
-        "docstring": "A structure for representing an angular axis in plotly.", 
+        "docstring": "A dictionary for representing an angular axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//polar-chart/"
+            "https://plot.ly/julia//polar-chart/"
         ], 
         "keymeta": {
             "range": {
@@ -2658,20 +2658,20 @@
         }
     }, 
     "layout": {
-        "name": "structure layout object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary layout object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "layout"
         ], 
-        "docstring": "A structure containing specification of the layout of a plotly figure.", 
+        "docstring": "A dictionary containing specification of the layout of a plotly figure.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//figure-labels/", 
-            "https://plot.ly/matlab//axes/", 
-            "https://plot.ly/matlab//bar-charts/", 
-            "https://plot.ly/matlab//log-plot/"
+            "https://plot.ly/julia//figure-labels/", 
+            "https://plot.ly/julia//axes/", 
+            "https://plot.ly/julia//bar-charts/", 
+            "https://plot.ly/julia//log-plot/"
         ], 
         "keymeta": {
             "title": {
@@ -2682,15 +2682,15 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "description": "Links some {ULlike} describing the font settings of the figure's title."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the global font settings for this figure (e.g. all axis titles and labels)."
+                "description": "Links some dictionary describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
                 "key_type": "style", 
@@ -2718,33 +2718,33 @@
             }, 
             "xaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
+                "description": "Links some dictionary describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
+                "description": "Links some dictionary describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure containing the legend parameters for this figure."
+                "description": "Links some dictionary containing the legend parameters for this figure."
             }, 
             "annotations": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "array of one or several dictionary", 
                 "required": false, 
                 "description": "Some array that contains one or multiple annotation dictionaries."
             }, 
             "margin": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Some structure containing the margin parameters for this figure."
+                "description": "Some dictionary containing the margin parameters for this figure."
             }, 
             "paper_bgcolor": {
                 "key_type": "style", 
@@ -2818,15 +2818,15 @@
             }, 
             "radialaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Some structure describing the radial axis in a polar plot."
+                "description": "Some dictionary describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Some structure describing the angular axis in a polar plot."
+                "description": "Some dictionary describing the angular axis in a polar plot."
             }, 
             "direction": {
                 "key_type": "plot_info", 
@@ -2849,21 +2849,21 @@
         }
     }, 
     "font": {
-        "name": "structure font object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary font object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "font", 
             "titlefont", 
             "textfont"
         ], 
-        "docstring": "A structure containing specifications of on-plot, title or global text font.", 
+        "docstring": "A dictionary containing specifications of on-plot, title or global text font.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/font/", 
-            "https://plot.ly/matlab/text-and-annotations/", 
-            "https://plot.ly/matlab/line-and-scatter/"
+            "https://plot.ly/julia/font/", 
+            "https://plot.ly/julia/text-and-annotations/", 
+            "https://plot.ly/julia/line-and-scatter/"
         ], 
         "keymeta": {
             "family": {
@@ -2911,18 +2911,18 @@
         }
     }, 
     "legend": {
-        "name": "structure legend object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary legend object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "legend"
         ], 
-        "docstring": "A structure for representing a legend in plotly.", 
+        "docstring": "A dictionary for representing a legend in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//legend/", 
-            "https://plot.ly/matlab//figure-labels/"
+            "https://plot.ly/julia//legend/", 
+            "https://plot.ly/julia//figure-labels/"
         ], 
         "keymeta": {
             "x": {
@@ -2941,13 +2941,13 @@
                 "key_type": "style", 
                 "val_types": "'normal' | 'reversed'", 
                 "required": false, 
-                "description": "Trace order is set by the order of trace in the data structure. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
+                "description": "Trace order is set by the order of trace in the data dictionary. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within the legend."
+                "description": "Links some dictionary describing the font settings within the legend."
             }, 
             "bgcolor": {
                 "key_type": "style", 
@@ -3010,15 +3010,15 @@
         }
     }, 
     "annotation": {
-        "name": "structure annotation object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary annotation object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "\n            A structure for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
+        "docstring": "\n            A dictionary for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//text-and-annotations/"
+            "https://plot.ly/julia//text-and-annotations/"
         ], 
         "keymeta": {
             "x": {
@@ -3065,9 +3065,9 @@
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within this annotation."
+                "description": "Links some dictionary describing the font settings within this annotation."
             }, 
             "xanchor": {
                 "key_type": "plot_info", 
@@ -3186,12 +3186,12 @@
         }
     }, 
     "colorbar": {
-        "name": "structure colorbar object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary colorbar object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "colorbar"
         ], 
-        "docstring": "A structure object for representing a color bar in plotly.", 
+        "docstring": "A dictionary object for representing a color bar in plotly.", 
         "examples": [
             ""
         ], 
@@ -3211,7 +3211,7 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
                 "description": "Links some {ULlike} describing the font settings of the colorbar title."
             }, 
@@ -3321,9 +3321,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some dictionary defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -3398,17 +3398,17 @@
         }
     }, 
     "margin": {
-        "name": "structure margin object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary margin object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [
             "margin"
         ], 
-        "docstring": "A structure containing specification of the margins.", 
+        "docstring": "A dictionary containing specification of the margins.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//setting-graph-size/"
+            "https://plot.ly/julia//setting-graph-size/"
         ], 
         "keymeta": {
             "l": {
@@ -3450,10 +3450,10 @@
         }
     }, 
     "figure": {
-        "name": "structure figure object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary figure object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "\n            A structure representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
+        "docstring": "\n            A dictionary representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
         "examples": [
             ""
         ], 
@@ -3461,20 +3461,20 @@
         "keymeta": {
             "data": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "array of one or several dictionary", 
                 "required": false, 
                 "description": "Some array of the data trace(s) that is/are to be visualized."
             }, 
             "layout": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "dictionary", 
                 "required": false, 
-                "description": "Some structure that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
+                "description": "Some dictionary that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }
         }
     }, 
     "data": {
-        "name": "structure of one 'data' array or more", 
+        "name": "dictionary of one 'data' array or more", 
         "obj_type": "array", 
         "parent_keys": [
             "data"
@@ -3487,7 +3487,7 @@
         "keymeta": {}
     }, 
     "annotations": {
-        "name": "structure of one 'annotations' array or more", 
+        "name": "dictionary of one 'annotations' array or more", 
         "obj_type": "array", 
         "parent_keys": [
             "annotations"
@@ -3500,8 +3500,8 @@
         "keymeta": {}
     }, 
     "trace": {
-        "name": "structure trace object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary trace object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
@@ -3637,7 +3637,7 @@
         }
     }, 
     "plotlylist": {
-        "name": "structure plotlylist object with ", 
+        "name": "dictionary plotlylist object with ", 
         "obj_type": "array", 
         "parent_keys": [], 
         "docstring": "", 
@@ -3646,8 +3646,8 @@
         "keymeta": {}
     }, 
     "plotlydict": {
-        "name": "structure plotlydict object with ", 
-        "obj_type": "structure", 
+        "name": "dictionary plotlydict object with ", 
+        "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
@@ -3655,7 +3655,7 @@
         "keymeta": {}
     }, 
     "plotlytrace": {
-        "name": "structure plotlytrace object with ", 
+        "name": "dictionary plotlytrace object with ", 
         "obj_type": "array", 
         "parent_keys": [], 
         "docstring": "", 

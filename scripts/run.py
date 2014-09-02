@@ -135,7 +135,6 @@ def write_KEY_TO_NAME(tree, meta_language):
     KEY_TO_NAME = dict()
     for obj, stuff in meta_language.items():
         parent_keys = stuff['parent_keys']
-        print obj, parent_keys, bool(parent_keys)
         if parent_keys:
             for parent_key in parent_keys:
                 KEY_TO_NAME[parent_key] = stuff['name']

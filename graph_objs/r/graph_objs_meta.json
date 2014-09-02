@@ -1,45 +1,45 @@
 {
     "scatter": {
-        "name": "trace structure with 'type' set to 'scatter'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'scatter'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a scatter trace in plotly.", 
+        "docstring": "A list for representing a scatter trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/bubble-charts/", 
-            "https://plot.ly/matlab/filled-area-plots/", 
-            "https://plot.ly/matlab/time-series/"
+            "https://plot.ly/r/line-and-scatter/", 
+            "https://plot.ly/r/bubble-charts/", 
+            "https://plot.ly/r/filled-area-plots/", 
+            "https://plot.ly/r/time-series/"
         ], 
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'y','r' and 't' are unset", 
-                "description": "Sets the x coordinates of the points of this scatter trace. If 'x' is linked to some array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'.", 
+                "description": "Sets the x coordinates of the points of this scatter trace. If 'x' is linked to some generic vector (list) or atomic vector of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the generic vector (list) or atomic vector of strings linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'x','r' and 't' are unset", 
-                "description": "Sets the y coordinates of the points of this scatter trace. If 'y' is linked to some array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'.", 
+                "description": "Sets the y coordinates of the points of this scatter trace. If 'y' is linked to some generic vector (list) or atomic vector of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the generic vector (list) or atomic vector of strings linked to 'y'.", 
                 "streamable": true
             }, 
             "r": {
                 "key_type": "data", 
-                "val_types": "array of numbers", 
+                "val_types": "generic vector (list) or atomic vector of numbers", 
                 "required": " when making a Polar Chart", 
                 "description": "For Polar charts only. Sets the radial coordinates of the points in this polar scatter trace about the origin.", 
                 "streamable": true
             }, 
             "t": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
-                "description": "For Polar charts only. Sets the angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "For Polar charts only. Sets the angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some generic vector (list) or atomic vector of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the generic vector (list) or atomic vector of strings linked to 't'.", 
                 "streamable": true
             }, 
             "mode": {
@@ -56,37 +56,37 @@
             }, 
             "text": {
                 "key_type": "data", 
-                "val_types": "array of strings", 
+                "val_types": "generic vector (list) or atomic vector of strings", 
                 "required": false, 
                 "description": "The text elements associated with each (x,y) pair in this scatter trace. If the scatter 'mode' does not include 'text' then text elements will appear on hover only. In contrast, if 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y) coordinate pair and the 'textposition' key.", 
                 "streamable": true
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links some list describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links some list describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+                "description": "Links some list containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+                "description": "Links some list containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
                 "streamable": true
             }, 
             "textposition": {
@@ -97,9 +97,9 @@
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
+                "description": "Links some list describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
             }, 
             "connectgaps": {
                 "key_type": "plot_info", 
@@ -153,9 +153,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -172,29 +172,29 @@
         }
     }, 
     "bar": {
-        "name": "trace structure with 'type' set to 'bar'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'bar'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a bar trace in plotly.", 
+        "docstring": "A list for representing a bar trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/bar-charts/"
+            "https://plot.ly/r/bar-charts/"
         ], 
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'y' is unset", 
-                "description": "Sets the x coordinates of the bars. If 'x' is linked to some array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the array linked to 'x'.", 
+                "description": "Sets the x coordinates of the bars. If 'x' is linked to some generic vector (list) or atomic vector of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the generic vector (list) or atomic vector of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the generic vector (list) or atomic vector linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'x' is unset", 
-                "description": "Sets the y coordinates of the bars. If 'y' is linked to some array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the array linked to 'y'.", 
+                "description": "Sets the y coordinates of the bars. If 'y' is linked to some generic vector (list) or atomic vector of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the generic vector (list) or atomic vector of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the generic vector (list) or atomic vector linked to 'y'.", 
                 "streamable": true
             }, 
             "name": {
@@ -211,30 +211,30 @@
             }, 
             "text": {
                 "key_type": "data", 
-                "val_types": "array of strings", 
+                "val_types": "generic vector (list) or atomic vector of strings", 
                 "required": false, 
                 "description": "The text elements associated with each bar in this trace. The entries in 'text' will appear on hover only, in a text box located at the top of each bar.", 
                 "streamable": true
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links some list describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links some list describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links some list containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -263,9 +263,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -281,55 +281,55 @@
             }, 
             "r": {
                 "key_type": "data", 
-                "val_types": "array of numbers", 
+                "val_types": "generic vector (list) or atomic vector of numbers", 
                 "required": " when making a Polar Chart", 
                 "description": "For Polar charts only. Sets the radial coordinates of the bars in this polar bar trace about the original; that is, the radial extent of each bar.", 
                 "streamable": true
             }, 
             "t": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
-                "description": "For Polar charts only. Sets the angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "For Polar charts only. Sets the angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some generic vector (list) or atomic vector of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the generic vector (list) or atomic vector of strings linked to 't'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
                 "description": "Artifact. Has no effect.", 
                 "streamable": true
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
                 "description": "Not currently supported, has no effect."
             }
         }
     }, 
     "histogram": {
-        "name": "trace structure with 'type' set to 'histogram'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'histogram'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a histogram trace in plotly.", 
+        "docstring": "A list for representing a histogram trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/"
+            "https://plot.ly/r/histograms/"
         ], 
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'y' is unset", 
                 "description": "Sets the data sample to be binned (done by Plotly) on the x-axis and plotted as vertical bars.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": " when 'x' is unset", 
                 "description": "Sets the data sample to be binned (done by Plotly) on the y-axis and plotted as horizontal bars.", 
                 "streamable": true
@@ -360,9 +360,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some list defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -378,36 +378,36 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some list defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "text": {
                 "key_type": "data", 
-                "val_types": "array of strings", 
+                "val_types": "generic vector (list) or atomic vector of strings", 
                 "required": false, 
                 "description": "The text elements associated with each bar in this trace. The entries in 'text' will appear on hover only, in a text box located at the top of each bar.", 
                 "streamable": true
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links some list describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links some list describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links some list containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -436,9 +436,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -454,7 +454,7 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
                 "description": "Artifact. Has no effect.", 
                 "streamable": true
@@ -468,20 +468,20 @@
         }
     }, 
     "box": {
-        "name": "trace structure with 'type' set to 'box'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'box'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a box trace in plotly.", 
+        "docstring": "A list for representing a box trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/box-plots/"
+            "https://plot.ly/r/box-plots/"
         ], 
         "keymeta": {
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
                 "description": "This array is used to define an individual box plot, or, a concatenation of multiple box plots. Statistics from these numbers define the bounds of the box, the length of the whiskers, etc. For details on defining multiple boxes with locations see 'x'. Each box spans from the first quartile to the third. The second quartile is marked by a line inside the box. By default, the whiskers are correspond to box' edges +/- 1.5 times the interquartile range. See also 'boxpoints' for more info", 
                 "streamable": true
@@ -494,7 +494,7 @@
             }, 
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "Usually, you do not need to set this value as plotly will handle box locations for you. However this allows you to have fine control over the location data for the box. Unlike making a bar, a box plot is made of many y values. Therefore, to give location data to the values you place in 'y', the length of 'x' must equal the length of 'y'. when making multiple box plots, you can concatenate the data sets for each box into a single 'y' array. then, the entries in 'x' define which box plot each entry in 'y' belongs to. When making a single box plot, you must set each entry in 'x' to the same value, see 'x0' for a more practical way to handle this case. If you don't include 'x', the box will simply be assigned a location.", 
                 "streamable": true
@@ -551,16 +551,16 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
+                "description": "Links some list containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the border of this box trace (including the whiskers).", 
+                "description": "Links some list containing line parameters for the border of this box trace (including the whiskers).", 
                 "streamable": true
             }, 
             "opacity": {
@@ -589,9 +589,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -608,36 +608,36 @@
         }
     }, 
     "heatmap": {
-        "name": "trace structure with 'type' set to 'heatmap'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'heatmap'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a heatmap trace in plotly.", 
+        "docstring": "A list for representing a heatmap trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/heatmaps/"
+            "https://plot.ly/r/heatmaps/"
         ], 
         "keymeta": {
             "z": {
                 "key_type": "data", 
-                "val_types": "2d array of numbers", 
+                "val_types": "list of lists or matrix of numbers", 
                 "required": true, 
-                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the 2d array linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the 2d array linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the list of lists or matrix linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the list of lists or matrix linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
                 "streamable": true
             }, 
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the horizontal coordinates referring to the columns of the 2d array linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or matrix linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the list of lists or matrix linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the vertical coordinates referring to the rows of the 2d array linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
+                "description": "Sets the vertical coordinates referring to the rows of the list of lists or matrix linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the list of lists or matrix linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
                 "streamable": true
             }, 
             "name": {
@@ -668,10 +668,10 @@
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "list(c(0, 'rgb(0,0,0)'), list(0.5, 'rgb(65, 182, 196)'), list(1, 'rgb(255,255,255)'))"
                 ]
             }, 
             "reversescale": {
@@ -688,9 +688,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some list defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zsmooth": {
                 "key_type": "style", 
@@ -724,9 +724,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -738,25 +738,25 @@
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "The location of the first coordinate of the x-axis. Use with 'dx' an alternative to an 'x' array. Has no effect if 'x' is set."
+                "description": "The location of the first coordinate of the x-axis. Use with 'dx' an alternative to an 'x' generic vector (list) or atomic vector. Has no effect if 'x' is set."
             }, 
             "dx": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' array. Has no effect if 'x' is set."
+                "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' generic vector (list) or atomic vector. Has no effect if 'x' is set."
             }, 
             "y0": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "The location of the first coordinate of the y-axis. Use with 'dy' an alternative to an 'y' array. Has no effect if 'y' is set."
+                "description": "The location of the first coordinate of the y-axis. Use with 'dy' an alternative to an 'y' generic vector (list) or atomic vector. Has no effect if 'y' is set."
             }, 
             "dy": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' array. Has no effect if 'y' is set."
+                "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' generic vector (list) or atomic vector. Has no effect if 'y' is set."
             }, 
             "xtype": {
                 "key_type": "plot_info", 
@@ -764,7 +764,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'x' is linked to a array, then the horizontal labels are scaled to a arrayof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
@@ -772,7 +772,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'y' is linked to a array, then the vertical labels are scaled to a arrayof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -783,36 +783,36 @@
         }
     }, 
     "contour": {
-        "name": "trace structure with 'type' set to 'contour'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'contour'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a contour trace in plotly.", 
+        "docstring": "A list for representing a contour trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/r/contour-plots/"
         ], 
         "keymeta": {
             "z": {
                 "key_type": "data", 
-                "val_types": "2d array of numbers", 
+                "val_types": "list of lists or matrix of numbers", 
                 "required": true, 
-                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the 2d array linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the 2d array linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the list of lists or matrix linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the list of lists or matrix linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
                 "streamable": true
             }, 
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the horizontal coordinates referring to the columns of the 2d array linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or matrix linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the list of lists or matrix linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the vertical coordinates referring to the rows of the 2d array linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
+                "description": "Sets the vertical coordinates referring to the rows of the list of lists or matrix linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the list of lists or matrix linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
                 "streamable": true
             }, 
             "name": {
@@ -853,25 +853,25 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links some list defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links some list containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "list(c(0, 'rgb(0,0,0)'), list(0.5, 'rgb(65, 182, 196)'), list(1, 'rgb(255,255,255)'))"
                 ]
             }, 
             "reversescale": {
@@ -888,9 +888,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some list defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -918,9 +918,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -932,25 +932,25 @@
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "The location of the first coordinate of the x-axis. Use with 'dx' an alternative to an 'x' array. Has no effect if 'x' is set."
+                "description": "The location of the first coordinate of the x-axis. Use with 'dx' an alternative to an 'x' generic vector (list) or atomic vector. Has no effect if 'x' is set."
             }, 
             "dx": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' array. Has no effect if 'x' is set."
+                "description": "Spacing between x-axis coordinates. Use with 'x0' an alternative to an 'x' generic vector (list) or atomic vector. Has no effect if 'x' is set."
             }, 
             "y0": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "The location of the first coordinate of the y-axis. Use with 'dy' an alternative to an 'y' array. Has no effect if 'y' is set."
+                "description": "The location of the first coordinate of the y-axis. Use with 'dy' an alternative to an 'y' generic vector (list) or atomic vector. Has no effect if 'y' is set."
             }, 
             "dy": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' array. Has no effect if 'y' is set."
+                "description": "Spacing between y-axis coordinates. Use with 'y0' an alternative to an 'y' generic vector (list) or atomic vector. Has no effect if 'y' is set."
             }, 
             "xtype": {
                 "key_type": "plot_info", 
@@ -958,7 +958,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'x' is linked to a array, then the horizontal labels are scaled to a arrayof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
@@ -966,7 +966,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'y' is linked to a array, then the vertical labels are scaled to a arrayof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -977,27 +977,27 @@
         }
     }, 
     "histogram2d": {
-        "name": "trace structure with 'type' set to 'histogram2d'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'histogram2d'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram trace in plotly.", 
+        "docstring": "A list for representing a 2D histogram trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/r/2D-Histograms/"
         ], 
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
                 "description": "Sets the data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
                 "description": "Sets the data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
                 "streamable": true
@@ -1028,9 +1028,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some list defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1046,18 +1046,18 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some list defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "list(c(0, 'rgb(0,0,0)'), list(0.5, 'rgb(65, 182, 196)'), list(1, 'rgb(255,255,255)'))"
                 ]
             }, 
             "reversescale": {
@@ -1074,9 +1074,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some list defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1128,9 +1128,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1147,27 +1147,27 @@
         }
     }, 
     "histogram2dcontour": {
-        "name": "trace structure with 'type' set to 'histogram2dcontour'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'histogram2dcontour'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram contour trace in plotly.", 
+        "docstring": "A list for representing a 2D histogram contour trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/r/2D-Histograms/"
         ], 
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
                 "description": "Sets the data sample to be binned on the x-axis and whose distribution (computed by Plotly) will correspond to the x-coordinates of this 2D histogram trace.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
                 "description": "Sets the data sample to be binned on the y-axis and whose distribution (computed by Plotly) will correspond to the y-coordinates of this 2D histogram trace.", 
                 "streamable": true
@@ -1198,9 +1198,9 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links some list defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1216,9 +1216,9 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links some list defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "autocontour": {
                 "key_type": "style", 
@@ -1234,25 +1234,25 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links some list defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links some list containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "list(c(0, 'rgb(0,0,0)'), list(0.5, 'rgb(65, 182, 196)'), list(1, 'rgb(255,255,255)'))"
                 ]
             }, 
             "reversescale": {
@@ -1269,9 +1269,9 @@
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links some list defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1317,9 +1317,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1336,29 +1336,29 @@
         }
     }, 
     "area": {
-        "name": "trace structure with 'type' set to 'area'", 
-        "obj_type": "structure", 
+        "name": "trace list with 'type' set to 'area'", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "A structure for representing an area trace in plotly.", 
+        "docstring": "A list for representing an area trace in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/polar-chart/"
+            "https://plot.ly/r/polar-chart/"
         ], 
         "keymeta": {
             "r": {
                 "key_type": "data", 
-                "val_types": "array of numbers", 
+                "val_types": "generic vector (list) or atomic vector of numbers", 
                 "required": true, 
                 "description": "Sets the radial coordinates of the circle sectors in this polar area trace about the origin; that is, the radial extent of each circle sector.", 
                 "streamable": true
             }, 
             "t": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": true, 
-                "description": "Sets the angular coordinates of the circle sectors in this polar area trace. There are as many sectors as coordinates linked to 't' and 'r'. Each sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinates at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "Sets the angular coordinates of the circle sectors in this polar area trace. There are as many sectors as coordinates linked to 't' and 'r'. Each sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinates at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some generic vector (list) or atomic vector of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the generic vector (list) or atomic vector of strings linked to 't'.", 
                 "streamable": true
             }, 
             "name": {
@@ -1369,9 +1369,9 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
+                "description": "Links some list containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
                 "streamable": true
             }, 
             "showlegend": {
@@ -1382,9 +1382,9 @@
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links some list that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1413,17 +1413,17 @@
         }
     }, 
     "error_y": {
-        "name": "structure error_y object with ", 
-        "obj_type": "structure", 
+        "name": "list error_y object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "error_y"
         ], 
-        "docstring": "A structure object representing a set of error bar spanning along the y-axis.", 
+        "docstring": "A list object representing a set of error bar spanning along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/error-bars/"
+            "https://plot.ly/r/error-bars/"
         ], 
         "keymeta": {
             "type": {
@@ -1440,7 +1440,7 @@
             }, 
             "array": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span vertically from y= 0 to 2 and y= 0 to 4 if 'symmetric'=True; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
             }, 
@@ -1504,17 +1504,17 @@
         }
     }, 
     "error_x": {
-        "name": "structure error_x object with ", 
-        "obj_type": "structure", 
+        "name": "list error_x object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "error_x"
         ], 
-        "docstring": "A structure representing a set of error bars spanning along the x-axis.", 
+        "docstring": "A list representing a set of error bars spanning along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/error-bars/"
+            "https://plot.ly/r/error-bars/"
         ], 
         "keymeta": {
             "type": {
@@ -1531,7 +1531,7 @@
             }, 
             "array": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "generic vector (list) or atomic vector of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span horizontally from x= 0 to 2 and x= 0 to 4 if 'symmetric'=True; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
             }, 
@@ -1601,18 +1601,18 @@
         }
     }, 
     "xbins": {
-        "name": "structure xbins object with ", 
-        "obj_type": "structure", 
+        "name": "list xbins object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "xbins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the x-axis.", 
+        "docstring": "A list containing specifications of the bins lying along the x-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/", 
-            "https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/r/histograms/", 
+            "https://plot.ly/r/2D-Histograms/"
         ], 
         "keymeta": {
             "start": {
@@ -1637,17 +1637,17 @@
         }
     }, 
     "ybins": {
-        "name": "structure ybins object with ", 
-        "obj_type": "structure", 
+        "name": "list ybins object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "ybins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the y-axis.", 
+        "docstring": "A list containing specifications of the bins lying along the y-axis.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/histograms/https://plot.ly/matlab/2D-Histograms/"
+            "https://plot.ly/r/histograms/https://plot.ly/r/2D-Histograms/"
         ], 
         "keymeta": {
             "start": {
@@ -1672,23 +1672,23 @@
         }
     }, 
     "marker": {
-        "name": "structure marker object with ", 
-        "obj_type": "structure", 
+        "name": "list marker object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "marker"
         ], 
-        "docstring": "A structure containing specifications of the marker points.", 
+        "docstring": "A list containing specifications of the marker points.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/bubble-charts/"
+            "https://plot.ly/r/line-and-scatter/", 
+            "https://plot.ly/r/bubble-charts/"
         ], 
         "keymeta": {
             "color": {
-                "val_types": "array of string describing color", 
-                "description": "Sets the color of the face of the marker object. If 'color' is linked to some array of color strings, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use 'line' in 'marker'. The 'color' key can also accept array of numbers, where each number is then mapped to a color using the color scale set in 'colorscale'.", 
+                "val_types": "generic vector (list) or atomic vector of string describing color", 
+                "description": "Sets the color of the face of the marker object. If 'color' is linked to some generic vector (list) or atomic vector of color strings, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use 'line' in 'marker'. The 'color' key can also accept generic vector (list) or atomic vector of numbers, where each number is then mapped to a color using the color scale set in 'colorscale'.", 
                 "required": false, 
                 "streamable": true, 
                 "key_type": "style", 
@@ -1705,48 +1705,48 @@
                 "key_type": "style", 
                 "val_types": "number: x > 0, or list of these numbers", 
                 "required": false, 
-                "description": "Sets the size of the markers (in pixels). If 'size' is linked to some array of numbers, size values are mapped to individual marker points in the same order as in the 'x', 'y (or 'z') array. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
+                "description": "Sets the size of the markers (in pixels). If 'size' is linked to some generic vector (list) or atomic vector of numbers, size values are mapped to individual marker points in the same order as in the 'x', 'y (or 'z') generic vector (list) or atomic vector. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
                 "streamable": true
             }, 
             "symbol": {
                 "key_type": "style", 
                 "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values", 
                 "required": false, 
-                "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to some array, the symbol values are mapped to individual marker points in the same order as in the array linked to 'x', 'y' (or 'z')."
+                "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to some generic vector (list) or atomic vector, the symbol values are mapped to individual marker points in the same order as in the generic vector (list) or atomic vector linked to 'x', 'y' (or 'z')."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
+                "description": "Links some list containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
                 "streamable": true
             }, 
             "opacity": {
                 "key_type": "style", 
                 "val_types": "number: x in [0, 1], or list of these numbers", 
                 "required": false, 
-                "description": "Sets the opacity, or transparency also known as the alpha channel of colors) of the marker points. If the marker points' color is given in terms of 'rgba' color model, this does not need to be defined. If 'opacity' is linked to a list or an array of numbers, opacity values are mapped to individual marker points in the same order as in the 'x', 'y' (or 'z') array."
+                "description": "Sets the opacity, or transparency also known as the alpha channel of colors) of the marker points. If the marker points' color is given in terms of 'rgba' color model, this does not need to be defined. If 'opacity' is linked to a list or an array of numbers, opacity values are mapped to individual marker points in the same order as in the 'x', 'y' (or 'z') generic vector (list) or atomic vector."
             }, 
             "sizeref": {
                 "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Sets the scale factor used to determine the rendered size of each marker point in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some array. If set, the value linked to 'sizeref' is used to divide each entry linked to 'size'. Specifically, setting 'sizeref' to less (greater) than 1, increases (decreases) the rendered marker sizes."
+                "description": "Sets the scale factor used to determine the rendered size of each marker point in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some generic vector (list) or atomic vector. If set, the value linked to 'sizeref' is used to divide each entry linked to 'size'. Specifically, setting 'sizeref' to less (greater) than 1, increases (decreases) the rendered marker sizes."
             }, 
             "sizemode": {
                 "key_type": "style", 
                 "val_types": "'diameter'| 'area'", 
                 "required": false, 
-                "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some array. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
+                "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some generic vector (list) or atomic vector. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
-                    "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
+                    "list(c(0, 'rgb(0,0,0)'), list(0.5, 'rgb(65, 182, 196)'), list(1, 'rgb(255,255,255)'))"
                 ]
             }, 
             "cauto": {
@@ -1759,13 +1759,13 @@
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some array nd 'colorscale' is set."
+                "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some generic vector (list) or atomic vector nd 'colorscale' is set."
             }, 
             "cmax": {
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some array nd 'colorscale' is set."
+                "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some generic vector (list) or atomic vector nd 'colorscale' is set."
             }, 
             "outliercolor": {
                 "key_type": "style", 
@@ -1790,19 +1790,19 @@
         }
     }, 
     "line": {
-        "name": "structure line object with ", 
-        "obj_type": "structure", 
+        "name": "list line object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "line"
         ], 
-        "docstring": "A structure containing specifications of the line segments.", 
+        "docstring": "A list containing specifications of the line segments.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/line-and-scatter/", 
-            "https://plot.ly/matlab/filled-area-plots/", 
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/r/line-and-scatter/", 
+            "https://plot.ly/r/filled-area-plots/", 
+            "https://plot.ly/r/contour-plots/"
         ], 
         "keymeta": {
             "color": {
@@ -1881,17 +1881,17 @@
         }
     }, 
     "contours": {
-        "name": "structure contours object with ", 
-        "obj_type": "structure", 
+        "name": "list contours object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "contours"
         ], 
-        "docstring": "A structure containing specifications of the contours.", 
+        "docstring": "A list containing specifications of the contours.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/contour-plots/"
+            "https://plot.ly/r/contour-plots/"
         ], 
         "keymeta": {
             "showlines": {
@@ -1928,17 +1928,17 @@
         }
     }, 
     "stream": {
-        "name": "structure stream object with ", 
-        "obj_type": "structure", 
+        "name": "list stream object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "stream"
         ], 
-        "docstring": "A structure containing specifications of the data stream.", 
+        "docstring": "A list containing specifications of the data stream.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/streaming/"
+            "https://plot.ly/r/streaming/"
         ], 
         "keymeta": {
             "token": {
@@ -1956,20 +1956,20 @@
         }
     }, 
     "xaxis": {
-        "name": "structure xaxis object with ", 
-        "obj_type": "structure", 
+        "name": "list xaxis object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "xaxis"
         ], 
-        "docstring": "A structure for representing an x-axis in plotly.", 
+        "docstring": "A list for representing an x-axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/axes/", 
-            "https://plot.ly/matlab/multiple-axes/", 
-            "https://plot.ly/matlab/subplots/", 
-            "https://plot.ly/matlab/insets/"
+            "https://plot.ly/r/axes/", 
+            "https://plot.ly/r/multiple-axes/", 
+            "https://plot.ly/r/subplots/", 
+            "https://plot.ly/r/insets/"
         ], 
         "keymeta": {
             "title": {
@@ -1980,9 +1980,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the x-axis title."
+                "description": "Links some list describing the font settings of the x-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -1990,8 +1990,8 @@
                 "required": false, 
                 "description": "Defines the start and end point of this x axis.", 
                 "examples": [
-                    "[-13, 20]", 
-                    "[0, 1]"
+                    "c(-13, 20)", 
+                    "c(0, 1)"
                 ]
             }, 
             "domain": {
@@ -2000,8 +2000,8 @@
                 "required": false, 
                 "description": "Sets the domain of this x axis; that is, the available space for this x axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
-                    "[0, 0.4]", 
-                    "[0.6, 1]"
+                    "c(0, 0.4)", 
+                    "c(0.6, 1)"
                 ]
             }, 
             "type": {
@@ -2110,9 +2110,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some list defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2219,20 +2219,20 @@
         }
     }, 
     "yaxis": {
-        "name": "structure yaxis object with ", 
-        "obj_type": "structure", 
+        "name": "list yaxis object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "yaxis"
         ], 
-        "docstring": "A structure for representing a y-axis in plotly.", 
+        "docstring": "A list for representing a y-axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/axes/", 
-            "https://plot.ly/matlab/multiple-axes/", 
-            "https://plot.ly/matlab/subplots/", 
-            "https://plot.ly/matlab/insets/"
+            "https://plot.ly/r/axes/", 
+            "https://plot.ly/r/multiple-axes/", 
+            "https://plot.ly/r/subplots/", 
+            "https://plot.ly/r/insets/"
         ], 
         "keymeta": {
             "title": {
@@ -2243,9 +2243,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the y-axis title."
+                "description": "Links some list describing the font settings of the y-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2253,8 +2253,8 @@
                 "required": false, 
                 "description": "Defines the start and end point of this y axis.", 
                 "examples": [
-                    "[-13, 20]", 
-                    "[0, 1]"
+                    "c(-13, 20)", 
+                    "c(0, 1)"
                 ]
             }, 
             "domain": {
@@ -2263,8 +2263,8 @@
                 "required": false, 
                 "description": "Sets the domain of this y axis; that is, the available space for this y axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
-                    "[0, 0.4]", 
-                    "[0.6, 1]"
+                    "c(0, 0.4)", 
+                    "c(0.6, 1)"
                 ]
             }, 
             "type": {
@@ -2373,9 +2373,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some list defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2482,17 +2482,17 @@
         }
     }, 
     "radialaxis": {
-        "name": "structure radialaxis object with ", 
-        "obj_type": "structure", 
+        "name": "list radialaxis object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "radialaxis"
         ], 
-        "docstring": "A structure for representing a radial axis in plotly.", 
+        "docstring": "A list for representing a radial axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//polar-chart/"
+            "https://plot.ly/r//polar-chart/"
         ], 
         "keymeta": {
             "range": {
@@ -2501,8 +2501,8 @@
                 "required": false, 
                 "description": "Defines the start and end point of this radial axis.", 
                 "examples": [
-                    "[-13, 20]", 
-                    "[0, 1]"
+                    "c(-13, 20)", 
+                    "c(0, 1)"
                 ]
             }, 
             "domain": {
@@ -2576,27 +2576,27 @@
         }
     }, 
     "angularaxis": {
-        "name": "structure angularaxis object with ", 
-        "obj_type": "structure", 
+        "name": "list angularaxis object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "angularaxis"
         ], 
-        "docstring": "A structure for representing an angular axis in plotly.", 
+        "docstring": "A list for representing an angular axis in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//polar-chart/"
+            "https://plot.ly/r//polar-chart/"
         ], 
         "keymeta": {
             "range": {
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to some array of strings.", 
+                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to some generic vector (list) or atomic vector of strings.", 
                 "examples": [
-                    "[0, 180]", 
-                    "[0, 6.2831]"
+                    "c(0, 180)", 
+                    "c(0, 6.2831)"
                 ]
             }, 
             "domain": {
@@ -2658,20 +2658,20 @@
         }
     }, 
     "layout": {
-        "name": "structure layout object with ", 
-        "obj_type": "structure", 
+        "name": "list layout object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "layout"
         ], 
-        "docstring": "A structure containing specification of the layout of a plotly figure.", 
+        "docstring": "A list containing specification of the layout of a plotly figure.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//figure-labels/", 
-            "https://plot.ly/matlab//axes/", 
-            "https://plot.ly/matlab//bar-charts/", 
-            "https://plot.ly/matlab//log-plot/"
+            "https://plot.ly/r//figure-labels/", 
+            "https://plot.ly/r//axes/", 
+            "https://plot.ly/r//bar-charts/", 
+            "https://plot.ly/r//log-plot/"
         ], 
         "keymeta": {
             "title": {
@@ -2682,15 +2682,15 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
                 "description": "Links some {ULlike} describing the font settings of the figure's title."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the global font settings for this figure (e.g. all axis titles and labels)."
+                "description": "Links some list describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
                 "key_type": "style", 
@@ -2718,33 +2718,33 @@
             }, 
             "xaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
+                "description": "Links some list describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
+                "description": "Links some list describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure containing the legend parameters for this figure."
+                "description": "Links some list containing the legend parameters for this figure."
             }, 
             "annotations": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "generic vector (list) or atomic vector of one or several list", 
                 "required": false, 
-                "description": "Some array that contains one or multiple annotation dictionaries."
+                "description": "Some generic vector (list) or atomic vector that contains one or multiple annotation dictionaries."
             }, 
             "margin": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Some structure containing the margin parameters for this figure."
+                "description": "Some list containing the margin parameters for this figure."
             }, 
             "paper_bgcolor": {
                 "key_type": "style", 
@@ -2818,15 +2818,15 @@
             }, 
             "radialaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Some structure describing the radial axis in a polar plot."
+                "description": "Some list describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Some structure describing the angular axis in a polar plot."
+                "description": "Some list describing the angular axis in a polar plot."
             }, 
             "direction": {
                 "key_type": "plot_info", 
@@ -2849,21 +2849,21 @@
         }
     }, 
     "font": {
-        "name": "structure font object with ", 
-        "obj_type": "structure", 
+        "name": "list font object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "font", 
             "titlefont", 
             "textfont"
         ], 
-        "docstring": "A structure containing specifications of on-plot, title or global text font.", 
+        "docstring": "A list containing specifications of on-plot, title or global text font.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab/font/", 
-            "https://plot.ly/matlab/text-and-annotations/", 
-            "https://plot.ly/matlab/line-and-scatter/"
+            "https://plot.ly/r/font/", 
+            "https://plot.ly/r/text-and-annotations/", 
+            "https://plot.ly/r/line-and-scatter/"
         ], 
         "keymeta": {
             "family": {
@@ -2911,18 +2911,18 @@
         }
     }, 
     "legend": {
-        "name": "structure legend object with ", 
-        "obj_type": "structure", 
+        "name": "list legend object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "legend"
         ], 
-        "docstring": "A structure for representing a legend in plotly.", 
+        "docstring": "A list for representing a legend in plotly.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//legend/", 
-            "https://plot.ly/matlab//figure-labels/"
+            "https://plot.ly/r//legend/", 
+            "https://plot.ly/r//figure-labels/"
         ], 
         "keymeta": {
             "x": {
@@ -2941,13 +2941,13 @@
                 "key_type": "style", 
                 "val_types": "'normal' | 'reversed'", 
                 "required": false, 
-                "description": "Trace order is set by the order of trace in the data structure. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
+                "description": "Trace order is set by the order of trace in the data list. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within the legend."
+                "description": "Links some list describing the font settings within the legend."
             }, 
             "bgcolor": {
                 "key_type": "style", 
@@ -3010,15 +3010,15 @@
         }
     }, 
     "annotation": {
-        "name": "structure annotation object with ", 
-        "obj_type": "structure", 
+        "name": "list annotation object with ", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "\n            A structure for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
+        "docstring": "\n            A list for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//text-and-annotations/"
+            "https://plot.ly/r//text-and-annotations/"
         ], 
         "keymeta": {
             "x": {
@@ -3065,9 +3065,9 @@
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within this annotation."
+                "description": "Links some list describing the font settings within this annotation."
             }, 
             "xanchor": {
                 "key_type": "plot_info", 
@@ -3186,12 +3186,12 @@
         }
     }, 
     "colorbar": {
-        "name": "structure colorbar object with ", 
-        "obj_type": "structure", 
+        "name": "list colorbar object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "colorbar"
         ], 
-        "docstring": "A structure object for representing a color bar in plotly.", 
+        "docstring": "A list object for representing a color bar in plotly.", 
         "examples": [
             ""
         ], 
@@ -3211,7 +3211,7 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
                 "description": "Links some {ULlike} describing the font settings of the colorbar title."
             }, 
@@ -3321,9 +3321,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links some list defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -3398,17 +3398,17 @@
         }
     }, 
     "margin": {
-        "name": "structure margin object with ", 
-        "obj_type": "structure", 
+        "name": "list margin object with ", 
+        "obj_type": "list", 
         "parent_keys": [
             "margin"
         ], 
-        "docstring": "A structure containing specification of the margins.", 
+        "docstring": "A list containing specification of the margins.", 
         "examples": [
             ""
         ], 
         "links": [
-            "https://plot.ly/matlab//setting-graph-size/"
+            "https://plot.ly/r//setting-graph-size/"
         ], 
         "keymeta": {
             "l": {
@@ -3450,10 +3450,10 @@
         }
     }, 
     "figure": {
-        "name": "structure figure object with ", 
-        "obj_type": "structure", 
+        "name": "list figure object with ", 
+        "obj_type": "list", 
         "parent_keys": [], 
-        "docstring": "\n            A structure representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
+        "docstring": "\n            A list representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
         "examples": [
             ""
         ], 
@@ -3461,25 +3461,25 @@
         "keymeta": {
             "data": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "generic vector (list) or atomic vector of one or several list", 
                 "required": false, 
-                "description": "Some array of the data trace(s) that is/are to be visualized."
+                "description": "Some generic vector (list) or atomic vector of the data trace(s) that is/are to be visualized."
             }, 
             "layout": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "list", 
                 "required": false, 
-                "description": "Some structure that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
+                "description": "Some list that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }
         }
     }, 
     "data": {
-        "name": "structure of one 'data' array or more", 
-        "obj_type": "array", 
+        "name": "list of one 'data' generic vector (list) or atomic vector or more", 
+        "obj_type": "generic vector (list) or atomic vector", 
         "parent_keys": [
             "data"
         ], 
-        "docstring": "List of traces (i.e. array) to be shown on one plotly figure.", 
+        "docstring": "List of traces (i.e. generic vector (list) or atomic vector) to be shown on one plotly figure.", 
         "examples": [
             ""
         ], 
@@ -3487,12 +3487,12 @@
         "keymeta": {}
     }, 
     "annotations": {
-        "name": "structure of one 'annotations' array or more", 
-        "obj_type": "array", 
+        "name": "list of one 'annotations' generic vector (list) or atomic vector or more", 
+        "obj_type": "generic vector (list) or atomic vector", 
         "parent_keys": [
             "annotations"
         ], 
-        "docstring": "List of annotations (i.e. array) to be shown on one plotly figure.", 
+        "docstring": "List of annotations (i.e. generic vector (list) or atomic vector) to be shown on one plotly figure.", 
         "examples": [
             ""
         ], 
@@ -3500,8 +3500,8 @@
         "keymeta": {}
     }, 
     "trace": {
-        "name": "structure trace object with ", 
-        "obj_type": "structure", 
+        "name": "list trace object with ", 
+        "obj_type": "list", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
@@ -3637,8 +3637,8 @@
         }
     }, 
     "plotlylist": {
-        "name": "structure plotlylist object with ", 
-        "obj_type": "array", 
+        "name": "list plotlylist object with ", 
+        "obj_type": "generic vector (list) or atomic vector", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
@@ -3646,8 +3646,8 @@
         "keymeta": {}
     }, 
     "plotlydict": {
-        "name": "structure plotlydict object with ", 
-        "obj_type": "structure", 
+        "name": "list plotlydict object with ", 
+        "obj_type": "list", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
@@ -3655,8 +3655,8 @@
         "keymeta": {}
     }, 
     "plotlytrace": {
-        "name": "structure plotlytrace object with ", 
-        "obj_type": "array", 
+        "name": "list plotlytrace object with ", 
+        "obj_type": "generic vector (list) or atomic vector", 
         "parent_keys": [], 
         "docstring": "", 
         "examples": [], 
