@@ -48,7 +48,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a scatter trace in plotly."
+            "{A_ULlike} for representing a scatter trace in plotly."
         )
         examples = MakeExamples.scatter(MakeExamples())
         links = [
@@ -142,7 +142,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a bar trace in plotly."
+            "{A_ULlike} for representing a bar trace in plotly."
         )
         links = ["{WEB}bar-charts/"]
         examples = MakeExamples.bar(MakeExamples())
@@ -176,7 +176,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a histogram trace in plotly."
+            "{A_ULlike} for representing a histogram trace in plotly."
         )
         links = ["{WEB}histograms/"]
         examples = MakeExamples.histogram(MakeExamples())
@@ -214,7 +214,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a box trace in plotly."
+            "{A_ULlike} for representing a box trace in plotly."
         )
         links = ["{WEB}box-plots/"]
         examples = MakeExamples.box(MakeExamples())
@@ -312,7 +312,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a heatmap trace in plotly."
+            "{A_ULlike} for representing a heatmap trace in plotly."
         )
         links = ["{WEB}heatmaps/"]
         examples = MakeExamples.heatmap(MakeExamples())
@@ -352,7 +352,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a contour trace in plotly."
+            "{A_ULlike} for representing a contour trace in plotly."
         )
         links = ["{WEB}contour-plots/"]
         examples = MakeExamples.contour(MakeExamples())
@@ -395,7 +395,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a 2D histogram trace in plotly."
+            "{A_ULlike} for representing a 2D histogram trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
         examples = MakeExamples.histogram2d(MakeExamples())
@@ -435,7 +435,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing a 2D histogram contour "
+            "{A_ULlike} for representing a 2D histogram contour "
             "trace in plotly."
         )
         links = ["{WEB}2D-Histograms/"]
@@ -479,7 +479,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = (
-            "A {ULlike} for representing an area trace in plotly."
+            "{A_ULlike} for representing an area trace in plotly."
         )
         links = ["{WEB}polar-chart/"]
         examples = MakeExamples.area(MakeExamples())
@@ -634,7 +634,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["error_y"]
         docstring = (
-            "A {ULlike} object representing a set of error bar spanning "
+            "{A_ULlike} object representing a set of error bar spanning "
             "along the y-axis."
         )
         links = ["{WEB}error-bars/"]
@@ -673,7 +673,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["xbins"]
         docstring = (
-            "A {ULlike} containing specifications of the bins "
+            "{A_ULlike} containing specifications of the bins "
             "lying along the x-axis."
         )
         links = [
@@ -691,7 +691,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["ybins"]
         docstring = (
-            "A {ULlike} containing specifications of the bins "
+            "{A_ULlike} containing specifications of the bins "
             "lying along the y-axis."
         )
         links = [
@@ -709,7 +709,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["contours"]
         docstring = (
-            "A {ULlike} containing specifications of the contours."
+            "{A_ULlike} containing specifications of the contours."
         )
         links = ["{WEB}contour-plots/"]
         examples = MakeExamples.contours(MakeExamples())
@@ -751,7 +751,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["stream"]
         docstring = (
-            "A {ULlike} containing specifications of the data stream."
+            "{A_ULlike} containing specifications of the data stream."
         )
         links = ["{WEB}streaming/"]
         examples = MakeExamples.stream(MakeExamples())
@@ -790,7 +790,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["marker"]
         docstring = (
-            "A {ULlike} containing specifications of the marker points."
+            "{A_ULlike} containing specifications of the marker points."
         )
         links = [
             "{WEB}line-and-scatter/",
@@ -811,7 +811,7 @@ class MakeMeta(list):
                 description=(
                       "The symbol that is drawn on the plot for each marker. "
                       "Supported only in scatter traces. "
-                      "If 'symbol' is linked to some {OL}, the "
+                      "If 'symbol' is linked to {a_OL}, the "
                       "symbol values are mapped to individual marker points "
                       "in the same order as in the {OL} linked to 'x', 'y' "
                       "(or 'z')."
@@ -827,7 +827,7 @@ class MakeMeta(list):
                     "Sets the scale factor used to determine the rendered size "
                     "of each marker point in this trace. "
                     "Applies only to scatter traces that have their 'size' key "
-                    "in 'marker' linked to some {OL}. "
+                    "in 'marker' linked to {a_OL}. "
                     "If set, the value linked to 'sizeref' is used to divide "
                     "each entry linked to 'size'. Specifically, setting 'sizeref' "
                     "to less (greater) than 1, increases (decreases) the "
@@ -842,7 +842,7 @@ class MakeMeta(list):
                     "Choose between marker size scaling options for the marker "
                     "points in this trace. "
                     "Applies only to scatter traces that have their 'size' key "
-                    "in 'marker' linked to some {OL}. "
+                    "in 'marker' linked to {a_OL}. "
                     "If 'diameter' ('area'), then the diameter (area) of the "
                     "rendered marker points (in pixels) are "
                     "proportional to the numbers linked to 'size'." 
@@ -884,7 +884,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["line"]
         docstring = (
-            "A {ULlike} containing specifications of the line segments."
+            "{A_ULlike} containing specifications of the line segments."
         )
         links = [
             "{WEB}line-and-scatter/",
@@ -968,7 +968,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["font","titlefont","textfont"]
         docstring = (
-            "A {ULlike} containing specifications of on-plot, title or "
+            "{A_ULlike} containing specifications of on-plot, title or "
             "global text font."
         )
         links = [
@@ -1076,7 +1076,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Links some {ULlike} defining the parameters "
+                    "Links {a_ULlike} defining the parameters "
                     "of the ticks' font."
                 )
             )),
@@ -1292,7 +1292,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["xaxis"]
         docstring = (
-            "A {ULlike} for representing an x-axis in plotly."
+            "{A_ULlike} for representing an x-axis in plotly."
         )
         links = [
             "{WEB}axes/",
@@ -1311,7 +1311,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["yaxis"]
         docstring = (
-            "A {ULlike} for representing a y-axis in plotly."
+            "{A_ULlike} for representing a y-axis in plotly."
         )
         links = [
             "{WEB}axes/",
@@ -1330,7 +1330,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["radialaxis"]
         docstring = (
-            "A {ULlike} for representing a radial axis in plotly."
+            "{A_ULlike} for representing a radial axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
         examples = MakeExamples.radialaxis(MakeExamples())
@@ -1399,7 +1399,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["angularaxis"]
         docstring = (
-            "A {ULlike} for representing an angular axis in plotly."
+            "{A_ULlike} for representing an angular axis in plotly."
         )
         links = ["{WEB}/polar-chart/"]
         examples = MakeExamples.angularaxis(MakeExamples())
@@ -1451,7 +1451,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["legend"]
         docstring = (
-            "A {ULlike} for representing a legend in plotly."
+            "{A_ULlike} for representing a legend in plotly."
         )
         links = [
             "{WEB}/legend/",
@@ -1490,7 +1490,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["colorbar"]
         docstring = (
-            "A {ULlike} object for representing a color bar in plotly."
+            "{A_ULlike} object for representing a color bar in plotly."
         )
         links = []
         examples = MakeExamples.colorbar(MakeExamples())
@@ -1573,7 +1573,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["margin"]
         docstring = (
-            "A {ULlike} containing specification of the margins."
+            "{A_ULlike} containing specification of the margins."
         )
         links = ["{WEB}/setting-graph-size/"]
         examples = MakeExamples.margin(MakeExamples())
@@ -1627,7 +1627,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = ("""
-            A {ULlike} for representing an annotation in plotly.
+            {A_ULlike} for representing an annotation in plotly.
 
             Annotations appear as notes on the final figure. You can set all the
             features of the annotation text, background color, and location.
@@ -1770,7 +1770,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = ["layout"]
         docstring = (
-            "A {ULlike} containing specification of the layout "
+            "{A_ULlike} containing specification of the layout "
             "of a plotly figure."
         )
         links = [
@@ -1821,7 +1821,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Links some {ULlike} containing the legend "
+                    "Links {a_ULlike} containing the legend "
                     "parameters for this figure."
                 )
             )),
@@ -1830,8 +1830,8 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object_list(),
                 description=(
-                    "Some {OLlike} that contains one or multiple "
-                    "annotation dictionaries."
+                    "Links {a_OLlike} that contains one or multiple "
+                    "annotation {pl_ULlike}."
                 )
             )),
             ('margin', dict(
@@ -1839,7 +1839,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Some {ULlike} containing the margin "
+                    "Links {a_ULlike} containing the margin "
                     "parameters for this figure."
                 )
             )),
@@ -1969,7 +1969,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Some {ULlike} describing the radial axis "
+                    "{A_ULlike} describing the radial axis "
                     "in a polar plot."
                 )
             )),
@@ -1978,7 +1978,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Some {ULlike} describing the angular axis "
+                    "{A_ULlike} describing the angular axis "
                     "in a polar plot."
                 )
             )),
@@ -2022,7 +2022,7 @@ class MakeMeta(list):
         obj_type = "{UL}"
         parent_keys = []
         docstring = ("""
-            A {ULlike} representing a figure to be rendered by plotly.
+            {A_ULlike} representing a figure to be rendered by plotly.
 
             This is the container for all things to be rendered in a figure.
         """)
@@ -2034,7 +2034,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object_list(),
                 description=(
-                    "Some {OLlike} of the data trace(s) that is/are "
+                    "{A_OLlike} of the data trace(s) that is/are "
                     "to be visualized."
                 )
             )),
@@ -2043,7 +2043,7 @@ class MakeMeta(list):
                key_type='object',
                val_types=val_types.object(),
                description=(
-                   "Some {ULlike} that contains the layout "
+                   "{A_ULlike} that contains the layout "
                    "parameters (e.g. information about the axis, "
                    "global settings and layout information "
                    "related to the rendering of the figure)."
@@ -2059,7 +2059,7 @@ class MakeMeta(list):
         obj_type = "{OL}"
         parent_keys = ["data"]
         docstring = (
-            "List of traces (i.e. {OLlike}) to be shown on one plotly figure."
+            "{A_OLlike} of trace {pl_ULlike} to be shown on one plotly figure."
         )
         links = []
         examples = MakeExamples.data(MakeExamples())
@@ -2073,7 +2073,7 @@ class MakeMeta(list):
         obj_type = "{OL}"
         parent_keys = ["annotations"]
         docstring = (
-            "List of annotations (i.e. {OLlike}) to be shown on one plotly figure."
+            "{A_OLlike} of annotation {pl_ULlike} to be shown on one plotly figure."
         )
         links = []
         examples = MakeExamples.annotations(MakeExamples())

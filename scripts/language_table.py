@@ -4,11 +4,14 @@ import set_run
 #
 # Set language-specific vocabulary here.
 #
-# * This table is used to format methods in `meta.py` and `meta_shortcut.py`.
+# * The table below is used to format methods in `meta.py` and `meta_shortcut.py`.
+#
+# * The table below is complemented by 'indefinite article' and 'plural'
+#   versions generated in make_tables() in `run.py`.
 #
 # * The vocabulary listed here is intended for descriptions of objects and keys.
 #   Language-specific code snippets are set in the `Example` class of `meta.py`.
-#
+
 # Vocabulary:
 #
 # - LANG : Language's name (with correct cases e.g. MATLAB)

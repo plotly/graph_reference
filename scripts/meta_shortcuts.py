@@ -153,13 +153,13 @@ class Make(dict):
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
-                "If 'x' is linked to some {OL} of strings, "
+                "If 'x' is linked to {a_OL} of strings, "
                 "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
                 "on the x-axis by the {OL} of strings linked to 'x'."
             ),
             bar=(
                 "Sets the x coordinates of the bars. "
-                "If 'x' is linked to some {OL} of strings, "
+                "If 'x' is linked to {a_OL} of strings, "
                 "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
                 "on the x-axis by the {OL} of strings linked to 'x'. "
                 "If 'y' is not set, the bars are plotted horizontally, "
@@ -222,13 +222,13 @@ class Make(dict):
        _description=dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
-               "If 'y' is linked to some {OL} of strings, "
+               "If 'y' is linked to {a_OL} of strings, "
                "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
                "on the y-axis by the {OL} of strings linked to 'y'."
            ),
            bar=(
                "Sets the y coordinates of the bars. "
-               "If 'y' is linked to some {OL} of strings, "
+               "If 'y' is linked to {a_OL} of strings, "
                "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
                "on the y-axis by the {OL} of strings linked to 'y'. "
                "If 'x' is not set, the bars are plotted vertically, "
@@ -362,7 +362,7 @@ class Make(dict):
                 "side of the origin. To change this "
                 "behavior, modify 'range' in 'angularaxis' "
                 "or/and 'direction' in 'layout'. "
-                "If 't' is linked to some {OL} of "
+                "If 't' is linked to {a_OL} of "
                 "strings, then the angular coordinates are "
                 "0, 360\N, 2*360/N, ... where N is the "
                 "number of coordinates given labeled by the "
@@ -473,13 +473,13 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "Links some {{ULlike}} describing "
+                "Links {{a_ULlike}} describing "
                 "the {S0} error bars (i.e. along the {S1}-axis) "
                 "that can be drawn "
                 "from the (x, y) coordinates."
             ).format(S0=s[0],S1=s[1]),
             bar=(
-                "Links some {{ULlike}} describing the {S0} error bars "
+                "Links {{a_ULlike}} describing the {S0} error bars "
                 "(i.e. along the {S1}-axis) that can "
                 "be drawn from bar tops."
            ).format(S0=s[0],S1=s[1])
@@ -514,23 +514,23 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "Links some {ULlike} containing marker style "
+                "Links {a_ULlike} containing marker style "
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'markers'."
             ),
             bar=(
-                "Links some {ULlike} containing marker style "
+                "Links {a_ULlike} containing marker style "
                 "parameters for this bar trace, for example, "
                 "the bars' fill color, border width and border color."
             ),
             box=(
-                "Links some {ULlike} containing marker style "
+                "Links {a_ULlike} containing marker style "
                 "parameters for this the boxpoints of box trace. "
                 "Has an effect only 'boxpoints' is set to 'outliers', "
                 "'suspectedoutliers' or 'all'."
             ),
             area=(
-                "Links some {ULlike} containing marker style "
+                "Links {a_ULlike} containing marker style "
                 "of the area sectors of this trace, for example the sector fill "
                 "color and sector boundary line width and sector boundary color."
            )
@@ -547,24 +547,24 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "Links some {ULlike} containing line "
+                "Links {a_ULlike} containing line "
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'lines'."
             ),
             bar="Artifact. Has no effect.", # ARTIFACT
             box=(
-                "Links some {ULlike} containing line "
+                "Links {a_ULlike} containing line "
                 "parameters for the border of this box trace "
                 "(including the whiskers)."
             ),
             contour=(
-                "Links some {ULlike} containing line "
+                "Links {a_ULlike} containing line "
                 "parameters for contour lines of this contour trace "
                 "(including line width, dash, color and smoothing level). "
                 "Has no an effect if 'showlines' is set to {FALSE} in 'contours'."
             ),
             marker=(
-                "Links some {ULlike} containing line parameters for the line "
+                "Links {a_ULlike} containing line parameters for the line "
                 "segments associated with this marker. "
                 "For example, the line segments around each marker point "
                 "in a scatter trace or the line segments around each bar in a "
@@ -614,7 +614,7 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             scatter=(
-                "Links some {ULlike} describing the font style "
+                "Links {a_ULlike} describing the font style "
                 "of this scatter trace's text elements. Has only "
                 "an effect if 'mode' is set and includes 'text'."
             ),
@@ -630,15 +630,15 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
             legend=(
-                "Links some {ULlike} describing the font "
+                "Links {a_ULlike} describing the font "
                 "settings within the legend."
             ),
             annotation=(
-                "Links some {ULlike} describing the font "
+                "Links {a_ULlike} describing the font "
                 "settings within this annotation."
             ),
             layout=(
-                "Links some {ULlike} describing the global font "
+                "Links {a_ULlike} describing the global font "
                 "settings for this figure (e.g. all axis titles and labels)."
             )
         )
@@ -664,7 +664,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "Links some {ULlike} that initializes traces as "
+                "Links {a_ULlike} that initializes traces as "
                 "writable-streams, for use with the real-time streaming API."
             )
         )
@@ -722,7 +722,7 @@ class Make(dict):
             _key_type='object'
             _val_types=val_types.object()
             _description=(
-                "Links some {{ULlike}} describing an "
+                "Links {{a_ULlike}} describing an "
                 "{S0}-axis (i.e. an {S1} axis). "
                 "The first {S2}Axis object can be entered into "
                 "'layout' by linking it to '{S0}axis' OR "
@@ -815,7 +815,7 @@ class Make(dict):
         _key_type='object'
         _val_types=val_types.object()
         _description=(
-            "Links some {{ULlike}} defining the parameters "
+            "Links {{a_ULlike}} defining the parameters "
             "of {0}-axis bins of this trace, for example, "
             "the bin width and the bins' starting and  "
             "ending value. Has an effect only if "
@@ -830,7 +830,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "Links some {ULlike} defining the parameters of "
+                "Links {a_ULlike} defining the parameters of "
                 "the color bar associated with this trace "
                 "(including its title, length and width)."
            )
@@ -853,7 +853,7 @@ class Make(dict):
         _description=(
             "Sets and/or defines the color scale for this trace. "
             "The string values are pre-defined color "
-            "scales. For custom color scales, define some {{OL}}"
+            "scales. For custom color scales, define {{a_OL}}"
             "color-value pairs where, by default, the first "
             "element of the pair "
             "corresponds to a normalized value of {S0} from 0-1, "
@@ -897,7 +897,7 @@ class Make(dict):
         if z_or_color=='color':
             _description+=(
                 " Has only an effect if 'color' is linked "
-                "to some {OL} nd 'colorscale' is set."
+                "to {a_OL} nd 'colorscale' is set."
             )
         return self._output(_required,_key_type,_val_types,_description)
     
@@ -973,7 +973,7 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "Links some {ULlike} defining the parameters of "
+                "Links {a_ULlike} defining the parameters of "
                 "the contours of this trace."
             )
         )
@@ -989,7 +989,7 @@ class Make(dict):
         _description=dict(
             marker=(
                 "Sets the color of the face of the marker object. "
-                "If 'color' is linked to some {OL} of color strings, "
+                "If 'color' is linked to {a_OL} of color strings, "
                 "color values are mapped to individual marker points "
                 "in the same order as in the data lists or arrays. "
                 "To set the color of the marker's bordering line, "
@@ -1085,7 +1085,7 @@ class Make(dict):
         _description=dict(
             marker=(
                 "Sets the size of the markers (in pixels). "
-                "If 'size' is linked to some {OL} of numbers, "
+                "If 'size' is linked to {a_OL} of numbers, "
                 "size values are mapped to individual marker points "
                 "in the same order as in the 'x', 'y (or 'z') {OL}. "
                 "In this case, use 'size' in conjunction "
@@ -1191,15 +1191,15 @@ class Make(dict):
         _val_types=val_types.object()
         _description=dict(
                 axis=(
-                    "Links some {{ULlike}} describing the font "
+                    "Links {{a_ULlike}} describing the font "
                     "settings of the {S}-axis title."
                 ).format(S=x_or_y),
                 colorbar=(
-                    "Links some {{ULlike}} describing the font "
+                    "Links {{a_ULlike}} describing the font "
                     "settings of the colorbar title."
                 ),
                 layout=(
-                    "Links some {{ULlike}} describing the font "
+                    "Links {{a_ULlike}} describing the font "
                     "settings of the figure's title."
                 )
         )
@@ -1219,7 +1219,7 @@ class Make(dict):
             _description+=(
                 " By default, 'range' is set to [0,360]. "
                 "Has no effect if 't' is linked to "
-                "some {OL} of strings."
+                "{a_OL} of strings."
         )
             _examples = MakeExamples.range_polar(MakeExamples())
         return self._output(_required,_key_type,_val_types,_description,

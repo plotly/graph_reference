@@ -3,6 +3,7 @@ import os
 import sys
 from collections import OrderedDict
 from copy import deepcopy
+import inflect
 
 import set_run                     
 import language_table              
@@ -54,28 +55,41 @@ def retrieve_examples(meta, language):
                             meta[obj][k1][k2][k3] = getattr(v3, language)
     return meta
 
-def format_meta(meta, table):
-    '''Format meta to language-specific vocabulary'''
+def make_tables(table):
+    '''Make indefinite article, plural table complement to vocab table'''
+    a_table = A_table = pl_table = dict()
+    p = inflect.engine()
+    for k,v in table.items():    # make new table using inflect
+        a_table['a_'+k] = p.a(v)
+        A_table['A_'+k] = p.a(v).capitalize()
+        pl_table['pl_'+k] = p.plural(v)
+    tables = dict(
+        table.items() + a_table.items() + A_table.items() + pl_table.items()
+    )
+    return tables
+
+def format_meta_vocab(meta, tables):
+    '''Format meta to language-specific vocabulary (set in language_table.py)'''
     for obj, stuff in meta.items():
         for k1, v1 in stuff.items():
             if isinstance(v1, str):
-                v1_format = v1.format(**table)
+                v1_format = v1.format(**tables)
                 meta[obj][k1] = v1_format
             elif isinstance(v1, list):
                 for i_v2, v2 in enumerate(v1):
                     if isinstance(v2, str):
-                        v2_format = v2.format(**table)
+                        v2_format = v2.format(**tables)
                         meta[obj][k1][i_v2] = v2_format
             elif isinstance(v1, tuple):
                 for i_v2, v2 in enumerate(v1[1]):
                     if isinstance(v2, str):
-                        v2_format = v2.format(**table)
+                        v2_format = v2.format(**tables)
                         meta[obj][k1][1][i_v2] = v2_format
             elif isinstance(v1, (OrderedDict, dict)):
                 for k2, v2 in v1.items():
                     for k3, v3 in v2.items():
                         if isinstance(v3, str):
-                            v3_format = v3.format(**table)
+                            v3_format = v3.format(**tables)
                             meta[obj][k1][k2][k3] = v3_format
             else:
                 print "[{}]".format(NAME), 'Weird meta format at:', obj, k1
@@ -189,9 +203,10 @@ def main():
         # Retrieve examples from Examples class
         meta_language = retrieve_examples(meta_language, language)
         
-        # Get language table and format meta respectively to each language
+        # Get language tables and format meta respectively to each language
         table = language_table.table[language]
-        meta_language = format_meta(meta_language, table)
+        tables = make_tables(table)
+        meta_language = format_meta_vocab(meta_language, tables)
 
         # Make/Check output tree structure
         tree = get_tree(language)
