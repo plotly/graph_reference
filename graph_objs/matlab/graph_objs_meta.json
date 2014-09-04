@@ -18,14 +18,14 @@
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when 'y','r' and 't' are unset", 
-                "description": "Sets the x coordinates of the points of this scatter trace. If 'x' is linked to some array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'.", 
+                "description": "Sets the x coordinates of the points of this scatter trace. If 'x' is linked to an array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when 'x','r' and 't' are unset", 
-                "description": "Sets the y coordinates of the points of this scatter trace. If 'y' is linked to some array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'.", 
+                "description": "Sets the y coordinates of the points of this scatter trace. If 'y' is linked to an array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'.", 
                 "streamable": true
             }, 
             "r": {
@@ -39,7 +39,7 @@
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
-                "description": "For Polar charts only. Sets the angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "For Polar charts only. Sets the angular coordinates of the points in this polar scatter trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to an array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
                 "streamable": true
             }, 
             "mode": {
@@ -65,28 +65,28 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+                "description": "Links a structure containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+                "description": "Links a structure containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
                 "streamable": true
             }, 
             "textposition": {
@@ -99,7 +99,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
+                "description": "Links a structure describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
             }, 
             "connectgaps": {
                 "key_type": "plot_info", 
@@ -155,7 +155,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -187,14 +187,14 @@
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when 'y' is unset", 
-                "description": "Sets the x coordinates of the bars. If 'x' is linked to some array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the array linked to 'x'.", 
+                "description": "Sets the x coordinates of the bars. If 'x' is linked to an array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'. If 'y' is not set, the bars are plotted horizontally, with their length determined by the array linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when 'x' is unset", 
-                "description": "Sets the y coordinates of the bars. If 'y' is linked to some array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the array linked to 'y'.", 
+                "description": "Sets the y coordinates of the bars. If 'y' is linked to an array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'. If 'x' is not set, the bars are plotted vertically, with their length determined by the array linked to 'y'.", 
                 "streamable": true
             }, 
             "name": {
@@ -220,21 +220,21 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links a structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -265,7 +265,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -290,7 +290,7 @@
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": " when making a Polar Chart", 
-                "description": "For Polar charts only. Sets the angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "For Polar charts only. Sets the angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to an array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
                 "streamable": true
             }, 
             "line": {
@@ -362,7 +362,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -380,7 +380,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "text": {
                 "key_type": "data", 
@@ -393,21 +393,21 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links a structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -438,7 +438,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -553,14 +553,14 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
+                "description": "Links a structure containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the border of this box trace (including the whiskers).", 
+                "description": "Links a structure containing line parameters for the border of this box trace (including the whiskers).", 
                 "streamable": true
             }, 
             "opacity": {
@@ -591,7 +591,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -668,7 +668,7 @@
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
@@ -690,7 +690,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zsmooth": {
                 "key_type": "style", 
@@ -726,7 +726,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -855,20 +855,20 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links a structure defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links a structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
@@ -890,7 +890,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -920,7 +920,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1030,7 +1030,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1048,13 +1048,13 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
@@ -1076,7 +1076,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1130,7 +1130,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1200,7 +1200,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
             }, 
             "autobiny": {
                 "key_type": "style", 
@@ -1218,7 +1218,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "autocontour": {
                 "key_type": "style", 
@@ -1236,20 +1236,20 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the contours of this trace."
+                "description": "Links a structure defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links a structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
@@ -1271,7 +1271,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
@@ -1319,7 +1319,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1358,7 +1358,7 @@
                 "key_type": "data", 
                 "val_types": "array of numbers, strings, datetimes", 
                 "required": true, 
-                "description": "Sets the angular coordinates of the circle sectors in this polar area trace. There are as many sectors as coordinates linked to 't' and 'r'. Each sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinates at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to some array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
+                "description": "Sets the angular coordinates of the circle sectors in this polar area trace. There are as many sectors as coordinates linked to 't' and 'r'. Each sector is drawn about the coordinates linked to 't', where they spanned symmetrically in both the positive and negative angular directions. The angular extent of each sector is equal to the angular range (360 degree by default) divided by the number of sectors. Note that the sectors are drawn in order; coordinates at the end of the array may overlay the coordinates at the start. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to an array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the array of strings linked to 't'.", 
                 "streamable": true
             }, 
             "name": {
@@ -1371,7 +1371,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
+                "description": "Links a structure containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
                 "streamable": true
             }, 
             "showlegend": {
@@ -1384,7 +1384,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a structure that initializes traces as writable-streams, for use with the real-time streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
@@ -1688,7 +1688,7 @@
         "keymeta": {
             "color": {
                 "val_types": "array of string describing color", 
-                "description": "Sets the color of the face of the marker object. If 'color' is linked to some array of color strings, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use 'line' in 'marker'. The 'color' key can also accept array of numbers, where each number is then mapped to a color using the color scale set in 'colorscale'.", 
+                "description": "Sets the color of the face of the marker object. If 'color' is linked to an array of color strings, color values are mapped to individual marker points in the same order as in the data lists or arrays. To set the color of the marker's bordering line, use 'line' in 'marker'. The 'color' key can also accept array of numbers, where each number is then mapped to a color using the color scale set in 'colorscale'.", 
                 "required": false, 
                 "streamable": true, 
                 "key_type": "style", 
@@ -1705,20 +1705,20 @@
                 "key_type": "style", 
                 "val_types": "number: x > 0, or list of these numbers", 
                 "required": false, 
-                "description": "Sets the size of the markers (in pixels). If 'size' is linked to some array of numbers, size values are mapped to individual marker points in the same order as in the 'x', 'y (or 'z') array. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
+                "description": "Sets the size of the markers (in pixels). If 'size' is linked to an array of numbers, size values are mapped to individual marker points in the same order as in the 'x', 'y (or 'z') array. In this case, use 'size' in conjunction with 'sizeref' and 'sizemode' to fine-tune the map from the numbers linked to 'size' and the marker points' rendered sizes.", 
                 "streamable": true
             }, 
             "symbol": {
                 "key_type": "style", 
                 "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values", 
                 "required": false, 
-                "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to some array, the symbol values are mapped to individual marker points in the same order as in the array linked to 'x', 'y' (or 'z')."
+                "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to an array, the symbol values are mapped to individual marker points in the same order as in the array linked to 'x', 'y' (or 'z')."
             }, 
             "line": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
+                "description": "Links a structure containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -1731,19 +1731,19 @@
                 "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Sets the scale factor used to determine the rendered size of each marker point in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some array. If set, the value linked to 'sizeref' is used to divide each entry linked to 'size'. Specifically, setting 'sizeref' to less (greater) than 1, increases (decreases) the rendered marker sizes."
+                "description": "Sets the scale factor used to determine the rendered size of each marker point in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to an array. If set, the value linked to 'sizeref' is used to divide each entry linked to 'size'. Specifically, setting 'sizeref' to less (greater) than 1, increases (decreases) the rendered marker sizes."
             }, 
             "sizemode": {
                 "key_type": "style", 
                 "val_types": "'diameter'| 'area'", 
                 "required": false, 
-                "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to some array. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
+                "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to an array. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
             }, 
             "colorscale": {
                 "key_type": "style", 
                 "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define some arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "{ { {0, 'rgb(0,0,0)'}, {0.5, 'rgb(65, 182, 196)'}, {1, 'rgb(255,255,255)'} } }"
@@ -1759,13 +1759,13 @@
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some array nd 'colorscale' is set."
+                "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set."
             }, 
             "cmax": {
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to some array nd 'colorscale' is set."
+                "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set."
             }, 
             "outliercolor": {
                 "key_type": "style", 
@@ -1982,7 +1982,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the x-axis title."
+                "description": "Links a structure describing the font settings of the x-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2112,7 +2112,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links a structure defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2245,7 +2245,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the font settings of the y-axis title."
+                "description": "Links a structure describing the font settings of the y-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2375,7 +2375,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links a structure defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2593,7 +2593,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to some array of strings.", 
+                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array of strings.", 
                 "examples": [
                     "[0, 180]", 
                     "[0, 6.2831]"
@@ -2684,13 +2684,13 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some {ULlike} describing the font settings of the figure's title."
+                "description": "Links {a_ULlike} describing the font settings of the figure's title."
             }, 
             "font": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the global font settings for this figure (e.g. all axis titles and labels)."
+                "description": "Links a structure describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
                 "key_type": "style", 
@@ -2720,31 +2720,31 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
+                "description": "Links a structure describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
+                "description": "Links a structure describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure containing the legend parameters for this figure."
+                "description": "Links a structure containing the legend parameters for this figure."
             }, 
             "annotations": {
                 "key_type": "object", 
                 "val_types": "array of one or several structure", 
                 "required": false, 
-                "description": "Some array that contains one or multiple annotation dictionaries."
+                "description": "Links an array that contains one or multiple annotation structures."
             }, 
             "margin": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Some structure containing the margin parameters for this figure."
+                "description": "Links a structure containing the margin parameters for this figure."
             }, 
             "paper_bgcolor": {
                 "key_type": "style", 
@@ -2820,13 +2820,13 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Some structure describing the radial axis in a polar plot."
+                "description": "A structure describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Some structure describing the angular axis in a polar plot."
+                "description": "A structure describing the angular axis in a polar plot."
             }, 
             "direction": {
                 "key_type": "plot_info", 
@@ -2947,7 +2947,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within the legend."
+                "description": "Links a structure describing the font settings within the legend."
             }, 
             "bgcolor": {
                 "key_type": "style", 
@@ -3067,7 +3067,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure describing the font settings within this annotation."
+                "description": "Links a structure describing the font settings within this annotation."
             }, 
             "xanchor": {
                 "key_type": "plot_info", 
@@ -3213,7 +3213,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some {ULlike} describing the font settings of the colorbar title."
+                "description": "Links {a_ULlike} describing the font settings of the colorbar title."
             }, 
             "thickness": {
                 "key_type": "style", 
@@ -3323,7 +3323,7 @@
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Links some structure defining the parameters of the ticks' font."
+                "description": "Links a structure defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -3463,13 +3463,13 @@
                 "key_type": "object", 
                 "val_types": "array of one or several structure", 
                 "required": false, 
-                "description": "Some array of the data trace(s) that is/are to be visualized."
+                "description": "An array of the data trace(s) that is/are to be visualized."
             }, 
             "layout": {
                 "key_type": "object", 
                 "val_types": "structure", 
                 "required": false, 
-                "description": "Some structure that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
+                "description": "A structure that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }
         }
     }, 
@@ -3479,7 +3479,7 @@
         "parent_keys": [
             "data"
         ], 
-        "docstring": "List of traces (i.e. array) to be shown on one plotly figure.", 
+        "docstring": "An array of trace structures to be shown on one plotly figure.", 
         "examples": [
             ""
         ], 
@@ -3492,7 +3492,7 @@
         "parent_keys": [
             "annotations"
         ], 
-        "docstring": "List of annotations (i.e. array) to be shown on one plotly figure.", 
+        "docstring": "An array of annotation structures to be shown on one plotly figure.", 
         "examples": [
             ""
         ], 
