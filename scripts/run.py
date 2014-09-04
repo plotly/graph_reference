@@ -116,18 +116,6 @@ def write_meta(tree, meta_language):
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
 
-def write_objs_keys(tree, meta_language):  # Q? Do we need this?
-    '''Write keys to <tree>/graph_objs_keys.json'''
-    _obj_keys = dict()
-    for obj, stuff in meta_language.items():
-        _obj_keys[obj] = stuff['keymeta'].keys()
-        _obj_keys[obj].sort()
-    file_keys = os.path.join(tree, "graph_objs_keys.json")
-    with open(file_keys, 'w') as f:
-        print "[{}]".format(NAME), '... writes in', file_keys
-        json.dump(_obj_keys, f, indent=4, sort_keys=True)
-    return
-
 def write_NAME_TO_KEY(tree, meta_language):
     '''
     Write mapping from name of graph object its parent key 
@@ -211,9 +199,8 @@ def main():
         # Make/Check output tree structure
         tree = get_tree(language)
 
-        # Write meta and keys
+        # Write meta 
         write_meta(tree, meta_language)
-        write_objs_keys(tree, meta_language) 
 
         # Write NAME_TO_KEY and KEY_TO_NAME (if 'python')
         if language=='python':
