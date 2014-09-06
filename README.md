@@ -26,7 +26,7 @@ help(Scatter)
 ### Philosophy
 
 * All Plotly meta -- for all languages -- is generated using a single
-  command! That command is `$ make run`.
+  command! <br>That command is `$ make run`.
 
 + Although graph objects have the same name in all of Plotly's API library,
   each Plotly API library has its own meta JSON file, with meta consistent with
@@ -43,7 +43,7 @@ meta has the following structure:
 ```json
 "<some-graph_obj>": {
   "name": "Name or type of the graph object",
-  "obj_type": "object" or "array" equivalent in given language",
+  "obj_type": "object" or "array" equivalent in given language,
   "parent_keys": [
     "list of keys linking this graph objects"
   ]
