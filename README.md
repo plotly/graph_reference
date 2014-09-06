@@ -41,33 +41,37 @@ For a given graph object (e.g. `'scatter'` or `'layout'`), its corresponding
 meta has the following structure:
 
 ```json
-"<some-graph_obj>": {
-  "name": "Name or type of the graph object",
-  "obj_type": "object" or "array" equivalent in given language,
-  "parent_keys": [
-    "list of keys linking this graph objects"
-  ]
-  "docstring": "some info about the graph object",
-  "examples": [
-    "list short code snippet example"
-  ],
-  "links": [
-    "list of URLs to related api docs pages"
-  ],
-  "keymeta": { 
-    "<some-key>": {
-       "key_type": "data" or "style" or "plot_info" or "object", 
-       "val_types": "what values are expected for this key",
-       "required": "whether this key is required to generate a plot",
-       "description": "description of this key's functionality",
-       "streamable": (optional) boolean indicating if key is streamable of not
-   },
-   "<some-other-key>": {
-      ....
-   }
+{
+  "<some-graph_obj>": {
+    "name": "Name or type of the graph object",
+    "obj_type": "object equivalent" or "array equivalent in given language",
+    "parent_keys": [
+      "list of keys linking this graph objects"
+    ]
+    "docstring": "some info about the graph object",
+    "examples": [
+      "list short code snippet example"
+    ],
+    "links": [
+      "list of URLs to related api docs pages"
+    ],
+    "keymeta": { 
+      "<some-key>": {
+         "key_type": "data" or "style" or "plot_info" or "object", 
+         "val_types": "what values are expected for this key",
+         "required": "whether this key is required to generate a plot",
+         "description": "description of this key's functionality",
+         "streamable": (optional) "boolean indicating if key is streamable of not"
+     },
+     "<some-other-key>": {
+        ...
+     }
+    }
+  },
+  "<some-other-graph-obj>": {
+     ...
   }
 }
-
 ```
 
 #### Remarks:
