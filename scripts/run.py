@@ -15,7 +15,6 @@ from meta_examples import MakeExamples
 # Generate 
 #
 # - `graph_objs_meta.json`
-# - `graph_objs_keys.json` 
 # - `config.json`
 #
 # for each language!
