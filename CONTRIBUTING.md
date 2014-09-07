@@ -4,13 +4,13 @@ For most cases, it is as easy as changing the value of the right key and running
 `$ make run`. 
 
 
-### What inside `scripts/` ?
+### What's inside `scripts/` ?
 
 - `set_run.py` : input languages and graph objects 
 - `language_table.py` : input language vocabulary table
-- `meta.py` : meta-generating functions for each graph object
-- `meta_shortcuts.py` : meta-generating shortcuts
-- `meta_examples.py` : examples (or code snippets) 
+- `meta.py` : meta-generating methods for each graph object
+- `meta_shortcuts.py` : meta-generating shortcuts classes and methods
+- `meta_examples.py` : examples (or code snippets) classes
 - `run.py` : generate, format and write meta for all languages
 
 
@@ -60,7 +60,7 @@ the this `make` method accordingly ...
 - if you are making a new shortcut function use `output` (see `@output@` to
    format the meta dictionary,
    
-(more step-by-step info coming soon ...),
+(more step-by-step info coming soon ...)
 
 #### Case C: Add new graph objects
 
