@@ -97,15 +97,17 @@ def format_meta_vocab(meta, tables):
                 sys.exit(0)
     return meta
 
-def get_tree(language):
-    '''Get language-specific output tree'''
-    tree = os.path.join("./graph_objs",language)  # N.B. from repo parent
-    if not os.path.exists(tree):
-        print "[{}]".format(NAME), '... making', tree
-        os.makedirs(tree)
-    else:
-        print "[{}]".format(NAME), '...', tree, 'already exists OK'
-    return tree
+def get_trees(language):
+    '''Get language-specific output trees'''
+    tree_graph_objs = os.path.join("./graph_objs", language)  
+    tree_published = os.path.join("./published", language)  
+    for tree in [tree_graph_objs, tree_published]:
+        if not os.path.exists(tree):
+            print "[{}]".format(NAME), '... making', tree
+            os.makedirs(tree)
+        else:
+            print "[{}]".format(NAME), '...', tree, 'already exists OK'
+    return tree_graph_objs, tree_published
 
 def write_meta(tree, meta_language):
     '''Write meta to <tree>/graph_objs_meta.json'''
@@ -115,57 +117,63 @@ def write_meta(tree, meta_language):
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
 
+def write_config(tree, lang, meta, graph_objs_info):
+    '''
+    Write config file for plot.ly/<lang>/reference, 
+    patching together table of content and language-specific meta,
+    remove graph object with no description from the to be displayed list 
+    and the table of content
+    '''
+    _INFO = [info 
+            for info in graph_objs_info.values() 
+            if info['description']]
+    for _i, _info in enumerate(_INFO):
+        for _g, graph_obj in enumerate(_info['graph_objs']):
+            if lang == 'python':
+                label = meta[graph_obj]['name']
+            else:
+                label = graph_obj
+            _INFO[_i]['graph_objs'][_g] = {
+                'label': label,
+                graph_obj: meta[graph_obj],
+            }
+    _config = _INFO
+    file_config = os.path.join(tree, "config.json")
+    with open(file_config, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_config
+        json.dump(_config, f, indent=4, sort_keys=True)
+    return
+
 def write_NAME_TO_KEY(tree, meta_language):
     '''
     Write mapping from name of graph object its parent key 
     in graph_objs/python/NAME_TO_KEY.json
     '''
-    NAME_TO_KEY = dict()
+    _NAME_TO_KEY = dict()
     for obj, stuff in meta_language.items():
-        NAME_TO_KEY[stuff['name']] = obj
+        _NAME_TO_KEY[stuff['name']] = obj
     file_NAME_TO_KEY = os.path.join(tree, "NAME_TO_KEY.json")
     with open(file_NAME_TO_KEY, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_NAME_TO_KEY
-        json.dump(NAME_TO_KEY, f, indent=4, sort_keys=False)
+        json.dump(_NAME_TO_KEY, f, indent=4, sort_keys=False)
 
 def write_KEY_TO_NAME(tree, meta_language):
     '''
     Write mapping from parent key to name of graph object
     in graph_objs/python/KEY_TO_NAME.json
     '''
-    KEY_TO_NAME = dict()
+    _KEY_TO_NAME = dict()
     for obj, stuff in meta_language.items():
         parent_keys = stuff['parent_keys']
         if parent_keys:
             for parent_key in parent_keys:
-                KEY_TO_NAME[parent_key] = stuff['name']
+                _KEY_TO_NAME[parent_key] = stuff['name']
         else:
-            KEY_TO_NAME[obj] = stuff['name']
+            _KEY_TO_NAME[obj] = stuff['name']
     file_KEY_TO_NAME = os.path.join(tree, "KEY_TO_NAME.json")
     with open(file_KEY_TO_NAME, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_KEY_TO_NAME
-        json.dump(KEY_TO_NAME, f, indent=4, sort_keys=False)
-
-def write_config(graph_objs_info):
-    '''
-    Write config file for plot.ly/<lang>/reference,
-    remove graph object with no description from the to be displayed list 
-    and the table of content
-    '''
-    _info = [info 
-            for info in graph_objs_info.values() if info['description']]
-    _graph_objs = [graph_obj 
-                  for __info in _info 
-                  for graph_obj in __info['graph_objs']]
-    _config = dict(
-        graph_objs=_graph_objs,
-        toc=_info
-    )
-    file_config = os.path.join("./graph_objs/config.json")
-    with open(file_config, 'w') as f:
-        print "[{}]".format(NAME), '... writes in', file_config
-        json.dump(_config, f, indent=4, sort_keys=True)
-    return
+        json.dump(_KEY_TO_NAME, f, indent=4, sort_keys=False)
 
 # -------------------------------------------------------------------------------
 
@@ -184,8 +192,12 @@ def main():
 
     for language in languages:
 
-        # Make deep copy of language-agnostic meta
+        # Make/Check output tree structures
+        tree_graph_objs, tree_published = get_trees(language)
+
+        # Make deep copy of language-agnostic meta and graph_objs_info
         meta_language = deepcopy(meta)
+        graph_objs_info_language = deepcopy(graph_objs_info)
         
         # Retrieve examples from Examples class
         meta_language = retrieve_examples(meta_language, language)
@@ -195,19 +207,18 @@ def main():
         tables = make_tables(table)
         meta_language = format_meta_vocab(meta_language, tables)
 
-        # Make/Check output tree structure
-        tree = get_tree(language)
-
         # Write meta 
-        write_meta(tree, meta_language)
+        write_meta(tree_graph_objs, meta_language)
+
+        # Make\Write meta+toc config file (for plot.ly)
+        write_config(tree_published, language, 
+                     meta_language, graph_objs_info_language) 
 
         # Write NAME_TO_KEY and KEY_TO_NAME (if 'python')
         if language=='python':
-            write_NAME_TO_KEY(tree, meta_language)
-            write_KEY_TO_NAME(tree, meta_language)
+            write_NAME_TO_KEY(tree_graph_objs, meta_language)
+            write_KEY_TO_NAME(tree_graph_objs, meta_language)
     
-    # Write plot.ly config in JSON files
-    write_config(graph_objs_info) 
 
 if __name__ == '__main__':
     main()

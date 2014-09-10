@@ -22,7 +22,7 @@ def graph_objs_info():
     Set list of all graph objects (needed to call methods in MakeMeta()), 
     divided up in category groups 
     (for presentation in plot.ly/<lang>/reference/ table of content)
-    and a description (again for plot.ly/<lang>reference/)
+    and a description (again for plot.ly/<lang>/reference/)
     '''
     _graph_objs_info = OrderedDict([
         ('trace', dict(
