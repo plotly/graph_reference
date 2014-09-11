@@ -19,13 +19,13 @@ class ValTypes(str):
         self = ''
 
     def bool(self):
-        return "boolean: {TRUE} | {FALSE}"
+        return "a boolean: {TRUE} | {FALSE}"
     
     def string(self):
-        return "string"
+        return "a string"
 
     def color(self):
-        return "string describing color"
+        return "a string describing color"
 
     def number(self, lt=None, le=None, gt=None, ge=None, is_list=False):
         if any((all((lt is not None, le is not None)),
@@ -70,10 +70,10 @@ class ValTypes(str):
         return "{OL2D} of numbers"
 
     def object(self):
-        return "{UL}"
+        return "{ULlike}"
 
     def object_list(self):
-        return "{OL} of one or several {UL}"
+        return "{OLlike} of one or several {ULlike}"
 
 # -------------------------------------------------------------------------------
 
@@ -664,8 +664,8 @@ class Make(dict):
             key_type='object',
             val_types=val_types.object(),
             description=(
-                "Links {a_ULlike} that initializes traces as "
-                "writable-streams, for use with the real-time streaming API."
+                "Links {a_ULlike} that initializes this trace as "
+                "a writable-stream, for use with the streaming API."
             )
         )
     
@@ -737,7 +737,7 @@ class Make(dict):
         '''@type@'''
         _required=False
         _key_type='plot_info'
-        _val_types=trace
+        _val_types="'{trace}'".format(trace=trace)
         _description=(
             "Plotly identifier for this data's trace type. "
             #"This defines how this "
@@ -1195,11 +1195,11 @@ class Make(dict):
                     "settings of the {S}-axis title."
                 ).format(S=x_or_y),
                 colorbar=(
-                    "Links {{a_ULlike}} describing the font "
+                    "Links {a_ULlike} describing the font "
                     "settings of the colorbar title."
                 ),
                 layout=(
-                    "Links {{a_ULlike}} describing the font "
+                    "Links {a_ULlike} describing the font "
                     "settings of the figure's title."
                 )
         )

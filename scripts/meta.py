@@ -161,11 +161,9 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
-            ('type', make.type('bar')),
             ('r', make.r('bar')),   # ARTIFACT
             ('t', make.t('bar')),   # ARTIFACT
-            ('line', make.line('bar')),  # ARTIFACT
-            ('textfont', make.textfont('bar'))  # ARTIFACT
+            ('type', make.type('bar')),
         ])
         self += self._stuff('bar', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -202,8 +200,6 @@ class MakeMeta(list):
             ('stream', make.stream()),
             ('visible', make.visible()),
             ('type', make.type('histogram')),
-            ('line', make.line('histogram')),  # ARTIFACT
-            ('orientation', make.orientation('histogram'))  # ARTIFACT
         ])
         self += self._stuff('histogram', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -695,7 +691,7 @@ class MakeMeta(list):
             "lying along the y-axis."
         )
         links = [
-            "{WEB}histograms/"
+            "{WEB}histograms/",
             "{WEB}2D-Histograms/"
         ]
         examples = MakeExamples.ybins(MakeExamples())
@@ -1332,7 +1328,7 @@ class MakeMeta(list):
         docstring = (
             "{A_ULlike} for representing a radial axis in plotly."
         )
-        links = ["{WEB}/polar-chart/"]
+        links = ["{WEB}polar-chart/"]
         examples = MakeExamples.radialaxis(MakeExamples())
         keymeta = OrderedDict([
             ('range', make.range('radial')),
@@ -1401,7 +1397,7 @@ class MakeMeta(list):
         docstring = (
             "{A_ULlike} for representing an angular axis in plotly."
         )
-        links = ["{WEB}/polar-chart/"]
+        links = ["{WEB}polar-chart/"]
         examples = MakeExamples.angularaxis(MakeExamples())
         keymeta = OrderedDict([
             ('range', make.range('angular')),
@@ -1454,8 +1450,8 @@ class MakeMeta(list):
             "{A_ULlike} for representing a legend in plotly."
         )
         links = [
-            "{WEB}/legend/",
-            "{WEB}/figure-labels/"
+            "{WEB}legend/",
+            "{WEB}figure-labels/"
         ]
         examples = MakeExamples.legend(MakeExamples())
         keymeta = OrderedDict([
@@ -1575,7 +1571,7 @@ class MakeMeta(list):
         docstring = (
             "{A_ULlike} containing specification of the margins."
         )
-        links = ["{WEB}/setting-graph-size/"]
+        links = ["{WEB}setting-graph-size/"]
         examples = MakeExamples.margin(MakeExamples())
         keymeta = OrderedDict([
             ('l', dict(
@@ -1626,14 +1622,14 @@ class MakeMeta(list):
         name = '{annotation}'
         obj_type = "{UL}"
         parent_keys = []
-        docstring = ("""
-            {A_ULlike} for representing an annotation in plotly.
-
-            Annotations appear as notes on the final figure. You can set all the
-            features of the annotation text, background color, and location.
-            Additionally, these notes can be anchored to actual data or the page
-            for help with location after pan-and-zoom actions.
-        """)
+        docstring = (
+            "{A_ULlike} for representing an annotation in plotly. "
+            "Annotations appear as notes on the final figure. "
+            "You can set all the features of the annotation text, "
+            "background color, and location. "
+            "Additionally, these notes can be anchored to actual data "
+            "or the page for help with location after pan-and-zoom actions."
+        )
         links = ["{WEB}/text-and-annotations/"]
         examples = MakeExamples.annotation(MakeExamples())
         keymeta = OrderedDict([
@@ -1774,10 +1770,10 @@ class MakeMeta(list):
             "of a plotly figure."
         )
         links = [
-            "{WEB}/figure-labels/",
-            "{WEB}/axes/",
-            "{WEB}/bar-charts/",
-            "{WEB}/log-plot/"
+            "{WEB}figure-labels/",
+            "{WEB}axes/",
+            "{WEB}bar-charts/",
+            "{WEB}log-plot/"
         ]
         examples = MakeExamples.layout(MakeExamples())
         keymeta = OrderedDict([
@@ -2021,11 +2017,10 @@ class MakeMeta(list):
         name = '{figure}'
         obj_type = "{UL}"
         parent_keys = []
-        docstring = ("""
-            {A_ULlike} representing a figure to be rendered by plotly.
-
-            This is the container for all things to be rendered in a figure.
-        """)
+        docstring = (
+            "{A_ULlike} representing a figure to be rendered by plotly. "
+            "This is the container for all things to be rendered in a figure."
+        )
         links = []
         examples = MakeExamples.figure(MakeExamples())
         keymeta = OrderedDict([
@@ -2034,8 +2029,8 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object_list(),
                 description=(
-                    "{A_OLlike} of the data trace(s) that is/are "
-                    "to be visualized."
+                    "{A_OLlike} of one or multiple trace {pl_ULlike} to be "
+                    "shown on one plotly figure."
                 )
             )),
             ('layout', dict(

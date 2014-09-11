@@ -117,37 +117,10 @@ def write_meta(tree, meta_language):
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
 
-def write_config(tree, lang, meta, graph_objs_info):
-    '''
-    Write config file for plot.ly/<lang>/reference, 
-    patching together table of content and language-specific meta,
-    remove graph object with no description from the to be displayed list 
-    and the table of content
-    '''
-    _INFO = [info 
-            for info in graph_objs_info.values() 
-            if info['description']]
-    for _i, _info in enumerate(_INFO):
-        for _g, graph_obj in enumerate(_info['graph_objs']):
-            if lang == 'python':
-                label = meta[graph_obj]['name']
-            else:
-                label = graph_obj
-            _INFO[_i]['graph_objs'][_g] = {
-                'label': label,
-                graph_obj: meta[graph_obj],
-            }
-    _config = _INFO
-    file_config = os.path.join(tree, "config.json")
-    with open(file_config, 'w') as f:
-        print "[{}]".format(NAME), '... writes in', file_config
-        json.dump(_config, f, indent=4, sort_keys=True)
-    return
-
 def write_NAME_TO_KEY(tree, meta_language):
     '''
     Write mapping from name of graph object its parent key 
-    in graph_objs/python/NAME_TO_KEY.json
+    in graph_objs/<lang>/NAME_TO_KEY.json
     '''
     _NAME_TO_KEY = dict()
     for obj, stuff in meta_language.items():
@@ -156,11 +129,12 @@ def write_NAME_TO_KEY(tree, meta_language):
     with open(file_NAME_TO_KEY, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_NAME_TO_KEY
         json.dump(_NAME_TO_KEY, f, indent=4, sort_keys=False)
+    return _NAME_TO_KEY
 
 def write_KEY_TO_NAME(tree, meta_language):
     '''
     Write mapping from parent key to name of graph object
-    in graph_objs/python/KEY_TO_NAME.json
+    in graph_objs/<lang>/KEY_TO_NAME.json
     '''
     _KEY_TO_NAME = dict()
     for obj, stuff in meta_language.items():
@@ -174,6 +148,81 @@ def write_KEY_TO_NAME(tree, meta_language):
     with open(file_KEY_TO_NAME, 'w') as f:
         print "[{}]".format(NAME), '... writes in', file_KEY_TO_NAME
         json.dump(_KEY_TO_NAME, f, indent=4, sort_keys=False)
+    return _KEY_TO_NAME
+
+def write_PARENT_TREE(tree, meta_language):
+    '''
+    Write parent tree (label by their name) for given key
+    in graph_objs/<lang>/KEY_TO_NAME.json
+    '''
+    _PARENT_TREE = dict()
+    for obj, stuff in meta_language.items():
+        _PARENT_TREE[obj] = dict()
+        for parent_key in stuff['parent_keys']:
+            _PARENT_TREE[obj][parent_key] = []
+            for _ , _stuff in meta_language.items():
+                for k,v in _stuff['keymeta'].items():
+                    if parent_key == k:
+                        if 'key_type' in v.keys():
+                            if v['key_type'] == "object":
+                                _PARENT_TREE[obj][parent_key] += [_stuff['name']]
+    file_PARENT_TREE = os.path.join(tree, "PARENT_TREE.json")
+    with open(file_PARENT_TREE, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_PARENT_TREE
+        json.dump(_PARENT_TREE, f, indent=4, sort_keys=False)
+    return _PARENT_TREE
+
+def write_config(tree, lang, graph_objs_info, meta,
+                 KEY_TO_NAME, PARENT_TREE):
+    '''
+    Write config file for plot.ly/<lang>/reference, 
+    patching together table of content and language-specific meta,
+    remove graph object with no description from the to be displayed list 
+    and the table of content.
+    '''
+    _INFO = [info 
+            for info in graph_objs_info.values() 
+            if info['description']]
+    _graph_objs_NAME = [KEY_TO_NAME[graph_obj]
+                   for __INFO in _INFO 
+                   for graph_obj in __INFO['graph_objs']]
+    for _i, _info in enumerate(_INFO):
+        for _g, graph_obj in enumerate(_info['graph_objs']):
+            _meta = meta[graph_obj]
+            # - Each graph_obj is labelled by their 'name'
+            label = meta[graph_obj]['name']
+            # - Replace link addresses to relative
+            _link = []
+            for link in _meta['links']:
+                _link += [link.replace('https://plot.ly','')]
+            _meta['links'] = _link
+            # - Add parent tree leaves to object meta
+            _PARENT_TREE = dict()
+            for _k, _vals in PARENT_TREE[graph_obj].items():
+                _PARENT_TREE[_k] = []
+                for _val in _vals:
+                    if _val in _graph_objs_NAME:
+                        _PARENT_TREE[_k] += [_val]
+            _meta['parent_tree'] = _PARENT_TREE
+            # - Add child object to keymeta (if any)
+            for _k in _meta['keymeta'].keys():
+                if _k in KEY_TO_NAME.keys():
+                    _meta['keymeta'][_k]['child_obj'] = KEY_TO_NAME[_k]
+            # - Replace ordered dict of keymeta with list of dicts 
+            #   (easier to deal with in django)
+            _keymeta = []
+            for _k, _v in _meta['keymeta'].items():
+                _keymeta += [{_k: _v}]
+            _meta['keymeta'] = _keymeta
+            # Copy resulting _meta in dict linked to 'label'
+            _INFO[_i]['graph_objs'][_g] = {label: _meta}
+    # Write config!
+    _config = _INFO
+    file_config = os.path.join(tree, "config.json")
+    with open(file_config, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_config
+        json.dump(_config, f, indent=4, sort_keys=True)
+    return
 
 # -------------------------------------------------------------------------------
 
@@ -209,16 +258,17 @@ def main():
 
         # Write meta 
         write_meta(tree_graph_objs, meta_language)
+        
+        # Write NAME_TO_KEY, KEY_TO_NAME, PARENT_TREE
+        NAME_TO_KEY = write_NAME_TO_KEY(tree_graph_objs, meta_language)
+        KEY_TO_NAME = write_KEY_TO_NAME(tree_graph_objs, meta_language)
+        PARENT_TREE = write_PARENT_TREE(tree_graph_objs, meta_language)
 
         # Make\Write meta+toc config file (for plot.ly)
         write_config(tree_published, language, 
-                     meta_language, graph_objs_info_language) 
-
-        # Write NAME_TO_KEY and KEY_TO_NAME (if 'python')
-        if language=='python':
-            write_NAME_TO_KEY(tree_graph_objs, meta_language)
-            write_KEY_TO_NAME(tree_graph_objs, meta_language)
-    
+                     graph_objs_info_language, 
+                     meta_language,
+                     KEY_TO_NAME, PARENT_TREE) 
 
 if __name__ == '__main__':
     main()

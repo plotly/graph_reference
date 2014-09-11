@@ -50,7 +50,7 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
@@ -63,28 +63,28 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
                 "streamable": true
@@ -97,13 +97,13 @@
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
             }, 
             "connectgaps": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not missing data points (i.e. '' or numpy.nan) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
             }, 
@@ -115,7 +115,7 @@
             }, 
             "fillcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the color that will appear in the specified fill area (set in 'fill'). Has no effect if 'fill' is set to 'none'.", 
                 "examples": [
@@ -147,25 +147,25 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "scatter", 
+                "val_types": "'scatter'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -199,7 +199,7 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
@@ -218,21 +218,21 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
@@ -257,27 +257,21 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
-            }, 
-            "type": {
-                "key_type": "plot_info", 
-                "val_types": "bar", 
-                "required": false, 
-                "description": "Plotly identifier for this data's trace type. "
             }, 
             "r": {
                 "key_type": "data", 
@@ -293,18 +287,11 @@
                 "description": "For Polar charts only. Sets the angular coordinates of the bars in this polar bar trace. By default, the angular coordinates are in degrees (0 to 360) where the angles are measured clockwise about the right-hand side of the origin. To change this behavior, modify 'range' in 'angularaxis' or/and 'direction' in 'layout'. If 't' is linked to a list or 1d numpy array of strings, then the angular coordinates are 0, 360\\N, 2*360/N, ... where N is the number of coordinates given labeled by the list or 1d numpy array of strings linked to 't'.", 
                 "streamable": true
             }, 
-            "line": {
-                "key_type": "object", 
-                "val_types": "dictionary", 
+            "type": {
+                "key_type": "plot_info", 
+                "val_types": "'bar'", 
                 "required": false, 
-                "description": "Artifact. Has no effect.", 
-                "streamable": true
-            }, 
-            "textfont": {
-                "key_type": "object", 
-                "val_types": "dictionary", 
-                "required": false, 
-                "description": "Not currently supported, has no effect."
+                "description": "Plotly identifier for this data's trace type. "
             }
         }
     }, 
@@ -343,13 +330,13 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
@@ -361,13 +348,13 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to False."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
@@ -379,7 +366,7 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to False."
             }, 
@@ -392,21 +379,21 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
@@ -431,40 +418,27 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "histogram", 
+                "val_types": "'histogram'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
-            }, 
-            "line": {
-                "key_type": "object", 
-                "val_types": "dictionary", 
-                "required": false, 
-                "description": "Artifact. Has no effect.", 
-                "streamable": true
-            }, 
-            "orientation": {
-                "key_type": "plot_info", 
-                "val_types": "'v' | 'h'", 
-                "required": false, 
-                "description": "Web GUI Artifact. Histogram orientation is determined by which of 'x' or 'y' the data sample is linked to."
             }
         }
     }, 
@@ -502,7 +476,7 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
@@ -538,7 +512,7 @@
             }, 
             "fillcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the color of the box interior.", 
                 "examples": [
@@ -552,14 +526,14 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing line parameters for the border of this box trace (including the whiskers).", 
                 "streamable": true
@@ -584,25 +558,25 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "box", 
+                "val_types": "'box'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -645,13 +619,13 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -679,19 +653,19 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
@@ -721,19 +695,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -779,7 +753,7 @@
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "heatmap", 
+                "val_types": "'heatmap'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -822,13 +796,13 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -846,7 +820,7 @@
             }, 
             "autocontour": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in 'contours'."
             }, 
@@ -858,13 +832,13 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in 'contours'.", 
                 "streamable": true
@@ -881,19 +855,19 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
@@ -917,19 +891,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -975,7 +949,7 @@
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "contour", 
+                "val_types": "'contour'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -1018,13 +992,13 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
@@ -1036,13 +1010,13 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to False."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
@@ -1054,7 +1028,7 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to False."
             }, 
@@ -1070,25 +1044,25 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -1130,25 +1104,25 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "histogram2d", 
+                "val_types": "'histogram2d'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -1191,13 +1165,13 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to False, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
@@ -1209,13 +1183,13 @@
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to False."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to False, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
@@ -1227,13 +1201,13 @@
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to False."
             }, 
             "autocontour": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If False, declare the contours parameters in 'contours'."
             }, 
@@ -1245,13 +1219,13 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to False in 'contours'.", 
                 "streamable": true
@@ -1268,25 +1242,25 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -1322,25 +1296,25 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "histogram2dcontour", 
+                "val_types": "'histogram2dcontour'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -1374,32 +1348,32 @@
             }, 
             "name": {
                 "key_type": "data", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
                 "streamable": true
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links a dictionary-like object that initializes traces as writable-streams, for use with the real-time streaming API."
+                "description": "Links a dictionary-like object that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -1417,7 +1391,7 @@
             }, 
             "type": {
                 "key_type": "plot_info", 
-                "val_types": "area", 
+                "val_types": "'area'", 
                 "required": false, 
                 "description": "Plotly identifier for this data's trace type. "
             }
@@ -1445,7 +1419,7 @@
             }, 
             "symmetric": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not error bars are the same length in both directions (up and down). If not specified, the error bars will be symmetric."
             }, 
@@ -1474,7 +1448,7 @@
                 "description": "Only functional when 'symmetric' is set to False. Same as 'value' but corresponding to the span of the error bars below the trace coordinates"
             }, 
             "color": {
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "description": "Sets the color of the error bars.", 
                 "required": false, 
                 "streamable": true, 
@@ -1508,7 +1482,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -1536,7 +1510,7 @@
             }, 
             "symmetric": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not error bars are the same length in both directions (right and left). If not specified, the error bars will be symmetric."
             }, 
@@ -1565,7 +1539,7 @@
                 "description": "Only functional when 'symmetric' is set to False. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates"
             }, 
             "color": {
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "description": "Sets the color of the error bars.", 
                 "required": false, 
                 "streamable": true, 
@@ -1599,13 +1573,13 @@
             }, 
             "copy_ystyle": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether to set x error bar style to the same style (color, thickness, width, opacity) as y error bars set in 'yaxis'."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -1658,7 +1632,8 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python/histograms/https://plot.ly/python/2D-Histograms/"
+            "https://plot.ly/python/histograms/", 
+            "https://plot.ly/python/2D-Histograms/"
         ], 
         "keymeta": {
             "start": {
@@ -1727,7 +1702,7 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
                 "streamable": true
@@ -1762,7 +1737,7 @@
             }, 
             "cauto": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'cmax' and 'cmax' can be overwritten."
             }, 
@@ -1780,7 +1755,7 @@
             }, 
             "outliercolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -1817,7 +1792,7 @@
         ], 
         "keymeta": {
             "color": {
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "description": "Sets the color of the line object. If linked within 'marker', sets the color of the marker's bordering line. If linked within, 'contours', sets the color of the contour lines.", 
                 "required": false, 
                 "streamable": true, 
@@ -1863,7 +1838,7 @@
             }, 
             "outliercolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -1877,7 +1852,7 @@
             }, 
             "outlierwidth": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -1907,7 +1882,7 @@
         "keymeta": {
             "showlines": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the contour lines appear on the plot."
             }, 
@@ -1985,13 +1960,13 @@
         "keymeta": {
             "title": {
                 "key_type": "plot_info", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The x-axis title."
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the font settings of the x-axis title."
             }, 
@@ -2035,25 +2010,25 @@
             }, 
             "showgrid": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this axis features grid lines."
             }, 
             "zeroline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not an additional grid line (thicker than the other grid lines, by default) will appear on this axis along x=0."
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this x axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to False, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
             }, 
@@ -2071,7 +2046,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks will feature tick labels."
             }, 
@@ -2101,7 +2076,7 @@
             }, 
             "tickcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2121,7 +2096,7 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the ticks' font."
             }, 
@@ -2139,13 +2114,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 
             "gridcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2165,7 +2140,7 @@
             }, 
             "zerolinecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2185,7 +2160,7 @@
             }, 
             "linecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2248,13 +2223,13 @@
         "keymeta": {
             "title": {
                 "key_type": "plot_info", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The y-axis title."
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the font settings of the y-axis title."
             }, 
@@ -2298,25 +2273,25 @@
             }, 
             "showgrid": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this axis features grid lines."
             }, 
             "zeroline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not an additional grid line (thicker than the other grid lines, by default) will appear on this axis along y=0."
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this y axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to False, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
             }, 
@@ -2334,7 +2309,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks will feature tick labels."
             }, 
@@ -2364,7 +2339,7 @@
             }, 
             "tickcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2384,7 +2359,7 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the ticks' font."
             }, 
@@ -2402,13 +2377,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 
             "gridcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2428,7 +2403,7 @@
             }, 
             "zerolinecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2448,7 +2423,7 @@
             }, 
             "linecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2503,7 +2478,7 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python//polar-chart/"
+            "https://plot.ly/python/polar-chart/"
         ], 
         "keymeta": {
             "range": {
@@ -2530,13 +2505,13 @@
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this radial axis will be shown on the figure."
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the radial axis ticks will feature tick labels."
             }, 
@@ -2554,7 +2529,7 @@
             }, 
             "tickcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2568,7 +2543,7 @@
             }, 
             "ticksuffix": {
                 "key_type": "style", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "Sets the length of the tick lines on this radial axis."
             }, 
@@ -2580,7 +2555,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -2597,7 +2572,7 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python//polar-chart/"
+            "https://plot.ly/python/polar-chart/"
         ], 
         "keymeta": {
             "range": {
@@ -2618,13 +2593,13 @@
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to True, the bounding line starts from the origin and extends to the edge of radial axis."
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the angular axis ticks will feature tick labels."
             }, 
@@ -2636,7 +2611,7 @@
             }, 
             "tickcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2650,7 +2625,7 @@
             }, 
             "ticksuffix": {
                 "key_type": "style", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "Sets the length of the tick lines on this angular axis."
             }, 
@@ -2662,7 +2637,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -2679,39 +2654,39 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python//figure-labels/", 
-            "https://plot.ly/python//axes/", 
-            "https://plot.ly/python//bar-charts/", 
-            "https://plot.ly/python//log-plot/"
+            "https://plot.ly/python/figure-labels/", 
+            "https://plot.ly/python/axes/", 
+            "https://plot.ly/python/bar-charts/", 
+            "https://plot.ly/python/log-plot/"
         ], 
         "keymeta": {
             "title": {
                 "key_type": "plot_info", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The title of the figure."
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links {a_ULlike} describing the font settings of the figure's title."
+                "description": "Links a dictionary-like object describing the font settings of the figure's title."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the legend will be shown in this figure."
             }, 
             "autosize": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
             }, 
@@ -2729,37 +2704,37 @@
             }, 
             "xaxis": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing the legend parameters for this figure."
             }, 
             "annotations": {
                 "key_type": "object", 
-                "val_types": "list or 1d numpy array of one or several dictionary", 
+                "val_types": "list-like object of one or several dictionary-like object", 
                 "required": false, 
                 "description": "Links a list-like object that contains one or multiple annotation dictionary-like objects."
             }, 
             "margin": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object containing the margin parameters for this figure."
             }, 
             "paper_bgcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2773,7 +2748,7 @@
             }, 
             "plot_bgcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -2829,13 +2804,13 @@
             }, 
             "radialaxis": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "A dictionary-like object describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "A dictionary-like object describing the angular axis in a polar plot."
             }, 
@@ -2853,7 +2828,7 @@
             }, 
             "hidesources": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
             }
@@ -2891,7 +2866,7 @@
                 "streamable": true
             }, 
             "color": {
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "description": "Sets the color of the text font. If linked directly from 'layout', set the color of the global font.", 
                 "required": false, 
                 "streamable": true, 
@@ -2907,7 +2882,7 @@
             }, 
             "outlinecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "For polar chart only. Sets the color of the text's outline.", 
                 "examples": [
@@ -2932,8 +2907,8 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python//legend/", 
-            "https://plot.ly/python//figure-labels/"
+            "https://plot.ly/python/legend/", 
+            "https://plot.ly/python/figure-labels/"
         ], 
         "keymeta": {
             "x": {
@@ -2956,13 +2931,13 @@
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the font settings within the legend."
             }, 
             "bgcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the background (bg) color for the legend.", 
                 "examples": [
@@ -2976,7 +2951,7 @@
             }, 
             "bordercolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the enclosing border color for the legend.", 
                 "examples": [
@@ -3024,7 +2999,7 @@
         "name": "Annotation", 
         "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "\n            A dictionary-like object for representing an annotation in plotly.\n\n            Annotations appear as notes on the final figure. You can set all the\n            features of the annotation text, background color, and location.\n            Additionally, these notes can be anchored to actual data or the page\n            for help with location after pan-and-zoom actions.\n        ", 
+        "docstring": "A dictionary-like object for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
         "examples": [
             "annotation = Annotation(\n     text='what i want this to say is:<br>THIS!',\n     x=0,\n     y=0,\n     xref='paper',\n     yref='paper,\n     yanchor='bottom',\n     xanchor='left')"
         ], 
@@ -3058,7 +3033,7 @@
             }, 
             "text": {
                 "key_type": "plot_info", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "examples": [
                     "regular text", 
@@ -3070,13 +3045,13 @@
             }, 
             "showarrow": {
                 "key_type": "plot_info", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the arrow associated with this annotation with be shown. If False, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If True (the default), then 'text' is placed near the arrow's tail."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object describing the font settings within this annotation."
             }, 
@@ -3118,7 +3093,7 @@
             }, 
             "arrowcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -3150,7 +3125,7 @@
             }, 
             "bordercolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "The color of the enclosing boarder of this annotation.", 
                 "examples": [
@@ -3176,7 +3151,7 @@
             }, 
             "bgcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the background (bg) color for this annotation.", 
                 "examples": [
@@ -3210,7 +3185,7 @@
         "keymeta": {
             "title": {
                 "key_type": "plot_info", 
-                "val_types": "string", 
+                "val_types": "a string", 
                 "required": false, 
                 "description": "The title of the colorbar."
             }, 
@@ -3222,9 +3197,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
-                "description": "Links {a_ULlike} describing the font settings of the colorbar title."
+                "description": "Links a dictionary-like object describing the font settings of the colorbar title."
             }, 
             "thickness": {
                 "key_type": "style", 
@@ -3264,7 +3239,7 @@
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the colorbar ticks parameters are picked automatically by Plotly. Once 'autotick' is set to False, the colorbar ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this colorbar object."
             }, 
@@ -3282,7 +3257,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the colorbar ticks will feature tick labels."
             }, 
@@ -3312,7 +3287,7 @@
             }, 
             "tickcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "examples": [
                     "'green'", 
@@ -3332,7 +3307,7 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "Links a dictionary-like object defining the parameters of the ticks' font."
             }, 
@@ -3356,7 +3331,7 @@
             }, 
             "bgcolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "Sets the background (bg) color for this colorbar.", 
                 "examples": [
@@ -3370,7 +3345,7 @@
             }, 
             "outlinecolor": {
                 "key_type": "style", 
-                "val_types": "string describing color", 
+                "val_types": "a string describing color", 
                 "required": false, 
                 "description": "The color of the outline surrounding this colorbar.", 
                 "examples": [
@@ -3419,7 +3394,7 @@
             ""
         ], 
         "links": [
-            "https://plot.ly/python//setting-graph-size/"
+            "https://plot.ly/python/setting-graph-size/"
         ], 
         "keymeta": {
             "l": {
@@ -3454,7 +3429,7 @@
             }, 
             "autoexpand": {
                 "key_type": "style", 
-                "val_types": "boolean: True | False", 
+                "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "more info coming soon"
             }
@@ -3464,7 +3439,7 @@
         "name": "Figure", 
         "obj_type": "dictionary", 
         "parent_keys": [], 
-        "docstring": "\n            A dictionary-like object representing a figure to be rendered by plotly.\n\n            This is the container for all things to be rendered in a figure.\n        ", 
+        "docstring": "A dictionary-like object representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
         "examples": [
             ""
         ], 
@@ -3472,13 +3447,13 @@
         "keymeta": {
             "data": {
                 "key_type": "object", 
-                "val_types": "list or 1d numpy array of one or several dictionary", 
+                "val_types": "list-like object of one or several dictionary-like object", 
                 "required": false, 
-                "description": "A list-like object of the data trace(s) that is/are to be visualized."
+                "description": "A list-like object of one or multiple trace dictionary-like objects to be shown on one plotly figure."
             }, 
             "layout": {
                 "key_type": "object", 
-                "val_types": "dictionary", 
+                "val_types": "dictionary-like object", 
                 "required": false, 
                 "description": "A dictionary-like object that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }

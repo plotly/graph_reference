@@ -26,7 +26,7 @@ def graph_objs_info():
     '''
     _graph_objs_info = OrderedDict([
         ('trace', dict(
-            group='Trace graph objects',
+            group='Trace objects',
             description='Bind your data to traces with these',
             graph_objs=[
                 'scatter',

@@ -115,18 +115,4 @@ for language in languages:
             )
             table[language][graph_obj] = name
         else:
-            if graph_obj in graph_objs_info['trace']['graph_objs']:
-                name = (
-                    "trace {0} with 'type' set to '{1}'"
-                ).format(table[language]['UL'], graph_obj)
-                table[language][graph_obj] = name
-            elif graph_obj in graph_objs_info['list-like']['graph_objs']:
-                name = (
-                    "{0} of one '{1}' {2} or more"
-                ).format(table[language]['UL'], graph_obj, table[language]['OL'])
-                table[language][graph_obj] = name
-            else:
-                name = (
-                    "{1} {0} object with "
-                ).format(graph_obj, table[language]['UL'])
-                table[language][graph_obj] = name
+            table[language][graph_obj] = graph_obj
