@@ -1330,38 +1330,46 @@ class Make(dict):
         ).format(S0=s[0],S1=s[1],S2=s[2])
         return self._output(_required,_key_type,_val_types,_description)
     
-    def xyanchor(self, x_or_y):
+    def xyanchor(self, obj, x_or_y):
         '''@xyanchor@ | @xanchor@ | @yanchor@'''
 
-        S={'x': ['x','left','right'], 'y':['y','bottom','top']}
-        s=S[x_or_y]
+        S = {
+            'x': ['x','left','right','horizontal'], 
+            'y':['y','bottom','top','vertical']
+        }
+        s = S[x_or_y]
     
-        _required=False
-        _key_type='plot_info'
-        _val_types={
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = {
             'x':"'auto' | 'left' | 'center' | 'right'",
             'y':"'auto' | 'bottom' | 'middle' | 'top'"
         }
-        _description=(
-            "Sets the horizontal location of the object "
-            "referenced by the '{S0}' (position) key. "
-            "For example, if '{S0}' is set to 1, "
-            "'{S0}ref' to 'paper', and '{S0}anchor' to '{S2}', "
-            "the {S2}-most portion of this object will line "
-            "up with the {S2}-most edge of the plotting area."
-        ).format(S0=s[0],S2=s[2])
+        _description = (
+            "Sets the {S3} position anchor of this {obj}. "
+            "That is, bind the position set with the '{S0}' key "
+            "to the {val_types} of this {obj}."
+        ).format(S0=s[0], S3=s[3], obj=obj, 
+                 val_types=_val_types[x_or_y].replace("'auto' | ",'')).replace('|','or')
+        if obj in ['legend','annotation']:
+            _description += (
+                " For example, if '{S0}' is set to 1, "
+                "'{S0}ref' to 'paper', and '{S0}anchor' to '{S2}', "
+                "the {S2}-most portion of this object will line "
+                "up with the {S2}-most edge of the plotting area."
+            ).format(S0=s[0], S2=s[2])
         return self._output(_required,_key_type,_val_types[x_or_y],_description)
     
     def xy_layout(self, obj, x_or_y):
         '''@xy_layout@ | @x_layout@ | @y_layout@'''
-        _required=False
-        _key_type='plot_info'
-        _val_types=val_types.number()
-        _description=(
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = val_types.number()
+        _description = (
             "Sets the '{x_or_y}' position of this {obj}."
         ).format(x_or_y=x_or_y, obj=obj)
         if obj in ['legend','annotation']:
-            _description+=(
+            _description += (
                 "Use in conjunction with '{x_or_y}ref' and "
                 "'{x_or_y}anchor' to fine-tune the location of "
                 "this {obj}."

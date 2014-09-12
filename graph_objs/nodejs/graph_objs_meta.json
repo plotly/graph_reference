@@ -2974,13 +2974,13 @@
                 "key_type": "plot_info", 
                 "val_types": "'auto' | 'left' | 'center' | 'right'", 
                 "required": false, 
-                "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x' is set to 1, 'xref' to 'paper', and 'xanchor' to 'right', the right-most portion of this object will line up with the right-most edge of the plotting area."
+                "description": "Sets the horizontal position anchor of this legend. That is, bind the position set with the 'x' key to the 'left' or 'center' or 'right' of this legend. For example, if 'x' is set to 1, 'xref' to 'paper', and 'xanchor' to 'right', the right-most portion of this object will line up with the right-most edge of the plotting area."
             }, 
             "yanchor": {
                 "key_type": "plot_info", 
                 "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
                 "required": false, 
-                "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y' is set to 1, 'yref' to 'paper', and 'yanchor' to 'top', the top-most portion of this object will line up with the top-most edge of the plotting area."
+                "description": "Sets the vertical position anchor of this legend. That is, bind the position set with the 'y' key to the 'bottom' or 'middle' or 'top' of this legend. For example, if 'y' is set to 1, 'yref' to 'paper', and 'yanchor' to 'top', the top-most portion of this object will line up with the top-most edge of the plotting area."
             }
         }
     }, 
@@ -3048,13 +3048,13 @@
                 "key_type": "plot_info", 
                 "val_types": "'auto' | 'left' | 'center' | 'right'", 
                 "required": false, 
-                "description": "Sets the horizontal location of the object referenced by the 'x' (position) key. For example, if 'x' is set to 1, 'xref' to 'paper', and 'xanchor' to 'right', the right-most portion of this object will line up with the right-most edge of the plotting area."
+                "description": "Sets the horizontal position anchor of this annotation. That is, bind the position set with the 'x' key to the 'left' or 'center' or 'right' of this annotation. For example, if 'x' is set to 1, 'xref' to 'paper', and 'xanchor' to 'right', the right-most portion of this object will line up with the right-most edge of the plotting area."
             }, 
             "yanchor": {
                 "key_type": "plot_info", 
                 "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
                 "required": false, 
-                "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y' is set to 1, 'yref' to 'paper', and 'yanchor' to 'top', the top-most portion of this object will line up with the top-most edge of the plotting area."
+                "description": "Sets the vertical position anchor of this annotation. That is, bind the position set with the 'y' key to the 'bottom' or 'middle' or 'top' of this annotation. For example, if 'y' is set to 1, 'yref' to 'paper', and 'yanchor' to 'top', the top-most portion of this object will line up with the top-most edge of the plotting area."
             }, 
             "align": {
                 "key_type": "plot_info", 
@@ -3214,18 +3214,6 @@
                 "required": false, 
                 "description": "Sets length unit mode."
             }, 
-            "x": {
-                "key_type": "plot_info", 
-                "val_types": "number", 
-                "required": false, 
-                "description": "Sets the 'x' position of this colorbar."
-            }, 
-            "y": {
-                "key_type": "plot_info", 
-                "val_types": "number", 
-                "required": false, 
-                "description": "Sets the 'y' position of this colorbar."
-            }, 
             "autotick": {
                 "key_type": "style", 
                 "val_types": "a boolean: true | false", 
@@ -3312,11 +3300,29 @@
                 "required": false, 
                 "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands."
             }, 
+            "x": {
+                "key_type": "plot_info", 
+                "val_types": "number", 
+                "required": false, 
+                "description": "Sets the 'x' position of this colorbar."
+            }, 
+            "y": {
+                "key_type": "plot_info", 
+                "val_types": "number", 
+                "required": false, 
+                "description": "Sets the 'y' position of this colorbar."
+            }, 
             "xanchor": {
+                "key_type": "plot_info", 
+                "val_types": "'auto' | 'left' | 'center' | 'right'", 
+                "required": false, 
+                "description": "Sets the horizontal position anchor of this colorbar. That is, bind the position set with the 'x' key to the 'left' or 'center' or 'right' of this colorbar."
+            }, 
+            "yanchor": {
                 "key_type": "plot_info", 
                 "val_types": "'auto' | 'bottom' | 'middle' | 'top'", 
                 "required": false, 
-                "description": "Sets the horizontal location of the object referenced by the 'y' (position) key. For example, if 'y' is set to 1, 'yref' to 'paper', and 'yanchor' to 'top', the top-most portion of this object will line up with the top-most edge of the plotting area."
+                "description": "Sets the vertical position anchor of this colorbar. That is, bind the position set with the 'y' key to the 'bottom' or 'middle' or 'top' of this colorbar."
             }, 
             "bgcolor": {
                 "key_type": "style", 
@@ -3351,6 +3357,20 @@
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the width of the outline surrounding this colorbar."
+            }, 
+            "bordercolor": {
+                "key_type": "style", 
+                "val_types": "a string describing color", 
+                "required": false, 
+                "description": "Sets the color of the enclosing boarder of this colorbar.", 
+                "examples": [
+                    "'green'", 
+                    "'rgb(0, 255, 0)'", 
+                    "'rgba(0, 255, 0, 0.3)'", 
+                    "'hsl(120,100%,50%)'", 
+                    "'hsla(120,100%,50%,0.3)'", 
+                    "'#434F1D'"
+                ]
             }, 
             "borderwidth": {
                 "key_type": "style", 

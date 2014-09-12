@@ -1474,8 +1474,8 @@ class MakeMeta(list):
             ('borderwidth', make.borderwidth('legend')),
             ('xref', make.xyref('x')),
             ('yref', make.xyref('y')),
-            ('xanchor', make.xyanchor('x')),
-            ('yanchor', make.xyanchor('y'))
+            ('xanchor', make.xyanchor('legend','x')),
+            ('yanchor', make.xyanchor('legend','y'))
         ])
         self += self._stuff('legend', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
@@ -1520,15 +1520,15 @@ class MakeMeta(list):
                 val_types="string: 'pixels' | 'fraction' ",
                 description="Sets length unit mode."
             )),
-            ('x', make.xy_layout('colorbar','x')),
-            ('y', make.xy_layout('colorbar','y')),
             ('autotick', make.autotick('colorbar')),
             ('nticks', make.nticks('colorbar'))
         ]
         _keymeta += self._keymeta_ticks('colorbar')
         _keymeta += [
-            ('xanchor', make.xyanchor('x')),
-            ('xanchor', make.xyanchor('y')),
+            ('x', make.xy_layout('colorbar','x')),
+            ('y', make.xy_layout('colorbar','y')),
+            ('xanchor', make.xyanchor('colorbar','x')),
+            ('yanchor', make.xyanchor('colorbar','y')),
             ('bgcolor', make.bgcolor('colorbar')),
             ('outlinecolor', make.outlinecolor('colorbar')),
             ('outlinewidth', dict(
@@ -1539,6 +1539,7 @@ class MakeMeta(list):
                     "Sets the width of the outline surrounding this colorbar."
                 )
             )),
+            ('bordercolor', make.bordercolor('colorbar')),
             ('borderwidth', make.borderwidth('colorbar')),
             ('xpad', dict(
                 required=False,
@@ -1663,8 +1664,8 @@ class MakeMeta(list):
                 )
             )),
             ('font', make.font('annotation')),
-            ('xanchor', make.xyanchor('x')),
-            ('yanchor', make.xyanchor('y')),
+            ('xanchor', make.xyanchor('annotation','x')),
+            ('yanchor', make.xyanchor('annotation','y')),
             ('align', dict(
                 required=False,
                 key_type='plot_info',
