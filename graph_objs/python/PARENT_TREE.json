@@ -40,10 +40,10 @@
             "Annotation"
         ], 
         "titlefont": [
+            "ColorBar", 
             "XAxis", 
             "YAxis", 
-            "Layout", 
-            "ColorBar"
+            "Layout"
         ]
     }, 
     "angularaxis": {

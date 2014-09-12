@@ -51,6 +51,7 @@ def graph_objs_info():
                 'marker',
                 'line',
                 'contours',
+                'colorbar',
                 'stream'
             ]
         )),
@@ -72,7 +73,6 @@ def graph_objs_info():
                 'font',
                 'legend',
                 'annotation',
-                'colorbar',
                 'margin'
             ]
         )),

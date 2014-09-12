@@ -2563,6 +2563,311 @@
                 }
             }, 
             {
+                "colorbar": {
+                    "docstring": "A dictionary object for representing a color bar in plotly.", 
+                    "examples": [
+                        ""
+                    ], 
+                    "keymeta": [
+                        {
+                            "title": {
+                                "description": "The title of the colorbar.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "titleside": {
+                                "description": "Location of colorbar title with respect to the colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'right' | 'top' | 'bottom'"
+                            }
+                        }, 
+                        {
+                            "titlefont": {
+                                "child_obj": "font", 
+                                "description": "Links a dictionary describing the font settings of the colorbar title.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "dictionary"
+                            }
+                        }, 
+                        {
+                            "thickness": {
+                                "description": "Sets the thickness of the line surrounding the colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "thicknessmode": {
+                                "description": "Sets thickness unit mode.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "string: 'pixels' | 'fraction' "
+                            }
+                        }, 
+                        {
+                            "len": {
+                                "description": "Sets the length of the colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "lenmode": {
+                                "description": "Sets length unit mode.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "string: 'pixels' | 'fraction' "
+                            }
+                        }, 
+                        {
+                            "autotick": {
+                                "description": "Toggle whether or not the colorbar ticks parameters are picked automatically by Plotly. Once 'autotick' is set to FALSE, the colorbar ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this colorbar object.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: TRUE | FALSE"
+                            }
+                        }, 
+                        {
+                            "nticks": {
+                                "description": "Sets the number of colorbar ticks. No need to set 'autoticks' to FALSE for 'nticks' to apply.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "ticks": {
+                                "description": "Sets the format of tick visibility on this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'' | 'inside' | 'outside'"
+                            }
+                        }, 
+                        {
+                            "showticklabels": {
+                                "description": "Toggle whether or not the colorbar ticks will feature tick labels.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: TRUE | FALSE"
+                            }
+                        }, 
+                        {
+                            "tick0": {
+                                "description": "Sets the starting point of the ticks of this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "dtick": {
+                                "description": "Sets the distance between ticks on this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "ticklen": {
+                                "description": "Sets the length of the tick lines on this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "tickwidth": {
+                                "description": "Sets the width of the tick lines on this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "tickcolor": {
+                                "description": "Sets the color of the tick lines on this colorbar.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "tickangle": {
+                                "description": "Sets the angle in degrees of the ticks on this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x in [-90, 90]"
+                            }
+                        }, 
+                        {
+                            "tickfont": {
+                                "description": "Links a dictionary defining the parameters of the ticks' font.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "dictionary"
+                            }
+                        }, 
+                        {
+                            "exponentformat": {
+                                "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'"
+                            }
+                        }, 
+                        {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "x": {
+                                "description": "Sets the 'x' position of this colorbar.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "y": {
+                                "description": "Sets the 'y' position of this colorbar.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "xanchor": {
+                                "description": "Sets the horizontal position anchor of this colorbar. That is, bind the position set with the 'x' key to the 'left' or 'center' or 'right' of this colorbar.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'auto' | 'left' | 'center' | 'right'"
+                            }
+                        }, 
+                        {
+                            "yanchor": {
+                                "description": "Sets the vertical position anchor of this colorbar. That is, bind the position set with the 'y' key to the 'bottom' or 'middle' or 'top' of this colorbar.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'auto' | 'bottom' | 'middle' | 'top'"
+                            }
+                        }, 
+                        {
+                            "bgcolor": {
+                                "description": "Sets the background (bg) color for this colorbar.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "outlinecolor": {
+                                "description": "The color of the outline surrounding this colorbar.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "outlinewidth": {
+                                "description": "Sets the width of the outline surrounding this colorbar.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "bordercolor": {
+                                "description": "Sets the color of the enclosing boarder of this colorbar.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "borderwidth": {
+                                "description": "Sets the width of the boarder enclosing this colorbar", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "xpad": {
+                                "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the x-direction.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x in [0, 50]"
+                            }
+                        }, 
+                        {
+                            "ypad": {
+                                "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x in [0, 50]"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "colorbar", 
+                    "obj_type": "dictionary", 
+                    "parent_keys": [
+                        "colorbar"
+                    ], 
+                    "parent_tree": {
+                        "colorbar": [
+                            "heatmap", 
+                            "contour", 
+                            "histogram2d", 
+                            "histogram2dcontour"
+                        ]
+                    }
+                }
+            }, 
+            {
                 "stream": {
                     "docstring": "A dictionary containing specifications of the data stream.", 
                     "examples": [
@@ -3868,10 +4173,10 @@
                             "scatter"
                         ], 
                         "titlefont": [
+                            "colorbar", 
                             "xaxis", 
                             "yaxis", 
-                            "layout", 
-                            "colorbar"
+                            "layout"
                         ]
                     }
                 }
@@ -4227,311 +4532,6 @@
                     "obj_type": "dictionary", 
                     "parent_keys": [], 
                     "parent_tree": {}
-                }
-            }, 
-            {
-                "colorbar": {
-                    "docstring": "A dictionary object for representing a color bar in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
-                    "keymeta": [
-                        {
-                            "title": {
-                                "description": "The title of the colorbar.", 
-                                "key_type": "plot_info", 
-                                "required": false, 
-                                "val_types": "a string"
-                            }
-                        }, 
-                        {
-                            "titleside": {
-                                "description": "Location of colorbar title with respect to the colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "'right' | 'top' | 'bottom'"
-                            }
-                        }, 
-                        {
-                            "titlefont": {
-                                "child_obj": "font", 
-                                "description": "Links a dictionary describing the font settings of the colorbar title.", 
-                                "key_type": "object", 
-                                "required": false, 
-                                "val_types": "dictionary"
-                            }
-                        }, 
-                        {
-                            "thickness": {
-                                "description": "Sets the thickness of the line surrounding the colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x >= 0"
-                            }
-                        }, 
-                        {
-                            "thicknessmode": {
-                                "description": "Sets thickness unit mode.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "string: 'pixels' | 'fraction' "
-                            }
-                        }, 
-                        {
-                            "len": {
-                                "description": "Sets the length of the colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x >= 0"
-                            }
-                        }, 
-                        {
-                            "lenmode": {
-                                "description": "Sets length unit mode.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "string: 'pixels' | 'fraction' "
-                            }
-                        }, 
-                        {
-                            "autotick": {
-                                "description": "Toggle whether or not the colorbar ticks parameters are picked automatically by Plotly. Once 'autotick' is set to FALSE, the colorbar ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this colorbar object.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a boolean: TRUE | FALSE"
-                            }
-                        }, 
-                        {
-                            "nticks": {
-                                "description": "Sets the number of colorbar ticks. No need to set 'autoticks' to FALSE for 'nticks' to apply.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x > 0"
-                            }
-                        }, 
-                        {
-                            "ticks": {
-                                "description": "Sets the format of tick visibility on this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "'' | 'inside' | 'outside'"
-                            }
-                        }, 
-                        {
-                            "showticklabels": {
-                                "description": "Toggle whether or not the colorbar ticks will feature tick labels.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a boolean: TRUE | FALSE"
-                            }
-                        }, 
-                        {
-                            "tick0": {
-                                "description": "Sets the starting point of the ticks of this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "dtick": {
-                                "description": "Sets the distance between ticks on this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "ticklen": {
-                                "description": "Sets the length of the tick lines on this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "tickwidth": {
-                                "description": "Sets the width of the tick lines on this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x > 0"
-                            }
-                        }, 
-                        {
-                            "tickcolor": {
-                                "description": "Sets the color of the tick lines on this colorbar.", 
-                                "examples": [
-                                    "'green'", 
-                                    "'rgb(0, 255, 0)'", 
-                                    "'rgba(0, 255, 0, 0.3)'", 
-                                    "'hsl(120,100%,50%)'", 
-                                    "'hsla(120,100%,50%,0.3)'", 
-                                    "'#434F1D'"
-                                ], 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a string describing color"
-                            }
-                        }, 
-                        {
-                            "tickangle": {
-                                "description": "Sets the angle in degrees of the ticks on this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x in [-90, 90]"
-                            }
-                        }, 
-                        {
-                            "tickfont": {
-                                "description": "Links a dictionary defining the parameters of the ticks' font.", 
-                                "key_type": "object", 
-                                "required": false, 
-                                "val_types": "dictionary"
-                            }
-                        }, 
-                        {
-                            "exponentformat": {
-                                "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'"
-                            }
-                        }, 
-                        {
-                            "showexponent": {
-                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "'all' | 'first' | 'last' | 'none'"
-                            }
-                        }, 
-                        {
-                            "x": {
-                                "description": "Sets the 'x' position of this colorbar.", 
-                                "key_type": "plot_info", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "y": {
-                                "description": "Sets the 'y' position of this colorbar.", 
-                                "key_type": "plot_info", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "xanchor": {
-                                "description": "Sets the horizontal position anchor of this colorbar. That is, bind the position set with the 'x' key to the 'left' or 'center' or 'right' of this colorbar.", 
-                                "key_type": "plot_info", 
-                                "required": false, 
-                                "val_types": "'auto' | 'left' | 'center' | 'right'"
-                            }
-                        }, 
-                        {
-                            "yanchor": {
-                                "description": "Sets the vertical position anchor of this colorbar. That is, bind the position set with the 'y' key to the 'bottom' or 'middle' or 'top' of this colorbar.", 
-                                "key_type": "plot_info", 
-                                "required": false, 
-                                "val_types": "'auto' | 'bottom' | 'middle' | 'top'"
-                            }
-                        }, 
-                        {
-                            "bgcolor": {
-                                "description": "Sets the background (bg) color for this colorbar.", 
-                                "examples": [
-                                    "'green'", 
-                                    "'rgb(0, 255, 0)'", 
-                                    "'rgba(0, 255, 0, 0.3)'", 
-                                    "'hsl(120,100%,50%)'", 
-                                    "'hsla(120,100%,50%,0.3)'", 
-                                    "'#434F1D'"
-                                ], 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a string describing color"
-                            }
-                        }, 
-                        {
-                            "outlinecolor": {
-                                "description": "The color of the outline surrounding this colorbar.", 
-                                "examples": [
-                                    "'green'", 
-                                    "'rgb(0, 255, 0)'", 
-                                    "'rgba(0, 255, 0, 0.3)'", 
-                                    "'hsl(120,100%,50%)'", 
-                                    "'hsla(120,100%,50%,0.3)'", 
-                                    "'#434F1D'"
-                                ], 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a string describing color"
-                            }
-                        }, 
-                        {
-                            "outlinewidth": {
-                                "description": "Sets the width of the outline surrounding this colorbar.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number"
-                            }
-                        }, 
-                        {
-                            "bordercolor": {
-                                "description": "Sets the color of the enclosing boarder of this colorbar.", 
-                                "examples": [
-                                    "'green'", 
-                                    "'rgb(0, 255, 0)'", 
-                                    "'rgba(0, 255, 0, 0.3)'", 
-                                    "'hsl(120,100%,50%)'", 
-                                    "'hsla(120,100%,50%,0.3)'", 
-                                    "'#434F1D'"
-                                ], 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "a string describing color"
-                            }
-                        }, 
-                        {
-                            "borderwidth": {
-                                "description": "Sets the width of the boarder enclosing this colorbar", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x >= 0"
-                            }
-                        }, 
-                        {
-                            "xpad": {
-                                "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the x-direction.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x in [0, 50]"
-                            }
-                        }, 
-                        {
-                            "ypad": {
-                                "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction.", 
-                                "key_type": "style", 
-                                "required": false, 
-                                "val_types": "number: x in [0, 50]"
-                            }
-                        }
-                    ], 
-                    "links": [], 
-                    "name": "colorbar", 
-                    "obj_type": "dictionary", 
-                    "parent_keys": [
-                        "colorbar"
-                    ], 
-                    "parent_tree": {
-                        "colorbar": [
-                            "heatmap", 
-                            "contour", 
-                            "histogram2d", 
-                            "histogram2dcontour"
-                        ]
-                    }
                 }
             }, 
             {
