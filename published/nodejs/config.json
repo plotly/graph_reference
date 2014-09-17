@@ -5,9 +5,7 @@
             {
                 "scatter": {
                     "docstring": "An object for representing a scatter trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -234,9 +232,7 @@
             {
                 "bar": {
                     "docstring": "An object for representing a bar trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -401,9 +397,7 @@
             {
                 "histogram": {
                     "docstring": "An object for representing a histogram trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -600,9 +594,7 @@
             {
                 "box": {
                     "docstring": "An object for representing a box trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "y": {
@@ -786,9 +778,7 @@
             {
                 "heatmap": {
                     "docstring": "An object for representing a heatmap trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "z": {
@@ -1018,9 +1008,7 @@
             {
                 "contour": {
                     "docstring": "An object for representing a contour trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "z": {
@@ -1277,9 +1265,7 @@
             {
                 "histogram2d": {
                     "docstring": "An object for representing a 2D histogram trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -1506,9 +1492,7 @@
             {
                 "histogram2dcontour": {
                     "docstring": "An object for representing a 2D histogram contour trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -1762,9 +1746,7 @@
             {
                 "area": {
                     "docstring": "An object for representing an area trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "r": {
@@ -1872,9 +1854,7 @@
             {
                 "error_y": {
                     "docstring": "An object object representing a set of error bar spanning along the y-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "type": {
@@ -1994,9 +1974,7 @@
             {
                 "error_x": {
                     "docstring": "A object representing a set of error bars spanning along the x-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "type": {
@@ -2124,9 +2102,7 @@
             {
                 "xbins": {
                     "docstring": "An object containing specifications of the bins lying along the x-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "start": {
@@ -2175,9 +2151,7 @@
             {
                 "ybins": {
                     "docstring": "An object containing specifications of the bins lying along the y-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "start": {
@@ -2226,9 +2200,7 @@
             {
                 "marker": {
                     "docstring": "An object containing specifications of the marker points.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "color": {
@@ -2382,9 +2354,7 @@
             {
                 "line": {
                     "docstring": "An object containing specifications of the line segments.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "color": {
@@ -2500,9 +2470,7 @@
             {
                 "contours": {
                     "docstring": "An object containing specifications of the contours.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "showlines": {
@@ -2565,9 +2533,7 @@
             {
                 "colorbar": {
                     "docstring": "An object object for representing a color bar in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -2870,9 +2836,7 @@
             {
                 "stream": {
                     "docstring": "An object containing specifications of the data stream.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "token": {
@@ -2923,9 +2887,7 @@
             {
                 "xaxis": {
                     "docstring": "An object for representing an x-axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -3262,9 +3224,7 @@
             {
                 "yaxis": {
                     "docstring": "An object for representing a y-axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -3601,9 +3561,7 @@
             {
                 "radialaxis": {
                     "docstring": "An object for representing a radial axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "range": {
@@ -3724,9 +3682,7 @@
             {
                 "angularaxis": {
                     "docstring": "An object for representing an angular axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "range": {
@@ -3837,9 +3793,7 @@
             {
                 "layout": {
                     "docstring": "An object containing specification of the layout of a plotly figure.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -4096,9 +4050,7 @@
             {
                 "font": {
                     "docstring": "An object containing specifications of on-plot, title or global text font.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "family": {
@@ -4184,9 +4136,7 @@
             {
                 "legend": {
                     "docstring": "An object for representing a legend in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -4313,9 +4263,7 @@
             {
                 "annotation": {
                     "docstring": "An object for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -4537,9 +4485,7 @@
             {
                 "margin": {
                     "docstring": "An object containing specification of the margins.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "l": {
@@ -4614,9 +4560,7 @@
             {
                 "figure": {
                     "docstring": "An object representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "data": {

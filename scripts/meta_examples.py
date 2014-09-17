@@ -13,11 +13,11 @@ class MakeExamples(list):
 
     def __init__(self):
         '''@examples@'''
-        self.python = ['']
-        self.matlab = ['']
-        self.r = ['']
-        self.nodejs = ['']
-        self.julia = ['']
+        self.python = []
+        self.matlab = []
+        self.r = []
+        self.nodejs = []
+        self.julia = []
 
     def _for_all(self, _examples):
         '''@for_all@ -- set same example for all languages'''
@@ -157,7 +157,7 @@ class MakeExamples(list):
 
     def area(self):  # TODO!
         '''@Area@'''
-        self.python = ['']
+        self.python = []
         return self
 
     def bar(self):
@@ -193,9 +193,10 @@ class MakeExamples(list):
         return self
 
     def histogram(self):
+        '''@histogram@'''
         self.python = [
-            "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # along bins along x-axis",
-            "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # along bins along y-axis",
+            "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # bins along x-axis",
+            "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # bins along y-axis",
         ]
         return self
 
@@ -224,11 +225,11 @@ class MakeExamples(list):
         return self
 
     def angularaxis(self): # TODO!
-        self.python = ['']
+        self.python = []
         return self
 
     def radialaxis(self): # TODO!
-        self.python = ['']
+        self.python = []
         return self
     
     def annotation(self):
@@ -245,67 +246,68 @@ class MakeExamples(list):
         return self
 
     def colorbar(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def contours(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
         
     def error_y(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def error_x(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def figure(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def font(self):
-        self.python = [''] # TODO!
+        '''@font@'''
+        self.python = [] # TODO!
         return self
 
     def layout(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
         
     def legend(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def line(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def marker(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def margin(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def stream(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def xaxis(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def xbins(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def yaxis(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def ybins(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
     def data(self):
@@ -315,7 +317,7 @@ class MakeExamples(list):
         return self
 
     def annotations(self):
-        self.python = [''] # TODO!
+        self.python = [] # TODO!
         return self
 
 # -------------------------------------------------------------------------------

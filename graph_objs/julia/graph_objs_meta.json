@@ -4,9 +4,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a scatter trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/line-and-scatter/", 
             "https://plot.ly/julia/bubble-charts/", 
@@ -176,9 +174,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a bar trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/bar-charts/"
         ], 
@@ -300,9 +296,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a histogram trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/histograms/"
         ], 
@@ -446,9 +440,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a box trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/box-plots/"
         ], 
@@ -586,9 +578,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a heatmap trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/heatmaps/"
         ], 
@@ -761,9 +751,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a contour trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/contour-plots/"
         ], 
@@ -955,9 +943,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a 2D histogram trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/2D-Histograms/"
         ], 
@@ -1125,9 +1111,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing a 2D histogram contour trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/2D-Histograms/"
         ], 
@@ -1314,9 +1298,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing an area trace in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/polar-chart/"
         ], 
@@ -1393,9 +1375,7 @@
             "error_y"
         ], 
         "docstring": "A dictionary object representing a set of error bar spanning along the y-axis.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/error-bars/"
         ], 
@@ -1484,9 +1464,7 @@
             "error_x"
         ], 
         "docstring": "A dictionary representing a set of error bars spanning along the x-axis.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/error-bars/"
         ], 
@@ -1581,9 +1559,7 @@
             "xbins"
         ], 
         "docstring": "A dictionary containing specifications of the bins lying along the x-axis.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/histograms/", 
             "https://plot.ly/julia/2D-Histograms/"
@@ -1617,9 +1593,7 @@
             "ybins"
         ], 
         "docstring": "A dictionary containing specifications of the bins lying along the y-axis.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/histograms/", 
             "https://plot.ly/julia/2D-Histograms/"
@@ -1653,9 +1627,7 @@
             "marker"
         ], 
         "docstring": "A dictionary containing specifications of the marker points.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/line-and-scatter/", 
             "https://plot.ly/julia/bubble-charts/"
@@ -1771,9 +1743,7 @@
             "line"
         ], 
         "docstring": "A dictionary containing specifications of the line segments.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/line-and-scatter/", 
             "https://plot.ly/julia/filled-area-plots/", 
@@ -1862,9 +1832,7 @@
             "contours"
         ], 
         "docstring": "A dictionary containing specifications of the contours.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/contour-plots/"
         ], 
@@ -1909,9 +1877,7 @@
             "colorbar"
         ], 
         "docstring": "A dictionary object for representing a color bar in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [], 
         "keymeta": {
             "title": {
@@ -2141,9 +2107,7 @@
             "stream"
         ], 
         "docstring": "A dictionary containing specifications of the data stream.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/streaming/"
         ], 
@@ -2169,9 +2133,7 @@
             "xaxis"
         ], 
         "docstring": "A dictionary for representing an x-axis in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/axes/", 
             "https://plot.ly/julia/multiple-axes/", 
@@ -2432,9 +2394,7 @@
             "yaxis"
         ], 
         "docstring": "A dictionary for representing a y-axis in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/axes/", 
             "https://plot.ly/julia/multiple-axes/", 
@@ -2695,9 +2655,7 @@
             "radialaxis"
         ], 
         "docstring": "A dictionary for representing a radial axis in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/polar-chart/"
         ], 
@@ -2789,9 +2747,7 @@
             "angularaxis"
         ], 
         "docstring": "A dictionary for representing an angular axis in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/polar-chart/"
         ], 
@@ -2871,9 +2827,7 @@
             "layout"
         ], 
         "docstring": "A dictionary containing specification of the layout of a plotly figure.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/figure-labels/", 
             "https://plot.ly/julia/axes/", 
@@ -3064,9 +3018,7 @@
             "textfont"
         ], 
         "docstring": "A dictionary containing specifications of on-plot, title or global text font.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/font/", 
             "https://plot.ly/julia/text-and-annotations/", 
@@ -3124,9 +3076,7 @@
             "legend"
         ], 
         "docstring": "A dictionary for representing a legend in plotly.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/legend/", 
             "https://plot.ly/julia/figure-labels/"
@@ -3221,9 +3171,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia//text-and-annotations/"
         ], 
@@ -3399,9 +3347,7 @@
             "margin"
         ], 
         "docstring": "A dictionary containing specification of the margins.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [
             "https://plot.ly/julia/setting-graph-size/"
         ], 
@@ -3449,9 +3395,7 @@
         "obj_type": "dictionary", 
         "parent_keys": [], 
         "docstring": "A dictionary representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [], 
         "keymeta": {
             "data": {
@@ -3475,9 +3419,7 @@
             "data"
         ], 
         "docstring": "An array of trace dictionaries to be shown on one plotly figure.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [], 
         "keymeta": {}
     }, 
@@ -3488,9 +3430,7 @@
             "annotations"
         ], 
         "docstring": "An array of annotation dictionaries to be shown on one plotly figure.", 
-        "examples": [
-            ""
-        ], 
+        "examples": [], 
         "links": [], 
         "keymeta": {}
     }, 

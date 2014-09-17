@@ -54,6 +54,7 @@ def retrieve_examples(meta, language):
                             meta[obj][k1][k2][k3] = getattr(v3, language)
     return meta
 
+
 def make_tables(table):
     '''Make indefinite article, plural table complement to vocab table'''
     a_table = A_table = pl_table = dict()
@@ -66,6 +67,7 @@ def make_tables(table):
         table.items() + a_table.items() + A_table.items() + pl_table.items()
     )
     return tables
+
 
 def format_meta_vocab(meta, tables):
     '''Format meta to language-specific vocabulary (set in language_table.py)'''
@@ -97,6 +99,8 @@ def format_meta_vocab(meta, tables):
                 sys.exit(0)
     return meta
 
+# -------------------------------------------------------------------------------
+
 def get_trees(language):
     '''Get language-specific output trees'''
     tree_graph_objs = os.path.join("./graph_objs", language)  
@@ -109,6 +113,7 @@ def get_trees(language):
             print "[{}]".format(NAME), '...', tree, 'already exists OK'
     return tree_graph_objs, tree_published
 
+
 def write_meta(tree, meta_language):
     '''Write meta to <tree>/graph_objs_meta.json'''
     file_meta = os.path.join(tree, "graph_objs_meta.json")
@@ -116,6 +121,7 @@ def write_meta(tree, meta_language):
         print "[{}]".format(NAME), '... writes in', file_meta
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
+
 
 def write_NAME_TO_KEY(tree, meta_language):
     '''
@@ -130,6 +136,7 @@ def write_NAME_TO_KEY(tree, meta_language):
         print "[{}]".format(NAME), '... writes in', file_NAME_TO_KEY
         json.dump(_NAME_TO_KEY, f, indent=4, sort_keys=False)
     return _NAME_TO_KEY
+
 
 def write_KEY_TO_NAME(tree, meta_language):
     '''
@@ -149,6 +156,7 @@ def write_KEY_TO_NAME(tree, meta_language):
         print "[{}]".format(NAME), '... writes in', file_KEY_TO_NAME
         json.dump(_KEY_TO_NAME, f, indent=4, sort_keys=False)
     return _KEY_TO_NAME
+
 
 def write_PARENT_TREE(tree, meta_language):
     '''
@@ -171,6 +179,33 @@ def write_PARENT_TREE(tree, meta_language):
         print "[{}]".format(NAME), '... writes in', file_PARENT_TREE
         json.dump(_PARENT_TREE, f, indent=4, sort_keys=False)
     return _PARENT_TREE
+
+def write_OBJ_MAP(tree, meta_language, tables):
+    '''
+    Write object map to 'basename' and 'info_key', an input of the
+    class factories in the python API
+    '''
+    _OBJ_MAP = dict()
+    for obj, stuff in meta_language.items():
+        if stuff['obj_type'] == tables['UL']:
+            _base_name = 'PlotlyDict'
+        elif stuff['obj_type'] == tables['OL']:
+            _base_name = 'PlotlyList'
+        else:
+            print "[{}]".format(NAME), 'Weird obj_type at:', obj
+            print "[{}]".format(NAME), '... execution stopped'
+            sys.exit(0)
+        _info_key = obj
+        _OBJ_MAP[stuff['name']] = dict(
+            base_name=_base_name,
+            info_key=_info_key
+        )
+    file_OBJ_MAP = os.path.join(tree, "OBJ_MAP.json")
+    with open(file_OBJ_MAP, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_OBJ_MAP
+        json.dump(_OBJ_MAP, f, indent=4, sort_keys=False)
+    return _OBJ_MAP
+
 
 def write_config(tree, lang, graph_objs_info, meta,
                  KEY_TO_NAME, PARENT_TREE):
@@ -263,6 +298,10 @@ def main():
         NAME_TO_KEY = write_NAME_TO_KEY(tree_graph_objs, meta_language)
         KEY_TO_NAME = write_KEY_TO_NAME(tree_graph_objs, meta_language)
         PARENT_TREE = write_PARENT_TREE(tree_graph_objs, meta_language)
+
+        # Write OBJ_MAP (python only)
+        if language == 'python':
+            OBJ_MAP = write_OBJ_MAP(tree_graph_objs, meta_language, tables)
 
         # Make\Write meta+toc config file (for plot.ly)
         write_config(tree_published, language, 

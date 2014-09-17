@@ -402,8 +402,8 @@
                 "Histogram": {
                     "docstring": "A dictionary-like object for representing a histogram trace in plotly.", 
                     "examples": [
-                        "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # along bins along x-axis", 
-                        "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # along bins along y-axis"
+                        "py.plot([Histogram(x=[1,1,2,3,2,3,3])]) # bins along x-axis", 
+                        "py.plot([Histogram(y=[1,1,2,3,2,3,3])]) # bins along y-axis"
                     ], 
                     "keymeta": [
                         {
@@ -1773,9 +1773,7 @@
             {
                 "Area": {
                     "docstring": "A dictionary-like object for representing an area trace in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "r": {
@@ -1883,9 +1881,7 @@
             {
                 "ErrorY": {
                     "docstring": "A dictionary-like object object representing a set of error bar spanning along the y-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "type": {
@@ -2005,9 +2001,7 @@
             {
                 "ErrorX": {
                     "docstring": "A dictionary-like object representing a set of error bars spanning along the x-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "type": {
@@ -2135,9 +2129,7 @@
             {
                 "XBins": {
                     "docstring": "A dictionary-like object containing specifications of the bins lying along the x-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "start": {
@@ -2186,9 +2178,7 @@
             {
                 "YBins": {
                     "docstring": "A dictionary-like object containing specifications of the bins lying along the y-axis.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "start": {
@@ -2237,9 +2227,7 @@
             {
                 "Marker": {
                     "docstring": "A dictionary-like object containing specifications of the marker points.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "color": {
@@ -2393,9 +2381,7 @@
             {
                 "Line": {
                     "docstring": "A dictionary-like object containing specifications of the line segments.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "color": {
@@ -2511,9 +2497,7 @@
             {
                 "Contours": {
                     "docstring": "A dictionary-like object containing specifications of the contours.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "showlines": {
@@ -2576,9 +2560,7 @@
             {
                 "ColorBar": {
                     "docstring": "A dictionary-like object object for representing a color bar in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -2881,9 +2863,7 @@
             {
                 "Stream": {
                     "docstring": "A dictionary-like object containing specifications of the data stream.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "token": {
@@ -2934,9 +2914,7 @@
             {
                 "XAxis": {
                     "docstring": "A dictionary-like object for representing an x-axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -3273,9 +3251,7 @@
             {
                 "YAxis": {
                     "docstring": "A dictionary-like object for representing a y-axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -3612,9 +3588,7 @@
             {
                 "RadialAxis": {
                     "docstring": "A dictionary-like object for representing a radial axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "range": {
@@ -3735,9 +3709,7 @@
             {
                 "AngularAxis": {
                     "docstring": "A dictionary-like object for representing an angular axis in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "range": {
@@ -3848,9 +3820,7 @@
             {
                 "Layout": {
                     "docstring": "A dictionary-like object containing specification of the layout of a plotly figure.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "title": {
@@ -4107,9 +4077,7 @@
             {
                 "Font": {
                     "docstring": "A dictionary-like object containing specifications of on-plot, title or global text font.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "family": {
@@ -4195,9 +4163,7 @@
             {
                 "Legend": {
                     "docstring": "A dictionary-like object for representing a legend in plotly.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "x": {
@@ -4548,9 +4514,7 @@
             {
                 "Margin": {
                     "docstring": "A dictionary-like object containing specification of the margins.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "l": {
@@ -4625,9 +4589,7 @@
             {
                 "Figure": {
                     "docstring": "A dictionary-like object representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
-                    "examples": [
-                        ""
-                    ], 
+                    "examples": [], 
                     "keymeta": [
                         {
                             "data": {
