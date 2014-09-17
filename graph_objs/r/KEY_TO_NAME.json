@@ -17,6 +17,7 @@
     "figure": "figure", 
     "annotation": "annotation", 
     "annotations": "annotations", 
+    "tickfont": "font", 
     "textfont": "font", 
     "trace": "trace", 
     "histogram2d": "histogram2d", 

@@ -3015,7 +3015,8 @@
         "parent_keys": [
             "font", 
             "titlefont", 
-            "textfont"
+            "textfont", 
+            "tickfont"
         ], 
         "docstring": "A structure containing specifications of on-plot, title or global text font.", 
         "examples": [], 

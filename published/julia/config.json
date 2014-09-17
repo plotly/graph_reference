@@ -2682,6 +2682,7 @@
                         }, 
                         {
                             "tickfont": {
+                                "child_obj": "font", 
                                 "description": "Links a dictionary defining the parameters of the ticks' font.", 
                                 "key_type": "object", 
                                 "required": false, 
@@ -3068,6 +3069,7 @@
                         }, 
                         {
                             "tickfont": {
+                                "child_obj": "font", 
                                 "description": "Links a dictionary defining the parameters of the ticks' font.", 
                                 "key_type": "object", 
                                 "required": false, 
@@ -3405,6 +3407,7 @@
                         }, 
                         {
                             "tickfont": {
+                                "child_obj": "font", 
                                 "description": "Links a dictionary defining the parameters of the ticks' font.", 
                                 "key_type": "object", 
                                 "required": false, 
@@ -4113,7 +4116,8 @@
                     "parent_keys": [
                         "font", 
                         "titlefont", 
-                        "textfont"
+                        "textfont", 
+                        "tickfont"
                     ], 
                     "parent_tree": {
                         "font": [
@@ -4123,6 +4127,11 @@
                         ], 
                         "textfont": [
                             "scatter"
+                        ], 
+                        "tickfont": [
+                            "colorbar", 
+                            "xaxis", 
+                            "yaxis"
                         ], 
                         "titlefont": [
                             "colorbar", 

@@ -962,7 +962,7 @@ class MakeMeta(list):
         '''@font@'''
         name = '{font}'
         obj_type = "{UL}"
-        parent_keys = ["font","titlefont","textfont"]
+        parent_keys = ["font","titlefont","textfont", "tickfont"]
         docstring = (
             "{A_ULlike} containing specifications of on-plot, title or "
             "global text font."

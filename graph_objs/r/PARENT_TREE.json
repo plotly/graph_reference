@@ -30,6 +30,11 @@
         ]
     }, 
     "font": {
+        "tickfont": [
+            "colorbar", 
+            "xaxis", 
+            "yaxis"
+        ], 
         "textfont": [
             "scatter", 
             "trace"
