@@ -156,25 +156,26 @@ class MakeExamples(list):
         return self
 
     def area(self):  # TODO!
-        '''@Area@'''
+        '''@area@'''
         self.python = []
         return self
 
     def bar(self):
-        '''@Bar@'''
+        '''@bar@'''
         self.python = [
             "py.plot([Bar(x=['yesterday', 'today', 'tomorrow'], y=[5, 4, 10])])"
         ]
         return self
 
     def box(self):
-        '''@Box@'''
+        '''@box@'''
         self.python = [
             "py.plot([Box(name='boxy', y=[1,3,9,2,4,2,3,5,2])])"
         ]
         return self
 
     def contour(self):
+        '''@contour@'''
         self.python = [
             "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]",
             "y = ['a', 'b', 'c']",
@@ -184,6 +185,7 @@ class MakeExamples(list):
         return self
     
     def heatmap(self):
+        '''@heatmap'''
         self.python = [
             "z = [[0, 1, 0, 1, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 0]]",
             "y = ['a', 'b', 'c']",
@@ -201,6 +203,7 @@ class MakeExamples(list):
         return self
 
     def histogram2d(self):
+        '''@histogram2d@'''
         self.python = [
             "import numpy as np",
             "x = np.random.randn(500)",
@@ -210,6 +213,7 @@ class MakeExamples(list):
         return self
 
     def histogram2dcontour(self):
+        '''@histogram2dcontour@'''
         self.python = [
             "import numpy as np",
             "x = np.random.randn(500)",
@@ -219,6 +223,7 @@ class MakeExamples(list):
         return self
 
     def scatter(self):
+        '''@scatter@'''
         self.python = [
             "py.plot([Scatter(name='tacters', x=[1,4,2,3], y=[1,6,2,1])])"
         ]
@@ -233,6 +238,7 @@ class MakeExamples(list):
         return self
     
     def annotation(self):
+        '''@scatter@'''
         self.python = [
             "annotation = Annotation(\n"
             "     text='what i want this to say is:<br>THIS!',\n"
