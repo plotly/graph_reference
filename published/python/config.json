@@ -4339,10 +4339,10 @@
                             "text": {
                                 "description": "The text associated with this annotation. Plotly uses a subset of HTML tags to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>). Tags <em>, <sup>, <sub>, <span> are also supported.", 
                                 "examples": [
-                                    "regular text", 
-                                    "an annotation<br>spanning two lines", 
-                                    "<b>bold text</b>", 
-                                    "<a href='https://plot.ly/'>a link to plot.ly</a>"
+                                    "'regular text'", 
+                                    "'an annotation<br>spanning two lines'", 
+                                    "'<b>bold text</b>'", 
+                                    "'<a href='https://plot.ly/'>a link to plot.ly</a>'"
                                 ], 
                                 "key_type": "plot_info", 
                                 "required": false, 

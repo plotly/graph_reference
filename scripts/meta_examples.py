@@ -148,10 +148,10 @@ class MakeExamples(list):
     def text(self):
         '''@text@'''
         self._for_all([
-           "regular text", 
-           "an annotation<br>spanning two lines",
-           "<b>bold text</b>", 
-           "<a href='https://plot.ly/'>a link to plot.ly</a>"
+           "'regular text'", 
+           "'an annotation<br>spanning two lines'",
+           "'<b>bold text</b>'", 
+           "'<a href='https://plot.ly/'>a link to plot.ly</a>'"
         ])
         return self
 
