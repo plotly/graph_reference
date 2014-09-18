@@ -29,7 +29,7 @@ help(Scatter)
   command! <br>That command is `$ make run`.
 
 + Although graph objects have the same name in all of Plotly's API library,
-  each Plotly API library has its own meta JSON file, with meta consistent with
+  each Plotly API library should have its own meta JSON file, with meta consistent with
   each language's terminology. For example, an underlying JSON object is
   called a dictionary in the Python meta and a structure in the MATLAB meta.
 
@@ -76,14 +76,13 @@ meta has the following structure:
 
 #### Remarks:
 
-  1. `'key_type'`: must have either `'data'` (the only keys that remain
+  + `'key_type'`: must have either `'data'` (the only keys that remain
      after`.get_data()`), `'style'` (keys that are stripped by `.strip_style()`)
      or `'plot_info'` (keys that not affected by `.strip_style()`, i.e.
      *information specific to a given figure or, in other words, information
      that cannot be transplanted to other figures*) or `'object'` (keys that are
      to be linked to another object).
 
-  2. (more coming soon)
 
 ### Files and folders in this repo:
 
@@ -96,6 +95,8 @@ meta has the following structure:
 - `makefile` : set of shortcut to generate the meta
 
 - `graph_objs` : generated meta
+
+- `published` : published content for plot.ly
 
 - `test_graph_reference.py` : test script for `nosetest`
 

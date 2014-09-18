@@ -25,8 +25,8 @@ navigation between objects, keys and shortcuts a breeze.
 
 In addition, language-specific vocabulary is inserted using Python `.format()`
 method for string. Insert `{TERM}` in accordance with language table defined in
-`language_table.py` and the its variations (i.e. indefinite articles, plurals
-etc.) built in `run.py`.
+`language_table.py` and its variations (i.e. indefinite articles, plurals
+etc.) generated in `run.py`.
 
 
 ### Common cases
@@ -36,37 +36,45 @@ branch.
 
 #### Case A: Modify meta of an existing graph object
 
-- Open `meta.py` and search for `@<graph-object>@`. This will take you to the
+- Open `meta.py` and search for the `@<graph-object>@` in question. This will take you to the
    meta-generating method for this particular graph object.
 
 If the meta field in question is set in `meta.py` (i.e. without a shortcut),
 modify it, save `meta.py`, run `$ make run` and you are done!
 
 - If the meta field is generated using a shortcut, open `meta_shortcuts.py` and
-   search for `@<graph-object-field>@`. This will take you to the meta-generating
+   search for the `@<key>@` in question. This will take you to the meta-generating
    shortcut method for this particular key.
 
 Modify it, save `meta_shortcuts.py`, run `$ make run` and you are done!
  
 #### Case B: Add new key
 
-1. Determine whether this new key has an equivalent for other graph object. You
+1. Determine whether this new key has an equivalent for other graph object(s). You
    can easily do so by searching for `'<key>'` in `meta.py` or `@<key>@` in
    `meta_shortcuts.py`.
 
-If so, link this key in `meta.py` to the appropriate `make` method and modify
-the this `make` method accordingly ...
+If so, modify the appropiate `meta_shortcuts.Make` method accordingly 
+(on most occasion this will mean 
+adding a key to the dictionary handling 'description') then link the key question 
+in `meta.py` to the updated `meta_shortcuts.Make` method.
 
-- if you are making a new shortcut function use `output` (see `@output@` to
-   format the meta dictionary,
+- if you are making a new shortcut function use, it is best to copy the syntax
+  from a similar shortcut. Use the `_output`function (see `@output@` to
+  format the 'keymeta' dictionary,
    
 (more step-by-step info coming soon ...)
+
+After saving both `meta,py` and `meta_shortcuts.py`, run `$ make run` and you are done!
 
 #### Case C: Add new graph objects
 
 (coming soon) 
 
 #### Case D: Add/Modify language vocabulary table
+
+(coming soon)
+
 
 After all cases, commit the changes and make a PR to the online repo.
 
