@@ -90,16 +90,6 @@ def graph_objs_info():
                 'data',
                 'annotations'
             ],
-        )),
-        ('primitive', dict(
-            group='Primitive',
-            description=False,        # => will not appear on plot.ly/
-            graph_objs=[
-                'trace',
-                'plotlylist',
-                'plotlydict',
-                'plotlytrace'
-            ]
         ))
     ])
     return _graph_objs_info

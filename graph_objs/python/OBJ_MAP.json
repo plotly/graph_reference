@@ -7,17 +7,9 @@
         "info_key": "area", 
         "base_name": "PlotlyDict"
     }, 
-    "PlotlyDict": {
-        "info_key": "plotlydict", 
-        "base_name": "PlotlyDict"
-    }, 
     "RadialAxis": {
         "info_key": "radialaxis", 
         "base_name": "PlotlyDict"
-    }, 
-    "PlotlyList": {
-        "info_key": "plotlylist", 
-        "base_name": "PlotlyList"
     }, 
     "Heatmap": {
         "info_key": "heatmap", 
@@ -41,10 +33,6 @@
     }, 
     "YBins": {
         "info_key": "ybins", 
-        "base_name": "PlotlyDict"
-    }, 
-    "Trace": {
-        "info_key": "trace", 
         "base_name": "PlotlyDict"
     }, 
     "YAxis": {
@@ -86,10 +74,6 @@
     "Bar": {
         "info_key": "bar", 
         "base_name": "PlotlyDict"
-    }, 
-    "PlotlyTrace": {
-        "info_key": "plotlytrace", 
-        "base_name": "PlotlyList"
     }, 
     "AngularAxis": {
         "info_key": "angularaxis", 

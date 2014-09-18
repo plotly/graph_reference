@@ -12,21 +12,18 @@
             "area"
         ]
     }, 
-    "plotlydict": {}, 
     "radialaxis": {
         "radialaxis": [
             "layout"
         ]
     }, 
-    "plotlylist": {}, 
     "marker": {
         "marker": [
             "scatter", 
             "bar", 
             "histogram", 
             "box", 
-            "area", 
-            "trace"
+            "area"
         ]
     }, 
     "font": {
@@ -36,8 +33,7 @@
             "yaxis"
         ], 
         "textfont": [
-            "scatter", 
-            "trace"
+            "scatter"
         ], 
         "font": [
             "layout", 
@@ -60,16 +56,14 @@
         "error_x": [
             "scatter", 
             "bar", 
-            "histogram", 
-            "trace"
+            "histogram"
         ]
     }, 
     "error_y": {
         "error_y": [
             "scatter", 
             "bar", 
-            "histogram", 
-            "trace"
+            "histogram"
         ]
     }, 
     "area": {}, 
@@ -93,17 +87,14 @@
             "layout"
         ]
     }, 
-    "trace": {}, 
     "histogram2d": {}, 
     "xbins": {
         "xbins": [
             "histogram", 
             "histogram2d", 
-            "histogram2dcontour", 
-            "trace"
+            "histogram2dcontour"
         ]
     }, 
-    "plotlytrace": {}, 
     "layout": {
         "layout": [
             "figure"
@@ -115,8 +106,7 @@
             "box", 
             "contour", 
             "histogram2dcontour", 
-            "marker", 
-            "trace"
+            "marker"
         ]
     }, 
     "histogram": {}, 
@@ -134,8 +124,7 @@
         "ybins": [
             "histogram", 
             "histogram2d", 
-            "histogram2dcontour", 
-            "trace"
+            "histogram2dcontour"
         ]
     }, 
     "box": {}, 
@@ -155,8 +144,7 @@
             "heatmap", 
             "contour", 
             "histogram2d", 
-            "histogram2dcontour", 
-            "trace"
+            "histogram2dcontour"
         ]
     }, 
     "histogram2dcontour": {}, 
