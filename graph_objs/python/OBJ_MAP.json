@@ -5,7 +5,7 @@
     }, 
     "Area": {
         "info_key": "area", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "RadialAxis": {
         "info_key": "radialaxis", 
@@ -13,7 +13,7 @@
     }, 
     "Heatmap": {
         "info_key": "heatmap", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "Contours": {
         "info_key": "contours", 
@@ -25,7 +25,7 @@
     }, 
     "Histogram": {
         "info_key": "histogram", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "Annotations": {
         "info_key": "annotations", 
@@ -49,7 +49,7 @@
     }, 
     "Histogram2d": {
         "info_key": "histogram2d", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "ColorBar": {
         "info_key": "colorbar", 
@@ -69,11 +69,11 @@
     }, 
     "Box": {
         "info_key": "box", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "Bar": {
         "info_key": "bar", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "AngularAxis": {
         "info_key": "angularaxis", 
@@ -85,7 +85,7 @@
     }, 
     "Scatter": {
         "info_key": "scatter", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "Figure": {
         "info_key": "figure", 
@@ -113,10 +113,10 @@
     }, 
     "Histogram2dContour": {
         "info_key": "histogram2dcontour", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }, 
     "Contour": {
         "info_key": "contour", 
-        "base_name": "PlotlyDict"
+        "base_name": "PlotlyTrace"
     }
 }

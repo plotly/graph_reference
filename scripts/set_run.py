@@ -20,12 +20,14 @@ def languages():
 def graph_objs_info():
     ''' @graph_objs_info@
     Set list of all graph objects (needed to call methods in MakeMeta()), 
-    divided up in category groups 
-    (for presentation in plot.ly/<lang>/reference/ table of content)
-    and a description (again for plot.ly/<lang>/reference/)
+    divided up in category groups. Why:
+    - for presentation purposes in plot.ly/<lang>/reference/
+      (e.g. a table of content, and description)
+    - split between 'trace' and other dictionary-like graph objects
+      in the Python API.
     '''
     _graph_objs_info = OrderedDict([
-        ('trace', dict(
+        ('trace', dict(  # !important (python-api)
             group='Trace objects',
             description='Bind your data to traces with these',
             graph_objs=[
@@ -85,7 +87,7 @@ def graph_objs_info():
         )),
         ('list-like', dict(
             group='List-like objects',
-            description=False,        
+            description=False,  # => will not appear on plot.ly
             graph_objs=[
                 'data',
                 'annotations'

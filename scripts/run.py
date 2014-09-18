@@ -180,7 +180,7 @@ def write_PARENT_TREE(tree, meta_language):
         json.dump(_PARENT_TREE, f, indent=4, sort_keys=False)
     return _PARENT_TREE
 
-def write_OBJ_MAP(tree, meta_language, tables):
+def write_OBJ_MAP(tree, meta_language, graph_objs_info_language, tables):
     '''
     Write object map to 'basename' and 'info_key', an input of the
     class factories in the python API
@@ -188,7 +188,10 @@ def write_OBJ_MAP(tree, meta_language, tables):
     _OBJ_MAP = dict()
     for obj, stuff in meta_language.items():
         if stuff['obj_type'] == tables['UL']:
-            _base_name = 'PlotlyDict'
+            if obj in graph_objs_info_language['trace']['graph_objs']:
+                _base_name = 'PlotlyTrace'
+            else:
+                _base_name = 'PlotlyDict'
         elif stuff['obj_type'] == tables['OL']:
             _base_name = 'PlotlyList'
         else:
@@ -301,7 +304,9 @@ def main():
 
         # Write OBJ_MAP (python only)
         if language == 'python':
-            OBJ_MAP = write_OBJ_MAP(tree_graph_objs, meta_language, tables)
+            OBJ_MAP = write_OBJ_MAP(tree_graph_objs,
+                                    meta_language,
+                                    graph_objs_info_language, tables)
 
         # Make\Write meta+toc config file (for plot.ly)
         write_config(tree_published, language, 
