@@ -845,7 +845,7 @@ class Make(dict):
         _required=False
         _key_type="style"
         _val_types=(
-            "array_like of value-color pairs | "
+            "{OL} of value-color pairs | "
             "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
             "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
             "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"

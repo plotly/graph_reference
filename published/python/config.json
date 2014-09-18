@@ -861,7 +861,7 @@
                                 ], 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
                         }, 
                         {
@@ -1130,7 +1130,7 @@
                                 ], 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
                         }, 
                         {
@@ -1382,7 +1382,7 @@
                                 ], 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
                         }, 
                         {
@@ -1649,7 +1649,7 @@
                                 ], 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
                         }, 
                         {
@@ -2306,7 +2306,7 @@
                                 ], 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
                         }, 
                         {

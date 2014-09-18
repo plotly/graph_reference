@@ -643,7 +643,7 @@
             }, 
             "colorscale": {
                 "key_type": "style", 
-                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
@@ -845,7 +845,7 @@
             }, 
             "colorscale": {
                 "key_type": "style", 
-                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
@@ -1034,7 +1034,7 @@
             }, 
             "colorscale": {
                 "key_type": "style", 
-                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
@@ -1232,7 +1232,7 @@
             }, 
             "colorscale": {
                 "key_type": "style", 
-                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
@@ -1715,7 +1715,7 @@
             }, 
             "colorscale": {
                 "key_type": "style", 
-                "val_types": "array_like of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
+                "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
