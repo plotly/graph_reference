@@ -50,7 +50,7 @@ Modify it, save `meta_shortcuts.py`, run `$ make run` and you are done!
  
 #### Case B: Add new key
 
-1. Determine whether this new key has an equivalent for other graph object(s). You
+- Determine whether this new key has an equivalent for other graph object(s). You
    can easily do so by searching for `'<key>'` in `meta.py` or `@<key>@` in
    `meta_shortcuts.py`.
 
@@ -63,13 +63,11 @@ in `meta.py` to the updated `meta_shortcuts.Make` method.
   from a similar shortcut. Use the `_output`function (see `@output@` to
   format the 'keymeta' dictionary,
    
-(more step-by-step info coming soon ...)
-
 After saving both `meta,py` and `meta_shortcuts.py`, run `$ make run` and you are done!
 
 #### Case C: Add new graph objects
 
-(coming soon) 
+
 
 #### Case D: Add/Modify language vocabulary table
 

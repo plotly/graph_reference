@@ -336,7 +336,7 @@ class MakeExamples(list):
     def data(self):
         '''@data@'''
         self.python = [
-            "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2],y[2,3])])"
+            "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2], y[2,3])])"
 
         ]
         return self

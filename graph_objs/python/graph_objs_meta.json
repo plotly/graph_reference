@@ -3450,7 +3450,7 @@
         ], 
         "docstring": "A list-like object of trace dictionary-like objects to be shown on one plotly figure.", 
         "examples": [
-            "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2],y[2,3])])"
+            "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2], y[2,3])])"
         ], 
         "links": [], 
         "keymeta": {}
@@ -3462,7 +3462,9 @@
             "annotations"
         ], 
         "docstring": "A list-like object of annotation dictionary-like objects to be shown on one plotly figure.", 
-        "examples": [], 
+        "examples": [
+            "Annotations([Annotation(x=0, y=1, text='look!'),\n    Annotation(x=1, y=2, text='See the data at the URL below, showarrow=False),\n    Annotation(x=10, y=20, text='this point is an outlier)])"
+        ], 
         "links": [], 
         "keymeta": {}
     }

@@ -47,7 +47,7 @@ meta has the following structure:
     "obj_type": "object equivalent" or "array equivalent in given language",
     "parent_keys": [
       "list of keys linking this graph objects"
-    ]
+    ],
     "docstring": "some info about the graph object",
     "examples": [
       "list short code snippet example"
@@ -94,9 +94,9 @@ meta has the following structure:
 
 - `makefile` : set of shortcut to generate the meta
 
-- `graph_objs` : generated meta
+- `graph_objs/` : generated meta
 
-- `published` : published content for plot.ly
+- `published/` : published content for plot.ly
 
 - `test_graph_reference.py` : test script for `nosetest`
 
