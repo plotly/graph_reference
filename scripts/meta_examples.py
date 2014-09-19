@@ -230,15 +230,17 @@ class MakeExamples(list):
         return self
 
     def angularaxis(self): # TODO!
+        '''@angularaxis@'''
         self.python = []
         return self
 
     def radialaxis(self): # TODO!
+        '''@radialaxis@'''
         self.python = []
         return self
     
     def annotation(self):
-        '''@scatter@'''
+        '''@annotation@'''
         self.python = [
             "annotation = Annotation(\n"
             "     text='what i want this to say is:<br>THIS!',\n"
@@ -252,22 +254,27 @@ class MakeExamples(list):
         return self
 
     def colorbar(self):
+        '''@colorbar@'''
         self.python = [] # TODO!
         return self
 
     def contours(self):
+        '''@contours@'''
         self.python = [] # TODO!
         return self
         
     def error_y(self):
+        '''@error_y@'''
         self.python = [] # TODO!
         return self
 
     def error_x(self):
+        '''@error_x@'''
         self.python = [] # TODO!
         return self
 
     def figure(self):
+        '''@figure@'''
         self.python = [] # TODO!
         return self
 
@@ -277,53 +284,70 @@ class MakeExamples(list):
         return self
 
     def layout(self):
+        '''@layout@'''
         self.python = [] # TODO!
         return self
         
     def legend(self):
+        '''@legend@'''
         self.python = [] # TODO!
         return self
 
     def line(self):
+        '''@line@'''
         self.python = [] # TODO!
         return self
 
     def marker(self):
+        '''@marker@'''
         self.python = [] # TODO!
         return self
 
     def margin(self):
+        '''@margin@'''
         self.python = [] # TODO!
         return self
 
     def stream(self):
+        '''@stream@'''
         self.python = [] # TODO!
         return self
 
     def xaxis(self):
+        '''@xaxis@'''
         self.python = [] # TODO!
         return self
 
     def xbins(self):
+        '''@xbins@'''
         self.python = [] # TODO!
         return self
 
     def yaxis(self):
+        '''@yaxis@'''
         self.python = [] # TODO!
         return self
 
     def ybins(self):
+        '''@ybins@'''
         self.python = [] # TODO!
         return self
 
     def data(self):
+        '''@data@'''
         self.python = [
             "Data([Bar(x=[1,2], y=[4,5]), Scatter(x=[1,2],y[2,3])])"
+
         ]
         return self
 
     def annotations(self):
-        self.python = [] # TODO!
+        '''@annotations@'''
+        self.python = [
+            "Annotations([Annotation(x=0, y=1, text='look!'),\n"
+            "    Annotation(x=1, y=2, text='See the data at the URL below, showarrow=False),\n"
+            "    Annotation(x=10, y=20, text='this point is an outlier)])"
+        ]
         return self
 
 # -------------------------------------------------------------------------------
