@@ -1,0 +1,152 @@
+{
+    "stream": {
+        "stream": [
+            "scatter", 
+            "bar", 
+            "histogram", 
+            "box", 
+            "heatmap", 
+            "contour", 
+            "histogram2d", 
+            "histogram2dcontour", 
+            "area"
+        ]
+    }, 
+    "radialaxis": {
+        "radialaxis": [
+            "layout"
+        ]
+    }, 
+    "marker": {
+        "marker": [
+            "scatter", 
+            "bar", 
+            "histogram", 
+            "box", 
+            "area"
+        ]
+    }, 
+    "font": {
+        "tickfont": [
+            "colorbar", 
+            "xaxis", 
+            "yaxis"
+        ], 
+        "textfont": [
+            "scatter"
+        ], 
+        "font": [
+            "layout", 
+            "legend", 
+            "annotation"
+        ], 
+        "titlefont": [
+            "colorbar", 
+            "xaxis", 
+            "yaxis", 
+            "layout"
+        ]
+    }, 
+    "angularaxis": {
+        "angularaxis": [
+            "layout"
+        ]
+    }, 
+    "error_x": {
+        "error_x": [
+            "scatter", 
+            "bar", 
+            "histogram"
+        ]
+    }, 
+    "error_y": {
+        "error_y": [
+            "scatter", 
+            "bar", 
+            "histogram"
+        ]
+    }, 
+    "area": {}, 
+    "contour": {}, 
+    "heatmap": {}, 
+    "contours": {
+        "contours": [
+            "contour", 
+            "histogram2dcontour"
+        ]
+    }, 
+    "xaxis": {
+        "xaxis": [
+            "layout"
+        ]
+    }, 
+    "figure": {}, 
+    "annotation": {}, 
+    "annotations": {
+        "annotations": [
+            "layout"
+        ]
+    }, 
+    "histogram2d": {}, 
+    "xbins": {
+        "xbins": [
+            "histogram", 
+            "histogram2d", 
+            "histogram2dcontour"
+        ]
+    }, 
+    "layout": {
+        "layout": [
+            "figure"
+        ]
+    }, 
+    "line": {
+        "line": [
+            "scatter", 
+            "box", 
+            "contour", 
+            "histogram2dcontour", 
+            "marker"
+        ]
+    }, 
+    "histogram": {}, 
+    "data": {
+        "data": [
+            "figure"
+        ]
+    }, 
+    "legend": {
+        "legend": [
+            "layout"
+        ]
+    }, 
+    "ybins": {
+        "ybins": [
+            "histogram", 
+            "histogram2d", 
+            "histogram2dcontour"
+        ]
+    }, 
+    "box": {}, 
+    "bar": {}, 
+    "yaxis": {
+        "yaxis": [
+            "layout"
+        ]
+    }, 
+    "margin": {
+        "margin": [
+            "layout"
+        ]
+    }, 
+    "colorbar": {
+        "colorbar": [
+            "heatmap", 
+            "contour", 
+            "histogram2d", 
+            "histogram2dcontour"
+        ]
+    }, 
+    "histogram2dcontour": {}, 
+    "scatter": {}
+}
