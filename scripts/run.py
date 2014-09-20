@@ -31,7 +31,7 @@ def get_meta(graph_objs, meta_make):
     package result in OrderedDict().
     '''
     for graph_obj in graph_objs:
-        eval('meta_make.'+graph_obj+'()')
+        getattr(meta_make,graph_obj)()
     meta = OrderedDict(meta_make)
     return meta
     
