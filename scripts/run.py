@@ -17,7 +17,7 @@ from meta_examples import MakeExamples
 # - `graph_objs_meta.json`
 # - `config.json`
 #
-# for each language!
+# for each language! Along with a few subset json files.
 #
 # -------------------------------------------------------------------------------
 
@@ -122,6 +122,17 @@ def write_meta(tree, meta_language):
         json.dump(meta_language, f, indent=4, sort_keys=False)
     return
 
+def write_keymeta(tree, meta_language):
+    '''Write keymeta to <tree>/graph_objs_keymeta.json'''
+    _keymeta = []
+    for obj, stuff in meta_language.items():
+        _keymeta += [(obj, stuff['keymeta'])]
+    _keymeta = OrderedDict(_keymeta)
+    file_keymeta = os.path.join(tree, "graph_objs_keymeta.json")
+    with open(file_keymeta, 'w') as f:
+        print "[{}]".format(NAME), '... writes in', file_keymeta
+        json.dump(_keymeta, f, indent=4, sort_keys=False)
+    return
 
 def write_NAME_TO_KEY(tree, meta_language):
     '''
@@ -294,8 +305,9 @@ def main():
         tables = make_tables(table)
         meta_language = format_meta_vocab(meta_language, tables)
 
-        # Write meta 
+        # Write meta and keymeta
         write_meta(tree_graph_objs, meta_language)
+        write_keymeta(tree_graph_objs, meta_language)
         
         # Write NAME_TO_KEY, KEY_TO_NAME, PARENT_TREE
         NAME_TO_KEY = write_NAME_TO_KEY(tree_graph_objs, meta_language)
