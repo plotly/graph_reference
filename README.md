@@ -50,7 +50,7 @@ meta has the following structure:
     ],
     "docstring": "some info about the graph object",
     "examples": [
-      "list short code snippet example"
+      "list of short code snippet example(s)"
     ],
     "links": [
       "list of URLs to related api docs pages"
@@ -61,6 +61,9 @@ meta has the following structure:
          "val_types": "what values are expected for this key",
          "required": "whether this key is required to generate a plot",
          "description": "description of this key's functionality",
+         "examples": [
+           "list of example(s) of how to define key", 
+         ]
          "streamable": (optional) "boolean indicating if key is streamable of not"
      },
      "<some-other-key>": {
