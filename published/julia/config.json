@@ -4313,7 +4313,7 @@
                                     "'regular text'", 
                                     "'an annotation<br>spanning two lines'", 
                                     "'<b>bold text</b>'", 
-                                    "'<a href='https://plot.ly/'>a link to plot.ly</a>'"
+                                    "\"<a href='https://plot.ly/'>a link to plot.ly</a>\""
                                 ], 
                                 "key_type": "plot_info", 
                                 "required": false, 
