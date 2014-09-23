@@ -1,9 +1,9 @@
 {
     "scatter": {
         "name": "scatter", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a scatter trace in plotly.", 
+        "docstring": "A structure array for representing a scatter trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/line-and-scatter/", 
@@ -61,30 +61,30 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links a structure array describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+                "description": "Links a structure array describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+                "description": "Links a structure array containing marker style parameters for this scatter trace. Has an effect only if 'mode' contains 'markers'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+                "description": "Links a structure array containing line parameters for this scatter trace. Has an effect only if 'mode' contains 'lines'.", 
                 "streamable": true
             }, 
             "textposition": {
@@ -95,13 +95,13 @@
             }, 
             "textfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
+                "description": "Links a structure array describing the font style of this scatter trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
             }, 
             "connectgaps": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not missing data points (i.e. '' or NaN) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
             }, 
@@ -145,19 +145,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -171,9 +171,9 @@
     }, 
     "bar": {
         "name": "bar", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a bar trace in plotly.", 
+        "docstring": "A structure array for representing a bar trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/bar-charts/"
@@ -214,23 +214,23 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure array describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure array describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links a structure array containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -253,19 +253,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -293,9 +293,9 @@
     }, 
     "histogram": {
         "name": "histogram", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a histogram trace in plotly.", 
+        "docstring": "A structure array for representing a histogram trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/histograms/"
@@ -329,39 +329,39 @@
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to FALSE, the x-axis bins parameters can be declared in 'xbins' object."
+                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to false, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
             "nbinsx": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to FALSE for 'nbinsx' to apply."
+                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to false for 'nbinsx' to apply."
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure array defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to false."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to FALSE, the y-axis bins parameters can be declared in 'ybins' object."
+                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to false, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
             "nbinsy": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to FALSE for 'nbinsy' to apply."
+                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to false for 'nbinsy' to apply."
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure array defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to false."
             }, 
             "text": {
                 "key_type": "data", 
@@ -372,23 +372,23 @@
             }, 
             "error_y": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure array describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "error_x": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
+                "description": "Links a structure array describing the horizontal error bars (i.e. along the x-axis) that can be drawn from bar tops.", 
                 "streamable": true
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
+                "description": "Links a structure array containing marker style parameters for this bar trace, for example, the bars' fill color, border width and border color.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -411,19 +411,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -437,9 +437,9 @@
     }, 
     "box": {
         "name": "box", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a box trace in plotly.", 
+        "docstring": "A structure array for representing a box trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/box-plots/"
@@ -473,27 +473,27 @@
             }, 
             "boxmean": {
                 "key_type": "style", 
-                "val_types": "FALSE | TRUE | 'sd'", 
+                "val_types": "false | true | 'sd'", 
                 "required": false, 
-                "description": "Choose between add-on features for this box trace. If TRUE then the mean of the data linked to 'y' is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If FALSE (the default), then no line are shown."
+                "description": "Choose between add-on features for this box trace. If true then the mean of the data linked to 'y' is shown as a dashed line in the box. If 'sd', then the standard deviation is also shown. If false (the default), then no line are shown."
             }, 
             "boxpoints": {
                 "key_type": "style", 
-                "val_types": "'outliers' | 'all' | 'suspectedoutliers' | FALSE", 
+                "val_types": "'outliers' | 'all' | 'suspectedoutliers' | false", 
                 "required": false, 
-                "description": "Choose between boxpoints options for this box trace. If 'outliers' (the default), then only the points lying outside the box' whiskers (more info in 'y') are shown. If 'all', then all data points linked 'y' are shown. If 'suspectedoutliers', then outliers points are shown and points either less than 4*Q1-3*Q3 or greater than 4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). If FALSE, then only the boxes are shown and the whiskers correspond to the minimum and maximum value linked to 'y'."
+                "description": "Choose between boxpoints options for this box trace. If 'outliers' (the default), then only the points lying outside the box' whiskers (more info in 'y') are shown. If 'all', then all data points linked 'y' are shown. If 'suspectedoutliers', then outliers points are shown and points either less than 4*Q1-3*Q3 or greater than 4*Q3-3*Q1 are highlighted (with 'outliercolor' in Marker). If false, then only the boxes are shown and the whiskers correspond to the minimum and maximum value linked to 'y'."
             }, 
             "jitter": {
                 "key_type": "style", 
                 "val_types": "number: x in [0, 1]", 
                 "required": false, 
-                "description": "Sets the width of the jitter in the boxpoints scatter in this trace. Has an no effect if 'boxpoints' is set to FALSE. If 0, then the boxpoints are aligned vertically. If 1 then the boxpoints are placed in a random horizontal jitter of width equal to the width of the boxes."
+                "description": "Sets the width of the jitter in the boxpoints scatter in this trace. Has an no effect if 'boxpoints' is set to false. If 0, then the boxpoints are aligned vertically. If 1 then the boxpoints are placed in a random horizontal jitter of width equal to the width of the boxes."
             }, 
             "pointpos": {
                 "key_type": "style", 
                 "val_types": "number: x in [-2, 2]", 
                 "required": false, 
-                "description": "Sets the horizontal position of the boxpoints in relation to the boxes in this trace. Has an no effect if 'boxpoints' is set to FALSE. If 0, then the boxpoints are placed over the center of each box. If 1 (-1), then the boxpoints are placed on the right (left) each box border. If 2 (-2), then the boxpoints are  placed 1 one box width to right (left) of each box. "
+                "description": "Sets the horizontal position of the boxpoints in relation to the boxes in this trace. Has an no effect if 'boxpoints' is set to false. If 0, then the boxpoints are placed over the center of each box. If 1 (-1), then the boxpoints are placed on the right (left) each box border. If 2 (-2), then the boxpoints are  placed 1 one box width to right (left) of each box. "
             }, 
             "whiskerwidth": {
                 "key_type": "style", 
@@ -517,16 +517,16 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
+                "description": "Links a structure array containing marker style parameters for this the boxpoints of box trace. Has an effect only 'boxpoints' is set to 'outliers', 'suspectedoutliers' or 'all'.", 
                 "streamable": true
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing line parameters for the border of this box trace (including the whiskers).", 
+                "description": "Links a structure array containing line parameters for the border of this box trace (including the whiskers).", 
                 "streamable": true
             }, 
             "opacity": {
@@ -549,19 +549,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -575,9 +575,9 @@
     }, 
     "heatmap": {
         "name": "heatmap", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a heatmap trace in plotly.", 
+        "docstring": "A structure array for representing a heatmap trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/heatmaps/"
@@ -612,7 +612,7 @@
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -640,27 +640,27 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure array defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zsmooth": {
                 "key_type": "style", 
-                "val_types": "FALSE | 'best' | 'fast'", 
+                "val_types": "false | 'best' | 'fast'", 
                 "required": false, 
-                "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is FALSE corresponding to no smoothing."
+                "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is false corresponding to no smoothing."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -682,19 +682,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -748,9 +748,9 @@
     }, 
     "contour": {
         "name": "contour", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a contour trace in plotly.", 
+        "docstring": "A structure array for representing a contour trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/contour-plots/"
@@ -785,7 +785,7 @@
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -803,9 +803,9 @@
             }, 
             "autocontour": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If FALSE, declare the contours parameters in 'contours'."
+                "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If false, declare the contours parameters in 'contours'."
             }, 
             "ncontours": {
                 "key_type": "style", 
@@ -815,15 +815,15 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the contours of this trace."
+                "description": "Links a structure array defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links a structure array containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to false in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
@@ -838,21 +838,21 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure array defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -874,19 +874,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -940,9 +940,9 @@
     }, 
     "histogram2d": {
         "name": "histogram2d", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram trace in plotly.", 
+        "docstring": "A structure array for representing a 2D histogram trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/2D-Histograms/"
@@ -976,39 +976,39 @@
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to FALSE, the x-axis bins parameters can be declared in 'xbins' object."
+                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to false, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
             "nbinsx": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to FALSE for 'nbinsx' to apply."
+                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to false for 'nbinsx' to apply."
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure array defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to false."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to FALSE, the y-axis bins parameters can be declared in 'ybins' object."
+                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to false, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
             "nbinsy": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to FALSE for 'nbinsy' to apply."
+                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to false for 'nbinsy' to apply."
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure array defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to false."
             }, 
             "colorscale": {
                 "key_type": "style", 
@@ -1022,25 +1022,25 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure array defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -1058,9 +1058,9 @@
             }, 
             "zsmooth": {
                 "key_type": "style", 
-                "val_types": "FALSE | 'best' | 'fast'", 
+                "val_types": "false | 'best' | 'fast'", 
                 "required": false, 
-                "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is FALSE corresponding to no smoothing."
+                "description": "Choose between algorithms ('best' or 'fast') to smooth data linked to 'z'. The default value is false corresponding to no smoothing."
             }, 
             "opacity": {
                 "key_type": "style", 
@@ -1082,19 +1082,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -1108,9 +1108,9 @@
     }, 
     "histogram2dcontour": {
         "name": "histogram2dcontour", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing a 2D histogram contour trace in plotly.", 
+        "docstring": "A structure array for representing a 2D histogram contour trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/2D-Histograms/"
@@ -1144,45 +1144,45 @@
             }, 
             "autobinx": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to FALSE, the x-axis bins parameters can be declared in 'xbins' object."
+                "description": "Toggle whether or not the x-axis bin parameters are picked automatically by Plotly. Once 'autobinx' is set to false, the x-axis bins parameters can be declared in 'xbins' object."
             }, 
             "nbinsx": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to FALSE for 'nbinsx' to apply."
+                "description": "Specifies the number of x-axis bins. No need to set 'autobinx' to false for 'nbinsx' to apply."
             }, 
             "xbins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to FALSE."
+                "description": "Links a structure array defining the parameters of x-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobinx' is set to false."
             }, 
             "autobiny": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to FALSE, the y-axis bins parameters can be declared in 'ybins' object."
+                "description": "Toggle whether or not the y-axis bin parameters are picked automatically by Plotly. Once 'autobiny' is set to false, the y-axis bins parameters can be declared in 'ybins' object."
             }, 
             "nbinsy": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to FALSE for 'nbinsy' to apply."
+                "description": "Specifies the number of y-axis bins. No need to set 'autobiny' to false for 'nbinsy' to apply."
             }, 
             "ybins": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
+                "description": "Links a structure array defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to false."
             }, 
             "autocontour": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If FALSE, declare the contours parameters in 'contours'."
+                "description": "Toggle whether or not the contour parameters are picked automatically by Plotly. If false, declare the contours parameters in 'contours'."
             }, 
             "ncontours": {
                 "key_type": "style", 
@@ -1192,15 +1192,15 @@
             }, 
             "contours": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the contours of this trace."
+                "description": "Links a structure array defining the parameters of the contours of this trace."
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to FALSE in 'contours'.", 
+                "description": "Links a structure array containing line parameters for contour lines of this contour trace (including line width, dash, color and smoothing level). Has no an effect if 'showlines' is set to false in 'contours'.", 
                 "streamable": true
             }, 
             "colorscale": {
@@ -1215,25 +1215,25 @@
             }, 
             "reversescale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale will be reversed."
             }, 
             "showscale": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the color scale associated with this mapping will be shown alongside the figure."
             }, 
             "colorbar": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the color bar associated with this trace (including its title, length and width)."
+                "description": "Links a structure array defining the parameters of the color bar associated with this trace (including its title, length and width)."
             }, 
             "zauto": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
@@ -1269,19 +1269,19 @@
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -1295,9 +1295,9 @@
     }, 
     "area": {
         "name": "area", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing an area trace in plotly.", 
+        "docstring": "A structure array for representing an area trace in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/polar-chart/"
@@ -1325,26 +1325,26 @@
             }, 
             "marker": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
+                "description": "Links a structure array containing marker style of the area sectors of this trace, for example the sector fill color and sector boundary line width and sector boundary color.", 
                 "streamable": true
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
             }, 
             "stream": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure that initializes this trace as a writable-stream, for use with the streaming API."
+                "description": "Links a structure array that initializes this trace as a writable-stream, for use with the streaming API."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }, 
@@ -1370,11 +1370,11 @@
     }, 
     "error_y": {
         "name": "error_y", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "error_y"
         ], 
-        "docstring": "A structure object representing a set of error bar spanning along the y-axis.", 
+        "docstring": "A structure array object representing a set of error bar spanning along the y-axis.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/error-bars/"
@@ -1388,7 +1388,7 @@
             }, 
             "symmetric": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not error bars are the same length in both directions (up and down). If not specified, the error bars will be symmetric."
             }, 
@@ -1402,19 +1402,19 @@
                 "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to FALSE, this value corresponds to the span above the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
+                "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to false, this value corresponds to the span above the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
             }, 
             "arrayminus": {
                 "key_type": "data", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Only functional when 'symmetric' is set to FALSE. Same as 'array' but corresponding to the span of the error bars below the trace coordinates"
+                "description": "Only functional when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates"
             }, 
             "valueminus": {
                 "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Only functional when 'symmetric' is set to FALSE. Same as 'value' but corresponding to the span of the error bars below the trace coordinates"
+                "description": "Only functional when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars below the trace coordinates"
             }, 
             "color": {
                 "val_types": "a string describing color", 
@@ -1451,7 +1451,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -1459,11 +1459,11 @@
     }, 
     "error_x": {
         "name": "error_x", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "error_x"
         ], 
-        "docstring": "A structure representing a set of error bars spanning along the x-axis.", 
+        "docstring": "A structure array representing a set of error bars spanning along the x-axis.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/error-bars/"
@@ -1477,7 +1477,7 @@
             }, 
             "symmetric": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not error bars are the same length in both directions (right and left). If not specified, the error bars will be symmetric."
             }, 
@@ -1491,19 +1491,19 @@
                 "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to FALSE, this value corresponds to the span right of the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
+                "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to false, this value corresponds to the span right of the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead."
             }, 
             "arrayminus": {
                 "key_type": "data", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Only functional when 'symmetric' is set to FALSE. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates"
+                "description": "Only functional when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates"
             }, 
             "valueminus": {
                 "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Only functional when 'symmetric' is set to FALSE. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates"
+                "description": "Only functional when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates"
             }, 
             "color": {
                 "val_types": "a string describing color", 
@@ -1540,13 +1540,13 @@
             }, 
             "copy_ystyle": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether to set x error bar style to the same style (color, thickness, width, opacity) as y error bars set in 'yaxis'."
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -1554,11 +1554,11 @@
     }, 
     "xbins": {
         "name": "xbins", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "xbins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the x-axis.", 
+        "docstring": "A structure array containing specifications of the bins lying along the x-axis.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/histograms/", 
@@ -1588,11 +1588,11 @@
     }, 
     "ybins": {
         "name": "ybins", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "ybins"
         ], 
-        "docstring": "A structure containing specifications of the bins lying along the y-axis.", 
+        "docstring": "A structure array containing specifications of the bins lying along the y-axis.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/histograms/", 
@@ -1622,11 +1622,11 @@
     }, 
     "marker": {
         "name": "marker", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "marker"
         ], 
-        "docstring": "A structure containing specifications of the marker points.", 
+        "docstring": "A structure array containing specifications of the marker points.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/line-and-scatter/", 
@@ -1663,9 +1663,9 @@
             }, 
             "line": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
+                "description": "Links a structure array containing line parameters for the line segments associated with this marker. For example, the line segments around each marker point in a scatter trace or the line segments around each bar in a bar trace.", 
                 "streamable": true
             }, 
             "opacity": {
@@ -1698,7 +1698,7 @@
             }, 
             "cauto": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the default values of 'cmax' and 'cmax' can be overwritten."
             }, 
@@ -1738,11 +1738,11 @@
     }, 
     "line": {
         "name": "line", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "line"
         ], 
-        "docstring": "A structure containing specifications of the line segments.", 
+        "docstring": "A structure array containing specifications of the line segments.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/line-and-scatter/", 
@@ -1827,11 +1827,11 @@
     }, 
     "contours": {
         "name": "contours", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "contours"
         ], 
-        "docstring": "A structure containing specifications of the contours.", 
+        "docstring": "A structure array containing specifications of the contours.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/contour-plots/"
@@ -1839,7 +1839,7 @@
         "keymeta": {
             "showlines": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the contour lines appear on the plot."
             }, 
@@ -1872,11 +1872,11 @@
     }, 
     "colorbar": {
         "name": "colorbar", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "colorbar"
         ], 
-        "docstring": "A structure object for representing a color bar in plotly.", 
+        "docstring": "A structure array object for representing a color bar in plotly.", 
         "examples": [], 
         "links": [], 
         "keymeta": {
@@ -1894,9 +1894,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings of the colorbar title."
+                "description": "Links a structure array describing the font settings of the colorbar title."
             }, 
             "thickness": {
                 "key_type": "style", 
@@ -1924,15 +1924,15 @@
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the colorbar ticks parameters are picked automatically by Plotly. Once 'autotick' is set to FALSE, the colorbar ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this colorbar object."
+                "description": "Toggle whether or not the colorbar ticks parameters are picked automatically by Plotly. Once 'autotick' is set to false, the colorbar ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this colorbar object."
             }, 
             "nticks": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Sets the number of colorbar ticks. No need to set 'autoticks' to FALSE for 'nticks' to apply."
+                "description": "Sets the number of colorbar ticks. No need to set 'autoticks' to false for 'nticks' to apply."
             }, 
             "ticks": {
                 "key_type": "style", 
@@ -1942,7 +1942,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the colorbar ticks will feature tick labels."
             }, 
@@ -1992,9 +1992,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the ticks' font."
+                "description": "Links a structure array defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2102,11 +2102,11 @@
     }, 
     "stream": {
         "name": "stream", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "stream"
         ], 
-        "docstring": "A structure containing specifications of the data stream.", 
+        "docstring": "A structure array containing specifications of the data stream.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/streaming/"
@@ -2128,11 +2128,11 @@
     }, 
     "xaxis": {
         "name": "xaxis", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "xaxis"
         ], 
-        "docstring": "A structure for representing an x-axis in plotly.", 
+        "docstring": "A structure array for representing an x-axis in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/axes/", 
@@ -2149,9 +2149,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings of the x-axis title."
+                "description": "Links a structure array describing the font settings of the x-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2187,39 +2187,39 @@
             }, 
             "autorange": {
                 "key_type": "style", 
-                "val_types": "TRUE | FALSE | 'reversed'", 
+                "val_types": "true | false | 'reversed'", 
                 "required": false, 
-                "description": "Toggle whether or not the range of this x-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to FALSE automatically. Otherwise, if 'autorange' is set to TRUE (the default behavior), the range of this x-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this x-axis is drawn in reverse i.e. from right to left instead of from left to right (the default behavior)."
+                "description": "Toggle whether or not the range of this x-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this x-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this x-axis is drawn in reverse i.e. from right to left instead of from left to right (the default behavior)."
             }, 
             "showgrid": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this axis features grid lines."
             }, 
             "zeroline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not an additional grid line (thicker than the other grid lines, by default) will appear on this axis along x=0."
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this x axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to FALSE, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
+                "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to false, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
             }, 
             "nticks": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Sets the number of axis ticks. No need to set 'autoticks' to FALSE for 'nticks' to apply."
+                "description": "Sets the number of axis ticks. No need to set 'autoticks' to false for 'nticks' to apply."
             }, 
             "ticks": {
                 "key_type": "style", 
@@ -2229,7 +2229,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks will feature tick labels."
             }, 
@@ -2279,9 +2279,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the ticks' font."
+                "description": "Links a structure array defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2297,7 +2297,7 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 
@@ -2389,11 +2389,11 @@
     }, 
     "yaxis": {
         "name": "yaxis", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "yaxis"
         ], 
-        "docstring": "A structure for representing a y-axis in plotly.", 
+        "docstring": "A structure array for representing a y-axis in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/axes/", 
@@ -2410,9 +2410,9 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings of the y-axis title."
+                "description": "Links a structure array describing the font settings of the y-axis title."
             }, 
             "range": {
                 "key_type": "style", 
@@ -2448,39 +2448,39 @@
             }, 
             "autorange": {
                 "key_type": "style", 
-                "val_types": "TRUE | FALSE | 'reversed'", 
+                "val_types": "true | false | 'reversed'", 
                 "required": false, 
-                "description": "Toggle whether or not the range of this y-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to FALSE automatically. Otherwise, if 'autorange' is set to TRUE (the default behavior), the range of this y-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this y-axis is drawn in reverse i.e. from top to bottom instead of from bottom to top (the default behavior)."
+                "description": "Toggle whether or not the range of this y-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this y-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this y-axis is drawn in reverse i.e. from top to bottom instead of from bottom to top (the default behavior)."
             }, 
             "showgrid": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not this axis features grid lines."
             }, 
             "zeroline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not an additional grid line (thicker than the other grid lines, by default) will appear on this axis along y=0."
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this y axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to FALSE, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
+                "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to false, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object."
             }, 
             "nticks": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Sets the number of axis ticks. No need to set 'autoticks' to FALSE for 'nticks' to apply."
+                "description": "Sets the number of axis ticks. No need to set 'autoticks' to false for 'nticks' to apply."
             }, 
             "ticks": {
                 "key_type": "style", 
@@ -2490,7 +2490,7 @@
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the axis ticks will feature tick labels."
             }, 
@@ -2540,9 +2540,9 @@
             }, 
             "tickfont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure defining the parameters of the ticks' font."
+                "description": "Links a structure array defining the parameters of the ticks' font."
             }, 
             "exponentformat": {
                 "key_type": "style", 
@@ -2558,7 +2558,7 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 
@@ -2650,11 +2650,11 @@
     }, 
     "radialaxis": {
         "name": "radialaxis", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "radialaxis"
         ], 
-        "docstring": "A structure for representing a radial axis in plotly.", 
+        "docstring": "A structure array for representing a radial axis in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/polar-chart/"
@@ -2684,13 +2684,13 @@
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the line bounding this radial axis will be shown on the figure."
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the radial axis ticks will feature tick labels."
             }, 
@@ -2734,7 +2734,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -2742,11 +2742,11 @@
     }, 
     "angularaxis": {
         "name": "angularaxis", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "angularaxis"
         ], 
-        "docstring": "A structure for representing an angular axis in plotly.", 
+        "docstring": "A structure array for representing an angular axis in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/polar-chart/"
@@ -2770,13 +2770,13 @@
             }, 
             "showline": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to TRUE, the bounding line starts from the origin and extends to the edge of radial axis."
+                "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to true, the bounding line starts from the origin and extends to the edge of radial axis."
             }, 
             "showticklabels": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the angular axis ticks will feature tick labels."
             }, 
@@ -2814,7 +2814,7 @@
             }, 
             "visible": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggles whether or not this object will actually be visible in the rendered figure."
             }
@@ -2822,11 +2822,11 @@
     }, 
     "layout": {
         "name": "layout", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "layout"
         ], 
-        "docstring": "A structure containing specification of the layout of a plotly figure.", 
+        "docstring": "A structure array containing specification of the layout of a plotly figure.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/figure-labels/", 
@@ -2843,27 +2843,27 @@
             }, 
             "titlefont": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings of the figure's title."
+                "description": "Links a structure array describing the font settings of the figure's title."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the global font settings for this figure (e.g. all axis titles and labels)."
+                "description": "Links a structure array describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not the legend will be shown in this figure."
             }, 
             "autosize": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to FALSE, the figure's dimensions can be set with 'width' and 'height'."
+                "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to false, the figure's dimensions can be set with 'width' and 'height'."
             }, 
             "width": {
                 "key_type": "style", 
@@ -2879,33 +2879,33 @@
             }, 
             "xaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
+                "description": "Links a structure array describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on."
             }, 
             "yaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
+                "description": "Links a structure array describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on."
             }, 
             "legend": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing the legend parameters for this figure."
+                "description": "Links a structure array containing the legend parameters for this figure."
             }, 
             "annotations": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "cell array of one or several structure array", 
                 "required": false, 
-                "description": "Links an array that contains one or multiple annotation structures."
+                "description": "Links a cell array that contains one or multiple annotation structure arrays."
             }, 
             "margin": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure containing the margin parameters for this figure."
+                "description": "Links a structure array containing the margin parameters for this figure."
             }, 
             "paper_bgcolor": {
                 "key_type": "style", 
@@ -2979,15 +2979,15 @@
             }, 
             "radialaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "A structure describing the radial axis in a polar plot."
+                "description": "A structure array describing the radial axis in a polar plot."
             }, 
             "angularaxis": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "A structure describing the angular axis in a polar plot."
+                "description": "A structure array describing the angular axis in a polar plot."
             }, 
             "direction": {
                 "key_type": "plot_info", 
@@ -3003,7 +3003,7 @@
             }, 
             "hidesources": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "Toggle whether or not an annotation citing the data source is placed at the bottom-right corner of the figure.This key has an effect only on graphs that have been generated from forked graphs from plot.ly."
             }
@@ -3011,14 +3011,14 @@
     }, 
     "font": {
         "name": "font", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "font", 
             "titlefont", 
             "textfont", 
             "tickfont"
         ], 
-        "docstring": "A structure containing specifications of on-plot, title or global text font.", 
+        "docstring": "A structure array containing specifications of on-plot, title or global text font.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/font/", 
@@ -3072,11 +3072,11 @@
     }, 
     "legend": {
         "name": "legend", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "legend"
         ], 
-        "docstring": "A structure for representing a legend in plotly.", 
+        "docstring": "A structure array for representing a legend in plotly.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/legend/", 
@@ -3099,13 +3099,13 @@
                 "key_type": "style", 
                 "val_types": "'normal' | 'reversed'", 
                 "required": false, 
-                "description": "Trace order is set by the order of trace in the data structure. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
+                "description": "Trace order is set by the order of trace in the data structure array. The 'traceorder' key sets whether the legend labels are shown from first-to-last trace ('normal') or from last-to-first ('reversed')."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings within the legend."
+                "description": "Links a structure array describing the font settings within the legend."
             }, 
             "bgcolor": {
                 "key_type": "style", 
@@ -3169,9 +3169,9 @@
     }, 
     "annotation": {
         "name": "annotation", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
+        "docstring": "A structure array for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab//text-and-annotations/"
@@ -3215,15 +3215,15 @@
             }, 
             "showarrow": {
                 "key_type": "plot_info", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
-                "description": "Toggle whether or not the arrow associated with this annotation with be shown. If FALSE, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If TRUE (the default), then 'text' is placed near the arrow's tail."
+                "description": "Toggle whether or not the arrow associated with this annotation with be shown. If false, then the text linked to 'text' lines up with the 'x', 'y' coordinates'. If true (the default), then 'text' is placed near the arrow's tail."
             }, 
             "font": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "Links a structure describing the font settings within this annotation."
+                "description": "Links a structure array describing the font settings within this annotation."
             }, 
             "xanchor": {
                 "key_type": "plot_info", 
@@ -3253,13 +3253,13 @@
                 "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
-                "description": "Scales the arrowhead's size. Has an effect only if 'showarrow' is set to TRUE."
+                "description": "Scales the arrowhead's size. Has an effect only if 'showarrow' is set to true."
             }, 
             "arrowwidth": {
                 "key_type": "style", 
                 "val_types": "number: x > 0", 
                 "required": false, 
-                "description": "Sets the arrowhead's width (in pixels). Has an effect only if 'showarrow' is set to TRUE."
+                "description": "Sets the arrowhead's width (in pixels). Has an effect only if 'showarrow' is set to true."
             }, 
             "arrowcolor": {
                 "key_type": "style", 
@@ -3273,19 +3273,19 @@
                     "'hsla(120,100%,50%,0.3)'", 
                     "'#434F1D'"
                 ], 
-                "description": "Sets the color of the arrowhead. Has an effect only if 'showarrow' is set to TRUE."
+                "description": "Sets the color of the arrowhead. Has an effect only if 'showarrow' is set to true."
             }, 
             "ax": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Position of the annotation text relative to the arrowhead about the x-axis. Has an effect only if 'showarrow' is set to TRUE."
+                "description": "Position of the annotation text relative to the arrowhead about the x-axis. Has an effect only if 'showarrow' is set to true."
             }, 
             "ay": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Position of the annotation text relative to the arrowhead about the y-axis. Has an effect only if 'showarrow' is set to TRUE."
+                "description": "Position of the annotation text relative to the arrowhead about the y-axis. Has an effect only if 'showarrow' is set to true."
             }, 
             "textangle": {
                 "key_type": "style", 
@@ -3343,11 +3343,11 @@
     }, 
     "margin": {
         "name": "margin", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [
             "margin"
         ], 
-        "docstring": "A structure containing specification of the margins.", 
+        "docstring": "A structure array containing specification of the margins.", 
         "examples": [], 
         "links": [
             "https://plot.ly/matlab/setting-graph-size/"
@@ -3385,7 +3385,7 @@
             }, 
             "autoexpand": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": "a boolean: true | false", 
                 "required": false, 
                 "description": "more info coming soon"
             }
@@ -3393,23 +3393,23 @@
     }, 
     "figure": {
         "name": "figure", 
-        "obj_type": "structure", 
+        "obj_type": "structure array", 
         "parent_keys": [], 
-        "docstring": "A structure representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
+        "docstring": "A structure array representing a figure to be rendered by plotly. This is the container for all things to be rendered in a figure.", 
         "examples": [], 
         "links": [], 
         "keymeta": {
             "data": {
                 "key_type": "object", 
-                "val_types": "array of one or several structure", 
+                "val_types": "cell array of one or several structure array", 
                 "required": false, 
-                "description": "An array of one or multiple trace structures to be shown on one plotly figure."
+                "description": "A cell array of one or multiple trace structure arrays to be shown on one plotly figure."
             }, 
             "layout": {
                 "key_type": "object", 
-                "val_types": "structure", 
+                "val_types": "structure array", 
                 "required": false, 
-                "description": "A structure that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
+                "description": "A structure array that contains the layout parameters (e.g. information about the axis, global settings and layout information related to the rendering of the figure)."
             }
         }
     }, 
@@ -3419,7 +3419,7 @@
         "parent_keys": [
             "data"
         ], 
-        "docstring": "An array of trace structures to be shown on one plotly figure.", 
+        "docstring": "A cell array of trace structure arrays to be shown on one plotly figure.", 
         "examples": [], 
         "links": [], 
         "keymeta": {}
@@ -3430,7 +3430,7 @@
         "parent_keys": [
             "annotations"
         ], 
-        "docstring": "An array of annotation structures to be shown on one plotly figure.", 
+        "docstring": "A cell array of annotation structure arrays to be shown on one plotly figure.", 
         "examples": [], 
         "links": [], 
         "keymeta": {}

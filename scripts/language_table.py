@@ -46,11 +46,11 @@ table = dict(
         WEB = 'https://plot.ly/matlab/',
         OL = 'array',
         OL2D = '2d array',
-        UL = 'structure',
-        OLlike = 'array',     # same as OL
-        ULlike = 'structure', # same as UL
-        TRUE = 'TRUE',
-        FALSE = 'FALSE',
+        UL = 'structure array',
+        OLlike = 'cell array',     # same as OL
+        ULlike = 'structure array', # same as UL
+        TRUE = 'true',
+        FALSE = 'false',
         NAN = 'NaN',
     ),
     r = dict(
