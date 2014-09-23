@@ -148,11 +148,17 @@ class MakeExamples(list):
     def text(self):
         '''@text@'''
         self._for_all([
-           "'regular text'", 
+           "'regular text'",
            "'an annotation<br>spanning two lines'",
-           "'<b>bold text</b>'", 
-           "'<a href='https://plot.ly/'>a link to plot.ly</a>'"
+           "'<b>bold text</b>'",
+           "\"<a href='https://plot.ly/'>a link to plot.ly</a>\""
         ])
+        self.matlab = [  # override matlab
+           "'regular text'",
+           "'an annotation<br>spanning two lines'",
+           "'<b>bold text</b>'",
+           "'<a href=\"https://plot.ly/\">a link to plot.ly</a>'"
+        ]
         return self
 
     def area(self):  # TODO!
