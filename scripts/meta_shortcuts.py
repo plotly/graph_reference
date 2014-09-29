@@ -423,7 +423,7 @@ class Make(dict):
     
         _required=False
         _key_type='plot_info'    
-        _val_types="'array' | 'scaled'",
+        _val_types="'array' | 'scaled'"
         _description=dict(
             heatmap=(
                 "If set to 'scaled' and '{S0}' is linked to {{a_OL}}, "
