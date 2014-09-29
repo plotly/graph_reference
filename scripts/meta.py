@@ -1543,7 +1543,7 @@ class MakeMeta(list):
             ('borderwidth', make.borderwidth('colorbar')),
             ('xpad', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
@@ -1552,7 +1552,7 @@ class MakeMeta(list):
             )),
             ('ypad', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(le=50, ge=0),
                 description=(
                     "Sets the amount of space (padding) between the colorbar and "
