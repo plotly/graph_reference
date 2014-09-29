@@ -724,17 +724,13 @@
             }, 
             "xtype": {
                 "key_type": "plot_info", 
-                "val_types": [
-                    "'array' | 'scaled'"
-                ], 
+                "val_types": "'array' | 'scaled'", 
                 "required": false, 
                 "description": "If set to 'scaled' and 'x' is linked to an array, then the horizontal labels are scaled to an array of integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
-                "val_types": [
-                    "'array' | 'scaled'"
-                ], 
+                "val_types": "'array' | 'scaled'", 
                 "required": false, 
                 "description": "If set to 'scaled' and 'y' is linked to an array, then the vertical labels are scaled to an array of integers of unit step starting from 0."
             }, 
@@ -916,17 +912,13 @@
             }, 
             "xtype": {
                 "key_type": "plot_info", 
-                "val_types": [
-                    "'array' | 'scaled'"
-                ], 
+                "val_types": "'array' | 'scaled'", 
                 "required": false, 
                 "description": "If set to 'scaled' and 'x' is linked to an array, then the horizontal labels are scaled to an array of integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
-                "val_types": [
-                    "'array' | 'scaled'"
-                ], 
+                "val_types": "'array' | 'scaled'", 
                 "required": false, 
                 "description": "If set to 'scaled' and 'y' is linked to an array, then the vertical labels are scaled to an array of integers of unit step starting from 0."
             }, 
