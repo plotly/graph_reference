@@ -426,8 +426,8 @@ class Make(dict):
         _val_types="'array' | 'scaled'",
         _description=dict(
             heatmap=(
-                "If set to 'scaled' and '{S0}' is linked to a {{OL}}, "
-                "then the {S1} labels are scaled to a {{OL}}"
+                "If set to 'scaled' and '{S0}' is linked to {{a_OL}}, "
+                "then the {S1} labels are scaled to {{a_OL}} "
                 "of integers of unit step "
                 "starting from 0."
            ).format(S0=s[0],S1=s[1])
