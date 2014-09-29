@@ -728,7 +728,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vector of integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
@@ -736,7 +736,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vector of integers of unit step starting from 0."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -920,7 +920,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'x' is linked to a generic vector (list) or atomic vector, then the horizontal labels are scaled to a generic vector (list) or atomic vector of integers of unit step starting from 0."
             }, 
             "ytype": {
                 "key_type": "plot_info", 
@@ -928,7 +928,7 @@
                     "'array' | 'scaled'"
                 ], 
                 "required": false, 
-                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vectorof integers of unit step starting from 0."
+                "description": "If set to 'scaled' and 'y' is linked to a generic vector (list) or atomic vector, then the vertical labels are scaled to a generic vector (list) or atomic vector of integers of unit step starting from 0."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -2087,13 +2087,13 @@
                 "description": "Sets the width of the boarder enclosing this colorbar"
             }, 
             "xpad": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x in [0, 50]", 
                 "required": false, 
                 "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the x-direction."
             }, 
             "ypad": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x in [0, 50]", 
                 "required": false, 
                 "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction."

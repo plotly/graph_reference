@@ -969,7 +969,7 @@
                         }, 
                         {
                             "xtype": {
-                                "description": "If set to 'scaled' and 'x' is linked to a array, then the horizontal labels are scaled to a arrayof integers of unit step starting from 0.", 
+                                "description": "If set to 'scaled' and 'x' is linked to an array, then the horizontal labels are scaled to an array of integers of unit step starting from 0.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": [
@@ -979,7 +979,7 @@
                         }, 
                         {
                             "ytype": {
-                                "description": "If set to 'scaled' and 'y' is linked to a array, then the vertical labels are scaled to a arrayof integers of unit step starting from 0.", 
+                                "description": "If set to 'scaled' and 'y' is linked to an array, then the vertical labels are scaled to an array of integers of unit step starting from 0.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": [
@@ -1226,7 +1226,7 @@
                         }, 
                         {
                             "xtype": {
-                                "description": "If set to 'scaled' and 'x' is linked to a array, then the horizontal labels are scaled to a arrayof integers of unit step starting from 0.", 
+                                "description": "If set to 'scaled' and 'x' is linked to an array, then the horizontal labels are scaled to an array of integers of unit step starting from 0.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": [
@@ -1236,7 +1236,7 @@
                         }, 
                         {
                             "ytype": {
-                                "description": "If set to 'scaled' and 'y' is linked to a array, then the vertical labels are scaled to a arrayof integers of unit step starting from 0.", 
+                                "description": "If set to 'scaled' and 'y' is linked to an array, then the vertical labels are scaled to an array of integers of unit step starting from 0.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": [
@@ -2804,7 +2804,7 @@
                         {
                             "xpad": {
                                 "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the x-direction.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x in [0, 50]"
                             }
@@ -2812,7 +2812,7 @@
                         {
                             "ypad": {
                                 "description": "Sets the amount of space (padding) between the colorbar and the enclosing boarder in the y-direction.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x in [0, 50]"
                             }
