@@ -146,7 +146,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -256,7 +256,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -417,7 +417,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -557,7 +557,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -694,7 +694,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -886,7 +886,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1095,7 +1095,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1287,7 +1287,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1350,7 +1350,7 @@
                 "streamable": true
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -2873,7 +2873,7 @@
                 "description": "Links a dictionary-like object describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
                 "description": "Toggle whether or not the legend will be shown in this figure."

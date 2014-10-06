@@ -188,7 +188,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -340,7 +340,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -558,7 +558,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -744,7 +744,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -926,7 +926,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1183,7 +1183,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1463,7 +1463,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1722,7 +1722,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1806,7 +1806,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -3846,7 +3846,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not the legend will be shown in this figure.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
