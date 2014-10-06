@@ -684,7 +684,7 @@ class Make(dict):
     def showlegend(self, trace=False, layout=False):
         '''@showlegend@'''
         _required=False
-        _key_type='style'
+        _key_type='plot_info'
         _val_types=val_types.bool()
         if trace:
             _description=(
