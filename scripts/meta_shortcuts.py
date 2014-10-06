@@ -1153,13 +1153,12 @@ class Make(dict):
         _required=False
         _key_type='style'
         _val_types=val_types.number(ge=0)
-        _description=dict(
+        _description = dict(
             line="Sets the width (in pixels) of the line segments in question.",
             error=(
                 "Sets the width (in pixels) of the cross-bar at both ends of "
                 "the error bars."
-            ),
-            figure="The width in pixels of the figure you're creating."
+            )
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
     
