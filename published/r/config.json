@@ -2223,7 +2223,7 @@
                         {
                             "symbol": {
                                 "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to a generic vector (list) or atomic vector, the symbol values are mapped to individual marker points in the same order as in the generic vector (list) or atomic vector linked to 'x', 'y' (or 'z').", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values"
                             }
