@@ -46,7 +46,7 @@
                         {
                             "mode": {
                                 "description": "Plotting mode (or style) for the scatter plot. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'"
                             }
@@ -826,7 +826,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -834,7 +834,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -846,7 +846,7 @@
                                     "'Greys'", 
                                     "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1052,7 +1052,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1060,7 +1060,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1107,7 +1107,7 @@
                                     "'Greys'", 
                                     "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1350,7 +1350,7 @@
                                     "'Greys'", 
                                     "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1391,7 +1391,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1399,7 +1399,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1612,7 +1612,7 @@
                                     "'Greys'", 
                                     "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1653,7 +1653,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1661,7 +1661,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1924,7 +1924,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -2044,7 +2044,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -2269,7 +2269,7 @@
                                     "'Greys'", 
                                     "{[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']}"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -2285,7 +2285,7 @@
                         {
                             "cmin": {
                                 "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -2293,7 +2293,7 @@
                         {
                             "cmax": {
                                 "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -2368,7 +2368,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the line segments in question.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -3843,7 +3843,7 @@
                         {
                             "height": {
                                 "description": "Sets the height in pixels of the figure you are generating.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x > 0"
                             }
@@ -4491,7 +4491,7 @@
                         {
                             "l": {
                                 "description": "Sets the left margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -4499,7 +4499,7 @@
                         {
                             "r": {
                                 "description": "Sets the right margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -4507,7 +4507,7 @@
                         {
                             "b": {
                                 "description": "Sets the bottom margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -4515,7 +4515,7 @@
                         {
                             "t": {
                                 "description": "Sets the top margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -4523,7 +4523,7 @@
                         {
                             "pad": {
                                 "description": "Sets the distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels).", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -4531,7 +4531,7 @@
                         {
                             "autoexpand": {
                                 "description": "more info coming soon", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: TRUE | FALSE"
                             }

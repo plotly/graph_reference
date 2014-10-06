@@ -12,10 +12,10 @@ from meta_examples import MakeExamples
 class MakeMeta(list):
     '''@MakeMeta@ -- Meta-generating methods for each graph object!
     '''
-    
+
     def __init__(self):
         ''' @make_meta@
-        Initialize class as list, 
+        Initialize class as list,
         link `meta_shortcuts.py` instances to global variables
         '''
         self = []
@@ -30,14 +30,14 @@ class MakeMeta(list):
               docstring, examples, links, keymeta):
         ''' @stuff@ -- Return a list of a tuple packaging graph object stuff
         '''
-        return [(graph_obj, 
+        return [(graph_obj,
             OrderedDict([
                 ('name', name),
                 ('obj_type', obj_type),
                 ('parent_keys', parent_keys),
                 ('docstring', docstring),
-                ('examples',examples), 
-                ('links', links), 
+                ('examples',examples),
+                ('links', links),
                 ('keymeta', keymeta)
             ])
         )]
@@ -60,11 +60,11 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('x', make.x('scatter')),
             ('y', make.y('scatter')),
-            ('r', make.r('scatter')),  
+            ('r', make.r('scatter')),
             ('t', make.t('scatter')),
             ('mode', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=(
                     "'lines' | 'markers' | 'text' | 'lines+markers' | "
                     "'lines+text' | 'markers+text' | 'lines+markers+text'"
@@ -133,9 +133,9 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('scatter')),
         ])
-        self += self._stuff('scatter', name, obj_type, parent_keys, 
+        self += self._stuff('scatter', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
- 
+
     def bar(self):
         '''@bar@'''
         name = '{bar}'
@@ -165,9 +165,9 @@ class MakeMeta(list):
             ('t', make.t('bar')),   # ARTIFACT
             ('type', make.type('bar')),
         ])
-        self += self._stuff('bar', name, obj_type, parent_keys, 
+        self += self._stuff('bar', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def histogram(self):
         '''@histogram@'''
         name = '{histogram}'
@@ -201,9 +201,9 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram')),
         ])
-        self += self._stuff('histogram', name, obj_type, parent_keys, 
+        self += self._stuff('histogram', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def box(self):
         '''@box@'''
         name = "{box}"
@@ -249,7 +249,7 @@ class MakeMeta(list):
             )),
             ('jitter', dict(
                 required=False,
-                key_type='style',    
+                key_type='style',
                 val_types=val_types.number(ge=0,le=1),
                 description=(
                     "Sets the width of the jitter in the boxpoints scatter "
@@ -269,7 +269,7 @@ class MakeMeta(list):
                     "Sets the horizontal position of the boxpoints "
                     "in relation to the boxes in this trace. "
                     "Has an no effect if 'boxpoints' is set to {FALSE}. "
-                    "If 0, then the boxpoints are placed over the center of " 
+                    "If 0, then the boxpoints are placed over the center of "
                     "each box. If 1 (-1), then the boxpoints are placed on the "
                     "right (left) each box border. "
                     "If 2 (-2), then the boxpoints are  "
@@ -299,9 +299,9 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('box'))
         ])
-        self += self._stuff('box', name, obj_type, parent_keys, 
+        self += self._stuff('box', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def heatmap(self):
         '''@heatmap@'''
         name = "{heatmap}"
@@ -321,7 +321,7 @@ class MakeMeta(list):
             ('zmin', make.zcminmax('min','z')),
             ('zmax', make.zcminmax('max','z')),
             ('colorscale', make.colorscale('z')),
-            ('reversescale', make.reversescale()),  
+            ('reversescale', make.reversescale()),
             ('showscale', make.showscale()),
             ('colorbar', make.colorbar()),
             ('zsmooth', make.zsmooth()),
@@ -339,9 +339,9 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('heatmap')),
         ])
-        self += self._stuff('heatmap', name, obj_type, parent_keys, 
+        self += self._stuff('heatmap', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def contour(self):
         '''@contour@'''
         name = "{contour}"
@@ -382,7 +382,7 @@ class MakeMeta(list):
             ('ytype', make.xytype('heatmap','y')),
             ('type', make.type('contour'))
         ])
-        self += self._stuff('contour', name, obj_type, parent_keys, 
+        self += self._stuff('contour', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
     def histogram2d(self):
@@ -422,9 +422,9 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2d'))
         ])
-        self += self._stuff('histogram2d', name, obj_type, parent_keys, 
+        self += self._stuff('histogram2d', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def histogram2dcontour(self):
         '''@histogram2dcontour@'''
         name = '{histogram2dcontour}'
@@ -466,9 +466,9 @@ class MakeMeta(list):
             ('visible', make.visible()),
             ('type', make.type('histogram2dcontour'))
         ])
-        self += self._stuff('histogram2dcontour', name, obj_type, parent_keys, 
+        self += self._stuff('histogram2dcontour', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def area(self):
         '''@area@'''
         name = '{area}'
@@ -505,20 +505,20 @@ class MakeMeta(list):
             )),
             ('type', make.type('area'))
         ])
-        self += self._stuff('area', name, obj_type, parent_keys, 
+        self += self._stuff('area', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def _keymeta_error(self,y_or_x):
         '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
-    
+
         S = {'y': ['y','vertically','up','down','above','below'],
              'x': ['x','horizontally','right','left','right of','left of']}
         s = S[y_or_x]
-        
+
         _keymeta = [
             ('type', dict(      # Different enough from shortcut
                 required=False,
-                key_type='plot_info', 
+                key_type='plot_info',
                 val_types="'data' | 'percent' | 'constant' | 'sqrt'",
                 description=(
                     "Specify how the 'value' or 'array' key in "
@@ -605,7 +605,7 @@ class MakeMeta(list):
             ('width', make.width('error')),
             ('opacity', make.opacity()),
         ]
-    
+
         if y_or_x=='x':
             _keymeta += [
                 ('copy_ystyle', dict(
@@ -620,10 +620,10 @@ class MakeMeta(list):
                     )
                 ))
             ]
-    
+
         _keymeta += [('visible', make.visible())]
         return _keymeta
-      
+
     def error_y(self):
         '''@error_y@'''
         name = '{error_y}'
@@ -636,9 +636,9 @@ class MakeMeta(list):
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.error_y(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('y'))
-        self += self._stuff('error_y', name, obj_type, parent_keys, 
+        self += self._stuff('error_y', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def error_x(self):
         '''@error_x@'''
         name = '{error_x}'
@@ -651,9 +651,9 @@ class MakeMeta(list):
         links = ["{WEB}error-bars/"]
         examples = MakeExamples.error_x(MakeExamples())
         keymeta = OrderedDict(self._keymeta_error('x'))
-        self += self._stuff('error_x', name, obj_type, parent_keys, 
+        self += self._stuff('error_x', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def _keymeta_bins(self,x_or_y):
         '''@keymeta_bins@ -- keymeta for XBins and YBins'''
         _keymeta = [
@@ -662,7 +662,7 @@ class MakeMeta(list):
             ('size', make.size('bins',x_or_y))
         ]
         return _keymeta
-    
+
     def xbins(self):
         '''@xbins@'''
         name = '{xbins}'
@@ -678,9 +678,9 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.xbins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('x'))
-        self += self._stuff('xbins', name, obj_type, parent_keys, 
+        self += self._stuff('xbins', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def ybins(self):
         '''@ybins@'''
         name = '{ybins}'
@@ -696,9 +696,9 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.ybins(MakeExamples())
         keymeta = OrderedDict(self._keymeta_bins('y'))
-        self += self._stuff('ybins', name, obj_type, parent_keys, 
+        self += self._stuff('ybins', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def contours(self):
         '''@contours@'''
         name = '{contours}'
@@ -738,9 +738,9 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff('contours', name, obj_type, parent_keys, 
+        self += self._stuff('contours', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def stream(self):
         '''@stream@'''
         name = '{stream}'
@@ -777,9 +777,9 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff('stream', name, obj_type, parent_keys, 
+        self += self._stuff('stream', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def marker(self):
         '''@marker@'''
         name = '{marker}'
@@ -815,7 +815,7 @@ class MakeMeta(list):
             )),
             ('line', make.line('marker')),
             ('opacity', make.opacity(marker=True)),
-            ('sizeref', dict(  
+            ('sizeref', dict(
                 required=False,
                 key_type='style',
                 val_types=val_types.number(ge=0),
@@ -830,7 +830,7 @@ class MakeMeta(list):
                     "rendered marker sizes."
                 )
             )),
-            ('sizemode', dict(  
+            ('sizemode', dict(
                 required=False,
                 key_type='style',
                 val_types="'diameter'| 'area'",
@@ -841,7 +841,7 @@ class MakeMeta(list):
                     "in 'marker' linked to {a_OL}. "
                     "If 'diameter' ('area'), then the diameter (area) of the "
                     "rendered marker points (in pixels) are "
-                    "proportional to the numbers linked to 'size'." 
+                    "proportional to the numbers linked to 'size'."
                     "For example, set 'sizemode' to 'area' for a more a smaller "
                     "range of rendered marker sizes."
                 )
@@ -852,7 +852,7 @@ class MakeMeta(list):
             ('cmax', make.zcminmax('max','color')),
             ('outliercolor', dict(
                 required=False,
-                key_type='style',  
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -871,9 +871,9 @@ class MakeMeta(list):
                 )
             ))
         ])
-        self += self._stuff('marker', name, obj_type, parent_keys, 
+        self += self._stuff('marker', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def line(self):
         '''@line@'''
         name = '{line}'
@@ -908,7 +908,7 @@ class MakeMeta(list):
                 description=(
                     "Choose the line shape between each coordinate pair "
                     "in this trace. "
-                    "Applies only to scatter traces. " 
+                    "Applies only to scatter traces. "
                     "The default value is 'linear'. "
                     "If set to 'spline', then the lines are drawn using spline "
                     "interpolation between the coordinate pairs. "
@@ -934,7 +934,7 @@ class MakeMeta(list):
             )),
             ('outliercolor', dict(
                 required=False,
-                key_type='style',  
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -945,7 +945,7 @@ class MakeMeta(list):
             )),
             ('outlierwidth', dict(
                 required=False,
-                key_type='style',  
+                key_type='style',
                 val_types=val_types.color(),
                 description=(
                     "For box plots only. Has an effect only if 'boxpoints' is "
@@ -955,9 +955,9 @@ class MakeMeta(list):
                examples=MakeExamples.color(MakeExamples())
             ))
         ])
-        self += self._stuff('line', name, obj_type, parent_keys, 
+        self += self._stuff('line', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def font(self):
         '''@font@'''
         name = '{font}'
@@ -1003,11 +1003,11 @@ class MakeMeta(list):
             ('color', make.color('font')),
             ('outlinecolor', make.outlinecolor('font'))
         ])
-        self += self._stuff('font', name, obj_type, parent_keys, 
+        self += self._stuff('font', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def _keymeta_ticks(self,axis_or_colorbar):
-        '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar''' 
+        '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar'''
         _keymeta = [
             ('ticks', dict(
                   required=False,
@@ -1107,14 +1107,14 @@ class MakeMeta(list):
             ))
         ]
         return _keymeta
-      
+
     def _keymeta_axis(self,x_or_y):
         '''@keymake_axis@ -- keymeta for XAxis and YAxis'''
-          
-        S = {'x':['x','bottom','top','y','left','right','vertical'], 
+
+        S = {'x':['x','bottom','top','y','left','right','vertical'],
              'y':['y','left','right','x','bottom','top','horizontal']}
         s = S[x_or_y]
-      
+
         _keymeta = [
             ('title', make.title('axis',x_or_y)),
             ('titlefont', make.titlefont('axis',x_or_y)),
@@ -1140,7 +1140,7 @@ class MakeMeta(list):
                     "data plotted."
                 ).format(S0=s[0])
             )),
-            ('autorange', dict(  
+            ('autorange', dict(
                 required=False,
                 key_type='style',
                 val_types="{TRUE} | {FALSE} | 'reversed'",
@@ -1243,7 +1243,7 @@ class MakeMeta(list):
                     "this figure."
                 ).format(S0=s[0],S3=s[3],S6=s[6])
             )),
-            ('overlaying', dict(  
+            ('overlaying', dict(
                 required=False,
                 key_type='plot_info',
                 val_types=(
@@ -1281,7 +1281,7 @@ class MakeMeta(list):
             ))
         ]
         return _keymeta
-    
+
     def xaxis(self):
         '''@xaxis@'''
         name = '{xaxis}'
@@ -1298,9 +1298,9 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.xaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('x'))
-        self += self._stuff('xaxis', name, obj_type, parent_keys, 
+        self += self._stuff('xaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def yaxis(self):
         '''@yaxis@'''
         name = '{yaxis}'
@@ -1317,9 +1317,9 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.yaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('y'))
-        self += self._stuff('yaxis', name, obj_type, parent_keys, 
+        self += self._stuff('yaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def radialaxis(self):
         '''@radialaxis@'''
         name = '{radialaxis}'
@@ -1386,9 +1386,9 @@ class MakeMeta(list):
             )),
             ('visible', make.visible())
         ])
-        self += self._stuff('radialaxis', name, obj_type, parent_keys, 
+        self += self._stuff('radialaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def angularaxis(self):
         '''@angularaxis@'''
         name = '{angularaxis}'
@@ -1438,9 +1438,9 @@ class MakeMeta(list):
             )),
             ('visible', make.visible())
         ])
-        self += self._stuff('angularaxis', name, obj_type, parent_keys, 
+        self += self._stuff('angularaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def legend(self):
         '''@legend@'''
         name = '{legend}'
@@ -1477,9 +1477,9 @@ class MakeMeta(list):
             ('xanchor', make.xyanchor('legend','x')),
             ('yanchor', make.xyanchor('legend','y'))
         ])
-        self += self._stuff('legend', name, obj_type, parent_keys, 
+        self += self._stuff('legend', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def colorbar(self):
         '''@colorbar@'''
         name = '{colorbar}'
@@ -1561,9 +1561,9 @@ class MakeMeta(list):
             ))
         ]
         keymeta = OrderedDict(_keymeta)
-        self += self._stuff('colorbar', name, obj_type, parent_keys, 
+        self += self._stuff('colorbar', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def margin(self):
         '''@margin@'''
         name = '{margin}'
@@ -1577,31 +1577,31 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('l', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description="Sets the left margin size in pixels."
             )),
             ('r', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description="Sets the right margin size in pixels."
             )),
             ('b', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description="Sets the bottom margin size in pixels."
             )),
             ('t', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description="Sets the top margin size in pixels."
             )),
             ('pad', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description=(
                     "Sets the distance between edge of the plot and the "
@@ -1610,14 +1610,14 @@ class MakeMeta(list):
             )),
             ('autoexpand', dict(  # TODO: ??
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.bool(),
                 description="more info coming soon"
             ))
         ])
-        self += self._stuff('margin', name, obj_type, parent_keys, 
+        self += self._stuff('margin', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def annotation(self):
         '''@annotation@'''
         name = '{annotation}'
@@ -1758,9 +1758,9 @@ class MakeMeta(list):
             ('bgcolor', make.bgcolor('annotation')),
             ('opacity', make.opacity())
         ])
-        self += self._stuff('annotation', name, obj_type, parent_keys, 
+        self += self._stuff('annotation', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def layout(self):
         '''@layout@'''
         name = '{layout}'
@@ -1805,7 +1805,7 @@ class MakeMeta(list):
             )),
             ('height', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the height in pixels of the figure you are generating."
@@ -1891,7 +1891,7 @@ class MakeMeta(list):
                     "default."
                 )
             )),
-            ('separators', dict(  
+            ('separators', dict(
                 required=False,
                 key_type='style',
                 val_types="a two-character string",
@@ -1961,7 +1961,7 @@ class MakeMeta(list):
                     "but they will not overlap."
                 )
             )),
-            ('radialaxis', dict(  
+            ('radialaxis', dict(
                 required=False,
                 key_type='object',
                 val_types=val_types.object(),
@@ -2004,15 +2004,15 @@ class MakeMeta(list):
                 val_types=val_types.bool(),
                 description=(
                     "Toggle whether or not an annotation citing the data "
-                    "source is placed at the bottom-right corner of the figure." 
+                    "source is placed at the bottom-right corner of the figure."
                     "This key has an effect only on graphs that have been "
                     "generated from forked graphs from plot.ly."
                 )
             ))
         ])
-        self += self._stuff('layout', name, obj_type, parent_keys, 
+        self += self._stuff('layout', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def figure(self):
         '''@figure@'''
         name = '{figure}'
@@ -2046,9 +2046,9 @@ class MakeMeta(list):
                )
             ))
         ])
-        self += self._stuff('figure', name, obj_type, parent_keys, 
+        self += self._stuff('figure', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
     def data(self):
         '''@data@ (accepts no keys)'''
         name = '{data}'
@@ -2060,9 +2060,9 @@ class MakeMeta(list):
         links = []
         examples = MakeExamples.data(MakeExamples())
         keymeta = dict()
-        self += self._stuff('data', name, obj_type, parent_keys, 
+        self += self._stuff('data', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-      
+
     def annotations(self):
         '''@annotations@ (accepts no keys)'''
         name = '{annotations}'
@@ -2074,7 +2074,7 @@ class MakeMeta(list):
         links = []
         examples = MakeExamples.annotations(MakeExamples())
         keymeta = dict()
-        self += self._stuff('annotations', name, obj_type, parent_keys, 
+        self += self._stuff('annotations', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
 # -------------------------------------------------------------------------------

@@ -29,7 +29,7 @@
             "streamable": true
         }, 
         "mode": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
             "required": false, 
             "description": "Plotting mode (or style) for the scatter plot. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
@@ -565,19 +565,19 @@
             "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
         }, 
         "zmin": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "zmax": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "colorscale": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
             "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -724,13 +724,13 @@
             "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
         }, 
         "zmin": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "zmax": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -761,7 +761,7 @@
             "streamable": true
         }, 
         "colorscale": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
             "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -931,7 +931,7 @@
             "description": "Links an object defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to false."
         }, 
         "colorscale": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
             "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -965,13 +965,13 @@
             "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
         }, 
         "zmin": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "zmax": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -1114,7 +1114,7 @@
             "streamable": true
         }, 
         "colorscale": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
             "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -1148,13 +1148,13 @@
             "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
         }, 
         "zmin": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
         }, 
         "zmax": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -1326,7 +1326,7 @@
             "description": "Sets the line thickness of the y error bars."
         }, 
         "width": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars."
@@ -1403,7 +1403,7 @@
             "description": "Sets the line thickness of the x error bars."
         }, 
         "width": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars."
@@ -1524,7 +1524,7 @@
             "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to an array. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
         }, 
         "colorscale": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
             "required": false, 
             "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
@@ -1540,13 +1540,13 @@
             "description": "Toggle whether or not the default values of 'cmax' and 'cmax' can be overwritten."
         }, 
         "cmin": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set."
         }, 
         "cmax": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number", 
             "required": false, 
             "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to an array nd 'colorscale' is set."
@@ -1589,7 +1589,7 @@
             ]
         }, 
         "width": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the width (in pixels) of the line segments in question."
@@ -2592,7 +2592,7 @@
             "description": "Sets the width in pixels of the figure you are generating."
         }, 
         "height": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x > 0", 
             "required": false, 
             "description": "Sets the height in pixels of the figure you are generating."
@@ -3022,37 +3022,37 @@
     }, 
     "margin": {
         "l": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the left margin size in pixels."
         }, 
         "r": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the right margin size in pixels."
         }, 
         "b": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the bottom margin size in pixels."
         }, 
         "t": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the top margin size in pixels."
         }, 
         "pad": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x >= 0", 
             "required": false, 
             "description": "Sets the distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels)."
         }, 
         "autoexpand": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "a boolean: true | false", 
             "required": false, 
             "description": "more info coming soon"
