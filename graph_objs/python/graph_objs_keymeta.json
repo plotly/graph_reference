@@ -147,7 +147,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "type": {
             "key_type": "plot_info", 
@@ -245,7 +245,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "r": {
             "key_type": "data", 
@@ -393,7 +393,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "type": {
             "key_type": "plot_info", 
@@ -521,7 +521,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "type": {
             "key_type": "plot_info", 
@@ -644,7 +644,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "x0": {
             "key_type": "plot_info", 
@@ -822,7 +822,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "x0": {
             "key_type": "plot_info", 
@@ -1016,7 +1016,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "type": {
             "key_type": "plot_info", 
@@ -1193,7 +1193,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "type": {
             "key_type": "plot_info", 
@@ -1246,7 +1246,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }, 
         "angularaxis": {
             "key_type": "plot_info", 
@@ -1341,7 +1341,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }
     }, 
     "error_x": {
@@ -1424,7 +1424,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }
     }, 
     "xbins": {
@@ -2483,7 +2483,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }
     }, 
     "angularaxis": {
@@ -2551,7 +2551,7 @@
             "key_type": "plot_info", 
             "val_types": "a boolean: True | False", 
             "required": false, 
-            "description": "Toggles whether or not this object will actually be visible in the rendered figure."
+            "description": "Toggle whether or not this object will be visible on the rendered figure."
         }
     }, 
     "layout": {

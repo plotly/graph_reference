@@ -204,7 +204,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -356,7 +356,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -574,7 +574,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -760,7 +760,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -942,7 +942,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -1199,7 +1199,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -1479,7 +1479,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -1738,7 +1738,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -1822,7 +1822,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -1966,7 +1966,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -2094,7 +2094,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -3679,7 +3679,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
@@ -3784,7 +3784,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggle whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
