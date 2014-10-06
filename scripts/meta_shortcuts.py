@@ -1133,7 +1133,11 @@ class Make(dict):
     def width(self, obj):
         '''@width@'''
         _required=False
-        _key_type='plot_info'
+        _key_type=dict(
+            line='style',
+            error='style',
+            figure='plot_info'
+        ),
         _val_types=val_types.number(ge=0)
         _description=dict(
             line="Sets the width (in pixels) of the line segments in question.",
