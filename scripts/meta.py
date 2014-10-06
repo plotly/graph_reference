@@ -69,23 +69,7 @@ class MakeMeta(list):
             ('error_x', make.error('scatter','x')),
             ('marker', make.marker('scatter')),
             ('line', make.line('scatter')),
-            ('textposition', dict(
-                required=False,
-                key_type='style',
-                val_types=(
-                    "'top left' | 'top' (or 'top center')| 'top right' | "
-                    "'left' (or 'middle left') | '' (or 'middle center') |"
-                    "'right' (or 'middle right') |"
-                    "'bottom left' | 'bottom' (or 'bottom center') |"
-                    "'bottom right'"
-                ),
-                description=(
-                    "Sets the position of the text elements "
-                    "in the 'text' key with respect to the data points. "
-                    "By default, the text elements are plotted directly "
-                    "at the (x,y) coordinates."
-                )
-            )),
+            ('textposition', make.textposition()),
             ('textfont', make.textfont('scatter')),
             ('connectgaps', dict(
                 required=False,

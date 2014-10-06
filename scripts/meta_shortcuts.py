@@ -577,6 +577,29 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
     
+
+    def textposition(self, is_3d=False):
+        '''@textposition@'''
+        S = '(x,y,z)' if is_3d else '(x,y)'
+
+        _required = False
+        _key_type = 'style'
+        _val_types = (
+            "'top left' | 'top' (or 'top center')| 'top right' | "
+            "'left' (or 'middle left') | '' (or 'middle center') |"
+            "'right' (or 'middle right') |"
+            "'bottom left' | 'bottom' (or 'bottom center') |"
+            "'bottom right'"
+        )
+        _description = (
+                    "Sets the position of the text elements "
+                    "in the 'text' key with respect to the data points. "
+                    "By default, the text elements are plotted directly "
+                    "at the {S} coordinates."
+        ).format(S=S)
+        return self._output(_required, _key_type, _val_types, _description)
+
+
     def opacity(self, marker=False):
         '''@opacity@'''
         _required=False
