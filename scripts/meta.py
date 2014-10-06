@@ -1797,7 +1797,7 @@ class MakeMeta(list):
             )),
             ('width', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=val_types.number(gt=0),
                 description=(
                     "Sets the width in pixels of the figure you are generating."

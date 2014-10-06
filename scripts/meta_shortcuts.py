@@ -1139,6 +1139,7 @@ class Make(dict):
             _key_type = 'style'
         elif obj == 'figure':
             _key_type = 'plot_info'
+
         _val_types=val_types.number(ge=0)
         _description=dict(
             line="Sets the width (in pixels) of the line segments in question.",
