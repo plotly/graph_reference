@@ -94,7 +94,7 @@
             "description": "Toggle whether or not missing data points (i.e. '' or NaN) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
         }, 
         "fill": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx", 
             "required": false, 
             "description": "Use to make area-style charts. Determines which area to fill with a solid color.By default, the area will appear in a more-transparent shape of the line color (or of the marker color if 'mode' does not contains 'lines')."
