@@ -46,7 +46,7 @@
                 "key_type": "style", 
                 "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
                 "required": false, 
-                "description": "Plotting mode (or style) for the scatter plot. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
+                "description": "Plotting mode for this scatter trace. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
             }, 
             "name": {
                 "key_type": "data", 

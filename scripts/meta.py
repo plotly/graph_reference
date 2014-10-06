@@ -62,20 +62,7 @@ class MakeMeta(list):
             ('y', make.y('scatter')),
             ('r', make.r('scatter')),  
             ('t', make.t('scatter')),
-            ('mode', dict(
-                required=False,
-                key_type='style',
-                val_types=(
-                    "'lines' | 'markers' | 'text' | 'lines+markers' | "
-                    "'lines+text' | 'markers+text' | 'lines+markers+text'"
-                ),
-                description=(
-                    "Plotting mode (or style) for the scatter plot. If the "
-                    "mode includes 'text' then the 'text' will appear at "
-                    "the (x,y) points, otherwise it will appear on "
-                    "hover."
-                )
-            )),
+            ('mode', make.mode()),
             ('name', make.name()),
             ('text', make.text('scatter')),
             ('error_y', make.error('scatter','y')),

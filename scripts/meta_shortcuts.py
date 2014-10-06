@@ -656,6 +656,24 @@ class Make(dict):
                 "in the column header in the online spreadsheet."
             )
         )
+
+    def mode(self, is_3d=False):
+        '''@mode@'''
+        S = '3D ' if is_3d else ''
+
+        _required = False
+        _key_type = 'style'
+        _val_types = (
+            "'lines' | 'markers' | 'text' | 'lines+markers' | "
+            "'lines+text' | 'markers+text' | 'lines+markers+text'"
+        )
+        _description = (
+            "Plotting mode for this {S}scatter trace. If the "
+            "mode includes 'text' then the 'text' will appear at "
+            "the (x,y) points, otherwise it will appear on "
+            "hover."
+        ).format(S=S)
+        return self._output(_required, _key_type, _val_types, _description)
     
     def stream(self):
         '''@stream@'''
