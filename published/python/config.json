@@ -3862,7 +3862,7 @@
                         {
                             "width": {
                                 "description": "Sets the width in pixels of the figure you are generating.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x > 0"
                             }

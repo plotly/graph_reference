@@ -2586,7 +2586,7 @@
             "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to False, the figure's dimensions can be set with 'width' and 'height'."
         }, 
         "width": {
-            "key_type": "style", 
+            "key_type": "plot_info", 
             "val_types": "number: x > 0", 
             "required": false, 
             "description": "Sets the width in pixels of the figure you are generating."
