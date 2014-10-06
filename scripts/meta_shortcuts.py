@@ -717,8 +717,8 @@ class Make(dict):
             key_type='plot_info',
             val_types=val_types.bool(),
             description=(
-                "Toggles whether or not this object will actually be "
-                "visible in the rendered figure."
+                "Toggle whether or not this object will be "
+                "visible on the rendered figure."
             )
         )
     
