@@ -1951,13 +1951,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars.", 
-                                "key_type": [
-                                    {
-                                        "error": "style", 
-                                        "figure": "plot_info", 
-                                        "line": "style"
-                                    }
-                                ], 
+                                "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -2077,13 +2071,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars.", 
-                                "key_type": [
-                                    {
-                                        "error": "style", 
-                                        "figure": "plot_info", 
-                                        "line": "style"
-                                    }
-                                ], 
+                                "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -2407,13 +2395,7 @@
                         {
                             "width": {
                                 "description": "Sets the width (in pixels) of the line segments in question.", 
-                                "key_type": [
-                                    {
-                                        "error": "style", 
-                                        "figure": "plot_info", 
-                                        "line": "style"
-                                    }
-                                ], 
+                                "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }

@@ -1457,13 +1457,7 @@
                 "description": "Sets the line thickness of the y error bars."
             }, 
             "width": {
-                "key_type": [
-                    {
-                        "line": "style", 
-                        "figure": "plot_info", 
-                        "error": "style"
-                    }
-                ], 
+                "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars."
@@ -1552,13 +1546,7 @@
                 "description": "Sets the line thickness of the x error bars."
             }, 
             "width": {
-                "key_type": [
-                    {
-                        "line": "style", 
-                        "figure": "plot_info", 
-                        "error": "style"
-                    }
-                ], 
+                "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars."
@@ -1797,13 +1785,7 @@
                 ]
             }, 
             "width": {
-                "key_type": [
-                    {
-                        "line": "style", 
-                        "figure": "plot_info", 
-                        "error": "style"
-                    }
-                ], 
+                "key_type": "style", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the width (in pixels) of the line segments in question."
