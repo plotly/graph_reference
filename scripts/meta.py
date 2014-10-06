@@ -112,7 +112,7 @@ class MakeMeta(list):
             )),
             ('fill', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=(
                     "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx"
                 ),
