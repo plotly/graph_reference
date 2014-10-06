@@ -798,7 +798,7 @@ class MakeMeta(list):
             ('size', make.size('marker')),
             ('symbol', dict(
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types=( # TODO add new symbols!
                     "'dot' | 'cross' | 'diamond' | 'square' "
                     "| 'triangle-down' | 'triangle-left' | 'triangle-right' "
