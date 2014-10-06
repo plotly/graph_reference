@@ -2184,7 +2184,7 @@
                 ]
             }, 
             "type": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'linear' | 'log' | 'date' | 'category'", 
                 "required": false, 
                 "description": "Sets the format of this axis."
@@ -2445,7 +2445,7 @@
                 ]
             }, 
             "type": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'linear' | 'log' | 'date' | 'category'", 
                 "required": false, 
                 "description": "Sets the format of this axis."

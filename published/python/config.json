@@ -2971,7 +2971,7 @@
                         {
                             "type": {
                                 "description": "Sets the format of this axis.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'linear' | 'log' | 'date' | 'category'"
                             }
@@ -3309,7 +3309,7 @@
                         {
                             "type": {
                                 "description": "Sets the format of this axis.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'linear' | 'log' | 'date' | 'category'"
                             }
