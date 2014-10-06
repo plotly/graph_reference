@@ -1122,7 +1122,7 @@ class MakeMeta(list):
             ('domain', make.domain(x_or_y)),
             ('type', dict(      # Different enough from shortcut
                 required=False,
-                key_type='style',
+                key_type='plot_info',
                 val_types="'linear' | 'log' | 'date' | 'category'",
                 description="Sets the format of this axis."  # TODO Add info
             )),
