@@ -287,10 +287,11 @@ class Make(dict):
                 "(starting from the left of the plot). "
             )
         )
-        _description['contour']= _description['heatmap']
+        _description['contour'] = _description['heatmap'].replace('heatmap',
+                                                                  'contour map')
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
-                          streamable=_streamable)
+                            streamable=_streamable)
     
     def r(self,obj):
         '''@r@'''
@@ -551,7 +552,6 @@ class Make(dict):
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'lines'."
             ),
-            bar="Artifact. Has no effect.", # ARTIFACT
             box=(
                 "Links {a_ULlike} containing line "
                 "parameters for the border of this box trace "
@@ -571,7 +571,6 @@ class Make(dict):
                 "bar trace."
            )
         )
-        _description['histogram']= _description['bar']
         _description['histogram2dcontour']= _description['contour']
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
@@ -781,13 +780,6 @@ class Make(dict):
         _val_types="'{trace}'".format(trace=trace)
         _description=(
             "Plotly identifier for this data's trace type. "
-            #"This defines how this "
-            #"data dictionary will be handled. "
-            #"For example, 'scatter' type expects "
-            #"x and y data-arrays corresponding to "
-            #"(x, y) coordinates whereas a 'histogram' "
-            #"only requires a single x or y array "
-            #"and a 'heatmap' type requires a z matrix."
         )
         return self._output(_required,_key_type,_val_types,_description)
     
