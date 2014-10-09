@@ -479,13 +479,12 @@ class MakeMeta(list):
         self += self._stuff('area', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
       
-    def _keymeta_error(self,y_or_x):
-        '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
-    
+    def _keymeta_error(self, which_axis):
+        '''@keymeta_error@ -- keymeta for error_y and error_x'''
         S = {'y': ['y','vertically','up','down','above','below'],
-             'x': ['x','horizontally','right','left','right of','left of']}
-        s = S[y_or_x]
-        
+             'x': ['x','horizontally','right','left','right of','left of'],
+             'z': ['z','','positive z', 'negative z', 'above', 'below']}
+        s = S[which_axis]
         _keymeta = [
             ('type', dict(      # Different enough from shortcut
                 required=False,
@@ -529,11 +528,11 @@ class MakeMeta(list):
                    "relative to the '{S0}' coordinates. "
                    "For example, with '{S0}'=[1,2] and "
                    "'array'=[1,2], the error bars will span "
-                   "{S1} from {S0}= 0 to 2 and {S0}= 0 to 4 if "
+                   "from {S0}= 0 to 2 and {S0}= 0 to 4 if "
                    "'symmetric'=True; and from {S0}= 1 to 2 and "
                    "{S0}= 2 to 4 if 'symmetric' is set to False "
                    "and 'arrayminus' is empty."
-                ).format(S0=s[0],S1=s[1])
+                ).format(S0=s[0])
             )),
             ('value', dict(
                 required=False,
@@ -556,7 +555,7 @@ class MakeMeta(list):
                 key_type='data',
                 val_types=val_types.number(ge=0),
                 description=(
-                      "Only functional when 'symmetric' is set to {{FALSE}}. "
+                      "Has an effect only when 'symmetric' is set to {{FALSE}}. "
                       "Same as 'array' but corresponding to the span "
                       "of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
@@ -566,18 +565,17 @@ class MakeMeta(list):
                 key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description=(
-                      "Only functional when 'symmetric' "
+                      "Has an effect only when 'symmetric' "
                       "is set to {{FALSE}}. Same as 'value' but corresponding "
                       "to the span of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
             )),
             ('color', make.color('error')),
-            ('thickness', make.thickness('error',y_or_x)),
+            ('thickness', make.thickness('error', which_axis)),
             ('width', make.width('error')),
             ('opacity', make.opacity()),
         ]
-    
-        if y_or_x=='x':
+        if which_axis=='x':
             _keymeta += [
                 ('copy_ystyle', dict(
                     required=False,
@@ -591,10 +589,10 @@ class MakeMeta(list):
                     )
                 ))
             ]
-    
         _keymeta += [('visible', make.visible())]
         return _keymeta
       
+
     def error_y(self):
         '''@error_y@'''
         name = '{error_y}'
