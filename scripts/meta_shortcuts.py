@@ -436,22 +436,24 @@ class Make(dict):
         _description['contour']= _description['heatmap']
         return self._output(_required,_key_type,_val_types,_description[obj])
     
+
     def text(self, obj):
         '''@text@'''
+        S = '(x,y,z)' if obj=='scatter3d' else '(x,y)'
         _required=False
         _key_type='data'
         _val_types=val_types.string_array()
         _description=dict(
             scatter=(
-                "The text elements associated with each (x,y) pair in "
+                "The text elements associated with each {S} pair in "
                 "this scatter trace. If the scatter 'mode' does not "
                 "include 'text' then text elements will appear on hover only. "
                 "In contrast, if 'text' is included in 'mode', "
                 "the entries in 'text' "
                 "will be rendered on the plot at the locations "
-                "specified in part by their corresponding (x,y) coordinate pair "
+                "specified in part by their corresponding {S} coordinate pair "
                 "and the 'textposition' key."
-            ),
+            ).format(S=S),
             bar=(
                 "The text elements associated with each bar in this trace. "
                 "The entries in 'text' will appear on hover only, in a text "
@@ -459,9 +461,11 @@ class Make(dict):
             )
         )
         _description['histogram']=_description['bar']
+        _description['scatter3d']=_description['scatter']
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
+
     
     def error(self, obj, x_or_y):
         '''@error@ | @error_y@ | @error_x@'''
