@@ -147,9 +147,11 @@ class Make(dict):
             contour=False,
             histogram2d=True,
             histogram2dcontour=True,
+            scatter3d=True,
+            surface=False
         )
-        _key_type='data'
-        _val_types=val_types.data_array()
+        _key_type = 'data'
+        _val_types = val_types.data_array()
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
@@ -197,17 +199,24 @@ class Make(dict):
                 "Sets the data sample to be binned on the x-axis and "
                 "whose distribution (computed by Plotly) will correspond "
                 "to the x-coordinates of this 2D histogram trace."
-           )
+           ),
+           scatter3d=(
+               "Sets the x coordinates of the points of this 3D scatter trace. "
+               "If 'x' is linked to {a_OL} of strings, "
+               "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
+               "on the x-axis by the {OL} of strings linked to 'x'."
+           ),
         )
-        _description['contour']= _description['heatmap']
-        _description['histogram2dcontour']= _description['histogram2d']
+        _description['contour'] =  _description['heatmap']
+        _description['histogram2dcontour'] =  _description['histogram2d']
+        _description['surface'] = _description['heatmap']
         _streamable=True
         return self._output(_required[obj],_key_type,_val_types,_description[obj],
                             streamable=_streamable)
     
     def y(self,obj):
        '''@y@'''
-       _required=dict(
+       _required = dict(
             scatter=required_cond.keys(["'x'","'r'","'t'"]),
             bar=required_cond.keys(["'x'"]),
             histogram=required_cond.keys(["'x'"]),
@@ -216,10 +225,12 @@ class Make(dict):
             contour=False,
             histogram2d=True,
             histogram2dcontour=True,
+            scatter3d=True,
+            surface=False
         )
-       _key_type='data'
-       _val_types=val_types.data_array()
-       _description=dict(
+       _key_type = 'data'
+       _val_types = val_types.data_array()
+       _description = dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
                "If 'y' is linked to {a_OL} of strings, "
@@ -261,20 +272,29 @@ class Make(dict):
                "Sets the data sample to be binned on the y-axis and "
                "whose distribution (computed by Plotly) will correspond "
                "to the y-coordinates of this 2D histogram trace."
-          )
+          ),
+          scatter3d=(
+              "Sets the y coordinates of the points of this 3D scatter trace. "
+              "If 'y' is linked to {a_OL} of strings, "
+              "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
+              "on the y-axis by the {OL} of strings linked to 'y'."
+          ),
        )
-       _description['contour']= _description['heatmap']
-       _description['histogram2dcontour']= _description['histogram2d']
-       _streamable=True
+       _description['contour'] = _description['heatmap']
+       _description['histogram2dcontour'] = _description['histogram2d']
+       _description['surface'] = _description['heatmap']
+       _streamable = True
        return self._output(_required[obj],_key_type,_val_types,_description[obj],
                           streamable=_streamable)
     
     def z(self,obj):
         '''@z@'''
-        _required=True
-        _key_type='data'
-        _val_types=val_types.matrix()
-        _description=dict(
+        _required = True
+        _key_type = 'data'
+        _val_types = val_types.matrix()
+        if (obj=='scatter3d' or obj=='surface'):
+            _val_types = val_types.data_array()
+        _description = dict(
             heatmap=(
                 "Sets the data that describes the heatmap mapping. "
                 "Say the dimensions of the {OL2D} linked to 'z' has "
@@ -285,6 +305,22 @@ class Make(dict):
                 "the ith partition of the y-axis (starting from the bottom "
                 "of the plot) and the jth partition of the x-axis "
                 "(starting from the left of the plot). "
+            ),
+            scatter3d=(
+                "Sets the z coordinates of the points of this scatter trace. "
+                "If 'z' is linked to {a_OL} of strings, "
+                "then the z coordinates are integers, 0, 1, 2, 3, ..., labeled "
+                "on the z-axis by the {OL} of strings linked to 'z'."
+            ),
+            surface=(
+                "Sets the surface coordinates. "
+                "Say the dimensions of the {OL2D} linked to 'z' has "
+                "n rows and m columns then the resulting contour will have "
+                "n coordinates along the y-axis and m coordinates along the "
+                "x-axis. Therefore, the ith row/ jth column cell in the "
+                "{OL2D} linked to 'z' is mapped to "
+                "the ith partition of the y-axis "
+                "and the jth partition of the x-axis "
             )
         )
         _description['contour'] = _description['heatmap'].replace('heatmap',
