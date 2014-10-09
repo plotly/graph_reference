@@ -39,7 +39,9 @@ def graph_objs_info():
                 'contour',
                 'histogram2d',
                 'histogram2dcontour',
-                'area'
+                'area',
+                'scatter3d',
+                'surface'
             ]
         )),
         ('trace-aux', dict(
@@ -54,7 +56,8 @@ def graph_objs_info():
                 'line',
                 'contours',
                 'colorbar',
-                'stream'
+                'stream',
+                'error_z'
             ]
         )),
         ('axis', dict(
@@ -64,7 +67,9 @@ def graph_objs_info():
                 'xaxis',
                 'yaxis',
                 'radialaxis',
-                'angularaxis'
+                'angularaxis',
+                'scene',
+                'zaxis'
             ]
         )),
         ('layout', dict(
