@@ -41,7 +41,7 @@
                 "streamable": true
             }, 
             "mode": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
                 "required": false, 
                 "description": "Plotting mode for this scatter trace. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
@@ -1390,7 +1390,7 @@
                 "streamable": true
             }, 
             "mode": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'", 
                 "required": false, 
                 "description": "Plotting mode for this 3D scatter trace. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover."
