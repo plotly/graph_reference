@@ -161,7 +161,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -271,7 +271,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "r": {
                 "key_type": "data", 
@@ -432,7 +432,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -572,7 +572,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -600,14 +600,14 @@
                 "key_type": "data", 
                 "val_types": "list of lists or 2d numpy array of numbers", 
                 "required": true, 
-                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the i-th row/ j-th column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the i-th partition of the y-axis (starting from the bottom of the plot) and the j-th partition of the x-axis (starting from the left of the plot). ", 
                 "streamable": true
             }, 
             "x": {
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. If the 'z' is a list or 1d numpy array of strings, then the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
@@ -645,7 +645,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -709,7 +709,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "x0": {
                 "key_type": "plot_info", 
@@ -773,14 +773,14 @@
                 "key_type": "data", 
                 "val_types": "list of lists or 2d numpy array of numbers", 
                 "required": true, 
-                "description": "Sets the data that describes the contour map mapping. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting contour map will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                "description": "Sets the data that describes the contour map mapping. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting contour map will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the i-th row/ j-th column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the i-th partition of the y-axis (starting from the bottom of the plot) and the j-th partition of the x-axis (starting from the left of the plot). ", 
                 "streamable": true
             }, 
             "x": {
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. If the 'z' is a list or 1d numpy array of strings, then the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
@@ -843,7 +843,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -901,7 +901,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "x0": {
                 "key_type": "plot_info", 
@@ -1028,7 +1028,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1110,7 +1110,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -1226,7 +1226,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1302,7 +1302,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -1365,7 +1365,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "angularaxis": {
                 "key_type": "plot_info", 
@@ -1492,7 +1492,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -1514,14 +1514,14 @@
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": true, 
-                "description": "Sets the surface coordinates. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting contour will have n coordinates along the y-axis and m coordinates along the x-axis. Therefore, the ith row/ jth column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the ith partition of the y-axis and the jth partition of the x-axis ", 
+                "description": "Sets the surface coordinates. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting contour will have n coordinates along the y-axis and m coordinates along the x-axis. Therefore, the i-th row/ j-th column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the i-th partition of the y-axis and the j-th partition of the x-axis ", 
                 "streamable": true
             }, 
             "x": {
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                "description": "Sets the horizontal coordinates referring to the columns of the list of lists or 2d numpy array linked to 'z'. If the 'z' is a list or 1d numpy array of strings, then the x-labels are spaced evenly. If the dimensions of the list of lists or 2d numpy array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
@@ -1541,7 +1541,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1563,7 +1563,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }, 
             "type": {
                 "key_type": "plot_info", 
@@ -1601,7 +1601,7 @@
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span from y= 0 to 2 and y= 0 to 4 if 'symmetric'=True; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
+                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span from y= 0 to 2 and y= 0 to 4 if 'symmetric' is set to True; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
             }, 
             "value": {
                 "key_type": "plot_info", 
@@ -1658,7 +1658,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }
         }
     }, 
@@ -1690,7 +1690,7 @@
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span from x= 0 to 2 and x= 0 to 4 if 'symmetric'=True; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
+                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span from x= 0 to 2 and x= 0 to 4 if 'symmetric' is set to True; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
             }, 
             "value": {
                 "key_type": "plot_info", 
@@ -1753,7 +1753,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }
         }
     }, 
@@ -1895,7 +1895,7 @@
                 "key_type": "plot_info", 
                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
-                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
+                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a list or 1d numpy array of value-color pairs where, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                 "examples": [
                     "'Greys'", 
                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -2143,7 +2143,7 @@
                 "key_type": "style", 
                 "val_types": "'' | 'inside' | 'outside'", 
                 "required": false, 
-                "description": "Sets the format of tick visibility on this colorbar."
+                "description": "Sets the format of the ticks on this colorbar. For hidden ticks, link 'ticks' to an empty string."
             }, 
             "showticklabels": {
                 "key_type": "style", 
@@ -2357,7 +2357,7 @@
                 "key_type": "data", 
                 "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
                 "required": false, 
-                "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'z' coordinates. For example, with 'z'=[1,2] and 'array'=[1,2], the error bars will span from z= 0 to 2 and z= 0 to 4 if 'symmetric'=True; and from z= 1 to 2 and z= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
+                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'z' coordinates. For example, with 'z'=[1,2] and 'array'=[1,2], the error bars will span from z= 0 to 2 and z= 0 to 4 if 'symmetric' is set to True; and from z= 1 to 2 and z= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty."
             }, 
             "value": {
                 "key_type": "plot_info", 
@@ -2414,7 +2414,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }
         }
     }, 
@@ -2449,7 +2449,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this x axis.", 
+                "description": "Defines the start and end point of this x-axis.", 
                 "examples": [
                     "[-13, 20]", 
                     "[0, 1]"
@@ -2459,7 +2459,7 @@
                 "key_type": "plot_info", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Sets the domain of this x axis; that is, the available space for this x-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                "description": "Sets the domain of this x-axis; that is, the available space for this x-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
                     "[0, 0.4]", 
                     "[0.6, 1]"
@@ -2499,7 +2499,7 @@
                 "key_type": "style", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this x axis will be shown on the figure."
+                "description": "Toggle whether or not the line bounding this x-axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
@@ -2517,7 +2517,7 @@
                 "key_type": "style", 
                 "val_types": "'' | 'inside' | 'outside'", 
                 "required": false, 
-                "description": "Sets the format of tick visibility on this axis."
+                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string."
             }, 
             "showticklabels": {
                 "key_type": "style", 
@@ -2740,7 +2740,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this y axis.", 
+                "description": "Defines the start and end point of this y-axis.", 
                 "examples": [
                     "[-13, 20]", 
                     "[0, 1]"
@@ -2750,7 +2750,7 @@
                 "key_type": "plot_info", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Sets the domain of this y axis; that is, the available space for this y-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                "description": "Sets the domain of this y-axis; that is, the available space for this y-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
                     "[0, 0.4]", 
                     "[0.6, 1]"
@@ -2790,7 +2790,7 @@
                 "key_type": "style", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this y axis will be shown on the figure."
+                "description": "Toggle whether or not the line bounding this y-axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
@@ -2808,7 +2808,7 @@
                 "key_type": "style", 
                 "val_types": "'' | 'inside' | 'outside'", 
                 "required": false, 
-                "description": "Sets the format of tick visibility on this axis."
+                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string."
             }, 
             "showticklabels": {
                 "key_type": "style", 
@@ -3016,7 +3016,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this radial axis.", 
+                "description": "Defines the start and end point of this radial-axis.", 
                 "examples": [
                     "[-13, 20]", 
                     "[0, 1]"
@@ -3038,7 +3038,7 @@
                 "key_type": "style", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this radial axis will be shown on the figure."
+                "description": "Toggle whether or not the line bounding this radial-axis will be shown on the figure."
             }, 
             "showticklabels": {
                 "key_type": "style", 
@@ -3088,7 +3088,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }
         }
     }, 
@@ -3108,7 +3108,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to a list or 1d numpy array of strings.", 
+                "description": "Defines the start and end point of this angular-axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to a list or 1d numpy array of strings.", 
                 "examples": [
                     "[0, 180]", 
                     "[0, 6.2831]"
@@ -3124,7 +3124,7 @@
                 "key_type": "style", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to True, the bounding line starts from the origin and extends to the edge of radial axis."
+                "description": "Toggle whether or not the line bounding this angular-axis will be shown on the figure. If 'showline' is set to True, the bounding line starts from the origin and extends to the edge of radial axis."
             }, 
             "showticklabels": {
                 "key_type": "style", 
@@ -3168,7 +3168,7 @@
                 "key_type": "plot_info", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not this object will be visible on the rendered figure."
+                "description": "Toggles whether or not this object will be visible on the rendered figure."
             }
         }
     }, 
@@ -3204,6 +3204,9 @@
                 "key_type": "plot_info", 
                 "val_types": "camera position list or 1d numpy array", 
                 "required": false, 
+                "examples": [
+                    "[{0:0.2, 1:0.5, 2:0.1, 3:0.2}, {0:0.1, 1:0, 2:-0.1}, 3]"
+                ], 
                 "description": "Sets the camera position with respect to the scene. The first entry (a dictionary of 4 pairs) sets the camera's angular position. The second entry (a dictionary of 3 pairs) sets the camera's (x,y,z) translation. The third entry (a scalar) set the camera's the zoom."
             }, 
             "bgcolor": {
@@ -3248,7 +3251,7 @@
                 "key_type": "style", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Defines the start and end point of this z axis.", 
+                "description": "Defines the start and end point of this z-axis.", 
                 "examples": [
                     "[-13, 20]", 
                     "[0, 1]"
@@ -3258,7 +3261,7 @@
                 "key_type": "plot_info", 
                 "val_types": "number array of length 2", 
                 "required": false, 
-                "description": "Sets the domain of this z axis; that is, the available space for this z-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                "description": "Sets the domain of this z-axis; that is, the available space for this z-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                 "examples": [
                     "[0, 0.4]", 
                     "[0.6, 1]"
@@ -3298,7 +3301,7 @@
                 "key_type": "style", 
                 "val_types": "a boolean: True | False", 
                 "required": false, 
-                "description": "Toggle whether or not the line bounding this z axis will be shown on the figure."
+                "description": "Toggle whether or not the line bounding this z-axis will be shown on the figure."
             }, 
             "autotick": {
                 "key_type": "style", 
@@ -3316,7 +3319,7 @@
                 "key_type": "style", 
                 "val_types": "'' | 'inside' | 'outside'", 
                 "required": false, 
-                "description": "Sets the format of tick visibility on this axis."
+                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string."
             }, 
             "showticklabels": {
                 "key_type": "style", 
