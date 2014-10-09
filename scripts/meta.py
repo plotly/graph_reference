@@ -2163,7 +2163,7 @@ class MakeMeta(list):
                 "'layout' by linking it to 'scene' OR "
                 "'scene1', both keys are identical to Plotly. "
                 "Link subsequent {scene} objects using "
-                "'scene2', 'scene2', etc."
+                "'scene2', 'scene3', etc."
                 )
             )),
             ('direction', dict(

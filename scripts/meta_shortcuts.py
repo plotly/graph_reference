@@ -293,7 +293,7 @@ class Make(dict):
         _required = True
         _key_type = 'data'
         _val_types = val_types.matrix()
-        if (obj=='scatter3d' or obj=='surface'):
+        if obj == 'scatter3d':
             _val_types = val_types.data_array()
         _description = dict(
             heatmap=(
