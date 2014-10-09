@@ -106,7 +106,7 @@
                 "description": "Toggle whether or not missing data points (i.e. '' or NaN) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation."
             }, 
             "fill": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx", 
                 "required": false, 
                 "description": "Use to make area-style charts. Determines which area to fill with a solid color.By default, the area will appear in a more-transparent shape of the line color (or of the marker color if 'mode' does not contains 'lines')."
@@ -144,7 +144,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -252,7 +252,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -410,7 +410,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -548,7 +548,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -617,19 +617,19 @@
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
             "zmin": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
             }, 
             "zmax": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -681,7 +681,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -786,13 +786,13 @@
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
             "zmin": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
             }, 
             "zmax": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -823,7 +823,7 @@
                 "streamable": true
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -869,7 +869,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1003,7 +1003,7 @@
                 "description": "Links a list defining the parameters of y-axis bins of this trace, for example, the bin width and the bins' starting and  ending value. Has an effect only if 'autobiny' is set to FALSE."
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -1037,13 +1037,13 @@
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
             "zmin": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
             }, 
             "zmax": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -1073,7 +1073,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1196,7 +1196,7 @@
                 "streamable": true
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -1230,13 +1230,13 @@
                 "description": "Toggle whether or not the default values of 'zmax' and 'zmax' can be overwritten."
             }, 
             "zmin": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'."
             }, 
             "zmax": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'."
@@ -1260,7 +1260,7 @@
                 "description": "This key determines which y-axis the y-coordinates of this trace will reference in the figure.  Values 'y1' and 'y' reference to 'yaxis' in 'layout', 'y2' references to 'yaxis2' in 'layout', and so on. Note that 'y1' will always refer to 'yaxis' or 'yaxis1' in 'layout', they are the same."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1323,7 +1323,7 @@
                 "streamable": true
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not this trace will be labeled in the legend."
@@ -1511,7 +1511,7 @@
                 "description": "The label associated with this trace. This name will appear in the column header in the online spreadsheet."
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
@@ -1834,7 +1834,7 @@
                 "streamable": true
             }, 
             "symbol": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values", 
                 "required": false, 
                 "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to a generic vector (list) or atomic vector, the symbol values are mapped to individual marker points in the same order as in the generic vector (list) or atomic vector linked to 'x', 'y' (or 'z')."
@@ -1865,7 +1865,7 @@
                 "description": "Choose between marker size scaling options for the marker points in this trace. Applies only to scatter traces that have their 'size' key in 'marker' linked to a generic vector (list) or atomic vector. If 'diameter' ('area'), then the diameter (area) of the rendered marker points (in pixels) are proportional to the numbers linked to 'size'.For example, set 'sizemode' to 'area' for a more a smaller range of rendered marker sizes."
             }, 
             "colorscale": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "generic vector (list) or atomic vector of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'", 
                 "required": false, 
                 "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define a generic vector (list) or atomic vectorcolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
@@ -1881,13 +1881,13 @@
                 "description": "Toggle whether or not the default values of 'cmax' and 'cmax' can be overwritten."
             }, 
             "cmin": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to a generic vector (list) or atomic vector nd 'colorscale' is set."
             }, 
             "cmax": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to a generic vector (list) or atomic vector nd 'colorscale' is set."
@@ -2439,7 +2439,7 @@
                 ]
             }, 
             "type": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'linear' | 'log' | 'date' | 'category'", 
                 "required": false, 
                 "description": "Sets the format of this axis."
@@ -2730,7 +2730,7 @@
                 ]
             }, 
             "type": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'linear' | 'log' | 'date' | 'category'", 
                 "required": false, 
                 "description": "Sets the format of this axis."
@@ -3238,7 +3238,7 @@
                 ]
             }, 
             "type": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "'linear' | 'log' | 'date' | 'category'", 
                 "required": false, 
                 "description": "Sets the format of this axis."
@@ -3515,7 +3515,7 @@
                 "description": "Links a list describing the global font settings for this figure (e.g. all axis titles and labels)."
             }, 
             "showlegend": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "Toggle whether or not the legend will be shown in this figure."
@@ -3527,13 +3527,13 @@
                 "description": "Toggle whether or not the dimensions of the figure are automatically picked by Plotly. Plotly picks figure's dimensions as a function of your machine's display resolution. Once 'autosize' is set to FALSE, the figure's dimensions can be set with 'width' and 'height'."
             }, 
             "width": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x > 0", 
                 "required": false, 
                 "description": "Sets the width in pixels of the figure you are generating."
             }, 
             "height": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x > 0", 
                 "required": false, 
                 "description": "Sets the height in pixels of the figure you are generating."
@@ -4021,37 +4021,37 @@
         ], 
         "keymeta": {
             "l": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the left margin size in pixels."
             }, 
             "r": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the right margin size in pixels."
             }, 
             "b": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the bottom margin size in pixels."
             }, 
             "t": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the top margin size in pixels."
             }, 
             "pad": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "number: x >= 0", 
                 "required": false, 
                 "description": "Sets the distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels)."
             }, 
             "autoexpand": {
-                "key_type": "style", 
+                "key_type": "plot_info", 
                 "val_types": "a boolean: TRUE | FALSE", 
                 "required": false, 
                 "description": "more info coming soon"

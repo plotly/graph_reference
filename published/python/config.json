@@ -138,7 +138,7 @@
                         {
                             "fill": {
                                 "description": "Use to make area-style charts. Determines which area to fill with a solid color.By default, the area will appear in a more-transparent shape of the line color (or of the marker color if 'mode' does not contains 'lines').", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'none' | 'tozeroy' | 'tonexty' | 'tozerox' | 'tonextx"
                             }
@@ -188,7 +188,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -340,7 +340,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -558,7 +558,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -744,7 +744,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -839,7 +839,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -847,7 +847,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -859,7 +859,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -926,7 +926,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1069,7 +1069,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1077,7 +1077,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1124,7 +1124,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1183,7 +1183,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1372,7 +1372,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1413,7 +1413,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1421,7 +1421,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1463,7 +1463,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1639,7 +1639,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -1680,7 +1680,7 @@
                         {
                             "zmin": {
                                 "description": "Sets the minimum 'z' data value to be resolved by the color scale. Its default value is the minimum of the 'z' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1688,7 +1688,7 @@
                         {
                             "zmax": {
                                 "description": "Sets the maximum 'z' data value to be resolved by the color scale. Its default value is the maximum of the 'z' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -1722,7 +1722,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -1806,7 +1806,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not this trace will be labeled in the legend.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -2068,7 +2068,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -2503,7 +2503,7 @@
                         {
                             "symbol": {
                                 "description": "The symbol that is drawn on the plot for each marker. Supported only in scatter traces. If 'symbol' is linked to a list or 1d numpy array, the symbol values are mapped to individual marker points in the same order as in the list or 1d numpy array linked to 'x', 'y' (or 'z').", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'dot' | 'cross' | 'diamond' | 'square' | 'triangle-down' | 'triangle-left' | 'triangle-right' | 'triangle-up' | 'x' OR list of these string values"
                             }
@@ -2549,7 +2549,7 @@
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
                                 ], 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "list or 1d numpy array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
                             }
@@ -2565,7 +2565,7 @@
                         {
                             "cmin": {
                                 "description": "Sets the minimum 'color' data value to be resolved by the color scale. Its default value is the minimum of the 'color' data values. This value will be used as the minimum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to a list or 1d numpy array nd 'colorscale' is set.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -2573,7 +2573,7 @@
                         {
                             "cmax": {
                                 "description": "Sets the maximum 'color' data value to be resolved by the color scale. Its default value is the maximum of the 'color' data values. This value will be used as the maximum in the color scale normalization. For more info see 'colorscale'. Has only an effect if 'color' is linked to a list or 1d numpy array nd 'colorscale' is set.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
                             }
@@ -3326,7 +3326,7 @@
                         {
                             "type": {
                                 "description": "Sets the format of this axis.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'linear' | 'log' | 'date' | 'category'"
                             }
@@ -3705,7 +3705,7 @@
                         {
                             "type": {
                                 "description": "Sets the format of this axis.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'linear' | 'log' | 'date' | 'category'"
                             }
@@ -4380,7 +4380,7 @@
                         {
                             "type": {
                                 "description": "Sets the format of this axis.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'linear' | 'log' | 'date' | 'category'"
                             }
@@ -4744,7 +4744,7 @@
                         {
                             "showlegend": {
                                 "description": "Toggle whether or not the legend will be shown in this figure.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
@@ -4760,7 +4760,7 @@
                         {
                             "width": {
                                 "description": "Sets the width in pixels of the figure you are generating.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x > 0"
                             }
@@ -4768,7 +4768,7 @@
                         {
                             "height": {
                                 "description": "Sets the height in pixels of the figure you are generating.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x > 0"
                             }
@@ -5429,7 +5429,7 @@
                         {
                             "l": {
                                 "description": "Sets the left margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -5437,7 +5437,7 @@
                         {
                             "r": {
                                 "description": "Sets the right margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -5445,7 +5445,7 @@
                         {
                             "b": {
                                 "description": "Sets the bottom margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -5453,7 +5453,7 @@
                         {
                             "t": {
                                 "description": "Sets the top margin size in pixels.", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -5461,7 +5461,7 @@
                         {
                             "pad": {
                                 "description": "Sets the distance between edge of the plot and the bounding rectangle that encloses the plot (in pixels).", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
                             }
@@ -5469,7 +5469,7 @@
                         {
                             "autoexpand": {
                                 "description": "more info coming soon", 
-                                "key_type": "style", 
+                                "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: True | False"
                             }
