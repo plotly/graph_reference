@@ -145,6 +145,19 @@ class MakeExamples(list):
         ]
         return self
 
+
+    def cameraposition(self):
+        '''@cameraposition@'''
+        self.python = [
+            "[{0:0.2, 1:0.5, 2:0.1, 3:0.2}, {0:0.1, 1:0, 2:-0.1}, 3]"
+        ]
+        self.matlab = [
+            "{struct('0',0.2 '1',0.5, '2',0.1, '3',0.2), "
+            "struct(0,0.1, 1,0, 2,-0.1), 3}"
+        ]
+        return self
+
+
     def text(self):
         '''@text@'''
         self._for_all([
@@ -235,6 +248,16 @@ class MakeExamples(list):
         ]
         return self
 
+    def scatter3d(self):  # TODO!
+        '''@scatter3d@'''
+        self.python = []
+        return self
+
+    def surface(self):  # TODO!
+        '''@surface@'''
+        self.python = []
+        return self
+
     def angularaxis(self): # TODO!
         '''@angularaxis@'''
         self.python = []
@@ -245,6 +268,11 @@ class MakeExamples(list):
         self.python = []
         return self
     
+    def scene(self):  # TODO!
+        '''@scene@'''
+        self.python = []
+        return self
+
     def annotation(self):
         '''@annotation@'''
         self.python = [
@@ -276,6 +304,11 @@ class MakeExamples(list):
 
     def error_x(self):
         '''@error_x@'''
+        self.python = [] # TODO!
+        return self
+
+    def error_z(self):
+        '''@error_z@'''
         self.python = [] # TODO!
         return self
 
@@ -336,6 +369,11 @@ class MakeExamples(list):
 
     def ybins(self):
         '''@ybins@'''
+        self.python = [] # TODO!
+        return self
+
+    def zaxis(self):
+        '''@zaxis@'''
         self.python = [] # TODO!
         return self
 
