@@ -1283,7 +1283,7 @@ class MakeMeta(list):
                 required=False,
                 key_type='plot_info',
                 val_types=(
-                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free' " 
+                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free' "
                     if not which_axis=='z' else ''
                 ).format(S3=s[3]),
                 description=(
@@ -1326,13 +1326,13 @@ class MakeMeta(list):
                     "of the plot."
                     "Has no effect in 3D plots."
                     if not which_axis=='z' else "Has no effect in 3D plots."
-                ).format(S0=s[0],S1=s[1],S2=s[2]) 
+                ).format(S0=s[0],S1=s[1],S2=s[2])
             )),
             ('position', dict(
                 required=False,
                 key_type='style',
                 val_types=(
-                    val_types.number(le=1, ge=0) 
+                    val_types.number(le=1, ge=0)
                     if not which_axis=='z' else ''
                 ),
                 description=(
@@ -1416,7 +1416,7 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.xaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('x'))
-        self += self._stuff('xaxis', name, obj_type, parent_keys, 
+        self += self._stuff('xaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
     
     def yaxis(self):
@@ -1435,7 +1435,7 @@ class MakeMeta(list):
         ]
         examples = MakeExamples.yaxis(MakeExamples())
         keymeta = OrderedDict(self._keymeta_axis('y'))
-        self += self._stuff('yaxis', name, obj_type, parent_keys, 
+        self += self._stuff('yaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
       
 
@@ -1981,8 +1981,8 @@ class MakeMeta(list):
                     "Sets the height in pixels of the figure you are generating."
                 )
             )),
-            ('xaxis', make.axis('x',layout=True)),
-            ('yaxis', make.axis('y',layout=True)),
+            ('xaxis', make.axis('x', layout=True)),
+            ('yaxis', make.axis('y', layout=True)),
             ('legend', dict(
                 required=False,
                 key_type='object',
@@ -2046,10 +2046,10 @@ class MakeMeta(list):
                 )
             )),
             ('dragmode', dict(
-                required=False,
-                key_type='style',
-                val_types="'zoom' | 'pan'",
-                description=(
+                required = False,
+                key_type = 'style',
+                val_types = "'zoom' | 'pan' | 'rotate' (in 3D plots)",
+                description = (
                     "Sets this figure's behavior when a user preforms a mouse "
                     "'drag' in the plot area. When set to 'zoom', a portion of "
                     "the plot will be highlighted, when the viewer "
@@ -2058,7 +2058,8 @@ class MakeMeta(list):
                     "will move along with the viewers dragging motions. A "
                     "user can always depress the 'shift' key to access "
                     "the whatever functionality has not been set as the "
-                    "default."
+                    "default. In 3D plots, the default drag mode is 'rotate' "
+                    "which rotates the scene."
                 )
             )),
             ('separators', dict(  
@@ -2136,7 +2137,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "{A_ULlike} describing the radial axis "
+                    "Links {a_ULlike} describing the radial axis "
                     "in a polar plot."
                 )
             )),
@@ -2145,8 +2146,21 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "{A_ULlike} describing the angular axis "
+                    "Links {a_ULlike} describing the angular axis "
                     "in a polar plot."
+                )
+            )),
+            ('scene', dict(
+                required=False,
+                key_type='object',
+                val_types=val_types.object(),
+                description=(
+                "Links {a_ULlike} describing a scene in a 3D plot. "
+                "The first {scene} object can be entered into "
+                "'layout' by linking it to 'scene' OR "
+                "'scene1', both keys are identical to Plotly. "
+                "Link subsequent {scene} objects using "
+                "'scene2', 'scene2', etc."
                 )
             )),
             ('direction', dict(
