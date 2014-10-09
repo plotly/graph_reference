@@ -1377,7 +1377,7 @@
     "surface": {
         "z": {
             "key_type": "data", 
-            "val_types": "list or 1d numpy array of numbers, strings, datetimes", 
+            "val_types": "list of lists or 2d numpy array of numbers", 
             "required": true, 
             "description": "Sets the surface coordinates. Say the dimensions of the list of lists or 2d numpy array linked to 'z' has n rows and m columns then the resulting contour will have n coordinates along the y-axis and m coordinates along the x-axis. Therefore, the i-th row/ j-th column cell in the list of lists or 2d numpy array linked to 'z' is mapped to the i-th partition of the y-axis and the j-th partition of the x-axis ", 
             "streamable": true
@@ -3339,7 +3339,7 @@
             "key_type": "object", 
             "val_types": "dictionary-like object", 
             "required": false, 
-            "description": "Links a dictionary-like object describing a scene in a 3D plot. The first Scene object can be entered into 'layout' by linking it to 'scene' OR 'scene1', both keys are identical to Plotly. Link subsequent Scene objects using 'scene2', 'scene2', etc."
+            "description": "Links a dictionary-like object describing a scene in a 3D plot. The first Scene object can be entered into 'layout' by linking it to 'scene' OR 'scene1', both keys are identical to Plotly. Link subsequent Scene objects using 'scene2', 'scene3', etc."
         }, 
         "direction": {
             "key_type": "plot_info", 

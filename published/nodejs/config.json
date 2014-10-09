@@ -2005,7 +2005,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of arrays of numbers"
                             }
                         }, 
                         {
@@ -4901,7 +4901,7 @@
                         {
                             "scene": {
                                 "child_obj": "scene", 
-                                "description": "Links an object describing a scene in a 3D plot. The first scene object can be entered into 'layout' by linking it to 'scene' OR 'scene1', both keys are identical to Plotly. Link subsequent scene objects using 'scene2', 'scene2', etc.", 
+                                "description": "Links an object describing a scene in a 3D plot. The first scene object can be entered into 'layout' by linking it to 'scene' OR 'scene1', both keys are identical to Plotly. Link subsequent scene objects using 'scene2', 'scene3', etc.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "object"
