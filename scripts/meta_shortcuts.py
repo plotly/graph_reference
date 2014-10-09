@@ -745,17 +745,18 @@ class Make(dict):
             )
         return self._output(_required,_key_type,_val_types,_description)
     
-    def axis(self, x_or_y, trace=False, layout=False):
-        '''@axis@ | @xaxis@ | @yaxis@'''
 
-        S={'x':['x','horizontal','X'], 'y':['y','vertical','Y']}
-        s=S[x_or_y]
-    
-        _required=False
+    def axis(self, which_axis, trace=False, layout=False, scene=False):
+        '''@axis@ | @xaxis@ | @yaxis@'''
+        S = {'x':['x','horizontal', '{xaxis}'],
+             'y':['y','vertical' ,'{yaxis}'],
+             'z':['z','']}
+        s = S[which_axis]
+        _required = False
         if trace:
-            _key_type='plot_info'
-            _val_types="'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
-            _description=(
+            _key_type = 'plot_info'
+            _val_types = "'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
+            _description = (
                 "This key determines which {S0}-axis "
                 "the {S0}-coordinates of this trace will "
                 "reference in the figure.  Values '{S0}1' "
@@ -765,20 +766,26 @@ class Make(dict):
                 "'{S0}axis' or '{S0}axis1' in 'layout', "
                 "they are the same."
             ).format(S0=s[0])
-        elif layout:
-            _key_type='object'
-            _val_types=val_types.object()
-            _description=(
+        elif layout or scene:
+            _key_type = 'object'
+            _val_types = val_types.object()
+            _description = (
                 "Links {{a_ULlike}} describing an "
                 "{S0}-axis (i.e. an {S1} axis). "
-                "The first {S2}Axis object can be entered into "
+                "The first {S2} object can be entered into "
                 "'layout' by linking it to '{S0}axis' OR "
                 "'{S0}axis1', both keys are identical to Plotly.  "
                 "To create references other than {S0}-axes, "
                 "you need to define them in 'layout' "
                 "using keys '{S0}axis2', '{S0}axis3' and so on."
-            ).format(S0=s[0],S1=s[1],S2=s[2])
+            ).format(S0=s[0], S1=s[1], S2=s[2])
+            if scene:
+                _description = (
+                    "Links {{a_ULlike}} describing an "
+                    "{S0}-axis of a particular 3D scene."
+                ).format(S0=s[0])
         return self._output(_required,_key_type,_val_types,_description)
+
     
     def type(self, trace):
         '''@type@'''
