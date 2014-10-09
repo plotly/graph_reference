@@ -682,7 +682,24 @@ class MakeMeta(list):
         keymeta = OrderedDict(self._keymeta_error('x'))
         self += self._stuff('error_x', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
+
     
+    def error_z(self):
+        '''@error_z@'''
+        name = '{error_z}'
+        obj_type = "{UL}"
+        parent_keys = ["error_z"]
+        docstring = (
+            "A {ULlike} representing a set of error bars spanning "
+            "along the z-axis in a 3D plot."
+        )
+        links = []  # TODO
+        examples = MakeExamples.error_z(MakeExamples())
+        keymeta = OrderedDict(self._keymeta_error('z'))
+        self += self._stuff('error_z', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+
     def _keymeta_bins(self,x_or_y):
         '''@keymeta_bins@ -- keymeta for XBins and YBins'''
         _keymeta = [
@@ -1421,6 +1438,22 @@ class MakeMeta(list):
         self += self._stuff('yaxis', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
       
+
+    def zaxis(self):
+        '''@zaxis@'''
+        name = '{zaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["zaxis"]
+        docstring = (
+            "{A_ULlike} for representing a z-axis in 3D plotly graphs."
+        )
+        links = []
+        examples = MakeExamples.zaxis(MakeExamples())
+        keymeta = OrderedDict(self._keymeta_axis('z'))
+        self += self._stuff('zaxis', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+
     def radialaxis(self):
         '''@radialaxis@'''
         name = '{radialaxis}'
@@ -1542,6 +1575,42 @@ class MakeMeta(list):
         self += self._stuff('angularaxis', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
     
+
+    def scene(self):
+        '''@scene@'''
+        name = '{scene}'
+        obj_type = "{UL}"
+        parent_keys = ["scene"]
+        docstring = (
+            "{A_ULlike} for representing a 3D scene in plotly."
+        )
+        links = []
+        examples = MakeExamples.scene(MakeExamples())
+        keymeta = OrderedDict([
+             ('xaxis', make.axis('x', scene=True)),
+             ('yaxis', make.axis('y', scene=True)),
+             ('zaxis', make.axis('z', scene=True)),
+             ('cameraposition', dict(
+                required=False,
+                key_type='plot_info',
+                val_types='camera position {OL}',
+                description=(
+                    "Sets the camera position with respect to the scene. "
+                    "The first entry (a {UL} of 4 pairs) "
+                    "sets the camera's angular position. "
+                    "The second entry (a {UL} of 3 pairs) "
+                    "sets the camera's (x,y,z) translation. "
+                    "The third entry (a scalar) set the camera's the zoom."
+                )
+             )),
+#             ('domain', ),  # TODO change name (confusing with axis.domain)
+#             ('position', ),  # TODO (needed? overlaps with 'domain');
+             ('bgcolor', make.bgcolor('scene'))
+        ])
+        self += self._stuff('scene', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+
     def legend(self):
         '''@legend@'''
         name = '{legend}'
