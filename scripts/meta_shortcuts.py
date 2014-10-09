@@ -503,27 +503,33 @@ class Make(dict):
                             streamable=_streamable)
 
     
-    def error(self, obj, x_or_y):
+    def error(self, obj, which_axis):
         '''@error@ | @error_y@ | @error_x@'''
-
-        S={'x':['horizontal','x'], 'y':['vetical','y']}
-        s=S[x_or_y]
-    
-        _required=False
-        _key_type='object'
-        _val_types=val_types.object()
-        _description=dict(
+        S = {'x':['horizontal','x'],
+             'y':['vertical','y'],
+             'z':['','z']}
+        s = S[which_axis]
+        _required = False
+        _key_type = 'object'
+        _val_types = val_types.object()
+        _description = dict(
             scatter=(
                 "Links {{a_ULlike}} describing "
                 "the {S0} error bars (i.e. along the {S1}-axis) "
                 "that can be drawn "
-                "from the (x, y) coordinates."
+                "from the (x,y) coordinates of this scatter trace."
             ).format(S0=s[0],S1=s[1]),
             bar=(
                 "Links {{a_ULlike}} describing the {S0} error bars "
                 "(i.e. along the {S1}-axis) that can "
                 "be drawn from bar tops."
-           ).format(S0=s[0],S1=s[1])
+           ).format(S0=s[0],S1=s[1]),
+           scatter3d=(
+               "Links {{a_ULlike}} describing "
+               "the {S1}-axis error bars "
+               "that can be drawn "
+               "from the (x,y,z) coordinates of this 3D scatter trace."
+           ).format(S1=s[1]),
         )
         _description['histogram']= _description['bar']
         _streamable=True
@@ -574,6 +580,11 @@ class Make(dict):
                 "Links {a_ULlike} containing marker style "
                 "of the area sectors of this trace, for example the sector fill "
                 "color and sector boundary line width and sector boundary color."
+           ),
+           scatter3d=(
+                "Links {a_ULlike} containing marker style "
+                "parameters for this 3D scatter trace. "
+                "Has an effect only if 'mode' contains 'markers'."
            )
         )
         _description['histogram']= _description['bar']
@@ -596,6 +607,11 @@ class Make(dict):
                 "Links {a_ULlike} containing line "
                 "parameters for the border of this box trace "
                 "(including the whiskers)."
+            ),
+            scatter3d=(
+                "Links {a_ULlike} containing line "
+                "parameters for this 3D scatter trace. "
+                "Has an effect only if 'mode' contains 'lines'."
             ),
             contour=(
                 "Links {a_ULlike} containing line "
@@ -790,7 +806,7 @@ class Make(dict):
         '''@axis@ | @xaxis@ | @yaxis@'''
         S = {'x':['x','horizontal', '{xaxis}'],
              'y':['y','vertical' ,'{yaxis}'],
-             'z':['z','']}
+             'z':['z','','']}
         s = S[which_axis]
         _required = False
         if trace:
@@ -817,7 +833,9 @@ class Make(dict):
                 "'{S0}axis1', both keys are identical to Plotly.  "
                 "To create references other than {S0}-axes, "
                 "you need to define them in 'layout' "
-                "using keys '{S0}axis2', '{S0}axis3' and so on."
+                "using keys '{S0}axis2', '{S0}axis3' and so on. "
+                "Note that in 3D plots, {S2} objects must be "
+                "linked from a {{scene}} object."
             ).format(S0=s[0], S1=s[1], S2=s[2])
             if scene:
                 _description = (
@@ -925,10 +943,8 @@ class Make(dict):
     
     def colorscale(self, z_or_color):
         '''@colorscale@'''
-
         S={'c': ['color', 'c'], 'z': ['z', 'z']}
         s = S[z_or_color]
-    
         _required=False
         _key_type="style"
         _val_types=(
@@ -1132,15 +1148,19 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
     
-    def bgcolor(self,obj):
+    def bgcolor(self, obj):
         '''@bgcolor@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.color()
-        _description=dict(
-            legend="Sets the background (bg) color for the legend.",
-            colorbar="Sets the background (bg) color for this colorbar.",
-            annotation="Sets the background (bg) color for this annotation."
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.color()
+        _description = dict(
+            legend="Sets the background (bg) color of the legend.",
+            colorbar="Sets the background (bg) color of this colorbar.",
+            annotation="Sets the background (bg) color of this annotation.",
+            scene=(
+                "Sets the background (bg) color of this scene "
+                "(i.e. of the plotting surface and the margins)."
+            )
         )
         return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
@@ -1231,14 +1251,14 @@ class Make(dict):
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
     
-    def thickness(self, obj, x_or_y=False):
+    def thickness(self, obj, which_axis=False):
         '''@thickness@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.number(ge=0)
-        S={'x': ['x',], 'y': ['y',], False:['',]}
-        s=S[x_or_y]
-        _description=dict(
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.number(ge=0)
+        S = {'x':['x',], 'y':['y',], 'z':['z',], False:['',]}
+        s = S[which_axis]
+        _description = dict(
             error=(
                 "Sets the line thickness of the {S0} error bars."
             ).format(S0=s[0]),
