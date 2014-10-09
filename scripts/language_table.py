@@ -99,19 +99,16 @@ graph_objs = set_run.graph_objs()
 
 for language in languages:
     for graph_obj in graph_objs:
-        if language == 'python':  # N.B for python!
+        if language == 'python':  # N.B Special object name in Python API!
             name = (
                 graph_obj.title()
                          .replace('_','')
                          .replace('axis','Axis')
                          .replace('bins','Bins')
                          .replace('2D','2d')
+                         .replace('3D','3d')
                          .replace('bar','Bar')
                          .replace('contour','Contour')
-                         .replace('plotly','plotly')
-                         .replace('dict','Dict')
-                         .replace('list','List')
-                         .replace('trace','Trace')
             )
             table[language][graph_obj] = name
         else:
