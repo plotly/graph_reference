@@ -540,13 +540,13 @@ class MakeMeta(list):
 
       
     def _keymeta_error(self, which_axis):
-        '''@keymeta_error@ -- keymeta for error_y and error_x'''
+        '''@keymeta_error@ -- keymeta for error_y, error_x (and error_z)'''
         S = {'y': ['y','vertically','up','down','above','below'],
              'x': ['x','horizontally','right','left','right of','left of'],
              'z': ['z','','positive z', 'negative z', 'above', 'below']}
         s = S[which_axis]
         _keymeta = [
-            ('type', dict(      # Different enough from shortcut
+            ('type', dict(  # Different enough from shortcut
                 required=False,
                 key_type='plot_info',
                 val_types="'data' | 'percent' | 'constant' | 'sqrt'",
@@ -581,16 +581,16 @@ class MakeMeta(list):
                 key_type='data',
                 val_types=val_types.data_array(),
                 description=(
-                   "The array of corresponding to "
-                   "error bars' span to be drawn. "
+                   "The array corresponding to the span of the "
+                   "error bars. "
                    "Has only an effect if 'type' is set to "
                    "'data'. Values in the array are plotted "
                    "relative to the '{S0}' coordinates. "
                    "For example, with '{S0}'=[1,2] and "
                    "'array'=[1,2], the error bars will span "
                    "from {S0}= 0 to 2 and {S0}= 0 to 4 if "
-                   "'symmetric'=True; and from {S0}= 1 to 2 and "
-                   "{S0}= 2 to 4 if 'symmetric' is set to False "
+                   "'symmetric' is set to {{TRUE}}; and from {S0}= 1 to 2 "
+                   "and {S0}= 2 to 4 if 'symmetric' is set to {{FALSE}} "
                    "and 'arrayminus' is empty."
                 ).format(S0=s[0])
             )),
@@ -1053,15 +1053,16 @@ class MakeMeta(list):
         self += self._stuff('font', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
-    def _keymeta_ticks(self,axis_or_colorbar):
-        '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar'''
+    def _keymeta_ticks(self, axis_or_colorbar):
+        '''@keymeta_ticks@ -- ticks keymeta for xaxis, yaxis (zaxis), colorbar'''
         _keymeta = [
             ('ticks', dict(
                   required=False,
                   key_type='style',
                   val_types="'' | 'inside' | 'outside'",
                   description=(
-                      "Sets the format of tick visibility on this {}."
+                      "Sets the format of the ticks on this {}. "
+                      "For hidden ticks, link 'ticks' to an empty string."
                   ).format(axis_or_colorbar)
             )),
             ('showticklabels', make.showticklabels(axis_or_colorbar)),
@@ -1602,7 +1603,8 @@ class MakeMeta(list):
                     "The second entry (a {UL} of 3 pairs) "
                     "sets the camera's (x,y,z) translation. "
                     "The third entry (a scalar) set the camera's the zoom."
-                )
+                ),
+                examples = MakeExamples.cameraposition(MakeExamples())
              )),
 #             ('domain', ),  # TODO change name (confusing with axis.domain)
 #             ('position', ),  # TODO (needed? overlaps with 'domain');

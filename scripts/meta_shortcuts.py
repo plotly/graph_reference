@@ -191,7 +191,8 @@ class Make(dict):
             heatmap=(
                 "Sets the horizontal coordinates "
                 "referring to the columns of the {OL2D} linked to 'z'. "
-                "if strings, the x-labels are spaced evenly. "
+                "If the 'z' is {a_OL} of strings, then the "
+                "x-labels are spaced evenly. "
                 "If the dimensions of the {OL2D} linked to 'z' are (n x m), "
                 "the length of the 'x' array should equal m."
             ),
@@ -300,10 +301,10 @@ class Make(dict):
                 "Say the dimensions of the {OL2D} linked to 'z' has "
                 "n rows and m columns then the resulting heatmap will show "
                 "n partitions along the y-axis and m partitions along the "
-                "x-axis. Therefore, the ith row/ jth column cell in the "
+                "x-axis. Therefore, the i-th row/ j-th column cell in the "
                 "{OL2D} linked to 'z' is mapped to "
-                "the ith partition of the y-axis (starting from the bottom "
-                "of the plot) and the jth partition of the x-axis "
+                "the i-th partition of the y-axis (starting from the bottom "
+                "of the plot) and the j-th partition of the x-axis "
                 "(starting from the left of the plot). "
             ),
             scatter3d=(
@@ -317,10 +318,10 @@ class Make(dict):
                 "Say the dimensions of the {OL2D} linked to 'z' has "
                 "n rows and m columns then the resulting contour will have "
                 "n coordinates along the y-axis and m coordinates along the "
-                "x-axis. Therefore, the ith row/ jth column cell in the "
+                "x-axis. Therefore, the i-th row/ j-th column cell in the "
                 "{OL2D} linked to 'z' is mapped to "
-                "the ith partition of the y-axis "
-                "and the jth partition of the x-axis "
+                "the i-th partition of the y-axis "
+                "and the j-th partition of the x-axis "
             )
         )
         _description['contour'] = _description['heatmap'].replace('heatmap',
@@ -780,7 +781,7 @@ class Make(dict):
             key_type='plot_info',
             val_types=val_types.bool(),
             description=(
-                "Toggle whether or not this object will be "
+                "Toggles whether or not this object will be "
                 "visible on the rendered figure."
             )
         )
@@ -970,8 +971,8 @@ class Make(dict):
         _description = (
             "Sets and/or defines the color scale for this trace. "
             "The string values are pre-defined color "
-            "scales. For custom color scales, define {{a_OL}}"
-            "color-value pairs where, by default, the first "
+            "scales. For custom color scales, define {{a_OL}} "
+            "of value-color pairs where, the first "
             "element of the pair "
             "corresponds to a normalized value of {S0} from 0-1, "
             "i.e. ({S1}-{S1}min)/ ({S1}max-{S1}min), and the "
@@ -1335,7 +1336,7 @@ class Make(dict):
         _val_types = "number array of length 2" # TODO generalize ValType.number
         _description = (
             "Defines the start and end point of "
-            "this {S} axis."
+            "this {S}-axis."
         ).format(S=what_axis)
         _examples = MakeExamples.range_xy(MakeExamples())
         if what_axis=='angular':
@@ -1355,7 +1356,7 @@ class Make(dict):
         _key_type = 'plot_info'
         _val_types = "number array of length 2"
         _description = (
-            "Sets the domain of this {S} axis; "
+            "Sets the domain of this {S}-axis; "
             "that is, the available space "
             "for this {S}-axis to live in. "
             "Domain coordinates are given in normalized "
@@ -1380,7 +1381,7 @@ class Make(dict):
         _val_types = val_types.bool()
         _description = (
             "Toggle whether or not the line bounding this "
-            "{S} axis will "
+            "{S}-axis will "
             "be shown on the figure."
         ).format(S=which_axis)
         if which_axis=='angular':
