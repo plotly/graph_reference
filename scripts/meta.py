@@ -1077,19 +1077,19 @@ class MakeMeta(list):
         ]
         return _keymeta
       
-    def _keymeta_axis(self,x_or_y):
-        '''@keymake_axis@ -- keymeta for XAxis and YAxis'''
-          
+
+    def _keymeta_axis(self, which_axis):
+        '''@keymeta_axis@ -- keymeta for xaxis, yaxis (and zaxis)'''
         S = {'x':['x','bottom','top','y','left','right','vertical'], 
-             'y':['y','left','right','x','bottom','top','horizontal']}
-        s = S[x_or_y]
-      
+             'y':['y','left','right','x','bottom','top','horizontal'],
+             'z':['z','','','','','','']}
+        s = S[which_axis]
         _keymeta = [
-            ('title', make.title('axis',x_or_y)),
-            ('titlefont', make.titlefont('axis',x_or_y)),
-            ('range', make.range(x_or_y)),
-            ('domain', make.domain(x_or_y)),
-            ('type', dict(      # Different enough from shortcut
+            ('title', make.title('axis', which_axis)),
+            ('titlefont', make.titlefont('axis', which_axis)),
+            ('range', make.range(which_axis)),
+            ('domain', make.domain(which_axis)),
+            ('type', dict( # N.B. different enough from shortcut
                 required=False,
                 key_type='style',
                 val_types="'linear' | 'log' | 'date' | 'category'",
@@ -1121,9 +1121,11 @@ class MakeMeta(list):
                     "is set to {{TRUE}} (the default behavior), the range "
                     "of this {S0}-axis can respond to adjustments made in "
                     "the web GUI automatically. If 'autorange' is set "
-                    "to 'reversed', then this {S0}-axis is drawn in reverse "
-                    "i.e. from {S5} to {S4} instead of from {S4} to {S5} "
-                    "(the default behavior)."
+                    "to 'reversed', then this {S0}-axis is drawn in reverse"
+                    +
+                    (", e.g. in a 2D plot, from {S5} to {S4} instead of "
+                    "from {S4} to {S5} (the default behavior)."
+                    if not which_axis=='z' else '.')
                 ).format(S0=s[0],S4=s[4],S5=s[5])
             )),
             ('showgrid', dict(
@@ -1142,9 +1144,9 @@ class MakeMeta(list):
                     "Toggle whether or not an additional grid line "
                     "(thicker than the other grid lines, by default) "
                     "will appear on this axis along {}=0."
-                ).format(x_or_y)
+                ).format(which_axis)
             )),
-            ('showline', make.showline(x_or_y)),
+            ('showline', make.showline(which_axis)),
             ('autotick', make.autotick('axis')),
             ('nticks', make.nticks('axis')),
         ]
@@ -1157,6 +1159,8 @@ class MakeMeta(list):
                 description=(
                     "Toggle whether to mirror the axis line to the "
                     "opposite side of the plot."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 )
             )),
             ('gridcolor', dict(
@@ -1202,14 +1206,17 @@ class MakeMeta(list):
                 required=False,
                 key_type='plot_info',
                 val_types=(
-                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free'"
+                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free' " 
+                    if not which_axis=='z' else ''
                 ).format(S3=s[3]),
                 description=(
                     "Choose whether the position of this {S0}-axis "
                     "will be anchored to a "
                     "corresponding {S3}-axis or will be 'free' to appear "
                     "anywhere in the {S6} space of "
-                    "this figure."
+                    "this figure. "
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0],S3=s[3],S6=s[6])
             )),
             ('overlaying', dict(  
@@ -1217,6 +1224,7 @@ class MakeMeta(list):
                 key_type='plot_info',
                 val_types=(
                     "'{S0}' | '{S0}1' | '{S0}2' | ... | False"
+                    if not which_axis=='z' else ''
                 ).format(S0=s[0]),
                 description=(
                     "Choose to overlay the data bound to this {S0}-axis "
@@ -1224,30 +1232,94 @@ class MakeMeta(list):
                     "corresponding {S3}-axis or choose not overlay other {S0}-"
                     "the other axis/axes of this "
                     "figure."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0],S3=s[3],S6=s[6])
             )),
             ('side', dict(
                 required=False,
                 key_type='plot_info',
-                val_types="'{S1}' | '{S2}'".format(S1=s[1],S2=s[2]),
+                val_types=(
+                    "'{S1}' | '{S2}'".format(S1=s[1],S2=s[2])
+                    if not which_axis=='z' else ''
+                ),
                 description=(
                     "Sets whether this {S0}-axis sits at the '{S1}' of the "
                     "plot or at the '{S2}' "
                     "of the plot."
-                ).format(S0=s[0],S1=s[1],S2=s[2])
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
+                ).format(S0=s[0],S1=s[1],S2=s[2]) 
             )),
             ('position', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(le=1, ge=0),
+                val_types=(
+                    val_types.number(le=1, ge=0) 
+                    if not which_axis=='z' else ''
+                ),
                 description=(
                     "Sets where this {S0}-axis is positioned in the plotting "
                     "space. For example if 'position' is set to 0.5, "
                     "then this axis is placed at the exact center of the "
                     "plotting space. Has an effect only if 'anchor' "
                     "is set to 'free'."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0])
-            ))
+            )),
+            ('showbackground', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not this {S0}-axis will have "
+                    "a background color. "
+                    "Has an effect only in 3D plots."
+                ).format(S0=s[0])
+            )),
+            ('backgroundcolor', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.color(),
+                description=(
+                    "Sets the background color of this {S0}-axis. "
+                    "Has an effect only in 3D plots and if 'showbackground' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+            ('showspikes', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not spikes will link up to this "
+                    "{S0}-axis when hovering over data points. "
+                    "Has an effect only in 3D plots."
+                ).format(S0=s[0])
+            )),
+            ('spikesides', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not the spikes will expand out to the "
+                    "{S0}-axis bounds when hovering over data points. "
+                    "Has an effect only in 3D plots and if 'showspikes' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+            ('spikethickness', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.number(gt=0),
+                description=(
+                    "Sets the thickness (in pixels) of the {S0}-axis spikes."
+                    "Has an effect only in 3D plots and if 'showspikes' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+#             ('showaxeslabels')  # TODO (overlap?)
         ]
         return _keymeta
     
