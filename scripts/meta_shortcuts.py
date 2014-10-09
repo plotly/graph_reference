@@ -666,18 +666,25 @@ class Make(dict):
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
     
-    def name(self):
+
+    def name(self, is_3d=False):
         '''@name@'''
-        return dict(
-            required=False,
-            key_type='data',
-            val_types=val_types.string(),
-            description=(
+        _required = False
+        _key_type = 'data'
+        _val_types = val_types.string()
+        if not is_3d:
+            _description = (
                 "The label associated with this trace. "
                 "This name will appear in the legend, on hover and "
                 "in the column header in the online spreadsheet."
             )
-        )
+        else:
+            _description = (
+                "The label associated with this trace. "
+                "This name will appear "
+                "in the column header in the online spreadsheet."
+            )
+        return self._output(_required, _key_type, _val_types, _description)
 
     def mode(self, is_3d=False):
         '''@mode@'''
