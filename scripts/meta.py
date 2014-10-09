@@ -478,6 +478,65 @@ class MakeMeta(list):
         ])
         self += self._stuff('area', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
+
+    def scatter3d(self):
+        '''@scatter3d@'''
+        name = '{scatter3d}'
+        obj_type = "{UL}"
+        parent_keys = []
+        docstring = (
+            "{A_ULlike} for representing a 3D scatter trace in plotly."
+        )
+        links = []  # TODO
+        examples = MakeExamples.scatter3d(MakeExamples())
+        keymeta = OrderedDict([
+            ('x', make.x('scatter3d')),
+            ('y', make.y('scatter3d')),
+            ('z', make.z('scatter3d')),
+            ('mode', make.mode(is_3d=True)),
+            ('name', make.name(is_3d=True)),
+            ('text', make.text('scatter3d')),
+            ('error_z', make.error('scatter3d','z')),
+            ('error_y', make.error('scatter3d','y')),
+            ('error_x', make.error('scatter3d','x')),
+            ('marker', make.marker('scatter3d')),
+            ('line', make.line('scatter3d')),
+            ('textposition', make.textposition('scatter3d')),
+#             ('delaunayaxis' ,),  # TODO change name
+#             ('delaunaycolor' ,), # TODO change name
+            ('scene', make.scene()),
+            ('stream', make.stream()),
+            ('visible', make.visible()),
+            ('type', make.type('scatter3d'))
+        ])
+        self += self._stuff('scatter3d', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+
+    def surface(self):
+        '''@surface@'''
+        name = '{surface}'
+        obj_type = "{UL}"
+        parent_keys = []
+        docstring = (
+            "{A_ULlike} for representing a 3D surface trace in plotly."
+        )
+        links = []  # TODO
+        examples = MakeExamples.surface(MakeExamples())
+        keymeta = OrderedDict([
+            ('z', make.z('surface')),
+            ('x', make.x('surface')),
+            ('y', make.y('surface')),
+            ('name', make.name(is_3d=True)),
+            ('colorscale', make.colorscale('z')),
+            ('scene', make.scene()),
+            ('stream', make.stream()),
+            ('visible', make.visible()),
+            ('type', make.type('surface'))
+        ])
+        self += self._stuff('surface', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
       
     def _keymeta_error(self, which_axis):
         '''@keymeta_error@ -- keymeta for error_y and error_x'''
@@ -608,6 +667,7 @@ class MakeMeta(list):
         self += self._stuff('error_y', name, obj_type, parent_keys, 
                             docstring, examples, links, keymeta)
       
+
     def error_x(self):
         '''@error_x@'''
         name = '{error_x}'
