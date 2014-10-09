@@ -475,30 +475,30 @@ class Make(dict):
 
     def text(self, obj):
         '''@text@'''
-        S = '(x,y,z)' if obj=='scatter3d' else '(x,y)'
-        _required=False
-        _key_type='data'
-        _val_types=val_types.string_array()
-        _description=dict(
+        S = ['(x,y,z)', '3D scatter'] if obj=='scatter3d' else ['(x,y)', obj]
+        _required = False
+        _key_type = 'data'
+        _val_types = val_types.string_array()
+        _description = dict(
             scatter=(
-                "The text elements associated with each {S} pair in "
-                "this scatter trace. If the scatter 'mode' does not "
-                "include 'text' then text elements will appear on hover only. "
-                "In contrast, if 'text' is included in 'mode', "
-                "the entries in 'text' "
+                "The text elements associated with each {S0} pair in "
+                "this {S1} trace. If the scatter 'mode' does not "
+                "include 'text' then elements linked to 'text' will appear "
+                "on hover only. In contrast, if 'text' is included in 'mode', "
+                "the elements in 'text' "
                 "will be rendered on the plot at the locations "
-                "specified in part by their corresponding {S} coordinate pair "
+                "specified in part by their corresponding {S0} coordinate pair "
                 "and the 'textposition' key."
-            ).format(S=S),
+            ).format(S0=S[0],S1=S[1]),
             bar=(
                 "The text elements associated with each bar in this trace. "
                 "The entries in 'text' will appear on hover only, in a text "
                 "box located at the top of each bar."
             )
         )
-        _description['histogram']=_description['bar']
-        _description['scatter3d']=_description['scatter']
-        _streamable=True
+        _description['histogram'] = _description['bar']
+        _description['scatter3d'] = _description['scatter']
+        _streamable = True
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
 
@@ -742,6 +742,7 @@ class Make(dict):
             )
         return self._output(_required, _key_type, _val_types, _description)
 
+
     def mode(self, is_3d=False):
         '''@mode@'''
         S = '3D ' if is_3d else ''
@@ -843,6 +844,19 @@ class Make(dict):
                     "{S0}-axis of a particular 3D scene."
                 ).format(S0=s[0])
         return self._output(_required,_key_type,_val_types,_description)
+
+
+    def scene(self):
+        '''@scene@'''
+        return dict(
+            required=False,
+            key_type='plot_info',
+            val_types="'s1' | 's2' | 's3' | etc.",
+            description=(  # TODO!
+                "This key determines the scene on which this trace will "
+                "be plotted in. More info coming soon."
+            )
+        )
 
     
     def type(self, trace):
@@ -1331,20 +1345,20 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description,
                             examples=_examples)
     
-    def domain(self, what_axis):
+    def domain(self, which_axis):
         '''@domain@'''
-        _required=False
-        _key_type='plot_info'
-        _val_types="number array of length 2"
-        _description=(
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = "number array of length 2"
+        _description = (
             "Sets the domain of this {S} axis; "
             "that is, the available space "
-            "for this {S} axis to live in. "
+            "for this {S}-axis to live in. "
             "Domain coordinates are given in normalized "
             "coordinates with respect to the paper."
-        ).format(S=what_axis)
-        if what_axis in ['radial','angular']:
-            _description=(
+        ).format(S=which_axis)
+        if which_axis in ['radial','angular']:
+            _description = (
                 "Polar chart subplots are not supported yet. "
                 "This key has currently no effect."
             )
@@ -1354,23 +1368,25 @@ class Make(dict):
             return self._output(_required,_key_type,_val_types,_description,
                                 examples=_examples)
     
-    def showline(self, what_axis):
+
+    def showline(self, which_axis):
         '''@showline@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.bool()
-        _description=(
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.bool()
+        _description = (
             "Toggle whether or not the line bounding this "
             "{S} axis will "
             "be shown on the figure."
-        ).format(S=what_axis)
-        if what_axis=='angular':
-            _description+=(
+        ).format(S=which_axis)
+        if which_axis=='angular':
+            _description += (
                 " If 'showline' is set to {TRUE}, "
                 "the bounding line starts from the origin and "
                 "extends to the edge of radial axis."
             )
         return self._output(_required,_key_type,_val_types,_description)
+
     
     def autotick(self, axis_or_colorbar):
         '''@autotick@'''
