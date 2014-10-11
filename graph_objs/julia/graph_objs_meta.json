@@ -2289,7 +2289,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": [
+                    true, 
+                    false, 
+                    "ticks", 
+                    "all", 
+                    "allticks"
+                ], 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 
@@ -2550,7 +2556,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: TRUE | FALSE", 
+                "val_types": [
+                    true, 
+                    false, 
+                    "ticks", 
+                    "all", 
+                    "allticks"
+                ], 
                 "required": false, 
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
             }, 

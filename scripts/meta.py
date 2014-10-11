@@ -1184,7 +1184,7 @@ class MakeMeta(list):
             ('mirror', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.bool(),
+                val_types=[True, False, 'ticks', 'all', 'allticks'],
                 description=(
                     "Toggle whether to mirror the axis line to the "
                     "opposite side of the plot."
