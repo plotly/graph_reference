@@ -2071,9 +2071,9 @@
         }, 
         "mirror": {
             "key_type": "style", 
-            "val_types": "a boolean: TRUE | FALSE", 
+            "val_types": "TRUE | FALSE | 'ticks' | 'all' | 'allticks'", 
             "required": false, 
-            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+            "description": "Toggle the axis line and/or ticks across the plots or subplots. If TRUE, mirror the axis line across the primary subplot (i.e. the axis that this axis is anchored to). If 'ticks', mirror the axis line and the ticks. If 'all', mirror the axis line to all subplots containing this axis. If 'allticks', mirror the line and ticks to all subplots containing this axis. If FALSE, don't mirror the axis or the ticks."
         }, 
         "gridcolor": {
             "key_type": "style", 
@@ -2317,9 +2317,9 @@
         }, 
         "mirror": {
             "key_type": "style", 
-            "val_types": "a boolean: TRUE | FALSE", 
+            "val_types": "TRUE | FALSE | 'ticks' | 'all' | 'allticks'", 
             "required": false, 
-            "description": "Toggle whether to mirror the axis line to the opposite side of the plot."
+            "description": "Toggle the axis line and/or ticks across the plots or subplots. If TRUE, mirror the axis line across the primary subplot (i.e. the axis that this axis is anchored to). If 'ticks', mirror the axis line and the ticks. If 'all', mirror the axis line to all subplots containing this axis. If 'allticks', mirror the line and ticks to all subplots containing this axis. If FALSE, don't mirror the axis or the ticks."
         }, 
         "gridcolor": {
             "key_type": "style", 
