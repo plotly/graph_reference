@@ -9,9 +9,17 @@
             "contour", 
             "histogram2d", 
             "histogram2dcontour", 
-            "area"
+            "area", 
+            "scatter3d", 
+            "surface"
         ]
     }, 
+    "scene": {
+        "scene": [
+            "layout"
+        ]
+    }, 
+    "surface": {}, 
     "radialaxis": {
         "radialaxis": [
             "layout"
@@ -23,14 +31,16 @@
             "bar", 
             "histogram", 
             "box", 
-            "area"
+            "area", 
+            "scatter3d"
         ]
     }, 
     "font": {
         "tickfont": [
             "colorbar", 
             "xaxis", 
-            "yaxis"
+            "yaxis", 
+            "zaxis"
         ], 
         "textfont": [
             "scatter"
@@ -44,6 +54,7 @@
             "colorbar", 
             "xaxis", 
             "yaxis", 
+            "zaxis", 
             "layout"
         ]
     }, 
@@ -52,23 +63,36 @@
             "layout"
         ]
     }, 
+    "contour": {}, 
     "error_x": {
         "error_x": [
             "scatter", 
             "bar", 
-            "histogram"
+            "histogram", 
+            "scatter3d"
         ]
     }, 
     "error_y": {
         "error_y": [
             "scatter", 
             "bar", 
-            "histogram"
+            "histogram", 
+            "scatter3d"
+        ]
+    }, 
+    "error_z": {
+        "error_z": [
+            "scatter3d"
         ]
     }, 
     "area": {}, 
-    "contour": {}, 
+    "annotation": {}, 
     "heatmap": {}, 
+    "zaxis": {
+        "zaxis": [
+            "scene"
+        ]
+    }, 
     "contours": {
         "contours": [
             "contour", 
@@ -77,11 +101,12 @@
     }, 
     "xaxis": {
         "xaxis": [
+            "scene", 
             "layout"
         ]
     }, 
     "figure": {}, 
-    "annotation": {}, 
+    "scatter3d": {}, 
     "annotations": {
         "annotations": [
             "layout"
@@ -106,6 +131,7 @@
             "box", 
             "contour", 
             "histogram2dcontour", 
+            "scatter3d", 
             "marker"
         ]
     }, 
@@ -131,6 +157,7 @@
     "bar": {}, 
     "yaxis": {
         "yaxis": [
+            "scene", 
             "layout"
         ]
     }, 

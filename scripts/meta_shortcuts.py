@@ -147,9 +147,11 @@ class Make(dict):
             contour=False,
             histogram2d=True,
             histogram2dcontour=True,
+            scatter3d=True,
+            surface=False
         )
-        _key_type='data'
-        _val_types=val_types.data_array()
+        _key_type = 'data'
+        _val_types = val_types.data_array()
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
@@ -189,7 +191,8 @@ class Make(dict):
             heatmap=(
                 "Sets the horizontal coordinates "
                 "referring to the columns of the {OL2D} linked to 'z'. "
-                "if strings, the x-labels are spaced evenly. "
+                "If the 'z' is {a_OL} of strings, then the "
+                "x-labels are spaced evenly. "
                 "If the dimensions of the {OL2D} linked to 'z' are (n x m), "
                 "the length of the 'x' array should equal m."
             ),
@@ -197,17 +200,24 @@ class Make(dict):
                 "Sets the data sample to be binned on the x-axis and "
                 "whose distribution (computed by Plotly) will correspond "
                 "to the x-coordinates of this 2D histogram trace."
-           )
+           ),
+           scatter3d=(
+               "Sets the x coordinates of the points of this 3D scatter trace. "
+               "If 'x' is linked to {a_OL} of strings, "
+               "then the x coordinates are integers, 0, 1, 2, 3, ..., labeled "
+               "on the x-axis by the {OL} of strings linked to 'x'."
+           ),
         )
-        _description['contour']= _description['heatmap']
-        _description['histogram2dcontour']= _description['histogram2d']
+        _description['contour'] =  _description['heatmap']
+        _description['histogram2dcontour'] =  _description['histogram2d']
+        _description['surface'] = _description['heatmap']
         _streamable=True
         return self._output(_required[obj],_key_type,_val_types,_description[obj],
                             streamable=_streamable)
 
     def y(self,obj):
        '''@y@'''
-       _required=dict(
+       _required = dict(
             scatter=required_cond.keys(["'x'","'r'","'t'"]),
             bar=required_cond.keys(["'x'"]),
             histogram=required_cond.keys(["'x'"]),
@@ -216,10 +226,12 @@ class Make(dict):
             contour=False,
             histogram2d=True,
             histogram2dcontour=True,
+            scatter3d=True,
+            surface=False
         )
-       _key_type='data'
-       _val_types=val_types.data_array()
-       _description=dict(
+       _key_type = 'data'
+       _val_types = val_types.data_array()
+       _description = dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
                "If 'y' is linked to {a_OL} of strings, "
@@ -261,36 +273,63 @@ class Make(dict):
                "Sets the data sample to be binned on the y-axis and "
                "whose distribution (computed by Plotly) will correspond "
                "to the y-coordinates of this 2D histogram trace."
-          )
+          ),
+          scatter3d=(
+              "Sets the y coordinates of the points of this 3D scatter trace. "
+              "If 'y' is linked to {a_OL} of strings, "
+              "then the y coordinates are integers, 0, 1, 2, 3, ..., labeled "
+              "on the y-axis by the {OL} of strings linked to 'y'."
+          ),
        )
-       _description['contour']= _description['heatmap']
-       _description['histogram2dcontour']= _description['histogram2d']
-       _streamable=True
+       _description['contour'] = _description['heatmap']
+       _description['histogram2dcontour'] = _description['histogram2d']
+       _description['surface'] = _description['heatmap']
+       _streamable = True
        return self._output(_required[obj],_key_type,_val_types,_description[obj],
                           streamable=_streamable)
 
     def z(self,obj):
         '''@z@'''
-        _required=True
-        _key_type='data'
-        _val_types=val_types.matrix()
-        _description=dict(
+        _required = True
+        _key_type = 'data'
+        _val_types = val_types.matrix()
+        if obj == 'scatter3d':
+            _val_types = val_types.data_array()
+        _description = dict(
             heatmap=(
                 "Sets the data that describes the heatmap mapping. "
                 "Say the dimensions of the {OL2D} linked to 'z' has "
                 "n rows and m columns then the resulting heatmap will show "
                 "n partitions along the y-axis and m partitions along the "
-                "x-axis. Therefore, the ith row/ jth column cell in the "
+                "x-axis. Therefore, the i-th row/ j-th column cell in the "
                 "{OL2D} linked to 'z' is mapped to "
-                "the ith partition of the y-axis (starting from the bottom "
-                "of the plot) and the jth partition of the x-axis "
+                "the i-th partition of the y-axis (starting from the bottom "
+                "of the plot) and the j-th partition of the x-axis "
                 "(starting from the left of the plot). "
+            ),
+            scatter3d=(
+                "Sets the z coordinates of the points of this scatter trace. "
+                "If 'z' is linked to {a_OL} of strings, "
+                "then the z coordinates are integers, 0, 1, 2, 3, ..., labeled "
+                "on the z-axis by the {OL} of strings linked to 'z'."
+            ),
+            surface=(
+                "Sets the surface coordinates. "
+                "Say the dimensions of the {OL2D} linked to 'z' has "
+                "n rows and m columns then the resulting contour will have "
+                "n coordinates along the y-axis and m coordinates along the "
+                "x-axis. Therefore, the i-th row/ j-th column cell in the "
+                "{OL2D} linked to 'z' is mapped to "
+                "the i-th partition of the y-axis "
+                "and the j-th partition of the x-axis "
             )
         )
-        _description['contour']= _description['heatmap']
+        _description['contour'] = _description['heatmap'].replace('heatmap',
+                                                                  'contour map')
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
-                          streamable=_streamable)
+                            streamable=_streamable)
+
 
     def r(self,obj):
         '''@r@'''
@@ -418,13 +457,12 @@ class Make(dict):
 
     def xytype(self,obj,x_or_y):
         '''@xytype@ | @xtype@ | @ytype@'''
-        S={'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
-        s=S[x_or_y]
-
-        _required=False
-        _key_type='plot_info'
-        _val_types="'array' | 'scaled'"
-        _description=dict(
+        S = {'x':['x','horizontal'], 'y':['y','vertical'], False:['',]}
+        s = S[x_or_y]
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = "'array' | 'scaled'"
+        _description = dict(
             heatmap=(
                 "If set to 'scaled' and '{S0}' is linked to {{a_OL}}, "
                 "then the {S1} labels are scaled to {{a_OL}} "
@@ -435,54 +473,64 @@ class Make(dict):
         _description['contour']= _description['heatmap']
         return self._output(_required,_key_type,_val_types,_description[obj])
 
+
     def text(self, obj):
         '''@text@'''
-        _required=False
-        _key_type='data'
-        _val_types=val_types.string_array()
-        _description=dict(
+        S = ['(x,y,z)', '3D scatter'] if obj=='scatter3d' else ['(x,y)', obj]
+        _required = False
+        _key_type = 'data'
+        _val_types = val_types.string_array()
+        _description = dict(
             scatter=(
-                "The text elements associated with each (x,y) pair in "
-                "this scatter trace. If the scatter 'mode' does not "
-                "include 'text' then text elements will appear on hover only. "
-                "In contrast, if 'text' is included in 'mode', "
-                "the entries in 'text' "
+                "The text elements associated with each {S0} pair in "
+                "this {S1} trace. If the scatter 'mode' does not "
+                "include 'text' then elements linked to 'text' will appear "
+                "on hover only. In contrast, if 'text' is included in 'mode', "
+                "the elements in 'text' "
                 "will be rendered on the plot at the locations "
-                "specified in part by their corresponding (x,y) coordinate pair "
+                "specified in part by their corresponding {S0} coordinate pair "
                 "and the 'textposition' key."
-            ),
+            ).format(S0=S[0],S1=S[1]),
             bar=(
                 "The text elements associated with each bar in this trace. "
                 "The entries in 'text' will appear on hover only, in a text "
                 "box located at the top of each bar."
             )
         )
-        _description['histogram']=_description['bar']
-        _streamable=True
+        _description['histogram'] = _description['bar']
+        _description['scatter3d'] = _description['scatter']
+        _streamable = True
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
 
-    def error(self, obj, x_or_y):
+    
+    def error(self, obj, which_axis):
         '''@error@ | @error_y@ | @error_x@'''
-
-        S={'x':['horizontal','x'], 'y':['vetical','y']}
-        s=S[x_or_y]
-
-        _required=False
-        _key_type='object'
-        _val_types=val_types.object()
-        _description=dict(
+        S = {'x':['horizontal','x'],
+             'y':['vertical','y'],
+             'z':['','z']}
+        s = S[which_axis]
+        _required = False
+        _key_type = 'object'
+        _val_types = val_types.object()
+        _description = dict(
             scatter=(
                 "Links {{a_ULlike}} describing "
                 "the {S0} error bars (i.e. along the {S1}-axis) "
                 "that can be drawn "
-                "from the (x, y) coordinates."
+                "from the (x,y) coordinates of this scatter trace."
             ).format(S0=s[0],S1=s[1]),
             bar=(
                 "Links {{a_ULlike}} describing the {S0} error bars "
                 "(i.e. along the {S1}-axis) that can "
                 "be drawn from bar tops."
-           ).format(S0=s[0],S1=s[1])
+           ).format(S0=s[0],S1=s[1]),
+           scatter3d=(
+               "Links {{a_ULlike}} describing "
+               "the {S1}-axis error bars "
+               "that can be drawn "
+               "from the (x,y,z) coordinates of this 3D scatter trace."
+           ).format(S1=s[1]),
         )
         _description['histogram']= _description['bar']
         _streamable=True
@@ -533,6 +581,11 @@ class Make(dict):
                 "Links {a_ULlike} containing marker style "
                 "of the area sectors of this trace, for example the sector fill "
                 "color and sector boundary line width and sector boundary color."
+           ),
+           scatter3d=(
+                "Links {a_ULlike} containing marker style "
+                "parameters for this 3D scatter trace. "
+                "Has an effect only if 'mode' contains 'markers'."
            )
         )
         _description['histogram']= _description['bar']
@@ -551,11 +604,15 @@ class Make(dict):
                 "parameters for this scatter trace. "
                 "Has an effect only if 'mode' contains 'lines'."
             ),
-            bar="Artifact. Has no effect.", # ARTIFACT
             box=(
                 "Links {a_ULlike} containing line "
                 "parameters for the border of this box trace "
                 "(including the whiskers)."
+            ),
+            scatter3d=(
+                "Links {a_ULlike} containing line "
+                "parameters for this 3D scatter trace. "
+                "Has an effect only if 'mode' contains 'lines'."
             ),
             contour=(
                 "Links {a_ULlike} containing line "
@@ -571,11 +628,33 @@ class Make(dict):
                 "bar trace."
            )
         )
-        _description['histogram']= _description['bar']
         _description['histogram2dcontour']= _description['contour']
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
+    
+
+    def textposition(self, is_3d=False):
+        '''@textposition@'''
+        S = '(x,y,z)' if is_3d else '(x,y)'
+
+        _required = False
+        _key_type = 'style'
+        _val_types = (
+            "'top left' | 'top' (or 'top center')| 'top right' | "
+            "'left' (or 'middle left') | '' (or 'middle center') | "
+            "'right' (or 'middle right') | "
+            "'bottom left' | 'bottom' (or 'bottom center') | "
+            "'bottom right'"
+        )
+        _description = (
+            "Sets the position of the text elements "
+            "in the 'text' key with respect to the data points. "
+            "By default, the text elements are plotted directly "
+            "at the {S} coordinates."
+        ).format(S=S)
+        return self._output(_required, _key_type, _val_types, _description)
+
 
     def opacity(self, marker=False):
         '''@opacity@'''
@@ -644,18 +723,44 @@ class Make(dict):
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
 
-    def name(self):
+
+    def name(self, is_3d=False):
         '''@name@'''
-        return dict(
-            required=False,
-            key_type='data',
-            val_types=val_types.string(),
-            description=(
+        _required = False
+        _key_type = 'data'
+        _val_types = val_types.string()
+        if not is_3d:
+            _description = (
                 "The label associated with this trace. "
                 "This name will appear in the legend, on hover and "
                 "in the column header in the online spreadsheet."
             )
+        else:
+            _description = (
+                "The label associated with this trace. "
+                "This name will appear "
+                "in the column header in the online spreadsheet."
+            )
+        return self._output(_required, _key_type, _val_types, _description)
+
+
+    def mode(self, is_3d=False):
+        '''@mode@'''
+        S = '3D ' if is_3d else ''
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = (
+            "'lines' | 'markers' | 'text' | 'lines+markers' | "
+            "'lines+text' | 'markers+text' | 'lines+markers+text'"
         )
+        _description = (
+            "Plotting mode for this {S}scatter trace. If the "
+            "mode includes 'text' then the 'text' will appear at "
+            "the (x,y) points, otherwise it will appear on "
+            "hover."
+        ).format(S=S)
+        return self._output(_required, _key_type, _val_types, _description)
+    
 
     def stream(self):
         '''@stream@'''
@@ -676,8 +781,8 @@ class Make(dict):
             key_type='plot_info',
             val_types=val_types.bool(),
             description=(
-                "Toggles whether or not this object will actually be "
-                "visible in the rendered figure."
+                "Toggles whether or not this object will be "
+                "visible on the rendered figure."
             )
         )
 
@@ -698,17 +803,18 @@ class Make(dict):
             )
         return self._output(_required,_key_type,_val_types,_description)
 
-    def axis(self, x_or_y, trace=False, layout=False):
+
+    def axis(self, which_axis, trace=False, layout=False, scene=False):
         '''@axis@ | @xaxis@ | @yaxis@'''
-
-        S={'x':['x','horizontal','X'], 'y':['y','vertical','Y']}
-        s=S[x_or_y]
-
-        _required=False
+        S = {'x':['x','horizontal', '{xaxis}'],
+             'y':['y','vertical' ,'{yaxis}'],
+             'z':['z','','']}
+        s = S[which_axis]
+        _required = False
         if trace:
-            _key_type='plot_info'
-            _val_types="'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
-            _description=(
+            _key_type = 'plot_info'
+            _val_types = "'{S0}1' | '{S0}2' | '{S0}3' | etc.".format(S0=s[0])
+            _description = (
                 "This key determines which {S0}-axis "
                 "the {S0}-coordinates of this trace will "
                 "reference in the figure.  Values '{S0}1' "
@@ -718,21 +824,42 @@ class Make(dict):
                 "'{S0}axis' or '{S0}axis1' in 'layout', "
                 "they are the same."
             ).format(S0=s[0])
-        elif layout:
-            _key_type='object'
-            _val_types=val_types.object()
-            _description=(
+        elif layout or scene:
+            _key_type = 'object'
+            _val_types = val_types.object()
+            _description = (
                 "Links {{a_ULlike}} describing an "
                 "{S0}-axis (i.e. an {S1} axis). "
-                "The first {S2}Axis object can be entered into "
+                "The first {S2} object can be entered into "
                 "'layout' by linking it to '{S0}axis' OR "
                 "'{S0}axis1', both keys are identical to Plotly.  "
                 "To create references other than {S0}-axes, "
                 "you need to define them in 'layout' "
-                "using keys '{S0}axis2', '{S0}axis3' and so on."
-            ).format(S0=s[0],S1=s[1],S2=s[2])
+                "using keys '{S0}axis2', '{S0}axis3' and so on. "
+                "Note that in 3D plots, {S2} objects must be "
+                "linked from a {{scene}} object."
+            ).format(S0=s[0], S1=s[1], S2=s[2])
+            if scene:
+                _description = (
+                    "Links {{a_ULlike}} describing an "
+                    "{S0}-axis of a particular 3D scene."
+                ).format(S0=s[0])
         return self._output(_required,_key_type,_val_types,_description)
 
+
+    def scene(self):
+        '''@scene@'''
+        return dict(
+            required=False,
+            key_type='plot_info',
+            val_types="'s1' | 's2' | 's3' | etc.",
+            description=(  # TODO!
+                "This key determines the scene on which this trace will "
+                "be plotted in. More info coming soon."
+            )
+        )
+
+    
     def type(self, trace):
         '''@type@'''
         _required=False
@@ -740,13 +867,6 @@ class Make(dict):
         _val_types="'{trace}'".format(trace=trace)
         _description=(
             "Plotly identifier for this data's trace type. "
-            #"This defines how this "
-            #"data dictionary will be handled. "
-            #"For example, 'scatter' type expects "
-            #"x and y data-arrays corresponding to "
-            #"(x, y) coordinates whereas a 'histogram' "
-            #"only requires a single x or y array "
-            #"and a 'heatmap' type requires a z matrix."
         )
         return self._output(_required,_key_type,_val_types,_description)
 
@@ -838,23 +958,21 @@ class Make(dict):
 
     def colorscale(self, z_or_color):
         '''@colorscale@'''
-
-        S={'c': ['color', 'c'], 'z': ['z', 'z']}
+        S = {'c': ['color', 'c'], 'z': ['z', 'z']}
         s = S[z_or_color]
-
-        _required=False
-        _key_type="plot_info"
-        _val_types=(
+        _required = False
+        _key_type = "plot_info"
+        _val_types = (
             "{OL} of value-color pairs | "
             "'Greys' | 'Greens' | 'Bluered' | 'Hot' | "
             "'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | "
             "'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
         )
-        _description=(
+        _description = (
             "Sets and/or defines the color scale for this trace. "
             "The string values are pre-defined color "
-            "scales. For custom color scales, define {{a_OL}}"
-            "color-value pairs where, by default, the first "
+            "scales. For custom color scales, define {{a_OL}} "
+            "of value-color pairs where, the first "
             "element of the pair "
             "corresponds to a normalized value of {S0} from 0-1, "
             "i.e. ({S1}-{S1}min)/ ({S1}max-{S1}min), and the "
@@ -879,14 +997,12 @@ class Make(dict):
 
     def zcminmax(self, min_or_max, z_or_color):
         '''@zcminmax@ | @zmin@ | @zmax@ | @cmin@ | @cmax@'''
-
-        S={'min': 'minimum', 'max': 'maximum'}
-        s=S[min_or_max]
-
-        _required=False
-        _key_type='plot_info'
-        _val_types=val_types.number()
-        _description=(
+        S = {'min': 'minimum', 'max': 'maximum'}
+        s = S[min_or_max]
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = val_types.number()
+        _description = (
             "Sets the {S0} '{z_or_color}' data value to be "
             "resolved by the color scale. "
             "Its default value is the {S0} of the "
@@ -895,7 +1011,7 @@ class Make(dict):
             "normalization. For more info see 'colorscale'."
         ).format(S0=s,z_or_color=z_or_color)
         if z_or_color=='color':
-            _description+=(
+            _description += (
                 " Has only an effect if 'color' is linked "
                 "to {a_OL} nd 'colorscale' is set."
             )
@@ -1045,15 +1161,20 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
 
+    
     def bgcolor(self,obj):
         '''@bgcolor@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.color()
-        _description=dict(
-            legend="Sets the background (bg) color for the legend.",
-            colorbar="Sets the background (bg) color for this colorbar.",
-            annotation="Sets the background (bg) color for this annotation."
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.color()
+        _description = dict(
+            legend="Sets the background (bg) color of the legend.",
+            colorbar="Sets the background (bg) color of this colorbar.",
+            annotation="Sets the background (bg) color of this annotation.",
+            scene=(
+                "Sets the background (bg) color of this scene "
+                "(i.e. of the plotting surface and the margins)."
+            )
         )
         return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
@@ -1137,28 +1258,25 @@ class Make(dict):
             _key_type = 'style'
         elif obj == 'error':
             _key_type = 'style'
-        elif obj == 'figure':
-            _key_type = 'plot_info'
-
         _val_types=val_types.number(ge=0)
-        _description=dict(
+        _description = dict(
             line="Sets the width (in pixels) of the line segments in question.",
             error=(
                 "Sets the width (in pixels) of the cross-bar at both ends of "
                 "the error bars."
-            ),
-            figure="The width in pixels of the figure you're creating."
+            )
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
 
-    def thickness(self, obj, x_or_y=False):
+    
+    def thickness(self, obj, which_axis=False):
         '''@thickness@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.number(ge=0)
-        S={'x': ['x',], 'y': ['y',], False:['',]}
-        s=S[x_or_y]
-        _description=dict(
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.number(ge=0)
+        S = {'x':['x',], 'y':['y',], 'z':['z',], False:['',]}
+        s = S[which_axis]
+        _description = dict(
             error=(
                 "Sets the line thickness of the {S0} error bars."
             ).format(S0=s[0]),
@@ -1218,7 +1336,7 @@ class Make(dict):
         _val_types = "number array of length 2" # TODO generalize ValType.number
         _description = (
             "Defines the start and end point of "
-            "this {S} axis."
+            "this {S}-axis."
         ).format(S=what_axis)
         _examples = MakeExamples.range_xy(MakeExamples())
         if what_axis=='angular':
@@ -1231,20 +1349,21 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description,
                             examples=_examples)
 
-    def domain(self, what_axis):
+
+    def domain(self, which_axis):
         '''@domain@'''
-        _required=False
-        _key_type='plot_info'
-        _val_types="number array of length 2"
-        _description=(
-            "Sets the domain of this {S} axis; "
+        _required = False
+        _key_type = 'plot_info'
+        _val_types = "number array of length 2"
+        _description = (
+            "Sets the domain of this {S}-axis; "
             "that is, the available space "
-            "for this {S} axis to live in. "
+            "for this {S}-axis to live in. "
             "Domain coordinates are given in normalized "
             "coordinates with respect to the paper."
-        ).format(S=what_axis)
-        if what_axis in ['radial','angular']:
-            _description=(
+        ).format(S=which_axis)
+        if which_axis in ['radial','angular']:
+            _description = (
                 "Polar chart subplots are not supported yet. "
                 "This key has currently no effect."
             )
@@ -1253,24 +1372,26 @@ class Make(dict):
             _examples = MakeExamples.domain(MakeExamples())
             return self._output(_required,_key_type,_val_types,_description,
                                 examples=_examples)
+    
 
-    def showline(self, what_axis):
+    def showline(self, which_axis):
         '''@showline@'''
-        _required=False
-        _key_type='style'
-        _val_types=val_types.bool()
-        _description=(
+        _required = False
+        _key_type = 'style'
+        _val_types = val_types.bool()
+        _description = (
             "Toggle whether or not the line bounding this "
-            "{S} axis will "
+            "{S}-axis will "
             "be shown on the figure."
-        ).format(S=what_axis)
-        if what_axis=='angular':
-            _description+=(
+        ).format(S=which_axis)
+        if which_axis=='angular':
+            _description += (
                 " If 'showline' is set to {TRUE}, "
                 "the bounding line starts from the origin and "
                 "extends to the edge of radial axis."
             )
         return self._output(_required,_key_type,_val_types,_description)
+
 
     def autotick(self, axis_or_colorbar):
         '''@autotick@'''

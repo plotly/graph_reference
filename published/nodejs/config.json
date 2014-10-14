@@ -45,7 +45,7 @@
                         }, 
                         {
                             "mode": {
-                                "description": "Plotting mode (or style) for the scatter plot. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover.", 
+                                "description": "Plotting mode for this scatter trace. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'"
@@ -61,7 +61,7 @@
                         }, 
                         {
                             "text": {
-                                "description": "The text elements associated with each (x,y) pair in this scatter trace. If the scatter 'mode' does not include 'text' then text elements will appear on hover only. In contrast, if 'text' is included in 'mode', the entries in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y) coordinate pair and the 'textposition' key.", 
+                                "description": "The text elements associated with each (x,y) pair in this scatter trace. If the scatter 'mode' does not include 'text' then elements linked to 'text' will appear on hover only. In contrast, if 'text' is included in 'mode', the elements in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y) coordinate pair and the 'textposition' key.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
@@ -71,7 +71,7 @@
                         {
                             "error_y": {
                                 "child_obj": "error_y", 
-                                "description": "Links an object describing the vetical error bars (i.e. along the y-axis) that can be drawn from the (x, y) coordinates.", 
+                                "description": "Links an object describing the vertical error bars (i.e. along the y-axis) that can be drawn from the (x,y) coordinates of this scatter trace.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "streamable": true, 
@@ -81,7 +81,7 @@
                         {
                             "error_x": {
                                 "child_obj": "error_x", 
-                                "description": "Links an object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x, y) coordinates.", 
+                                "description": "Links an object describing the horizontal error bars (i.e. along the x-axis) that can be drawn from the (x,y) coordinates of this scatter trace.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "streamable": true, 
@@ -113,7 +113,7 @@
                                 "description": "Sets the position of the text elements in the 'text' key with respect to the data points. By default, the text elements are plotted directly at the (x,y) coordinates.", 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') |'right' (or 'middle right') |'bottom left' | 'bottom' (or 'bottom center') |'bottom right'"
+                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') | 'right' (or 'middle right') | 'bottom left' | 'bottom' (or 'bottom center') | 'bottom right'"
                             }
                         }, 
                         {
@@ -202,7 +202,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -280,7 +280,7 @@
                         {
                             "error_y": {
                                 "child_obj": "error_y", 
-                                "description": "Links an object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                                "description": "Links an object describing the vertical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "streamable": true, 
@@ -352,7 +352,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -495,7 +495,7 @@
                         {
                             "error_y": {
                                 "child_obj": "error_y", 
-                                "description": "Links an object describing the vetical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
+                                "description": "Links an object describing the vertical error bars (i.e. along the y-axis) that can be drawn from bar tops.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "streamable": true, 
@@ -567,7 +567,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -751,7 +751,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -782,7 +782,7 @@
                     "keymeta": [
                         {
                             "z": {
-                                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the array of arrays linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the array of arrays linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the array of arrays linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the i-th row/ j-th column cell in the array of arrays linked to 'z' is mapped to the i-th partition of the y-axis (starting from the bottom of the plot) and the j-th partition of the x-axis (starting from the left of the plot). ", 
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
@@ -791,7 +791,7 @@
                         }, 
                         {
                             "x": {
-                                "description": "Sets the horizontal coordinates referring to the columns of the array of arrays linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                                "description": "Sets the horizontal coordinates referring to the columns of the array of arrays linked to 'z'. If the 'z' is an array of strings, then the x-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
@@ -841,7 +841,7 @@
                         }, 
                         {
                             "colorscale": {
-                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                                 "examples": [
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -929,7 +929,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1008,7 +1008,7 @@
                     "keymeta": [
                         {
                             "z": {
-                                "description": "Sets the data that describes the heatmap mapping. Say the dimensions of the array of arrays linked to 'z' has n rows and m columns then the resulting heatmap will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the ith row/ jth column cell in the array of arrays linked to 'z' is mapped to the ith partition of the y-axis (starting from the bottom of the plot) and the jth partition of the x-axis (starting from the left of the plot). ", 
+                                "description": "Sets the data that describes the contour map mapping. Say the dimensions of the array of arrays linked to 'z' has n rows and m columns then the resulting contour map will show n partitions along the y-axis and m partitions along the x-axis. Therefore, the i-th row/ j-th column cell in the array of arrays linked to 'z' is mapped to the i-th partition of the y-axis (starting from the bottom of the plot) and the j-th partition of the x-axis (starting from the left of the plot). ", 
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
@@ -1017,7 +1017,7 @@
                         }, 
                         {
                             "x": {
-                                "description": "Sets the horizontal coordinates referring to the columns of the array of arrays linked to 'z'. if strings, the x-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                                "description": "Sets the horizontal coordinates referring to the columns of the array of arrays linked to 'z'. If the 'z' is an array of strings, then the x-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
@@ -1102,7 +1102,7 @@
                         }, 
                         {
                             "colorscale": {
-                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                                 "examples": [
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1182,7 +1182,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1345,7 +1345,7 @@
                         }, 
                         {
                             "colorscale": {
-                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                                 "examples": [
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1457,7 +1457,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1607,7 +1607,7 @@
                         }, 
                         {
                             "colorscale": {
-                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
                                 "examples": [
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -1711,7 +1711,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1795,7 +1795,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1836,6 +1836,257 @@
                     "parent_keys": [], 
                     "parent_tree": {}
                 }
+            }, 
+            {
+                "scatter3d": {
+                    "docstring": "An object for representing a 3D scatter trace in plotly.", 
+                    "examples": [], 
+                    "keymeta": [
+                        {
+                            "x": {
+                                "description": "Sets the x coordinates of the points of this 3D scatter trace. If 'x' is linked to an array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'.", 
+                                "key_type": "data", 
+                                "required": true, 
+                                "streamable": true, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "y": {
+                                "description": "Sets the y coordinates of the points of this 3D scatter trace. If 'y' is linked to an array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'.", 
+                                "key_type": "data", 
+                                "required": true, 
+                                "streamable": true, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "z": {
+                                "description": "Sets the z coordinates of the points of this scatter trace. If 'z' is linked to an array of strings, then the z coordinates are integers, 0, 1, 2, 3, ..., labeled on the z-axis by the array of strings linked to 'z'.", 
+                                "key_type": "data", 
+                                "required": true, 
+                                "streamable": true, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "mode": {
+                                "description": "Plotting mode for this 3D scatter trace. If the mode includes 'text' then the 'text' will appear at the (x,y) points, otherwise it will appear on hover.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'lines' | 'markers' | 'text' | 'lines+markers' | 'lines+text' | 'markers+text' | 'lines+markers+text'"
+                            }
+                        }, 
+                        {
+                            "name": {
+                                "description": "The label associated with this trace. This name will appear in the column header in the online spreadsheet.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "text": {
+                                "description": "The text elements associated with each (x,y,z) pair in this 3D scatter trace. If the scatter 'mode' does not include 'text' then elements linked to 'text' will appear on hover only. In contrast, if 'text' is included in 'mode', the elements in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y,z) coordinate pair and the 'textposition' key.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "array of strings"
+                            }
+                        }, 
+                        {
+                            "error_z": {
+                                "child_obj": "error_z", 
+                                "description": "Links an object describing the z-axis error bars that can be drawn from the (x,y,z) coordinates of this 3D scatter trace.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "error_y": {
+                                "child_obj": "error_y", 
+                                "description": "Links an object describing the y-axis error bars that can be drawn from the (x,y,z) coordinates of this 3D scatter trace.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "error_x": {
+                                "child_obj": "error_x", 
+                                "description": "Links an object describing the x-axis error bars that can be drawn from the (x,y,z) coordinates of this 3D scatter trace.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "marker": {
+                                "child_obj": "marker", 
+                                "description": "Links an object containing marker style parameters for this 3D scatter trace. Has an effect only if 'mode' contains 'markers'.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "line": {
+                                "child_obj": "line", 
+                                "description": "Links an object containing line parameters for this 3D scatter trace. Has an effect only if 'mode' contains 'lines'.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "textposition": {
+                                "description": "Sets the position of the text elements in the 'text' key with respect to the data points. By default, the text elements are plotted directly at the (x,y,z) coordinates.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') | 'right' (or 'middle right') | 'bottom left' | 'bottom' (or 'bottom center') | 'bottom right'"
+                            }
+                        }, 
+                        {
+                            "scene": {
+                                "child_obj": "scene", 
+                                "description": "This key determines the scene on which this trace will be plotted in. More info coming soon.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'s1' | 's2' | 's3' | etc."
+                            }
+                        }, 
+                        {
+                            "stream": {
+                                "child_obj": "stream", 
+                                "description": "Links an object that initializes this trace as a writable-stream, for use with the streaming API.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "visible": {
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "type": {
+                                "description": "Plotly identifier for this data's trace type. ", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'scatter3d'"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "scatter3d", 
+                    "obj_type": "object", 
+                    "parent_keys": [], 
+                    "parent_tree": {}
+                }
+            }, 
+            {
+                "surface": {
+                    "docstring": "An object for representing a 3D surface trace in plotly.", 
+                    "examples": [], 
+                    "keymeta": [
+                        {
+                            "z": {
+                                "description": "Sets the surface coordinates. Say the dimensions of the array of arrays linked to 'z' has n rows and m columns then the resulting contour will have n coordinates along the y-axis and m coordinates along the x-axis. Therefore, the i-th row/ j-th column cell in the array of arrays linked to 'z' is mapped to the i-th partition of the y-axis and the j-th partition of the x-axis ", 
+                                "key_type": "data", 
+                                "required": true, 
+                                "streamable": true, 
+                                "val_types": "array of arrays of numbers"
+                            }
+                        }, 
+                        {
+                            "x": {
+                                "description": "Sets the horizontal coordinates referring to the columns of the array of arrays linked to 'z'. If the 'z' is an array of strings, then the x-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "y": {
+                                "description": "Sets the vertical coordinates referring to the rows of the array of arrays linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the array of arrays linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "name": {
+                                "description": "The label associated with this trace. This name will appear in the column header in the online spreadsheet.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "colorscale": {
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of z from 0-1, i.e. (z-zmin)/ (zmax-zmin), and the second element of pair corresponds to a color. Use with 'zauto', 'zmin' and 'zmax to fine-tune the map from 'z' to rendered colors.", 
+                                "examples": [
+                                    "'Greys'", 
+                                    "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
+                                ], 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "array of value-color pairs | 'Greys' | 'Greens' | 'Bluered' | 'Hot' | 'Picnic' | 'Portland' | 'Jet' | 'RdBu' | 'Blackbody' | 'Earth' | 'Electric' | 'YIOrRd' | 'YIGnBu'"
+                            }
+                        }, 
+                        {
+                            "scene": {
+                                "child_obj": "scene", 
+                                "description": "This key determines the scene on which this trace will be plotted in. More info coming soon.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'s1' | 's2' | 's3' | etc."
+                            }
+                        }, 
+                        {
+                            "stream": {
+                                "child_obj": "stream", 
+                                "description": "Links an object that initializes this trace as a writable-stream, for use with the streaming API.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "visible": {
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "type": {
+                                "description": "Plotly identifier for this data's trace type. ", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'surface'"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "surface", 
+                    "obj_type": "object", 
+                    "parent_keys": [], 
+                    "parent_tree": {}
+                }
             }
         ], 
         "group": "Trace objects"
@@ -1866,7 +2117,7 @@
                         }, 
                         {
                             "array": {
-                                "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span vertically from y= 0 to 2 and y= 0 to 4 if 'symmetric'=True; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty.", 
+                                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'y' coordinates. For example, with 'y'=[1,2] and 'array'=[1,2], the error bars will span from y= 0 to 2 and y= 0 to 4 if 'symmetric' is set to true; and from y= 1 to 2 and y= 2 to 4 if 'symmetric' is set to false and 'arrayminus' is empty.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "val_types": "array of numbers, strings, datetimes"
@@ -1882,7 +2133,7 @@
                         }, 
                         {
                             "arrayminus": {
-                                "description": "Only functional when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates", 
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
@@ -1890,7 +2141,7 @@
                         }, 
                         {
                             "valueminus": {
-                                "description": "Only functional when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars below the trace coordinates", 
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars below the trace coordinates", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
@@ -1939,7 +2190,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -1958,7 +2209,8 @@
                         "error_y": [
                             "scatter", 
                             "bar", 
-                            "histogram"
+                            "histogram", 
+                            "scatter3d"
                         ]
                     }
                 }
@@ -1986,7 +2238,7 @@
                         }, 
                         {
                             "array": {
-                                "description": "The array of corresponding to error bars' span to be drawn. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span horizontally from x= 0 to 2 and x= 0 to 4 if 'symmetric'=True; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to False and 'arrayminus' is empty.", 
+                                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'x' coordinates. For example, with 'x'=[1,2] and 'array'=[1,2], the error bars will span from x= 0 to 2 and x= 0 to 4 if 'symmetric' is set to true; and from x= 1 to 2 and x= 2 to 4 if 'symmetric' is set to false and 'arrayminus' is empty.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "val_types": "array of numbers, strings, datetimes"
@@ -2002,7 +2254,7 @@
                         }, 
                         {
                             "arrayminus": {
-                                "description": "Only functional when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates", 
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
@@ -2010,7 +2262,7 @@
                         }, 
                         {
                             "valueminus": {
-                                "description": "Only functional when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates", 
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars left of the trace coordinates", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number: x >= 0"
@@ -2067,7 +2319,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -2086,7 +2338,8 @@
                         "error_x": [
                             "scatter", 
                             "bar", 
-                            "histogram"
+                            "histogram", 
+                            "scatter3d"
                         ]
                     }
                 }
@@ -2264,7 +2517,7 @@
                         }, 
                         {
                             "colorscale": {
-                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an arraycolor-value pairs where, by default, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
+                                "description": "Sets and/or defines the color scale for this trace. The string values are pre-defined color scales. For custom color scales, define an array of value-color pairs where, the first element of the pair corresponds to a normalized value of color from 0-1, i.e. (c-cmin)/ (cmax-cmin), and the second element of pair corresponds to a color. Use with 'cauto', 'cmin' and 'cmax to fine-tune the map from 'color' to rendered colors.", 
                                 "examples": [
                                     "'Greys'", 
                                     "[[0, 'rgb(0,0,0)'], [0.5, 'rgb(65, 182, 196)'], [1, 'rgb(255,255,255)']]"
@@ -2338,7 +2591,8 @@
                             "bar", 
                             "histogram", 
                             "box", 
-                            "area"
+                            "area", 
+                            "scatter3d"
                         ]
                     }
                 }
@@ -2454,6 +2708,7 @@
                             "box", 
                             "contour", 
                             "histogram2dcontour", 
+                            "scatter3d", 
                             "marker"
                         ]
                     }
@@ -2602,7 +2857,7 @@
                         }, 
                         {
                             "ticks": {
-                                "description": "Sets the format of tick visibility on this colorbar.", 
+                                "description": "Sets the format of the ticks on this colorbar. For hidden ticks, link 'ticks' to an empty string.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'' | 'inside' | 'outside'"
@@ -2731,7 +2986,7 @@
                         }, 
                         {
                             "bgcolor": {
-                                "description": "Sets the background (bg) color for this colorbar.", 
+                                "description": "Sets the background (bg) color of this colorbar.", 
                                 "examples": [
                                     "'green'", 
                                     "'rgb(0, 255, 0)'", 
@@ -2866,7 +3121,125 @@
                             "contour", 
                             "histogram2d", 
                             "histogram2dcontour", 
-                            "area"
+                            "area", 
+                            "scatter3d", 
+                            "surface"
+                        ]
+                    }
+                }
+            }, 
+            {
+                "error_z": {
+                    "docstring": "A object representing a set of error bars spanning along the z-axis in a 3D plot.", 
+                    "examples": [], 
+                    "keymeta": [
+                        {
+                            "type": {
+                                "description": "Specify how the 'value' or 'array' key in this error bar will be used to render the bars. Using 'data' will set error bar lengths to the actual numbers specified in 'array'.  Using 'percent' will set bar lengths to the percent of error associated with 'value'. Using 'constant' will set each error bar length to the single value specified in 'value'. Using 'sqrt' will set each error bar length to the square root of the x data at each point ('value' and 'array' do not apply).", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'data' | 'percent' | 'constant' | 'sqrt'"
+                            }
+                        }, 
+                        {
+                            "symmetric": {
+                                "description": "Toggle whether or not error bars are the same length in both directions (positive z and negative z). If not specified, the error bars will be symmetric.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "array": {
+                                "description": "The array corresponding to the span of the error bars. Has only an effect if 'type' is set to 'data'. Values in the array are plotted relative to the 'z' coordinates. For example, with 'z'=[1,2] and 'array'=[1,2], the error bars will span from z= 0 to 2 and z= 0 to 4 if 'symmetric' is set to true; and from z= 1 to 2 and z= 2 to 4 if 'symmetric' is set to false and 'arrayminus' is empty.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "val_types": "array of numbers, strings, datetimes"
+                            }
+                        }, 
+                        {
+                            "value": {
+                                "description": "The value or percentage determining the error bars' span, at all trace coordinates. Has an effect if 'type' is set to 'value' or 'percent'. If 'symmetric' is set to false, this value corresponds to the span above the trace of coordinates. To specify multiple error bar lengths, you should set 'type' to 'data' and use the 'array' key instead.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "arrayminus": {
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "valueminus": {
+                                "description": "Has an effect only when 'symmetric' is set to false. Same as 'value' but corresponding to the span of the error bars below the trace coordinates", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "color": {
+                                "description": "Sets the color of the error bars.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "thickness": {
+                                "description": "Sets the line thickness of the z error bars.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "width": {
+                                "description": "Sets the width (in pixels) of the cross-bar at both ends of the error bars.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "opacity": {
+                                "description": "Sets the opacity, or transparency, of the entire object, also known as the alpha channel of colors. If the object's color is given in terms of 'rgba' color model, 'opacity' is redundant.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x in [0, 1]"
+                            }
+                        }, 
+                        {
+                            "visible": {
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "error_z", 
+                    "obj_type": "object", 
+                    "parent_keys": [
+                        "error_z"
+                    ], 
+                    "parent_tree": {
+                        "error_z": [
+                            "scatter3d"
                         ]
                     }
                 }
@@ -2901,7 +3274,7 @@
                         }, 
                         {
                             "range": {
-                                "description": "Defines the start and end point of this x axis.", 
+                                "description": "Defines the start and end point of this x-axis.", 
                                 "examples": [
                                     "[-13, 20]", 
                                     "[0, 1]"
@@ -2913,7 +3286,7 @@
                         }, 
                         {
                             "domain": {
-                                "description": "Sets the domain of this x axis; that is, the available space for this x axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                                "description": "Sets the domain of this x-axis; that is, the available space for this x-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                                 "examples": [
                                     "[0, 0.4]", 
                                     "[0.6, 1]"
@@ -2941,7 +3314,7 @@
                         }, 
                         {
                             "autorange": {
-                                "description": "Toggle whether or not the range of this x-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this x-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this x-axis is drawn in reverse i.e. from right to left instead of from left to right (the default behavior).", 
+                                "description": "Toggle whether or not the range of this x-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this x-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this x-axis is drawn in reverse, e.g. in a 2D plot, from right to left instead of from left to right (the default behavior).", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "true | false | 'reversed'"
@@ -2965,7 +3338,7 @@
                         }, 
                         {
                             "showline": {
-                                "description": "Toggle whether or not the line bounding this x axis will be shown on the figure.", 
+                                "description": "Toggle whether or not the line bounding this x-axis will be shown on the figure.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -2989,7 +3362,7 @@
                         }, 
                         {
                             "ticks": {
-                                "description": "Sets the format of tick visibility on this axis.", 
+                                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'' | 'inside' | 'outside'"
@@ -3166,15 +3539,15 @@
                         }, 
                         {
                             "anchor": {
-                                "description": "Choose whether the position of this x-axis will be anchored to a corresponding y-axis or will be 'free' to appear anywhere in the vertical space of this figure.", 
+                                "description": "Choose whether the position of this x-axis will be anchored to a corresponding y-axis or will be 'free' to appear anywhere in the vertical space of this figure. Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
-                                "val_types": "'y' | 'y1' | 'y2' | ... | 'free'"
+                                "val_types": "'y' | 'y1' | 'y2' | ... | 'free' "
                             }
                         }, 
                         {
                             "overlaying": {
-                                "description": "Choose to overlay the data bound to this x-axis on the same plotting area as a corresponding y-axis or choose not overlay other x-the other axis/axes of this figure.", 
+                                "description": "Choose to overlay the data bound to this x-axis on the same plotting area as a corresponding y-axis or choose not overlay other x-the other axis/axes of this figure.Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'x' | 'x1' | 'x2' | ... | False"
@@ -3182,7 +3555,7 @@
                         }, 
                         {
                             "side": {
-                                "description": "Sets whether this x-axis sits at the 'bottom' of the plot or at the 'top' of the plot.", 
+                                "description": "Sets whether this x-axis sits at the 'bottom' of the plot or at the 'top' of the plot.Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'bottom' | 'top'"
@@ -3190,10 +3563,50 @@
                         }, 
                         {
                             "position": {
-                                "description": "Sets where this x-axis is positioned in the plotting space. For example if 'position' is set to 0.5, then this axis is placed at the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'.", 
+                                "description": "Sets where this x-axis is positioned in the plotting space. For example if 'position' is set to 0.5, then this axis is placed at the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'.Has no effect in 3D plots.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x in [0, 1]"
+                            }
+                        }, 
+                        {
+                            "showbackground": {
+                                "description": "Toggle whether or not this x-axis will have a background color. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "backgroundcolor": {
+                                "description": "Sets the background color of this x-axis. Has an effect only in 3D plots and if 'showbackground' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "showspikes": {
+                                "description": "Toggle whether or not spikes will link up to this x-axis when hovering over data points. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikesides": {
+                                "description": "Toggle whether or not the spikes will expand out to the x-axis bounds when hovering over data points. Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikethickness": {
+                                "description": "Sets the thickness (in pixels) of the x-axis spikes.Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
                             }
                         }
                     ], 
@@ -3210,6 +3623,7 @@
                     ], 
                     "parent_tree": {
                         "xaxis": [
+                            "scene", 
                             "layout"
                         ]
                     }
@@ -3239,7 +3653,7 @@
                         }, 
                         {
                             "range": {
-                                "description": "Defines the start and end point of this y axis.", 
+                                "description": "Defines the start and end point of this y-axis.", 
                                 "examples": [
                                     "[-13, 20]", 
                                     "[0, 1]"
@@ -3251,7 +3665,7 @@
                         }, 
                         {
                             "domain": {
-                                "description": "Sets the domain of this y axis; that is, the available space for this y axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                                "description": "Sets the domain of this y-axis; that is, the available space for this y-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
                                 "examples": [
                                     "[0, 0.4]", 
                                     "[0.6, 1]"
@@ -3279,7 +3693,7 @@
                         }, 
                         {
                             "autorange": {
-                                "description": "Toggle whether or not the range of this y-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this y-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this y-axis is drawn in reverse i.e. from top to bottom instead of from bottom to top (the default behavior).", 
+                                "description": "Toggle whether or not the range of this y-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this y-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this y-axis is drawn in reverse, e.g. in a 2D plot, from top to bottom instead of from bottom to top (the default behavior).", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "true | false | 'reversed'"
@@ -3303,7 +3717,7 @@
                         }, 
                         {
                             "showline": {
-                                "description": "Toggle whether or not the line bounding this y axis will be shown on the figure.", 
+                                "description": "Toggle whether or not the line bounding this y-axis will be shown on the figure.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -3327,7 +3741,7 @@
                         }, 
                         {
                             "ticks": {
-                                "description": "Sets the format of tick visibility on this axis.", 
+                                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'' | 'inside' | 'outside'"
@@ -3504,15 +3918,15 @@
                         }, 
                         {
                             "anchor": {
-                                "description": "Choose whether the position of this y-axis will be anchored to a corresponding x-axis or will be 'free' to appear anywhere in the horizontal space of this figure.", 
+                                "description": "Choose whether the position of this y-axis will be anchored to a corresponding x-axis or will be 'free' to appear anywhere in the horizontal space of this figure. Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
-                                "val_types": "'x' | 'x1' | 'x2' | ... | 'free'"
+                                "val_types": "'x' | 'x1' | 'x2' | ... | 'free' "
                             }
                         }, 
                         {
                             "overlaying": {
-                                "description": "Choose to overlay the data bound to this y-axis on the same plotting area as a corresponding x-axis or choose not overlay other y-the other axis/axes of this figure.", 
+                                "description": "Choose to overlay the data bound to this y-axis on the same plotting area as a corresponding x-axis or choose not overlay other y-the other axis/axes of this figure.Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'y' | 'y1' | 'y2' | ... | False"
@@ -3520,7 +3934,7 @@
                         }, 
                         {
                             "side": {
-                                "description": "Sets whether this y-axis sits at the 'left' of the plot or at the 'right' of the plot.", 
+                                "description": "Sets whether this y-axis sits at the 'left' of the plot or at the 'right' of the plot.Has no effect in 3D plots.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'left' | 'right'"
@@ -3528,10 +3942,50 @@
                         }, 
                         {
                             "position": {
-                                "description": "Sets where this y-axis is positioned in the plotting space. For example if 'position' is set to 0.5, then this axis is placed at the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'.", 
+                                "description": "Sets where this y-axis is positioned in the plotting space. For example if 'position' is set to 0.5, then this axis is placed at the exact center of the plotting space. Has an effect only if 'anchor' is set to 'free'.Has no effect in 3D plots.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x in [0, 1]"
+                            }
+                        }, 
+                        {
+                            "showbackground": {
+                                "description": "Toggle whether or not this y-axis will have a background color. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "backgroundcolor": {
+                                "description": "Sets the background color of this y-axis. Has an effect only in 3D plots and if 'showbackground' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "showspikes": {
+                                "description": "Toggle whether or not spikes will link up to this y-axis when hovering over data points. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikesides": {
+                                "description": "Toggle whether or not the spikes will expand out to the y-axis bounds when hovering over data points. Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikethickness": {
+                                "description": "Sets the thickness (in pixels) of the y-axis spikes.Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
                             }
                         }
                     ], 
@@ -3548,6 +4002,7 @@
                     ], 
                     "parent_tree": {
                         "yaxis": [
+                            "scene", 
                             "layout"
                         ]
                     }
@@ -3560,7 +4015,7 @@
                     "keymeta": [
                         {
                             "range": {
-                                "description": "Defines the start and end point of this radial axis.", 
+                                "description": "Defines the start and end point of this radial-axis.", 
                                 "examples": [
                                     "[-13, 20]", 
                                     "[0, 1]"
@@ -3588,7 +4043,7 @@
                         }, 
                         {
                             "showline": {
-                                "description": "Toggle whether or not the line bounding this radial axis will be shown on the figure.", 
+                                "description": "Toggle whether or not the line bounding this radial-axis will be shown on the figure.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -3652,7 +4107,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -3681,7 +4136,7 @@
                     "keymeta": [
                         {
                             "range": {
-                                "description": "Defines the start and end point of this angular axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array of strings.", 
+                                "description": "Defines the start and end point of this angular-axis. By default, 'range' is set to [0,360]. Has no effect if 't' is linked to an array of strings.", 
                                 "examples": [
                                     "[0, 180]", 
                                     "[0, 6.2831]"
@@ -3701,7 +4156,7 @@
                         }, 
                         {
                             "showline": {
-                                "description": "Toggle whether or not the line bounding this angular axis will be shown on the figure. If 'showline' is set to true, the bounding line starts from the origin and extends to the edge of radial axis.", 
+                                "description": "Toggle whether or not the line bounding this angular-axis will be shown on the figure. If 'showline' is set to true, the bounding line starts from the origin and extends to the edge of radial axis.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -3757,7 +4212,7 @@
                         }, 
                         {
                             "visible": {
-                                "description": "Toggles whether or not this object will actually be visible in the rendered figure.", 
+                                "description": "Toggles whether or not this object will be visible on the rendered figure.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "a boolean: true | false"
@@ -3775,6 +4230,450 @@
                     "parent_tree": {
                         "angularaxis": [
                             "layout"
+                        ]
+                    }
+                }
+            }, 
+            {
+                "scene": {
+                    "docstring": "An object for representing a 3D scene in plotly.", 
+                    "examples": [], 
+                    "keymeta": [
+                        {
+                            "xaxis": {
+                                "child_obj": "xaxis", 
+                                "description": "Links an object describing an x-axis of a particular 3D scene.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "yaxis": {
+                                "child_obj": "yaxis", 
+                                "description": "Links an object describing an y-axis of a particular 3D scene.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "zaxis": {
+                                "child_obj": "zaxis", 
+                                "description": "Links an object describing an z-axis of a particular 3D scene.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "cameraposition": {
+                                "description": "Sets the camera position with respect to the scene. The first entry (a array of length 4) sets the angular position of the camera. The second entry (a array of length 3) sets the (x,y,z) translation of the camera. The third entry (a scalar) sets zoom of the camera.", 
+                                "examples": [], 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "camera position array"
+                            }
+                        }, 
+                        {
+                            "bgcolor": {
+                                "description": "Sets the background (bg) color of this scene (i.e. of the plotting surface and the margins).", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "scene", 
+                    "obj_type": "object", 
+                    "parent_keys": [
+                        "scene"
+                    ], 
+                    "parent_tree": {
+                        "scene": [
+                            "layout"
+                        ]
+                    }
+                }
+            }, 
+            {
+                "zaxis": {
+                    "docstring": "An object for representing a z-axis in 3D plotly graphs.", 
+                    "examples": [], 
+                    "keymeta": [
+                        {
+                            "title": {
+                                "description": "The z-axis title.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "titlefont": {
+                                "child_obj": "font", 
+                                "description": "Links an object describing the font settings of the z-axis title.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "range": {
+                                "description": "Defines the start and end point of this z-axis.", 
+                                "examples": [
+                                    "[-13, 20]", 
+                                    "[0, 1]"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number array of length 2"
+                            }
+                        }, 
+                        {
+                            "domain": {
+                                "description": "Sets the domain of this z-axis; that is, the available space for this z-axis to live in. Domain coordinates are given in normalized coordinates with respect to the paper.", 
+                                "examples": [
+                                    "[0, 0.4]", 
+                                    "[0.6, 1]"
+                                ], 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "number array of length 2"
+                            }
+                        }, 
+                        {
+                            "type": {
+                                "description": "Sets the format of this axis.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'linear' | 'log' | 'date' | 'category'"
+                            }
+                        }, 
+                        {
+                            "rangemode": {
+                                "description": "Choose between Plotly's automated axis generation modes: 'normal' (the default) sets the axis range in relation to the extrema in the data object, 'tozero' extends the axes to z=0 no matter the data plotted and 'nonnegative' sets a non-negative range no matter the data plotted.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'normal' | 'tozero' | 'nonnegative'"
+                            }
+                        }, 
+                        {
+                            "autorange": {
+                                "description": "Toggle whether or not the range of this z-axis is automatically picked by Plotly. If 'range' is set, then 'autorange' is set to false automatically. Otherwise, if 'autorange' is set to true (the default behavior), the range of this z-axis can respond to adjustments made in the web GUI automatically. If 'autorange' is set to 'reversed', then this z-axis is drawn in reverse.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "true | false | 'reversed'"
+                            }
+                        }, 
+                        {
+                            "showgrid": {
+                                "description": "Toggle whether or not this axis features grid lines.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "zeroline": {
+                                "description": "Toggle whether or not an additional grid line (thicker than the other grid lines, by default) will appear on this axis along z=0.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "showline": {
+                                "description": "Toggle whether or not the line bounding this z-axis will be shown on the figure.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "autotick": {
+                                "description": "Toggle whether or not the axis ticks parameters are picked automatically by Plotly. Once 'autotick' is set to false, the axis ticks parameters can be declared with 'ticks', 'tick0', 'dtick0' and other tick-related key in this axis object.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "nticks": {
+                                "description": "Sets the number of axis ticks. No need to set 'autoticks' to false for 'nticks' to apply.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "ticks": {
+                                "description": "Sets the format of the ticks on this axis. For hidden ticks, link 'ticks' to an empty string.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'' | 'inside' | 'outside'"
+                            }
+                        }, 
+                        {
+                            "showticklabels": {
+                                "description": "Toggle whether or not the axis ticks will feature tick labels.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "tick0": {
+                                "description": "Sets the starting point of the ticks of this axis.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "dtick": {
+                                "description": "Sets the distance between ticks on this axis.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "ticklen": {
+                                "description": "Sets the length of the tick lines on this axis.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number"
+                            }
+                        }, 
+                        {
+                            "tickwidth": {
+                                "description": "Sets the width of the tick lines on this axis.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "tickcolor": {
+                                "description": "Sets the color of the tick lines on this axis.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "tickangle": {
+                                "description": "Sets the angle in degrees of the ticks on this axis.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x in [-90, 90]"
+                            }
+                        }, 
+                        {
+                            "tickfont": {
+                                "child_obj": "font", 
+                                "description": "Links an object defining the parameters of the ticks' font.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "exponentformat": {
+                                "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'none' | 'e' | 'E' | 'power' | 'SI' | 'B'"
+                            }
+                        }, 
+                        {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "mirror": {
+                                "description": "Has no effect in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "true | false | 'ticks' | 'all' | 'allticks'"
+                            }
+                        }, 
+                        {
+                            "gridcolor": {
+                                "description": "Sets the axis grid color.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "gridwidth": {
+                                "description": "Sets the grid width (in pixels).", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "zerolinecolor": {
+                                "description": "Sets the color of this axis' zeroline.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "zerolinewidth": {
+                                "description": "Sets the width of this axis' zeroline (in pixels).", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "linecolor": {
+                                "description": "Sets the axis line color.", 
+                                "examples": [
+                                    "'green'", 
+                                    "'rgb(0, 255, 0)'", 
+                                    "'rgba(0, 255, 0, 0.3)'", 
+                                    "'hsl(120,100%,50%)'", 
+                                    "'hsla(120,100%,50%,0.3)'", 
+                                    "'#434F1D'"
+                                ], 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "linewidth": {
+                                "description": "Sets the width of the axis line (in pixels).", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }, 
+                        {
+                            "anchor": {
+                                "description": "Has no effect in 3D plots.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": ""
+                            }
+                        }, 
+                        {
+                            "overlaying": {
+                                "description": "Has no effect in 3D plots.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": ""
+                            }
+                        }, 
+                        {
+                            "side": {
+                                "description": "Has no effect in 3D plots.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": ""
+                            }
+                        }, 
+                        {
+                            "position": {
+                                "description": "Has no effect in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": ""
+                            }
+                        }, 
+                        {
+                            "showbackground": {
+                                "description": "Toggle whether or not this z-axis will have a background color. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "backgroundcolor": {
+                                "description": "Sets the background color of this z-axis. Has an effect only in 3D plots and if 'showbackground' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string describing color"
+                            }
+                        }, 
+                        {
+                            "showspikes": {
+                                "description": "Toggle whether or not spikes will link up to this z-axis when hovering over data points. Has an effect only in 3D plots.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikesides": {
+                                "description": "Toggle whether or not the spikes will expand out to the z-axis bounds when hovering over data points. Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
+                            "spikethickness": {
+                                "description": "Sets the thickness (in pixels) of the z-axis spikes.Has an effect only in 3D plots and if 'showspikes' is set to true.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x > 0"
+                            }
+                        }
+                    ], 
+                    "links": [], 
+                    "name": "zaxis", 
+                    "obj_type": "object", 
+                    "parent_keys": [
+                        "zaxis"
+                    ], 
+                    "parent_tree": {
+                        "zaxis": [
+                            "scene"
                         ]
                     }
                 }
@@ -3851,7 +4750,7 @@
                         {
                             "xaxis": {
                                 "child_obj": "xaxis", 
-                                "description": "Links an object describing an x-axis (i.e. an horizontal axis). The first XAxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on.", 
+                                "description": "Links an object describing an x-axis (i.e. an horizontal axis). The first xaxis object can be entered into 'layout' by linking it to 'xaxis' OR 'xaxis1', both keys are identical to Plotly.  To create references other than x-axes, you need to define them in 'layout' using keys 'xaxis2', 'xaxis3' and so on. Note that in 3D plots, xaxis objects must be linked from a scene object.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "object"
@@ -3860,7 +4759,7 @@
                         {
                             "yaxis": {
                                 "child_obj": "yaxis", 
-                                "description": "Links an object describing an y-axis (i.e. an vertical axis). The first YAxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on.", 
+                                "description": "Links an object describing an y-axis (i.e. an vertical axis). The first yaxis object can be entered into 'layout' by linking it to 'yaxis' OR 'yaxis1', both keys are identical to Plotly.  To create references other than y-axes, you need to define them in 'layout' using keys 'yaxis2', 'yaxis3' and so on. Note that in 3D plots, yaxis objects must be linked from a scene object.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "object"
@@ -3935,10 +4834,10 @@
                         }, 
                         {
                             "dragmode": {
-                                "description": "Sets this figure's behavior when a user preforms a mouse 'drag' in the plot area. When set to 'zoom', a portion of the plot will be highlighted, when the viewer exits the drag, this highlighted section will be zoomed in on. When set to 'pan', data in the plot will move along with the viewers dragging motions. A user can always depress the 'shift' key to access the whatever functionality has not been set as the default.", 
+                                "description": "Sets this figure's behavior when a user preforms a mouse 'drag' in the plot area. When set to 'zoom', a portion of the plot will be highlighted, when the viewer exits the drag, this highlighted section will be zoomed in on. When set to 'pan', data in the plot will move along with the viewers dragging motions. A user can always depress the 'shift' key to access the whatever functionality has not been set as the default. In 3D plots, the default drag mode is 'rotate' which rotates the scene.", 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "'zoom' | 'pan'"
+                                "val_types": "'zoom' | 'pan' | 'rotate' (in 3D plots)"
                             }
                         }, 
                         {
@@ -3984,7 +4883,7 @@
                         {
                             "radialaxis": {
                                 "child_obj": "radialaxis", 
-                                "description": "An object describing the radial axis in a polar plot.", 
+                                "description": "Links an object describing the radial axis in a polar plot.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "object"
@@ -3993,7 +4892,16 @@
                         {
                             "angularaxis": {
                                 "child_obj": "angularaxis", 
-                                "description": "An object describing the angular axis in a polar plot.", 
+                                "description": "Links an object describing the angular axis in a polar plot.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "object"
+                            }
+                        }, 
+                        {
+                            "scene": {
+                                "child_obj": "scene", 
+                                "description": "Links an object describing a scene in a 3D plot. The first scene object can be entered into 'layout' by linking it to 'scene' OR 'scene1', both keys are identical to Plotly. Link subsequent scene objects using 'scene2', 'scene3', etc.", 
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "object"
@@ -4123,12 +5031,14 @@
                         "tickfont": [
                             "colorbar", 
                             "xaxis", 
-                            "yaxis"
+                            "yaxis", 
+                            "zaxis"
                         ], 
                         "titlefont": [
                             "colorbar", 
                             "xaxis", 
                             "yaxis", 
+                            "zaxis", 
                             "layout"
                         ]
                     }
@@ -4174,7 +5084,7 @@
                         }, 
                         {
                             "bgcolor": {
-                                "description": "Sets the background (bg) color for the legend.", 
+                                "description": "Sets the background (bg) color of the legend.", 
                                 "examples": [
                                     "'green'", 
                                     "'rgb(0, 255, 0)'", 
@@ -4451,7 +5361,7 @@
                         }, 
                         {
                             "bgcolor": {
-                                "description": "Sets the background (bg) color for this annotation.", 
+                                "description": "Sets the background (bg) color of this annotation.", 
                                 "examples": [
                                     "'green'", 
                                     "'rgb(0, 255, 0)'", 

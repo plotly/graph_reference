@@ -9,9 +9,17 @@
             "Contour", 
             "Histogram2d", 
             "Histogram2dContour", 
-            "Area"
+            "Area", 
+            "Scatter3d", 
+            "Surface"
         ]
     }, 
+    "scene": {
+        "scene": [
+            "Layout"
+        ]
+    }, 
+    "surface": {}, 
     "radialaxis": {
         "radialaxis": [
             "Layout"
@@ -23,14 +31,16 @@
             "Bar", 
             "Histogram", 
             "Box", 
-            "Area"
+            "Area", 
+            "Scatter3d"
         ]
     }, 
     "font": {
         "tickfont": [
             "ColorBar", 
             "XAxis", 
-            "YAxis"
+            "YAxis", 
+            "ZAxis"
         ], 
         "textfont": [
             "Scatter"
@@ -44,6 +54,7 @@
             "ColorBar", 
             "XAxis", 
             "YAxis", 
+            "ZAxis", 
             "Layout"
         ]
     }, 
@@ -52,23 +63,36 @@
             "Layout"
         ]
     }, 
+    "contour": {}, 
     "error_x": {
         "error_x": [
             "Scatter", 
             "Bar", 
-            "Histogram"
+            "Histogram", 
+            "Scatter3d"
         ]
     }, 
     "error_y": {
         "error_y": [
             "Scatter", 
             "Bar", 
-            "Histogram"
+            "Histogram", 
+            "Scatter3d"
+        ]
+    }, 
+    "error_z": {
+        "error_z": [
+            "Scatter3d"
         ]
     }, 
     "area": {}, 
-    "contour": {}, 
+    "annotation": {}, 
     "heatmap": {}, 
+    "zaxis": {
+        "zaxis": [
+            "Scene"
+        ]
+    }, 
     "contours": {
         "contours": [
             "Contour", 
@@ -77,11 +101,12 @@
     }, 
     "xaxis": {
         "xaxis": [
+            "Scene", 
             "Layout"
         ]
     }, 
     "figure": {}, 
-    "annotation": {}, 
+    "scatter3d": {}, 
     "annotations": {
         "annotations": [
             "Layout"
@@ -106,6 +131,7 @@
             "Box", 
             "Contour", 
             "Histogram2dContour", 
+            "Scatter3d", 
             "Marker"
         ]
     }, 
@@ -131,6 +157,7 @@
     "bar": {}, 
     "yaxis": {
         "yaxis": [
+            "Scene", 
             "Layout"
         ]
     }, 

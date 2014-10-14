@@ -20,7 +20,12 @@ push-to-streambed:
 # Push to graph object meta to python-api (for testing)
 push-to-python-api:
 	@rm -rf ${python_api_path}/plotly/graph_reference/*
-	@cp -R ./graph_objs/python/* $(python_api_path)/plotly/graph_reference/
+	@cp ./graph_objs/python/graph_objs_meta.json $(python_api_path)/plotly/graph_reference/
+	@cp ./graph_objs/python/KEY_TO_NAME.json $(python_api_path)/plotly/graph_reference/
+	@cp ./graph_objs/python/NAME_TO_KEY.json $(python_api_path)/plotly/graph_reference/
+	@cp ./graph_objs/python/OBJ_MAP.json $(python_api_path)/plotly/graph_reference/
+
+
 
 
 #push-to-virtualenv:

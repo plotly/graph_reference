@@ -62,43 +62,14 @@ class MakeMeta(list):
             ('y', make.y('scatter')),
             ('r', make.r('scatter')),
             ('t', make.t('scatter')),
-            ('mode', dict(
-                required=False,
-                key_type='plot_info',
-                val_types=(
-                    "'lines' | 'markers' | 'text' | 'lines+markers' | "
-                    "'lines+text' | 'markers+text' | 'lines+markers+text'"
-                ),
-                description=(
-                    "Plotting mode (or style) for the scatter plot. If the "
-                    "mode includes 'text' then the 'text' will appear at "
-                    "the (x,y) points, otherwise it will appear on "
-                    "hover."
-                )
-            )),
+            ('mode', make.mode()),
             ('name', make.name()),
             ('text', make.text('scatter')),
             ('error_y', make.error('scatter','y')),
             ('error_x', make.error('scatter','x')),
             ('marker', make.marker('scatter')),
             ('line', make.line('scatter')),
-            ('textposition', dict(
-                required=False,
-                key_type='style',
-                val_types=(
-                    "'top left' | 'top' (or 'top center')| 'top right' | "
-                    "'left' (or 'middle left') | '' (or 'middle center') |"
-                    "'right' (or 'middle right') |"
-                    "'bottom left' | 'bottom' (or 'bottom center') |"
-                    "'bottom right'"
-                ),
-                description=(
-                    "Sets the position of the text elements "
-                    "in the 'text' key with respect to the data points. "
-                    "By default, the text elements are plotted directly "
-                    "at the (x,y) coordinates."
-                )
-            )),
+            ('textposition', make.textposition()),
             ('textfont', make.textfont('scatter')),
             ('connectgaps', dict(
                 required=False,
@@ -508,15 +479,74 @@ class MakeMeta(list):
         self += self._stuff('area', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
-    def _keymeta_error(self,y_or_x):
-        '''@keymeta_error@ -- keymeta for ErrorY and ErrorX'''
 
+    def scatter3d(self):
+        '''@scatter3d@'''
+        name = '{scatter3d}'
+        obj_type = "{UL}"
+        parent_keys = []
+        docstring = (
+            "{A_ULlike} for representing a 3D scatter trace in plotly."
+        )
+        links = []  # TODO
+        examples = MakeExamples.scatter3d(MakeExamples())
+        keymeta = OrderedDict([
+            ('x', make.x('scatter3d')),
+            ('y', make.y('scatter3d')),
+            ('z', make.z('scatter3d')),
+            ('mode', make.mode(is_3d=True)),
+            ('name', make.name(is_3d=True)),
+            ('text', make.text('scatter3d')),
+            ('error_z', make.error('scatter3d','z')),
+            ('error_y', make.error('scatter3d','y')),
+            ('error_x', make.error('scatter3d','x')),
+            ('marker', make.marker('scatter3d')),
+            ('line', make.line('scatter3d')),
+            ('textposition', make.textposition('scatter3d')),
+#             ('delaunayaxis' ,),  # TODO change name
+#             ('delaunaycolor' ,), # TODO change name
+            ('scene', make.scene()),
+            ('stream', make.stream()),
+            ('visible', make.visible()),
+            ('type', make.type('scatter3d'))
+        ])
+        self += self._stuff('scatter3d', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+
+    def surface(self):
+        '''@surface@'''
+        name = '{surface}'
+        obj_type = "{UL}"
+        parent_keys = []
+        docstring = (
+            "{A_ULlike} for representing a 3D surface trace in plotly."
+        )
+        links = []  # TODO
+        examples = MakeExamples.surface(MakeExamples())
+        keymeta = OrderedDict([
+            ('z', make.z('surface')),
+            ('x', make.x('surface')),
+            ('y', make.y('surface')),
+            ('name', make.name(is_3d=True)),
+            ('colorscale', make.colorscale('z')),
+            ('scene', make.scene()),
+            ('stream', make.stream()),
+            ('visible', make.visible()),
+            ('type', make.type('surface'))
+        ])
+        self += self._stuff('surface', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
+      
+    def _keymeta_error(self, which_axis):
+        '''@keymeta_error@ -- keymeta for error_y, error_x (and error_z)'''
         S = {'y': ['y','vertically','up','down','above','below'],
-             'x': ['x','horizontally','right','left','right of','left of']}
-        s = S[y_or_x]
-
+             'x': ['x','horizontally','right','left','right of','left of'],
+             'z': ['z','','positive z', 'negative z', 'above', 'below']}
+        s = S[which_axis]
         _keymeta = [
-            ('type', dict(      # Different enough from shortcut
+            ('type', dict(  # Different enough from shortcut
                 required=False,
                 key_type='plot_info',
                 val_types="'data' | 'percent' | 'constant' | 'sqrt'",
@@ -551,18 +581,18 @@ class MakeMeta(list):
                 key_type='data',
                 val_types=val_types.data_array(),
                 description=(
-                   "The array of corresponding to "
-                   "error bars' span to be drawn. "
+                   "The array corresponding to the span of the "
+                   "error bars. "
                    "Has only an effect if 'type' is set to "
                    "'data'. Values in the array are plotted "
                    "relative to the '{S0}' coordinates. "
                    "For example, with '{S0}'=[1,2] and "
                    "'array'=[1,2], the error bars will span "
-                   "{S1} from {S0}= 0 to 2 and {S0}= 0 to 4 if "
-                   "'symmetric'=True; and from {S0}= 1 to 2 and "
-                   "{S0}= 2 to 4 if 'symmetric' is set to False "
+                   "from {S0}= 0 to 2 and {S0}= 0 to 4 if "
+                   "'symmetric' is set to {{TRUE}}; and from {S0}= 1 to 2 "
+                   "and {S0}= 2 to 4 if 'symmetric' is set to {{FALSE}} "
                    "and 'arrayminus' is empty."
-                ).format(S0=s[0],S1=s[1])
+                ).format(S0=s[0])
             )),
             ('value', dict(
                 required=False,
@@ -585,7 +615,7 @@ class MakeMeta(list):
                 key_type='data',
                 val_types=val_types.number(ge=0),
                 description=(
-                      "Only functional when 'symmetric' is set to {{FALSE}}. "
+                      "Has an effect only when 'symmetric' is set to {{FALSE}}. "
                       "Same as 'array' but corresponding to the span "
                       "of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
@@ -595,18 +625,17 @@ class MakeMeta(list):
                 key_type='plot_info',
                 val_types=val_types.number(ge=0),
                 description=(
-                      "Only functional when 'symmetric' "
+                      "Has an effect only when 'symmetric' "
                       "is set to {{FALSE}}. Same as 'value' but corresponding "
                       "to the span of the error bars {S5} the trace coordinates"
                 ).format(S5=s[5])
             )),
             ('color', make.color('error')),
-            ('thickness', make.thickness('error',y_or_x)),
+            ('thickness', make.thickness('error', which_axis)),
             ('width', make.width('error')),
             ('opacity', make.opacity()),
         ]
-
-        if y_or_x=='x':
+        if which_axis=='x':
             _keymeta += [
                 ('copy_ystyle', dict(
                     required=False,
@@ -620,9 +649,9 @@ class MakeMeta(list):
                     )
                 ))
             ]
-
         _keymeta += [('visible', make.visible())]
         return _keymeta
+
 
     def error_y(self):
         '''@error_y@'''
@@ -639,6 +668,7 @@ class MakeMeta(list):
         self += self._stuff('error_y', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
+
     def error_x(self):
         '''@error_x@'''
         name = '{error_x}'
@@ -653,6 +683,23 @@ class MakeMeta(list):
         keymeta = OrderedDict(self._keymeta_error('x'))
         self += self._stuff('error_x', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
+
+    
+    def error_z(self):
+        '''@error_z@'''
+        name = '{error_z}'
+        obj_type = "{UL}"
+        parent_keys = ["error_z"]
+        docstring = (
+            "A {ULlike} representing a set of error bars spanning "
+            "along the z-axis in a 3D plot."
+        )
+        links = []  # TODO
+        examples = MakeExamples.error_z(MakeExamples())
+        keymeta = OrderedDict(self._keymeta_error('z'))
+        self += self._stuff('error_z', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
 
     def _keymeta_bins(self,x_or_y):
         '''@keymeta_bins@ -- keymeta for XBins and YBins'''
@@ -1006,15 +1053,16 @@ class MakeMeta(list):
         self += self._stuff('font', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
-    def _keymeta_ticks(self,axis_or_colorbar):
-        '''@keymeta_ticks@ -- ticks keymeta for XAxis, YAxis and ColorBar'''
+    def _keymeta_ticks(self, axis_or_colorbar):
+        '''@keymeta_ticks@ -- ticks keymeta for xaxis, yaxis (zaxis), colorbar'''
         _keymeta = [
             ('ticks', dict(
                   required=False,
                   key_type='style',
                   val_types="'' | 'inside' | 'outside'",
                   description=(
-                      "Sets the format of tick visibility on this {}."
+                      "Sets the format of the ticks on this {}. "
+                      "For hidden ticks, link 'ticks' to an empty string."
                   ).format(axis_or_colorbar)
             )),
             ('showticklabels', make.showticklabels(axis_or_colorbar)),
@@ -1108,19 +1156,19 @@ class MakeMeta(list):
         ]
         return _keymeta
 
-    def _keymeta_axis(self,x_or_y):
-        '''@keymake_axis@ -- keymeta for XAxis and YAxis'''
 
-        S = {'x':['x','bottom','top','y','left','right','vertical'],
-             'y':['y','left','right','x','bottom','top','horizontal']}
-        s = S[x_or_y]
-
+    def _keymeta_axis(self, which_axis):
+        '''@keymeta_axis@ -- keymeta for xaxis, yaxis (and zaxis)'''
+        S = {'x':['x','bottom','top','y','left','right','vertical'], 
+             'y':['y','left','right','x','bottom','top','horizontal'],
+             'z':['z','','','','','','']}
+        s = S[which_axis]
         _keymeta = [
-            ('title', make.title('axis',x_or_y)),
-            ('titlefont', make.titlefont('axis',x_or_y)),
-            ('range', make.range(x_or_y)),
-            ('domain', make.domain(x_or_y)),
-            ('type', dict(      # Different enough from shortcut
+            ('title', make.title('axis', which_axis)),
+            ('titlefont', make.titlefont('axis', which_axis)),
+            ('range', make.range(which_axis)),
+            ('domain', make.domain(which_axis)),
+            ('type', dict( # N.B. different enough from shortcut
                 required=False,
                 key_type='plot_info',
                 val_types="'linear' | 'log' | 'date' | 'category'",
@@ -1152,9 +1200,11 @@ class MakeMeta(list):
                     "is set to {{TRUE}} (the default behavior), the range "
                     "of this {S0}-axis can respond to adjustments made in "
                     "the web GUI automatically. If 'autorange' is set "
-                    "to 'reversed', then this {S0}-axis is drawn in reverse "
-                    "i.e. from {S5} to {S4} instead of from {S4} to {S5} "
-                    "(the default behavior)."
+                    "to 'reversed', then this {S0}-axis is drawn in reverse"
+                    +
+                    (", e.g. in a 2D plot, from {S5} to {S4} instead of "
+                    "from {S4} to {S5} (the default behavior)."
+                    if not which_axis=='z' else '.')
                 ).format(S0=s[0],S4=s[4],S5=s[5])
             )),
             ('showgrid', dict(
@@ -1173,9 +1223,9 @@ class MakeMeta(list):
                     "Toggle whether or not an additional grid line "
                     "(thicker than the other grid lines, by default) "
                     "will appear on this axis along {}=0."
-                ).format(x_or_y)
+                ).format(which_axis)
             )),
-            ('showline', make.showline(x_or_y)),
+            ('showline', make.showline(which_axis)),
             ('autotick', make.autotick('axis')),
             ('nticks', make.nticks('axis')),
         ]
@@ -1193,6 +1243,7 @@ class MakeMeta(list):
                     "If 'all', mirror the axis line to all subplots containing this axis. "
                     "If 'allticks', mirror the line and ticks to all subplots containing this axis. "
                     "If {FALSE}, don't mirror the axis or the ticks."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 )
             )),
             ('gridcolor', dict(
@@ -1238,14 +1289,17 @@ class MakeMeta(list):
                 required=False,
                 key_type='plot_info',
                 val_types=(
-                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free'"
+                    "'{S3}' | '{S3}1' | '{S3}2' | ... | 'free' "
+                    if not which_axis=='z' else ''
                 ).format(S3=s[3]),
                 description=(
                     "Choose whether the position of this {S0}-axis "
                     "will be anchored to a "
                     "corresponding {S3}-axis or will be 'free' to appear "
                     "anywhere in the {S6} space of "
-                    "this figure."
+                    "this figure. "
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0],S3=s[3],S6=s[6])
             )),
             ('overlaying', dict(
@@ -1253,6 +1307,7 @@ class MakeMeta(list):
                 key_type='plot_info',
                 val_types=(
                     "'{S0}' | '{S0}1' | '{S0}2' | ... | False"
+                    if not which_axis=='z' else ''
                 ).format(S0=s[0]),
                 description=(
                     "Choose to overlay the data bound to this {S0}-axis "
@@ -1260,30 +1315,94 @@ class MakeMeta(list):
                     "corresponding {S3}-axis or choose not overlay other {S0}-"
                     "the other axis/axes of this "
                     "figure."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0],S3=s[3],S6=s[6])
             )),
             ('side', dict(
                 required=False,
                 key_type='plot_info',
-                val_types="'{S1}' | '{S2}'".format(S1=s[1],S2=s[2]),
+                val_types=(
+                    "'{S1}' | '{S2}'".format(S1=s[1],S2=s[2])
+                    if not which_axis=='z' else ''
+                ),
                 description=(
                     "Sets whether this {S0}-axis sits at the '{S1}' of the "
                     "plot or at the '{S2}' "
                     "of the plot."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0],S1=s[1],S2=s[2])
             )),
             ('position', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(le=1, ge=0),
+                val_types=(
+                    val_types.number(le=1, ge=0)
+                    if not which_axis=='z' else ''
+                ),
                 description=(
                     "Sets where this {S0}-axis is positioned in the plotting "
                     "space. For example if 'position' is set to 0.5, "
                     "then this axis is placed at the exact center of the "
                     "plotting space. Has an effect only if 'anchor' "
                     "is set to 'free'."
+                    "Has no effect in 3D plots."
+                    if not which_axis=='z' else "Has no effect in 3D plots."
                 ).format(S0=s[0])
-            ))
+            )),
+            ('showbackground', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not this {S0}-axis will have "
+                    "a background color. "
+                    "Has an effect only in 3D plots."
+                ).format(S0=s[0])
+            )),
+            ('backgroundcolor', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.color(),
+                description=(
+                    "Sets the background color of this {S0}-axis. "
+                    "Has an effect only in 3D plots and if 'showbackground' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+            ('showspikes', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not spikes will link up to this "
+                    "{S0}-axis when hovering over data points. "
+                    "Has an effect only in 3D plots."
+                ).format(S0=s[0])
+            )),
+            ('spikesides', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not the spikes will expand out to the "
+                    "{S0}-axis bounds when hovering over data points. "
+                    "Has an effect only in 3D plots and if 'showspikes' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+            ('spikethickness', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.number(gt=0),
+                description=(
+                    "Sets the thickness (in pixels) of the {S0}-axis spikes."
+                    "Has an effect only in 3D plots and if 'showspikes' "
+                    "is set to {{TRUE}}."
+                ).format(S0=s[0])
+            )),
+#             ('showaxeslabels')  # TODO (overlap?)
         ]
         return _keymeta
 
@@ -1324,6 +1443,22 @@ class MakeMeta(list):
         keymeta = OrderedDict(self._keymeta_axis('y'))
         self += self._stuff('yaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
+
+
+    def zaxis(self):
+        '''@zaxis@'''
+        name = '{zaxis}'
+        obj_type = "{UL}"
+        parent_keys = ["zaxis"]
+        docstring = (
+            "{A_ULlike} for representing a z-axis in 3D plotly graphs."
+        )
+        links = []
+        examples = MakeExamples.zaxis(MakeExamples())
+        keymeta = OrderedDict(self._keymeta_axis('z'))
+        self += self._stuff('zaxis', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
 
     def radialaxis(self):
         '''@radialaxis@'''
@@ -1445,6 +1580,43 @@ class MakeMeta(list):
         ])
         self += self._stuff('angularaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
+    
+
+    def scene(self):
+        '''@scene@'''
+        name = '{scene}'
+        obj_type = "{UL}"
+        parent_keys = ["scene"]
+        docstring = (
+            "{A_ULlike} for representing a 3D scene in plotly."
+        )
+        links = []
+        examples = MakeExamples.scene(MakeExamples())
+        keymeta = OrderedDict([
+             ('xaxis', make.axis('x', scene=True)),
+             ('yaxis', make.axis('y', scene=True)),
+             ('zaxis', make.axis('z', scene=True)),
+             ('cameraposition', dict(
+                required=False,
+                key_type='plot_info',
+                val_types='camera position {OL}',
+                description=(
+                    "Sets the camera position with respect to the scene. "
+                    "The first entry (a {OL} of length 4) "
+                    "sets the angular position of the camera. "
+                    "The second entry (a {OL} of length 3) "
+                    "sets the (x,y,z) translation of the camera. "
+                    "The third entry (a scalar) sets zoom of the camera."
+                ),
+                examples = MakeExamples.cameraposition(MakeExamples())
+             )),
+#             ('domain', ),  # TODO change name (confusing with axis.domain)
+#             ('position', ),  # TODO (needed? overlaps with 'domain');
+             ('bgcolor', make.bgcolor('scene'))
+        ])
+        self += self._stuff('scene', name, obj_type, parent_keys,
+                            docstring, examples, links, keymeta)
+
 
     def legend(self):
         '''@legend@'''
@@ -1816,8 +1988,8 @@ class MakeMeta(list):
                     "Sets the height in pixels of the figure you are generating."
                 )
             )),
-            ('xaxis', make.axis('x',layout=True)),
-            ('yaxis', make.axis('y',layout=True)),
+            ('xaxis', make.axis('x', layout=True)),
+            ('yaxis', make.axis('y', layout=True)),
             ('legend', dict(
                 required=False,
                 key_type='object',
@@ -1881,10 +2053,10 @@ class MakeMeta(list):
                 )
             )),
             ('dragmode', dict(
-                required=False,
-                key_type='style',
-                val_types="'zoom' | 'pan'",
-                description=(
+                required = False,
+                key_type = 'style',
+                val_types = "'zoom' | 'pan' | 'rotate' (in 3D plots)",
+                description = (
                     "Sets this figure's behavior when a user preforms a mouse "
                     "'drag' in the plot area. When set to 'zoom', a portion of "
                     "the plot will be highlighted, when the viewer "
@@ -1893,7 +2065,8 @@ class MakeMeta(list):
                     "will move along with the viewers dragging motions. A "
                     "user can always depress the 'shift' key to access "
                     "the whatever functionality has not been set as the "
-                    "default."
+                    "default. In 3D plots, the default drag mode is 'rotate' "
+                    "which rotates the scene."
                 )
             )),
             ('separators', dict(
@@ -1971,7 +2144,7 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "{A_ULlike} describing the radial axis "
+                    "Links {a_ULlike} describing the radial axis "
                     "in a polar plot."
                 )
             )),
@@ -1980,8 +2153,21 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "{A_ULlike} describing the angular axis "
+                    "Links {a_ULlike} describing the angular axis "
                     "in a polar plot."
+                )
+            )),
+            ('scene', dict(
+                required=False,
+                key_type='object',
+                val_types=val_types.object(),
+                description=(
+                "Links {a_ULlike} describing a scene in a 3D plot. "
+                "The first {scene} object can be entered into "
+                "'layout' by linking it to 'scene' OR "
+                "'scene1', both keys are identical to Plotly. "
+                "Link subsequent {scene} objects using "
+                "'scene2', 'scene3', etc."
                 )
             )),
             ('direction', dict(
