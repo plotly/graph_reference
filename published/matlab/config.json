@@ -113,7 +113,7 @@
                                 "description": "Sets the position of the text elements in the 'text' key with respect to the data points. By default, the text elements are plotted directly at the (x,y) coordinates.", 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') |'right' (or 'middle right') |'bottom left' | 'bottom' (or 'bottom center') |'bottom right'"
+                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') | 'right' (or 'middle right') | 'bottom left' | 'bottom' (or 'bottom center') | 'bottom right'"
                             }
                         }, 
                         {
@@ -1949,7 +1949,7 @@
                                 "description": "Sets the position of the text elements in the 'text' key with respect to the data points. By default, the text elements are plotted directly at the (x,y,z) coordinates.", 
                                 "key_type": "style", 
                                 "required": false, 
-                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') |'right' (or 'middle right') |'bottom left' | 'bottom' (or 'bottom center') |'bottom right'"
+                                "val_types": "'top left' | 'top' (or 'top center')| 'top right' | 'left' (or 'middle left') | '' (or 'middle center') | 'right' (or 'middle right') | 'bottom left' | 'bottom' (or 'bottom center') | 'bottom right'"
                             }
                         }, 
                         {
