@@ -1438,7 +1438,7 @@ class Make(dict):
         s=S[x_or_y]
 
         _required=False
-        _key_type='plot_info'
+        _key_type='style'
         _val_types="'paper' | '{S0}1' | '{S0}2' | etc".format(S0=s[0])
         _description=(
             "Sets the {S0} coordinate system which this object "
@@ -1490,7 +1490,10 @@ class Make(dict):
     def xy_layout(self, obj, x_or_y):
         '''@xy_layout@ | @x_layout@ | @y_layout@'''
         _required = False
-        _key_type = 'plot_info'
+        if obj == 'legend':
+            _key_type = 'style'
+        else:
+            _key_type = 'plot_info'
         _val_types = val_types.number()
         _description = (
             "Sets the '{x_or_y}' position of this {obj}."

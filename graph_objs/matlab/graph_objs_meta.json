@@ -2562,9 +2562,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: true | false", 
+                "val_types": "true | false | 'ticks' | 'all' | 'allticks'", 
                 "required": false, 
+<<<<<<< HEAD
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot.Has no effect in 3D plots."
+=======
+                "description": "Toggle the axis line and/or ticks across the plots or subplots. If true, mirror the axis line across the primary subplot (i.e. the axis that this axis is anchored to). If 'ticks', mirror the axis line and the ticks. If 'all', mirror the axis line to all subplots containing this axis. If 'allticks', mirror the line and ticks to all subplots containing this axis. If false, don't mirror the axis or the ticks."
+>>>>>>> master
             }, 
             "gridcolor": {
                 "key_type": "style", 
@@ -2853,9 +2857,13 @@
             }, 
             "mirror": {
                 "key_type": "style", 
-                "val_types": "a boolean: true | false", 
+                "val_types": "true | false | 'ticks' | 'all' | 'allticks'", 
                 "required": false, 
+<<<<<<< HEAD
                 "description": "Toggle whether to mirror the axis line to the opposite side of the plot.Has no effect in 3D plots."
+=======
+                "description": "Toggle the axis line and/or ticks across the plots or subplots. If true, mirror the axis line across the primary subplot (i.e. the axis that this axis is anchored to). If 'ticks', mirror the axis line and the ticks. If 'all', mirror the axis line to all subplots containing this axis. If 'allticks', mirror the line and ticks to all subplots containing this axis. If false, don't mirror the axis or the ticks."
+>>>>>>> master
             }, 
             "gridcolor": {
                 "key_type": "style", 
@@ -3754,13 +3762,13 @@
         ], 
         "keymeta": {
             "x": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the 'x' position of this legend.Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this legend."
             }, 
             "y": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
                 "description": "Sets the 'y' position of this legend.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this legend."
@@ -3812,13 +3820,13 @@
                 "description": "Sets the width of the border enclosing for the legend."
             }, 
             "xref": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "'paper' | 'x1' | 'x2' | etc", 
                 "required": false, 
                 "description": "Sets the x coordinate system which this object refers to. If you reference an axis, e.g., 'x2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'x' location refers to the distance from the left side of the plotting area in normalized coordinates where 0 is 'left' and 1 is 'right'. If set to refer to an xaxis' , e.g., 'x1', 'x2', 'x3', etc., the 'x' location will refer to the location in terms of this axis."
             }, 
             "yref": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "'paper' | 'y1' | 'y2' | etc", 
                 "required": false, 
                 "description": "Sets the y coordinate system which this object refers to. If you reference an axis, e.g., 'y2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'y' location refers to the distance from the left side of the plotting area in normalized coordinates where 0 is 'bottom' and 1 is 'top'. If set to refer to an yaxis' , e.g., 'y1', 'y2', 'y3', etc., the 'y' location will refer to the location in terms of this axis."
@@ -3860,13 +3868,13 @@
                 "description": "Sets the 'y' position of this annotation.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation."
             }, 
             "xref": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "'paper' | 'x1' | 'x2' | etc", 
                 "required": false, 
                 "description": "Sets the x coordinate system which this object refers to. If you reference an axis, e.g., 'x2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'x' location refers to the distance from the left side of the plotting area in normalized coordinates where 0 is 'left' and 1 is 'right'. If set to refer to an xaxis' , e.g., 'x1', 'x2', 'x3', etc., the 'x' location will refer to the location in terms of this axis."
             }, 
             "yref": {
-                "key_type": "plot_info", 
+                "key_type": "style", 
                 "val_types": "'paper' | 'y1' | 'y2' | etc", 
                 "required": false, 
                 "description": "Sets the y coordinate system which this object refers to. If you reference an axis, e.g., 'y2', the object will move with pan-and-zoom to stay fixed to this point. If you reference the 'paper', it remains fixed regardless of pan-and-zoom. In other words, if set to 'paper', the 'y' location refers to the distance from the left side of the plotting area in normalized coordinates where 0 is 'bottom' and 1 is 'top'. If set to refer to an yaxis' , e.g., 'y1', 'y2', 'y3', etc., the 'y' location will refer to the location in terms of this axis."
