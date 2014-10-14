@@ -4295,9 +4295,9 @@
                         }, 
                         {
                             "cameraposition": {
-                                "description": "Sets the camera position with respect to the scene. The first entry (a dictionary of 4 pairs) sets the camera's angular position. The second entry (a dictionary of 3 pairs) sets the camera's (x,y,z) translation. The third entry (a scalar) set the camera's the zoom.", 
+                                "description": "Sets the camera position with respect to the scene. The first entry (a list or 1d numpy array of length 4) sets the angular position of the camera. The second entry (a list or 1d numpy array of length 3) sets the (x,y,z) translation of the camera. The third entry (a scalar) sets zoom of the camera.", 
                                 "examples": [
-                                    "[{0:0.2, 1:0.5, 2:0.1, 3:0.2}, {0:0.1, 1:0, 2:-0.1}, 3]"
+                                    "[[0.2, 0.5, 0.1, 0.2], [0.1, 0, -0.1], 3]"
                                 ], 
                                 "key_type": "plot_info", 
                                 "required": false, 
