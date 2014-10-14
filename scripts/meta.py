@@ -1602,11 +1602,11 @@ class MakeMeta(list):
                 val_types='camera position {OL}',
                 description=(
                     "Sets the camera position with respect to the scene. "
-                    "The first entry (a {UL} of 4 pairs) "
-                    "sets the camera's angular position. "
-                    "The second entry (a {UL} of 3 pairs) "
-                    "sets the camera's (x,y,z) translation. "
-                    "The third entry (a scalar) set the camera's the zoom."
+                    "The first entry (a {OL} of length 4) "
+                    "sets the angular position of the camera. "
+                    "The second entry (a {OL} of length 3) "
+                    "sets the (x,y,z) translation of the camera. "
+                    "The third entry (a scalar) sets zoom of the camera."
                 ),
                 examples = MakeExamples.cameraposition(MakeExamples())
              )),
