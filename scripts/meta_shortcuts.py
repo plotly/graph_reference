@@ -1435,14 +1435,17 @@ class Make(dict):
         ).format(what_ticks)
         return self._output(_required,_key_type,_val_types,_description)
 
-    def xyref(self, x_or_y):
+    def xyref(self, obj, x_or_y):
         '''@xyref@ | @xref@ | @yref@'''
 
         S={'x': ['x','left','right'], 'y':['y','bottom','top']}
         s=S[x_or_y]
 
         _required=False
-        _key_type='style'
+        if obj == 'annotation':
+            _key_type = 'plot_info'
+        elif obj == 'legend':
+            _key_type = 'style'
         _val_types="'paper' | '{S0}1' | '{S0}2' | etc".format(S0=s[0])
         _description=(
             "Sets the {S0} coordinate system which this object "
@@ -1504,7 +1507,7 @@ class Make(dict):
         ).format(x_or_y=x_or_y, obj=obj)
         if obj in ['legend','annotation']:
             _description += (
-                "Use in conjunction with '{x_or_y}ref' and "
+                " Use in conjunction with '{x_or_y}ref' and "
                 "'{x_or_y}anchor' to fine-tune the location of "
                 "this {obj}."
             ).format(x_or_y=x_or_y, obj=obj)
