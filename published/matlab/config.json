@@ -214,7 +214,7 @@
                                 "key_type": "data", 
                                 "required": " when 'y','r' and 't' are unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -223,7 +223,7 @@
                                 "key_type": "data", 
                                 "required": " when 'x','r' and 't' are unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -382,7 +382,7 @@
                                 "key_type": "data", 
                                 "required": " when 'y' is unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -391,7 +391,7 @@
                                 "key_type": "data", 
                                 "required": " when 'x' is unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -615,7 +615,7 @@
                                 "key_type": "data", 
                                 "required": " when 'y' is unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -624,7 +624,7 @@
                                 "key_type": "data", 
                                 "required": " when 'x' is unset", 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -817,7 +817,7 @@
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -826,7 +826,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -1541,7 +1541,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -1550,7 +1550,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -1813,7 +1813,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
@@ -1822,7 +1822,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "a string equal to the unique identifier of a plotly grid column."
+                                "val_types": "a string equal to the unique identifier of a plotly grid column"
                             }
                         }, 
                         {
