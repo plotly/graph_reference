@@ -1507,7 +1507,7 @@ class Make(dict):
         ).format(x_or_y=x_or_y, obj=obj)
         if obj in ['legend','annotation']:
             _description += (
-                "Use in conjunction with '{x_or_y}ref' and "
+                " Use in conjunction with '{x_or_y}ref' and "
                 "'{x_or_y}anchor' to fine-tune the location of "
                 "this {obj}."
             ).format(x_or_y=x_or_y, obj=obj)
