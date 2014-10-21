@@ -3841,13 +3841,13 @@
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the 'x' position of this legend.Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this legend."
+                "description": "Sets the 'x' position of this legend. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this legend."
             }, 
             "y": {
                 "key_type": "style", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the 'y' position of this legend.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this legend."
+                "description": "Sets the 'y' position of this legend. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this legend."
             }, 
             "traceorder": {
                 "key_type": "style", 
@@ -3935,13 +3935,13 @@
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the 'x' position of this annotation.Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation."
+                "description": "Sets the 'x' position of this annotation. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation."
             }, 
             "y": {
                 "key_type": "plot_info", 
                 "val_types": "number", 
                 "required": false, 
-                "description": "Sets the 'y' position of this annotation.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation."
+                "description": "Sets the 'y' position of this annotation. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation."
             }, 
             "xref": {
                 "key_type": "plot_info", 

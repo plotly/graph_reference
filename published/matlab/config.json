@@ -5161,7 +5161,7 @@
                     "keymeta": [
                         {
                             "x": {
-                                "description": "Sets the 'x' position of this legend.Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this legend.", 
+                                "description": "Sets the 'x' position of this legend. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this legend.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number"
@@ -5169,7 +5169,7 @@
                         }, 
                         {
                             "y": {
-                                "description": "Sets the 'y' position of this legend.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this legend.", 
+                                "description": "Sets the 'y' position of this legend. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this legend.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number"
@@ -5288,7 +5288,7 @@
                     "keymeta": [
                         {
                             "x": {
-                                "description": "Sets the 'x' position of this annotation.Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation.", 
+                                "description": "Sets the 'x' position of this annotation. Use in conjunction with 'xref' and 'xanchor' to fine-tune the location of this annotation.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
@@ -5296,7 +5296,7 @@
                         }, 
                         {
                             "y": {
-                                "description": "Sets the 'y' position of this annotation.Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation.", 
+                                "description": "Sets the 'y' position of this annotation. Use in conjunction with 'yref' and 'yanchor' to fine-tune the location of this annotation.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "number"
