@@ -1661,8 +1661,8 @@ class MakeMeta(list):
             ('bgcolor', make.bgcolor('legend')),
             ('bordercolor', make.bordercolor('legend')),
             ('borderwidth', make.borderwidth('legend')),
-            ('xref', make.xyref('x')),
-            ('yref', make.xyref('y')),
+            ('xref', make.xyref('legend','x')),
+            ('yref', make.xyref('legend','y')),
             ('xanchor', make.xyanchor('legend','x')),
             ('yanchor', make.xyanchor('legend','y'))
         ])
@@ -1825,8 +1825,8 @@ class MakeMeta(list):
         keymeta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
             ('y', make.xy_layout('annotation','y')),
-            ('xref', make.xyref('x')),
-            ('yref', make.xyref('y')),
+            ('xref', make.xyref('annotation','x')),
+            ('yref', make.xyref('annotation','y')),
             ('text', dict(      # Different enough from shortcut-text
                 required=False,
                 key_type='plot_info',
