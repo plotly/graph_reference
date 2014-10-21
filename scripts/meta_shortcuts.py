@@ -75,6 +75,10 @@ class ValTypes(str):
     def object_list(self):
         return "{OLlike} of one or several {ULlike}"
 
+    def src(self):
+        return ("{string} equal to the unique "
+            "identifier of a plotly grid column").format(string=self.string())
+
 # -------------------------------------------------------------------------------
 
 class RequiredCond(str):
@@ -136,7 +140,7 @@ class Make(dict):
                 _dict[k] = v
         return _dict
 
-    def x(self,obj):
+    def x(self,obj, src=False):
         '''@x@'''
         _required = dict(
             scatter=required_cond.keys(["'y'","'r'","'t'"]),
@@ -150,8 +154,8 @@ class Make(dict):
             scatter3d=True,
             surface=False
         )
-        _key_type = 'data'
-        _val_types = val_types.data_array()
+        _key_type='data'
+        _val_types=val_types.data_array() if not src else val_types.src()
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
@@ -215,7 +219,7 @@ class Make(dict):
         return self._output(_required[obj],_key_type,_val_types,_description[obj],
                             streamable=_streamable)
 
-    def y(self,obj):
+    def y(self,obj, src=False):
        '''@y@'''
        _required = dict(
             scatter=required_cond.keys(["'x'","'r'","'t'"]),
@@ -229,9 +233,9 @@ class Make(dict):
             scatter3d=True,
             surface=False
         )
-       _key_type = 'data'
-       _val_types = val_types.data_array()
-       _description = dict(
+       _key_type='data'
+       _val_types=val_types.data_array() if not src else val_types.src()
+       _description=dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
                "If 'y' is linked to {a_OL} of strings, "
@@ -503,7 +507,7 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
 
-    
+
     def error(self, obj, which_axis):
         '''@error@ | @error_y@ | @error_x@'''
         S = {'x':['horizontal','x'],
@@ -632,7 +636,7 @@ class Make(dict):
         _streamable=True
         return self._output(_required,_key_type,_val_types,_description[obj],
                             streamable=_streamable)
-    
+
 
     def textposition(self, is_3d=False):
         '''@textposition@'''
@@ -760,7 +764,7 @@ class Make(dict):
             "hover."
         ).format(S=S)
         return self._output(_required, _key_type, _val_types, _description)
-    
+
 
     def stream(self):
         '''@stream@'''
@@ -859,7 +863,7 @@ class Make(dict):
             )
         )
 
-    
+
     def type(self, trace):
         '''@type@'''
         _required=False
@@ -1161,7 +1165,7 @@ class Make(dict):
         return self._output(_required,_key_type,_val_types,_description[obj],
                             examples=MakeExamples.color(MakeExamples()))
 
-    
+
     def bgcolor(self,obj):
         '''@bgcolor@'''
         _required = False
@@ -1268,7 +1272,7 @@ class Make(dict):
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
 
-    
+
     def thickness(self, obj, which_axis=False):
         '''@thickness@'''
         _required = False
@@ -1372,7 +1376,7 @@ class Make(dict):
             _examples = MakeExamples.domain(MakeExamples())
             return self._output(_required,_key_type,_val_types,_description,
                                 examples=_examples)
-    
+
 
     def showline(self, which_axis):
         '''@showline@'''

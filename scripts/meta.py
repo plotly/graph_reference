@@ -102,6 +102,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('scatter', src=True)),
+            ('ysrc', make.y('scatter', src=True)),
             ('type', make.type('scatter')),
         ])
         self += self._stuff('scatter', name, obj_type, parent_keys,
@@ -132,6 +134,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('bar', src=True)),
+            ('ysrc', make.y('bar', src=True)),
             ('r', make.r('bar')),   # ARTIFACT
             ('t', make.t('bar')),   # ARTIFACT
             ('type', make.type('bar')),
@@ -170,6 +174,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('histogram', src=True)),
+            ('ysrc', make.y('histogram', src=True)),
             ('type', make.type('histogram')),
         ])
         self += self._stuff('histogram', name, obj_type, parent_keys,
@@ -268,6 +274,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('box', src=True)),
+            ('ysrc', make.y('box', src=True)),
             ('type', make.type('box'))
         ])
         self += self._stuff('box', name, obj_type, parent_keys,
@@ -391,6 +399,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('histogram2d', src=True)),
+            ('ysrc', make.y('histogram2d', src=True)),
             ('type', make.type('histogram2d'))
         ])
         self += self._stuff('histogram2d', name, obj_type, parent_keys,
@@ -435,6 +445,8 @@ class MakeMeta(list):
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
             ('visible', make.visible()),
+            ('xsrc', make.x('histogram2dcontour', src=True)),
+            ('ysrc', make.y('histogram2dcontour', src=True)),
             ('type', make.type('histogram2dcontour'))
         ])
         self += self._stuff('histogram2dcontour', name, obj_type, parent_keys,
