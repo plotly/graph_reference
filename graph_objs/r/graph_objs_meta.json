@@ -3723,6 +3723,18 @@
                 "required": false, 
                 "description": "For box plots only. Sets how groups of box plots appear. If set to 'overlay', a group of boxes will be plotted directly on top of one another at their specified location. If set to 'group', the boxes will be centered around their shared location, but they will not overlap."
             }, 
+            "boxgap": {
+                "key_type": "style", 
+                "val_types": "number: x >= 0", 
+                "required": false, 
+                "description": "For box plots only. Sets the gap between boxes (or sets of boxes) at different locations."
+            }, 
+            "boxgroupgap": {
+                "key_type": "style", 
+                "val_types": "number: x >= 0", 
+                "required": false, 
+                "description": "For box plots only. Sets the gap between boxes in the same group."
+            }, 
             "radialaxis": {
                 "key_type": "object", 
                 "val_types": "list", 

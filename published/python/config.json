@@ -5018,6 +5018,22 @@
                             }
                         }, 
                         {
+                            "boxgap": {
+                                "description": "For box plots only. Sets the gap between boxes (or sets of boxes) at different locations.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
+                            "boxgroupgap": {
+                                "description": "For box plots only. Sets the gap between boxes in the same group.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "number: x >= 0"
+                            }
+                        }, 
+                        {
                             "radialaxis": {
                                 "child_obj": "RadialAxis", 
                                 "description": "Links a dictionary-like object describing the radial axis in a polar plot.", 
