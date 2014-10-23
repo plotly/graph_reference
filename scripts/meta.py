@@ -2117,7 +2117,7 @@ class MakeMeta(list):
             ('bargap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, le=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars (or sets of bars) at "
@@ -2127,7 +2127,7 @@ class MakeMeta(list):
             ('bargroupgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, le=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars in the same group. "
@@ -2154,20 +2154,32 @@ class MakeMeta(list):
             ('boxgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, le=1),
                 description=(
                     "For box plots only. "
-                    "Sets the gap between boxes (or sets of boxes) at "
-                    "different locations."
+                    "Sets the gap between boxes at "
+                    "different locations (i.e. x-labels). "
+                    "If there are multiple boxes at a single x-label, "
+                    "then this sets the gap between these sets of boxes."
+                    "For example, if 0, then there is no gap between boxes. "
+                    "If 0.25, then this gap occupies 25% of the "
+                    "available space and the box width "
+                    "(or width of the set of boxes) occupies "
+                    "the reaming 75%."
                 )
             )),
             ('boxgroupgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, le=1),
                 description=(
                     "For box plots only. "
-                    "Sets the gap between boxes in the same group."
+                    "Sets the gap between boxes in the same group, "
+                    "where a group is the set of boxes with the "
+                    "same location (i.e. x-label). "
+                    "For example, if 0, then there is no gap between boxes. "
+                    "If 0.25, then this gap occupies 25% of the available "
+                    "space and the box width occupies the remaining 75%."
                 )
             )),
             ('radialaxis', dict(
