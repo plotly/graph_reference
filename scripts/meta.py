@@ -550,7 +550,7 @@ class MakeMeta(list):
         self += self._stuff('surface', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
-      
+
     def _keymeta_error(self, which_axis):
         '''@keymeta_error@ -- keymeta for error_y, error_x (and error_z)'''
         S = {'y': ['y','vertically','up','down','above','below'],
@@ -696,7 +696,7 @@ class MakeMeta(list):
         self += self._stuff('error_x', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
 
-    
+
     def error_z(self):
         '''@error_z@'''
         name = '{error_z}'
@@ -1171,7 +1171,7 @@ class MakeMeta(list):
 
     def _keymeta_axis(self, which_axis):
         '''@keymeta_axis@ -- keymeta for xaxis, yaxis (and zaxis)'''
-        S = {'x':['x','bottom','top','y','left','right','vertical'], 
+        S = {'x':['x','bottom','top','y','left','right','vertical'],
              'y':['y','left','right','x','bottom','top','horizontal'],
              'z':['z','','','','','','']}
         s = S[which_axis]
@@ -1592,7 +1592,7 @@ class MakeMeta(list):
         ])
         self += self._stuff('angularaxis', name, obj_type, parent_keys,
                             docstring, examples, links, keymeta)
-    
+
 
     def scene(self):
         '''@scene@'''
@@ -2117,7 +2117,7 @@ class MakeMeta(list):
             ('bargap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars (or sets of bars) at "
@@ -2127,7 +2127,7 @@ class MakeMeta(list):
             ('bargroupgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars in the same group. "
@@ -2149,6 +2149,37 @@ class MakeMeta(list):
                     "If set to 'group', the boxes will be "
                     "centered around their shared location, "
                     "but they will not overlap."
+                )
+            )),
+            ('boxgap', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.number(ge=0, lt=1),
+                description=(
+                    "For box plots only. "
+                    "Sets the gap between boxes at "
+                    "different locations (i.e. x-labels). "
+                    "If there are multiple boxes at a single x-label, "
+                    "then this sets the gap between these sets of boxes."
+                    "For example, if 0, then there is no gap between boxes. "
+                    "If 0.25, then this gap occupies 25% of the "
+                    "available space and the box width "
+                    "(or width of the set of boxes) occupies "
+                    "the remaining 75%."
+                )
+            )),
+            ('boxgroupgap', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.number(ge=0, lt=1),
+                description=(
+                    "For box plots only. "
+                    "Sets the gap between boxes in the same group, "
+                    "where a group is the set of boxes with the "
+                    "same location (i.e. x-label). "
+                    "For example, if 0, then there is no gap between boxes. "
+                    "If 0.25, then this gap occupies 25% of the available "
+                    "space and the box width occupies the remaining 75%."
                 )
             )),
             ('radialaxis', dict(
