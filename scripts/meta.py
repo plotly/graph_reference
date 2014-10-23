@@ -2165,7 +2165,7 @@ class MakeMeta(list):
                     "If 0.25, then this gap occupies 25% of the "
                     "available space and the box width "
                     "(or width of the set of boxes) occupies "
-                    "the reaming 75%."
+                    "the remaining 75%."
                 )
             )),
             ('boxgroupgap', dict(
