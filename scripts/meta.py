@@ -2117,7 +2117,7 @@ class MakeMeta(list):
             ('bargap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0, le=1),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars (or sets of bars) at "
@@ -2127,7 +2127,7 @@ class MakeMeta(list):
             ('bargroupgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0, le=1),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For bar and histogram plots only. "
                     "Sets the gap between bars in the same group. "
@@ -2154,7 +2154,7 @@ class MakeMeta(list):
             ('boxgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0, le=1),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For box plots only. "
                     "Sets the gap between boxes at "
@@ -2171,7 +2171,7 @@ class MakeMeta(list):
             ('boxgroupgap', dict(
                 required=False,
                 key_type='style',
-                val_types=val_types.number(ge=0, le=1),
+                val_types=val_types.number(ge=0, lt=1),
                 description=(
                     "For box plots only. "
                     "Sets the gap between boxes in the same group, "
