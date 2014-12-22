@@ -155,7 +155,15 @@ class Make(dict):
             surface=False
         )
         _key_type='data'
-        _val_types=val_types.data_array() if not src else val_types.src()
+        if src:
+            _val_types = val_types.src()
+        else:
+            if obj not in ['scatter3d', 'surface']:
+                _val_types = val_types.data_array()
+            else:
+                _val_types = (
+                    val_types.data_array() + ' or ' +
+                    val_types.matrix())
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
@@ -234,7 +242,15 @@ class Make(dict):
             surface=False
         )
        _key_type='data'
-       _val_types=val_types.data_array() if not src else val_types.src()
+       if src:
+            _val_types = val_types.src()
+       else:
+           if obj not in ['scatter3d', 'surface']:
+               _val_types = val_types.data_array()
+           else:
+               _val_types = (
+                   val_types.data_array() + ' or ' +
+                   val_types.matrix())
        _description=dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
@@ -298,7 +314,7 @@ class Make(dict):
         _key_type = 'data'
         _val_types = val_types.matrix()
         if obj == 'scatter3d':
-            _val_types = val_types.data_array()
+            _val_types = val_types.data_array() + ' or '  +val_types.matrix()
         _description = dict(
             heatmap=(
                 "Sets the data that describes the heatmap mapping. "
