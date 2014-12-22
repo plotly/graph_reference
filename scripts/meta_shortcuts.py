@@ -933,7 +933,14 @@ class Make(dict):
                 "'count' | 'sum' | 'avg' | 'min' | 'max'"
             ),
             description=(
-                "Sets the binning function used for this histogram trace."
+                "Sets the binning function used for this histogram trace. "
+                "The default value is 'count' where the histogram values "
+                "are computed "
+                "by counting the number of values lying inside each bin. "
+                "With 'histfunc' set to 'sum', 'avg', 'min' or 'max', "
+                "the histogram values are computed using the sum, the average, "
+                "the minimum or the 'maximum' of the values lying inside "
+                "each bin respectively."
            )
 
         )
