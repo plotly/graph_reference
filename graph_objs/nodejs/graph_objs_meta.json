@@ -345,15 +345,15 @@
             }, 
             "histnorm": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
+                "val_types": "'count' | 'percent' | 'probability' | 'density' | 'probability density'", 
                 "required": false, 
-                "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
+                "description": "Sets the type of normalization for this histogram trace. The default value is 'count' where the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
             }, 
             "histfunc": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "val_types": "'count' | 'sum' | 'avg' | 'min' | 'max'", 
                 "required": false, 
-                "description": "Sets the binning function used for this histogram trace."
+                "description": "Sets the binning function used for this histogram trace. The default value is 'count' where the histogram values are computed by counting the number of values lying inside each bin. With 'histfunc' set to 'sum', 'avg', 'min' or 'max', the histogram values are computed using the sum, the average, the minimum or the 'maximum' of the values lying inside each bin respectively."
             }, 
             "name": {
                 "key_type": "data", 
@@ -1024,15 +1024,15 @@
             }, 
             "histnorm": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
+                "val_types": "'count' | 'percent' | 'probability' | 'density' | 'probability density'", 
                 "required": false, 
-                "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
+                "description": "Sets the type of normalization for this histogram trace. The default value is 'count' where the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
             }, 
             "histfunc": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "val_types": "'count' | 'sum' | 'avg' | 'min' | 'max'", 
                 "required": false, 
-                "description": "Sets the binning function used for this histogram trace."
+                "description": "Sets the binning function used for this histogram trace. The default value is 'count' where the histogram values are computed by counting the number of values lying inside each bin. With 'histfunc' set to 'sum', 'avg', 'min' or 'max', the histogram values are computed using the sum, the average, the minimum or the 'maximum' of the values lying inside each bin respectively."
             }, 
             "name": {
                 "key_type": "data", 
@@ -1212,15 +1212,15 @@
             }, 
             "histnorm": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
+                "val_types": "'count' | 'percent' | 'probability' | 'density' | 'probability density'", 
                 "required": false, 
-                "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
+                "description": "Sets the type of normalization for this histogram trace. The default value is 'count' where the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
             }, 
             "histfunc": {
                 "key_type": "style", 
-                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "val_types": "'count' | 'sum' | 'avg' | 'min' | 'max'", 
                 "required": false, 
-                "description": "Sets the binning function used for this histogram trace."
+                "description": "Sets the binning function used for this histogram trace. The default value is 'count' where the histogram values are computed by counting the number of values lying inside each bin. With 'histfunc' set to 'sum', 'avg', 'min' or 'max', the histogram values are computed using the sum, the average, the minimum or the 'maximum' of the values lying inside each bin respectively."
             }, 
             "name": {
                 "key_type": "data", 
