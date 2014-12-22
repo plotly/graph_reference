@@ -217,7 +217,7 @@
                 "key_type": "plot_info", 
                 "val_types": "'v' | 'h'", 
                 "required": false, 
-                "description": "Sets the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
+                "description": "Sets the orientation of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
             }, 
             "text": {
                 "key_type": "data", 
@@ -349,11 +349,23 @@
                 "required": false, 
                 "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
             }, 
+            "histfunc": {
+                "key_type": "style", 
+                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "required": false, 
+                "description": "Sets the binning function used for this histogram trace."
+            }, 
             "name": {
                 "key_type": "data", 
                 "val_types": "a string", 
                 "required": false, 
                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet."
+            }, 
+            "orientation": {
+                "key_type": "plot_info", 
+                "val_types": "'v' | 'h'", 
+                "required": false, 
+                "description": "Sets the orientation of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally"
             }, 
             "autobinx": {
                 "key_type": "style", 
@@ -1016,6 +1028,12 @@
                 "required": false, 
                 "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
             }, 
+            "histfunc": {
+                "key_type": "style", 
+                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "required": false, 
+                "description": "Sets the binning function used for this histogram trace."
+            }, 
             "name": {
                 "key_type": "data", 
                 "val_types": "a string", 
@@ -1197,6 +1215,12 @@
                 "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'", 
                 "required": false, 
                 "description": "Sets the type of normalization for this histogram trace. If 'histnorm' is not specified, or set to '' (empty string) or set to 'count', the height of each bar displays the frequency of occurrence, i.e., the number of times this value was found in the corresponding bin. If set to 'percent', the height of each bar displays the percentage of total occurrences found within the corresponding bin. If set to 'probability', the height of each bar displays the probability that an event will fall into the corresponding bin. If set to 'density', the height of each bar is equal to the number of occurrences in a bin divided by the size of the bin interval such that summing the area of all bins will yield the total number of occurrences. If set to 'probability density', the height of each bar is equal to the number of probability that an event will fall into the corresponding bin divided by the size of the bin interval such that summing the area of all bins will yield 1."
+            }, 
+            "histfunc": {
+                "key_type": "style", 
+                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'", 
+                "required": false, 
+                "description": "Sets the binning function used for this histogram trace."
             }, 
             "name": {
                 "key_type": "data", 
@@ -1454,21 +1478,21 @@
         "keymeta": {
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "array of numbers, strings, datetimes or 2d array of numbers", 
                 "required": true, 
                 "description": "Sets the x coordinates of the points of this 3D scatter trace. If 'x' is linked to an array of strings, then the x coordinates are integers, 0, 1, 2, 3, ..., labeled on the x-axis by the array of strings linked to 'x'.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "array of numbers, strings, datetimes or 2d array of numbers", 
                 "required": true, 
                 "description": "Sets the y coordinates of the points of this 3D scatter trace. If 'y' is linked to an array of strings, then the y coordinates are integers, 0, 1, 2, 3, ..., labeled on the y-axis by the array of strings linked to 'y'.", 
                 "streamable": true
             }, 
             "z": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "array of numbers, strings, datetimes or 2d array of numbers", 
                 "required": true, 
                 "description": "Sets the z coordinates of the points of this scatter trace. If 'z' is linked to an array of strings, then the z coordinates are integers, 0, 1, 2, 3, ..., labeled on the z-axis by the array of strings linked to 'z'.", 
                 "streamable": true
@@ -1576,14 +1600,14 @@
             }, 
             "x": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "array of numbers, strings, datetimes or 2d array of numbers", 
                 "required": false, 
                 "description": "Sets the horizontal coordinates referring to the columns of the 2d array linked to 'z'. If the 'z' is an array of strings, then the x-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'x' array should equal m.", 
                 "streamable": true
             }, 
             "y": {
                 "key_type": "data", 
-                "val_types": "array of numbers, strings, datetimes", 
+                "val_types": "array of numbers, strings, datetimes or 2d array of numbers", 
                 "required": false, 
                 "description": "Sets the vertical coordinates referring to the rows of the 2d array linked to 'z'. If strings, the y-labels are spaced evenly. If the dimensions of the 2d array linked to 'z' are (n x m), the length of the 'y' array should equal n.", 
                 "streamable": true
@@ -1668,7 +1692,7 @@
             }, 
             "arrayminus": {
                 "key_type": "data", 
-                "val_types": "number: x >= 0", 
+                "val_types": "array of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "Has an effect only when 'symmetric' is set to FALSE. Same as 'array' but corresponding to the span of the error bars below the trace coordinates"
             }, 
@@ -1757,7 +1781,7 @@
             }, 
             "arrayminus": {
                 "key_type": "data", 
-                "val_types": "number: x >= 0", 
+                "val_types": "array of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "Has an effect only when 'symmetric' is set to FALSE. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates"
             }, 
@@ -2424,7 +2448,7 @@
             }, 
             "arrayminus": {
                 "key_type": "data", 
-                "val_types": "number: x >= 0", 
+                "val_types": "array of numbers, strings, datetimes", 
                 "required": false, 
                 "description": "Has an effect only when 'symmetric' is set to FALSE. Same as 'array' but corresponding to the span of the error bars below the trace coordinates"
             }, 
@@ -3938,7 +3962,7 @@
         "docstring": "A dictionary for representing an annotation in plotly. Annotations appear as notes on the final figure. You can set all the features of the annotation text, background color, and location. Additionally, these notes can be anchored to actual data or the page for help with location after pan-and-zoom actions.", 
         "examples": [], 
         "links": [
-            "https://plot.ly/julia//text-and-annotations/"
+            "https://plot.ly/julia/text-and-annotations/"
         ], 
         "keymeta": {
             "x": {

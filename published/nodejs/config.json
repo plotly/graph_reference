@@ -280,7 +280,7 @@
                         }, 
                         {
                             "orientation": {
-                                "description": "Sets the direction of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally", 
+                                "description": "Sets the orientation of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally", 
                                 "key_type": "plot_info", 
                                 "required": false, 
                                 "val_types": "'v' | 'h'"
@@ -462,11 +462,27 @@
                             }
                         }, 
                         {
+                            "histfunc": {
+                                "description": "Sets the binning function used for this histogram trace.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'"
+                            }
+                        }, 
+                        {
                             "name": {
                                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet.", 
                                 "key_type": "data", 
                                 "required": false, 
                                 "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "orientation": {
+                                "description": "Sets the orientation of the bars. If set to 'v', the length of each bar will run vertically. If set to 'h', the length of each bar will run horizontally", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'v' | 'h'"
                             }
                         }, 
                         {
@@ -1358,6 +1374,14 @@
                             }
                         }, 
                         {
+                            "histfunc": {
+                                "description": "Sets the binning function used for this histogram trace.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'"
+                            }
+                        }, 
+                        {
                             "name": {
                                 "description": "The label associated with this trace. This name will appear in the legend, on hover and in the column header in the online spreadsheet.", 
                                 "key_type": "data", 
@@ -1600,6 +1624,14 @@
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'' (or 'count') | 'percent' | 'probability' | 'density' | 'probability density'"
+                            }
+                        }, 
+                        {
+                            "histfunc": {
+                                "description": "Sets the binning function used for this histogram trace.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'"
                             }
                         }, 
                         {
@@ -1956,7 +1988,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of numbers, strings, datetimes or array of arrays of numbers"
                             }
                         }, 
                         {
@@ -1965,7 +1997,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of numbers, strings, datetimes or array of arrays of numbers"
                             }
                         }, 
                         {
@@ -1974,7 +2006,7 @@
                                 "key_type": "data", 
                                 "required": true, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of numbers, strings, datetimes or array of arrays of numbers"
                             }
                         }, 
                         {
@@ -2122,7 +2154,7 @@
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of numbers, strings, datetimes or array of arrays of numbers"
                             }
                         }, 
                         {
@@ -2131,7 +2163,7 @@
                                 "key_type": "data", 
                                 "required": false, 
                                 "streamable": true, 
-                                "val_types": "array of numbers, strings, datetimes"
+                                "val_types": "array of numbers, strings, datetimes or array of arrays of numbers"
                             }
                         }, 
                         {
@@ -2244,7 +2276,7 @@
                                 "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates", 
                                 "key_type": "data", 
                                 "required": false, 
-                                "val_types": "number: x >= 0"
+                                "val_types": "array of numbers, strings, datetimes"
                             }
                         }, 
                         {
@@ -2365,7 +2397,7 @@
                                 "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars left of the trace coordinates", 
                                 "key_type": "data", 
                                 "required": false, 
-                                "val_types": "number: x >= 0"
+                                "val_types": "array of numbers, strings, datetimes"
                             }
                         }, 
                         {
@@ -3278,7 +3310,7 @@
                                 "description": "Has an effect only when 'symmetric' is set to false. Same as 'array' but corresponding to the span of the error bars below the trace coordinates", 
                                 "key_type": "data", 
                                 "required": false, 
-                                "val_types": "number: x >= 0"
+                                "val_types": "array of numbers, strings, datetimes"
                             }
                         }, 
                         {
@@ -5509,7 +5541,7 @@
                         }
                     ], 
                     "links": [
-                        "/nodejs//text-and-annotations/"
+                        "/nodejs/text-and-annotations/"
                     ], 
                     "name": "annotation", 
                     "obj_type": "object", 
