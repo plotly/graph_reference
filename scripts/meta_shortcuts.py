@@ -897,13 +897,12 @@ class Make(dict):
             required=False,
             key_type='style',
             val_types=(
-                "'' (or 'count') | 'percent' | 'probability' | 'density' | "
+                "'count' | 'percent' | 'probability' | 'density' | "
                 "'probability density'"
             ),
             description=(
                 "Sets the type of normalization for this histogram trace. "
-                "If 'histnorm' is not specified, or set to '' "
-                "(empty string) or set to 'count', the height of each bar "
+                "The default value is 'count' where the height of each bar "
                 "displays the frequency of occurrence, i.e., "
                 "the number of times this "
                 "value was found in the corresponding bin. "
@@ -931,7 +930,7 @@ class Make(dict):
             required=False,
             key_type='style',
             val_types=(
-                "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'"
+                "'count' | 'sum' | 'avg' | 'min' | 'max'"
             ),
             description=(
                 "Sets the binning function used for this histogram trace."
