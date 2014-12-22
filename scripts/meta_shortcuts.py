@@ -552,9 +552,10 @@ class Make(dict):
                 "If set to 'v', the length of each bar will run vertically. "
                 "If set to 'h', the length of each bar will run horizontally"
             ),
-            histogram=( # ARTIFACT
-                "Web GUI Artifact. Histogram orientation is determined "
-                "by which of 'x' or 'y' the data sample is linked to."
+            histogram=(
+                "Sets the orientation of the histogram bars. "
+                "If 'orientation' is set to 'v' ('h') then the data sample "
+                "linked to 'x' ('y') is used."
             )
         )
         return self._output(_required,_key_type,_val_types,_description[obj])

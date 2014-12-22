@@ -158,6 +158,7 @@ class MakeMeta(list):
             ('y', make.y('histogram')),
             ('histnorm', make.histnorm()),
             ('name', make.name()),
+            ('orientation', make.orientation('bar')),
             ('autobinx', make.autobin('x')),
             ('nbinsx', make.nbins('x')),
             ('xbins', make.bins('x')),
