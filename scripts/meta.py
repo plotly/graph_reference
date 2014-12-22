@@ -629,7 +629,7 @@ class MakeMeta(list):
             ('arrayminus', dict(
                 required=False,
                 key_type='data',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.data_array(),
                 description=(
                       "Has an effect only when 'symmetric' is set to {{FALSE}}. "
                       "Same as 'array' but corresponding to the span "
