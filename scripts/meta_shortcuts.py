@@ -155,7 +155,15 @@ class Make(dict):
             surface=False
         )
         _key_type='data'
-        _val_types=val_types.data_array() if not src else val_types.src()
+        if src:
+            _val_types = val_types.src()
+        else:
+            if obj not in ['scatter3d', 'surface']:
+                _val_types = val_types.data_array()
+            else:
+                _val_types = (
+                    val_types.data_array() + ' or ' +
+                    val_types.matrix())
         _description = dict(
             scatter=(
                 "Sets the x coordinates of the points of this scatter trace. "
@@ -234,7 +242,15 @@ class Make(dict):
             surface=False
         )
        _key_type='data'
-       _val_types=val_types.data_array() if not src else val_types.src()
+       if src:
+            _val_types = val_types.src()
+       else:
+           if obj not in ['scatter3d', 'surface']:
+               _val_types = val_types.data_array()
+           else:
+               _val_types = (
+                   val_types.data_array() + ' or ' +
+                   val_types.matrix())
        _description=dict(
            scatter=(
                "Sets the y coordinates of the points of this scatter trace. "
@@ -298,7 +314,7 @@ class Make(dict):
         _key_type = 'data'
         _val_types = val_types.matrix()
         if obj == 'scatter3d':
-            _val_types = val_types.data_array()
+            _val_types = val_types.data_array() + ' or '  +val_types.matrix()
         _description = dict(
             heatmap=(
                 "Sets the data that describes the heatmap mapping. "
@@ -548,13 +564,14 @@ class Make(dict):
         _val_types="'v' | 'h'"
         _description=dict(
             bar=(
-                "Sets the direction of the bars. "
+                "Sets the orientation of the bars. "
                 "If set to 'v', the length of each bar will run vertically. "
                 "If set to 'h', the length of each bar will run horizontally"
             ),
-            histogram=( # ARTIFACT
-                "Web GUI Artifact. Histogram orientation is determined "
-                "by which of 'x' or 'y' the data sample is linked to."
+            histogram=(
+                "Sets the orientation of the histogram bars. "
+                "If 'orientation' is set to 'v' ('h') then the data sample "
+                "linked to 'x' ('y') is used."
             )
         )
         return self._output(_required,_key_type,_val_types,_description[obj])
@@ -880,13 +897,12 @@ class Make(dict):
             required=False,
             key_type='style',
             val_types=(
-                "'' (or 'count') | 'percent' | 'probability' | 'density' | "
+                "'count' | 'percent' | 'probability' | 'density' | "
                 "'probability density'"
             ),
             description=(
                 "Sets the type of normalization for this histogram trace. "
-                "If 'histnorm' is not specified, or set to '' "
-                "(empty string) or set to 'count', the height of each bar "
+                "The default value is 'count' where the height of each bar "
                 "displays the frequency of occurrence, i.e., "
                 "the number of times this "
                 "value was found in the corresponding bin. "
@@ -905,6 +921,28 @@ class Make(dict):
                 "the bin interval such that summing the area of all bins "
                 "will yield 1."
            )
+        )
+
+
+    def histfunc(self):
+        '''@histfunc@'''
+        return dict(
+            required=False,
+            key_type='style',
+            val_types=(
+                "'count' | 'sum' | 'avg' | 'min' | 'max'"
+            ),
+            description=(
+                "Sets the binning function used for this histogram trace. "
+                "The default value is 'count' where the histogram values "
+                "are computed "
+                "by counting the number of values lying inside each bin. "
+                "With 'histfunc' set to 'sum', 'avg', 'min' or 'max', "
+                "the histogram values are computed using the sum, the average, "
+                "the minimum or the 'maximum' of the values lying inside "
+                "each bin respectively."
+           )
+
         )
 
     def autobin(self, x_or_y):

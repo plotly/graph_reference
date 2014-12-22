@@ -157,7 +157,9 @@ class MakeMeta(list):
             ('x', make.x('histogram')),
             ('y', make.y('histogram')),
             ('histnorm', make.histnorm()),
+            ('histfunc', make.histfunc()),
             ('name', make.name()),
+            ('orientation', make.orientation('bar')),
             ('autobinx', make.autobin('x')),
             ('nbinsx', make.nbins('x')),
             ('xbins', make.bins('x')),
@@ -378,6 +380,7 @@ class MakeMeta(list):
             ('x', make.x('histogram2d')),
             ('y', make.y('histogram2d')),
             ('histnorm', make.histnorm()),
+            ('histfunc', make.histfunc()),
             ('name', make.name()),
             ('autobinx', make.autobin('x')),
             ('nbinsx', make.nbins('x')),
@@ -421,6 +424,7 @@ class MakeMeta(list):
             ('x', make.x('histogram2dcontour')),
             ('y', make.y('histogram2dcontour')),
             ('histnorm', make.histnorm()),
+            ('histfunc', make.histfunc()),
             ('name', make.name()),
             ('autobinx', make.autobin('x')),
             ('nbinsx', make.nbins('x')),
@@ -625,7 +629,7 @@ class MakeMeta(list):
             ('arrayminus', dict(
                 required=False,
                 key_type='data',
-                val_types=val_types.number(ge=0),
+                val_types=val_types.data_array(),
                 description=(
                       "Has an effect only when 'symmetric' is set to {{FALSE}}. "
                       "Same as 'array' but corresponding to the span "
@@ -1820,7 +1824,7 @@ class MakeMeta(list):
             "Additionally, these notes can be anchored to actual data "
             "or the page for help with location after pan-and-zoom actions."
         )
-        links = ["{WEB}/text-and-annotations/"]
+        links = ["{WEB}text-and-annotations/"]
         examples = MakeExamples.annotation(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
