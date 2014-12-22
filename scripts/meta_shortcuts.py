@@ -908,6 +908,21 @@ class Make(dict):
            )
         )
 
+
+    def histfunc(self):
+        '''@histfunc@'''
+        return dict(
+            required=False,
+            key_type='style',
+            val_types=(
+                "'' (or 'count') | 'sum' | 'avg' | 'min' | 'max'"
+            ),
+            description=(
+                "Sets the binning function used for this histogram trace."
+           )
+
+        )
+
     def autobin(self, x_or_y):
         '''@autobin@ | @autobinx@ | @autobiny@'''
         _required=False
