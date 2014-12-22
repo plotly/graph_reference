@@ -564,7 +564,7 @@ class Make(dict):
         _val_types="'v' | 'h'"
         _description=dict(
             bar=(
-                "Sets the direction of the bars. "
+                "Sets the orientation of the bars. "
                 "If set to 'v', the length of each bar will run vertically. "
                 "If set to 'h', the length of each bar will run horizontally"
             ),
