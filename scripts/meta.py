@@ -1824,7 +1824,7 @@ class MakeMeta(list):
             "Additionally, these notes can be anchored to actual data "
             "or the page for help with location after pan-and-zoom actions."
         )
-        links = ["{WEB}/text-and-annotations/"]
+        links = ["{WEB}text-and-annotations/"]
         examples = MakeExamples.annotation(MakeExamples())
         keymeta = OrderedDict([
             ('x', make.xy_layout('annotation','x')),
