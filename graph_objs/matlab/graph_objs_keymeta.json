@@ -2997,6 +2997,15 @@
             ], 
             "description": "Sets the camera position with respect to the scene. The first entry (a array of length 4) sets the angular position of the camera. The second entry (a array of length 3) sets the (x,y,z) translation of the camera. The third entry (a scalar) sets zoom of the camera."
         }, 
+        "domain": {
+            "key_type": "plot_info", 
+            "val_types": "domain structure array", 
+            "required": false, 
+            "examples": [
+                "struct('x', [0, 0.4], 'y', [0.6, 1])"
+            ], 
+            "description": "Sets the x-y domain of this scene on the plotting surface."
+        }, 
         "bgcolor": {
             "key_type": "style", 
             "val_types": "a string describing color", 
