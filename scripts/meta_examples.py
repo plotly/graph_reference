@@ -129,7 +129,7 @@ class MakeExamples(list):
                 "dict(x=[0, 0.4], y=[0.6, 1])"
             ]
             self.matlab = [
-                "struct('x': [0, 0.4], 'y': [0.6, 1])"
+                "struct('x', [0, 0.4], 'y', [0.6, 1])"
             ]
             self.r = [
                 "list(x = c(0, 0.4), y = c(0.6, 1))"
