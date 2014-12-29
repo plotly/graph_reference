@@ -4421,7 +4421,7 @@
                             "domain": {
                                 "description": "Sets the x-y domain of this scene on the plotting surface.", 
                                 "examples": [
-                                    "struct('x': [0, 0.4], 'y': [0.6, 1])"
+                                    "struct('x', [0, 0.4], 'y', [0.6, 1])"
                                 ], 
                                 "key_type": "plot_info", 
                                 "required": false, 
