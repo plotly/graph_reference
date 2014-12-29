@@ -1626,7 +1626,17 @@ class MakeMeta(list):
                 ),
                 examples = MakeExamples.cameraposition(MakeExamples())
              )),
-#             ('domain', ),  # TODO change name (confusing with axis.domain)
+            ('domain', dict(
+                required=False,
+                key_type='plot_info',
+                val_types='domain {UL}',
+                description=(
+                    "Sets the x-y domain of this scene "
+                    "on the plotting surface."
+                ),
+                examples = MakeExamples.domain(MakeExamples(),
+                                               is_scene=True)
+             )),
 #             ('position', ),  # TODO (needed? overlaps with 'domain');
              ('bgcolor', make.bgcolor('scene'))
         ])
