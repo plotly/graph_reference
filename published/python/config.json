@@ -4445,6 +4445,18 @@
                             }
                         }, 
                         {
+                            "domain": {
+                                "description": "Sets the x-y domain of this scene on the plotting surface.", 
+                                "examples": [
+                                    "{'x': [0, 0.4], 'y': [0.6, 1]}", 
+                                    "dict(x=[0, 0.4], y=[0.6, 1])"
+                                ], 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "domain dictionary"
+                            }
+                        }, 
+                        {
                             "bgcolor": {
                                 "description": "Sets the background (bg) color of this scene (i.e. of the plotting surface and the margins).", 
                                 "examples": [
