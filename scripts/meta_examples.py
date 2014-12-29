@@ -121,28 +121,46 @@ class MakeExamples(list):
         ]
         return self
 
-    def domain(self):
+    def domain(self, is_scene=False):
         '''@domain@'''
-        self.python = [
-            "[0, 0.4]",
-            "[0.6, 1]"
-        ]
-        self.matlab = [
-            "[0, 0.4]",
-            "[0.6, 1]"
-        ]
-        self.r = [
-            "c(0, 0.4)",
-            "c(0.6, 1)"
-        ]
-        self.nodejs = [
-            "[0, 0.4]",
-            "[0.6, 1]"
-        ]
-        self.julia = [
-            "[0, 0.4]",
-            "[0.6, 1]"
-        ]
+        if is_scene:
+            self.python = [
+                "{'x': [0, 0.4], 'y': [0.6, 1]}",
+                "dict(x=[0, 0.4], y=[0.6, 1])"
+            ]
+            self.matlab = [
+                "struct('x': [0, 0.4], 'y': [0.6, 1])"
+            ]
+            self.r = [
+                "list(x = c(0, 0.4), y = c(0.6, 1))"
+            ]
+            self.nodejs = [
+                "{'x': [0, 0.4], 'y': [0.6, 1]}"
+            ]
+            self.julia = [
+                "[\"x\" => [0, 0.4], \"y\" => [0.6, 1]]"
+            ]
+        else:
+            self.python = [
+                "[0, 0.4]",
+                "[0.6, 1]"
+            ]
+            self.matlab = [
+                "[0, 0.4]",
+                "[0.6, 1]"
+            ]
+            self.r = [
+                "c(0, 0.4)",
+                "c(0.6, 1)"
+            ]
+            self.nodejs = [
+                "[0, 0.4]",
+                "[0.6, 1]"
+            ]
+            self.julia = [
+                "[0, 0.4]",
+                "[0.6, 1]"
+            ]
         return self
 
 
