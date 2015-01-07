@@ -2122,10 +2122,10 @@
                         {
                             "scene": {
                                 "child_obj": "Scene", 
-                                "description": "This key determines the scene on which this trace will be plotted in. More info coming soon.", 
+                                "description": "This key determines the scene on which this trace will be plotted in.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
-                                "val_types": "'s1' | 's2' | 's3' | etc."
+                                "val_types": "'scene1' | 'scene2' | 'scene3' | etc."
                             }
                         }, 
                         {
@@ -2216,10 +2216,10 @@
                         {
                             "scene": {
                                 "child_obj": "Scene", 
-                                "description": "This key determines the scene on which this trace will be plotted in. More info coming soon.", 
+                                "description": "This key determines the scene on which this trace will be plotted in.", 
                                 "key_type": "plot_info", 
                                 "required": false, 
-                                "val_types": "'s1' | 's2' | 's3' | etc."
+                                "val_types": "'scene1' | 'scene2' | 'scene3' | etc."
                             }
                         }, 
                         {

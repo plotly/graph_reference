@@ -873,10 +873,10 @@ class Make(dict):
         return dict(
             required=False,
             key_type='plot_info',
-            val_types="'s1' | 's2' | 's3' | etc.",
-            description=(  # TODO!
+            val_types="'scene1' | 'scene2' | 'scene3' | etc.",
+            description=(
                 "This key determines the scene on which this trace will "
-                "be plotted in. More info coming soon."
+                "be plotted in."
             )
         )
 
