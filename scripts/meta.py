@@ -2219,12 +2219,12 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                "Links {a_ULlike} describing a scene in a 3D plot. "
-                "The first {scene} object can be entered into "
-                "'layout' by linking it to 'scene' OR "
-                "'scene1', both keys are identical to Plotly. "
-                "Link subsequent {scene} objects using "
-                "'scene2', 'scene3', etc."
+                    "Links {a_ULlike} describing a scene in a 3D plot. "
+                    "The first {scene} object can be entered into "
+                    "'layout' by linking it to 'scene' OR "
+                    "'scene1', both keys are identical to Plotly. "
+                    "Link subsequent {scene} objects using "
+                    "'scene2', 'scene3', etc."
                 )
             )),
             ('direction', dict(
