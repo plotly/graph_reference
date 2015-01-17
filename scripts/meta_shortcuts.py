@@ -515,6 +515,10 @@ class Make(dict):
                 "The text elements associated with each bar in this trace. "
                 "The entries in 'text' will appear on hover only, in a text "
                 "box located at the top of each bar."
+            ),
+            heatmap=(
+                "The value of 'text' must be a {OL2D} corresponding to "
+                "the value associated with 'z'."
             )
         )
         _description['histogram'] = _description['bar']

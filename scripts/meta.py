@@ -311,6 +311,7 @@ class MakeMeta(list):
             ('yaxis', make.axis('y',trace=True)),
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
+            ('text', make.text('heatmap')),
             ('visible', make.visible()),
             ('x0', make.x0y0('heatmap','x')),
             ('dx', make.dxdy('heatmap','x')),
