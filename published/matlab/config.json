@@ -981,6 +981,14 @@
                             }
                         }, 
                         {
+                            "connectgaps": {
+                                "description": "Toggle whether or not missing data points (i.e. '' or NaN) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
+                            }
+                        }, 
+                        {
                             "xaxis": {
                                 "child_obj": "xaxis", 
                                 "description": "This key determines which x-axis the x-coordinates of this trace will reference in the figure.  Values 'x1' and 'x' reference to 'xaxis' in 'layout', 'x2' references to 'xaxis2' in 'layout', and so on. Note that 'x1' will always refer to 'xaxis' or 'xaxis1' in 'layout', they are the same.", 
@@ -1013,6 +1021,15 @@
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "structure array"
+                            }
+                        }, 
+                        {
+                            "text": {
+                                "description": "The value of 'text' must be a 2d array corresponding to the value associated with 'z'.", 
+                                "key_type": "data", 
+                                "required": false, 
+                                "streamable": true, 
+                                "val_types": "array of strings"
                             }
                         }, 
                         {
@@ -1223,6 +1240,14 @@
                                 "key_type": "object", 
                                 "required": false, 
                                 "val_types": "structure array"
+                            }
+                        }, 
+                        {
+                            "connectgaps": {
+                                "description": "Toggle whether or not missing data points (i.e. '' or NaN) linked to 'x' and/or 'y', are added in by Plotly using linear interpolation.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "a boolean: true | false"
                             }
                         }, 
                         {
@@ -5023,6 +5048,14 @@
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "number: x in [0, 1)"
+                            }
+                        }, 
+                        {
+                            "barnorm": {
+                                "description": "Sets the type of normalization for this bar trace. By default, 'barnorm' is set to '', which results in the height of each bar being displayed. If set to 'fraction', the value of each bar is divided by the sum of the values in the bar group. If set to 'percent', each bar's height is set to the fractional value * 100.", 
+                                "key_type": "plot_info", 
+                                "required": false, 
+                                "val_types": "'' | 'percent' | 'fraction'"
                             }
                         }, 
                         {
