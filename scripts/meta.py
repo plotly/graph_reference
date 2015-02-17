@@ -71,7 +71,16 @@ class MakeMeta(list):
             ('line', make.line('scatter')),
             ('textposition', make.textposition()),
             ('textfont', make.textfont('scatter')),
-            ('connectgaps', make.connectgaps()),
+            ('connectgaps', dict(
+                required=False,
+                key_type='plot_info',
+                val_types=val_types.bool(),
+                description=(
+                    "Toggle whether or not missing data points "
+                    "(i.e. '' or {NAN}) linked to 'x' and/or 'y', are "
+                    "added in by Plotly using linear interpolation."
+                )
+            )),
             ('fill', dict(
                 required=False,
                 key_type='plot_info',
@@ -298,12 +307,10 @@ class MakeMeta(list):
             ('colorbar', make.colorbar()),
             ('zsmooth', make.zsmooth()),
             ('opacity', make.opacity()),
-            ('connectgaps', make.connectgaps()),
             ('xaxis', make.axis('x',trace=True)),
             ('yaxis', make.axis('y',trace=True)),
             ('showlegend', make.showlegend(trace=True)),
             ('stream', make.stream()),
-            ('text', make.text('heatmap')),
             ('visible', make.visible()),
             ('x0', make.x0y0('heatmap','x')),
             ('dx', make.dxdy('heatmap','x')),
@@ -342,7 +349,6 @@ class MakeMeta(list):
             ('reversescale', make.reversescale()),
             ('showscale', make.showscale()),
             ('colorbar', make.colorbar()),
-            ('connectgaps', make.connectgaps()),
             ('opacity', make.opacity()),
             ('xaxis', make.axis('x',trace=True)),
             ('yaxis', make.axis('y',trace=True)),
@@ -2144,19 +2150,6 @@ class MakeMeta(list):
                     "between bars at each location."
                 )
             )),
-            ('barnorm', dict(
-                required=False,
-                key_type='plot_info',
-                val_types="'' | 'percent' | 'fraction'",
-                description=(
-                    "Sets the type of normalization for this bar trace. "
-                    "By default, 'barnorm' is set to '', which results in the "
-                    "height of each bar being displayed. If set to "
-                    "'fraction', the value of each bar is divided by the sum "
-                    "of the values in the bar group. If set to 'percent', "
-                    "each bar's height is set to the fractional value * 100."
-                )
-            )),
             ('boxmode', dict(
                 required=False,
                 key_type='plot_info',
@@ -2226,12 +2219,12 @@ class MakeMeta(list):
                 key_type='object',
                 val_types=val_types.object(),
                 description=(
-                    "Links {a_ULlike} describing a scene in a 3D plot. "
-                    "The first {scene} object can be entered into "
-                    "'layout' by linking it to 'scene' OR "
-                    "'scene1', both keys are identical to Plotly. "
-                    "Link subsequent {scene} objects using "
-                    "'scene2', 'scene3', etc."
+                "Links {a_ULlike} describing a scene in a 3D plot. "
+                "The first {scene} object can be entered into "
+                "'layout' by linking it to 'scene' OR "
+                "'scene1', both keys are identical to Plotly. "
+                "Link subsequent {scene} objects using "
+                "'scene2', 'scene3', etc."
                 )
             )),
             ('direction', dict(
