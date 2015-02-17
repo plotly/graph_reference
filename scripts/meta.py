@@ -2150,6 +2150,19 @@ class MakeMeta(list):
                     "between bars at each location."
                 )
             )),
+            ('barnorm', dict(
+                required=False,
+                key_type='plot_info',
+                val_types="'' | 'percent' | 'fraction'",
+                description=(
+                    "Sets the type of normalization for this bar trace. "
+                    "By default, 'barnorm' is set to '', which results in the "
+                    "height of each bar being displayed. If set to "
+                    "'fraction', the value of each bar is divided by the sum "
+                    "of the values in the bar group. If set to 'percent', "
+                    "each bar's height is set to the fractional value * 100."
+                )
+            )),
             ('boxmode', dict(
                 required=False,
                 key_type='plot_info',
