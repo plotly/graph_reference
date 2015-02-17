@@ -1136,6 +1136,19 @@ class Make(dict):
             )
         )
 
+    def connectgaps(self):
+        '''@connectgaps@'''
+        return dict(
+            required=False,
+            key_type='plot_info',
+            val_types=val_types.bool(),
+            description=(
+                "Toggle whether or not missing data points "
+                "(i.e. '' or {NAN}) linked to 'x' and/or 'y', are "
+                "added in by Plotly using linear interpolation."
+            )
+        )
+
     def color(self,obj):
         '''@color@'''
         _required=False

@@ -71,16 +71,7 @@ class MakeMeta(list):
             ('line', make.line('scatter')),
             ('textposition', make.textposition()),
             ('textfont', make.textfont('scatter')),
-            ('connectgaps', dict(
-                required=False,
-                key_type='plot_info',
-                val_types=val_types.bool(),
-                description=(
-                    "Toggle whether or not missing data points "
-                    "(i.e. '' or {NAN}) linked to 'x' and/or 'y', are "
-                    "added in by Plotly using linear interpolation."
-                )
-            )),
+            ('connectgaps', make.connectgaps()),
             ('fill', dict(
                 required=False,
                 key_type='plot_info',
@@ -307,6 +298,7 @@ class MakeMeta(list):
             ('colorbar', make.colorbar()),
             ('zsmooth', make.zsmooth()),
             ('opacity', make.opacity()),
+            ('connectgaps', make.connectgaps()),
             ('xaxis', make.axis('x',trace=True)),
             ('yaxis', make.axis('y',trace=True)),
             ('showlegend', make.showlegend(trace=True)),
@@ -349,6 +341,7 @@ class MakeMeta(list):
             ('reversescale', make.reversescale()),
             ('showscale', make.showscale()),
             ('colorbar', make.colorbar()),
+            ('connectgaps', make.connectgaps()),
             ('opacity', make.opacity()),
             ('xaxis', make.axis('x',trace=True)),
             ('yaxis', make.axis('y',trace=True)),
