@@ -515,6 +515,10 @@ class Make(dict):
                 "The text elements associated with each bar in this trace. "
                 "The entries in 'text' will appear on hover only, in a text "
                 "box located at the top of each bar."
+            ),
+            heatmap=(
+                "The value of 'text' must be a {OL2D} corresponding to "
+                "the value associated with 'z'."
             )
         )
         _description['histogram'] = _description['bar']
@@ -1133,6 +1137,19 @@ class Make(dict):
             description=(
                 "Links {a_ULlike} defining the parameters of "
                 "the contours of this trace."
+            )
+        )
+
+    def connectgaps(self):
+        '''@connectgaps@'''
+        return dict(
+            required=False,
+            key_type='plot_info',
+            val_types=val_types.bool(),
+            description=(
+                "Toggle whether or not missing data points "
+                "(i.e. '' or {NAN}) linked to 'x' and/or 'y', are "
+                "added in by Plotly using linear interpolation."
             )
         )
 
