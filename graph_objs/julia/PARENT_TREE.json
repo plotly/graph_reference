@@ -43,7 +43,8 @@
             "zaxis"
         ], 
         "textfont": [
-            "scatter"
+            "scatter", 
+            "scatter3d"
         ], 
         "font": [
             "layout", 

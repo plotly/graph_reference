@@ -507,6 +507,7 @@ class MakeMeta(list):
             ('mode', make.mode(is_3d=True)),
             ('name', make.name(is_3d=True)),
             ('text', make.text('scatter3d')),
+            ('textfont', make.textfont('scatter3d')),
             ('error_z', make.error('scatter3d','z')),
             ('error_y', make.error('scatter3d','y')),
             ('error_x', make.error('scatter3d','x')),

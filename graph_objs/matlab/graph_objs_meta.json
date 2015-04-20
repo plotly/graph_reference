@@ -1535,6 +1535,12 @@
                 "description": "The text elements associated with each (x,y,z) pair in this 3D scatter trace. If the scatter 'mode' does not include 'text' then elements linked to 'text' will appear on hover only. In contrast, if 'text' is included in 'mode', the elements in 'text' will be rendered on the plot at the locations specified in part by their corresponding (x,y,z) coordinate pair and the 'textposition' key.", 
                 "streamable": true
             }, 
+            "textfont": {
+                "key_type": "object", 
+                "val_types": "structure array", 
+                "required": false, 
+                "description": "Links a structure array describing the font style of this scatter3d trace's text elements. Has only an effect if 'mode' is set and includes 'text'."
+            }, 
             "error_z": {
                 "key_type": "object", 
                 "val_types": "structure array", 

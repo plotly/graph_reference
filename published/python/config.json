@@ -2087,6 +2087,15 @@
                             }
                         }, 
                         {
+                            "textfont": {
+                                "child_obj": "Font", 
+                                "description": "Links a dictionary-like object describing the font style of this scatter3d trace's text elements. Has only an effect if 'mode' is set and includes 'text'.", 
+                                "key_type": "object", 
+                                "required": false, 
+                                "val_types": "dictionary-like object"
+                            }
+                        }, 
+                        {
                             "error_z": {
                                 "child_obj": "ErrorZ", 
                                 "description": "Links a dictionary-like object describing the z-axis error bars that can be drawn from the (x,y,z) coordinates of this 3D scatter trace.", 
@@ -5256,7 +5265,8 @@
                             "Annotation"
                         ], 
                         "textfont": [
-                            "Scatter"
+                            "Scatter", 
+                            "Scatter3d"
                         ], 
                         "tickfont": [
                             "ColorBar", 

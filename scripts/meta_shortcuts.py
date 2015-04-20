@@ -722,7 +722,12 @@ class Make(dict):
                 "of this scatter trace's text elements. Has only "
                 "an effect if 'mode' is set and includes 'text'."
             ),
-            bar="Not currently supported, has no effect." # ARTIFACT
+            bar="Not currently supported, has no effect.", # ARTIFACT
+            scatter3d=(
+                "Links {a_ULlike} describing the font style "
+                "of this scatter3d trace's text elements. Has only "
+                "an effect if 'mode' is set and includes 'text'."
+            ),
         )
         _description['histogram']= _description['bar']
         return self._output(_required,_key_type,_val_types,_description[obj])
