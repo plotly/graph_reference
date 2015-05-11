@@ -1135,19 +1135,6 @@ class MakeMeta(list):
                     "of the ticks' font."
                 )
             )),
-            ('exponentformat', dict(
-                required=False,
-                key_type='style',
-                val_types="'none' | 'e' | 'E' | 'power' | 'SI' | 'B'",
-                description=(
-                    "Sets how exponents show up. Here's how the number "
-                    "1000000000 (1 billion) shows up in each. If set to "
-                    "'none': 1,000,000,000. If set to 'e': 1e+9. If set "
-                    "to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 "
-                    "will appear super-scripted). If set to 'SI': 1G. If "
-                    "set to 'B': 1B (useful when referring to currency)."
-                )
-            )),
             ('showexponent', dict(
                 required=False,
                 key_type='style',
@@ -1162,6 +1149,51 @@ class MakeMeta(list):
                     "significand, however no other exponents will "
                     "appear--only the significands. If set to 'none', "
                     "no exponents will appear, only the significands."
+                )
+            )),
+            ('exponentformat', dict(
+                required=False,
+                key_type='style',
+                val_types="'none' | 'e' | 'E' | 'power' | 'SI' | 'B'",
+                description=(
+                    "Sets how exponents show up. Here's how the number "
+                    "1000000000 (1 billion) shows up in each. If set to "
+                    "'none': 1,000,000,000. If set to 'e': 1e+9. If set "
+                    "to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 "
+                    "will appear super-scripted). If set to 'SI': 1G. If "
+                    "set to 'B': 1B (useful when referring to currency)."
+                )
+            )),
+            ('showtickprefix', dict(
+                required=False,
+                key_type='style',
+                val_types="'all' | 'first' | 'last' | 'none'",
+                description=(
+                    "Same as 'showexponent' but for tick prefixes."
+                )
+            )),
+            ('tickprefix', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.string(),
+                description=(
+                    "Tick prefix."
+                )
+            )),
+            ('showticksuffix', dict(
+                required=False,
+                key_type='style',
+                val_types="'all' | 'first' | 'last' | 'none'",
+                description=(
+                    "Same as 'showexponent' but for tick suffixes."
+                )
+            )),
+            ('ticksuffix', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.string(),
+                description=(
+                    "Tick suffix."
                 )
             ))
         ]
@@ -1242,6 +1274,22 @@ class MakeMeta(list):
         ]
         _keymeta += self._keymeta_ticks('axis')
         _keymeta += [
+            ('tickformat', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.string(),
+                description=(
+                    "Custom tick datetime formatting."
+                )
+            )),
+            ('hoverformat', dict(
+                required=False,
+                key_type='style',
+                val_types=val_types.string(),
+                description=(
+                    "Custom hover datetime formatting."
+                )
+            )),
             ('mirror', dict(
                 required=False,
                 key_type='style',

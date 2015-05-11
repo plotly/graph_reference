@@ -3138,6 +3138,14 @@
                             }
                         }, 
                         {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
                             "exponentformat": {
                                 "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
                                 "key_type": "style", 
@@ -3146,11 +3154,35 @@
                             }
                         }, 
                         {
-                            "showexponent": {
-                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                            "showtickprefix": {
+                                "description": "Same as 'showexponent' but for tick prefixes.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "tickprefix": {
+                                "description": "Tick prefix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "showticksuffix": {
+                                "description": "Same as 'showexponent' but for tick suffixes.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "ticksuffix": {
+                                "description": "Tick suffix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
                             }
                         }, 
                         {
@@ -3643,6 +3675,14 @@
                             }
                         }, 
                         {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
                             "exponentformat": {
                                 "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
                                 "key_type": "style", 
@@ -3651,11 +3691,51 @@
                             }
                         }, 
                         {
-                            "showexponent": {
-                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                            "showtickprefix": {
+                                "description": "Same as 'showexponent' but for tick prefixes.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "tickprefix": {
+                                "description": "Tick prefix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "showticksuffix": {
+                                "description": "Same as 'showexponent' but for tick suffixes.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "ticksuffix": {
+                                "description": "Tick suffix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "tickformat": {
+                                "description": "Custom tick datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "hoverformat": {
+                                "description": "Custom hover datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
                             }
                         }, 
                         {
@@ -4022,6 +4102,14 @@
                             }
                         }, 
                         {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
                             "exponentformat": {
                                 "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
                                 "key_type": "style", 
@@ -4030,11 +4118,51 @@
                             }
                         }, 
                         {
-                            "showexponent": {
-                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                            "showtickprefix": {
+                                "description": "Same as 'showexponent' but for tick prefixes.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "tickprefix": {
+                                "description": "Tick prefix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "showticksuffix": {
+                                "description": "Same as 'showexponent' but for tick suffixes.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "ticksuffix": {
+                                "description": "Tick suffix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "tickformat": {
+                                "description": "Custom tick datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "hoverformat": {
+                                "description": "Custom hover datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
                             }
                         }, 
                         {
@@ -4712,6 +4840,14 @@
                             }
                         }, 
                         {
+                            "showexponent": {
+                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
                             "exponentformat": {
                                 "description": "Sets how exponents show up. Here's how the number 1000000000 (1 billion) shows up in each. If set to 'none': 1,000,000,000. If set to 'e': 1e+9. If set to 'E': 1E+9. If set to 'power': 1x10^9 (where the 9 will appear super-scripted). If set to 'SI': 1G. If set to 'B': 1B (useful when referring to currency).", 
                                 "key_type": "style", 
@@ -4720,11 +4856,51 @@
                             }
                         }, 
                         {
-                            "showexponent": {
-                                "description": "If set to 'all', ALL exponents will be shown appended to their significands. If set to 'first', the first tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'last', the last tick's exponent will be appended to its significand, however no other exponents will appear--only the significands. If set to 'none', no exponents will appear, only the significands.", 
+                            "showtickprefix": {
+                                "description": "Same as 'showexponent' but for tick prefixes.", 
                                 "key_type": "style", 
                                 "required": false, 
                                 "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "tickprefix": {
+                                "description": "Tick prefix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "showticksuffix": {
+                                "description": "Same as 'showexponent' but for tick suffixes.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "'all' | 'first' | 'last' | 'none'"
+                            }
+                        }, 
+                        {
+                            "ticksuffix": {
+                                "description": "Tick suffix.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "tickformat": {
+                                "description": "Custom tick datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
+                            }
+                        }, 
+                        {
+                            "hoverformat": {
+                                "description": "Custom hover datetime formatting.", 
+                                "key_type": "style", 
+                                "required": false, 
+                                "val_types": "a string"
                             }
                         }, 
                         {
